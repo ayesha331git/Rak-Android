@@ -1,0 +1,33 @@
+<div class="finacle-container"
+	ng-init="register.channelSuccessMessage(successResponse)">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+			<div class="dashboard-pad full-height">
+				<div class=" dashboard-item-body full-height">
+					<div ng-if="!isUserLoggedIn">
+						<fin-success
+							success-banner=""
+							success-message=""
+							cross-click="setGlobalEvent('onLoginClick');"></fin-success>
+					</div>
+					<div ng-if="isUserLoggedIn">
+						<div class="id_txt_wrap" ng-if="isUserLoggedIn"
+							ng-repeat="channel in register.registeredChannel">
+							<div class="id_txt_pad">
+								<p class="sucs-id-txt" id="registerChannelMsg{{$index}}">{{channel.message}} -
+									{{channel.channelName}}</p>
+							</div>
+						</div>
+						<section layout="row" layout-align="center center"
+							class="btn-wrap button-wrapper">
+							<md-button id="registerOtherChannelsEBPasswordSubmit" type="button"
+								class=" md-raised btn--primary-btn"
+								ng-click="register.isLogOut ? setGlobalEvent('onLogoutClickOK'):setEvent('onRegisterChannelSuccessOkClick') ">
+							{{appLiterals.APP.COMMON.BUTTON.OK}}</md-button>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

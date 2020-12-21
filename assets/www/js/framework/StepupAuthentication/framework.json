@@ -1,0 +1,16 @@
+{
+    "name": "StepUpAuthentication",
+    "decription":"A framework component for step up authentication.",
+    "version": "0.0.1",
+    "path":"js/framework/StepupAuthentication/",
+    "main": "StepupAuthenticateProcessor",
+    "plugins": [
+        "SMSOTPStepupAuthenticator"
+        ,"SecurityQuestionsStepupAuthenticator"
+        ,"RSATokenStepupAuthenticator"
+        ,"SetSecurityQuestionsStepupAuthenticator"
+        ,"TermsConditionsStepupAuthenticator"
+        ,"PasswordChallengeStepupAuthenticator"
+        ,"rakPostLoginIntermidiateScreen"
+    ]
+}

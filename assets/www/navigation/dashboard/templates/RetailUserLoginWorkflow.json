@@ -1,0 +1,2268 @@
+{ 
+    "pageNavigation": [
+        {
+        
+        
+         "RakRetailUserLoginPage": [
+            	{
+                    "eventName": "onRetailClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "true",
+                    "validationParams": [
+                      
+                        "rakHome.typeOfCustomer"
+                       
+                    ],
+                    "successPage": {                        
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakRetailUserLoginPage"
+                    }
+                },
+                   	{
+                    "eventName": "onRakRetailClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                   
+                    "successPage": {                        
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onCorpClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {                        
+                        "pageName": "RakCorpUserLoginPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakRetailUserLoginPage"
+                    }
+                },
+                 {
+                    "eventName": "onEDirhamClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "rakEDirham",
+                        "pageName": "RakEDirhamWlcmPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RakRetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onEDirhamAuthClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "rakEDirham",
+                        "pageName": "RakEdirhamAuthPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RakRetailUserLoginPage"
+                    }
+                }
+                ],
+            "RetailUserLoginPage": [
+             {
+                    "eventName": "onEDirhamClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "rakEDirham",
+                        "pageName": "RakEDirhamWlcmPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+            	{
+                    "eventName": "openDealsPage",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {                        
+                        "pageName": "RakDealsScreen"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                
+		 	 {
+			                    "eventName": "onInitiateTransaction",
+			                    "action": "navigation",
+			                    "actionType": "navigation",
+			                    "validation": "false",
+			                    "successPage": {  
+			                          "subFeature": "rak2FARegister",                 
+			                        "pageName": "Rak2FAInitTransactionPinPage"
+			                    },
+			                    "errorPage": {
+			                        "subFeature": "RetailUserLogin",
+			                        "pageName": "RetailUserLoginPage"
+			                    }
+                }  , 
+                
+                
+                                    
+                                    {
+                                    "eventName": "onRakTokenIDClick",
+                                    "action": "navigation",
+                                    "actionType": "navigation",
+                                    "validation": "false",
+                                    "successPage": {
+                                    "subFeature": "rak2FARegister",
+                                    "pageName": "Rak2FASignupPage"
+                                    },
+                                    "errorPage": {
+                                    "pageName": "RetailUserLoginPage"
+                                    }
+                                    },
+                                    
+                   {
+                                     "eventName": "onRakCorpTokenGeneration",
+                                    "action": "navigation",
+                                    "actionType": "navigation",
+                                    "validation": "false",
+                                    "successPage": {
+                                    "subFeature": "rak2FARegister",
+                                    "pageName": "RakCorp2FAGenerateTokenEnterPin"
+                                    },
+                                    "errorPage": {
+                                    "pageName": "RetailUserLoginPage"
+                                    }
+                                    },
+                                    
+                                     {
+                                    "eventName": "onRakTokenGeneration",
+                                    "action": "navigation",
+                                    "actionType": "navigation",
+                                    "validation": "false",
+                                    "successPage": {
+                                    "subFeature": "rak2FARegister",
+                                    "pageName": "Rak2FAGenerateTokenEnterPin"
+                                    },
+                                    "errorPage": {
+                                    "pageName": "RetailUserLoginPage"
+                                    }
+                                    },
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    {
+                                    "eventName": "onsetupClick",
+                                    "action": "EzmComServerCall",
+                                    "actionType": "serviceNoNavigation",
+                                    "validation": "false",
+                                    "parameters": {
+                                    "userId": "fields.finacleUserCorporateId",
+                                    "urlType": "urlType",
+                                    "actionBy":"actionBy"
+                                    
+                                    },
+                                    "successPage": {
+                                    "pageName": "RakTouchIdRegLoginPage"
+                                    },
+                                    "errorPage": {
+                                    "pageName": "RakTouchIdRegLoginPage"
+                                    }
+                                    
+                                    
+                                    },
+                                    
+                                    
+                                    {
+                                    "eventName": "onPayLoadGeneration",
+                                    "action": "EzmComServerCall",
+                                    "actionType": "service",
+                                    "validation": "false",
+                                    "parameters": {
+                                    "encodedResponse": "rak2FARegister.softToken.payLoadData",
+                                    "urlType": "urlType"		
+                                    },		
+                                    "successPage": {                        		
+                                    "pageName": "RakTouchIdRegLoginPage"		
+                                    },		
+                                    "errorPage": {		
+                                    "pageName": "RakTouchIdRegLoginPage"		
+                                    }		
+                                    
+                                    
+                                    },
+            	{
+                    "eventName": "onRakRegisterLableClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegInit"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onRakCorploginLableClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "rak2FARegister",
+                        "pageName": "Rak2FASignupPage"
+                        
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                
+                {
+                    "eventName": "registerWithCampaignServer",
+                    "isInvokedInBackground":false,
+                    "actionType":"serviceExternal",
+                    "action":"CAMPAIGN_SERVICE",
+                    "method":"GET",
+                    "apiEndpoint": "ping",
+                    "validation": "false",
+                    "parameters":{
+                    	"apikey":"fields.campaign.apikey"
+                    }
+                },
+                {
+                    "eventName": "onRegisterClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterCustomerId"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onAppActivationRegisterClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "AppActivation",
+                        "pageName": "RegisterCustomerIdPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                 {
+                    "eventName": "onRakTokenDeRegLoginClick",
+                    "validation": "true",
+                    "validationParams": [                      
+                        "fields.finacleUserCorporateId",
+                        "fields.finacleUserPassword",
+                         "fields.finacleCorporateId"
+                    ],
+                    "action": "RakCorpAuthenticationService",
+                    "actionType": "service",
+                    "encryptionEnabled": true,
+                    "sensitiveFields": [
+                                         "fields.finacleCorporateId",
+                                         "fields.finacleUserCorporateId",
+                                         "fields.finacleUserPassword"
+                                       ],
+                    "validationErrorMessage": [
+                        	{
+                            	"maxLength": "APP.DASHBOARD.RETAIL_USER_LOGIN.USER_ID_LENGTH_ERROR"
+                        	}
+                    ],
+                    "parameters": {
+                        "UserID": "fields.finacleCorporateId",
+                        "CorpId":"fields.finacleUserCorporateId",
+                        "PassWord": "fields.finacleUserPassword",
+                        "QUICK_BALANCE":"quickBalValue",
+                        "CountSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+                        "CORPLOGIN":"buildType",
+                        "tsn":"rak2FARegister.EzComToken.tsn",
+                        "APPID":"applicationID",
+						"APPVERSION":"applicationVersion",
+						"RAKTKN_DEREG_AUTH_CHK":"rak2FARegister.constants.isRakTknDeReg"            
+                    },
+                    "successPage": {
+                    	"subFeature": "rakServiceReq",
+                        "pageName": "Rak2FADeRegInit_PreLogin"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onLoginClick",
+                    "validation": "true",
+                    "validationParams": [
+                      
+                        "fields.finacleUserCorporateId",
+                        "fields.finacleUserPassword",
+                         "fields.finacleCorporateId"
+                    ],
+                    "action": "AuthenticationService",
+                    "actionType": "challengeresponse",
+                    "encryptionEnabled": true,
+                    "sensitiveFields": [
+                                         "fields.finacleCorporateId",
+                                         "fields.finacleUserCorporateId",
+                                         "fields.finacleUserPassword"
+                                       ],
+                    "validationErrorMessage": [
+                        	{
+                            	"maxLength": "APP.DASHBOARD.RETAIL_USER_LOGIN.USER_ID_LENGTH_ERROR"
+                        	}
+                    ],
+                    "parameters": {
+                        "UserID": "fields.finacleCorporateId",
+                        "CorpId":"fields.finacleUserCorporateId",
+                        "PassWord": "fields.finacleUserPassword",
+                        "QUICK_BALANCE":"quickBalValue",
+                        "CountSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+                        "CORPLOGIN":"buildType",
+                        "tsn":"rak2FARegister.EzComToken.tsn",
+                        "APPID":"applicationID",
+						"APPVERSION":"applicationVersion",
+						"RAKTKN_DEREG_AUTH_CHK":"buildType",
+							"IS_EDIRHAM":"isEdhirhamAuth"                        
+                    },
+                    "successPage": [
+                    		{
+                            "condition":"EDirhamPage",
+                         	 "subFeature": "rakEDirham",
+                            "pageName": "RakEdirhamSetDeafultAccountPage"
+                         
+                            }, 
+                           {
+                            "condition":"DashBoardPage",
+                          	"subFeature": "RetailUserLogin",
+                            "pageName": "RetailUserDashboardPage"                         
+                            }, 
+                            {
+                            "condition":"RegisteredForSoftTokenYES",
+                            "subFeature": "rak2FARegister",
+                            "pageName": "RakCorp2FAGenerateTokenEnterPin"
+                            },
+                            {
+                            "condition":"HardTokenPage",
+                            "subFeature": "rakMyProfile",
+                            "pageName": "RakHardTokenPage"
+                            },
+                            {
+                            "condition":"RegisteredForSoftTokenNo",
+                            "subFeature": "rak2FARegister",
+                            "pageName": "RakCorp2FASelfRegPopupPage"                         
+                            },
+                        {
+                        "condition":"RakTknDeRegLogin",    
+                    	"subFeature": "rakServiceReq",
+                        "pageName": "Rak2FADeRegInit"
+                        }                                                  
+                        ],
+                   
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                 {
+                    "eventName": "onSwipeForQuickBalancePage",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        
+                        "pageName": "RakQuickBalanceTouchIdLoginPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                   {
+                    "eventName": "onLoginPageForTouchIdReg",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        
+                        "pageName": "RakTouchIdRegLoginPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                
+                
+                
+                	{
+                                    "eventName": "onPwdLoginClickforTouchID",
+                                    "validation": "true",
+                                    "validationParams": [
+                                                         "fields.finacleUserCorporateId",
+                                                         "fields.finacleUserPassword"
+                                                         ],
+                                    "action": "AuthenticationService",
+                                    "actionType": "challengeresponse",
+                                    "encryptionEnabled": true,
+                                    "sensitiveFields": [
+                                                        "fields.finacleUserCorporateId"
+                                                        ],
+                                    "encryptedSensitiveFields": [
+                                                         "fields.finacleUserPassword"
+                                                         ],
+                                    "validationErrorMessage": [
+                                                               {
+                                                               "maxLength": "APP.DASHBOARD.RETAIL_USER_LOGIN.USER_ID_LENGTH_ERROR"
+                                                               }
+                                                               ],
+                                    "parameters": {
+                                    "CorpId": "fields.finacleUserCorporateId",
+                                    "PassWord": "fields.finacleUserPassword",
+                                    "isTouchIDActivatedForUser":"isTouchIDActivation.toString()",
+				     "QUICK_BALANCE":"quickBalValue",
+				     "CORPLOGIN":"buildType",
+				     "ExtraParam":"customerId",
+				     "APPID":"applicationID",
+				     "APPVERSION":"applicationVersion"
+                                    },
+                                    "successPage": {
+                                    "subFeature": "RetailUserLogin",
+                                    "pageName": "RakQuickBalanceDashboard"
+                                    },
+                                    "errorPage": {
+                                    "subFeature": "RetailUserLogin",
+                                    "pageName": "RetailUserLoginPage"
+                                    }
+                },
+                {
+                    "eventName": "onMPINLoginClick",
+                    "validation": "true",
+                    "validationParams": [
+                        "fields.finacleUserCorporateId",
+                        "fields.finacleUserPassword"
+                    ],
+                    "action": "AuthenticationService",
+                    "actionType": "challengeresponse",
+                    "encryptionEnabled": true,
+                    "sensitiveFields": [
+                        "fields.finacleUserCorporateId"
+                    ],
+                    "parameters": {
+                        "CorpId": "fields.finacleUserCorporateId",
+                        "OTP": "appActivation.userOTP",
+                        "USER_ID": "fields.finacleUserCorporateId",
+                        "CLIENT_ID": "appActivation.clientId"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserDashboardPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onStubLoginClick",
+                    "validation": "true",
+                    "validationParams": [
+                        "fields.finacleUserCorporateId",
+                        "fields.finacleUserPassword"
+                    ],
+                    "action": "AuthenticationService",
+                    "actionType": "service",
+                    "encryptionEnabled": true,
+                    "sensitiveFields": [
+                        "fields.finacleUserCorporateId",
+                        "fields.finacleUserPassword"
+                    ],
+                    "parameters": {
+                        "CorpId": "fields.finacleUserCorporateId",
+                        "PassWord": "fields.finacleUserPassword"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserDashboardPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onStubLoginLoad",
+                    "validation": "false",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "parameters": {
+                        "CorpId": "fields.finacleUserCorporateId",
+                        "PassWord": "fields.finacleUserPassword"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onLoginLoad",
+                    "validation": "false",
+                    "action": "AuthenticationService",
+                    "actionType": "service",
+                    "encryptionEnabled": true,
+                    "sensitiveFields": [
+                                         "fields.finacleCorporateId",
+                                         "fields.finacleUserCorporateId",
+                                         "fields.finacleUserPassword"
+                                       ],
+                    "parameters": {
+                        "CorpId": "fields.finacleCorporateId",
+                        "UserID":"fields.finacleUserCorporateId",
+                        "PassWord": "fields.finacleUserPassword",
+                        "QUICK_BALANCE":"quickBalValue",
+                        "IS_EDIRHAM":"isEdhirhamAuth"
+                         
+                    },
+                     "successPage": [
+                      		{
+                            "condition":"EDirhamPage",
+                         	 "subFeature": "rakEDirham",
+                            "pageName": "RakEdirhamSetDeafultAccountPage"
+                         
+                            }, 
+                           {
+                            "condition":"DashBoardPage",
+                         	 "subFeature": "RetailUserLogin",
+                            "pageName": "RetailUserDashboardPage"
+                         
+                            }, 
+                            {
+                            "condition":"RegisteredForSoftTokenYES",
+                             "subFeature": "rak2FARegister",
+                            "pageName": "RakCorp2FAGenerateTokenEnterPin"
+                            },
+                              {
+                            "condition":"HardTokenPage",
+                             "subFeature": "rakMyProfile",
+                            "pageName": "RakHardTokenPage"
+                            },
+                            {
+                            "condition":"RegisteredForSoftTokenNo",
+                           "subFeature": "rak2FARegister",
+                            "pageName": "RakCorp2FASelfRegPopupPage"
+	                        },
+	                    {
+                        "condition":"RakTknDeRegLogin",    
+                    	"subFeature": "rakServiceReq",
+                        "pageName": "Rak2FADeRegInit_PreLogin"
+                        }
+                    ],
+                    "errorPage": {
+                   		 "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "goToForcePasswordMessage",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForcePasswordChangeMessage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onForgotUserIDClick",
+                    "action": "ForgotUserIDInitService",
+                    "actionType": "service",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotUserID"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onForgotMPINClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "AppActivation",
+                        "pageName": "ForgotMPINLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                }
+            ],
+           "RakDealsScreen": [
+		   
+{
+                                            "eventName": "onBackClick",
+                                            "action": "navigation",
+                                            "actionType": "navigation",
+                                            "validation": "false",
+                                            "successPage": {
+                                            "subFeature": "RetailUserLogin",
+											"pageName": "RetailUserLoginPage"
+                                            },
+                                           "errorPage": {
+						                        "subFeature": "RetailUserLogin",
+						                        "pageName": "RetailUserLoginPage"
+						                    }
+                                }
+            	
+            ]
+        },
+	 {
+                       
+                       "RakTouchIdRegLoginPage":[
+                                                 {
+                   	                             "eventName" : "onBackClick",
+			                                     "validation":"false",
+			                                     "action" : "navigation",
+			                                     "actionType":"navigation",
+			                                     "encryptionEnabled" : false,
+			  	                                 "sensitiveFields" : [ "fields.finacleUserCorporateId", "fields.finacleUserPassword" ],
+			                                     "parameters": {"CorpId": "fields.finacleUserCorporateId", "PassWord": "fields.finacleUserPassword"},
+			                                     "successPage" : {"pageName": "RetailUserLoginPage"},
+			                                     "errorPage" : {"pageName": "RetailUserLoginPage"}
+                },
+                       
+                       
+                       
+                       
+                                                 {
+                                                
+                                                 "eventName": "onRakRegisterLableClick",
+                                                 "action": "navigation",
+                                                 "actionType": "navigation",
+                                                 "validation": "false",
+                                                 "successPage": {
+                                                 "subFeature": "rakRegister",
+                                                 "pageName": "RakSelfRegInit"
+                                                 },
+                                                 "errorPage": {
+                                                 "pageName": "RetailUserLoginPage"
+                                                 }
+                                                 },
+                                                 {
+                                                 "eventName": "registerWithCampaignServer",
+                                                 "isInvokedInBackground":false,
+                                                 "actionType":"serviceExternal",
+                                                 "action":"CAMPAIGN_SERVICE",
+                                                 "method":"GET",
+                                                 "apiEndpoint": "ping",
+                                                 "validation": "false",
+                                                 "parameters":{
+                                                 "apikey":"fields.campaign.apikey"
+                                                 }
+                                                 },
+                                                 {
+                                                 "eventName": "onRegisterClick",
+                                                 "action": "navigation",
+                                                 "actionType": "navigation",
+                                                 "validation": "false",
+                                                 "successPage": {
+                                                 "subFeature": "Register",
+                                                 "pageName": "RegisterCustomerId"
+                                                 },
+                                                 "errorPage": {
+                                                 "pageName": "RetailUserLoginPage"
+                                                 }
+                                                 },
+                                                 {
+                                                 "eventName": "onAppActivationRegisterClick",
+                                                 "action": "navigation",
+                                                 "actionType": "navigation",
+                                                 "validation": "false",
+                                                 "successPage": {
+                                                 "subFeature": "AppActivation",
+                                                 "pageName": "RegisterCustomerIdPage"
+                                                 },
+                                                 "errorPage": {
+                                                 "pageName": "RetailUserLoginPage"
+                                                 }
+                                                 },
+                                                 {
+                                                 "eventName": "onLoginClick",
+                                                 "validation": "true",
+                                                 "validationParams": [
+                                                                      "fields.finacleUserCorporateId",
+                                                                      "fields.finacleUserPassword"
+                                                                      ],
+                                                 "action": "AuthenticationService",
+                                                 "actionType": "challengeresponse",
+                                                 "encryptionEnabled": true,
+                                                 "sensitiveFields": [
+                                                                     "fields.finacleUserCorporateId",
+                                                                     "fields.finacleUserPassword"
+                                                                     ],
+                                                 "validationErrorMessage": [
+                                                                            {
+                                                                            "maxLength": "APP.DASHBOARD.RETAIL_USER_LOGIN.USER_ID_LENGTH_ERROR"
+                                                                            }
+                                                                            ],
+                                                 "parameters": {
+                                                 "CorpId": "fields.finacleUserCorporateId",
+                                                 "PassWord": "fields.finacleUserPassword",
+                                                   "UserID":"fields.finacleCorporateId",
+                                                 "QUICK_BALANCE":"quickBalValue",
+                                                 "TOUCHIDFLOW":"touchIdFlow",
+						  "APPID":"applicationID",
+				                   "APPVERSION":"applicationVersion",
+				                   "REREGISTER":"rakTouchIdActivation.touchIdReg.retailLoginQuickBalance",
+						"RAKTKN_DEREG_UTYPE":"dashboard.userType"
+						 
+                                                 },
+                                                 "successPage": {
+                                                 "pageName": "RetailUserDashboardPage"
+                                                 },
+                                                 "errorPage": {
+                                                 "pageName": "RakTouchIdRegLoginPage"
+                                                 }
+                                                 },
+                                                 {
+                                                 "eventName": "onSwipeForQuickBalancePage",
+                                                 "action": "navigation",
+                                                 "actionType": "navigation",
+                                                 "validation": "false",
+                                                 "successPage": {
+                                                 
+                                                 "pageName": "RakQuickBalanceTouchIdLoginPage"
+                                                 },
+                                                 "errorPage": {
+                                                 "pageName": "RetailUserLoginPage"
+                                                 }
+                                                 },
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 {                                                 
+                                                 "eventName": "onStubLoginLoad",
+                                                 "validation": "false",
+                                                 "action": "navigation",
+                                                 "actionType": "navigation",
+                                                 "parameters": {
+                                                 "CorpId": "fields.finacleUserCorporateId",
+                                                 "PassWord": "fields.finacleUserPassword"
+                                                 },
+                                                 "successPage": {
+                                                 "pageName": "RetailUserLoginPage"
+                                                 },
+                                                 "errorPage": {
+                                                 "pageName": "RetailUserLoginPage"
+                                                 }
+                                                 },
+                                                 {
+                                                 "eventName": "onLoginLoad",
+                                                 "validation": "false",
+                                                 "action": "AuthenticationService",
+                                                 "actionType": "service",
+                                                 "encryptionEnabled": true,
+                                                 "sensitiveFields": [
+                                                                     "fields.finacleUserCorporateId",
+                                                                     "fields.finacleUserPassword"
+                                                                     ],
+                                                 "parameters": {
+                                                 "CorpId": "fields.finacleUserCorporateId",
+                                                 "PassWord": "fields.finacleUserPassword"
+                                                 },
+                                                 "successPage": {
+                                                 "pageName": "RetailUserDashboardPage"
+                                                 },
+                                                 "errorPage": {
+                                                 "subFeature": "RetailUserLogin",
+                                                 "pageName": "RakTouchIdRegLoginPage"
+                                                 }
+                                                 },
+                                                 {
+                                                 "eventName": "goToForcePasswordMessage",
+                                                 "action": "navigation",
+                                                 "actionType": "navigation",
+                                                 "validation": "false",
+                                                 "successPage": {
+                                                 "subFeature": "MyProfile",
+                                                 "pageName": "ForcePasswordChangeMessage"
+                                                 },
+                                                 "errorPage": {
+                                                 "subFeature": "MyProfile",
+                                                 "pageName": "RetailUserLoginPage"
+                                                 }
+                                                 },
+                                                 {
+                                                 "eventName": "onForgotUserIDClick",
+                                                 "action": "ForgotUserIDInitService",
+                                                 "actionType": "service",
+                                                 "successPage": {
+                                                 "subFeature": "MyProfile",
+                                                 "pageName": "ForgotUserID"
+                                                 },
+                                                 "errorPage": {
+                                                 "subFeature": "RetailUserLogin",
+                                                 "pageName": "RetailUserLoginPage"
+                                                 }
+                                                 },
+                                                 {
+                                                 "eventName": "onForgotMPINClick",
+                                                 "action": "navigation",
+                                                 "actionType": "navigation",
+                                                 "successPage": {
+                                                 "subFeature": "AppActivation",
+                                                 "pageName": "ForgotMPINLandingPage"
+                                                 },
+                                                 "errorPage": {
+                                                 "subFeature": "RetailUserLogin",
+                                                 "pageName": "RetailUserLoginPage"
+                                                 }
+                                                 }
+                                                 
+                                                 
+                                                 ]
+                       
+                       },
+	
+	
+        {
+            "RetailUserDashboardPage": [
+            {
+                    "eventName": "onEDirhamClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "rakEDirham",
+                        "pageName": "RakSetDirhamDetailsPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+{
+                                                   "eventName": "moveToQuickBalance",
+                                                   "action": "navigation",
+                                                   "actionType": "navigation",
+                                                   "validation": "false",
+                                                   "parameters": {
+                                                   "jsessionid": "fields.finacleUserSessionId",
+                                                   "mbparam": "fields.finacleMbParam"
+                                                   },
+                                                   "successPage": {
+                                                   
+                                                   "pageName": "RakQuickBalanceDashboard"
+                                                   },
+                                                   "errorPage": {
+                                                  
+                                                   "pageName": "RetailUserDashboardPage"
+                                                   }
+                                                   },
+                                                   {
+                                                   "eventName": "enableTouchId",
+                                                   "action": "navigation",
+                                                   "actionType": "navigation",
+                                                   "validation": "false",
+                                                   "parameters": {
+                                                   "jsessionid": "fields.finacleUserSessionId",
+                                                   "mbparam": "fields.finacleMbParam"
+                                                   },
+                                                   "successPage": {
+                                                   "subFeature": "rakMyProfile",
+                                                   "pageName": "RakTouchIdActivationPage"
+                                                   },
+                                                   "errorPage": {
+                                                   
+                                                   "pageName": "RetailUserDashboardPage"
+                                                   }
+                                                   },
+                                                   
+                                                   {
+                                                   
+                                                   "eventName": "moveToQuickBalance",
+                                                   "action": "navigation",
+                                                   "actionType": "navigation",
+                                                   "validation": "false",
+                                                   "parameters": {
+                                                   "jsessionid": "fields.finacleUserSessionId",
+                                                   "mbparam": "fields.finacleMbParam"
+                                                   },
+                                                   "successPage": {
+                                                   
+                                                   "pageName": "RakQuickBalanceDashboard"
+                                                   },
+                                                   "errorPage": {
+                                                   
+                                                   "pageName": "RetailUserDashboardPage"
+                                                   }
+                                                   },
+                                                   
+                                                   
+                                                   {
+                                                   "eventName": "onClickOfAccountInfo",
+                                                   "action": "RakGenericAccountDetailsSwiperService",
+			"actionType": "service",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"MAIN_ACCOUNT_TYPE": "rakAccounts.RAKAccountsModel.accountType",
+				"ACCOUNT_TYPE": "rakAccounts.RAKAccountsModel.subAccountType",
+				"ACCOUNT_IDX": "rakAccounts.selectedIndex.toString()",
+				"page_name": "rakAccounts.RAKAccountsModel.pageName",
+				"HIFRequestID": "rakAccounts.RAKAccountsModel.requestID",
+				"successPage": "rakAccounts.RAKAccountsModel.successPage"
+			},
+			"successPage": {
+				"subFeature": "rakAccounts",
+				"pageName": "RAKRetailUserAccountDetailsPage"
+			},
+			"errorPage": {
+				"subFeature": "dashboard",
+				"pageName": "RAKRetailUserAccountDetailsPage"
+					}
+					},
+												  {
+                                                   "eventName": "onTradeClickOfAccountInfo",
+							                       "action": "RakTradeAccountDetailsSwiperService",
+										"actionType": "service",
+										"validation": "false",
+										"parameters": {
+											"jsessionid": "fields.finacleUserSessionId",
+											"mbparam": "fields.finacleMbParam",
+											"MAIN_ACCOUNT_TYPE": "rakAccounts.RAKAccountsModel.accountType",
+											"ACCOUNT_TYPE": "rakAccounts.RAKAccountsModel.subAccountType",
+											"ACCOUNT_IDX": "rakAccounts.selectedIndex.toString()",
+											"page_name": "rakAccounts.RAKAccountsModel.pageName",
+											"HIFRequestID": "rakAccounts.RAKAccountsModel.requestID",
+											"successPage": "rakAccounts.RAKAccountsModel.successPage"
+										},
+										"successPage": {
+											"subFeature": "rakAccounts",
+											"pageName": "RAKRetailUserAccountDetailsPage"
+										},
+										"errorPage": {
+											"subFeature": "dashboard",
+											"pageName": "RAKRetailUserAccountDetailsPage"
+												}
+												},
+  {
+                    "eventName": "onCCViewSwiperInfoClick",
+            		"action": "RakCreditCardDetailsSwiperService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "CREDIT_ACCOUNT": "fields.browseAccountIndexInt",
+                        "TXN_FROM_DATE_day": "creditCard.emptyStr",
+                        "TXN_FROM_DATE_month": "creditCard.emptyStr",
+                        "TXN_FROM_DATE_year": "creditCard.emptyStr",
+                        "TXN_TO_DATE_day": "creditCard.emptyStr",
+                        "TXN_TO_DATE_month": "creditCard.emptyStr",
+                        "TXN_TO_DATE_year": "creditCard.emptyStr"
+                    },
+                    "successPage": {
+                       "subFeature": "rakAccounts",
+                        "pageName": "RAKRetailUserAccountDetailsPage"
+                    },
+                    "errorPage": {
+                       "subFeature": "rakAccounts",
+                        "pageName": "RAKRetailUserAccountDetailsPage"
+                    }
+                },
+	    
+	    
+			 {
+                    "eventName": "uploadProfilePic",
+                    "action": "UploadProfilePicService",
+                    "actionType": "serviceNoNavigation",
+                    "parameters": {
+  					    "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "data":"myProfile.userProfilePicTemp",
+                        "content_type":"myProfile.content_type"
+                       },
+                    "successPage": {
+                        "pageName": "RetailUserDashboardPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserDashboardPage"
+                    }
+                    },
+              {
+                    "eventName": "registerWithCampaignServer",
+                    "isInvokedInBackground":false,
+                    "actionType":"serviceExternal",
+                    "action":"CAMPAIGN_SERVICE",
+                    "method":"GET",
+                    "apiEndpoint": "ping",
+                    "validation": "false",
+                    "parameters":{
+                    	"apikey":"fields.campaign.apikey"
+                    }
+                },
+		
+			 {
+			"eventName": "onPostLoginChatClick",
+			"action": "RakPostLoginChatService",
+			"actionType": "serviceNoNavigation",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam"
+			},
+			"successPage": {
+				"subFeature": "dashboard",
+				"pageName": "RetailUserDashboardPage"
+			},
+			"errorPage": {
+				"subFeature": "dashboard",
+				"pageName": "RetailUserDashboardPage"
+			}
+		},
+		    {
+                    "eventName": "onAccountServiceNavigation",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "rakServiceReq",
+						"pageName": "RakServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakServiceReq",
+						"pageName": "RakServicesLandingPage"
+                    }
+                },
+		
+		{
+			"eventName": "onGenericListInfoClick",
+			"action": "RakAccountListnDetailsService",
+			"actionType": "service",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"MAIN_ACCOUNT_TYPE": "rakAccounts.RAKAccountsModel.accountType",
+				"ACCOUNT_TYPE": "fields.subAccountType",
+				"ACCOUNT_IDX": "rakAccounts.RAKAccountsModel.selectedAccount.toString()",
+				"page_name": "rakAccounts.RAKAccountsModel.pageName",
+				"HIFRequestID": "rakAccounts.RAKAccountsModel.requestID",
+				"successPage": "rakAccounts.RAKAccountsModel.successPage"
+			},
+			"successPage": {
+				"subFeature": "rakAccounts",
+				"pageName": "RAKRetailUserAccountDetailsPage"
+			},
+			"errorPage": {
+				"subFeature": "rakAccounts",
+				"pageName": "RetailUserDashboardPage"
+			}
+		},
+		
+                 {
+                    "eventName": "onProfilePicClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "pageName": "ProfilePicLandingPage",
+                        "subFeature": "MyProfile"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserDashboardPage",
+                        "subFeature": "MyProfile"
+                    }
+                },
+                 {
+                    "eventName": "loadProfilePic",
+                    "action": "LoadProfilePicService",
+                    "actionType": "serviceNoNavigation",
+                    "parameters": {
+  					    "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                       },
+                    "successPage": {
+                        "pageName": "RetailUserDashboardPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserDashboardPage"
+                    }
+                },
+                { 
+  					"eventName" : "onAppActivationProceedClick",
+  					"action" : "AppActivationInitTouchIDService",
+  					"actionType":"service",
+  					"validation": "false",
+  					"parameters": {
+  					    "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "CorpId": "appActivation.userId",
+                        "CLIENT_ID": "appActivation.clientId"
+                    },
+  					"successPage" : {
+  					    "subFeature": "AppActivation",
+  						"pageName": "AppActivationOTPAuthenticatePage"
+  					},
+  					"errorPage" : {
+  						"pageName": "RetailUserLoginPage"
+  					}
+  				},
+                {
+                    "eventName": "onOprAccountDetailsClick",
+                    "action": "OperativeAccountService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.selectedOprAccount.mainAccountType",
+                        "ACCOUNT_IDX": "fields.selectedOprAccount.accountIndex",
+                        "ACCOUNT_TYPE": "fields.selectedOprAccount.accountType"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    }
+                },
+ {
+                    "eventName": "onOprAccountListClick",
+                    "action": "RakGenericAccountFetchService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.selectedOprAccount.mainAccountType",
+                        "ACCOUNT_IDX": "fields.selectedOprAccount.accountIndex",
+                        "ACCOUNT_TYPE": "fields.selectedOprAccount.accountType"
+                    },
+                    "successPage": {
+                    	"subFeature": "rakAccounts",
+                        "pageName": "RAKRetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                    	"subFeature": "rakAccounts",
+                        "pageName": "RAKRetailUserAccountsPage"
+                    }
+                },
+                 {
+                    "eventName": "onGldAccountListClick",
+                    "action": "RakGoldAccountService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.selectedOprAccount.mainAccountType",
+                        "ACCOUNT_IDX": "fields.selectedOprAccount.accountIndex",
+                        "ACCOUNT_TYPE": "fields.selectedOprAccount.accountType"
+                    },
+                    "successPage": {
+                    	"subFeature": "rakAccounts",
+                        "pageName": "RAKRetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                    	"subFeature": "rakAccounts",
+                        "pageName": "RAKRetailUserAccountsPage"
+                    }
+                },
+                {
+                    "eventName": "onCCViewClick",
+                    "action": "RakCreditCardService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "CREDIT_ACCOUNT": "fields.browseAccountIndexInt",
+                        "TXN_FROM_DATE_day": "creditCard.emptyStr",
+                        "TXN_FROM_DATE_month": "creditCard.emptyStr",
+                        "TXN_FROM_DATE_year": "creditCard.emptyStr",
+                        "TXN_TO_DATE_day": "creditCard.emptyStr",
+                        "TXN_TO_DATE_month": "creditCard.emptyStr",
+                        "TXN_TO_DATE_year": "creditCard.emptyStr"
+                    },
+                    "successPage": {
+                       "subFeature": "rakAccounts",
+                        "pageName": "RAKRetailCCUserAccountsPage"
+                    },
+                    "errorPage": {
+                       "subFeature": "rakAccounts",
+                        "pageName": "RAKRetailCCUserAccountsPage"
+                    }
+                },
+                      {
+                    "eventName": "onSuppCCViewClick",
+                    "action": "RakCCSupplimentaryDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "CREDIT_ACCOUNT": "fields.browseAccountIndexInt",
+                        "TXN_FROM_DATE_day": "creditCard.emptyStr",
+                        "TXN_FROM_DATE_month": "creditCard.emptyStr",
+                        "TXN_FROM_DATE_year": "creditCard.emptyStr",
+                        "TXN_TO_DATE_day": "creditCard.emptyStr",
+                        "TXN_TO_DATE_month": "creditCard.emptyStr",
+                        "TXN_TO_DATE_year": "creditCard.emptyStr"
+                    },
+                    "successPage": {
+                       "subFeature": "rakAccounts",
+                        "pageName": "RAKSupplimentaryCCUserPage"
+                    },
+                    "errorPage": {
+                       "subFeature": "rakAccounts",
+                        "pageName": "RAKSupplimentaryCCUserPage"
+                    }
+                },
+                {
+                    "eventName": "onLoanAccountDetailsClick",
+                    "action": "LoanAccountService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.selectedLoanAccount.mainAccountType",
+                        "ACCOUNT_IDX": "fields.selectedLoanAccount.accountIndex",
+                        "ACCOUNT_TYPE": "fields.selectedLoanAccount.accountType"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    }
+                },
+                {
+                    "eventName": "onDepositAccountDetailsClick",
+                    "action": "DepositAccountService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.selectedDepositAccount.mainAccountType",
+                        "ACCOUNT_IDX": "fields.selectedDepositAccount.accountIndex",
+                        "ACCOUNT_TYPE": "fields.selectedDepositAccount.accountType"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    }
+                },
+		
+		
+		 {
+                    "eventName": "onLoanAccountListClick",
+                    "action": "RakLoanAccountService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.selectedLoanAccount.mainAccountType",
+                        "ACCOUNT_IDX": "fields.selectedLoanAccount.accountIndex",
+                        "ACCOUNT_TYPE": "fields.selectedLoanAccount.accountType"
+                    },
+                    "successPage": {
+                    "subFeature": "rakAccounts",
+                        "pageName": "RAKRetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                       "subFeature": "rakAccounts",
+                        "pageName": "RAKRetailUserAccountsPage"
+                    }
+                },
+                
+                	 {
+                    "eventName": "onTradeAccountListClick",
+                    "action": "RakTradeFinanceFetchService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.selectedTFAccount.mainAccountType",
+                        "ACCOUNT_IDX": "fields.selectedTFAccount.accountIndex",
+                        "ACCOUNT_TYPE": "fields.selectedTFAccount.accountType"
+                    },
+                    "successPage": {
+                    "subFeature": "rakAccounts",
+                        "pageName": "RAKRetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                       "subFeature": "rakAccounts",
+                        "pageName": "RAKRetailUserAccountsPage"
+                    }
+                },
+                {
+                    "eventName": "onDepositAccountListClick",
+                    "action": "RakDepositAccountService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.selectedDepositAccount.mainAccountType",
+                        "ACCOUNT_IDX": "fields.selectedDepositAccount.accountIndex",
+                        "ACCOUNT_TYPE": "fields.selectedDepositAccount.accountType"
+                    },
+                    "successPage": {
+                    	"subFeature": "rakAccounts",
+                        "pageName": "RAKRetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakAccounts",
+                        "pageName": "RAKRetailUserAccountsPage"
+                    }
+                },
+                  {
+                    "eventName": "onInvAccountListClick",
+                    "action": "RakInvestmentAccountService",
+                    "actionType": "service",
+                    "parameters": {
+                          "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.selectedInvAccount.mainAccountType",
+                        "ACCOUNT_IDX": "fields.selectedInvAccount.accountIndex",
+                        "ACCOUNT_TYPE": "fields.selectedInvAccount.accountType"
+                    },
+                    "successPage": {
+                    	"subFeature": "rakAccounts",
+                        "pageName": "RAKRetailInvUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakAccounts",
+                        "pageName": "RAKRetailInvUserAccountsPage"
+                    }
+                },
+		
+		
+		
+                {
+                    "eventName": "onSelfFundsTransferClick",
+                    "action": "SelfFundsTransferInitService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "ACC_IDX": "fields.sftAccountIndex",
+                        "ACC_IDX_TYPE": "fields.sftAccountType"
+                    },
+                    "successPage": {
+                        "subFeature": "FundsTransfer",
+                        "pageName": "FundsTransferInitPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "FundsTransfer",
+                        "pageName": "FundsTransferInitPage"
+                    }
+                },
+                {
+                    "eventName": "onMoveMoneyClick",
+                    "action": "MoveMoneyLandingPageService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TXN_DATE_FROM_day": "emptyStr",
+                        "TXN_DATE_FROM_month": "emptyStr",
+                        "TXN_DATE_FROM_year": "emptyStr",
+                        "TXN_DATE_TO_day": "emptyStr",
+                        "TXN_DATE_TO_month": "emptyStr",
+                        "TXN_DATE_TO_year": "emptyStr"
+                    },
+                    "successPage": {
+                        "subFeature": "MoveMoney",
+                        "pageName": "MoveMoneyLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MoveMoney",
+                        "pageName": "MoveMoneyLandingPage"
+                    }
+                },
+                {
+                    "eventName": "favoriteList",
+                    "action": "FetchFavoritesService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "FavoriteListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserDashboardPage"
+                    }
+                },
+                {
+                    "eventName": "onPendingApprovalClick",
+                    "action": "PendingApprovalListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam"	                
+		                },
+                    "successPage": {
+                    	"subFeature":"PendingApproval",
+                        "pageName": "PendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"PendingApproval",
+                        "pageName": "PendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onChequeRemoteClick",
+                    "action": "ChequeDepositService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "ChequeDeposit",
+                        "pageName": "ChequeDepositListPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "ChequeDeposit",
+                        "pageName": "ChequeDepositListPage"
+                    }
+                }
+            ]
+        },
+        {
+            "RetailUserAccountsPage": [
+                {
+                    "eventName": "onDashboardClick",
+                    "action": "RefreshAccountDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "USER_TYPE": "dashboard.userType"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserDashboardPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onSearchResultCloseClick",
+                    "action": "RefreshAccountDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "USER_TYPE": "dashboard.userType"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserDashboardPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onOprAccountDetailsClick",
+                    "action": "OperativeAccountService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.currAccountDetails.mainAccountType",
+                        "ACCOUNT_IDX": "accounts.RAKAccountsModel.selectedAccount",
+                        "ACCOUNT_TYPE": "fields.currAccountDetails.accountType"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    }
+                },
+                {
+                    "eventName": "onDepositAccountDetailsClick",
+                    "action": "DepositAccountService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.currAccountDetails.mainAccountType",
+                        "ACCOUNT_IDX": "fields.browseAccountIndex",
+                        "ACCOUNT_TYPE": "fields.currAccountDetails.accountType"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    }
+                },
+                {
+                    "eventName": "onLoanAccountDetailsClick",
+                    "action": "LoanAccountService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.currAccountDetails.mainAccountType",
+                        "ACCOUNT_IDX": "fields.browseAccountIndex",
+                        "ACCOUNT_TYPE": "fields.currAccountDetails.accountType"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    }
+                },
+                {
+                    "eventName": "onAccountDetailsClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "pageName": "RetailUserAccountDetailsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onTransactionSearchClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "pageName": "RetailUserTransSearchPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onMiniStatementDetailsClick",
+                    "action": "MiniStatementDetailsService",
+                    "actionType": "serviceNoNavigation",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "SELECT_ID": "fields.selectedTransId"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserTransactionDetailsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onTransSearchDetailsClick",
+                    "action": "TransactionDetailsService",
+                    "actionType": "serviceNoNavigation",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "SELECT_ID": "fields.selectedTransId"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserTransactionDetailsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onViewChequeClick",
+                    "action": "ChequesDashboardViewService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "CHEQUE_NUMBER": "dashboard.chequeInstrumentId"
+                    },
+                    "successPage": {
+                        "pageName": "RakChequeViewSearch"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    }
+                },
+                {
+                    "eventName": "onAppVersionClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "AppVersion",
+                        "pageName": "LandingPageAppVersion"
+                    },
+                    "errorPage": {
+                        "subFeature": "AppVersion",
+                        "pageName": "RetailUserDashboardPage"
+                    }
+                },
+                {
+                    "eventName": "onGenerateMMIDClick",
+                    "action": "IMPSGenerateMMIDService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "account": "dashboard.mmid.accountValue"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserGenerateMMIDPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MoveMoney",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onViewMMIDClick",
+                    "action": "IMPSViewMMIDService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "account": "dashboard.mmid.accountValue"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserViewMMIDPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onCancelMMIDClick",
+                    "action": "IMPSDeLinkMMIDService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "account": "dashboard.mmid.accountValue"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserGenerateMMIDPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                }
+            ]
+        },
+        {
+            "RetailUserViewMMIDPage": [
+                {
+                    "eventName": "onViewCancelClick",
+                    "action": "OperativeAccountService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.currAccountDetails.mainAccountType",
+                        "ACCOUNT_IDX": "dashboard.mmid.accountIndex",
+                        "ACCOUNT_TYPE": "fields.currAccountDetails.accountType"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserViewMMIDPage"
+                    }
+                }
+            ]
+        },
+        {
+            "RetailUserGenerateMMIDPage": [
+                {
+                    "eventName": "onGenerateOKClick",
+                    "action": "OperativeAccountService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.currAccountDetails.mainAccountType",
+                        "ACCOUNT_IDX": " dashboard.mmid.accountIndex",
+                        "ACCOUNT_TYPE": "fields.currAccountDetails.accountType"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserGenerateMMIDPage"
+                    }
+                }
+            ]
+        },
+        {
+            "RetailUserAccountDetailsPage": [
+                {
+                    "eventName": "onDashboardClick",
+                    "action": "RefreshAccountDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "USER_TYPE": "dashboard.userType"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserDashboardPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onAccountClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserAccountDetailsPage"
+                    }
+                },
+                {
+                    "eventName": "onTransactionSearchClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "pageName": "RetailUserTransSearchPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onOprAccountDetailsClick",
+                    "action": "OperativeAccountService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.currAccountDetails.mainAccountType",
+                        "ACCOUNT_IDX": "accounts.RAKAccountsModel.selectedAccount",
+                        "ACCOUNT_TYPE": "fields.currAccountDetails.accountType"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    }
+                },
+                {
+                    "eventName": "onDepositAccountDetailsClick",
+                    "action": "DepositAccountService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.currAccountDetails.mainAccountType",
+                        "ACCOUNT_IDX": "accounts.RAKAccountsModel.selectedAccount",
+                        "ACCOUNT_TYPE": "fields.currAccountDetails.accountType"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    }
+                },
+                {
+                    "eventName": "onLoanAccountDetailsClick",
+                    "action": "LoanAccountService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.currAccountDetails.mainAccountType",
+                        "ACCOUNT_IDX": "fields.browseAccountIndex",
+                        "ACCOUNT_TYPE": "fields.currAccountDetails.accountType"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    }
+                },
+                {
+                    "eventName": "onTransactionSearchClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "pageName": "RetailUserTransSearchPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+		
+			 {
+                    "eventName": "onOPRAccountClick",
+                    "action": "OperativeAccountService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.selectedOprAccount.mainAccountType",
+                        "ACCOUNT_IDX": "accounts.RAKAccountsModel.selectedAccount",
+                        "ACCOUNT_TYPE": "fields.currAccountDetails.accountType"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserAccountDetailsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserAccountDetailsPage"
+                    }
+                }
+            ]
+        },
+        {
+            "RetailUserTransSearchPage": [
+                {
+                    "eventName": "onDashboardClick",
+                    "action": "RefreshAccountDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "USER_TYPE": "dashboard.userType"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserDashboardPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onAccountDetailsClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "pageName": "RetailUserAccountDetailsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onAccountClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserAccountDetailsPage"
+                    }
+                },
+                {
+                    "eventName": "onLoanTransSearchClick",
+                    "action": "LoanAccountSearchService",
+                    "validation": "true",
+                    "validationParams": [
+                        "fields.trxnSearchByDateOption",
+                        "fields.trxnSearchByDate1",
+                        "fields.trxnSearchByDate2",
+                        "fields.txnSrcMinAmt",
+                        "fields.txnSrcLatestNoOfTxns"
+                    ],
+                    "validationErrorMessage": [
+                        {
+                            "conditionalDateGreaterThanVar": "APP.DASHBOARD.VAL_ERROR.VALID_CONDITIONALDATE"
+                        },
+                        {
+                            "lessThanOptional": "APP.DASHBOARD.VAL_ERROR.VALID_FROMAMOUNT"
+                        },
+                        {
+                            "ifValuethanNumber": "APP.DASHBOARD.VAL_ERROR.VALID_NTRANSACTIONS"
+                        }
+                    ],
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.selectedAccount.mainAccountType",
+                        "ACCOUNT_IDX": "fields.selectedAccount.accountIndex",
+                        "ACCOUNT_TYPE": "fields.selectedAccount.accountType",
+                        "txnSrcFromDate_day": "fields.txnSrcFromDate_day",
+                        "txnSrcFromDate_month": "fields.txnSrcFromDate_month",
+                        "txnSrcFromDate_year": "fields.txnSrcFromDate_year",
+                        "txnSrcToDate_day": "fields.txnSrcToDate_day",
+                        "txnSrcToDate_month": "fields.txnSrcToDate_month",
+                        "txnSrcToDate_year": "fields.txnSrcToDate_year",
+                        "txnSrcMaxAmt": "fields.txnSrcMaxAmt",
+                        "txnSrcMinAmt": "fields.txnSrcMinAmt",
+                        "TxnType": "fields.TxnType",
+                        "ApplyFilter": "fields.applyFilter",
+                        "txnSrcLatestNoOfTxns": "fields.txnSrcLatestNoOfTxns"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserTransSearchPage"
+                    }
+                },
+                {
+                    "eventName": "onOprTransSearchClick",
+                    "validation": "true",
+                    "validationParams": [
+                        "fields.trxnSearchByDateOption",
+                        "fields.trxnSearchByDate1",
+                        "fields.trxnSearchByDate2",
+                        "fields.txnSrcMinAmt",
+                        "fields.txnSrcLatestNoOfTxns"
+                    ],
+                    "validationErrorMessage": [
+                        {
+                            "conditionalDateGreaterThanVar": "APP.DASHBOARD.VAL_ERROR.VALID_CONDITIONALDATE"
+                        },
+                        {
+                            "lessThanOptional": "APP.DASHBOARD.VAL_ERROR.VALID_FROMAMOUNT"
+                        },
+                        {
+                            "ifValuethanNumber": "APP.DASHBOARD.VAL_ERROR.VALID_NTRANSACTIONS"
+                        }
+                    ],
+                    "action": "OperativeAccountSearchService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.selectedAccount.mainAccountType",
+                        "ACCOUNT_IDX": "fields.selectedAccount.accountIndex",
+                        "ACCOUNT_TYPE": "fields.selectedAccount.accountType",
+                        "txnSrcFromDate_day": "fields.txnSrcFromDate_day",
+                        "txnSrcFromDate_month": "fields.txnSrcFromDate_month",
+                        "txnSrcFromDate_year": "fields.txnSrcFromDate_year",
+                        "txnSrcToDate_day": "fields.txnSrcToDate_day",
+                        "txnSrcToDate_month": "fields.txnSrcToDate_month",
+                        "txnSrcToDate_year": "fields.txnSrcToDate_year",
+                        "txnSrcMaxAmt": "fields.txnSrcMaxAmt",
+                        "txnSrcMinAmt": "fields.txnSrcMinAmt",
+                        "TxnType": "fields.TxnType",
+                        "ApplyFilter": "fields.applyFilter",
+                        "txnSrcLatestNoOfTxns": "dashboard.getLastTransactionNumber(fields.txnSrcLatestNoOfTxns)"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserTransSearchPage"
+                    }
+                },
+                {
+                    "eventName": "onDepTransSearchClick",
+                    "validation": "true",
+                    "validationParams": [
+                        "fields.trxnSearchByDateOption",
+                        "fields.trxnSearchByDate1",
+                        "fields.trxnSearchByDate2",
+                        "fields.txnSrcMinAmt",
+                        "fields.txnSrcLatestNoOfTxns"
+                    ],
+                    "validationErrorMessage": [
+                        {
+                            "conditionalDateGreaterThanVar": "APP.DASHBOARD.VAL_ERROR.VALID_CONDITIONALDATE"
+                        },
+                        {
+                            "lessThanOptional": "APP.DASHBOARD.VAL_ERROR.VALID_FROMAMOUNT"
+                        },
+                        {
+                            "ifValuethanNumber": "APP.DASHBOARD.VAL_ERROR.VALID_NTRANSACTIONS"
+                        }
+                    ],
+                    "action": "DepositAccountSearchService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.selectedAccount.mainAccountType",
+                        "ACCOUNT_IDX": "fields.selectedAccount.accountIndex",
+                        "ACCOUNT_TYPE": "fields.selectedAccount.accountType",
+                        "txnSrcFromDate_day": "fields.txnSrcFromDate_day",
+                        "txnSrcFromDate_month": "fields.txnSrcFromDate_month",
+                        "txnSrcFromDate_year": "fields.txnSrcFromDate_year",
+                        "txnSrcToDate_day": "fields.txnSrcToDate_day",
+                        "txnSrcToDate_month": "fields.txnSrcToDate_month",
+                        "txnSrcToDate_year": "fields.txnSrcToDate_year",
+                        "txnSrcMaxAmt": "fields.txnSrcMaxAmt",
+                        "txnSrcMinAmt": "fields.txnSrcMinAmt",
+                        "TxnType": "fields.TxnType",
+                        "ApplyFilter": "fields.applyFilter",
+                        "txnSrcLatestNoOfTxns": "fields.txnSrcLatestNoOfTxns"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserTransSearchPage"
+                    }
+                },
+                {
+                    "eventName": "onOprAccountDetailsClick",
+                    "action": "OperativeAccountService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.currAccountDetails.mainAccountType",
+                        "ACCOUNT_IDX": "accounts.RAKAccountsModel.selectedAccount",
+                        "ACCOUNT_TYPE": "fields.currAccountDetails.accountType"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    }
+                },
+                {
+                    "eventName": "onDepositAccountDetailsClick",
+                    "action": "DepositAccountService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.currAccountDetails.mainAccountType",
+                        "ACCOUNT_IDX": "accounts.RAKAccountsModel.selectedAccount",
+                        "ACCOUNT_TYPE": "fields.currAccountDetails.accountType"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    }
+                },
+                {
+                    "eventName": "onLoanAccountDetailsClick",
+                    "action": "LoanAccountService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIN_ACCOUNT_TYPE": "fields.currAccountDetails.mainAccountType",
+                        "ACCOUNT_IDX": "accounts.RAKAccountsModel.selectedAccount",
+                        "ACCOUNT_TYPE": "fields.currAccountDetails.accountType"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    }
+                }
+            ]
+        },
+        {
+            "RetailUserTransactionDetailsPage": [
+                {
+                    "eventName": "onDashboardClick",
+                    "action": "RefreshAccountDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "USER_TYPE": "dashboard.userType"
+                    },
+                    "successPage": {
+                        "pageName": "RetailUserDashboardPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onAccountClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "pageName": "RetailUserAccountsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RetailUserAccountDetailsPage"
+                    }
+                }
+            ]
+        },
+        {
+            "FavoriteListPage": [
+                {
+                    "eventName": "removeFavorite",
+                    "action": "DeleteFavoritesService",
+                    "actionType": "service",
+                    "validation": "false",
+                     "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "menuId":"favorite.removeFavoriteId"
+                    },
+                    "successPage": {
+                        "pageName": "FavoriteListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "FavoriteListPage"
+                    }
+                },
+                {
+                    "eventName": "AddFavorite",
+                    "action": "AddFavoritesService",
+                    "actionType": "service",
+                    "validation": "false",
+                     "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "menuId":"favorite.addFavoriteId"
+                    },
+                    "successPage": {
+                        "pageName": "FavoriteListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "FavoriteListPage"
+                    }
+                },
+                 {
+                    "eventName": "favoriteList",
+                    "action": "FetchFavoritesService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "FavoriteListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "FavoriteListPage"
+                    }
+                }
+            ]
+        },
+        {
+            "NotificationList": [
+                {
+                    "eventName": "onViewNotifClick",
+                    "validation": "false",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "NotificationViewPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                }
+            ]
+        },
+        {
+            "SwitchProfilePage": [
+                {
+                   "eventName" : "onProfileClick",
+  					"action": "SwitchAccountDetailsService",
+                    "actionType": "service",
+  					"validation": "false",
+  					 "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+  					"successPage" : {
+  						"subFeature": "RetailUserLogin",
+  						"pageName": "RetailUserDashboardPage"
+  					},
+  					"errorPage" : {
+  					    "subFeature": "RetailUserLogin",
+  						"pageName": "SwitchProfilePage"
+  					}
+                },
+                {
+                   "eventName" : "onLinkProfileClick",
+  					"action": "SwitchLinkedAccountDetailsService",
+                    "actionType": "service",
+  					"validation": "false",
+  					 "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "profileType": "dashboard.relationUsertype",
+                        "selectedUserID": "dashboard.relationUserID"
+                    },
+  					"successPage" : {
+  						"subFeature": "RetailUserLogin",
+  						"pageName": "RetailUserDashboardPage"
+  					},
+  					"errorPage" : {
+  					    "subFeature": "RetailUserLogin",
+  						"pageName": "SwitchProfilePage"
+  					}
+                }
+            ]
+        },
+        
+         {
+            "RakNotificationList": [
+                {
+                    "eventName": "onViewNotifClick",
+                    "validation": "false",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "NotificationViewPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                }
+            ]
+        }
+    ],
+    "subFeatureName": "RetailUserLogin",
+    "startPage": "RakRetailUserLoginPage"
+}

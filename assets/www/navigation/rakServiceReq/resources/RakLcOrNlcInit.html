@@ -1,0 +1,425 @@
+<div class="rak-back-header">
+	<i class="rak-back-img" ng-click="setEvent('onLcOrNlcCloseClick');"></i>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.lcOrNlc.initLcOrNlc(successResponse.responsesList);">
+
+			<div class="account-page">
+				<div class="col-sm-11">
+
+					<div class="main-form-heading-ServiceReq">
+						<h2 class="rakBenfHeader">
+							{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.LC_NLC}} <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>
+						</h2>
+					</div>
+
+					<div class="bg-color rak-cont-padding rak-scroll">
+						<div class="row">
+
+
+
+							<!-- <div class="radio-biller rak100">
+							{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.REQ_LC_OR_NLC}}</div> -->
+
+							<!-- <p class="rak-parent-txt">
+								<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.REQ_LC_OR_NLC}}</span>
+								<span class="rak-sum-label black labelServiceReqTemp"
+									ng-model="rakServiceReq.lcOrNlc.isRequestFor='NLC'">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.REQ_NLC}}</span>
+							</p> -->
+
+							<p class="rak-parent-txt">
+								<span class="rak-sum-label labelServiceReqTemp rak100">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.ALL_ACCOUNTS}}</span>
+								<!-- <span class="rak-sum-label black labelServiceReqTemp"
+									ng-model="rakServiceReq.lcOrNlc.isSelectAccount='ALL'">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.ALL_ACCOUNTS_RADIO_LABEL}}</span> -->
+									
+								<div
+										ng-init='forAcctArr = createDropDownOptionArray(rakServiceReq.lcOrNlc.OprAccList, ["debitOprAcc"], "index");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.lcOrNlc.isSelectAccount"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.FORACC}}"
+										validation-flag='pageErrorArr["rakServiceReq.lcOrNlc.isSelectAccount"]'
+										option-array="forAcctArr"> </fin-input>
+							</p>
+							
+							
+										
+							<!-- <span class="radio-biller rak100 black" >{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.REQ_LC_OR_NLC}}</span>
+					<span class="radio-biller rak100" ng-model="rakServiceReq.lcOrNlc.isRequestFor">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.REQ_NLC}}</span>
+					 -->
+					 
+					 <p class="rak-parent-txt">
+							
+								<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_COMP_NAME}}</span>
+								<span class="rak-sum-label black labelServiceReqTemp">
+									{{rakServiceReq.lcOrNlc.compName}}</span>
+							</p>
+								
+								
+
+							<!-- 							<div class="">
+					
+								
+								<div class="rakCstmRadioDiv rak100 rakTopPadding05">
+									<input type="radio" value="NLC" class=""
+										ng-model="rakServiceReq.lcOrNlc.isRequestFor" id="radio2"
+										ng-click="rakServiceReq.lcOrNlc.isSelectAccount='ALL';rakServiceReq.setLcOrNlcMainAccType();" />
+										<label for="radio2"><span><span></span></span>
+															{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.REQ_NLC}}</label>
+									 <span class="rakRadioLabel-SR" ng-model="rakServiceReq.lcOrNlc.isRequestFor">{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.REQ_NLC}}</span>
+								</div>
+							
+CHANGES DONE AS FIX OF PROUAT-2544 START
+<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.lcOrNlc.isLanguage"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.REQ_LC_OR_NLC}}</div>
+CHANGES DONE AS FIX OF PROUAT-2544 END			
+						
+					</div> -->
+
+							<!-- Request for LC  or  NLC - End -->
+
+							<!-- All Accounts for LC  or  NLC - Start -->
+
+							<!-- CHANGES DONE AS FIX OF PROUAT-2475,2478 AND 2485 START -->
+							<div class="">
+								<!-- <div class="radio-biller rak20"
+							>
+							{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.TYPE_OF_ACCOUNT}}</div> -->
+								<!-- <div class="radio-biller rak100">
+							{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.ALL_ACCOUNTS}}
+						</div> -->
+
+								<!-- 	
+					<span class="radio-biller rak100 black" >{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.ALL_ACCOUNTS}}</span>
+					<span class="radio-biller rak100" ng-model="rakServiceReq.lcOrNlc.isSelectAccount">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.ALL_ACCOUNTS_RADIO_LABEL}}</span>	
+					 -->
+							</div>
+							<!-- <div class="">
+						<div class="rak100 rakWidth100">
+							<div>
+								<div class="rakCstmRadioDiv rak100 rakTopPadding05">
+									<input type="radio" value="ALL" class="" id="radio3"
+										ng-model="rakServiceReq.lcOrNlc.isSelectAccount"  ng-click="rakServiceReq.setLcOrNlcMainAccType();" />
+										<label for="radio3"><span><span></span></span>
+															{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.ALL_ACCOUNTS_RADIO_LABEL}}</label>
+									<span class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.ALL_ACCOUNTS_RADIO_LABEL}}</span>
+								</div>
+								
+							
+							</div>
+CHANGES DONE AS FIX OF PROUAT-2544 START
+<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.lcOrNlc.isLanguage"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.ALL_ACCOUNTS}}</div>
+CHANGES DONE AS FIX OF PROUAT-2544 END	
+						</div>
+					</div> -->
+
+
+
+
+							<!-- Credit Card Accounts for LC  or  NLC - End -->
+
+							<!-- Language for LC  or  NLC - Start -->
+
+							<!-- <div class="rakRow">
+								<div class="radio-biller rak20 black">
+									{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.LANG_ENG_OR_ARB}}</div>
+								<div class="rak80 rakWidth80">
+									<div>
+										<div class="rakCstmRadioDiv rak33 rakTop2em">
+											<input type="radio" value="E" class="" id="radio6"
+												ng-model="rakServiceReq.lcOrNlc.isLanguage" /> <label
+												for="radio6"><span><span></span></span>
+												{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.LANG_ENG}}</label>
+											<span class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.LANG_ENG}}</span>
+										</div>
+										<div class="rakCstmRadioDiv rak33 rakTop2em">
+											<input type="radio" value="A" class="" id="radio7"
+												ng-model="rakServiceReq.lcOrNlc.isLanguage" /> <label
+												for="radio7"><span><span></span></span>
+												{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.LANG_ARB}}</label>
+											<span class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.LANG_ARB}}</span>
+										</div>
+									</div>
+									CHANGES DONE AS FIX OF PROUAT-2544 START
+									<div class="rakRadioErr"
+										ng-hide='pageErrorArr["rakServiceReq.lcOrNlc.isLanguage"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.LANG_ENG_OR_ARB}}</div>
+									CHANGES DONE AS FIX OF PROUAT-2544 END
+
+								</div>
+							</div> -->
+							
+							
+							<div class="rak-parent-txt">
+										<div class="rak-sum-label labelServiceReqTemp rak100">
+											{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.LANG_ENG_OR_ARB}}</div>
+										<div class="rak90">
+											<div>
+												<div class="rakCstmRadioDiv rak50">
+													<input type="radio" value="E"  id="radio6"
+														ng-model="rakServiceReq.lcOrNlc.isLanguage" />
+													<label for="radio6"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.LANG_ENG}}</label>
+												</div>
+												<div class="rakCstmRadioDiv rak47">
+													<input type="radio" value="A"  id="radio7"
+														ng-model="rakServiceReq.lcOrNlc.isLanguage" />
+													<label for="radio7"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.LANG_ARB}}</label>
+												</div>
+											</div>
+											<div class="rakRadioErr"
+										ng-hide='pageErrorArr["rakServiceReq.lcOrNlc.isLanguage"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.LANG_ENG_OR_ARB}}</div>
+										</div>
+									</div>
+									
+									
+									
+
+							<!-- Language for LC  or  NLC - End -->
+
+
+
+
+							<!-- Addressed To  - Start -->
+							<fin-input type="text" model="rakServiceReq.lcOrNlc.addressedTo"
+								display-row="full"
+								placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.ADDRESSED_TO}}"
+								validation-flag='pageErrorArr["rakServiceReq.lcOrNlc.addressedTo"]'></fin-input>
+
+							<!-- Addressed To  - End -->
+
+							<!--  deliver to my address/ collect at branch  - Start -->
+
+							<!-- <div class="rakRow">
+								<div class="radio-biller rak20 black">
+									{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_DISPATCH_MODE}}</div>
+								<div class="rak80 rakWidth80">
+									<div>
+										<div class="rakCstmRadioDiv rak33 rakTop2em">
+											<input type="radio"  class="" id="radio8"
+												value="{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_COLLECT_BRANCH}}"
+												ng-model="rakServiceReq.lcOrNlc.isDispatchMode" /> <label
+												for="radio8"><span><span></span></span>
+												{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_COLLECT_BRANCH}}</label>
+											<span class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.LANG_ENG}}</span>
+										</div>
+										<div class="rakCstmRadioDiv rak33 rakTop2em">
+											<input type="radio"  class="" id="radio9"
+												value="{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_DELIVER_ADDRESS}}"
+												ng-model="rakServiceReq.lcOrNlc.isDispatchMode" /> <label
+												for="radio9"><span><span></span></span>
+												{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_DELIVER_ADDRESS}}</label>
+											<span class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.LANG_ARB}}</span>
+										</div>
+									</div>
+									CHANGES DONE AS FIX OF PROUAT-2544 START
+									<div class="rakRadioErr"
+										ng-hide='pageErrorArr["rakServiceReq.lcOrNlc.isDispatchMode"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_DISPATCH_MODE}}</div>
+									CHANGES DONE AS FIX OF PROUAT-2544 END
+
+								</div>
+							</div> -->
+							
+							
+							<div class="rak-parent-txt">
+										<div class="rak-sum-label labelServiceReqTemp rak100">
+											{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_DISPATCH_MODE}}</div>
+										<div class="rak100">
+											<div>
+												<div class="rakCstmRadioDiv rak100 ">
+													<input type="radio" id="radio8"
+														value="{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_DELIVER_ADDRESS}}"
+														ng-click="rakServiceReq.lcOrNlc.isCollectFromBranch=false;"
+														 id="radio8"
+														ng-model="rakServiceReq.lcOrNlc.isDispatchMode" />
+														<label for="radio8"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_DELIVER_ADDRESS}}</label>
+												</div>
+												
+												<div class="rakCstmRadioDiv rak100 marginTopTen" ng-if="!rakServiceReq.branchDelOptHideSrList.includes('LBC') || rakServiceReq.hideBranchDelOpt!='Y'">
+													<input type="radio" id="radio9"
+													ng-click="rakServiceReq.lcOrNlc.isCollectFromBranch=true;"
+														value="{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_COLLECT_BRANCH}}"
+														
+														ng-model="rakServiceReq.lcOrNlc.isDispatchMode" />
+														<label for="radio9"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_COLLECT_BRANCH}}</label>
+												</div>
+											</div>
+											<div class="rakRadioErr"
+												ng-hide='pageErrorArr["rakServiceReq.lcOrNlc.isDispatchMode"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_DISPATCH_MODE}}</div>
+										</div>
+									</div>
+							
+
+							<!--  deliver to my address/ collect at branch  - End -->
+
+							<br></br>
+
+
+							<!-- Debit Card Dropdown  - End -->
+
+
+							<!-- Collection Branch Name Dropdown  - Start -->
+
+							<!--CHANGES DONE AS FIX OF PROUAT-2485 START  -->
+							<!-- <div
+						ng-init='branchnamelist = createDropDownOptionArray(rakServiceReq.lcOrNlc.branchList,["branchName"],"branchIndex");'
+						 >
+																								["accountName","-","accountNumber"],"index")
+						<fin-input type="dropdown"
+							model="rakServiceReq.lcOrNlc.branchName"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.BRANCH_NAME}}"
+							
+							validation-flag='pageErrorArr["rakServiceReq.lcOrNlc.branchName"]'
+							option-array="branchnamelist" ></fin-input>
+					</div> -->
+					
+				
+
+							<div
+									ng-init='cardArr = createDropDownOptionArray(rakServiceReq.lcOrNlc.emirateList, ["codeDesc"], "code");'></div>
+							<fin-input type="dropdown"
+								model="rakServiceReq.lcOrNlc.emirateSeletected"
+								ng-show="rakServiceReq.lcOrNlc.isDispatchMode=='{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_COLLECT_BRANCH}}'"								
+								display-row="full"
+								placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}"
+								on-change="rakServiceReq.lcOrNlc.raklcOrNlcBranchOptionChange();"
+								validation-flag='pageErrorArr["rakServiceReq.lcOrNlc.emirateSeletected"]'
+								option-array="cardArr"> </fin-input>
+								
+							
+							
+							 <p class="rak-parent-txt"
+							ng-show="rakServiceReq.lcOrNlc.isDispatchMode=='{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_DELIVER_ADDRESS}}'">
+								<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_ADDREG}}</span>
+								<span class="rak-sum-label black labelServiceReqTemp">
+									{{rakServiceReq.lcOrNlc.registeredAddress}}</span>
+							</p>
+
+
+
+							<div class="fin-input-container"
+								ng-show="rakServiceReq.lcOrNlc.isEmiSelected && rakServiceReq.lcOrNlc.isDispatchMode=='{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_COLLECT_BRANCH}}'">
+								<div
+									ng-class="{'left-line': !pageErrorArr['rakServiceReq.lcOrNlc.selectedBranchId'], 'left-line-error':pageErrorArr['rakServiceReq.lcOrNlc.selectedBranchId']}"
+									class="left-line"></div>
+								<div class="input-body">
+									<div class="input-body2 input-body2-dropdown">
+										<select dropdownpicker
+											title="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}"
+											class="fin-input fin-select"
+											ng-model="rakServiceReq.lcOrNlc.selectedBranchId"
+											ng-style="{{rakServiceReq.lcOrNlc.selectedBranchId}} == '' ? {'font-size': '14px'} : {'color': 'initial'}">
+											<option class="place-holder-select" value=""
+												ng-selected="rakServiceReq.lcOrNlc.selectedBranchId== null"
+												ng-show="rakServiceReq.lcOrNlc.selectedBranchId== null">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}</option>
+											<option
+												ng-repeat="option in rakServiceReq.lcOrNlc.emiCategorizedBranchList"
+												ng-selected="option.value=={{rakServiceReq.lcOrNlc.selectedBranchId}}"
+												value="{{option.branchIndex}}">{{option.branchCode}}</option>
+										</select>
+									</div>
+									<div
+										ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.lcOrNlc.selectedBranchId'], 'bottom-line-error':pageErrorArr['rakServiceReq.lcOrNlc.selectedBranchId']}"
+										class="bottom-line"></div>
+									<div
+										ng-hide='pageErrorArr["rakServiceReq.lcOrNlc.selectedBranchId"]==null'
+										class="rakErrorMsg">
+										{{pageErrorArr['rakServiceReq.lcOrNlc.selectedBranchId']}}</div>
+
+								</div>
+							</div>
+							<!--CHANGES DONE AS FIX OF PROUAT-2485 END  -->
+
+							<!-- Collection Branch Name Dropdown  - End -->
+
+							<!-- Mobile Number - Start -->
+
+							<!-- 	<div class=""> -->
+							<p class="rak-parent-txt">
+								<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.MOBILENUMBER}}</span>
+								<span class="rak-sum-label black labelServiceReqTemp"
+									ng-model="rakServiceReq.lcOrNlc.mobileNumber">{{rakServiceReq.lcOrNlc.mobileNumber}}</span>
+							</p>
+							<!-- </div> -->
+
+							<!-- <fin-input type="number_card"
+							model="rakServiceReq.lcOrNlc.mobileNumber"
+							display-row="full"
+							max-length="15"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.MOBILENUMBER}}"
+							validation-flag='pageErrorArr["rakServiceReq.lcOrNlc.mobileNumber"]'>
+					</fin-input> -->
+
+
+
+							<!-- Mobile Number - End -->
+
+
+							<!-- Notes  - Start -->
+							<fin-input type="text" model="rakServiceReq.lcOrNlc.notes"
+								display-row="full"
+								placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.NOTES}}"
+								validation-flag='pageErrorArr["rakServiceReq.lcOrNlc.notes"]'></fin-input>
+
+							<!-- Notes  - End -->
+
+
+							<!-- Debit Card Dropdown  - Start -->
+
+							<!-- CHANGES DONE AS FIX OF PROUAT-2781 START -->
+							<div
+								ng-init='debitaccountlist = createDropDownOptionArray(rakServiceReq.lcOrNlc.debitOprAccList,["productCatDesc","-","debitOprAcc","-","currency"],"index");'>
+								<!-- ["accountName","-","accountNumber"],"index") -->
+								<fin-input type="dropdown"
+									model="rakServiceReq.lcOrNlc.debitOprAcc" display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.DEBIT_ACCOUNT}}"
+									validation-flag='pageErrorArr["rakServiceReq.lcOrNlc.debitOprAcc"]'
+									option-array="debitaccountlist"></fin-input>
+							</div>
+							<!-- CHANGES DONE AS FIX OF PROUAT-2781 END -->
+
+							<!-- Debit Card Dropdown  - End -->
+
+
+							<div class="label-wrap ">
+
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small"
+									ng-click="rakServiceReq.lcOrNlc.resetLcORNlcContinue();rakServiceReq.setLcOrNlcMainAccType();rakServiceReq.lcOrNlc.continueClick();rakServiceReq.lcOrNlc.branchIdValidationRqdCheck();setEvent('onSubmitOfDetailsForLcOrNlc');">
+									{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+
+							</div>
+
+
+
+
+
+						</div>
+
+						<div class="disclaimer">
+							<div class="disclaimer1 rakSupplCardIco"
+								ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"
+								ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+								<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+							</div>
+
+							<div class="disclaimer3" ng-show="rakDisclaimerFlag">
+								<span
+									ng-bind-html="appLiterals.APP.DISCLAIMER.RAKNOLIABILITYCERTIFICATE_CUTOFFTIME"></span>
+								<span
+									ng-click="rakServiceReq.fetchDisclaimer('AccountServiceRequestsCharges.html');"
+									class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span
+									ng-bind-html="appLiterals.APP.DISCLAIMER.RAKNOLIABILITYCERTIFICATE_CHARGES"></span>
+
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

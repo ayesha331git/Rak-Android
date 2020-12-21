@@ -1,0 +1,95 @@
+<div class="rak-back-header">
+	<i class="rak-back-img" ng-click="setGlobalEvent('onDashboardClick');"></i>
+</div>
+<div class="nano menu-scroll">
+<div class="nano-content">
+<div class="finacle-container ng-scope">
+	<div class="account-page">
+		<div class="col-sm-11">
+<!-- <ng-include  src="'./navigation/rakTradeFinance/resources/RakTFSearchPendingApproval.html'"> </ng-include> -->
+<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAKPENDINGAPPROVAL.TF_APPROVAL.TF_APR_HEAD}}
+				   	     
+				      </h2>		       
+	</div>
+<div class="bg-color rak-cont-padding">
+<div class="row">
+<div class="bg-color "
+ng-init="rakTradeFinance.isFromLandingPage=true; rakTradeFinance.responseIndividualTFList(successResponse.responsesList);">
+		<div ng-show="rakTradeFinance.pendingListTF.length > 0">
+			<div class="money-block rakBottomZero">
+	         <ul>
+	            <li  class="active rak30 rakPaddingPoint8em" >
+	            {{appLiterals.APP.RAKPENDINGAPPROVAL.TF_APPROVAL.REQ_DATE_HEADING}}</li>
+	            <li class="active rak30 ">
+	            {{appLiterals.APP.RAKPENDINGAPPROVAL.TF_APPROVAL.ENTERER_HEADING}}</li>
+	           <li class="active rak30 ">
+	           {{appLiterals.APP.RAKPENDINGAPPROVAL.TF_APPROVAL.REQ_TYPE_HEADING}}</li>
+	            <li class="active rak10 ">&nbsp;</li>
+	         </ul>
+			</div>
+			<div class="rakScrollDivHistory rak-cont-paddingvh"  ng-class="{'rak-history-paddingvh':rakTxnSearch}">
+				<div class="trans-detail rakGreyRow" ng-repeat="tfsr in rakTradeFinance.pendingListTF">
+					<div class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em pull-left">
+						<div>
+					      <div class="trans-no rakTextCenter rakFont1em ">
+					          {{tfsr.tfSrReqSubDt}}
+					      </div>
+					    </div>
+					</div>
+					<div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em">
+					    <div>
+					       <div class="trans-no rakTextCenter rakFont1em">
+					          {{tfsr.tfSrReqSubBy}}
+					       </div>
+					    </div>
+					</div>
+					<div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em" >
+					    <div>
+					       <div class="trans-no rakTextCenter rakFont1em">
+					          {{tfsr.tfsrDesc}}
+					       </div>
+					    </div>
+					</div>
+					<div class="pull-right rakPaddingPoint5em" style="width:10%">
+						<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+						<ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+							<li>
+								<a href="" ng-click='rakTradeFinance.tfsrDetItem=tfsr;rakTradeFinance.isTfsrApprRejClicked="N";
+					      rakTradeFinance.setVals();setEvent("onRakTFServiceRequestDetailsFetch");'>
+									{{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.VIEW}}
+								</a>
+							</li>
+							<li>
+								<a href="" ng-click="rakTradeFinance.tfsrDetItem=tfsr;rakTradeFinance.isTfsrApprRejClicked='Y';rakTradeFinance.setVals();
+								rakTradeFinance.tfsrApprRejClicked='A';setEvent('onTfSrApproveClick')">
+									{{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.APPROVE}}
+								</a>
+							</li>
+							<li>
+								<a href="" ng-click="rakTradeFinance.tfsrDetItem=tfsr;rakTradeFinance.isTfsrApprRejClicked='Y';rakTradeFinance.setVals();
+								rakTradeFinance.tfsrApprRejClicked='R';setEvent('onTfSrRejectClick')">
+									{{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.REJECT}}
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div ng-if="rakTradeFinance.pendingListTF.length == 0 ">
+ 				<div class="summary-ServiceReq">
+								<div class="iconDivNorecord">
+									<span class="infoIcon"></span><span class="success">{{rakTradeFinance.NoTFRecordsMsg}}</span>
+								</div>
+							</div>
+		</div>
+	<div class="col-sm-1"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

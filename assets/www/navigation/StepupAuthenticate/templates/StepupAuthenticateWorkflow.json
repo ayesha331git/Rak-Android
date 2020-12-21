@@ -1,0 +1,611 @@
+{
+	"pageNavigation": [{
+		"StepupAuthenticateQuestionPage": [{
+			"eventName": "onStepupAuthenticateQuestionContinueClick",
+			"action": "SecurityQuestionsStepupAuthenticatorService",
+			"actionType": "service",
+			"validation": "true",
+			"validationParams":["StepupAuthenticate.actionDetails[0].params.Questions"],
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"LOOP_COUNT": "StepupAuthenticate.loopcount",
+				"SECURITY_QUESTION_ANSWER": "StepupAuthenticate.answers"
+			},
+			"successPage": [
+                    	{
+                    	"condition":"doesRelationExists",
+                    	"subFeature": "RetailUserLogin",
+                        "pageName": "SwitchProfilePage"
+                        },                       
+                        {
+	                      "condition":"doesRelationExistsFalse",
+	                      "subFeature": "RetailUserLogin",
+	                      "pageName": "RetailUserDashboardPage"
+	                    }
+            ],
+			"errorPage": {
+				"subFeature": "StepupAuth",
+				"pageName": "StepupAuthenticateQuestionPage"
+			}
+		}, 
+		{
+			"eventName": "onStepupAuthenticateQuestionCancelClick",
+				"validation": "false",
+                    "action": "LogoutService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                    	"subFeature": "RetailUserLogin",
+						"pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+		}],
+			"StepupAuthenticateSetQuestionPage": [{
+			"eventName": "onStepupAuthenticateQuestionContinueClick",
+			"action": "SetSecurityQuestionsStepupAuthenticatorService",
+			"actionType": "service",
+			"validation": "true",
+			"validationParams":["StepupAuthenticate.actionDetails[0].params.Questions"],
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"LOOP_COUNT": "StepupAuthenticate.loopcount",
+				"SELECTED_SECURITY_QUESTIONS": "StepupAuthenticate.answers"
+			},
+			"successPage": {
+				"subFeature": "StepupAuth",
+				"pageName": "StepupAuthenticateSuccessPage"
+			},
+			"errorPage": {
+				"subFeature": "StepupAuth",
+				"pageName": "StepupAuthenticateSetQuestionPage"
+			}
+		},
+		 {
+			"eventName": "onStepupAuthenticateSetQuestionCancelClick",
+					"validation": "false",
+                    "action": "LogoutService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                    	"subFeature": "RetailUserLogin",
+						"pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+		}],
+		"StepupAuthenticateQuestionConfirmPage": [{
+			"eventName": "onStepupAuthenticateQuestionConfirmClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"successPage": {
+				"subFeature": "StepupAuth",
+				"pageName": "StepupAuthenticateSuccessPage"
+			},
+			"errorPage": {
+				"subFeature": "StepupAuth",
+				"pageName": "StepupAuthenticateQuestionConfirmPage"
+			}
+		}, {
+			"eventName": "onStepupAuthenticateQuestionConfirmCancelClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"successPage": {
+				"subFeature": "MyProfile",
+				"pageName": "ProfileLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "StepupAuth",
+				"pageName": "StepupAuthenticateQuestionConfirmPage"
+			}
+		}, {
+			"eventName": "onStepupAuthenticateQuestionConfirmBackClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"successPage": {
+				"subFeature": "StepupAuth",
+				"pageName": "StepupAuthenticateQuestionPage"
+			},
+			"errorPage": {
+				"subFeature": "StepupAuth",
+				"pageName": "StepupAuthenticateQuestionConfirmPage"
+			}
+		}],
+		"StepupAuthenticateSuccessPage": [{
+			"eventName": "StepupAuthenticateSuccessPageDoneClick",
+			"action": "LogoutService",
+            "actionType": "service",
+            "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+              },
+			"successPage": {
+			     "subFeature": "RetailUserLogin",
+				"pageName": "RetailUserLoginPage"
+			},
+			"errorPage": {
+				"subFeature": "StepupAuth",
+				"pageName": "StepupAuthenticateSuccessPage"
+			}
+		}],
+		"StepupAuthenticateOTPPage": [
+			{
+                    "eventName": "onStepupAuthenticateOTPCancelClick",
+              		"validation": "false",
+                    "action": "LogoutService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                    	"subFeature": "RetailUserLogin",
+						"pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+		{
+                    "eventName": "onGenerateOTPClick",
+                    "action": "RegenerateSMSOTP",
+                    "actionType": "serviceNoNavigation",
+                    "validation": "false",
+                    	"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam"
+			},
+                    "successPage": {
+                        "subFeature": "StepupAuth",
+                        "pageName": "StepupAuthenticateOTPPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "StepupAuth",
+                        "pageName": "StepupAuthenticateOTPPage"
+                    }
+                },
+		{
+			"eventName": "onStepupAuthenticateOTPSubmitClick",
+			"action": "SMSOTPStepupAuthenticatorService",
+			"actionType": "service",
+			"validation": "true",
+			"validationParams": [
+				"stepupAuthentication.SMS_OTP.smsOTP"
+			],
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"SecMode": "stepupAuthentication.SMS_OTP.smsOTP"
+			},
+			"successPage": [
+                    	{
+                    	"condition":"doesRelationExists",
+                    	"subFeature": "RetailUserLogin",
+                        "pageName": "SwitchProfilePage"
+                        },                       
+                        {
+	                      "condition":"doesRelationExistsFalse",
+	                      "subFeature": "RetailUserLogin",
+	                      "pageName": "RetailUserDashboardPage"
+	                    }
+            ],
+			"errorPage": {
+				"subFeature": "StepupAuth",
+				"pageName": "StepupAuthenticateOTPPage"
+			}
+		}],
+		
+		
+			"StepupAuthenticateRSATokenPage": [
+			{
+                    "eventName": "onStepupAuthenticateRSATokenCancelClick",
+              		"validation": "false",
+                    "action": "LogoutService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                    	"subFeature": "RetailUserLogin",
+						"pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+	
+		{
+			"eventName": "onStepupAuthenticateRSASubmitClick",
+			"action": "RSATokenStepupAuthenticatorService",
+			"actionType": "service",
+			"validation": "false",
+			"validationParams": [
+				"stepupAuthentication.HARD_TOKEN.hardToken"
+			],
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"Mode": "stepupAuthentication.HARD_TOKEN.hardToken"
+			},
+			"successPage": [
+			{
+                    	   "subFeature": "RetailUserLogin",
+	                      "pageName": "RetailUserDashboardPage"
+	                      }
+            ],
+			"errorPage": {
+				"subFeature": "StepupAuth",
+				"pageName": "StepupAuthenticateRSATokenPage"
+			}
+		}],
+		
+		"StepupAuthenticateTermsAndConditionsPage": [{
+			"eventName": "onStepupAuthenticateTermAndConditionProceedClick",
+			"action": "TermsConditionsStepupAuthenticatorService",
+			"actionType": "service",
+			"validation": "false",
+			
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam"
+				
+			},
+			"successPage": [
+                    	{
+                    	"condition":"doesRelationExists",
+                    	"subFeature": "RetailUserLogin",
+                        "pageName": "SwitchProfilePage"
+                        },                       
+                        {
+	                      "condition":"doesRelationExistsFalse",
+	                      "subFeature": "RetailUserLogin",
+	                      "pageName": "RetailUserDashboardPage"
+	                    }
+            ],
+			"errorPage": {
+				"subFeature": "StepupAuth",
+				"pageName": "StepupAuthenticateTermsAndConditionsPage"
+			}
+		},
+		{
+                    "eventName": "onStepupAuthenticateOTPCancelClick",
+              		"validation": "false",
+                    "action": "LogoutService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                    	"subFeature": "RetailUserLogin",
+						"pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                
+                {
+		                    "eventName": "onLogoutClickOK",
+		                  "validation": "false",
+		                    "action": "LogoutService",
+		                    "actionType": "confirmOK",
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam"
+		                    },
+		                    "successPage": {
+		                    	"subFeature": "RetailUserLogin",
+								"pageName": "RetailUserLoginPage"
+		                    },
+		                    "errorPage": {
+		                        "subFeature": "RetailUserLogin",
+		                        "pageName": "RetailUserLoginPage"
+		                    }
+                }
+		],
+		"StepupAuthenticatePasswordChallengePage": [
+		                         {
+                   	                             "eventName" : "onBackClick",
+			                                     "validation":"false",
+			                                     "action" : "navigation",
+			                                     "actionType":"navigation",
+			                                     "encryptionEnabled" : false,
+			  	                                 "sensitiveFields" : [ "fields.finacleUserCorporateId", "fields.finacleUserPassword" ],
+			                                     "parameters": {"CorpId": "fields.finacleUserCorporateId", "PassWord": "fields.finacleUserPassword"},
+			                                     "successPage" : {"pageName": "RetailUserLoginPage"},
+			                                     "errorPage" : {"pageName": "RetailUserLoginPage"}
+                },	
+		
+		{
+			"eventName": "onStepupAuthenticatePasswordSubmitClick",
+			"action": "PasswordChallengeStepupAuthenticatorService",
+			"actionType": "service",
+			"validation": "true",
+			"validationParams": [
+                                "fields.finacleUserCorporateId",
+                                 
+                                 "fields.finacleUserPassword"
+			],
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+                                                    "CorpId": "fields.finacleUserCorporateId",
+                                                    "PassWord": "fields.finacleUserPassword",
+				"QUICK_BALANCE":"quickBalValue"
+			},
+			"successPage": {
+				"subFeature": "RetailUserLogin",
+                 "pageName": "RetailUserDashboardPage"
+			},
+			"errorPage": {
+				"subFeature": "StepupAuth",
+				"pageName": "StepupAuthenticatePasswordChallengePage"
+			}
+		},
+                                                    
+                                                    
+                                                    
+                                                    {
+                                                    
+                                                    "eventName": "onRakRegisterLableClick",
+                                                    "action": "navigation",
+                                                    "actionType": "navigation",
+                                                    "validation": "false",
+                                                    "successPage": {
+                                                    "subFeature": "rakRegister",
+                                                    "pageName": "RakSelfRegInit"
+                                                    },
+                                                    "errorPage": {
+                                                    "pageName": "RetailUserLoginPage"
+                                                    }
+                                                    },
+                                                    {
+                                                    "eventName": "registerWithCampaignServer",
+                                                    "isInvokedInBackground":false,
+                                                    "actionType":"serviceExternal",
+                                                    "action":"CAMPAIGN_SERVICE",
+                                                    "method":"GET",
+                                                    "apiEndpoint": "ping",
+                                                    "validation": "false",
+                                                    "parameters":{
+                                                    "apikey":"fields.campaign.apikey"
+                                                    }
+                                                    },
+                                                    {
+                                                    "eventName": "onRegisterClick",
+                                                    "action": "navigation",
+                                                    "actionType": "navigation",
+                                                    "validation": "false",
+                                                    "successPage": {
+                                                    "subFeature": "Register",
+                                                    "pageName": "RegisterCustomerId"
+                                                    },
+                                                    "errorPage": {
+                                                    "pageName": "RetailUserLoginPage"
+                                                    }
+                                                    },
+                                                    {
+                                                    "eventName": "onAppActivationRegisterClick",
+                                                    "action": "navigation",
+                                                    "actionType": "navigation",
+                                                    "validation": "false",
+                                                    "successPage": {
+                                                    "subFeature": "AppActivation",
+                                                    "pageName": "RegisterCustomerIdPage"
+                                                    },
+                                                    "errorPage": {
+                                                    "pageName": "RetailUserLoginPage"
+                                                    }
+                                                    },
+                                                    {
+                                                    "eventName": "onLoginClick",
+                                                    "validation": "true",
+                                                    "validationParams": [
+                                                                         "fields.finacleUserCorporateId",
+                                                                         "fields.finacleUserPassword"
+                                                                         ],
+                                                    "action": "AuthenticationService",
+                                                    "actionType": "challengeresponse",
+                                                    "encryptionEnabled": true,
+                                                    "sensitiveFields": [
+                                                                        "fields.finacleUserCorporateId",
+                                                                        "fields.finacleUserPassword"
+                                                                        ],
+                                                    "validationErrorMessage": [
+                                                                               {
+                                                                               "maxLength": "APP.DASHBOARD.RETAIL_USER_LOGIN.USER_ID_LENGTH_ERROR"
+                                                                               }
+                                                                               ],
+                                                    "parameters": {
+                                                    "CorpId": "fields.finacleUserCorporateId",
+                                                    "PassWord": "fields.finacleUserPassword",
+                                                    "QUICK_BALANCE":"quickBalValue",
+                                                    "TOUCHIDFLOW":"touchIdFlow"
+                                                    },
+                                                    "successPage": {
+                                                    "pageName": "RetailUserDashboardPage"
+                                                    },
+                                                    "errorPage": {
+                                                    "pageName": "RakTouchIdRegLoginPage"
+                                                    }
+                                                    },
+                                                    {
+                                                    "eventName": "onSwipeForQuickBalancePage",
+                                                    "action": "navigation",
+                                                    "actionType": "navigation",
+                                                    "validation": "false",
+                                                    "successPage": {
+                                                    
+                                                    "pageName": "RakQuickBalanceTouchIdLoginPage"
+                                                    },
+                                                    "errorPage": {
+                                                    "pageName": "RetailUserLoginPage"
+                                                    }
+                                                    },
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    {
+                                                    "eventName": "onStubLoginLoad",
+                                                    "validation": "false",
+                                                    "action": "navigation",
+                                                    "actionType": "navigation",
+                                                    "parameters": {
+                                                    "CorpId": "fields.finacleUserCorporateId",
+                                                    "PassWord": "fields.finacleUserPassword"
+                                                    },
+                                                    "successPage": {
+                                                    "pageName": "RetailUserLoginPage"
+                                                    },
+                                                    "errorPage": {
+                                                    "pageName": "RetailUserLoginPage"
+                                                    }
+                                                    },
+                                                    {
+                                                    "eventName": "onLoginLoad",
+                                                    "validation": "false",
+                                                    "action": "AuthenticationService",
+                                                    "actionType": "service",
+                                                    "encryptionEnabled": true,
+                                                    "sensitiveFields": [
+                                                                        "fields.finacleUserCorporateId",
+                                                                        "fields.finacleUserPassword"
+                                                                        ],
+                                                    "parameters": {
+                                                    "CorpId": "fields.finacleUserCorporateId",
+                                                    "PassWord": "fields.finacleUserPassword"
+                                                    },
+                                                    "successPage": {
+                                                    "pageName": "RetailUserDashboardPage"
+                                                    },
+                                                    "errorPage": {
+                                                    "subFeature": "RetailUserLogin",
+                                                    "pageName": "RakTouchIdRegLoginPage"
+                                                    }
+                                                    },
+                                                    {
+                                                    "eventName": "enableTouchId",
+                                                    "action": "navigation",
+                                                    "actionType": "navigation",
+                                                    "validation": "false",
+                                                    "parameters": {
+                                                    "jsessionid": "fields.finacleUserSessionId",
+                                                    "mbparam": "fields.finacleMbParam"
+                                                    },
+                                                    "successPage": {
+                                                    "subFeature": "rakMyProfile",
+                                                    "pageName": "RakTouchIdActivationPage"
+                                                    },
+                                                    "errorPage": {
+                                                    "subFeature": "RetailUserLogin",
+                                                    "pageName": "RetailUserDashboardPage"
+                                                    }
+                                                    },
+                                                    {
+                                                    "eventName": "goToForcePasswordMessage",
+                                                    "action": "navigation",
+                                                    "actionType": "navigation",
+                                                    "validation": "false",
+                                                    "successPage": {
+                                                    "subFeature": "MyProfile",
+                                                    "pageName": "ForcePasswordChangeMessage"
+                                                    },
+                                                    "errorPage": {
+                                                    "subFeature": "MyProfile",
+                                                    "pageName": "RetailUserLoginPage"
+                                                    }
+                                                    },
+                                                    {
+                                                    "eventName": "onForgotUserIDClick",
+                                                    "action": "ForgotUserIDInitService",
+                                                    "actionType": "service",
+                                                    "successPage": {
+                                                    "subFeature": "MyProfile",
+                                                    "pageName": "ForgotUserID"
+                                                    },
+                                                    "errorPage": {
+                                                    "subFeature": "RetailUserLogin",
+                                                    "pageName": "RetailUserLoginPage"
+                                                    }
+                                                    },
+                                                    {
+                                                    "eventName": "onForgotMPINClick",
+                                                    "action": "navigation",
+                                                    "actionType": "navigation",
+                                                    "successPage": {
+                                                    "subFeature": "AppActivation",
+                                                    "pageName": "ForgotMPINLandingPage"
+                                                    },
+                                                    "errorPage": {
+                                                    "subFeature": "RetailUserLogin",
+                                                    "pageName": "RetailUserLoginPage"
+                                                    }
+                                                    }
+                                                    
+                                                    
+                                                    
+                                                    ],
+                       
+                       
+		
+		
+                       "RetailUserDashboardPage": [
+                                                   {
+                                                   "eventName": "moveToQuickBalance",
+                                                   "action": "navigation",
+                                                   "actionType": "navigation",
+                                                   "validation": "false",
+                                                   "parameters": {
+                                                   "jsessionid": "fields.finacleUserSessionId",
+                                                   "mbparam": "fields.finacleMbParam"
+                                                   },
+                                                   "successPage": {
+                                                   "subFeature": "RetailUserLogin",
+                                                   "pageName": "RakQuickBalanceDashboard"
+                                                   },
+                                                   "errorPage": {
+                                                  "subFeature": "RetailUserLogin",
+                                                   "pageName": "RetailUserDashboardPage"
+                                                   }
+                                                   },
+                                                   {
+                                                   "eventName": "enableTouchId",
+                                                   "action": "navigation",
+                                                   "actionType": "navigation",
+                                                   "validation": "false",
+                                                   "parameters": {
+                                                   "jsessionid": "fields.finacleUserSessionId",
+                                                   "mbparam": "fields.finacleMbParam"
+                                                   },
+                                                   "successPage": {
+                                                   "subFeature": "rakMyProfile",
+                                                   "pageName": "RakTouchIdActivationPage"
+                                                   },
+                                                   "errorPage": {
+                                                   
+                                                   "pageName": "RetailUserDashboardPage"
+                                                   }
+                                                   }]
+	}],
+	"subFeatureName": "StepupAuth",
+	"startPage": "StepupAuthenticateQuestionPage"
+}

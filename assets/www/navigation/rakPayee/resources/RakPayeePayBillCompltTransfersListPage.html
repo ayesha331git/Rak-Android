@@ -1,0 +1,117 @@
+ <div class="rak-back-header" ng-show="rakSendMoney.txnHistory.directView!='BillTxnView'">
+			<i class="rak-back-img" ng-click="rakPayee.common.fromAuthPage=true;setEvent('onBackClick')"></i>
+		</div>
+		 <div class="rak-back-header" ng-show="rakSendMoney.txnHistory.directView=='BillTxnView'">
+			<i class="rak-back-img" ng-click="rakPayee.common.fromAuthPage=true;setEvent('onBackToListClick')"></i>
+		</div>
+<div class="finacle-container"
+ ng-init="rakPayee.payBill.initCompltTransferListPage(successResponse.responsesList);" >
+
+  <div class="account-page">
+  <div class="col-sm-11">
+	<div class="app-title-wrapper">
+	
+	
+	<div class="form-block">
+       
+          <ng-include  src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>    
+  		
+      </div>
+     
+      <div class="bg-color rak-cont-padding">
+        
+    <!-- CHANGES FOR UI START-->
+    <div class="money-block rakBottomZero" ng-show="rakPayee.payBill.scheduleList.length > 0">              
+						         <ul>
+						            <li  class="active rak30 ng-binding" >
+						            {{appLiterals.APP.RAK_PAYEE.HISTORY.DATE}}</li>						        
+						           <li class="active rak30 ng-binding">
+						            {{appLiterals.APP.RAK_PAYEE.HISTORY.TO}}</li>
+						            <li class="active rak30 ng-binding">
+						           {{appLiterals.APP.RAK_PAYEE.HISTORY.AMOUNT}}</li>
+						             <li class="active rak10 ng-binding">&nbsp;</li>
+						         </ul>
+						 	</div>
+	 <!-- CHANGES FOR UI END-->					 	
+						 	
+						 	
+						 	<div class="nano rakHalfScrollDiv rak-cont-padding" >    
+					            <div class="" >
+					            
+					            
+					            <!-- <div class="trans-detail rakGreyRow" ng-show="rakPayee.payBill.scheduleList == null || rakPayee.payBill.scheduleList.length < 1">
+				                  {{appLiterals.APP.DASHBOARD.ACCOUNTS_PAGE.NO_TRANSACTIONS_MSG}}
+				                </div> -->
+				                
+				                
+				                <div ng-if="rakPayee.payBill.scheduleList.length == 0 ">
+									<div class="summary-ServiceReq">
+										<div class="iconDivNorecord">
+											<span class="infoIcon"></span><span class="success">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.NO_TXNS}}</span>
+										</div>
+									</div>
+								</div>
+					            
+					            
+					       
+					               
+									<div class="trans-detail rakGreyRow" ng-show="rakPayee.payBill.scheduleList.length > 0" ng-repeat="transfers in rakPayee.payBill.scheduleList">
+									
+					                  	<div class="trans-dash-right rakPeopleNameRow1 rak30  rakPaddingPoint8em pull-left">					                   		
+					                   		<div> 
+					                    <div class="trans-no rakFont1em">   
+					                   {{transfers.txnDate}}                  
+					                    </div>
+					                    </div>
+					                                  
+					                    </div>
+					                    
+					                  <div class="trans-dash-right rakPeopleNameRow1 rak30 pull-left rakPaddingPoint8em" >					                
+					                  <div> 
+					                    <div class="trans-no rakFont1em">   
+					                    {{transfers.toAccount}}                   
+					                    </div>
+					               </div> 
+					                  </div>
+					                    
+					                    
+					                  <div class="trans-dash-left rakPeopleNameRow1 rak30 pull-left rakPaddingPoint8em">					                  
+					                    <div> 
+					                    <div class="trans-no rakFont1em"> 
+					                    {{transfers.txnCurrency}} {{transfers.txnAmount}}                    
+					                    </div>
+					                  </div> 
+					                        
+					                  </div>
+					                  
+					                  <div class=" rakPaddingPoint5em pull-right" style="width:10%">
+										   	<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											  <ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											    <li><a href="" ng-click="rakPayee.payBill.searchFrom ='Schedule';rakPayee.payBill.selectedCompltTxn = transfers;setEvent('onCompltTxnSelectClick')">
+											    {{appLiterals.APP.RAK_PAYEE.HISTORY.VIEW}}</a></li>
+											    <li><a href="" ng-click="rakPayee.payBill.selectedCompltTxn = transfers;rakPayee.schedule.selectedTxnIndex = transfers.index;rakPayee.schedule.selectedPayee = transfers.toAccount;rakPayee.schedule.selectedTxn.txnFrequency = transfers.freqType;setEvent('onPaymentPayAgainClick')">
+											    {{appLiterals.APP.RAK_PAYEE.HISTORY.PAYAGAIN}}</a></li>       
+											        
+											  </ul>
+										</div>
+										
+										
+					                </div>
+					              </div> 
+              
+						</div>
+						<!-- <div class="label-wrap">
+					
+							<button ng-show="rakSendMoney.txnHistory.directView!='BillTxnView'" type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakPayee.common.fromAuthPage=true;setEvent('onBackClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+								<button ng-show="rakSendMoney.txnHistory.directView=='BillTxnView'" type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakPayee.common.fromAuthPage=true;setEvent('onBackToListClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+
+						</div> -->
+    </div>  
+  </div>
+</div>

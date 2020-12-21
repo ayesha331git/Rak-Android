@@ -1,0 +1,78 @@
+<div class="app app-arrow2 title-right-dash" id="breakFixedDepositBack"
+	ng-click="setEvent('onCancelClick')"></div> 
+<div class="finacle-container"
+	ng-init="services.initBreakFDPage(successResponse.responsesList);services.breakFixedDepositModel.setCurrency();formatAmountCrn('services.breakFixedDepositModel.amountBroken','services.breakFixedDepositModel.depositAccountCrn')">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase">
+							<span id="pageTitle"> {{appLiterals.APP.SERVICES.BRKFIX_DEPINIT.HEADER}}
+							</span>
+						</div>
+					</div>
+					<!-- end of title  -->
+					<form ng-submit="corpInit.corpModel.resetCorpInitDetails();services.breakFixedDepositModel.unFormatNumbers();services.convertToStr();setEvent('onConfirmClick');">
+						<div class="avail-bal-wrap"
+							ng-init='depositAcc = createDropDownOptionAccountArray(services.breakFDInitResponse.depositAccountsList,["accountId"],"accountIdValue");'>
+							<fin-input type="dropdown"
+								model="services.breakFixedDepositModel.depositAccount"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.BRKFIX_DEPINIT.DEP_ACC}}"
+								validation-flag='pageErrorArr["services.breakFixedDepositModel.depositAccount"]'
+								on-change="services.breakFixedDepositModel.setCurrency();angular.element(this).scope().formatAmountCrn('services.breakFixedDepositModel.amountBroken','services.breakFixedDepositModel.depositAccountCrn')"
+								option-array="depositAcc"></fin-input>
+						</div>
+						<h4 class="balance-available"
+							ng-show="services.breakFixedDepositModel.depositAccount.length > 0" id="AVAIL_BAL">
+							{{appLiterals.APP.SERVICES.BRKFIX_DEPINIT.AVAIL_BAL}} <span
+								class="rs-color" id="depositAccountsList">{{(services.breakFDInitResponse.depositAccountsList
+								|
+								filter:{accountIdValue:services.breakFixedDepositModel.depositAccount})[0].balance}}</span>
+						</h4>
+						<div class="avail-bal-wrap">
+							<fin-input type="money"
+								model="services.breakFixedDepositModel.amountBroken"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.BRKFIX_DEPINIT.AMTTO_BROK}}"
+								min="0" max-length="10"
+								validation-flag='pageErrorArr["services.breakFixedDepositModel.amountBroken"]'
+								related-field="services.breakFixedDepositModel.depositAccountCrn"></fin-input>
+						</div>
+						<div class="avail-bal-wrap">
+							<fin-input type="date"
+								model="services.breakFixedDepositModel.date"
+								on-change='services.parseBreakFDDate()' display-row="full"
+								placeholder=""
+								validation-flag='pageErrorArr["services.breakFixedDepositModel.date"]' readonly></fin-input>
+						</div>
+						<div class="avail-bal-wrap"
+							ng-init='transferType = createDropDownOptionArray(services.breakFDInitResponse.TransferType,["Content"], "Value");'>
+							<fin-input type="dropdown"
+								model="services.breakFixedDepositModel.transferType"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.BRKFIX_DEPINIT.TRANF_TYPE}}"
+								validation-flag='pageErrorArr["services.breakFixedDepositModel.transferType"]'
+								option-array="transferType"></fin-input>
+						</div>
+						<div class="avail-bal-wrap"
+							ng-show="services.breakFixedDepositModel.transferType == 'account'">
+							<div
+								ng-init='accList = createDropDownOptionAccountArray(services.breakFDInitResponse.Account,["accountId"], "accountIdValue");'>
+								<fin-input type="dropdown"
+									model="services.breakFixedDepositModel.initorID"
+									display-row="full"
+									placeholder="{{appLiterals.APP.SERVICES.BRKFIX_DEPINIT.TRASF_TOACC}}"
+									validation-flag='pageErrorArr["services.breakFixedDepositModel.initorID"]'
+									option-array="accList "></fin-input>
+							</div>
+						</div>
+						<md-button id="submit" type="submit" class="md-raised btn--primary-btn">
+							{{appLiterals.APP.SERVICES.BRKFIX_DEPINIT.BTN_CONT}}</md-button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

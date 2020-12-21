@@ -1,0 +1,170 @@
+
+<div class="finacle-container"
+	ng-init="rakMails.compose.mailTextNew='';rakMails.compose.isSendClicked ? rakMails.compose.initAfterSend(successResponse.responsesList) : rakMails.compose.initComposePage(successResponse.responsesList)">
+
+<!--RAK  CHANGES ADDING BACK BUTTON ICON START  -->
+<div class="rak-back-header" ng-show="rakMails.selectedMailType=='ML'">
+		<i class="rak-back-img" ng-click="setEvent('onRakCancelSentClick');"></i>
+	</div>
+
+	<div class="rak-back-header" ng-show="rakMails.selectedMailType=='TR'">
+		<i class="rak-back-img" ng-click="setEvent('onRakCancelTrashClick');"></i>
+	</div>
+
+	<div class="rak-back-header" ng-show="rakMails.selectedMailType=='IB'">
+		<i class="rak-back-img" ng-click="setEvent('onRakCancelInboxClick');"></i>
+	</div>
+<!--RAK  CHANGES ADDING BACK BUTTON ICON END  -->
+	<div class="account-page">
+		<div class="col-sm-11">
+
+			<div class="ng-hide" ng-if='rakMails.compose.isMailSent'
+				ng-init="(rakMails.isStatusError) ? showErrorPopup(rakMails.successMessage) : showAlert(rakMails.successMessage); rakMails.compose.isSendClicked=false; rakMails.compose.isMailSent=false; setEvent(rakMails.compose.getSendOKEvent())">
+			</div>
+
+	<div
+					ng-init='mailTypeArray=createDropDownOptionArray(rakMails.mailOptions, ["mailOption"],"mailValue")'>
+					<fin-input type="dropdown" option-array="mailTypeArray"
+						model="rakMails.selectedMailType"
+						display-row="full"
+						placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_SELCT}}"
+						on-change="resetPageError();setGlobalEvent(rakMails.getMailEvent());"
+						validation-flag='pageErrorArr["rakMails.selectedMailType"]'>
+					</fin-input>
+				</div>
+
+				<div class="fin-txt"> </div>
+
+<!--CHANGES DONE AS FIX OF MAILS START -->
+<div class="">
+	<!-- <ng-include src="'./navigation/rakMails/resources/RakMailsTabPage.html'"></ng-include> -->
+	<!-- <div class="settings-block">
+	<div class="backword-div" ng-show="!rakMails.fromBroadcast" ng-click="setEvent('onRakReplySentClick');"> <span><img src="images/back-wrod.png" alt=""></span> </div>
+	<div class="recyclie-div-right" ng-show="!rakMails.fromBroadcast" ng-click="rakMails.trash.clear();rakMails.isDeleteClicked=true;setEvent(rakMails.trash.getEventNameAfterDelete());"> <span><img src="images/recyclie-bin.png" alt=""></span></div>
+</div> -->
+<!--CHANGES DONE AS FIX OF MAILS END -->
+
+
+			<div  ng-if='rakMails.compose.isMailSent'>
+
+				<span>{{rakMails.successMessage}}</span>
+			</div>
+			<!-- <div class="rakScrollDiv"> -->
+<div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh rakOverFlownone">
+				<!-- <div ng-show='!rakMails.fromInbox' class="rak-sum-txt rakBoxShadow">
+
+				<span ng-if="rakMails.detailType == 'Sent' || rakMails.detailType == 'Trash'" class="rakMboxLabel">{{rakMails.compose.detailsFrom}}</span>
+
+				</div> -->
+
+						<div class="rakMailDet full-mail-top" ng-if="rakMails.detailType == 'Inbox'">
+								<div>
+							      <span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.FROM}}:</span>
+							      <span>{{rakMails.mailToId}}</span>
+							    </div>
+							    <div >
+							      <span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.TO}}:</span>
+							      <span>{{rakMails.mailFromId}}</span>
+							    </div>
+							    <div >
+							      <span>Subject:</span>
+							      <span>RE: {{rakMails.mailSubject}}</span>
+							    </div>
+							    <div>
+							      <span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.DATE}}:</span>
+							      <span>{{rakMails.mailDate}}</span>
+							    </div>
+							 </div>
+
+							 <div class="rakMailDet full-mail-top" ng-if="rakMails.detailType == 'Sent'">
+								<div>
+							      <span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.FROM}}:</span>
+							      <span>{{rakMails.mailFromId}}</span>
+							    </div>
+							    <div >
+							      <span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.TO}}:</span>
+							      <span>{{rakMails.mailToId}}</span>
+							    </div>
+							    <div >
+							      <span>Subject:</span>
+							      <span>RE: {{rakMails.mailSubject}}</span>
+							    </div>
+							    <div>
+							      <span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.DATE}}:</span>
+							      <span>{{rakMails.mailDate}}</span>
+							    </div>
+							 </div>
+
+							 <div class="rakMailDet full-mail-top" ng-if="rakMails.detailType == 'Trash'">
+								 <div class="rakMailDet full-mail-top" ng-if="!rakMails.trash.inboxToTrash">
+									<div>
+								      <span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.FROM}}:</span>
+								      <span>{{rakMails.mailFromId}}</span>
+								    </div>
+								    <div >
+								      <span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.TO}}:</span>
+								      <span>{{rakMails.mailToId}}</span>
+								    </div>
+								   </div>
+
+								   <div class="rakMailDet full-mail-top" ng-if="rakMails.trash.inboxToTrash">
+									<div>
+								      <span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.FROM}}:</span>
+								      <span>{{rakMails.mailToId}}</span>
+								    </div>
+								    <div >
+								      <span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.TO}}:</span>
+								      <span>{{rakMails.mailFromId}}</span>
+								    </div>
+								   </div>
+							    <div >
+							      <span>Subject:</span>
+							      <span>RE: {{rakMails.mailSubject}}</span>
+							    </div>
+							    <div>
+							      <span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.DATE}}:</span>
+							      <span>{{rakMails.mailDate}}</span>
+							    </div>
+							 </div>
+
+
+
+<!--RAK CHANGES COMMENTING BELOW PART NOT REQUIRED TO SHOW IN PAGE START  -->
+				<!-- <div ng-show='!rakMails.fromInbox' class="rak-sum-txt rakBoxShadow">
+					<span class="rakMboxLabel">{{rakMails.compose.subject}}</span>
+
+				</div> -->
+
+<!--RAK  CHANGES COMMENTING BELOW PART NOT REQUIRED TO SHOW IN PAGE END  -->
+
+
+				 <div class="rakSentTxtAreaNew">
+					<div>
+						<textarea class="text_area" input-restricted-special-character-mails placeholder="{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.TEXT}}" onpaste="return false"
+							ng-model='rakMails.compose.mailTextNew'></textarea>
+					</div>
+				</div>
+				<!-- <div class="rakSentTxtArea">
+					<div>
+						<textarea  placeholder=""
+							ng-model='rakMails.compose.mailText'></textarea>
+					</div>
+				</div> -->
+
+						<div class="full-mail-bottom">
+							<pre class="rakWordWrap" ng-bind-html=rakMails.compose.mailText></pre>
+						</div>
+
+
+				<div class="label-wrap ">
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-small"
+						ng-click='rakHome.fromHome=false;rakMails.compose.onClickSend();setEvent(rakMails.compose.getSendEvent())'>Send</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<div class="col-sm-1"></div>
+</div>

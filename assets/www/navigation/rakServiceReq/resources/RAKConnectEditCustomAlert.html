@@ -1,0 +1,90 @@
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onRAKConnectEditCustomAlertBackClick');"></i>
+	</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container"
+			ng-init="rakServiceReq.fetchDaysOfWeekCustomAlerts();">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+					<!-- Heading fix-start -->
+                   <div class="dashboard-item-title">
+					  <div class="rak-item-title"> 
+					    {{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.RAKCONNECT}}</div>
+					  
+					</div>
+					<!-- Heading fix-end -->
+						<div class="form-block">
+						 <div class="money-block">
+					          <ul>
+					            <li ng-class="{'active':rakServiceReq.RAKConnectModel.rakConnSetupNewAlert,'':!rakServiceReq.RAKConnectModel.rakConnSetupNewAlert}" ng-click="rakServiceReq.activateSetupNewAlertsTab();setEvent('onRAKConnectSetupNewAlertsClick');">{{appLiterals.APP.RAKCONNECT.SETUP_NEW_ALERT}}</li>
+					            <li ng-class="{'active':rakServiceReq.RAKConnectModel.rakConnManageExisting,'':!rakServiceReq.RAKConnectModel.rakConnManageExisting}" ng-click="">{{appLiterals.APP.RAKCONNECT.MANAGE_EXISTING}}</li>
+					          </ul>
+				         </div>
+								<div class="bg-color rak-cont-padding rak-scroll">
+									<div class="col-sm-1"></div>
+									<p class="rak-sum-txt rakBoxShadow">
+										<span class="rak-sum-label">{{appLiterals.APP.RAKCONNECT.ALERT_TYPE}}</span>
+										<span class="rak-sum-label black">{{rakServiceReq.RAKConnectModel.selectedAlertIDDesccription}}</span>
+									</p>
+									<p class="rak-sum-txt rakBoxShadow">
+										<span class="rak-sum-label">{{appLiterals.APP.RAKCONNECT.ACC_OR_CC}} </span>
+										<span class="rak-sum-label black">{{rakServiceReq.RAKConnectModel.customAlertList[rakServiceReq.RAKConnectModel.selectedSubAccountID].subAccountID}}</span>
+									</p>
+									
+									<p class="rak-sum-txt rakBoxShadow" ng-show="rakServiceReq.RAKConnectModel.selectedSubAlertID!='FIN_BALENQ'">
+										<span class="rak-sum-label">{{appLiterals.APP.RAKCONNECT.FREQUENCY}} </span>
+										<span class="rak-sum-label black">{{rakServiceReq.RAKConnectModel.selectedSubAlertFreqDesc}}</span>
+									</p>
+									
+								<div ng-show="rakServiceReq.RAKConnectModel.selectedSubAlertID=='FIN_BALENQ'">	
+									<div 
+										ng-init='FreqArr = createDropDownOptionArray(rakServiceReq.RAKConnectModel.freqList, ["freqDesc"], "freqDesc");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RAKConnectModel.selectedSubAlertFreqDesc"
+										display-row="full"
+										on-change="rakServiceReq.detectCustomFreqCodeSelected();"
+										placeholder="{{appLiterals.APP.RAKCONNECT.FREQUENCY}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKConnectModel.selectedSubAlertFreqDesc"]'
+										option-array="FreqArr"> </fin-input>
+									<div
+										ng-init='DomArr = createDropDownOptionArray(rakServiceReq.RAKConnectModel.dateOfMnthList, ["dateOfMnthDesc"], "dateOfMnthCode");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RAKConnectModel.selectedSubDay"
+										display-row="full"
+										ng-if="rakServiceReq.RAKConnectModel.selectedSubAlertFreq=='M'"
+										placeholder="{{appLiterals.APP.RAKCONNECT.SELECT_DOM}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKConnectModel.selectedDom"]'
+										option-array="DomArr"> </fin-input>
+                                    </div>
+									<div class="subs-tab-links remit-rakColumnDiv" ng-if="rakServiceReq.RAKConnectModel.selectedSubAlertFreq=='W'">
+										<ul ng-repeat="x in rakServiceReq.RAKConnectModel.dowArrayCustom">
+											<li><span class="pullLeft"> <input type="checkbox" ng-model="x.flag"></span></li>											
+											<li><span>&nbsp;&nbsp;{{x.dayOfWeekDesc}}</span></li>
+										</ul>
+									</div>
+									<div class="bg-color rak-cont-padding">
+									<div class="label-wrap">
+										<button type="button" ng-show="rakServiceReq.RAKConnectModel.selectedSubAlertID=='FIN_BALENQ'" class="btn--special-btn btn-middle btn--special-btn2"
+										
+										ng-click="rakServiceReq.whetherCustomDomDowValidatnRqd();
+										setEvent('onRAKConnectEditCustomAlertModifyClick');
+										rakServiceReq.modifyCustomAlertData();rakServiceReq.RAKConnectModel.isEditOrDelFlow=true">{{appLiterals.APP.RAKCONNECT.MODIFY}}</button>
+										
+										<button type="button" class="btn--special-btn btn-middle"
+										ng-click="setEvent('onRAKConnectEditCustomAlertDelClick');
+										rakServiceReq.deleteCustomAlertData();rakServiceReq.RAKConnectModel.isEditOrDelFlow=true">{{appLiterals.APP.RAKCONNECT.DELETE}}</button>
+									</div>
+								<!-- 	<div class="label-wrap">
+										
+									</div> -->
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

@@ -1,0 +1,50 @@
+<!-- partial code start here-->
+<div class="finacle-container">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+			<div class="dashboard-pad full-height">
+				<div class="dashboard-item-body full-height">					
+					<fin-success 
+						success-banner="" 
+						success-message="{{successResponse.responsesList[0].message}}"
+						cross-click="setEvent('onCancelAndApplyDebitCardSuccessButtonClick')">
+					</fin-success>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtAccNo">
+							{{appLiterals.APP.SERVICES.APP_NEW_DC_AUTH.TXT_ACC_NO}} </span> <span
+							class="sucs-right-color" id="accNO">
+							{{successResponse.responsesList[0].accountNickname}}-{{successResponse.responsesList[0].accountNumber}}
+						</span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtDebitCardNo">
+							{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD_AUTH.TXT_DEBIT_CARD_NO}}
+						</span> <span class="sucs-right-color" id ="debitCardNo">
+							{{successResponse.responsesList[0].cardNumber}} </span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="commonReason">
+							{{appLiterals.APP.SERVICES.COMMON.REASON}} </span> <span
+							class="sucs-right-color" id="reasonDescription">
+							{{successResponse.responsesList[0].reasonDescription}} </span>
+					</div>
+					<div class="sucs-left-txt"
+						ng-hide="services.cancelApplyDebitCard.authResponseList.address1 === undefined || successResponse.responsesList[0].address1 == ''">
+						<span class="sucs-left-color" id="title"> <b>{{appLiterals.APP.SERVICES.APP_NEW_DC.TITLE}}</b>
+						</span>
+					</div>
+					<div class="sucs-left-txt"
+						ng-hide="services.cancelApplyDebitCard.authResponseList.address1 === undefined || successResponse.responsesList[0].address1 == ''">
+						<span class="sucs-left-color" id="txtDeliveryAddress"> <b>{{appLiterals.APP.SERVICES.COMMON.DELIVERY_ADDRESS}}</b>
+						</span> <span class="sucs-right-color" id="deliveryAddress">
+							{{successResponse.responsesList[0].address1}},<br />
+							{{successResponse.responsesList[0].address2}},<br />
+							{{successResponse.responsesList[0].address3}},<br />
+							{{successResponse.responsesList[0].city}},{{successResponse.responsesList[0].state}},{{successResponse.responsesList[0].country}}
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

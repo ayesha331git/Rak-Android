@@ -1,0 +1,76 @@
+<div class="finacle-container">
+	      <div class="account-page">
+	      <div class="col-sm-11">
+		
+		
+		<div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{successResponse.responsesList[0].SuccessMsg}}</span>
+                        </div>
+                  </div>
+            <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.REPORT_CAPTURE_CARDS}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>                 
+                              </h2>              
+</div>
+                  
+		
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+				<div class="row" >
+					<div class="">
+					<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKREPORTCAPTURECARD.TXT_CARDNO}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKChangeReportCapture.cardNoList[rakServiceReq.RAKChangeReportCaptureModel.selectedCCNo].cardId}}</span>
+						</p>
+
+						<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKREPORTCAPTURECARD.CAPTURE_DETAILS}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKChangeReportCaptureModel.selectedCaptureDesc}}</span>
+						</p>
+
+						<p class="rak-sum-txt"
+							ng-show="rakServiceReq.RAKChangeReportCaptureModel.captureFlag">
+							<span class="rak-sum-label"
+								ng-show="rakServiceReq.RAKChangeReportCaptureModel.captureFlag">{{appLiterals.APP.RAK_SERVICES.RAKREPORTCAPTURECARD.BANK_NAME}}
+							</span> <span class="rak-sum-label black"
+								ng-show="rakServiceReq.RAKChangeReportCaptureModel.captureFlag">{{rakServiceReq.RAKChangeReportCaptureModel.bankName}}</span>
+						</p>
+
+
+						<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKREPORTCAPTURECARD.ATM_BRANCH_NAME}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKChangeReportCaptureModel.atmBranchName}}</span>
+						</p>
+
+						<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKREPORTCAPTURECARD.TXT_DELCHANNEL}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKChangeReportCaptureModel.delieveryMode}}</span>
+						</p>
+						<p class="rak-sum-txt"
+							ng-show="rakServiceReq.RAKChangeReportCaptureModel.delieveryMode=='Branch'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKChangeReportCapture.emiSelDesc}}</span>
+						</p>
+						<p class="rak-sum-txt "
+							ng-show="rakServiceReq.RAKChangeReportCaptureModel.delieveryMode=='Branch'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKREPORTCAPTURECARD.TXT_BRANCH}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKChangeReportCapture.branchList[rakServiceReq.RAKChangeReportCaptureModel.selectedBranch].branchName}}</span>
+						</p>
+
+
+
+
+
+							<div class="label-wrap">
+								<button type="button" class="btn--special-btn btn-middle rak-button-right"
+								ng-click="rakServiceReq.resetRAKChangeReportCapture();setEvent('RAKCreditCardReportCaptureDoneClick')">
+							{{appLiterals.APP.RAKCOMMONLITERALS.DONE}}
+								</button>
+							</div>
+				<div class="col-sm-10"> </div>
+         	</div>
+         	</div>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,72 @@
+<!-- <div class="rak-back-header">
+	<i class="rak-back-img" ng-click="setEvent('onBackClick');"></i>
+</div>  -->
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container">
+			<div ng-init='successResponse.invocationResult? rakEDirham.initEdirham(successResponse.invocationResult):rakEDirham.initEdirham(successResponse.responsesList[0]);rakEDirham.eDirhamDetails.accountModel=""' class="account-page">
+			
+					<div class="app-title-wrapper">
+						<div class="form-block">	
+						
+					<div class="eDirham-acct-block">
+						<div  class="bg-color rak-cont-padding rak-scroll margn-5-5-0-5">
+							<div class="">
+					            	
+					            	
+					            <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.EDIRHAM.CHOOSE_ACCT_TXT_MAIN_HEADER}}
+                              <span>{{appLiterals.APP.EDIRHAM.CHOOSE_ACCT_TXT}} </span>                
+                              </h2>              
+						</div>
+					            <div>
+					            <h3 class="setPin-msg">
+									{{appLiterals.APP.EDIRHAM.CHOOSE_ACCT_MSG}}
+									</h3>	
+					            </div>	
+					            
+					            
+					            	
+								<div class="e-dirham-wlcm-block">
+								
+									<div class="loginFirstDiv" ng-init='chooseAcctArray=createDropDownOptionArray(rakEDirham.eDirhamDetails.accountArr , ["subAcctType","-","acctNo", "-", "accountCurrencyCode"],"index")'>
+									
+										<fin-input type="dropdown" option-array="chooseAcctArray"
+											model="rakEDirham.eDirhamDetails.accountModel"
+											display-row="full" on-change="rakHome.onCustomerTypeChange()"
+											placeholder="{{appLiterals.APP.EDIRHAM.EDIRHAM_SELECT_PLC_HLDR}}"
+											
+											validation-flag='pageErrorArr["rakEDirham.eDirhamDetails.accountModel"]'>
+										</fin-input>
+									
+										
+											
+										</div>					
+										
+									
+								</div>
+							</div>
+							
+								<div class="label-wrap">
+
+											<button type="button"
+												class="btn--special-btn btn-middle rak-button-right proceed-btn top-30"
+												ng-click="setEvent('onRAKEDirhamRegContinueClick')">
+												{{appLiterals.APP.EDIRHAM.NEXT_BTN}}
+											</button>
+										<!-- CHANGES AS FIX OF PROUAT-1503 END-->
+
+										</div>
+							
+						</div>
+					
+										
+						</div>
+					</div>
+				</div>
+			
+		</div>
+		
+	</div>
+	</div>
+	</div>

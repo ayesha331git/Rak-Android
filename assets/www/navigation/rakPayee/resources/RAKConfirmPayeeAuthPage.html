@@ -1,0 +1,79 @@
+<div class="finacle-container" ng-init="
+						(rakPayee.isBillerAuthSent == true) ? rakPayee.processBillerAuthStatusResponse(successResponse.responsesList) :
+						(rakPayee.processBillerAuthInitResponse(successResponse.responsesList));
+						rakPayee.payeeModel.transactionPassword = '';rakHome.AuthPageData.firstAuthModeValue='';rak2FARegister.RegistrationModel.resendAuthMode(successResponse.responsesList);">
+
+	<div class="account-page">
+		<div class="col-sm-10">
+				<div class="app-title-wrapper">
+					<div class="app app-arrow title-left" ng-click="rakPayee.isBackClicked=true;rakPayee.revertValues();rakPayee.isDeleteBillerMode?setEvent('onPayeeConfirmationDeleteBackClick'):setEvent('onPayeeConfirmationBackClick');rakPayee.isDeleteBeneficiaryMode=false;"></div><!-- rakPayee.isBackClicked=true; -->
+					<div class="title-center"> {{rakPayee.isEditBillerMode ? "Edit": (rakPayee.isDeleteBillerMode ? "Delete": "Add New ")}} Biller </div>
+					<div class="app app-cancel title-right"  ng-click="setEvent('onPayeeConfirmationCancelClick')"></div>
+				</div>
+			  <div class="highlight-color"> </div>
+			  <div class="bg-color">
+				<div class="row" >
+				  <div class="col-sm-1"> </div>
+				  <div class="col-sm-10">
+<div class="ng-hide" ng-if="rakPayee.isShowAlert" ng-init="(rakPayee.isAlertAnError == true) ? showErrorPopup(rakPayee.billerAuthStatusMessage) : showAlert(rakPayee.billerAuthStatusMessage);rakPayee.isBillerAuthSent=false;rakPayee.isShowAlert=false; setEvent(rakPayee.getBillerAuthPopupEvent())"></div>
+
+<!-- The following div shows the alert -->
+<!-- Once the alert completes showing the message, the user is taken back to the payee landling list page -->
+            <div class="fin-txt"></div>
+			<p class="left-txt">Name:&nbsp;<span class="right-txt-color"><b> {{rakPayee.billerAuthDetails.billerName}}</b></span> </p>
+			<p class="left-txt">NickName:&nbsp;<span class="right-txt-color"><b>  {{rakPayee.billerAuthDetails.billerNickName}}</b></span> </p>
+
+			<div ng-show="rakPayee.billerAuthDetails.hasOwnProperty('billerAuthStatusMessage')">
+				<p class="left-txt">Biller Id:&nbsp;<span class="right-txt-color"><b>  {{rakPayee.billerAuthDetails.billerAuthStatusMessage}}</b></span> </p>
+			</div>
+
+			<div ng-show="rakPayee.billerAuthDetails.hasOwnProperty('billerID')">
+				<p class="left-txt">Biller Id:&nbsp;<span class="right-txt-color"><b>  {{rakPayee.billerAuthDetails.billerID}}</b></span> </p>
+			</div>
+			<div ng-show="rakPayee.billerAuthDetails.hasOwnProperty('billerType')">
+				<p class="left-txt">Biller Type:&nbsp;<span class="right-txt-color"><b>  {{rakPayee.billerAuthDetails.billerType}}</b></span> </p>
+			</div>
+			<div ng-show="rakPayee.billerAuthDetails.hasOwnProperty('billerTypeDesc')">
+				<p class="left-txt">Biller Desc:&nbsp;<span class="right-txt-color"><b>  {{rakPayee.billerAuthDetails.billerTypeDesc}}</b></span> </p>
+			</div>
+
+			<div ng-show="rakPayee.billerAuthDetails.hasOwnProperty('field')">
+				<div ng-repeat="fields in rakPayee.billerAuthDetails.field">
+					<p class="left-txt">{{fields.field}} :<span class="right-txt-color"><b>  {{fields.fieldName}}</b></span> </p>
+				</div>
+			</div>
+
+			<div ng-show="rakPayee.billerAuthDetails.hasOwnProperty('autoPayRequired')">
+				<p class="left-txt">AutoPay Required:&nbsp;<span class="right-txt-color"><b>  {{rakPayee.billerAuthDetails.autoPayRequired}}</b></span> </p>
+
+				<div ng-show=" rakPayee.billerAuthDetails.autoPayRequired == 'Yes'">
+					<p class="left-txt">AutoPay Mode:&nbsp;<span class="right-txt-color"><b>  {{rakPayee.billerAuthDetails.autoPayMode}}</b></span> </p>
+					<div ng-show=" rakPayee.billerAuthDetails.hasOwnProperty('billerLimitAmount')">
+						<p class="left-txt">Limit Amount:&nbsp;<span class="right-txt-color"><b>  {{rakPayee.billerAuthDetails.billerLimitAmount}}</b></span> </p>
+					</div>
+					<p class="left-txt">Debit Account:&nbsp;<span class="right-txt-color"><b>  {{rakPayee.billerAuthDetails.debitAccount}}</b></span> </p>
+					<div ng-show=" rakPayee.billerAuthDetails.hasOwnProperty('subscriptionDate')">
+						<p class="left-txt">Subscription Date:&nbsp;<span class="right-txt-color"><b>  {{rakPayee.billerAuthDetails.subscriptionDate}}</b></span> </p>
+					</div>
+				</div>
+			</div>
+
+		  <div class="app-hr"> </div>
+
+			<div class="label-wrap"  ng-show="rakPayee.billerAuthDetails.auth.length!=0">
+				  <p class="label-title">{{appLiterals.APP.PAYEE.ADDBILL_AUTHPAGE.HEADER_AUTH}}</p>
+				  <p class="label-txt"> {{appLiterals.APP.PAYEE.ADDBILL_AUTHPAGE.SENT_CONFRMTRANS}}</p>
+			  </div>
+
+             <fin-input type="password_text" model="rakPayee.payeeModel.transactionPassword" display-row="full" placeholder="Transaction Password" validation-flag='pageErrorArr["rakPayee.payeeModel.transactionPassword"]' ng-show="rakPayee.billerAuthDetails.auth==txnpwdString"> </fin-input>
+
+			 <!-- All the three use cases (1.Add Biller 2.Edit Biller and 3.Delete Biller) are handled below -->
+			<button type="button" class="btn--primary-btn" ng-click="rakPayee.isBillerAuthSent = true; rakPayee.isBackClicked=false;
+                    						setEvent('onRAKConfirmAddBillerAuthConfirmClick'));" >{{appLiterals.APP.PAYEE.ADDBILL_AUTHPAGE.BTN_CONFIRM}}</button>
+
+		  </div>
+	  </div>
+	</div>
+</div>
+</div>
+</div>

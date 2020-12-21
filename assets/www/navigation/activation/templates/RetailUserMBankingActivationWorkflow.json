@@ -1,0 +1,64 @@
+{
+  "pageNavigation":
+  [
+  		{ "RetailUserMBankingActivationPage" :
+  			[
+  				{ "eventName" : "onActivateClicked",
+  				"action" : "navigation",
+  				"actionType":"navigation",
+  				"successPage" : {
+  								"pageName": "RetailUserMBankingActivationDeviceListPage"
+  								},
+  				"errorPage" : {
+  								"pageName": "RetailUserMBankingActivationPage"
+  								}
+  				}
+  			]
+  		},
+  		{ "RetailUserMBankingActivationDeviceListPage" :
+  			[
+  				{ "eventName" : "onActivationAddDeviceClicked",
+  				"action" : "navigation",
+  				"actionType":"navigation",
+  				"successPage" : {
+  								"pageName": "RetailUserMBankingActivationAuthenticatePage"
+  								},
+  				"errorPage" : {
+  								"pageName": "RetailUserMBankingActivationDeviceListPage"
+  								}
+  				}
+  			]
+  		},
+  		{ "RetailUserMBankingActivationAuthenticatePage" :
+  			[
+  				{ "eventName" : "onActivationAuthenticateClicked",
+  				"action" : "navigation",
+  				"actionType":"navigation",
+  				"successPage" : {
+  								"pageName": "RetailUserMBankingActivationSetCredentialsPage"
+  								},
+  				"errorPage" : {
+  								"pageName": "RetailUserMBankingActivationAuthenticatePage"
+  								}
+  				}
+  			]
+  		},
+  		{ "RetailUserMBankingActivationSetCredentialsPage" :
+  			[
+  				{ "eventName" : "onActivationSetMPINClicked",
+  				"action" : "navigation",
+  				"actionType":"navigation",
+  				"successPage" : {
+  								"subFeature": "RetailUserLogin",
+  								"pageName": "RetailUserLoginPage"
+  								},
+  				"errorPage" : {
+  								"pageName": "RetailUserMBankingActivationSetCredentialsPage"
+  								}
+  				}
+  			]
+  		}
+  ],
+  	"subFeatureName": "RetailUserMBankingActivation",
+  	"startPage": "RetailUserMBankingActivationPage"
+}

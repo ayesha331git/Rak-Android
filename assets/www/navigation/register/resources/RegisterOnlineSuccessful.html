@@ -1,0 +1,15 @@
+<div class="finacle-container"
+	ng-init="register.initSuccessMessage(successResponse)">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+			<div class="dashboard-pad full-height">
+				<div class=" dashboard-item-body full-height">
+					<fin-success
+						success-banner=""
+						success-message="{{register.message!=undefined ? register.message : appLiterals.APP.REGISTER.REG_ONLSUCC.REG_MSG}}"
+						cross-click="isUserLoggedIn ?  setEvent('onRegisterChannelSuccessOkClick') : setGlobalEvent('onLoginClick')"></fin-success>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

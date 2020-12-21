@@ -1,0 +1,73 @@
+<div class="app app-arrow2 title-right-dash"
+	id="hotlistDebitCardPageBack"
+	ng-click="services.debitCardNum=false;setEvent('onHotlistDebitCardCancelClick')"></div>
+<div class="finacle-container"
+	ng-init="services.initHotlistDebitCardData(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase" id="CDLPHeader">
+							{{appLiterals.APP.SERVICES.COMMON.HOTLILST_DEBIT_CARD}}</div>
+					</div>
+
+					<form id="HLDCFormSubmit"
+						ng-submit="services.debitCardNum=false;corpInit.corpModel.resetCorpInitDetails();setEvent('onHotlistDebitCardContinueClick')">
+
+						<div class="avail-bal-wrap"
+							ng-init='accountsListArray = createDropDownOptionArray(services.hotlistDCModel.accountsList,["accountNickName","-","accountNumber"], "accountIndex");'>
+							<fin-input type="dropdown"
+								model="services.hotlistDCModel.accountNumber"
+								on-change="setEvent('onHotlistDebitCardAccountNumberSelect');"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.HOTLIST_DC.PH_ACC_NO}}"
+								validation-flag='pageErrorArr["services.hotlistDCModel.accountNumber"]'
+								option-array="accountsListArray"></fin-input>
+						</div>
+						
+						<div class="avail-bal-wrap"
+							ng-init='debitCardNumberArray = createDropDownOptionArray(services.hotlistDCModel.debitCardList,["debitCardNumber"], "debitCardIndex");'>
+							<fin-input type="dropdown" ng-show="debitCardNumberArray.length>0"
+								model="services.hotlistDCModel.debitCardNumber"
+								display-row="full"
+								on-change="services.debitCardNum=true"
+								placeholder="{{appLiterals.APP.SERVICES.HOTLIST_DC.PH_DC_NO}}"
+								validation-flag='pageErrorArr["services.hotlistDCModel.debitCardNumber"]'
+								option-array="debitCardNumberArray"></fin-input>
+						</div>
+						
+						<div class="col-sm-12  margin-bottom-20" ng-show="services.debitCardNum">
+						
+							<div class="account-detail-dash margin-zero">
+								<strong class="trans-no" id="HLDCNameOnCardLabel">{{appLiterals.APP.COMMON.TEXT.NAME}}
+								</strong> <span class="dash-ac-id" id="HLDCNameOnCardValue">{{(services.hotlistDCModel.debitCardList|filter:{debitCardIndex:services.hotlistDCModel.debitCardNumber})[0].nameOnCard}}</span>
+							</div>
+							
+							<div class="account-detail-dash margin-zero">
+								<strong class="trans-no" id="HLDCStatusLabel">{{appLiterals.APP.COMMON.TEXT.STATUS}}
+								</strong> <span class="dash-ac-id" id="HLDCStatusValue">{{(services.hotlistDCModel.debitCardList|filter:{debitCardIndex:services.hotlistDCModel.debitCardNumber})[0].status}}</span>
+							</div>
+							
+							<div></div>
+							
+						</div>
+
+						<div class="avail-bal-wrap"
+							ng-init='reasonsListArray = createDropDownOptionArray(services.hotlistDCModel.reasonsList,["reasonDescription"], "reasonIndex");'>
+							<fin-input type="dropdown"
+								model="services.hotlistDCModel.reasonDescription"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.HOTLIST_DC.PH_REASON}}"
+								validation-flag='pageErrorArr["services.hotlistDCModel.reasonDescription"]'
+								option-array="reasonsListArray"></fin-input>
+						</div>
+
+						<md-button type="submit" class="md-raised btn--primary-btn">{{appLiterals.APP.COMMON.BUTTON.CONTINUE}}</md-button>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

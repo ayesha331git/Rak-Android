@@ -1,0 +1,124 @@
+<div class="finacle-container"
+ ng-init="rakPayee.payCard.initCompltTransferListPage(successResponse.responsesList);" >
+  <div ng-show="rakPayee.isBeneficiaryHistoryMode" class="rak-back-header">
+			<i class="rak-back-img" ng-click="rakPayee.common.fromAuthPage=true;setEvent('onBackToBenfClick')"></i>
+		</div>
+		
+		<div ng-hide="rakPayee.isBeneficiaryHistoryMode" class="rak-back-header">
+			<i class="rak-back-img" ng-click="setEvent('onBackClick')"></i>
+		</div>
+  <div class="account-page">
+  <div class="col-sm-11">
+	<div class="app-title-wrapper">
+	
+	 
+		
+	<div class="form-block">
+       
+          <ng-include  src="'./navigation/rakPayee/resources/RakPayCardsTabPage.html'"> </ng-include>    
+  					<div class="tab-links">
+						<ul>																	
+							<li class="active"><span class="active">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_HISTORY}}</span></li>
+					<li ng-click="rakPayCards.schedule.clearSchedulePayCardsData();rakPayCards.ownCards.clearOwnCardsData();rakPayCards.setFutureDate();setGlobalEvent('onRakPayeeCardHistoryTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_SCHEDULE}}</span></li>
+						</ul>
+					</div>
+      </div>
+     
+      <div class="bg-color rak-cont-padding">									
+									
+					<div ng-if="rakPayee.payCard.scheduleList.length == 0 ">
+							<div class="summary-ServiceReq">
+								<div class="iconDivNorecord">
+									<span class="infoIcon"></span><span class="success">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.NO_TXNS}}</span>
+								</div>
+							</div>
+						</div>
+									
+   				 <div ng-if="rakPayee.payCard.scheduleList.length > 0">
+ 
+     				<div class="money-block rakBottomZero">              
+						         <ul>
+						            <li  class="active rak30 ng-binding" >
+						            {{appLiterals.APP.RAK_PAYEE.HISTORY.DATE}}</li>						        
+						           <li class="active rak30 ng-binding">
+						            {{appLiterals.APP.RAK_PAYEE.HISTORY.TO}}</li>
+						            <li class="active rak30 ng-binding">
+						           {{appLiterals.APP.RAK_PAYEE.HISTORY.AMOUNT}}</li>
+						            <li class="active rak10 ng-binding">&nbsp;</li>
+						         </ul>
+					</div>			 	
+						 	
+						 	
+						 	<div class="nano rakHalfScrollDiv rak-cont-padding" >    
+					            <div class="" >
+					       
+					               
+									<div class="trans-detail rakGreyRow" ng-repeat="transfers in rakPayee.payCard.scheduleList">
+									
+					                  	<div class="trans-dash-right rakPeopleNameRow1 rak30  rakPaddingPoint8em pull-left">					                   		
+					                   		<div> 
+					                    <div class="trans-no rakFont1em">   
+					                   {{transfers.txnDate}}                  
+					                    </div>
+					                    </div>
+					                                  
+					                    </div>
+					                    
+					                  <div class="trans-dash-right rakPeopleNameRow1 rak30 pull-left rakPaddingPoint8em" >					                
+					                  <div> 
+					                    <div class="trans-no rakFont1em">   
+					                    {{transfers.toAccount}}                   
+					                    </div>
+					               </div> 
+					                  </div>
+					                    
+					                    
+					                  <div class="trans-dash-left rakPeopleNameRow1 rak30 pull-left rakPaddingPoint8em">					                  
+					                    <div> 
+					                    <div class="trans-no rakFont1em"> 
+					                    {{transfers.txnCurrency}} {{transfers.txnAmount}}                    
+					                    </div>
+					                  </div> 
+					                        
+					                  </div>
+					                  
+					                  <div class="pull-right rakPaddingPoint5em" style="width:10%">
+										   	<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											  <ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											  <li><a href="" ng-click="rakPayee.payCard.searchFrom ='Schedule';rakPayee.payCard.selectedCompltTxn = transfers;
+											  rakPayee.payCard.selectedCompltTxnIndex = transfers.index;
+											  setEvent('onPayCardViewTxnDetails')">
+											  <!--  <li><a href="" ng-click="rakPayee.payCard.searchFrom ='Schedule';
+											  rakPayee.payCard.selectedCompltTxn = transfers;setEvent('onCompltTxnSelectClick')"> -->
+											    {{appLiterals.APP.RAK_PAYEE.HISTORY.VIEW}}</a></li>
+											    <li><a href="" ng-click="rakPayCards.ownCards.fromSearch=true;rakPayCards.ownCards.selectedCardBenfType = rakPayee.payCard.selectedCardType;rakPayee.payCard.selectedCompltTxn = transfers;
+											    rakPayCards.ownCards.isBenfAccountSelected=true;rakPayCards.ownCards.isCardSelected=true;rakPayee.payCard.selectedCompltTxn = transfers;rakPayee.payCard.selectedCompltTxnIndex = transfers.index;setEvent('onCompltTxnSendAgain')">
+											    {{appLiterals.APP.RAK_PAYEE.HISTORY.PAYAGAIN}}</a></li>  
+											    <li><a href="" ng-show="transfers.txnStatus=='Under Processing'" ng-click="rakPayee.payCard.selectedCompltTxn = transfers;rakPayee.payCard.selectedCompltTxnIndex = transfers.index;setEvent('onCompltTxnViewStatus')">
+											    {{appLiterals.APP.RAK_PAYEE.HISTORY.VIEWSTAT}}</a></li>     
+											        
+											        
+											     <li><a href="" ng-show="transfers.txnStatus=='Under Processing'" ng-click="rakPayee.payCard.clearSearchHistory();rakPayee.payCard.selectedCompltTxn = transfers;rakPayee.payCard.selectedCompltTxnIndex = transfers.index;rakPayee.payCard.txnType = transfers.txnType;setEvent('onCompltTxnCancel')">
+											    Cancel</a></li> 
+											  </ul>
+										</div>
+										
+										
+					                </div>
+					              </div> 
+              
+						</div>
+						<div class="label-wrap">
+					
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="setEvent('onBackClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+
+						</div>
+						
+						</div>
+    
+    </div>  
+  </div>
+</div>

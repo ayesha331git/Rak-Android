@@ -1,0 +1,848 @@
+<div class="rak-back-header">
+	<i class="rak-back-img" ng-click="rakTradeFinance.rakTradeFinanceInquiry.isBack=true;setEvent('onTFDisplayBackClick');"></i>
+</div>
+<div class="finacle-container ng-scope">
+	<div class="account-page">
+		<div class="col-sm-11">
+			<!-- 	<div class="app-title-wrapper"> -->
+
+
+			<div class="main-form-heading-ServiceReq">
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='ILC'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.VD_IMPORT_FIN}} - {{appLiterals.APP.TRADE_FIN_PAGE.ILC}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='PAD'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.VD_IMPORT_FIN}} - {{appLiterals.APP.TRADE_FIN_PAGE.PAD}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='ACP'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.VD_IMPORT_FIN}} - {{appLiterals.APP.TRADE_FIN_PAGE.ACP}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='LTR'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.VD_IMPORT_FIN}} - {{appLiterals.APP.TRADE_FIN_PAGE.LTR}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='IND'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.VD_IMPORT_FIN}} - {{appLiterals.APP.TRADE_FIN_PAGE.IND}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='SHG'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.VD_IMPORT_FIN}} - {{appLiterals.APP.TRADE_FIN_PAGE.SHG}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='SLC'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.VD_IMPORT_FIN}} - {{appLiterals.APP.TRADE_FIN_PAGE.SLC}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='LCD'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.VD_IMPORT_FIN}} - {{appLiterals.APP.TRADE_FIN_PAGE.LCD}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='STL'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.VD_IMPORT_FIN}} - {{appLiterals.APP.TRADE_FIN_PAGE.STL}}</h2>
+				</div>
+				
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedGuaranteeCode=='IGT'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.VD_GUARANTEE}} - {{appLiterals.APP.TRADE_FIN_PAGE.IGT}}</h2>
+				</div>
+				
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode=='FEL'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.VD_EXPORT}} - {{appLiterals.APP.TRADE_FIN_PAGE.FEL}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode=='OBC'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.VD_EXPORT}} - {{appLiterals.APP.TRADE_FIN_PAGE.OBC}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode=='ELC'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.VD_EXPORT}} - {{appLiterals.APP.TRADE_FIN_PAGE.ELC}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode=='EAC'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.VD_EXPORT}} - {{appLiterals.APP.TRADE_FIN_PAGE.EAC}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode=='FOB'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.VD_EXPORT}} - {{appLiterals.APP.TRADE_FIN_PAGE.FOB}}</h2>
+				</div>
+				
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedInlandTradeCode=='LAI'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.VD_INLAND_TRADE_FIN}} - {{appLiterals.APP.TRADE_FIN_PAGE.LAI}}</h2>
+				</div>
+				
+			</div>
+			<!-- </div> -->
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+					<div class="">
+					 	<!-- Import Finance – Letter of Credits  - start -->
+						<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='ILC'">
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LC_REF}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityID}}</span>
+							</p>
+	
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BENF_NAME}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].benfName}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LC_CCY}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityCurrency}}</span>
+							</p>
+							
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LC_AMT}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityValueWithCrn}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LC_AMT_AED}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].loanBalanceWithCrn}}</span>
+							</p>
+	
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BAL_AMT}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherAmount}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BAL_AMT_AED}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherAmountAED}}</span>
+							</p>
+							
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.ISSUE_DATE}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].opendate}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.EXPIRY_DATE}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].expdate}}</span>
+							</p>
+	
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LC_CAT}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].category}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.AVAILABLE_BY}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].closeDateNoSpace}}</span>
+							</p>
+							
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.DRAFTS_AT}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherData}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.ADVISE_BANK}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].bankName}}</span>
+							</p>
+						</div>
+						<!-- Import Finance – Letter of Credits  - end -->
+						
+						
+						<!-- Import Finance – Payment against Document  - start -->
+						<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='PAD'">
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LC_REF_NUM}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityID}}</span>
+							</p>
+	
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_REF_NUM}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherRefNum}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_CCY}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherAmtCurrency}}</span>
+							</p>
+							
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_AMT}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherAmtCrnAED}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.PAD_CCY}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityCurrency}}</span>
+							</p>
+	
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.PAD_AMT}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityValueWithCrn}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.PAD_AMT_AED}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].loanBalanceWithCrn}}</span>
+							</p>
+							
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.PAD_START_DATE}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].opendate}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.PAD_MATURITY_DATE}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].expdate}}</span>
+							</p>
+	
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LC_CAT}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].category}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.AVAILABLE_BY}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].closeDate}}</span>
+							</p>					
+						</div>
+						<!-- Import Finance – Payment against Document  - end -->
+	
+						<!-- Import Finance – Acceptances  - start -->
+						<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='ACP'">
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LC_REF_NUM}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityID}}</span>
+							</p>
+	
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_REF_NUM}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherRefNum}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BENF_NAME}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].benfName}}</span>
+							</p>
+							
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_CCY}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityCurrency}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_AMT}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityValue}}</span>
+							</p>
+	
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BAL_AMT_AED}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].loanBalanceWithCrn}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.TENOR}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].tenor}}</span>
+							</p>
+							
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.MATURITY_DATE}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].expdate}}</span>
+							</p>
+						</div>
+						<!-- Import Finance – Acceptances  - end -->
+						
+						<!-- Import Finance – Loan Against Trust Receipts  - start -->
+						<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='LTR'">
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.REF_NUM}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityID}}</span>
+							</p>
+	
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BENF_NAME}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].benfName}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.TR_TYPE}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].category}}</span>
+							</p>
+							
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.PAY_CCY}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityCurrency}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.PAY_AMT}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityValue}}</span>
+							</p>
+	
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LOAN_CCY}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].loanCurrency}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LOAN_AMT_AED}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].loanAmountAED}}</span>
+							</p>
+							
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.TR_BAL}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherAmount}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.TR_BAL_AED}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherAmtCrnAED}}</span>
+							</p>
+	
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.TR_PRC_DATE}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].closeDate}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LOAN_START_DATE}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].opendate}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.MATURITY_DATE}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].expdate}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.MASTER_REF}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherData}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.TR_TENOR}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].tenor}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.INVOICE_NUM}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherRefNum}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.PROFIT_RATE}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].interest}}</span>
+							</p>
+						</div>
+						<!-- Import Finance – Loan Against Trust Receipts  - end -->
+						
+						<!-- Import Finance – Inward Document Collection  - start -->
+<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='IND'">
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.REF}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityID}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.DRAWER_NAME}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].benfName}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.COLLECT_TYPE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].category}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.COLLECT_CCY}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityCurrency}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.COLLECT_AMT}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityValueWithCrn}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.COLLECT_AMT_AED}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].openValue}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.COLLECT_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].opendate}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.REMIT_BANK_NAME}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].bankName}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.DUE_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].expdate}}</span>
+	</p>
+</div>
+<!-- Import Finance – Loan Against Trust Receipts  - end -->
+
+<!-- ------------------------------------------------------------------------------------------------------------ -->
+<!-- Import Finance – Shipping Guarantee  - start -->
+<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='SHG'">
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.GUA_REF}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherRefNum}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.TR_REF}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityID}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.GUA_TYPE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].category}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.ISSUE_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].opendate}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.EXPIRY_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].expdate}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.GUA_CCY}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityCurrency}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.GUA_AMT}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityValue}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.GUA_AMT_AED}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].loanBalanceWithCrn}}</span>
+	</p>
+	 <p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.GUA_STATUS}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityStatus}}</span>
+	</p> 
+</div>
+<!-- Import Finance – Shipping Guarantee  - end -->
+
+<!-- ------------------------------------------------------------------------------------------------------------ -->
+<!-- Import Finance – Standby LC  - start -->
+<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='SLC'">
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LC_REF_NUM}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityID}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LC_CCY}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityCurrency}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LC_AMT}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityValue}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LC_AMT_AED}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityValueWithCrn}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.ISSUE_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].opendate}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.EXPIRY_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].expdate}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.ADVISING_BANK}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].bankName}}</span>
+	</p>
+</div>
+<!-- Import Finance – Standby LC  - end -->
+
+<!-- ------------------------------------------------------------------------------------------------------------ -->
+<!-- Import Finance – Local Cheque Discounting  - start -->
+<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='LCD'">
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.REF_NUM}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityID}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.DRAWEE_NAME}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].benfName}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.CHQ_NUM}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherRefNum}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.CHQ_CCY}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityCurrency}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.CHQ_AMT}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityValueWithCrn}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.CHQ_DUE_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].opendate}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.DRAWEE_BANK_NAME}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].bankName}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.CHQ_STATUS}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityStatus}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.INT_PF_RATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].interest}}</span>
+	</p>
+	
+</div>
+<!-- Import Finance – Local Cheque Discounting  - end -->
+
+<!-- ------------------------------------------------------------------------------------------------------------ -->
+<!-- Import Finance – Short Term Loan against Invoice - start -->
+<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='STL'">
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.REF_NUM}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityID}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BENF_NAME}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].benfName}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.PAY_CCY}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityCurrency}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.PAY_AMT}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityValueWithCrn}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LOAN_CCY}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].loanCurrency}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LOAN_AMT_AED}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].loanAmountAED}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.STL_BAL}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherAmount}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.STL_BAL_AED}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherAmtCrnAED}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.STL_PRC_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].closeDate}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LOAN_START_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].opendate}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.MATURITY_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].expdate}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.STL_TENOR}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].tenor}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.INVOICE_NUM}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherRefNum}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.INT_PF_RATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].interest}}</span>
+	</p>	
+</div>
+<!-- Import Finance – Short Term Loan against Invoice  - end -->
+
+<!-- ------------------------------------------------------------------------------------------------------------ -->
+<!-- Guarantee : Letter of Guarantee  - start -->
+<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedGuaranteeCode=='IGT'">
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.GUA_REF}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityID}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BENF_NAME}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].benfName}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.REVOLVE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherData}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.CURR}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityCurrency}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.AMT}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityValueWithCrn}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.AMT_AED}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].loanBalanceWithCrn}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.ISSUE_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].opendate}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.EXPIRY_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].expdate}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.GUA_TYPE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].category}}</span>
+	</p>
+</div>
+<!-- Guarantee : Letter of Guarantee - end -->
+
+<!-- ------------------------------------------------------------------------------------------------------------ -->
+
+<!-- Export : Export Finance (Under LC)  - start -->
+<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode=='FEL'">
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LC_REF}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityID}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_REF_NUM}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherRefNum}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LC_CCY}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityCurrency}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.APPL_NAME}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].benfName}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BANK_NAME}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].bankName}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.DISC_CCY}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityCurrency}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.DISC_AMT}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityValueWithCrn}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.DISC_AMT_AED}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].loanBalanceWithCrn}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.START_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].opendate}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.MATURITY_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].expdate}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.INT_PF_RATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].interest}}</span>
+	</p>
+</div>
+<!-- Export : Export Finance (Under LC)  - end -->
+
+<!-- ------------------------------------------------------------------------------------------------------------ -->
+
+<!-- Export : Outward Bill for Collection - start -->
+<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode=='OBC'">
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.OBC_REF}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityID}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.DRAWEE_NAME}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].benfName}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.COLLECT_TYPE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].category}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.COLLECT_CCY}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityCurrency}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.COLLECT_AMT}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityValueWithCrn}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.COLLECT_AMT_AED}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].loanBalanceWithCrn}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.COLLECT_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].opendate}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.COLLECT_BANK_NAME}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].bankName}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.DUE_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].expdate}}</span>
+	</p>
+</div>
+<!-- Export : Outward Bill for Collection  - end -->
+
+<!-- ------------------------------------------------------------------------------------------------------------ -->
+
+<!-- Export : Export Letter of Credits - start -->
+<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode=='ELC'">
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.REFNUM}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityID}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LC_REF_NO}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherRefNum}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.APPL_NAME}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].benfName}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LC_CCY}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityCurrency}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LC_AMT}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityValueWithCrn}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LC_AMT_AED}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].loanBalanceWithCrn}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.ADVISE_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].opendate}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.AVAILABLE_BY}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].closeDateNoSpace}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.OUR_ENGAGE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherData}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.EXPIRY_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].expdate}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.ISSUE_BANK_NAME}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].bankName}}</span>
+	</p>
+</div>
+<!-- Export : Export Letter of Credits  - end -->
+
+<!-- ------------------------------------------------------------------------------------------------------------ -->
+
+<!-- Export : Export Acceptances - start -->
+<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode=='EAC'">
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LC_REF_NUM}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityID}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_REF_NUM}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].otherRefNum}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.APPL_NAME}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].benfName}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_CCY}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityCurrency}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_AMT}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityValueWithCrn}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_AMT_AED}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].loanBalanceWithCrn}}</span>
+	</p>		
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.AVAILABLE_BY}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].closeDate}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.MATURITY_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].expdate}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.ISSUE_BANK_NAME}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].bankName}}</span>
+	</p>
+</div>
+<!-- Export : Export Acceptances  - end -->
+
+<!-- ------------------------------------------------------------------------------------------------------------ -->
+
+<!-- Export : Export Finance (Under Collection) - start -->
+<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode=='FOB'">
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.REF_NUM}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityID}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.DRAWEE_NAME}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].benfName}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.COLLECT_BANK_NAME}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].bankName}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.DISC_CCY}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityCurrency}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.DISC_AMT}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityValueWithCrn}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.DISC_AMT_AED}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].loanBalanceWithCrn}}</span>
+	</p>		
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.START_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].opendate}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.MATURITY_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].expdate}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.INT_PF_RATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].interest}}</span>
+	</p>
+</div>
+<!-- Export : Export Finance (Under Collection)  - end -->
+
+<!-- ------------------------------------------------------------------------------------------------------------ -->
+
+<!-- Inland Trade Finance : Loan against Invoices - start -->
+<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedInlandTradeCode=='LAI'">
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.REF_NUM}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityID}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.BUYER_NAME}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].benfName}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LOAN_CURR}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].loanCurrency}}</span>
+	</p>	
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LOAN_AMOUNT}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].entityValueWithCrn}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.LOAN_BAL}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].loanBalanceWithCrn}}</span>
+	</p>		
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.ISSUE_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].opendate}}</span>
+	</p>
+	<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.DUE_DATE}}</span>
+		<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray[rakTradeFinance.rakTradeFinanceInquiry.selIndex].expdate}}</span>
+	</p>
+</div>
+<!-- Inland Trade Finance : Loan against Invoices  - end -->
+
+	<div class="label-wrap">
+				<button type="button"
+					class="btn--special-btn btn-middle rak-button-small btn--back"
+					 ng-click="rakTradeFinance.rakTradeFinanceInquiry.isBack=true;setEvent('onTFDisplayBackClick');">
+					{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+			</div>
+
+<!-- ------------------------------------------------------------------------------------------------------------ -->
+						<div class="col-sm-1"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

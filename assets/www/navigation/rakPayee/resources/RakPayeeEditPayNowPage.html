@@ -1,0 +1,373 @@
+<div class="rak-back-header" ng-if="rakPendingApproval.pendingApprovalTab!='PIA'">
+		<i class="rak-back-img"
+			ng-click="setEvent('onBackClick');"></i>
+</div>
+
+<div class="rak-back-header" ng-if="rakPendingApproval.pendingApprovalTab=='PIA'">
+
+<div ng-if="rakPendingApproval.fromSearch==false">
+		<i class="rak-back-img" ng-click="rakPendingApproval.backClickFlag='Y';setGlobalEvent('onPendingIncompleteTxnsClick')"></i>
+	</div>
+	<div ng-if="rakPendingApproval.fromSearch==true">
+		<i class="rak-back-img" ng-click="rakPendingApproval.backClickFlag='Y';setEvent('onCancelClick');"></i>
+	</div>
+			
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container"
+			ng-init="rakHome.modifyFlag='N';rakCorpInit.corpModel.resetCorpInitDetails();rakPayee.schedule.initEditPayNowPage(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+							<ng-include ng-if="rakPendingApproval.pendingApprovalTab!='PIA'" src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>
+							<div  class="bg-color rak-cont-padding rak-scroll">
+							
+							<div class="main-form-heading-ServiceReq" ng-if="rakPendingApproval.pendingApprovalTab=='PIA'"> 
+							      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_COMMON.MODIFY_TRAN}}				     	     
+							      </h2>		       
+							</div>
+							
+							<div class="modTxn">
+								<div class="row">
+									<div class="col-sm-1"></div>
+
+								<div class="rak-parent-txt" ng-if="rakPayee.schedule.minAmount != 'AED 0.00' && rakPayee.schedule.minMaxAmtFlag=='Y'">
+
+							
+							<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.MIN_AMT_DISP}}</span>
+							<span class="rak-sum-label black labelCardsTemp">{{rakPayee.schedule.minAmount}}</span>
+
+
+						</div>
+						
+						<div class="rak-parent-txt" ng-if="rakPayee.schedule.availableAmtFlag=='Y'">
+
+							
+							<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.AVAILABLEAMT}}</span>
+							<span class="rak-sum-label black labelCardsTemp">{{rakPayee.schedule.availBillAmt}}</span>
+
+
+						</div>
+						
+						<div class="rak-parent-txt" ng-if="rakPayee.schedule.renewalAmtFlag=='Y'">
+
+							
+							<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.RENEWALAMT}}</span>
+							<span class="rak-sum-label black labelCardsTemp">{{rakPayee.schedule.renewalAmt}}</span>
+
+
+						</div>
+
+
+					<div class="rak-parent-txt" ng-if="rakPayee.schedule.outStandingAmtFlag=='Y' && ( rakPayee.schedule.renewalAmt=='' || rakPayee.schedule.renewalAmt=='AED 0.00') && rakPayee.schedule.outAmount">
+
+							
+							<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.PAYOUTSTANDING}}</span>
+							<span class="rak-sum-label black labelCardsTemp">{{rakPayee.schedule.outAmount}}</span>
+
+
+						</div>
+						<div class="rak-parent-txt" ng-if="rakPayee.schedule.maxAmount != 'AED 0.00' && rakPayee.schedule.minMaxAmtFlag=='Y'">
+
+							
+							<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.MAX_AMT_DISP}}</span>
+								<span class="rak-sum-label black labelCardsTemp">{{rakPayee.schedule.maxAmount}}</span>
+
+
+						</div>
+
+						<div class="rak-parent-txt" ng-if="rakPayee.schedule.amountDue != '' && rakPayee.schedule.amountDue != 'AED 0.00' && rakPayee.schedule.amtDueFlag=='Y'">
+
+							
+							<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.AMT_DUE}}</span>
+								<span class="rak-sum-label black labelCardsTemp">{{rakPayee.schedule.amountDue}}</span>
+
+
+						</div>
+						<div class="rak-parent-txt" ng-if="rakPayee.schedule.amountDue == '' && rakPayee.schedule.amtDueFlag=='Y' ">
+
+							<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.AMT_DUE}}</span>
+								<span class="rak-sum-label black labelCardsTemp">{{rakPayee.schedule.outAmount}}</span>
+
+
+						</div>
+
+
+					<div class="rak-parent-txt">
+                             <p class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.PAY_TO}}  </p>
+                             <p class="rak-sum-label black labelCardsTemp">{{rakPayee.schedule.selectedPayee}} - {{rakPayee.schedule.service}}</p>
+                     </div>
+
+
+									<div
+										ng-init='fromAccountArray=createDropDownOptionArray(rakPayee.schedule.fromAccounts, ["subAccountTypeDesc","-","accountNumberDisplay", "-", "accountCurrency"],"accountIndex")'>
+										<fin-input type="dropdown" option-array="fromAccountArray"
+											model="rakPayee.schedule.selectedFromAccount"
+											display-row="full" 	on-change="rakPayee.common.updateBal(rakPayee.schedule.getBalanceEvent());"
+											on-change="rakPayee.schedule.checkDirty();"
+											placeholder="{{appLiterals.APP.PAYEE.PAY_BILL.PLCHOLDER_FROM}}"											
+											validation-flag='pageErrorArr["rakPayee.schedule.selectedFromAccount"]'>
+										</fin-input>
+
+									</div>	
+									
+											<div>
+											<p class="balance-available2"
+												ng-show="rakPayee.schedule.selectedFromAccount && rakPayee.common.availBal">
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_BALANCE}}
+												<span class="rs-color">
+													{{rakPayee.common.availBal}}</span>
+											</p>
+
+											<p class="balance-available2"
+												ng-show="rakPayee.schedule.subAccountTypeDesc=='Credit'">
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_ELGIBLEAMT}}
+												<span class="rs-color">
+													{{rakPayee.common.availBal}}</span>
+											</p>
+										</div>
+										
+									
+								 <!-- <div class="rakRow" ng-if="rakPayee.schedule.amountSelectionRqd">
+										<div class="radio-biller rak30 raktext-align margin-top5" >
+											{{appLiterals.APP.PAYEE.PAY_BILL.AMOUNTAED}}</div>
+										<div class="rak70 rakExtraPadding5" >
+											
+												<div class="rakCstmRadioDiv  rak15 pull-left margin-top7 center rakRelative padding-zero" ng-init="rakPayee.schedule.billerType='Y'">
+
+													<input type="radio"
+														value="1" ng-value="1" id="radio1" name="byTrnxChoice"
+														
+														ng-model="rakPayee.schedule.amountType"
+														validation-flag='pageErrorArr["rakPayee.schedule.amountType"]'
+														/><label for="radio1"><span><span></span></span>
+														</label>
+													</div>
+											<div class="rak85 font-size6 rakRelative">
+														<fin-input type="money" ng-if="rakPayee.schedule.amountType=='1'"
+															model="rakPayee.schedule.amount"
+															placeholder="{{appLiterals.APP.PAYEE.PAY_BILL.AMOUNT}}"
+															display-row="full"
+															validation-flag='pageErrorArr["rakPayee.schedule.amount"]'>
+														</fin-input>
+												</div>
+												
+											</div>
+											
+										</div>	
+										<div ng-if="rakPayee.schedule.amountSelectionRqd">
+												<div class="radio-biller rak30 raktext-align rakMarginTop4px">
+												</div>
+												<div class="rak70 rakExtraPadding3" >
+													<div>
+												<div class="rakCstmRadioDiv rak15 pull-left center margin-top1 rakRelative padding-zero">
+													<input type="radio"
+														value="2" ng-value="2" id="radio2" name="byTrnxChoice"
+														
+														ng-model="rakPayee.schedule.amountType"
+														validation-flag='pageErrorArr["rakPayee.schedule.amountType"]'
+														/>
+														<label for="radio2"><span><span></span></span>
+														</label>
+												</div> 
+												<div class="rak70  rakRelative">
+													<span for="radio2" class="rakRadioLabel-SR-5Top margin-top6">
+														{{appLiterals.APP.PAYEE.PAY_BILL.PAYOUTSTANDING}}</span>
+												</div> 
+
+									
+									</div>
+									</div>
+									</div> -->
+									
+									
+									<div  ng-if="rakPayee.schedule.amountSelectionRqd">
+									<div class="rakRow">
+											<div class="radio-biller rak100 rakWidth100 rakRadioBottom " ng-init="rakPayee.schedule.billerType='Y'">
+												{{appLiterals.APP.PAYEE.PAY_BILL.AMOUNTAED}}</div>
+											<div class="rak100">
+												<div>
+																						
+													
+													<div class="rakCstmRadioDiv rak53 " ng-if="rakPayee.payBill.outAmountRadioDisableFlag">
+														<input type="radio" value="2" ng-value="2"
+															id="radio1" disabled
+															ng-model="rakPayee.schedule.amountType" />
+															<label for="radio1"><span class="backGrey"><span></span></span>
+															{{appLiterals.APP.PAYEE.PAY_BILL.PAYOUTSTANDING}}</label>
+													
+													</div>
+													<div class="rakCstmRadioDiv rak53" ng-if="!rakPayee.payBill.outAmountRadioDisableFlag">
+														<input type="radio" value="2" ng-value="2"
+															id="radio1"
+															ng-model="rakPayee.schedule.amountType" />
+															<label for="radio1"><span><span></span></span>
+															{{appLiterals.APP.PAYEE.PAY_BILL.PAYOUTSTANDING}}</label>
+													
+													</div>
+													
+													
+													<div class="rakCstmRadioDiv rak47Right ">
+														<input type="radio" value="1" ng-value="1"
+															id="radio2"
+															ng-model="rakPayee.schedule.amountType" />
+															<label for="radio2"><span><span></span></span>{{appLiterals.APP.PAYEE.PAY_BILL.CUSTOM}}</label>
+														
+													</div>
+												</div>
+											
+											</div>
+										</div>
+										
+										<!-- <p  class="balance-available2"
+												ng-show="rakPayee.schedule.amountType=='2' && rakPayee.payBill.fromOutStandingPage==true">
+												
+												<span class="rs-color">
+													{{rakPayee.schedule.multipleTotalSelectedAmount}}</span>
+											</p>
+											
+											<p  class="balance-available2"
+												ng-show="rakPayee.schedule.amountType=='2' && rakPayee.payBill.fromOutStandingPage!=true ">
+												
+												<span class="rs-color">
+													{{rakPayee.schedule.displayOutAmt}}</span>
+											</p> -->
+										
+										<div ng-show="rakPayee.schedule.amountType=='1'">
+											<fin-input type="money" model="rakPayee.schedule.amount"
+												display-row="full" 
+												on-change="rakPayee.schedule.checkDirty();"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.ENTERAMT}}"
+												validation-flag='pageErrorArr["rakPayee.schedule.amount"]'>
+											</fin-input>
+										</div>
+										
+										</div>
+
+
+										<div ng-if="!rakPayee.schedule.amountSelectionRqd"  ng-init="rakPayee.schedule.amountType='1'">
+
+											<fin-input type="money"
+												model="rakPayee.schedule.amount"
+												display-row="full"
+												on-change="rakPayee.schedule.checkDirty();rakPayee.payBill.updateChargesSendAgain();"
+												placeholder="{{appLiterals.APP.PAYEE.PAY_BILL.AMOUNT}}"
+												validation-flag='pageErrorArr["rakPayee.schedule.amount"]'>
+											</fin-input>
+	
+											<!-- <span class="rak-curr-label">
+											{{appLiterals.APP.PAYEE.PAY_BILL.AED}}</span> -->
+										</div>
+										
+										<!-- Added for RakToll CR Start -->
+						
+						<div ng-if='rakPayee.schedule.service==rakPayee.constants.RAKTOLLTOPUP && rakPayee.payBill.chargesFlag=="Y"'>
+							<div class="rak-parent-txt paymentLabel" ng-if="rakPayee.schedule.amount && rakPayee.schedule.selectedFromAccount">
+								<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.CHARGEAMOUNT}}</span>
+								<span class="rak-sum-label black labelCardsTemp">AED {{rakPayee.payBill.chargesRakToll}}</span>
+							</div>
+							<div class="rakRow margin-top" ng-if="rakPayee.schedule.amount && rakPayee.schedule.selectedFromAccount">
+								<div class="radio-biller rak100 rakWidth100 rakRadioBottom labelCardsTemp " ng-init="rakPayee.payBill.billerType='Y'">
+									{{appLiterals.APP.PAYEE.PAY_BILL.CHARGES}}</div>
+								<div class="rak100">
+									<div>
+
+										<div class="rakCstmRadioDiv rak53">
+											<input type="radio" value="Y"
+												id="radio5"
+												ng-model="rakPayee.payBill.amountChargesRadio" />
+												<label for="radio5"><span><span></span></span>
+												{{appLiterals.APP.PAYEE.PAY_BILL.INCLUDE_CHARGES}}</label>
+
+										</div>
+										<div class="rakCstmRadioDiv rak47Right">
+											<input type="radio" value="N"
+												id="radio6"
+												ng-model="rakPayee.payBill.amountChargesRadio" />
+												<label for="radio6"><span><span></span></span>{{appLiterals.APP.PAYEE.PAY_BILL.EXCLUDE_CHARGES}}</label>
+
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<div class="rak-parent-txt paymentLabel" ng-if="rakPayee.payBill.amountChargesRadio=='Y'">
+								<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.TOPUP_AMOUNT}}</span>
+								<span class="rak-sum-label black labelCardsTemp">AED {{rakPayee.payBill.topUpAmount}}</span>
+							</div>
+							<div class="rak-parent-txt paymentLabel" ng-if="rakPayee.payBill.amountChargesRadio=='Y'">
+								<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.TOTAL_AMOUNT}}</span>
+								<span class="rak-sum-label black labelCardsTemp">AED {{rakPayee.payBill.amountRakToll}}</span>
+							</div>
+							<div class="rak-parent-txt paymentLabel" ng-if="rakPayee.payBill.amountChargesRadio=='N'">
+								<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.TOPUP_AMOUNT}}</span>
+								<span class="rak-sum-label black labelCardsTemp">AED {{rakPayee.payBill.amountRakToll}}</span>
+							</div>
+							<div class="rak-parent-txt paymentLabel" ng-if="rakPayee.payBill.amountChargesRadio=='N'">
+								<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.TOTAL_AMOUNT}}</span>
+								<span class="rak-sum-label black labelCardsTemp">AED {{rakPayee.payBill.totalAmount}}</span>
+							</div>
+						</div>
+						
+						<!-- Added for RakToll CR End -->
+										
+
+
+										<div>
+											<fin-input type="text" 
+												model="rakPayee.schedule.selectedFrequencyDisp"
+												display-row="full"
+												on-change="rakPayee.schedule.checkDirty();"
+												placeholder="{{appLiterals.APP.PAYEE.PAY_BILL.FREQ}}"
+												validation-flag='pageErrorArr["rakPayee.schedule.selectedFrequency"]' readonly>
+											</fin-input>
+
+										</div>
+										
+										<div
+											ng-show="rakPayee.schedule.selectedFrequency!='O' && rakPayee.schedule.selectedFrequency">
+											<fin-input type="number_card"
+												model="rakPayee.schedule.noOfTransfer"
+												display-row="full"
+												on-change="rakPayee.schedule.checkDirty();"
+												max-length="5"
+												placeholder="{{appLiterals.APP.PAYEE.PAY_BILL.NOOFTRANSFERS}}"
+												validation-flag='pageErrorArr["rakPayee.schedule.noOfTransfer"]' readonly>
+											</fin-input>
+										</div>
+
+
+										<div>
+											<fin-input type="date"
+												model="rakPayee.common.displayDate"
+												value="futureDatesOnly"
+												on-change="rakPayee.schedule.checkDirty();"
+												placeholder="{{appLiterals.APP.PAYEE.PAY_BILL.WHEN}}"
+												display-row="full"> </fin-input>
+										</div>
+
+
+										
+
+
+										<div class="label-wrap">
+
+											<button type="button" ng-disabled="(!rakPayee.payBill.chargesFlagBoolean) && rakPayee.schedule.service==rakPayee.constants.RAKTOLLTOPUP"
+												class="btn--special-btn btn-middle rak-button-right"
+												ng-click="rakPayee.schedule.setPayBillDate();rakHome.ModifyTransaction();rak2FARegister.RegistrationModel.resolveEventFor2FA('BILLPMTEDIT');rakCorpInit.corpModel.eventName='BILLPMTMODIFY';rakPayee.schedule.getEventForPayement();rakCorpInit.corpModel.backFlag='N'";>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_SEND}}
+											</button>
+
+										</div>
+									
+								</div>
+							</div>
+							<div class="col-sm-1"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

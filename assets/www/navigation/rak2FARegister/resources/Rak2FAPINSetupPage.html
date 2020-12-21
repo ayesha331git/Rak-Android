@@ -1,0 +1,81 @@
+
+<div class="rak-back-header">
+
+			<i class="rak-back-img" ng-click="setEvent('onSelfRegPageBackClick');"></i>
+		</div>
+<div class="container-fluid padding-auto"
+	ng-init="setSingleStepRealmAuthFailure();rakHome.clearBurgerMenuHeaderContent();appActivation.checkTouchIDStatus();appActivation.checkResignedActivationStatus();
+	myProfile.rememberUserID.initLoginPage(); fields.finacleUserCorporateId = ''; 
+	fields.finacleUserPassword ='';resetPageError();myProfile.errorCheck(successResponse.responsesList);">
+
+
+	<div class="container-fluid padding-zero">
+
+		<div class="row">
+
+
+				<div class="rak-selfReg-lable rakTextCenter">
+					<p>{{appLiterals.APP.RAK_2FA_MESSAGES.SETUPPIN}}</p>
+				</div>
+<div class="rak-selfReg-lable">
+					<p ng-bind-html="appLiterals.APP.RAKSELFREG.ENETRE_MOBL_TXT" class="ng-binding">If the mobile number displayed below belongs to you, click Proceed else contact the bank on <span class="rakfontWrap">04 213 00 00.</span></p>
+				</div>
+		<div class="rak-selfReg-lable rakTextCenter">
+					<p>{{appLiterals.APP.RAK_2FA_MESSAGES.ENTERPIN}}</p>
+				</div>
+				 <div class="selfReg-main-form-heading margin-bottom10px margin-top10px rak-margin-none">
+					<input type="text" id="pin" class="rakPinText22 rakMarginleft5" ng-keyup="rakRegister.pinValidate()" maxlength="2"></input>
+					<input type="text" id="pin" class="rakPinText22" ng-keyup="rakRegister.pinValidate()" maxlength="2"></input>
+					<input type="text" id="pin" class="rakPinText22" ng-keyup="rakRegister.pinValidate()" maxlength="2"></input>
+					<input type="text" id="pin" class="rakPinText22"  ng-keyup="rakRegister.pinValidate()" maxlength="2"></input>
+							
+						
+</div> 
+
+
+				<div class="rak-selfReg-lable rakTextCenter">
+					<p>{{appLiterals.APP.RAK_2FA_MESSAGES.REENTERPIN}}</p>
+				</div>
+				
+<div class="selfReg-main-form-heading margin-bottom10px margin-top10px rak-margin-none">
+					<input type="text" id="pin" class="rakPinText22 rakMarginleft5" ng-keyup="rakRegister.pinValidate()" maxlength="2"></input>
+					<input type="text" id="pin" class="rakPinText22" ng-keyup="rakRegister.pinValidate()" maxlength="2"></input>
+					<input type="text" id="pin" class="rakPinText22" ng-keyup="rakRegister.pinValidate()" maxlength="2"></input>
+					<input type="text" id="pin" class="rakPinText22"  ng-keyup="rakRegister.pinValidate()" maxlength="2"></input>
+							
+				
+						
+</div> 
+
+				<div class="label-wrap">
+					<!-- <button type="button"
+						class="btn--special-btn btn-middle rak-button-small"
+						ng-click="setGlobalEvent('onLoginClick');">
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CANCEL}}</button> -->
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-full rak-button-right rakBackgroundred ng-binding"
+						ng-click="setEvent('onRak2FAOTPValidate');">
+						{{appLiterals.APP.RAK_2FA_MESSAGES.SUBMIT}}</button>
+				</div>
+				
+					
+					<div class="selfReg-main-form-heading margin-bottom10px margin-top10px rak-margin-none">
+
+						<div>
+							
+						<ul class="process-steps float-none margin139">
+							<li class="active" ></li>
+							<li class="active"></li>
+							<li class="active"></li>
+							
+						</ul>
+						
+</div>
+					</div>
+				
+
+			</div>
+		</div>
+	</div>
+
+</div>

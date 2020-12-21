@@ -1,0 +1,104 @@
+<div class="rak-back-header">
+
+	<i class="rak-back-img"
+		ng-click="setEvent('onBlockCreditCardCloseClick');"></i>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.blockCreditCardModel.initBlockCreditCard(successResponse.responsesList);"> 
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="main-form-heading-ServiceReq"> 
+			                 <h2 class="rakBenfHeader">{{rakServiceReq.blockCreditCardModel.CardType=='Debit' && appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.TXT_LOST_DEB_CARD || appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.TXT_LOST_CRED_CARD}}
+			                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+			                 </h2>              
+					</div>
+					<div class="bg-color rak-cont-padding rak-scroll">
+						<div class="row">
+							
+							<div ng-if="rakServiceReq.blockCreditCardModel.CardType=='Credit'"
+								ng-init='creditcardlist = createDropDownOptionArray(rakServiceReq.blockCreditCardModel.creditCardList,["prodDesc","-","creditcardNumber"],"index");'>
+								<fin-input type="dropdown"
+									model="rakServiceReq.blockCreditCardModel.blockCreditCardNumber"
+									display-row="full"
+									placeholder="{{rakServiceReq.blockCreditCardModel.CardType=='Debit' && 'Debit Card' || 'Credit Card'}}"
+									validation-flag='pageErrorArr["rakServiceReq.blockCreditCardModel.blockCreditCardNumber"]'
+									option-array="creditcardlist"></fin-input>
+							</div>
+							
+							<div ng-if="rakServiceReq.blockCreditCardModel.CardType=='Debit'"
+								ng-init='creditcardlist = createDropDownOptionArray(rakServiceReq.blockCreditCardModel.creditCardList,["creditcardNumber"],"index");'>
+								<fin-input type="dropdown"
+									model="rakServiceReq.blockCreditCardModel.blockCreditCardNumber"
+									display-row="full"
+									placeholder="{{ rakServiceReq.blockCreditCardModel.CardType=='Debit' && 'Debit Card' || 'Credit Card'}}"
+									validation-flag='pageErrorArr["rakServiceReq.blockCreditCardModel.blockCreditCardNumber"]'
+									option-array="creditcardlist"></fin-input>
+							</div>
+
+							<!-- 	RAK : Vishal : Start -->
+							<div
+								ng-init='reasonlist = createDropDownOptionArray(rakServiceReq.blockCreditCardModel.reasonList,["reasonDescription"],"reasonCode");'>
+								<fin-input type="dropdown"
+									model="rakServiceReq.blockCreditCardModel.selectedReason"
+									display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_BLOCKCRED.RAK_TXT_REASON}}"
+									validation-flag='pageErrorArr["rakServiceReq.blockCreditCardModel.selectedReason"]'
+									option-array="reasonlist"></fin-input>
+							</div>
+							<fin-input type="date"
+								model="rakServiceReq.common.displayDate" value="pastDatesOnly"
+								display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_BLOCKCRED.RAK_DATE}}"
+								validation-flag='pageErrorArr["rakServiceReq.common.displayDate"]'></fin-input>
+							<fin-input type="text"
+								model="rakServiceReq.blockCreditCardModel.place"
+								display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_BLOCKCRED.RAK_TXT_PLACE_STOLEN}}" 
+								validation-flag='pageErrorArr["rakServiceReq.blockCreditCardModel.place"]'></fin-input>
+
+							<!-- 	RAK : Vishal : END -->
+
+
+							<fin-input type="text"
+								model="rakServiceReq.blockCreditCardModel.remarks"
+								display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_BLOCKCRED.RAK_TXT_RSN}}" 
+								validation-flag='pageErrorArr["rakServiceReq.blockCreditCardModel.remarks"]'></fin-input>
+							<div class="label-wrap">
+								<!-- <button type="button"
+									class="btn--special-btn btn-middle rak-button-small"
+									ng-click="setEvent('onBlockCreditCardCloseClick');">
+									{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CANCEL}}</button> -->
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small rak-button-right"
+									ng-if="rakServiceReq.blockCreditCardModel.CardType=='Credit'"
+									ng-click="rakServiceReq.convertDateFormat();setEvent('onBlockCreditCardLCRConfirmClick');">
+									{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small rak-button-right"
+									ng-if="rakServiceReq.blockCreditCardModel.CardType=='Debit'"
+									ng-click="rakServiceReq.convertDateFormat();setEvent('onBlockCreditCardConfirmClick');">
+									{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+
+							</div>
+
+
+						</div>
+						
+						<div class="disclaimer">
+                                                 <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                                 <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                                 </div>                                                 
+                                                 
+                                                 <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+                                                 	  <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKBLOCKCARD_INIT"></div>												  
+												</div>
+                                                 
+                                 </div>
+						
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

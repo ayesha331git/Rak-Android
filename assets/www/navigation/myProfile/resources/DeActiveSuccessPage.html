@@ -1,0 +1,23 @@
+<div class="finacle-container">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+			<div class="dashboard-pad full-height">
+				<div class=" dashboard-item-body full-height">
+					<div ng-if='!myProfile.isCurrentUser'>
+						<fin-success
+							success-banner="{{ appLiterals.APP.COMMON.MSG.SUCCESS }}"
+							success-message="{{successResponse.responsesList[0].message}}"
+							cross-click="isUserLoggedIn ? setEvent('onDeactiveDoneClick') : 
+							setEvent('onNavigateMpin');appActivation.maxDeviceDeactivate = true"></fin-success>
+					</div>
+					<div ng-if='isUserLoggedIn && myProfile.isCurrentUser'>
+						<fin-success
+							success-banner="{{ appLiterals.APP.COMMON.MSG.SUCCESS }}"
+							success-message="{{successResponse.responsesList[0].message}}"
+							cross-click="setGlobalEvent('onLogoutClickOK');fields.finacleUserPassword='';"></fin-success>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,173 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="rak-back-header">
+			<i class="rak-back-img" ng-click="setGlobalEvent('onRakValuationHomeClick');"></i>
+		</div>
+
+		<div class="finacle-container"
+			ng-init="rakAccounts.rakValuationUpdgradeValueInit(successResponse.responsesList);">
+			<div class="account-page col-sm-11">
+				<div >
+					<div class="money-block">
+						<ul>
+							<li ng-click="setEvent('onRakValuationClick');">
+								{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.ENROLL}}</li>
+							<li class="active">
+								{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.UPGRADE}}</li>
+
+						</ul>
+					</div>
+ 				<!-- Heading fix-start -->
+ 					<div class="main-form-heading-ServiceReq"> 
+			                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAKBURGER.RAK_VALUE_COLLECTION}}
+			                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+			                 </h2>
+					</div>
+ 				<!-- Heading fix-end -->
+					
+					<!-- Section displayed when no eligible accounts present  START -->
+					<div class="bg-color rak-cont-padding rakScrollDiv"
+						ng-show="rakAccounts.RakValuationUpgradeValuation.isEligibleToEnroll==false">
+
+							<!-- <div class="error-details">
+											<div>
+												<span class="error-details-txt">
+													{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.ERROR_MSG}}
+												</span>
+											</div>
+							</div> -->
+							
+							<div class="summary-ServiceReq">
+									<div class="iconDivNorecord minHeight40">
+										<span class="infoIcon marginTop9"></span><span class="success">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.ERROR_MSG}}</span>
+									</div>
+								</div>
+
+						
+								
+									<button type="button"
+									class="btn--special-btn btn-middle rak-button-small rak-btn-large-text"
+									ng-click="rakAccounts.RakValuationEnroll.resetRakValuationEnrollHome();
+									rakAccounts.RakValuationUpgradeValuation.resetRakValuationUpgradeValuationHome();
+									rakAccounts.clearPage();
+									
+									rakAccounts.RakValuationUpgradeValuation.radioValidation=false;
+									rakAccounts.rakValuationUpggradeValue();setEvent('onRakValuationClick');">
+									{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.ENROLL}}</button>
+
+						</div>
+						<div class="col-sm-1"></div>
+
+					</div>
+
+
+					<!-- Section displayed when no eligible accounts present  END -->
+					<div class="bg-color rak-cont-padding rakScrollDiv"
+						ng-show="rakAccounts.RakValuationUpgradeValuation.isEligibleToEnroll==true">
+						<div class="row">
+						
+					<div class="rvcHeading" ng-show="rakAccounts.RakValuationUpgradeValuation.isACOpr||rakAccounts.RakValuationUpgradeValuation.isBothType">
+						<div>
+							<span class="rak-black-color upd-label ">Account</span>
+								
+						</div>
+					</div>
+							
+
+						
+							<div class="rakColumnDivDarkBack"
+								ng-show="rakAccounts.RakValuationUpgradeValuation.isACOpr||rakAccounts.RakValuationUpgradeValuation.isBothType">
+								<span class="pullLeft">&nbsp;</span>  <span
+									class="rakColumnLabelDark rak40Width">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.AC_NO}}</span><span
+									class="rakColumnLabelDark rak20Imp">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.STATUS}}</span>
+								<span class="rakColumnLabelDark rak30">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.PACKNAME}}</span>
+
+							</div>
+							<div class="rakValScrollDiv">
+							<div class="rakColumnDiv"
+								ng-repeat="trans in rakAccounts.RakValuationUpgradeValuation.oprList"
+								ng-show="rakAccounts.RakValuationUpgradeValuation.isACOpr||rakAccounts.RakValuationUpgradeValuation.isBothType">
+
+								
+								
+								
+								
+								<div class="rak10 rakCstmRadioDiv"> <input type="radio"
+									value="{{trans.accountIndex}}" id="{{trans.accountIndex}}"
+									ng-click="rakAccounts.RakValuationUpgradeValuation.resetRakCcdSelRadio()"
+									ng-model="rakAccounts.RakValuationUpgradeValuation.oprAccSel" />
+									<label for="{{trans.accountIndex}}" class="rakValueRadio"><span><span></span></span></label>
+									</div>
+									<span class="rakValColumnLabel rak40Width">{{trans.accountId}}</span> <span
+										class="rakValColumnLabel rak20Imp">{{trans.accountRVCStatus}}</span> <span
+										class="rakValColumnLabel rak30Edit">{{trans.accountPack}}</span>
+	
+								</div>
+							</div>
+							<br> <br>
+							<!-- For Credit Cards -->
+							
+				<div class="rvcHeading" ng-show="rakAccounts.RakValuationUpgradeValuation.isACCcd||rakAccounts.RakValuationUpgradeValuation.isBothType">
+						<div>
+							<span class="rak-black-color upd-label ">Credit Card</span>
+								
+						</div>
+					</div>
+
+						
+							<div class="rakColumnDivDarkBack" ng-show="rakAccounts.RakValuationUpgradeValuation.isACCcd||rakAccounts.RakValuationUpgradeValuation.isBothType">
+							 <span class="pullLeft">&nbsp;</span>  <span
+									class="rakColumnLabelDark rak40Width">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CCD_NO}}</span><span
+									class="rakColumnLabelDark rak20Imp">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.STATUS}}</span>
+								<span class="rakColumnLabelDark rak30">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.PACKNAME}}</span>
+
+							</div>
+							<div class="rakValScrollDiv">
+							<div class="rakColumnDiv"
+								ng-repeat="trans in rakAccounts.RakValuationUpgradeValuation.ccdList" ng-show="rakAccounts.RakValuationUpgradeValuation.isACCcd||rakAccounts.RakValuationUpgradeValuation.isBothType">
+								
+														
+								
+								<div class="rak10 rakCstmRadioDiv">
+									<input type="radio" value="{{trans.creditIndex}}"
+										id="credit{{trans.creditIndex}}"
+										ng-click="rakAccounts.RakValuationUpgradeValuation.resetRakAccSelRadio()"
+										ng-model="rakAccounts.RakValuationUpgradeValuation.ccdAccSel" />
+									<label for="credit{{trans.creditIndex}}" class="rakValueRadio"><span><span></span></span></label>
+								</div>
+								<span class="rakValColumnLabel rak40Width">{{trans.creditCardNumber}}</span> <span
+									class="rakValColumnLabel rak20Imp">{{trans.creditCardRVCStatus}}</span> <span
+									class="rakValColumnLabel rak30Edit">{{trans.creditCardPack}}</span>
+
+							</div>
+							</div>
+
+
+
+
+
+
+
+
+							<div class="label-wrap">
+
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small rak-btn-large-text"
+									ng-click="rakAccounts.rakValuationUpggradeValue();setEvent('onRAKValuationUtilizationClick');">
+									{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.UTILIZATION}}</button>
+
+
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small"
+									ng-click="rakAccounts.RakValuationUpgradeValuation.resetRakValuationUpgradeValuationContinue();rakAccounts.rakValuationUpggradeValue();setEvent('onRAKValuationUpgradeNextClick');">
+									{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.UPGRADE}}</button>
+							</div>
+							<div class="col-sm-1"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

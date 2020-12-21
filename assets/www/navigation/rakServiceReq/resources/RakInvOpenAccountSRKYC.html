@@ -1,0 +1,79 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="rak-back-header">
+			<i class="rak-back-img"
+				ng-click="setEvent('onRAKInvOpenBackClick');"></i>
+		</div>
+		<div class="finacle-container"
+			ng-init="rakServiceReq.rakInvOpenAccSRInit(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+				
+					<div class="main-form-heading-ServiceReq">
+	           		<h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.INV_OPEN}}<span>{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.KYC}}</span></h2>
+	        	</div>
+					<!--  <div class="app-title-wrapper"> -->
+					<div class="form-block">
+						<div class="bg-color rak-cont-padding  rak-scroll">
+							<div class="row">
+								
+
+
+
+
+								<fin-input type="number"
+									model="rakServiceReq.RakInvOpenAccSR.kyc1" display-row="full"
+									validation-flag='pageErrorArr["rakServiceReq.RakInvOpenAccSR.kyc1"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.KYC1}}">
+								</fin-input>
+								
+								<fin-input type="number"
+									model="rakServiceReq.RakInvOpenAccSR.kyc2" display-row="full"
+									validation-flag='pageErrorArr["rakServiceReq.RakInvOpenAccSR.kyc2"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.KYC2}}">
+								</fin-input>
+								
+								<fin-input type="number"
+									model="rakServiceReq.RakInvOpenAccSR.kyc3" display-row="full"
+									validation-flag='pageErrorArr["rakServiceReq.RakInvOpenAccSR.kyc3"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.KYC3}}">
+								</fin-input>
+								
+								<fin-input type="number"
+									model="rakServiceReq.RakInvOpenAccSR.kyc4" display-row="full"
+									validation-flag='pageErrorArr["rakServiceReq.RakInvOpenAccSR.kyc4"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.KYC4}}">
+								</fin-input>
+								
+								<fin-input type="number"
+									model="rakServiceReq.RakInvOpenAccSR.kyc5" display-row="full"
+									validation-flag='pageErrorArr["rakServiceReq.RakInvOpenAccSR.kyc5"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.KYC5}}">
+								</fin-input>
+
+
+
+
+
+
+								<div class="label-wrap">
+									<button type="button"
+							class="btn--special-btn btn-middle rak-button-small btn--back"
+							ng-click="setEvent('onRAKInvOpenBackClick');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small"
+										ng-click="rakServiceReq.RakInvOpenAccSR.rakInvOpenAccSRContinue();rakServiceReq.RakInvOpenAccSR.resetRakInvOpenAccSRConfirm();setEvent('onRAKInvOpenContClick');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+								</div>
+								<div class="col-sm-1"></div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

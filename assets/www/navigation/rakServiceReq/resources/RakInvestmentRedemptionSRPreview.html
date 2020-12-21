@@ -1,0 +1,146 @@
+	<div class="finacle-container"
+		ng-init="rakServiceReq.investmentRedemptionRq.previewInvestmentRedemptionRq(successResponse.responsesList);">
+		<div class="account-page">
+			<div class="col-sm-11">
+			
+			
+				 <div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.INVESTMENT_REDEMPTION}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>		     
+				      </h2>		       
+		 		</div>
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+				
+
+                      <div class="rakDupliSRChkMsgImg" ng-show='rakServiceReq.common.message'>
+							<span class='rakAlertForDupStmt'></span> <span class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+			         </div>
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.INV_ID}}</span> <span class="rak-sum-label black">{{rakServiceReq.investmentRedemptionRq.invAccountId}}</span>
+					</p>
+
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.INV_NAME}}</span> <span class="rak-sum-label black">{{rakServiceReq.investmentRedemptionRq.investmentProductName}}</span>
+					</p>
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.INV_AMOUNT}}</span> <span class="rak-sum-label black">{{rakServiceReq.investmentRedemptionRq.amountDisplayName}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-show="rakServiceReq.investmentRedemptionRq.amount==rakServiceReq.investmentRedemptionRqConstants.ALLNOMINALAMOUNT && rakServiceReq.investmentRedemptionRq.isAllNominalAmount">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.INV_ALLNOM_AMOUNT}}</span> <span class="rak-sum-label black">{{rakServiceReq.investmentRedemptionRq.allNominalAmountDisp}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-show="rakServiceReq.investmentRedemptionRq.amount==rakServiceReq.investmentRedemptionRqConstants.PARTNOMINALAMOUNT && rakServiceReq.investmentRedemptionRq.isPartNominalAmount">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.INV_PART_NOM_AMOUNT}}</span> <span class="rak-sum-label black">{{rakServiceReq.investmentRedemptionRq.allNominalCurrency}} {{rakServiceReq.investmentRedemptionRq.partNominalAmount}}</span>
+					</p>
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.NO_OF_UNITS}}</span> <span class="rak-sum-label black">{{rakServiceReq.investmentRedemptionRq.noOfUnitsDisplayName}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-show="rakServiceReq.investmentRedemptionRq.noOfUnits==rakServiceReq.investmentRedemptionRqConstants.ALLUNITS && rakServiceReq.investmentRedemptionRq.isAllUnits">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.ALL_UNITS}}</span> <span class="rak-sum-label black">{{rakServiceReq.investmentRedemptionRq.allUnits}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-show="rakServiceReq.investmentRedemptionRq.noOfUnits==rakServiceReq.investmentRedemptionRqConstants.PARTUNITS && rakServiceReq.investmentRedemptionRq.isPartialUnits">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.PARTIAL_UNITS}}</span> <span class="rak-sum-label black">{{rakServiceReq.investmentRedemptionRq.partialUnits}}</span>
+					</p>
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.CREDITACCT}}</span> <span class="rak-sum-label black">{{rakServiceReq.investmentRedemptionRq.oprAccIdDisplayName}}</span>
+					</p>				
+
+                 <!-- Auth -->
+                 <div class="label-wrap" ng-show='rakServiceReq.investmentRedemptionRq.isAuthSet'>
+			      <p class="label-title">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_TXT_AUTH}}</p>				
+				  <p class="label-txt"> {{appLiterals.APP.COMMON.TITLE.CONF_AUTH}}</p>  
+			<div ng-show='rakServiceReq.investmentRedemptionRq.isFirstAuthMode'>
+			<fin-input type="password_text" model="rakServiceReq.investmentRedemptionRq.firstAuthModeValue" 
+			display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXN_PWD}}" 
+			validation-flag='pageErrorArr["rakServiceReq.investmentRedemptionRq.firstAuthModeValue"]' 
+			ng-show="rakServiceReq.investmentRedemptionRq.authType==rakServiceReq.investmentRedemptionRq.TransactionPassword"> </fin-input>
+			
+			
+			
+			<div ng-show="rakServiceReq.investmentRedemptionRq.authType==rakServiceReq.investmentRedemptionRq.OTP">
+			<div ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+			<fin-input type="password_num" model="rakServiceReq.investmentRedemptionRq.firstAuthModeValue" 
+			display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}" 
+			validation-flag='pageErrorArr["rakServiceReq.investmentRedemptionRq.firstAuthModeValue"]' > </fin-input>
+		</div> 
+		<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0' ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+			
+				<fin-input type="dropdown" option-array="toModeArray" model="rakHome.otpModel.otpModeSelected" display-row="full" placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+				<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+			
+			</div>    
+		<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>   
+		</div>
+			
+			</div>
+			
+			<div ng-show='rakServiceReq.investmentRedemptionRq.isSecAuthMode'>
+			<fin-input type="password_text" model="rakServiceReq.investmentRedemptionRq.secAuthModeValue" 
+			display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXN_PWD}}" 
+			validation-flag='pageErrorArr["rakServiceReq.investmentRedemptionRq.secAuthModeValue"]' 
+			ng-show="rakServiceReq.investmentRedemptionRq.secAuthType==rakServiceReq.investmentRedemptionRq.TransactionPassword"> </fin-input>
+			
+			
+			<div ng-show="rakServiceReq.investmentRedemptionRq.secAuthType==rakServiceReq.investmentRedemptionRq.OTP">
+			<div ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+			<fin-input type="password_num" model="rakServiceReq.investmentRedemptionRq.firstAuthModeValue" 
+			display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}" 
+			validation-flag='pageErrorArr["rakServiceReq.investmentRedemptionRq.secAuthModeValue"]' > </fin-input>
+		</div> 
+		<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0' ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+			
+				<fin-input type="dropdown" option-array="toModeArray" model="rakHome.otpModel.otpModeSelected" display-row="full" placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+				<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+			
+			</div>    
+		<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>   
+		</div>
+	
+			</div>
+			</div>
+                 <!-- Auth -->
+
+					<!-- <div class="label-wrap"
+						ng-show="rakServiceReq.RakUnblockCreditCardBlock.authStatus">
+
+						<fin-input type="password_text"
+							model="rakServiceReq.RakUnblockCreditCardBlock.txnPwd"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+							validation-flag='pageErrorArr["rakServiceReq.RakUnblockCreditCardBlock.txnPwd"]'
+							ng-show="rakServiceReq.RakUnblockCreditCardBlock.authMode==txnpwdString">
+						</fin-input>
+						-->
+
+<!--  CHANGES FOR RESEND OTP START -->
+<!-- <div ng-show="rakServiceReq.RakUnblockCreditCardBlock.authMode==otpString">
+<div class="rakwidth65">
+<fin-input type="password_num" model="rakServiceReq.RakUnblockCreditCardBlock.txnPwd"
+display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+validation-flag='pageErrorArr["rakServiceReq.RakUnblockCreditCardBlock.txnPwd"]'>
+</fin-input>
+</div>
+<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> Resend OTP </button>
+</div>-->
+<!--  CHANGES FOR RESEND OTP END -->
+					</div>
+
+
+
+					<div class="label-wrap">
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small btn--back"
+							ng-click="setEvent('onBackClick');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small"
+							ng-click="setEvent('onRakInvestmentRedemptionSRSubmitClick');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}</button>
+					</div>
+					<div class="col-sm-1"></div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>

@@ -1,0 +1,34 @@
+  <!-- partial code start here-->
+<div class="finacle-container" ng-init="services.delinkCreditCardSuccess(successResponse.responsesList);">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+			<div class="dashboard-pad full-height">
+				<div class="dashboard-item-body full-height">					
+                    <fin-success
+						success-banner="{{appLiterals.APP.COMMON.MSG.SUCCESS}}"
+						success-message="{{services.delinkCreditCardModel.responseText}}"
+						cross-click="setEvent('onCancelClick')">
+					</fin-success>
+                    <div class="sucs-left-txt">
+                    	<span class="sucs-left-color" id="txtCardNumber">
+                    		{{appLiterals.APP.SERVICES.CREDIT_CARD.DE_LINK_HEADER}} {{appLiterals.APP.COMMON.TEXT.FOR}}
+                    	</span> 
+                    	<span class="sucs-right-color" id="cardNumber">
+                    		{{services.delinkCreditCardModel.selectedCardNumber}}
+                    	</span>
+                    </div>
+                    <div class="sucs-left-txt">
+                    	<span class="sucs-left-color" id="txtRemarks">
+                    		{{appLiterals.APP.COMMON.TEXT.NOTE}}
+                    	</span> 
+                    	<span class="sucs-right-color" id="remarks">
+                    		{{services.delinkCreditCardModel.remarks}}
+                    	</span>
+                    </div>			
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+</div>
+<!-- partial code end here-->

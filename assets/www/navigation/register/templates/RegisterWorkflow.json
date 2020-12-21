@@ -1,0 +1,2269 @@
+{
+	"pageNavigation": [
+		{
+			"RegisterCustomerId": [
+				{
+					"eventName": "onRegTypeClick",
+                    "action": "RegisterEnrolmentInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterSelfEnrolment"
+                    },
+                    "errorPage": {
+                    	"subFeature":"RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+				},
+				{
+                    "eventName": "onContinueClick",
+                    "action": "RegisterUserIdProceedService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.loginModel.userId"],   
+                     "parameters": {
+                        "CorpId": "register.loginModel.userId"   
+		                },                                    
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterExistingUser"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                }
+			],
+			"RegisterSelfEnrolment": [
+				{
+					"eventName": "onRegisterAuthService",
+                    "action": "RegisterEnrolmentInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOfflineForm"
+                    },
+                    "errorPage": {
+                    	"subFeature":"RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+				},
+				{
+					"eventName": "onRegisterMbaService",
+                     "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOfflineForm"
+                    },
+                    "errorPage": {
+                    	"subFeature":"RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+				}
+			],
+			"RegisterOnlineForm": [
+				{
+					"eventName": "onOnlineAuthClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineAuthentication"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineAuthentication"
+                    }
+				}
+			],
+			"RegisterChannelSelection": [
+				{
+					"eventName": "onChannelSelectionClick",
+                    "action": "RegisterChannelPasswordService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam"
+		                 },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineSuccessful"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "onOtherChannelSkipClick",
+                    "action": "ChannelSelectionService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam",
+		                "selectedChannel": "register.selectedChannelStr",
+		                "deselectedChannel":"register.deselectedChannelStr"
+		                 },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "confirmationPage",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "onSelectedChannel",
+                    "action": "SelectedChannelsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "Channal_List_CheckBox": "register.selectedChannelStr"
+		                 },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelpassword"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "onEbankingChannelSkip",
+                    "action": "RegisterChannelSetPasswordService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "Channal_List_CheckBox": "register.selectedChannelStr"
+		                 },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineSuccessful"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "onChannelSkipClick",
+                    "action": "RegisterChannelSelectionService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "Channal_List_CheckBox": "register.selectedChannelStr"
+		                 },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineAccountSelection"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "isEBUserChannelSkipClick",
+                    "action": "RegisterChannelSelectionService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "Channal_List_CheckBox": "register.selectedChannelStr"
+		                 },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineSuccessful"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "gotoSMSAuthPage",
+                    "action": "RegisterChannelSelectionService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                 "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+                    	"Channal_List_CheckBox": "register.selectedChannelStr"
+		                 },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSMSPassword"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "gotoUSSDAuthPage",
+                    "action": "RegisterChannelSelectionService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                 "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+                    	"Channal_List_CheckBox": "register.selectedChannelStr"
+		                 },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelUSSDPassword"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "gotoEbankAuthPage",
+                    "action": "RegisterChannelSelectionService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                 "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+                    	"Channal_List_CheckBox": "register.selectedChannelStr"
+		                 },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineSuccessful"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "gotoAccountsPage",
+                    "action": "RegisterChannelSelectionService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                    	"mbparam": "register.mbParam",
+		                "Channal_List_CheckBox": "register.selectedChannelStr"
+		                 },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineSuccessful"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "onOtherChannelSkipClick",
+                    "action": "ChannelSelectionService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam",
+		                "selectedChannel": "register.selectedChannelStr",
+		                "deselectedChannel":"register.deselectedChannelStr"
+		                 },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "onShowMessageClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "UnregisteredInfoPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				          {
+					"eventName": "onClickOfClose",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "ProfileLandingPage"
+                    }
+				}
+			],
+			"RegisterOnlineAuthentication": [
+				{
+					"eventName": "gotoSMSAuthPreLoginPage",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSMSPassword"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "gotoUSSDAuthPreLoginPage",
+                     "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelUSSDPassword"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "onOtherChannelSelectionPreLoginClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineAccountSelection"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				}
+			],
+			"RegisterChannelpassword": [
+				 {
+                    "eventName": "onChannelpasswordSubmit",
+                    "action": "RegisterOtherChannelSetPasswordService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "validationParams" : ["register.pwdModel.loginNewPwd","register.pwdModel.confirmLoginPwd","register.pwdModel.usdPwd","register.pwdModel.cnfrmUsdPwd"],
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+                    	"mbparam": "fields.finacleMbParam",
+		                "smspassword": "register.pwdModel.loginNewPwd", 
+		                "smspassword_confirm": "register.pwdModel.confirmLoginPwd",       
+		                "ussdpin": "register.pwdModel.usdPwd",
+		                "ussdpin_confirm": "register.pwdModel.cnfrmUsdPwd"
+		                 },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    }
+                },
+                {
+                    "eventName": "onSMSChannelpasswordSubmit",
+                    "action": "RegisterChannelSetPasswordService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.pwdModel.loginNewPwd","register.pwdModel.confirmLoginPwd"],
+                    "parameters": {
+		                 "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "LginNewPwd": "register.pwdModel.loginNewPwd", 
+		                "ConfrmLginPwd": "register.pwdModel.confirmLoginPwd",       
+		                "USSDPwd": "emptyStr",
+		                "cnfrmnewUSSD": "emptyStr",
+		                "TxnNewPwd": "emptyStr",
+		                "ConfrmTxnNewPwd": "emptyStr"
+		                 },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    }
+                },
+                {
+                    "eventName": "onUSSDChannelpasswordSubmit",
+                    "action": "RegisterChannelSetPasswordService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.pwdModel.usdPwd","register.pwdModel.cnfrmUsdPwd"],
+                    "parameters": {
+		                 "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "LginNewPwd": "emptyStr", 
+		                "ConfrmLginPwd": "emptyStr",       
+		                "USSDPwd": "register.pwdModel.usdPwd",
+		                "cnfrmnewUSSD": "register.pwdModel.cnfrmUsdPwd",
+		                "TxnNewPwd": "emptyStr",
+		                "ConfrmTxnNewPwd": "emptyStr"
+		                 },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    }
+                  }
+			],
+			"RegisterChannelSMSPassword": [
+                {
+                    "eventName": "onSMSChannelPasswordCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelSMSPassword"
+                    }
+                },
+                {
+                    "eventName": "validateSMSPasswordPage",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "true",
+                    "validationParams" : ["register.newSMSPwd","register.confirmSMSPwd"],
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelSMSPassword"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelSMSPassword"
+                    }
+                },
+                {
+					"eventName": "setSMSPassword",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "true",
+                    "validationParams" : ["register.newSMSPwd","register.confirmSMSPwd"],
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+                {
+					"eventName": "onOtherChannelSkipClick",
+                    "action": "ChannelSelectionService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam",
+		                "selectedChannel": "register.selectedChannelStr",
+		                "deselectedChannel":"register.deselectedChannelStr"
+		                 },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+                {
+                    "eventName": "onRegisterChannelAuthenticationConfirmClick",
+                    "action": "ChannelSelectionAuthService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "validationParams" : ["register.transactionPassword"],
+                    "parameters": {
+                       "jsessionid": "fields.finacleUserSessionId",
+                    	"mbparam": "fields.finacleMbParam",
+                        "Mode": "register.transactionPassword",
+                        "ussdpin":"register.newUSSDPwd",
+                        "smspassword":"register.newSMSPwd",
+                        "newEbankPwd":"register.newEbankPwd",
+                        "confirmEbankPwd":"register.confirmEbankPwd"
+		                },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    }
+                },
+				{
+					"eventName": "setUSSDPin",
+                   "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "true",
+                    "validationParams" : ["register.newUSSDPwd","register.confirmUSSDPwd"],
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelUSSDPassword"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "setEBPassword",
+                   "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "true",
+                    "validationParams" : ["register.newEbankPwd","register.confirmEbankPwd"],
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelEbankPassword"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+                {
+                    "eventName": "onSMSChannelPasswordSubmitClick",
+                    "action": "ChannelSelectionSetPasswordService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.newSMSPwd","register.confirmSMSPwd"],
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                        "mbparam": "register.mbParam",
+                		"smspassword": "register.newSMSPwd",
+                		"smspassword_confirm": "register.confirmSMSPwd",
+                		"USSDPwd": "emptyStr",
+                		"cnfrmnewUSSD": "emptyStr",
+                		"isFinalChannel":"register.isFinalChannel"
+		                 },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterOnlineSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelSMSPassword"
+                    }
+                },
+                {
+                    "eventName": "isEbUserGoToSMSPasswordPage",
+                    "action": "ChannelSelectionSetPasswordService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.newSMSPwd","register.confirmSMSPwd"],
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                        "mbparam": "register.mbParam",
+                		"smspassword": "register.newSMSPwd",
+                		"smspassword_confirm": "register.confirmSMSPwd",
+                		"USSDPwd": "emptyStr",
+                		"cnfrmnewUSSD": "emptyStr",
+                		"isFinalChannel":"register.isFinalChannel"
+		                 },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterOnlineSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelSMSPassword"
+                    }
+                },
+                {
+                    "eventName": "continuePasswordSetting",
+                    "action": "ChannelSelectionSetPasswordService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.newSMSPwd","register.confirmSMSPwd"],
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                        "mbparam": "register.mbParam",
+                		"smspassword": "register.newSMSPwd",
+                		"smspassword_confirm": "register.confirmSMSPwd",
+                		"USSDPwd": "emptyStr",
+                		"cnfrmnewUSSD": "emptyStr",
+                		"isFinalChannel":"register.isFinalChannel"
+		                 },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelUSSDPassword"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelSMSPassword"
+                    }
+                },
+                 {
+                    "eventName": "onSuccessGotoEbankChannelPasswordPage",
+                    "action": "ChannelSelectionSetPasswordService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.newSMSPwd","register.confirmSMSPwd"],
+                    "parameters": {
+		                 "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+                    	"smspassword": "register.newSMSPwd",
+                		"smspassword_confirm": "register.confirmSMSPwd",
+                		"USSDPwd": "register.newUSSDPwd",
+                		"cnfrmnewUSSD": "register.confirmUSSDPwd",
+                		"isFinalChannel":"register.isFinalChannel"
+		                 },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelEbankPassword"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelSMSPassword"
+                    }
+                },
+                {
+					"eventName": "onChannelSkipClick",
+                    "action": "RegisterChannelSetPasswordService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "Channal_List_CheckBox": "register.selectedChannelStr"
+		                 },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineAccountSelection"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+                {
+                    "eventName": "onEbSMSPasswordSubmit",
+                    "action": "ChannelSelectionSetPasswordService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.newUSSDPwd","register.confirmUSSDPwd"],
+                    "parameters": {
+		                 "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+                    	"smspassword": "register.newSMSPwd",
+                		"smspassword_confirm": "register.confirmSMSPwd",
+                		"USSDPwd": "register.newUSSDPwd",
+                		"cnfrmnewUSSD": "register.confirmUSSDPwd",
+                		"isFinalChannel":"register.isFinalChannel"
+		                 },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelUSSDPassword"
+                    }
+                 } 
+			],
+			"RegisterChannelUSSDPassword": [
+			{
+					"eventName": "onChannelSkipClick",
+                    "action": "RegisterChannelSetPasswordService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "Channal_List_CheckBox": "register.selectedChannelStr"
+		                 },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineSuccessful"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+                    "eventName": "validateUSSDPinPage",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "true",
+                    "validationParams" : ["register.newUSSDPwd","register.confirmUSSDPwd"],
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelUSSDPassword"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelUSSDPassword"
+                    }
+                },
+				{
+					"eventName": "setUSSDPin",
+                     "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "true",
+                    "validationParams" : ["register.newUSSDPwd","register.confirmUSSDPwd"],
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "onOtherChannelSkipClick",
+                    "action": "ChannelSelectionService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam",
+		                "selectedChannel": "register.selectedChannelStr",
+		                "deselectedChannel":"register.deselectedChannelStr"
+		                 },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+                    "eventName": "onRegisterChannelAuthenticationConfirmClick",
+                    "action": "ChannelSelectionAuthService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "validationParams" : ["register.transactionPassword"],
+                    "parameters": {
+                       "jsessionid": "fields.finacleUserSessionId",
+                    	"mbparam": "fields.finacleMbParam",
+                        "Mode": "register.transactionPassword",
+                        "ussdpin":"register.newUSSDPwd",
+                        "smspassword":"register.newSMSPwd",
+                        "newEbankPwd":"register.newEbankPwd",
+                        "confirmEbankPwd":"register.confirmEbankPwd"
+		                },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    }
+                },
+				 {
+					"eventName": "setSMSPassword",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "true",
+                    "validationParams" : ["register.newSMSPwd","register.confirmSMSPwd"],
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSMSPassword"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "setEBPassword",
+                   "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "true",
+                    "validationParams" : ["register.newEbankPwd","register.confirmEbankPwd"],
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelEbankPassword"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+                    "eventName": "onSuccessGotoUSSDChannelPasswordPage",
+                    "action": "ChannelSelectionSetPasswordService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.newUSSDPwd","register.confirmUSSDPwd"],
+                    "parameters": {
+                     "jsessionid": "register.jsessionid",
+                     "mbparam": "register.mbParam",
+                     "smspassword": "emptyStr",
+                     "smspassword_confirm": "emptyStr",
+                     "USSDPwd": "register.newUSSDPwd",
+                     "cnfrmnewUSSD": "register.confirmUSSDPwd",
+                     "isFinalChannel":"register.isFinalChannel"
+                       },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterOnlineSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelUSSDPassword"
+                    }
+                },
+                {
+                    "eventName": "isEbUserGoToUSSDPinPage",
+                    "action": "ChannelSelectionSetPasswordService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "validationParams" : ["register.newUSSDPwd","register.confirmUSSDPwd"],
+                    "parameters": {
+                     "jsessionid": "register.jsessionid",
+                     "mbparam": "register.mbParam",
+                     "smspassword": "emptyStr",
+                     "smspassword_confirm": "emptyStr",
+                     "USSDPwd": "register.newUSSDPwd",
+                     "cnfrmnewUSSD": "register.confirmUSSDPwd",
+                     "isFinalChannel":"register.isFinalChannel"
+                       },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterOnlineSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelUSSDPassword"
+                    }
+                },
+                {
+                    "eventName": "onUSSDChannelPasswordCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelUSSDPassword"
+                    }
+                },
+                {
+                    "eventName": "onUSSDChannelPasswordSubmitClick",
+                    "action": "ChannelSelectionSetPasswordService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.newUSSDPwd","register.confirmUSSDPwd"],
+                    "parameters": {
+		                 "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+                    	"smspassword": "register.newSMSPwd",
+                		"smspassword_confirm": "register.confirmSMSPwd",
+                		"USSDPwd": "register.newUSSDPwd",
+                		"cnfrmnewUSSD": "register.confirmUSSDPwd",
+                		"isFinalChannel":"register.isFinalChannel"
+		                 },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelUSSDPassword"
+                    }
+                },
+                {
+                    "eventName": "onEbUSSDPasswordSubmit",
+                    "action": "ChannelSelectionSetPasswordService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.newUSSDPwd","register.confirmUSSDPwd"],
+                    "parameters": {
+		                 "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+                    	"smspassword": "register.newSMSPwd",
+                		"smspassword_confirm": "register.confirmSMSPwd",
+                		"USSDPwd": "register.newUSSDPwd",
+                		"cnfrmnewUSSD": "register.confirmUSSDPwd",
+                		"isFinalChannel":"register.isFinalChannel"
+		                 },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelUSSDPassword"
+                    }
+                }
+			],
+			"RegisterChannelEbankPassword": [
+			{
+					"eventName": "onChannelSkipClick",
+                    "action": "RegisterChannelSetPasswordService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "Channal_List_CheckBox": "register.selectedChannelStr"
+		                 },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineSuccessful"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "setEBPassword",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                   "validation": "true",
+                    "validationParams" : ["register.newEbankPwd","register.confirmEbankPwd"],
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+                {
+                    "eventName": "onEbankChannelPasswordCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelUSSDPassword"
+                    }
+                },
+                {
+                    "eventName": "onEbankChannelPasswordSubmitClick",
+                    "action": "ValidateModeEnabledService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.newEbankPwd"],
+                    "parameters": {
+                       "jsessionid": "fields.finacleUserSessionId",
+                    	"mbparam": "fields.finacleMbParam",
+                        "newEbankPwd":"register.newEbankPwd",
+                        "confirmEbankPwd":"register.confirmEbankPwd"
+		                },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelEbankPassword"
+                    }
+                }
+			],
+			"RegisterPasswordSet": [			
+				{
+					"eventName": "onSetLoginAndTxnPwdClick",
+                    "action": "RegisterChannelSetPasswordService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.pwdModel.loginNewPwd","register.pwdModel.confirmLoginPwd","register.pwdModel.TxnNewPwd",
+                    		"register.pwdModel.ConfrmTxnNewPwd"],                  
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "LginNewPwd": "register.pwdModel.loginNewPwd", 
+		                "ConfirmLginPwd": "register.pwdModel.confirmLoginPwd",       
+		                "TxnNewPwd": "register.pwdModel.TxnNewPwd",
+		                "ConfrmTxnNewPwd": "register.pwdModel.ConfrmTxnNewPwd"
+		                },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterPasswordSet"
+                    }
+				},
+				{
+					"eventName": "onEnquiryProceed",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterEnquiryStatus"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterPasswordSet"
+                    }
+				},
+				{
+					"eventName": "onSetLoginAndTxnPwdMPINFlow",
+                    "action": "RegisterChannelSetPasswordService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.pwdModel.loginNewPwd","register.pwdModel.confirmLoginPwd","register.pwdModel.TxnNewPwd",
+                    		"register.pwdModel.ConfrmTxnNewPwd"],                   
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "LginNewPwd": "register.pwdModel.loginNewPwd", 
+		                "ConfirmLginPwd": "register.pwdModel.confirmLoginPwd",       
+		                "TxnNewPwd": "register.pwdModel.TxnNewPwd",
+		                "ConfrmTxnNewPwd": "register.pwdModel.ConfrmTxnNewPwd"
+		                },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "AppActivationSetMPINPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterPasswordSet"
+                    }
+				},
+				{
+					"eventName": "onSetLoginPwdClick",
+                    "action": "RegisterChannelSetPasswordService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.pwdModel.loginNewPwd","register.pwdModel.confirmLoginPwd"],                  
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "LginNewPwd": "register.pwdModel.loginNewPwd", 
+		                "ConfirmLginPwd": "register.pwdModel.confirmLoginPwd",       
+		                "TxnNewPwd": "emptyStr",
+		                "ConfrmTxnNewPwd": "emptyStr"
+		                },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterPasswordSet"
+                    }
+				},
+				{
+					"eventName": "onSetLoginPwdMPINFlow",
+                    "action": "RegisterChannelSetPasswordService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.pwdModel.loginNewPwd","register.pwdModel.confirmLoginPwd"],                   
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "LginNewPwd": "register.pwdModel.loginNewPwd", 
+		                "ConfirmLginPwd": "register.pwdModel.confirmLoginPwd",       
+		                "TxnNewPwd": "emptyStr",
+		                "ConfrmTxnNewPwd": "emptyStr"
+		                },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "AppActivationSetMPINPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterPasswordSet"
+                    }
+				},
+				{
+					"eventName": "onOtherChannelSkipClick",
+                    "action": "ChannelSelectionService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam",
+		                "selectedChannel": "register.selectedChannelStr",
+		                "deselectedChannel":"register.deselectedChannelStr"
+		                 },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+                    "eventName": "onRegisterChannelAuthenticationConfirmClick",
+                    "action": "ChannelSelectionAuthService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "validationParams" : ["register.transactionPassword"],
+                    "parameters": {
+                       "jsessionid": "fields.finacleUserSessionId",
+                    	"mbparam": "fields.finacleMbParam",
+                        "Mode": "register.transactionPassword",
+                        "ussdpin":"register.newUSSDPwd",
+                        "smspassword":"register.newSMSPwd",
+                        "newEbankPwd":"register.newEbankPwd",
+                        "confirmEbankPwd":"register.confirmEbankPwd"
+		                },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    }
+                },
+				 {
+					"eventName": "setSMSPassword",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "true",
+                    "validationParams" : ["register.newSMSPwd","register.confirmSMSPwd"],
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSMSPassword"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "setUSSDPin",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "true",
+                    "validationParams" : ["register.newUSSDPwd","register.confirmUSSDPwd"],
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelUSSDPassword"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "setEBPassword",
+                   "action": "navigation",
+                    "actionType": "navigation",
+                   "validation": "true",
+                    "validationParams" : ["register.newEbankPwd","register.confirmEbankPwd"],
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelEbankPassword"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "onNavSetMpin",
+                    "action": "RegisterSubmitMPINService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : [
+                    		"register.pwdModel.loginNewPwd",
+                    		"register.pwdModel.confirmLoginPwd",
+                    		"register.pwdModel.TxnNewPwd",
+                    		"register.pwdModel.ConfrmTxnNewPwd",
+                    		"register.pwdModel.userMPIN",
+                    		"register.pwdModel.confirmMPIN",
+                    		"register.pwdModel.deviceName"
+                    		],                   
+                    
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "LginNewPwd": "register.pwdModel.loginNewPwd", 
+		                "ConfirmLginPwd": "register.pwdModel.confirmLoginPwd",       
+		                "TxnNewPwd": "register.pwdModel.TxnNewPwd",
+		                "ConfrmTxnNewPwd": "register.pwdModel.ConfrmTxnNewPwd",
+		                "USSDPwd": "emptyStr",
+		                "cnfrmnewUSSD": "emptyStr",
+		                "Activation_DeviceName":"register.pwdModel.deviceName" ,
+		                "isSelfEnrolEnabled":"isEstatus"
+		                },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterPasswordSet"
+                    }
+				}
+			],
+			"RegisterOnlineAccountSelection": [				
+				{
+					"eventName": "onAccountSelectionClick",
+                    "action": "RegisterAccountSelectionService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "Account_Selection_Chkbox_Row": "register.selectedAcStr"
+		                },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineSuccessful"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineAccountSelection"
+                    }
+				},
+				{
+					"eventName": "onAccountSkipClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineSuccessful"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineAccountSelection"
+                    }
+				}
+			],			
+			"RegisterOfflineForm": [
+				{
+				  "eventName": "validateRegiterationForm",
+                   "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "true",
+                    "validationParams" : ["register.offlineModel.firstName","register.offlineModel.lastName","register.offlineModel.gender",
+                    						"register.offlineModel.title","register.offlineModel.mobile","register.offlineModel.dob","register.offlineModel.email"], 
+                    "validationErrorMessage": [
+                        	{
+                            	"isEmail": "APP.MYPROFILE.VAL_ERROR.VALID_EMAIL"
+                        	}
+                    ],					
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOfflineForm"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOfflineForm"
+                    }
+				},				
+				{
+					"eventName": "onRegisterOfflineSuccessClick",
+                    "action": "RegisterOfflineSubmitService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.offlineModel.firstName","register.offlineModel.lastName","register.offlineModel.gender",
+                    						"register.offlineModel.title","register.offlineModel.mobile","register.offlineModel.dob","register.offlineModel.email"], 
+                    "validationErrorMessage": [
+                        	{
+                            	"isEmail": "APP.MYPROFILE.VAL_ERROR.VALID_EMAIL"
+                        	}
+                    ],					
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "FirstName": "register.offlineModel.firstName", 
+		                "MiddleName": "register.offlineModel.midName",       
+		                "LastName": "register.offlineModel.lastName",
+		                "CustomerId": "register.offlineModel.custmerId",
+		                "Gender": "register.offlineModel.gender",
+		                "AccountNumber": "register.offlineModel.accountNo",
+		                "Title": "register.offlineModel.title",
+		                "DOB":"emptyStr",
+		                "DOB_day": "register.offlineModel.dobDay",
+		                "DOB_month": "register.offlineModel.dobMonth",
+		                "DOB_year": "register.offlineModel.dobYear",
+		                "MobileNumber": "register.offlineModel.mobile.toString()",
+		                "EmailId": "register.offlineModel.email"	                
+		                },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOfflineSuccessful"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOfflineForm"
+                    }
+				},
+				{
+					"eventName": "onRegisterOnlineContinueClick",
+                    "action": "RegisterOnlineContinueService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.offlineModel.firstName","register.offlineModel.lastName",
+                    						"register.offlineModel.gender","register.offlineModel.title",
+                    						"register.offlineModel.mobile","register.offlineModel.dob","register.offlineModel.email"], 
+                    "validationErrorMessage": [
+                        	{
+                            	"isEmail": "APP.MYPROFILE.VAL_ERROR.VALID_EMAIL"
+                        	}
+                    ],						
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "FirstName": "register.offlineModel.firstName", 
+		                "MiddleName": "register.offlineModel.midName",       
+		                "LastName": "register.offlineModel.lastName",
+		                "CustomerId": "register.offlineModel.custmerId",
+		                "AccountNumber": "register.offlineModel.accountNo",
+		                "Gender": "register.offlineModel.gender",
+		                "Title": "register.offlineModel.title",
+		               	"DOB":"emptyStr",
+		                "DOB_day": "register.offlineModel.dobDay",
+		                "DOB_month": "register.offlineModel.dobMonth",
+		                "DOB_year": "register.offlineModel.dobYear",
+		                "MobileNumber": "register.offlineModel.mobile.toString()",
+		                "EmailId": "register.offlineModel.email"	                
+		                },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineAuthentication"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOfflineForm"
+                    }
+				},
+				{
+					"eventName": "onOTPAuthPage",
+                    "action": "RegisterOnlineContinueService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.offlineModel.firstName","register.offlineModel.lastName",
+                    						"register.offlineModel.gender","register.offlineModel.title",
+                    						"register.offlineModel.mobile","register.offlineModel.dob","register.offlineModel.email"], 
+                    "validationErrorMessage": [
+                        	{
+                            	"isEmail": "APP.MYPROFILE.VAL_ERROR.VALID_EMAIL"
+                        	}
+                    ],						
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "FirstName": "register.offlineModel.firstName", 
+		                "MiddleName": "register.offlineModel.midName",       
+		                "LastName": "register.offlineModel.lastName",
+		                "CustomerId": "register.offlineModel.custmerId",
+		                "AccountNumber": "register.offlineModel.accountNo",
+		                "Gender": "register.offlineModel.gender",
+		                "Title": "register.offlineModel.title",
+		                "DOB":"emptyStr",
+		                "DOB_day": "register.offlineModel.dobDay",
+		                "DOB_month": "register.offlineModel.dobMonth",
+		                "DOB_year": "register.offlineModel.dobYear",
+		                "MobileNumber": "register.offlineModel.mobile.toString()",
+		                "EmailId": "register.offlineModel.email"	                
+		                },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOTPAuthPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOfflineForm"
+                    }
+				}
+			],
+			"RegisterOTPAuthPage": [
+				{
+                    "eventName": "gotoDCAuthPage",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterDebitCardAuthPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "gotoCCAuthPage",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterCreditCardAuthPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+					"eventName": "onOnlineOTPAuthClick",
+                    "action": "RegisterEnrolOTPService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.onlineContinueModel.pwd"],                   
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		              	"OTP":"register.onlineContinueModel.pwd"	                
+		                },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterPasswordSet"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOTPAuthPage"
+                    }
+				},
+                {
+					"eventName": "onOnlineOTPCCAuthClick",
+                    "action": "AppActivationValidateSMSOTPService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.onlineContinueModel.pwd"],                   
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		              	"SMSOTP":"register.onlineContinueModel.pwd"	                
+		                },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterCreditCardAuthPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOfflineForm"
+                    }
+				},
+				{
+					"eventName": "onEBFlowOTPAuthClick",
+                    "action": "AppActivationValidateSMSOTPService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.onlineContinueModel.pwd"],                   
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		              	"SMSOTP":"register.onlineContinueModel.pwd"	                
+		                },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "AppActivationSetMPINPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOTPAuthPage"
+                    }
+				},
+				 {
+					"eventName": "onOnlineOTPDCAuthClick",
+                    "action": "AppActivationValidateSMSOTPService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.onlineContinueModel.pwd"],                   
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		              	"SMSOTP":"register.onlineContinueModel.pwd"	                
+		                },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterDebitCardAuthPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOfflineForm"
+                    }
+				},
+				 {
+                    "eventName": "onEnquiryOTPAuthClick",
+                    "action": "RegisterEnrolOTPService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.onlineContinueModel.pwd"],                   
+                    "parameters": {
+                        "jsessionid": "register.jsessionid",
+                        "mbparam": "register.mbParam",
+                        "OTP":"register.onlineContinueModel.pwd"                    
+                        },
+                    "successPage": {
+                        "subFeature":"Register",
+                        "pageName": "RegisterPasswordSet"
+                    },
+                    "errorPage": {
+                        "subFeature":"Register",
+                        "pageName": "RegisterOTPAuthPage"
+                    }
+                },
+                {
+                    "eventName": "onEnquiryOTPCCAuthClick",
+                    "action": "AppActivationValidateSMSOTPService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.onlineContinueModel.pwd"],                   
+                    "parameters": {
+                        "jsessionid": "register.jsessionid",
+                        "mbparam": "register.mbParam",
+                        "SMSOTP":"register.onlineContinueModel.pwd"                 
+                        },
+                    "successPage": {
+                        "subFeature":"Register",
+                        "pageName": "RegisterCreditCardAuthPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"Register",
+                        "pageName": "RegisterEnquiry"
+                    }
+                },
+                 {
+                    "eventName": "onEnquiryOTPDCAuthClick",
+                    "action": "AppActivationValidateSMSOTPService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.onlineContinueModel.pwd"],                   
+                    "parameters": {
+                        "jsessionid": "register.jsessionid",
+                        "mbparam": "register.mbParam",
+                        "SMSOTP":"register.onlineContinueModel.pwd"                 
+                        },
+                    "successPage": {
+                        "subFeature":"Register",
+                        "pageName": "RegisterDebitCardAuthPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"Register",
+                        "pageName": "RegisterEnquiry"
+                    }
+                },
+				{
+					"eventName": "onRegenerateOTPEnrolClick",
+                    "action": "RegisterRegenerateOTPService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam"
+                		},
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOTPAuthPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineAuthentication"
+                    }
+				},
+				{
+                    "eventName": "onNavigateDCAuthPage",
+                    "action": "RegisterEnrolOTPService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.onlineContinueModel.pwd"],                   
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "page_name": "register.onlineContinueModel.pageName", 		               
+		                "eventExecuted": "register.onlineContinueModel.eventExecuted", 
+		                "AtmPin": "emptyStr",       
+		                "CardNumber1": "emptyStr",
+		                "CardNumber2": "emptyStr",
+		                "CardNumber3": "emptyStr",
+		                "CardNumber4": "emptyStr",
+		                "CardName": "emptyStr",
+		                "CardExpiryYear": "emptyStr",
+		                "CardExpiryMonth": "emptyStr",
+		                "key": "register.onlineContinueModel.pwd"	                
+		                },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterDebitCardAuthPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onEnquiryNavDCAuthPage",
+                    "action": "EnquiryRegOTPService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.onlineContinueModel.pwd"],                   
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "page_name": "register.onlineContinueModel.pageName", 		               
+		                "eventExecuted": "register.onlineContinueModel.eventExecuted", 
+		                "AtmPin": "emptyStr",       
+		                "CardNumber1": "emptyStr",
+		                "CardNumber2": "emptyStr",
+		                "CardNumber3": "emptyStr",
+		                "CardNumber4": "emptyStr",
+		                "CardName": "emptyStr",
+		                "CardExpiryYear": "emptyStr",
+		                "CardExpiryMonth": "emptyStr",
+		                "key": "register.onlineContinueModel.pwd"	                
+		                },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterDebitCardAuthPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onNavigateCCAuthPage",
+                     "action": "RegisterEnrolOTPService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.onlineContinueModel.pwd"],                   
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "page_name": "register.onlineContinueModel.pageName", 		               
+		                "eventExecuted": "register.onlineContinueModel.eventExecuted", 
+		                "AtmPin": "emptyStr",       
+		                "CardNumber1": "emptyStr",
+		                "CardNumber2": "emptyStr",
+		                "CardNumber3": "emptyStr",
+		                "CardNumber4": "emptyStr",
+		                "CardName": "emptyStr",
+		                "CardExpiryYear": "emptyStr",
+		                "CardExpiryMonth": "emptyStr",
+		                "key": "register.onlineContinueModel.pwd"	                
+		                },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterCreditCardAuthPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onEnquiryNavCCAuthPage",
+                     "action": "EnquiryRegOTPService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.onlineContinueModel.pwd"],                   
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "page_name": "register.onlineContinueModel.pageName", 		               
+		                "eventExecuted": "register.onlineContinueModel.eventExecuted", 
+		                "AtmPin": "emptyStr",       
+		                "CardNumber1": "emptyStr",
+		                "CardNumber2": "emptyStr",
+		                "CardNumber3": "emptyStr",
+		                "CardNumber4": "emptyStr",
+		                "CardName": "emptyStr",
+		                "CardExpiryYear": "emptyStr",
+		                "CardExpiryMonth": "emptyStr",
+		                "key": "register.onlineContinueModel.pwd"	                
+		                },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterCreditCardAuthPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+					"eventName": "onEnquiryOTPAuthClick",
+                    "action": "EnquiryRegOTPService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterEnquiryStatus"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineAuthentication"
+                    }
+				}		
+			],
+			"RegisterDebitCardAuthPage": [
+				{
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+					"eventName": "onOnlineDCAuthClick",
+                    "action": "RegisterEnrolDebitCardService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.onlineContinueModel.name","register.onlineContinueModel.card1",
+                    		"register.onlineContinueModel.card2","register.onlineContinueModel.card3","register.onlineContinueModel.card4",
+                    		"register.onlineContinueModel.debitPin"],                                       
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "page_name": "register.onlineContinueModel.pageName", 
+		                "eventExecuted": "register.onlineContinueModel.eventExecuted", 
+		                "AtmPin": "register.onlineContinueModel.debitPin",       
+		                "CardNumber1": "register.onlineContinueModel.card1.toString()",
+		                "CardNumber2": "register.onlineContinueModel.card2.toString()",
+		                "CardNumber3": "register.onlineContinueModel.card3.toString()",
+		                "CardNumber4": "register.onlineContinueModel.card4.toString()",
+		                "CardName": "register.onlineContinueModel.name",
+		                "CardExpiryYear": "emptyStr",
+		                "CardExpiryMonth": "emptyStr",
+		                "key": "emptyStr"	                
+		                },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterPasswordSet"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterDebitCardAuthPage"
+                    }
+				},
+				{
+					"eventName": "onEnquiryDCAuthClick",
+                    "action": "EnquiryRegDebitCardService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.onlineContinueModel.name","register.onlineContinueModel.card1",
+                    		"register.onlineContinueModel.card2","register.onlineContinueModel.card3","register.onlineContinueModel.card4",
+                    		"register.onlineContinueModel.debitPin"],                                       
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "page_name": "register.onlineContinueModel.pageName", 
+		                "eventExecuted": "register.onlineContinueModel.eventExecuted", 
+		                "AtmPin": "register.onlineContinueModel.debitPin",       
+		                "CardNumber1": "register.onlineContinueModel.card1",
+		                "CardNumber2": "register.onlineContinueModel.card2",
+		                "CardNumber3": "register.onlineContinueModel.card3",
+		                "CardNumber4": "register.onlineContinueModel.card4",
+		                "CardName": "register.onlineContinueModel.name",
+		                "CardExpiryYear": "emptyStr",
+		                "CardExpiryMonth": "emptyStr",
+		                "key": "emptyStr"	                
+		                },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterEnquiryStatus"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineAuthentication"
+                    }
+				}
+			],
+			"RegisterCreditCardAuthPage": [
+				{
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+					"eventName": "onOnlineCCAuthClick",
+                    "action": "RegisterEnrolCreditCardService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.onlineContinueModel.card1",
+                    		"register.onlineContinueModel.card2","register.onlineContinueModel.card3","register.onlineContinueModel.card4",
+                    		"register.onlineContinueModel.expYear","register.onlineContinueModel.expMonth","register.onlineContinueModel.CVV"],  
+                    "validationErrorMessage": [
+                        	{
+                            	"cardExpiryYearAndMonth": "APP.REGISTER.REGON_AUTH.EXP_DTE_MSG"
+                        	}
+                    ],		                                     
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "page_name": "register.onlineContinueModel.pageName", 
+		                "eventExecuted": "register.onlineContinueModel.eventExecuted", 
+		                "AtmPin": "register.onlineContinueModel.CVV",       
+		                "CardNumber1": "register.onlineContinueModel.card1.toString()",
+		                "CardNumber2": "register.onlineContinueModel.card2.toString()",
+		                "CardNumber3": "register.onlineContinueModel.card3.toString()",
+		                "CardNumber4": "register.onlineContinueModel.card4.toString()",
+		                "CardExpiryYear": "register.onlineContinueModel.expYear",
+		                "CardExpiryMonth": "register.onlineContinueModel.expMonth",
+		                "key": "emptyStr"	                
+		                },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterPasswordSet"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterCreditCardAuthPage"
+                    }
+				},
+				{
+					"eventName": "onEnquiryCCAuthClick",
+                    "action": "EnquiryRegCreditCardService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.onlineContinueModel.card1",
+                    		"register.onlineContinueModel.card2","register.onlineContinueModel.card3","register.onlineContinueModel.card4",
+                    		"register.onlineContinueModel.expYear","register.onlineContinueModel.expMonth","register.onlineContinueModel.CVV"],  
+                     "validationErrorMessage": [
+                        	{
+                            	"cardExpiryYearAndMonth": "APP.REGISTER.REGON_AUTH.EXP_DTE_MSG"
+                        	}
+                    ],		                                     
+                    "parameters": {
+		                "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+		                "page_name": "register.onlineContinueModel.pageName", 
+		                "eventExecuted": "register.onlineContinueModel.eventExecuted", 
+		                "AtmPin": "register.onlineContinueModel.CVV",       
+		                "CardNumber1": "register.onlineContinueModel.card1",
+		                "CardNumber2": "register.onlineContinueModel.card2",
+		                "CardNumber3": "register.onlineContinueModel.card3",
+		                "CardNumber4": "register.onlineContinueModel.card4",
+		                "CardExpiryYear": "register.onlineContinueModel.expYear",
+		                "CardExpiryMonth": "register.onlineContinueModel.expMonth",
+		                "key": "emptyStr"	                
+		                },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterEnquiryStatus"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterOnlineAuthentication"
+                    }
+				}
+			],
+			
+			"RegisterOfflineSuccessful": [
+				{
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                }
+			],
+			"RegisterConfirmationPage": [
+				{
+                    "eventName": "onYesClick",
+                    "action": "ExistingEBankingConfirmationService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		               "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam"
+		                },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelSelection"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterExistingUser"
+                    }
+                },
+                {
+                    "eventName": "onYesClickForMPIN",
+                    "action": "ExistingEBankingConfirmationService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		               "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam"
+		                },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterOTPAuthPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterExistingUser"
+                    }
+                }
+			],
+			"RegisterExistingUser": [
+				{
+                    "eventName": "onProceedClick",
+                    "action": "RegisterEbankingExistingUserService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.loginModel.userId","register.loginModel.password"],
+                    "parameters": {
+                        "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+                        "CorpId": "register.loginModel.userId",    
+		                "PassWord": "register.loginModel.password"	                
+		                },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterConfirmationPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterExistingUser"
+                    }
+                },
+                { 
+  					"eventName" : "onNavToAppActivation",
+  					"action" : "AppActivationService",
+  					"actionType":"service",
+  					"validation": "false",
+  					"parameters": {
+  					"jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+                        "CorpId": "register.loginModel.userId",
+                        "CLIENT_ID": "register.client_Id",
+                        "isActivation":"register.isActivation"
+                    },
+  					"successPage" : {
+  						 "subFeature": "AppActivation",
+  						"pageName": "AppActivationOTPAuthenticatePage"
+  					},
+  					"errorPage" : {
+  						"subFeature": "Register",
+  						"pageName": "RegisterCustomerIdPage"
+  					}
+  				}
+			],
+			"RegisterEnquiry": [
+				{
+                    "eventName": "onEnquiryClick",
+                    "action": "RegisterEnquiryService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.EnquiryModel.requestId","register.EnquiryModel.custId","register.EnquiryModel.accId"],
+                    "parameters": {
+                     "jsessionid": "register.jsessionid",
+                		"mbparam": "register.mbParam",
+                        "RequestId": "register.EnquiryModel.requestId",    
+		                "CustId": "register.EnquiryModel.custId",
+		                "AccntId":"register.EnquiryModel.accId"	                
+		                },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterOTPAuthPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterEnquiry"
+                    }
+                }
+			],
+			"RegisterChannelAuthentication": [
+			    {
+                    "eventName": "onRegisterChannelAuthenticationConfirmClick",
+                    "action": "ChannelSelectionAuthService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "validationParams" : ["register.transactionPassword"],
+                    "parameters": {
+                       "jsessionid": "fields.finacleUserSessionId",
+                    	"mbparam": "fields.finacleMbParam",
+                        "Mode": "register.transactionPassword",
+                        "ussdpin":"register.newUSSDPwd",
+                        "smspassword":"register.newSMSPwd",
+                        "newEbankPwd":"register.newEbankPwd",
+                        "confirmEbankPwd":"register.confirmEbankPwd"
+		                },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    }
+                },
+                {
+					"eventName": "onOtherChannelSkipClick",
+                    "action": "ChannelSelectionService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam",
+		                "selectedChannel": "register.selectedChannelStr",
+		                "deselectedChannel":"register.deselectedChannelStr"
+		                 },
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "ebPwdPage",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelEbankPassword"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "ussdPinPage",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelUSSDPassword"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+				{
+					"eventName": "smsPwdPage",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSMSPassword"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    }
+				},
+                {
+                    "eventName": "onRegisterChannelAuthenticationCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    }
+                },
+                {
+                    "eventName": "onRegisterChannelAuthenticationBackClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelSelection"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    }
+                },
+				{
+                    "eventName": "onOtherChannelAuthClickDelete",
+                    "action": "RegisterOtherChannelAuthService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["register.onlineContinueModel.pwd"],
+                    "parameters": {
+                       "jsessionid": "fields.finacleUserSessionId",
+                    	"mbparam": "fields.finacleMbParam",
+                        "Mode": "register.onlineContinueModel.pwd"          
+		                },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterOfflineSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelAuthentication"
+                    }
+                }
+               
+			],
+			"RegisterEnquiryStatus":[
+				{
+                    "eventName": "onRegisterNavigation",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterPasswordSet"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterEnquiryStatus"
+                    }
+                }
+			],
+			"RegisterChannelSuccessful": [
+				{
+                    "eventName": "onRegisterChannelSuccessOkClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterOnlineSuccessful"
+                    }
+                }
+			],
+			"UnregisteredInfoPage": [
+                {
+                    "eventName": "onUnregisteredInfoPageNoClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelSelection"
+                    },
+                    "errorPage": {
+                        "subFeature": "Register",
+                        "pageName": "UnregisteredInfoPage"
+                    }
+                }
+			],
+			"AppActivationSetMPINPage":[
+				{ 
+  					"eventName" : "onAppActivationSetMPINSubmitClick",
+  					"action" : "AppActivationSubmitService",
+  					"actionType":"service",
+  					"validation": "true",
+  					"validationParams": [
+  						"appActivation.userMPIN",
+  						"appActivation.confirmMPIN",
+                    	"appActivation.deviceName"
+                    ],
+                    "validationErrorMessage": [
+           				{
+                   			"stringEquals": "APP.ACTIVATION.VAL_ERROR.VALID_MPIN"
+           				},
+           				{
+           					"maxLength":"APP.ACTIVATION.VAL_ERROR.VALID_DEVICENAME"
+           				}
+           			],
+  					"parameters": {
+  						"jsessionid": "appActivation.sessionId",
+                        "mbparam": "appActivation.mparam",
+                        "Activation_DeviceName": "appActivation.deviceName",
+                        "CLIENT_ID":"appActivation.clientId",
+                        "LICENSE_STORE_SUCCESS":"appActivation.licenseStoreSuccess"
+                    },
+  					"successPage": {
+                    	"subFeature":"Register",
+                        "pageName": "RegisterChannelSelection"
+                    },
+                    "errorPage": {
+                    	"subFeature":"Register",
+                        "pageName": "AppActivationSetMPINPage"
+                    }
+  				}
+			]
+			
+		}
+	],
+    "subFeatureName": "Register",
+    "startPage": "RetailUserLoginPage"
+}

@@ -1,0 +1,175 @@
+<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onTempReleaseLetterCloseClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.temporaryReleaseLetter.initTemporaryReleaseLetter(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+				
+					<div class="main-form-heading-ServiceReq"> 
+							      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.TEMP_REL_LETTER}}
+							      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+							      </h2>		       
+					 		</div>
+
+					<div class="bg-color rak-cont-padding rak-scroll">
+						<div class="row">
+							
+							<div
+								ng-init='loannumberlist = createDropDownOptionArray(rakServiceReq.temporaryReleaseLetter.loanNumberList,["productCatDesc","-", "loanNumber"],"index");'>
+								<fin-input type="dropdown"
+									model="rakServiceReq.temporaryReleaseLetter.loanAgreementNumber"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_TMP_REL_LETTER.PH_AGREEMENT_NUM}}"
+									validation-flag='pageErrorArr["rakServiceReq.temporaryReleaseLetter.loanAgreementNumber"]'
+									option-array="loannumberlist"></fin-input>
+							</div>
+
+
+
+							<!-- 	RAK : Vishal : Start -->
+							<div
+								ng-init='countrylist = createDropDownOptionArray(rakServiceReq.temporaryReleaseLetter.countryList,["content"],"value");'>
+								<fin-input type="dropdown"
+									model="rakServiceReq.temporaryReleaseLetter.travelCountry"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_TMP_REL_LETTER.PH_COUNTRY}}"
+									validation-flag='pageErrorArr["rakServiceReq.temporaryReleaseLetter.travelCountry"]'
+									option-array="countrylist"></fin-input>
+							</div>
+							<fin-input type="date"
+								model="rakServiceReq.temporaryReleaseLetter.dateTravel"
+								display-row="full" value="futureDatesOnly"
+								placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_TMP_REL_LETTER.PH_TRAVEL_DATE}}"
+								on-change="rakServiceReq.tempReleaseLetterHideFields();"
+								validation-flag='pageErrorArr["rakServiceReq.temporaryReleaseLetter.dateTravel"]'></fin-input>
+
+							<fin-input type="date"
+								model="rakServiceReq.temporaryReleaseLetter.dateReturn"
+								display-row="full" value="futureDatesOnly"
+								placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_TMP_REL_LETTER.PH_RETURN_DATE}}"
+								on-change="rakServiceReq.tempReleaseLetterHideFields();"
+								validation-flag='pageErrorArr["rakServiceReq.temporaryReleaseLetter.dateReturn"]'></fin-input>
+
+
+							<div class="label-wrap">
+
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small rak-btn-large-text"
+									ng-show="rakServiceReq.temporaryReleaseLetter.isDaysCalulated =='N'"
+									ng-click="rakServiceReq.temporaryReleaseLetter.isBack=false;rakServiceReq.calculateNoOfDays();setEvent('onTempReleaseLetterValidateDates')">
+									{{appLiterals.APP.RAK_SERVICES.RAK_TMP_REL_LETTER.NOOFDAYS}}</button>
+
+							</div>
+
+							<div
+								ng-show="rakServiceReq.temporaryReleaseLetter.isDaysCalulated =='Y'">
+
+								<p class="rak-parent-txt">
+									<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAK_TMP_REL_LETTER.PH_NO_OF_DAYS}}</span> <span
+										class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.temporaryReleaseLetter.noOfDays}}</span>
+								</p>
+								
+							
+								<div
+									ng-init='debitchargelist = createDropDownOptionArray(rakServiceReq.temporaryReleaseLetter.debitChargeList,["productCatDesc","-", "debAccNumber"],"index");'>
+									<fin-input type="dropdown"
+										model="rakServiceReq.temporaryReleaseLetter.debitAccSelected"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_TMP_REL_LETTER.DEBIT_ACC_CHARGE}}"
+										validation-flag='pageErrorArr["rakServiceReq.temporaryReleaseLetter.debitAccSelected"]'
+										option-array="debitchargelist"></fin-input>
+								</div>
+
+
+							<div
+								ng-init='cardArr = createDropDownOptionArray(rakServiceReq.temporaryReleaseLetter.emirateList, ["codeDesc"], "code");'
+								
+								>
+							<fin-input type="dropdown"
+								model="rakServiceReq.temporaryReleaseLetter.emirateSeletected"
+								display-row="full"
+								
+								placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}"
+								on-change="rakServiceReq.temporaryReleaseLetterOptionChange();"
+								validation-flag='pageErrorArr["rakServiceReq.temporaryReleaseLetter.emirateSeletected"]'
+								option-array="cardArr"> </fin-input>
+							</div>
+							
+							
+							<div class="fin-input-container"
+								ng-show="rakServiceReq.temporaryReleaseLetter.isEmiSelected">
+								<div
+									ng-class="{'left-line': !pageErrorArr['rakServiceReq.temporaryReleaseLetter.selectedBranch'], 'left-line-error':pageErrorArr['rakServiceReq.temporaryReleaseLetter.selectedBranch']}"
+									class="left-line"></div>
+								<div class="input-body">
+									<div class="input-body2 input-body2-dropdown">
+										<select dropdownpicker class="fin-input fin-select" title="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}"
+											ng-model="rakServiceReq.temporaryReleaseLetter.selectedBranch"
+											ng-style="{{rakServiceReq.temporaryReleaseLetter.selectedBranch}} == '' ? {'font-size': '14px'} : {'color': 'initial'}">
+											<option class="place-holder-select" value=""
+												ng-selected="rakServiceReq.temporaryReleaseLetter.selectedBranch== null"
+												ng-show="rakServiceReq.temporaryReleaseLetter.selectedBranch== null">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}</option>
+											<option
+												ng-repeat="option in rakServiceReq.temporaryReleaseLetter.emiCategorizedBranchList"
+												ng-selected="option.value=={{rakServiceReq.temporaryReleaseLetter.selectedBranch}}"
+												value="{{option.branchIndex}}">{{option.branchName}}</option>
+										</select>
+									</div>
+									<div
+										ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.temporaryReleaseLetter.selectedBranch'], 'bottom-line-error':pageErrorArr['rakServiceReq.temporaryReleaseLetter.selectedBranch']}"
+										class="bottom-line"></div>
+									<div
+										ng-hide='pageErrorArr["rakServiceReq.temporaryReleaseLetter.selectedBranch"]==null'
+										class="rakErrorMsg">
+										{{pageErrorArr['rakServiceReq.temporaryReleaseLetter.selectedBranch']}}</div>
+
+								</div>
+							</div>
+
+
+					
+								<fin-input type="number_card"
+									model="rakServiceReq.temporaryReleaseLetter.contNumber"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_TMP_REL_LETTER.CONT_NUM}}"
+							               max-length="15"
+									validation-flag='pageErrorArr["rakServiceReq.temporaryReleaseLetter.contNumber"]'></fin-input>
+
+								
+
+								<fin-input type="text"
+									model="rakServiceReq.temporaryReleaseLetter.notes"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_TMP_REL_LETTER.PH_NOTES}}"
+									validation-flag='pageErrorArr["rakServiceReq.temporaryReleaseLetter.notes"]'></fin-input>
+
+
+								<div class="label-wrap">
+									<!-- <button type="button"
+										class="btn--special-btn btn-middle rak-button-small"
+										ng-click="setEvent('onTempReleaseLetterCloseClick');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CANCEL}}</button> -->
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small rak-button-right"
+										ng-click="rakServiceReq.releaseLetterContinue();setEvent('onTempReleaseLetterConfirmClick');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+
+								</div>
+
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

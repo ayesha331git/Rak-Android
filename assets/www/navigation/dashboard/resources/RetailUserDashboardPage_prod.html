@@ -1,0 +1,492 @@
+<div class="view-container">
+	<div class=" "
+		ng-if="appActivation.touchIdEnable && !isResignedActivationStatus && !isTouchIDActivation && !displayTouchIDPopup"
+		ng-init="appActivation.touchIdAvailable();"></div>
+	<div class="page-content dashbord-landing-page">
+		<div class="finacle-container"
+			ng-init='
+		        myProfile.rememberUserID.rememberUserIDChk==true? jsonStore.addDoc(fields.finacleUserCorporateId):jsonStore.removeDoc(fields.finacleUserCorporateId);
+		        myProfile.saveCheckBoxStatus(myProfile.rememberUserID.rememberUserIDChk);
+		        oppAccountIndex = 0;
+		        loanAccountIndex = 0;
+		        depositAccountIndex = 0;
+		        fields.selectAcccountMax = 0;
+                successResponse.invocationResult=successResponse.hasOwnProperty("responsesList")?successResponse.responsesList[0]:successResponse.invocationResult;
+                fields.masterUserID = successResponse.invocationResult.masterUserID;
+		        fields.customerInfo = successResponse.invocationResult;
+		        dashboard.setCustomerName(successResponse.invocationResult.customerName,successResponse.invocationResult.userType);
+		        creditCard.getList(successResponse.invocationResult);
+		        notifications.getAllNotification(fields.finacleUserCorporateId);
+		        dashboard.initPushNotify();dashboard.setUserDateFormat(successResponse.invocationResult.UserAppPrefrences.Formatting.date.Format, successResponse.invocationResult.UserAppPrefrences.Formatting.date.Separator);
+		        dashboard.setBusinessDate(successResponse.invocationResult.UserAppPrefrences.Formatting.date);
+		        dashboard.setLastLoginTime(successResponse.invocationResult.lastLogin);
+		        dashboard.setUnreadMailCount(CountsuccessResponse.invocationResult.UserAppPrefrences.Formatting.otherAppParameters.unreadMailCount);myProfile.updateProfilePic();
+		        dashboard.getMenuOptionDetails(successResponse.invocationResult);dashboard.pushEvent();dashboard.getFormattingDetailsofuser(successResponse.invocationResult);myProfile.addPwdToKeychain();dashboard.setBrandForUser(successResponse.invocationResult);
+		        '>
+			<div class="app-profile-wrapper" ng-init="menuProfile.menuItems.processInit(menuList);">
+				<!-- <div class="app-user-img" ng-click="setEvent('onProfilePicClick')">
+					<img ng-hide="!myProfile.userProfilePicPresent"
+						src="{{myProfile.userProfilePic}}" class="user-img">
+					<p ng-hide="myProfile.userProfilePicPresent" class="user-char-wrap">
+						<span id="InvocationResult" class="first-char">
+							{{successResponse.invocationResult.customerName.charAt(0)}}
+							{{successResponse.invocationResult.customerName.split(" ").length
+							> 1 ? successResponse.invocationResult.customerName.split("
+							")[successResponse.invocationResult.customerName.split("
+							").length-1].charAt(0) : ""}} </span>
+					</p>
+				</div> -->
+				<div class="app-user-img"
+					ng-click="myProfile.showprofilePop($event)">
+					<img ng-hide="!myProfile.userProfilePicPresent"
+						src="{{myProfile.userProfilePic}}" class="user-img">
+					<p ng-hide="myProfile.userProfilePicPresent" class="user-char-wrap">
+						<span class="header-profile-pic app app-icon-retail"></span>
+						<!-- <span id="InvocationResult" class="first-char">
+							{{successResponse.invocationResult.customerName.charAt(0)}}
+							{{successResponse.invocationResult.customerName.split(" ").length
+							> 1 ? successResponse.invocationResult.customerName.split("
+							")[successResponse.invocationResult.customerName.split("
+							").length-1].charAt(0) : ""}} </span> -->
+					</p>
+				</div>
+
+				<!-- Select Profile Pic Pop UP -->
+				<!-- <div style="visibility: hidden">
+					<div class="md-dialog-container" id="myDialog"
+						ng-init="popUpId = '#myDialog'">	
+						<ng-include src="'ProfilePicPop.html'">
+                		</ng-include>										
+					</div>
+				</div> -->
+				<!-- Select Profile Pic Pop UP -->
+
+
+
+				<div class="app-user-detail">
+					<div id="InvocationResultCustomerName" class="app-user-name">
+						{{successResponse.invocationResult.customerName}}</div>
+					<div id="InvocationResultLastLogin" class="last-login">
+						{{appLiterals.APP.DASHBOARD.DASHBOARD_PAGE.TXT_LSTLGN}}
+						<fin-Date class="color-inherit"
+							date-value='{{successResponse.invocationResult.lastLogin}}'></fin-Date>
+						, {{dashboard.loginTime}}({{successResponse.invocationResult.lastSuccLoginChannel}})
+
+						<md-menu md-offset="-130 48"> <md-button
+							id="lastLoginCr"
+							class="last-login-cr-menu md-icon-button more-details"
+							ng-click='$mdOpenMenu($event)' aria-label="Login Details">
+						<md-icon class="login-cr-click app app-aboutapp color-inherit"></md-icon>
+						</md-button> <md-menu-content class="last-login-menu-content" width="4">
+						<md-menu-item> <md-button id="TXT_LSTDET" class=""
+							disabled="disabled"> <span md-menu-align-target="">{{appLiterals.APP.DASHBOARD.DASHBOARD_PAGE.TXT_LSTDET}}</span></md-button>
+						</md-menu-item> <md-menu-item class="display-block">
+						<div class="trans-no" id="lastUnSuccLoginChannel">{{appLiterals.APP.DASHBOARD.DASHBOARD_PAGE.TXT_LAST_UNSUC_LOGIN}}
+							({{successResponse.invocationResult.lastUnSuccLoginChannel}})</div>
+
+						<div class="trans-date" id="lastUnSuccLoginTime">{{successResponse.invocationResult.lastUnSuccLoginTime}}</div>
+						</md-menu-item> </md-menu-content> </md-menu>
+
+						<span class=""></span>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="dashboard-container">
+				<section class="fab-icon-container" layout="row"
+					layout-align="center center" layout-wrap>
+					<div class="fab-button-wrap" ng-if='dashboard.userType!=2'>
+						<md-button id="MENUTEXT_MOVE_MONEY_BUT" class="md-fab md-raised"
+							aria-label="Use Android"
+							ng-click='setGlobalEvent("onMoveMoneyClick");'> <md-icon
+							class="app app-move-money"></md-icon> </md-button>
+						<p id="MENUTEXT_MOVE_MONEY_1" class="">{{appLiterals.APP.MENUTEXT.MOVE_MONEY}}</p>
+					</div>
+					<div class="fab-button-wrap" ng-if='dashboard.userType==2'>
+						<md-button id="dashboard_TXT_PENDING_BUT" class="md-fab md-raised"
+							aria-label="Use Android"
+							ng-click='setEvent("onPendingApprovalClick");'> <md-icon
+							class="app app-icon_pendingAprroval"></md-icon> </md-button>
+						<p id="dashboard_TXT_PENDING" class="">{{appLiterals.APP.DASHBOARD.RETAIL_USER_DASHBOARD_PAGE.TXT_PENDING_APPROVAL}}</p>
+					</div>
+					<div class="fab-button-wrap">
+						<md-button id="dashboard_camera_but" class="md-fab md-raised"
+							aria-label="Use Android"
+							ng-click="setEvent('onChequeRemoteClick')"> <md-icon
+							class="app glyphicon glyphicon-camera"></md-icon> </md-button>
+						<p id="dashboard_camera" class="">{{appLiterals.APP.CHEQUE_MNGMNT.REMOTE_PAGE.DEPOSITE_CHEQUE}}</p>
+					</div>
+					<div class="fab-button-wrap"
+						ng-init='favorite.fetchDashboardFavorite(successResponse.invocationResult);services.serviceRequestStatusModel.requestType="PEN";'>
+						<md-menu-bar class="padding-zero"
+							ng-if='favorite.favoriteList.length > 0'> <md-menu>
+						<md-button id="app-star-full_but" ng-click="$mdOpenMenu($event);"
+							class="md-fab md-raised" aria-label="Open sample menu">
+						<md-icon class="app app-star-full"></md-icon> </md-button> <md-menu-content>
+						<md-menu-item
+							ng-repeat='choose in favorite.favoriteList.slice(0,3)'>
+						<md-button id="choose_MenuDesc_but"
+							ng-click="favorite.gotoFavorite(choose.MenuId)">{{choose.MenuDesc}}</md-button>
+						</md-menu-item> <md-menu-divider></md-menu-divider> <md-menu-item>
+						<md-button id="FAVORITE_VIEW_ALL_BUT"
+							ng-click='favorite.addtoFavorite=false; setEvent("favoriteList")'>
+						{{appLiterals.APP.DASHBOARD.FAVORITE.VIEW_ALL}} </md-button> </md-menu-item> </md-menu-content> </md-menu> </md-menu-bar>
+						<md-menu-bar class="padding-zero"
+							ng-if='!favorite.favoriteList || favorite.favoriteList.length==0'>
+						<md-menu> <md-button id="Fav_button"
+							ng-click="$mdOpenMenu($event);" class="md-fab md-raised"
+							aria-label="Open sample menu"> <md-icon
+							class="app app-star-full"></md-icon> </md-button> <md-menu-content>
+						<md-menu-item> <md-button
+							id="FAVORITE_ADD_FAV_ACT_MD_BUTTON"
+							ng-click='favorite.addtoFavorite=true;favorite.noFavorites=true; setEvent("favoriteList")'>
+						{{appLiterals.APP.DASHBOARD.FAVORITE.ADD_FAV_ACT}} </md-button> </md-menu-item> </md-menu-content> </md-menu> </md-menu-bar>
+
+						<p ID="FAVORITE_HEADER_TEXT" class="">{{appLiterals.APP.DASHBOARD.FAVORITE.HEADER}}</p>
+					</div>
+
+				</section>
+				<div class="dashboard-body"
+					ng-show="successResponse.invocationResult.operativeAccountsList.length > 0">
+
+					<div class="col-sm-12">
+						<div class="dashboard-item-body">
+							<div class="dashboard-item-title col-sm-12">
+
+								<div ID="OPERATIVE_HEADER_HEADING" class="item-title">
+									{{appLiterals.APP.DASHBOARD.DASHBOARD_PAGE.OPERATIVE_HEADER}}</div>
+							</div>
+
+							<div class=" col-sm-12 padding-zero"
+								ng-hide="successResponse.invocationResult.operativeAccountsList.length == 0">
+								<div class="left-right-arrows">
+									<div id="operativeAccountsList_arrow_1"
+										ng-hide="successResponse.invocationResult.operativeAccountsList.length <= 1 || (oppAccountIndex === 0)"
+										class="item-arrow-left"
+										ng-click="oppAccountIndex = ( oppAccountIndex > 0 ? oppAccountIndex  - 1 : successResponse.invocationResult.operativeAccountsList.length - 1);operativeAccountBalance = parseMoney(successResponse.invocationResult.operativeAccountsList[oppAccountIndex].balance)">
+										<span class="app app-arrow2 item-arrow"></span>
+									</div>
+
+									<div id="operativeAccountsList_arrow_2"
+										ng-hide="successResponse.invocationResult.operativeAccountsList.length <= 1  || (oppAccountIndex === successResponse.invocationResult.operativeAccountsList.length - 1)"
+										class="item-arrow-right"
+										ng-click='oppAccountIndex = ( oppAccountIndex < successResponse.invocationResult.operativeAccountsList.length - 1 ? oppAccountIndex + 1 : 0 );operativeAccountBalance = parseMoney(successResponse.invocationResult.operativeAccountsList[oppAccountIndex].balance)'>
+										<span class="app app-arrow3 item-arrow"></span>
+									</div>
+								</div>
+								<div class="col-sm-12" id="operativeAccountsList_list"
+									ng-click='
+		                fields.selectedOprAccount = successResponse.invocationResult.operativeAccountsList[oppAccountIndex];
+		                fields.selectAcccountMax = successResponse.invocationResult.operativeAccountsList.length;
+		                fields.selectedAccount = fields.selectedOprAccount;
+		                fields.accountAmountLabel = "{{appLiterals.APP.DASHBOARD.DASHBOARD_PAGE.OPERATIVE_AVAIL_BALANCE}}";
+		                fields.accountBlockTitle = "{{appLiterals.APP.DASHBOARD.DASHBOARD_PAGE.OPERATIVE_HEADER}}";
+		                fields.accountDetailSource = "DASHBOARD";
+		                 dashboard.mmid.accountIndex=oppAccountIndex.toString();
+		                fields.browseAccountIndexInt = oppAccountIndex;
+		                fields.dashboardResponseList = successResponse.invocationResult.operativeAccountsList;
+		                setEvent("onOprAccountDetailsClick");'>
+
+									<div class="account-detail-wrap">
+										<p class="dash-ac-num">
+											<span id="operativeAccountsList_Name" class="dash-ac-no">{{successResponse.invocationResult.operativeAccountsList[oppAccountIndex].accountId}}</span>
+										</p>
+
+
+										<p class="balance-detail"
+											ng-init="operativeAccountBalance = parseMoney(successResponse.invocationResult.operativeAccountsList[oppAccountIndex].balance)">
+											<!-- <p class="balance-available-dash">
+												{{appLiterals.APP.DASHBOARD.DASHBOARD_PAGE.OPERATIVE_AVAIL_BALANCE}}
+											</p> -->
+
+											<!-- <fin-Currency cur-value='{{successResponse.invocationResult.operativeAccountsList[oppAccountIndex].balance}}'></fin-Currency> -->
+											<fin-balance amount="{{operativeAccountBalance}}"
+												amount-class="amount-rs" currency-class="amount-rs"></fin-balance>
+											<!-- <div>
+												<p class="text-right">
+													<span class="amount-curr glyphicon">
+														{{successResponse.invocationResult.operativeAccountsList[oppAccountIndex].currency}}
+													</span> <span class="amount-rs">
+														{{operativeAccountBalance.rs}}{{operativeAccountBalance.seperator}}{{operativeAccountBalance.ps}}
+													</span>
+
+												</p>
+											</div> -->
+										</p>
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<div
+					ng-init="setEvent('registerWithCampaignServer', noValue,false);"
+					ng-show='showCampaignFlag'>
+					<fin-Campaign></fin-Campaign>
+				</div>
+
+				<div class="dashboard-body dashboard-pad"
+					ng-show="successResponse.invocationResult.depositAccountsList.length > 0">
+					<div class="col-sm-12">
+						<div class="dashboard-item-body">
+							<div class="dashboard-item-title col-sm-12">
+								<div id="DEPOSIT_HEADER_Heading" class="item-title">
+									{{appLiterals.APP.DASHBOARD.DASHBOARD_PAGE.DEPOSIT_HEADER}}</div>
+							</div>
+
+							<div class="col-sm-12 padding-zero"
+								ng-hide="successResponse.invocationResult.depositAccountsList.length == 0">
+								<div class="left-right-arrows">
+									<div id="depositAccountsList_arrow_1"
+										ng-hide="successResponse.invocationResult.depositAccountsList.length <= 1 || depositAccountIndex === 0"
+										class="item-arrow-left"
+										ng-click="depositAccountIndex = ( depositAccountIndex > 0 ? depositAccountIndex  - 1 : successResponse.invocationResult.depositAccountsList.length - 1);depositAccountBalance = parseMoney(successResponse.invocationResult.depositAccountsList[depositAccountIndex].balance)">
+										<span class="app app-arrow2 item-arrow"></span>
+									</div>
+
+									<div id="depositAccountsList_arrow_2"
+										ng-hide="successResponse.invocationResult.depositAccountsList.length <= 1 || depositAccountIndex === successResponse.invocationResult.depositAccountsList.length - 1"
+										class="item-arrow-right"
+										ng-click='depositAccountIndex = ( depositAccountIndex < successResponse.invocationResult.depositAccountsList.length - 1 ? depositAccountIndex + 1 : 0 );depositAccountBalance = parseMoney(successResponse.invocationResult.depositAccountsList[depositAccountIndex].balance)'>
+										<span class="app app-arrow3 item-arrow"></span>
+									</div>
+								</div>
+								<div class="col-sm-12" id="depositAccountsList_Lists"
+									ng-click='
+		                    fields.selectedDepositAccount = successResponse.invocationResult.depositAccountsList[depositAccountIndex];
+		                    fields.selectAcccountMax = successResponse.invocationResult.depositAccountsList.length; 
+		                    fields.selectedAccount = fields.selectedDepositAccount; 
+		                    fields.accountAmountLabel = "{{appLiterals.APP.DASHBOARD.DASHBOARD_PAGE.LEDG_AMT}}"; 
+		                    fields.accountBlockTitle = "{{appLiterals.APP.DASHBOARD.DASHBOARD_PAGE.DEPOSIT_HEADER}}"; 
+		                    fields.accountDetailSource = "DASHBOARD"; 
+		                    fields.browseAccountIndexInt = depositAccountIndex;
+		                    fields.dashboardResponseList = successResponse.invocationResult.depositAccountsList;
+		                    setEvent("onDepositAccountDetailsClick");'>
+
+									<div class="account-detail-wrap">
+
+										<p class="dash-ac-num">
+											<span id="depositAccountsList_accountNickName_Name"
+												class="dash-ac-no">{{successResponse.invocationResult.depositAccountsList[depositAccountIndex].accountId}}</span>
+										</p>
+										<p class="balance-detail"
+											ng-init="depositAccountBalance = parseMoney(successResponse.invocationResult.depositAccountsList[depositAccountIndex].balance)">
+
+											<fin-balance amount="{{depositAccountBalance}}"
+												amount-class="amount-rs" currency-class="amount-rs" />
+											<!-- <span class="amount-curr glyphicon">
+												{{successResponse.invocationResult.depositAccountsList[depositAccountIndex].currency}}
+											</span> <span class="amount-rs">
+												{{depositAccountBalance.rs}}{{depositAccountBalance.seperator}}{{depositAccountBalance.ps}}
+											</span> -->
+
+										</p>
+
+									</div>
+
+
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="dashboard-body dashboard-pad"
+					ng-show="successResponse.invocationResult.loanAccountsList.length > 0">
+					<div class="col-sm-12">
+						<div class="dashboard-item-body">
+							<div class="dashboard-item-title col-sm-12">
+
+
+
+								<div class="item-title" id="LOANS_HEADER_heading">
+									{{appLiterals.APP.DASHBOARD.DASHBOARD_PAGE.LOANS_HEADER}}</div>
+							</div>
+
+							<div class="col-sm-12 padding-zero"
+								ng-hide="successResponse.invocationResult.loanAccountsList.length == 0">
+								<div class="left-right-arrows">
+									<div id="loanAccountsList_arrow_1"
+										ng-hide="successResponse.invocationResult.loanAccountsList.length <= 1 || loanAccountIndex === 0"
+										class="item-arrow-left"
+										ng-click="loanAccountIndex = ( loanAccountIndex > 0 ? loanAccountIndex  - 1 : successResponse.invocationResult.loanAccountsList.length - 1);loanAccountBalance = parseMoney(successResponse.invocationResult.loanAccountsList[loanAccountIndex].balance)">
+										<span class="app app-arrow2 item-arrow"></span>
+									</div>
+
+									<div id="loanAccountsList_arrow_2"
+										ng-hide="successResponse.invocationResult.loanAccountsList.length <= 1 || loanAccountIndex === successResponse.invocationResult.loanAccountsList.length - 1"
+										class="item-arrow-right"
+										ng-click='loanAccountIndex = ( loanAccountIndex < successResponse.invocationResult.loanAccountsList.length - 1 ? loanAccountIndex + 1 : 0 );loanAccountBalance = parseMoney(successResponse.invocationResult.loanAccountsList[loanAccountIndex].balance)'>
+										<span class="app app-arrow3 item-arrow"></span>
+									</div>
+								</div>
+								<div class="col-sm-12" id="loanAccountsList_show_lists"
+									ng-click='
+		                    fields.selectedLoanAccount = successResponse.invocationResult.loanAccountsList[loanAccountIndex]; 
+		                    fields.selectAcccountMax = successResponse.invocationResult.loanAccountsList.length; 
+		                    fields.selectedAccount = fields.selectedLoanAccount; 
+		                    fields.accountAmountLabel = "{{appLiterals.APP.DASHBOARD.DASHBOARD_PAGE.LOAN_BAL}}"; 
+		                    fields.accountBlockTitle = "{{appLiterals.APP.DASHBOARD.DASHBOARD_PAGE.LOANS_HEADER}}"; 
+		                    fields.accountDetailSource = "DASHBOARD"; 
+		                    fields.browseAccountIndexInt = loanAccountIndex;
+		                    fields.dashboardResponseList = successResponse.invocationResult.loanAccountsList;
+		                    setEvent("onLoanAccountDetailsClick");'>
+
+
+
+
+									<div class="account-detail-wrap">
+
+										<p class="dash-ac-num">
+											<span id="loanAccountsList_1_Lists" class="dash-ac-no">{{successResponse.invocationResult.loanAccountsList[loanAccountIndex].accountId}}</span>
+										</p>
+
+										<!-- <p class="balance-available-dash">
+												{{appLiterals.APP.DASHBOARD.DASHBOARD_PAGE.LOAN_BAL}}</p> -->
+
+										<!--  <fin-Currency cur-value='{{successResponse.invocationResult.loanAccountsList[loanAccountIndex].balance}}'></fin-Currency> -->
+
+
+										<p class="balance-detail"
+											ng-init="loanAccountBalance = parseMoney(successResponse.invocationResult.loanAccountsList[loanAccountIndex].balance)">
+											<fin-balance amount="{{loanAccountBalance}}"
+												amount-class="amount-rs" currency-class="amount-rs"></fin-balance>
+											<!-- <span class="amount-curr glyphicon">
+												{{successResponse.invocationResult.loanAccountsList[loanAccountIndex].currency}}
+											</span> <span class="amount-rs">
+												{{loanAccountBalance.rs}}{{loanAccountBalance.seperator}}{{loanAccountBalance.ps}}
+											</span> -->
+
+
+
+										</p>
+
+
+									</div>
+
+
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="dashboard-body dashboard-pad"
+					ng-show="creditCard.ccList.length > 0">
+					<div class="col-sm-12">
+						<div class="dashboard-item-body">
+							<div class="dashboard-item-title col-sm-12">
+
+								<div class="item-title" id="CREDIT_HEADER_Heading">
+									{{appLiterals.APP.DASHBOARD.DASHBOARD_PAGE.CREDIT_HEADER}}</div>
+							</div>
+
+							<div class="col-sm-12 padding-zero"
+								ng-hide="creditCard.ccList.length == 0">
+								<div class="left-right-arrows">
+									<div id="creditCard_ccIndex_1"
+										ng-hide="creditCard.ccList.length <= 1 || creditCard.ccIndex === 0"
+										class="item-arrow-left"
+										ng-click="creditCard.ccIndex = ( creditCard.ccIndex > 0 ? creditCard.ccIndex  - 1 : creditCard.ccList.length - 1);creditCardBalance = parseMoney(creditCard.ccList[creditCard.ccIndex].amountDue)">
+										<span class="app app-arrow2 item-arrow"></span>
+									</div>
+
+									<div id="creditCard_ccIndex_2"
+										ng-hide="creditCard.ccList.length <= 1 || creditCard.ccIndex === creditCard.ccList.length - 1"
+										class="item-arrow-right"
+										ng-click="creditCard.ccIndex = ( creditCard.ccIndex < creditCard.ccList.length - 1 ? creditCard.ccIndex + 1 : 0 );creditCardBalance = parseMoney(creditCard.ccList[creditCard.ccIndex].amountDue)">
+										<span class="app app-arrow3 item-arrow"></span>
+									</div>
+								</div>
+								<div class="col-sm-12" id="creditCard_accountNickName_1"
+									ng-click='fields.CCtrxSearchFlag=false;creditCard.selectedCC();setEvent("onCCViewClick");'>
+									<!--771536-->
+
+									<div class="account-detail-wrap">
+										<p class="dash-ac-num">
+											<span id="creditCard_List_Name" class="dash-ac-no">{{creditCard.ccList[creditCard.ccIndex].creditCardNo}}</span>
+
+											<span class="dash-ac-no" id="creditCard_List_Type">
+												{{creditCard.ccList[creditCard.ccIndex].accountType}} </span>
+										</p>
+										<p class="balance-detail" id="creditCard_due_amount"
+											ng-init="creditCardBalance = parseMoney(creditCard.ccList[creditCard.ccIndex].amountDue)">
+											<!-- <p class="balance-available-dash">
+											{{appLiterals.APP.DASHBOARD.DASHBOARD_PAGE.CREDIT_BAL}}</p> -->
+
+											<!-- <fin-Currency cur-value='{{creditCard.ccList[creditCard.ccIndex].amountDue}}'></fin-Currency> -->
+											<fin-balance amount="{{creditCardBalance}}"
+												amount-class="amount-rs" currency-class="amount-rs"></fin-balance>
+											<!-- <div class="amount padding-zero">
+
+											<span class="amount-curr glyphicon">
+												{{creditCard.ccList[creditCard.ccIndex].amountDue.split('
+												')[1]}} </span> <span class="amount-rs">
+												{{creditCardBalance.rs}}{{creditCardBalance.seperator}}{{creditCardBalance.ps}}
+											</span>
+
+
+										</div> -->
+										</p>
+									</div>
+
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+
+				<!-- <div class="dashboard-body dashboard-pad"
+					ng-init='favorite.fetchDashboardFavorite(successResponse.invocationResult);services.serviceRequestStatusModel.requestType="PEN";'>
+					<div class="col-sm-10">
+						<div class="highlight-color"></div>
+						<div class="dashboard-item-body">
+							<div class="dashboard-item-title favourite-title">
+								<div class="item-title">
+									{{appLiterals.APP.DASHBOARD.FAVORITE.HEADER}}</div>
+							</div>
+
+							<div class="touch-press col-sm-10 padding-zero">
+
+								<div class="col-sm-10">
+
+									<div ng-if='favorite.favoriteList.length==0'>
+										<div class="fav-items"
+											ng-click='favorite.addtoFavorite=true;favorite.noFavorites=true; setEvent("favoriteList")'>
+											<span class='glyphicon glyphicon-plus'></span> <i
+												class='txt-dec'>{{appLiterals.APP.DASHBOARD.FAVORITE.ADD_FAV_ACT}}</i>
+										</div>
+									</div>
+									<div ng-if='favorite.favoriteList.length > 0'>
+										<div class="fav-items"
+											ng-repeat='choose in favorite.favoriteList.slice(0,3)'
+											ng-click="favorite.gotoFavorite(choose.MenuId)">{{choose.MenuDesc}}</div>
+
+										<div class="center"
+											ng-click='favorite.addtoFavorite=false; setEvent("favoriteList")'>
+											<i class='dash-ac-no txt-dec'>{{appLiterals.APP.DASHBOARD.FAVORITE.VIEW_ALL}}</i>
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div> -->
+			</div>
+		</div>
+	</div>
+</div>

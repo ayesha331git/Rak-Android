@@ -1,0 +1,21 @@
+
+
+<div class="finacle-container"
+	ng-init='successResponse.invocationResult=successResponse.hasOwnProperty("responsesList")?successResponse.responsesList[0]:successResponse.invocationResult;
+StepupAuthenticate.initSuccessPage(successResponse.invocationResult)'>
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+
+			<div class="dashboard-pad full-height">
+				<div class="dashboard-item-body full-height">
+				<!-- <p class="sucs-id-txt">{{appLiterals.APP.STEPUP_AUTH.AUTH_SUCC_PAGE.TXT_SET_SEQ_QUE_SUCC}}</p> -->
+					<fin-success
+						success-banner="{{appLiterals.APP.STEPUP_AUTH.AUTH_SUCC_PAGE.TXT_SUCCESSFULLY}}"
+						success-message="{{StepupAuthenticate.successMessage}}"
+						cross-click="stepupAuthentication.isErrorPage=true;setEvent('StepupAuthenticateSuccessPageDoneClick');">
+					</fin-success>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

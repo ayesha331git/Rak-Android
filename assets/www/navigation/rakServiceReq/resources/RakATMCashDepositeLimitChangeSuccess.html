@@ -1,0 +1,51 @@
+
+ <div class="finacle-container" ng-init="rakServiceReq.ATMCashDepositeLimitChangeReq.successACDLimitChange(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+			<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.ATMCashDepositeLimitChangeReq.ACDLimitSuccessMsg}}</span>
+				</div>
+			</div>
+			<div class="main-form-heading-ServiceReq">
+				<h2 class="rakBenfHeader">
+					{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.ACD_LIMIT_CHANGE}}<span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>
+				</h2>
+			</div>
+
+			
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+
+				<div class="">
+					<div class="">
+					<div class="col-sm-1"></div>
+						<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_ACD_LIMIT_CHANGE.ACD_ACCNO}}</span> <span class="rak-sum-label black">{{rakServiceReq.ATMCashDepositeLimitChangeReq.fromAccountNumbers[rakServiceReq.ATMCashDepositeLimitChangeReq.selectedfromAccountNumber].accountNumber}}</span>
+					</p>
+						
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_ACD_LIMIT_CHANGE.SAME_CURTRF_LIMIT}}</span> <span class="rak-sum-label black">{{rakServiceReq.ATMCashDepositeLimitChangeReq.sameCurrencyTransferLimit}}</span>
+					</p>
+					
+					<p class="rak-sum-txt" ng-show="rakServiceReq.ATMCashDepositeLimitChangeReq.remarks">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_ACD_LIMIT_CHANGE.ACD_REMARKS}}</span> <span class="rak-sum-label black">{{rakServiceReq.ATMCashDepositeLimitChangeReq.remarks}}</span>
+					</p>
+
+					
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakServiceReq.ATMCashDepositeLimitChangeReq.resetACDLimitChangeModel();setEvent('onRakServiceHomeClick')">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>

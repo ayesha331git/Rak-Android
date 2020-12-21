@@ -1,0 +1,58 @@
+<div class="finacle-container">
+	<div class="account-page">
+		<div class="col-sm-11">
+		<div ng-if="rakELMSApproval.pageName=='APPROVE'" class="main-form-heading-ServiceReq">
+                <h2 class="rakBenfHeader">{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.SUBHEADERS.APPROVE_TRANSACTION}}                
+                </h2>
+		</div>
+	    <div ng-if="rakELMSApproval.pageName=='VIEWDETAILS'" class="main-form-heading-ServiceReq">
+                <h2 class="rakBenfHeader">{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.SUBHEADERS.TRANSACTION_VIEW_DETAILS}}                
+                </h2>
+		</div>
+		<div ng-if="rakELMSApproval.pageName=='REJECT'" class="main-form-heading-ServiceReq">
+                <h2 class="rakBenfHeader">{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.SUBHEADERS.REJECT_TRANSACTION}}               
+                </h2>
+		</div>
+		<div ng-if="rakELMSApproval.pageName=='RECALL'" class="main-form-heading-ServiceReq">
+                <h2 class="rakBenfHeader">{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.SUBHEADERS.RECALL_TRANSACTION}}                
+                </h2>
+		</div>
+		<div ng-if="rakELMSApproval.pageName=='REPAIR'" class="main-form-heading-ServiceReq">
+                <h2 class="rakBenfHeader">{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.SUBHEADERS.REPAIR_TRANSACTION}}                
+                </h2>
+		</div>
+			<div class="summary-ServiceReq">
+                <div class="iconDiv">
+                      <span class="infoIcon"></span><span class="success">{{successResponse.responsesList[0].ELMSSuccessMessage}}</span>
+                </div>
+            </div>
+           
+	
+			
+		<div class="bg-color rak-cont-paddingvh rakNicknameScrollDashboard">
+			<div class=""  ng-repeat='item in rakELMSApproval.ELMSServiceRequestStatusModel.detailModel.labelKeySetArr'>
+			<div ng-if="item.value">
+				<div class="fin-input-container rakTransfersexchangerate-block" ng-if="item.label=='SrStatusSubHeader'">
+					<p class="rakexchangevalue">{{item.value}}</p>
+				</div>
+				<p class="rak-sum-txt " ng-if="item.label!='SrStatusSubHeader'">
+					<span class="rak-sum-label">{{item.label}}</span>
+					<span class="rak-sum-label black">{{item.value}}</span>
+				</p>
+			</div>
+			<div class="col-sm-10"></div>						
+			</div>
+			
+
+			<div class="label-wrap" layout-align="center center" class="btn-wrap button-wrapper">
+				<button type="button"
+					id="moveMoneyAAPSubmitButton"
+					class="btn--special-btn btn-middle rak-button-small"
+					ng-click="rakELMSApproval.backClickFlag='N';setGlobalEvent('onELMSSPendingApprovalClick');">
+					{{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.BK_TO_LIST}}</button>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,97 @@
+<div id="myActivitiesPagePrevious" class="app app-arrow2 title-right"
+	ng-click='setGlobalEvent("onMyProfileClick")'></div>
+<div class="finacle-container"
+	ng-init="myProfile.activityModel.responseContinue(successResponse.responsesList[0]);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div id="myActivitiesPageMYACT" class="item-title">{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.MYACT}}</div>
+						<div id="myActivitiesPageGlyphiconSearch"
+							class="sub-menu-search-icon glyphicon glyphicon-search search-icon-white"
+							ng-click="myProfile.activityModel.isSearch=false;setEvent('onActiveSearchClick')"></div>
+					</div>
+					<div class="col-sm-12">
+						<div class="app-future" ng-hide='myProfile.activityModel.isSearch'>
+
+							<div id="myActivitiesPageINFO_TXT" class="fut-txt1">{{appLiterals.APP.MYPROFILE.MY_ACTIVITIES.INFO_TXT}}</div>
+
+							<!--	<div class="app-search glyphicon glyphicon-search"
+								ng-click="myProfile.activityModel.isSearch=false;setEvent('onActiveSearchClick')"></div> -->
+						</div>
+						<div ng-show='myProfile.activityModel.isSearch'
+							class="app-future-results">
+							<div id="myActivitiesPageSHOW" class="fut-result">
+								{{appLiterals.APP.MYPROFILE.MY_ACTIVITIES.SHOW}}
+								<fin-Date id="myActivitiesPageShowDisplayFromDate"
+									date-value='{{myProfile.activityModel.displayFromDate}}'></fin-Date>
+								-
+								<fin-Date id="myActivitiesPageShowDisplayToDate" date-value='{{myProfile.activityModel.displayToDate}}'></fin-Date>
+								{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.MYACT}}
+							</div>
+							<div id="myActivitiesPageResultClose"
+								class="title-right-succPage"
+								ng-click="myProfile.activityModel.isDays='Y';myProfile.activityModel.isSearch=false; myProfile.activityModel.channel=''; setEvent('onSearchClose')"></div>
+						</div>
+						<div ng-if='myProfile.activityModel.channel!=" "'>
+							<div id="myActivitiesPageActivityDisplay{{$index}}" class="trans-detail"
+								ng-repeat='activity in myProfile.activityModel.activityList'
+								ng-click="myProfile.activityModel.activityDetails=activity;
+									setEvent('onActivityDetailClick')">
+
+								<div id="myActivitiesPageSelfAuditRecordDesc{{$index}}" class="trans-no">{{activity.selfAuditRecordDesc}}</div>
+								<div id="myActivitiesPageSelfAuditRecordTime{{$index}}" class="trans-date">
+									{{activity.selfAuditRecordTime}},
+									<fin-Date id="myActivitiesPageActivityDate{{$index}}" date-value='{{activity.date}}'></fin-Date>
+								</div>
+							</div>
+						</div>
+
+
+
+						<div ng-if='myProfile.activityModel.channel ==" "'>
+							<div
+								ng-show='(myProfile.activityModel.activityList | filter:{ selfAuditChannel: "!INTERNET" }).length>0 '>
+								<div class="service-item-title">
+									<div id="myActivitiesPageMY_ACTIVITIES_MB" class="service-item-list">
+										{{appLiterals.APP.MYPROFILE.MY_ACTIVITIES.MB}}</div>
+								</div>
+								<div id="myActivitiesPageActDetNonNet{{$index}}" class="trans-detail"
+									ng-repeat='activity in myProfile.activityModel.activityList | filter:{ selfAuditChannel: "!INTERNET"}'
+									ng-click="myProfile.activityModel.activityDetails=activity;
+								setEvent('onActivityDetailClick')">
+
+									<div id="myActivitiesPageActDetNonNetSelfAuditRecordDesc{{$index}}" class="trans-no">{{activity.selfAuditRecordDesc}}</div>
+									<div id="myActivitiesPageActDetNonNetSelfAuditRecordTime{{$index}}" class="trans-date">
+										{{activity.selfAuditRecordTime}},
+										<fin-Date id="myActivitiesPageActDetNonNetActivityDate{{$index}}" date-value='{{activity.date}}'></fin-Date>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+					<div
+						ng-show='(myProfile.activityModel.activityList | filter:{ selfAuditChannel: "INTERNET" }).length >0 '>
+						<div class="service-item-title">
+							<div id="myActivitiesPageMY_ACTIVITIES_EB" class="service-item-list">
+								{{appLiterals.APP.MYPROFILE.MY_ACTIVITIES.EB}}</div>
+						</div>
+						<div id="myActivitiesPageActDetNet{{$index}}" class="trans-detail"
+							ng-repeat='activity in myProfile.activityModel.activityList | filter:{ selfAuditChannel: "INTERNET"}'
+							ng-click="myProfile.activityModel.activityDetails=activity; setEvent('onActivityDetailClick')">
+
+							<div id="myActivitiesPageActDetNetSelfAuditRecordDesc{{$index}}" class="trans-no">{{activity.selfAuditRecordDesc}}</div>
+							<div id="myActivitiesPageActDetNetSelfAuditRecordTime{{$index}}" class="trans-date">
+								{{activity.selfAuditRecordTime}},
+								<fin-Date id="myActivitiesPageActDetNetActivityDate{{$index}}" date-value='{{activity.date}}'></fin-Date>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

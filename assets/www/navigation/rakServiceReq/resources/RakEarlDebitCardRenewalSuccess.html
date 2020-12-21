@@ -1,0 +1,82 @@
+<div class="finacle-container">
+
+	<div class="account-page">
+		<div class="col-sm-11">
+
+			<div class="main-form-heading">
+				<h2 class="success">
+					{{appLiterals.APP.RAK_SERVICES.CREDIT_REPLACEMENT.SENT_MSG}} <span>{{successResponse.responsesList[0].SuccessMsg}}</span>
+				</h2>
+			</div>
+
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+
+				<div class="row">
+
+					<div class="">
+
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RENEW_DEBIT_CARD.DEBITCARD}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakEarlDebitCardRenewal.debcardList[rakServiceReq.RakEarlDebitCardRenewal.selecteddebcard].debitcardNumber}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RENEW_DEBIT_CARD.DATE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakEarlDebitCardRenewal.expiryDate}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RENEW_DEBIT_CARD.REASON}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakEarlDebitCardRenewal.selectedReason}}</span>
+						</p>
+						
+						<p class="rak-sum-txt" ng-show="rakServiceReq.RakEarlDebitCardRenewal.selectedReason==rakServiceReq.RakEarlDebitCardRenewal.otherCode">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CC_CHEQ_REQ.OTHERS}}</span> 
+						<span class="rak-sum-label black">{{rakServiceReq.RakEarlDebitCardRenewal.otherDesc}}</span>
+						</p>
+
+						<p
+							ng-show="rakServiceReq.RakEarlDebitCardRenewal.delieveryChannel == 'B'"
+							class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RENEW_DEBIT_CARD.DELIEVERY_CHANNEL}}</span>
+							<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RENEW_DEBIT_CARD.BRANCH}}</span>
+						</p>
+
+
+						<p
+							ng-show="rakServiceReq.RakEarlDebitCardRenewal.delieveryChannel == 'Auto'"
+							class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RENEW_DEBIT_CARD.DELIEVERY_CHANNEL}}</span>
+							<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RENEW_DEBIT_CARD.COURIER}}</span>
+						</p>
+
+						<p class="rak-sum-txt"
+							ng-show="rakServiceReq.RakEarlDebitCardRenewal.delieveryChannel == 'B'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RakEarlDebitCardRenewal.emiSelDesc}}</span>
+						</p>
+						<p class="rak-sum-txt"
+							ng-show="rakServiceReq.RakEarlDebitCardRenewal.delieveryChannel == 'B'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.BRANCHNAME}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RakEarlDebitCardRenewal.selectedBranchDesc}}</span>
+						</p>
+
+
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakServiceReq.RakEarlDebitCardRenewal.resetRakEarlDebitCardRenewal();setEvent('onRakEarlDebitCardRenewalSuccessDoneClick')">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+			<div class="col-sm-1"></div>
+		</div>
+	</div>
+</div>
+
+

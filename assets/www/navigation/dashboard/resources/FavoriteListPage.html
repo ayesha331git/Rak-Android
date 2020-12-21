@@ -1,0 +1,70 @@
+<div id="favoriteListPagePrev" class="app app-arrow2 title-right"
+	ng-click='setGlobalEvent("onDashboardClick");'></div>
+
+<div class="finacle-container"
+	ng-init="favorite.fetchFavorite(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+		<!--	<div class="app-title-wrapper">
+				<div class="app app-arrow title-left"
+					ng-show='favorite.addtoFavorite && favorite.noFavorites==false'
+					ng-click='favorite.addtoFavorite=false; setEvent("favoriteList")'></div>
+				<div class="title-left"
+					ng-hide='favorite.addtoFavorite && favorite.noFavorites==false'></div>
+				<div class="title-center" ng-hide='favorite.addtoFavorite'>{{appLiterals.APP.DASHBOARD.FAVORITE.HEADER}}</div>
+				<div class="title-center" ng-show='favorite.addtoFavorite'>{{appLiterals.APP.DASHBOARD.FAVORITE.ADD_FAV}}</div> -->
+				<div class="dashboard-pad">
+					<div class="dashboard-item-body">
+						<div class="dashboard-item-title col-sm-12 margin-bottom-15">
+							<div id="favoriteListPageHEADER" class="item-title text-uppercase"
+								ng-hide='favorite.addtoFavorite'>{{appLiterals.APP.DASHBOARD.FAVORITE.HEADER}}</div>
+							<div id="favoriteListPageADD_FAV" class="item-title text-uppercase"
+								ng-show='favorite.addtoFavorite'>{{appLiterals.APP.DASHBOARD.FAVORITE.ADD_FAV}}</div>
+						</div>
+
+						<div class="col-sm-12">
+
+							<div ng-if='favorite.addtoFavorite'>
+								<div id="favoriteListPageAddtoFavorite{{$index}}" class="channel-select"
+									ng-repeat='choose in favorite.masterList'>
+									<div id="favoriteListPageAddtoFavoriteTrue{{$index}}" class="landingpage-list2"
+										ng-click='favorite.addFavoriteId=choose.MenuId; setEvent("AddFavorite")'>
+										<div id="favoriteListPageAddtoFavoriteTrueMenuDesc{{$index}}" class="pull-left profile-txt">{{choose.MenuDesc}}</div>
+										<div class="pull-right set-arrow">
+											<span class="glyphicon glyphicon-star unselect"></span>
+										</div>
+									</div>
+									<div class="service-hr"></div>
+								</div>
+							</div>
+							<div ng-if='favorite.addtoFavorite==false'>
+								<div id="favoriteListPageAddtoFavoriteFalse{{$index}}" class="channel-select"
+									ng-repeat='choose in favorite.favoriteList'>
+									<div class="landingpage-list2">
+										<div id="favoriteListPageGotoFavoriteMenuDesc{{$index}}" class="pull-left profile-txt"
+											ng-click="favorite.gotoFavorite(choose.MenuId)">{{choose.MenuDesc}}</div>
+										<div id="favoriteListPageRemoveFavorite{{$index}}" class="pull-right set-arrow"
+											ng-click='favorite.removeFavoriteId=choose.MenuId; setEvent("removeFavorite")'>
+											<span class="glyphicon glyphicon-star fav-star"
+												style='color: #FFD700'></span>
+										</div>
+									</div>
+									<div class="service-hr" ng-hide="$last"></div>
+								</div>
+
+								<div class='center'>
+									<span id="favoriteListPageADD_MORE" class="service-txt glyphicon glyphicon-plus"
+										ng-click='favorite.addtoFavorite=true;'><i
+										class='txt-dec'>{{appLiterals.APP.DASHBOARD.FAVORITE.ADD_MORE}}</i>&nbsp;</span>
+								</div>
+								
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>

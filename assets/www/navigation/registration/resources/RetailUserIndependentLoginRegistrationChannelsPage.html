@@ -1,0 +1,33 @@
+<nav class="navbar navbar-default" role="navigation">
+	<div class="navbar-header">
+		<img class="banner" width=64px height=64px>
+		<p class="navbar-text">{{appLiterals.APP.REGISTRATION.CHAN_PAGE.HEADER}}</p>
+	</div>
+</nav>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="centering text-center">
+			<h2>{{appLiterals.APP.REGISTRATION.CHAN_PAGE.TXT_REG}}</h2>
+			<br>
+			<p>{{appLiterals.APP.REGISTRATION.CHAN_PAGE.SENT_ACT}}</p>
+			<p>
+			<div
+				ng-init="channels = [
+            				{displayText:'Mobile App', channelId:0},
+            				{displayText: 'Mobile Browser', channelId:1},
+            				{displayText: 'SMS', channelId:2},
+            				{displayText: 'USSD', channelId:3}
+            				]">
+				<li ng-repeat="channel in channels"><label>{{channel.displayText}}</label>
+				</li>
+			</div>
+			</p>
+			<div class="form-group">
+				<md-button ng-click="setEvent('onRegisterChannelsClicked')"
+					type="button" class="btn md-raised btn-success">{{appLiterals.APP.REGISTRATION.CHAN_PAGE.BTN_REG}}</md-button>
+			</div>
+			<md-button type="button" class="btn md-raised btn-link">{{appLiterals.APP.REGISTRATION.CHAN_PAGE.BTN_LGN}}</md-button>
+		</div>
+	</div>
+</div>

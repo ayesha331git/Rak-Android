@@ -1,0 +1,29 @@
+  <!-- partial code start here-->
+  <div class="finacle-container">
+	   <p class="sucs_circle_wrap"> <span class="app-tickcircle sucs_circle_icon"></span> </p>     
+      <p class="trans_sucs_txt">  Successful ! </p>
+	  <div class="trans_id_wrap">
+		  <div class="id_container">
+		  </div>
+		  <div class="id_txt_wrap">
+			<div class="id_txt_pad">
+			<p class="sucs-id-txt">{{successResponse.responsesList[0].redeemBalanceSuccessMessage}}</p>
+			</div>   
+		  </div>
+	  </div>
+		<!-- <p class="sucs-left-txt1">{{appLiterals.APP.RAK_SERVICES.ONOPER_ACCSUCC.HEADER}}</p>
+		<p class="sucs-left-txt2">{{appLiterals.APP.RAK_SERVICES.ONOPER_ACCSUCC.TXT_MIN_OPNAMT}}</p>
+		 -->
+
+			<p class="left-txt">{{appLiterals.APP.RAK_SERVICES.DEBITCASH_REDEEM.CARDNUMBER}}&nbsp;<span class="right-txt-color">{{rakServiceReq.debitCashReedemModel.debitCardNumber}}</span></p>
+			<p class="left-txt">{{appLiterals.APP.RAK_SERVICES.DEBITCASH_REDEEM.REDEEM}}&nbsp;<span class="right-txt-color">{{rakServiceReq.debitCashReedemModel.redeemDetailsList}}</span></p>
+			
+			<p class="left-txt">{{appLiterals.APP.RAK_SERVICES.DEBITCASH_REDEEM.AMOUNT}} &nbsp;<span class="right-txt-color">{{rakServiceReq.debitCashReedemModel.amount}}</span></p>
+			<!-- <p class="left-txt">{{appLiterals.APP.RAK_SERVICES.DEBITCASH_REDEEM.CARDTYPE}} &nbsp;<span class="right-txt-color">{{rakServiceReq.debitCashReedemModel.cardDetailsList}}</span></p> -->
+			
+			
+			
+			
+			<div class="col-sm-10"><button type="button" class="btn--special-btn1" ng-click="rakServiceReq.debitCashReedemModel.resetDebitCashReedemModel();setEvent('DebitRedeemBalanceDoneClick')">{{appLiterals.APP.RAKCOMMONLITERALS.DONE}}</button> </div>
+</div>
+<!-- partial code end here-->

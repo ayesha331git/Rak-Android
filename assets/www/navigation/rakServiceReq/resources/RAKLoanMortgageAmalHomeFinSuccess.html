@@ -1,0 +1,130 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRAKLoanMortgageAmalHomeFinSuccess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+			
+			<div class="main-form-heading">
+				<h2 class="success">
+					{{appLiterals.APP.RAKCOMMONLITERALS.REQSTATUS}} <span class="ng-binding"
+						style="white-space: initial;">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.successMessage}}</span>
+				</h2>
+			</div>
+
+		<div class="bg-color rak-cont-padding rak-scroll-success">
+			<div class="">
+				<div class="">
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_APPLY_FOR}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.isMortgageLoanSelected}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_NAME}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.ApplicantName}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_DOB}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.DOB}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_MARITALSTAT}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedMaritalStat}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_NATIONALITY}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.Nationality}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_UAERES}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.isUAEResident}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_LENGTHOFSTAY}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.LengthOfStayinUAE}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_POBOX}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.POBox}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_SEL_EMR}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedEmirate}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_TELENOOFF}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.TeleNoOff}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_TELENORES}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.TeleNoRes}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_FAX}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.FaxNo}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_MOB}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.MobileNo}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_EMAIL}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.EmailNo}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_EMP_TYPE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedEmpType}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_GROSSFIXSAL_MONTH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.GrossFixedSalMonth}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_AOB_MONTH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.AgeOfBusiMonth}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_PROFSHARE_LASTYR}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.ProfShareLastYr}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_NAME_PROP}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.NameOfProp}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_LOC_PROP}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedLocOfProp}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_NAME_DEV}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedDev}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_TOT_LNFINRQD}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.TotLnFinRqd}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_PER_OF_LNFIN}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.PerOfLnFinYr}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_OTH_BANK_LNFIN}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedOthBankLnFin}}</span>
+						</p>
+
+				<div class="label-wrap">
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-right"
+						ng-click='setEvent("onRAKLoanMortgageAmalHomeFinSuccessOkClick");'>
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+				</div>
+
+				<div class="col-sm-10"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+

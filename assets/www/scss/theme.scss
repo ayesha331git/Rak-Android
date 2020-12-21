@@ -1,0 +1,135 @@
+
+/* ====== Copy from bottom ======= */
+$primary-background-color: #01579b;                               // App Header background color
+/* ====== End of Copy from bottom ======= */
+
+/*---- Material Color  values ---*/
+$body-backgroumd-color: #dbdbdb;								 //Full body background color
+$primary-background-color: #01579b;						         // App Item Title Background Color, Header Background and Menu ackground 
+$primary-font-color: #000000;									 // Primary Font Color
+$divider-color: rgba( $primary-font-color , 0.12);				 // All divider color
+$unselect-color: rgba( $primary-font-color , 0.12);				 // Not selected Color
+$primary-text-color: rgba( $primary-font-color , 0.87);			 //Primary Text Color
+$secondary-txt-color: rgba($primary-font-color,0.54);            // App secondary text color
+$action-icon-color: #ff5722;									 //Action Icon Color
+$font-color-white: #fff;
+$popUpColor: $secondary-txt-color;
+$nav-menu-icon-color: rgba($font-color-white,0.87);   
+$primary-button-color: #FF9800;									// Primary Action Button color and Secondary action button font color 
+$material-label-color: rgba($primary-font-color, 0.38);
+/*---- Material Color  values ---*/
+
+/*---- Material Color  values ---*/
+$bold: Roboto-bold;												//Font Bold
+/*---- Material Color  values ---*/
+
+
+/* ======== COLOR ============== */
+$login-overlay-banner: rgba(0, 0, 0, 0.6);
+$app-pop-screen-bg: rgba(0,0,0,0.5);									 // App Popup Background Color
+$menu-icon-color: rgba(255,255,255,0.2);                      // App Menu and Last User login text color
+$primary-txt-color: #000;                                      // App Primary Text Color
+
+
+$orange-color: $primary-button-color;                                        // App Orange Color
+$primary-color: $primary-button-color;                                       // App primary color
+$secondary-color: transparent;                                 // App secondary color
+$button-color: #fff;                                           // App Primary button Text color
+$special-btn-color: $primary-color;                            // App Primary button background color
+$special-button-color: #004a7d;                                // App Special button text color
+$app-font-color: #000;									       // App Font Color
+$header-icon-color: #fff;                                      // App Header Icon Color
+$currency-color: #03A9F4;                                      // App Currency Color
+$currency-success-color: #fff;								   // App Success Page Currency Color
+$currency-transaction-color: #004a7d;						   // App Success Page Currency Color
+$feature-header-label-color: $primary-background-color;           // App feature header label color
+$feature-header-close-color: $primary-background-color;           // App feature header close icon color
+$feature-header-back-color: $primary-background-color;            // App feature header Back color
+$feature-background-color: #fff;                               // App Feature content background color
+$feature-success-icon-text-color: #83ca13;                     // App Success Page Icon and Text Color
+$feature-success-message-background: #444;                     // App Success Page information message background Color
+$error-highlight: #e21619;                                     // App Error Highlight Color
+$dashboard-item-background: #fff;  	                	       // App Dashboard Body Background Color
+
+$input-right-left-border: #78909C;                             // App Input Box right and left border
+$input-calander-icon-color: #aaa;                              // App Date Field Icon color
+$input-color: $app-font-color;                                 // App Input Color
+$registration-success-color: #83ca13;                          // Registration Staging success color
+$toggle-background-color: #e8e8e8;                             // Toggle background-color
+$toggle-select-color: #83ca13;                                 // Toggle Select Color
+$toggle-unselect-color: #e21619;                               // Toggle Unselect Color
+$unchecked-background: transparent;                            // unchecked checkbox background color
+$checked-background: #fff;                                     // unchecked checkbox background color
+$checkbox-border-color: #efefef;                               // checkbox border color
+$popup-background-color: #00a8ff;                              // Popup Background color
+$myaccount-header-background: #444;                            // My Account Header background color(payee and movemoney)
+$myaccount-cirle-border: #dbdbdb;                              // My Account Header background color(payee and movemoney)
+$myaccount-text-color: #fff;                                   // My Account Header background color(payee and movemoney)
+$preview-label-color: #424040;                                 // Preview Page Label Color
+$preview-value-color: #424040;                                 // Preview Page Value Color
+$menu-bg: $primary-background-color; 							   // App Menu Body background color
+$app-body-background: #CFD8DC;                                 // App Body background
+$dashboard-title-color: #fff;								   // App Dashboard Item Title Background Color
+$dashboard-title-arrow-color: $secondary-txt-color;			   // App Dashboard Item Title Background Color
+$dashboard-title-arrow-color: $secondary-txt-color;			   // App Dashboard Item Title Background Color
+$input-text-color: #232020;                                    // input text color
+
+$button-secondary-color: #01579b;
+
+
+/* ======== FONT ============== */
+$font-family-type: sans-serif, cursive, Helvetica;             // App Global Font
+$app-font-family-name: 'Roboto-Regular', $font-family-type;    // App Font family
+
+
+/* ======== FONT SIZE ============== */
+$content-heading-font-size: 1.8em;                             // App Content Heading Text Font Size
+
+$title-font-size: 2em;                                         // App title Heading and Amount Text Font Size
+$feature-header-label-font-size: 2em;                          // App feature header label font size
+$feature-header-close-font-size: 3.6em;                        // App feature header close font size
+$feature-header-back-font-size: 3em;                           // App feature header Back font size
+$content-label-font-size: 1.6em;                               // App Content Label Text Font Size
+$input-text-size: $content-label-font-size;                    // input text size
+$label-txt-size: $content-heading-font-size;				   // App Label Text Size
+$label-small-txt: 1.2em;									   // App Label Small Text Size
+$feature-success-icon-font-size: 2.5em;                        // App Success Page Icon and Text font size
+$feature-success-message-font-size: 1.5em;                     // App Success Page Icon and Text font size
+$fontUpperCase: uppercase !important;
+
+
+/* ======== LOGO ============== */
+$app-header-logo: url('../images/AppLogo.png') no-repeat center;   // App logo
+
+
+/* ======== Border ============== */
+$input-bottom-border-color: 1px solid $divider-color;                    // App Input Box Bottom border
+$preview-border-color: 1px solid $primary-background-color;            // Preview Table Border Color
+$preview-center-border-color: 1px solid $primary-background-color;     // Preview Table Border Color
+$table-text-size: 1.6em;
+$success-border-color: 1px solid #fff;
+
+
+/* ======== AMOUNT FONT STYLE ============== */
+$currency: 1.8em;											        // App Currency
+$rs: 2em;											    	        // App Rs
+$amt-cur: 1.2em;											        // Transaction Amount Font Size
+$ps: 1.4em;													        // App Ps
+
+$font-size-xs: 1.2em;
+$font-size-s: 1.4em;
+$font-size-m: 1.6em;
+$font-size-l: 1.8em;
+$font-size-xl: 3.2em;
+
+
+
+$amt-rs: $content-label-font-size;									// Transaction Amount Font Size
+$amt-ps: 1.2em;			
+$larger-font: 2.6em;								 	        // Transaction Amount Font Size
+
+
+/* ======== ARROW ============== */
+$dashboard-title-arrow-size: 2.5em;								    // App Dashboard Item Title Background Color
+$dashboard-title-font-size: 1.8em
+

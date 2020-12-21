@@ -1,0 +1,164 @@
+<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setGlobalEvent(rakServiceReq.CCConvertionEmi.getSendEvent());"></i>
+		</div>
+
+
+<div class="nano menu-scroll">
+	<div class="nano-content">
+	
+	
+<div class="finacle-container"
+	ng-init="rakServiceReq.CCConvertionEmi.preCCConvertionEmi(successResponse.responsesList);">
+
+	
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+		<div class="main-form-heading-ServiceReq"> 
+	                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CONVERT_EMI}}
+	                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+	                 </h2>              
+			</div>
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				
+				<div class="row">
+					
+					<!-- Display of Transaction date and amount - Start -->
+					
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.CREDIT_NUM}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.CCConvertionEmi.creditCardNumber}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.TRAN_DATE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.CCConvertionEmi.tranDate}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.TRAN_ORG_AMT}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.CCConvertionEmi.txnAmountOriginalShow}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.TRAN_BILL_AMT}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.CCConvertionEmi.txnAmountAEDBillShow}}</span>
+						</p>
+					<!-- Display of Transaction date and amount - End -->
+						
+				<!-- 		
+					Merchant - Start
+					
+					<div
+					ng-init='merchantList = createDropDownOptionArray(rakServiceReq.CCConvertionEmi.merchantList,["merchantDesc"],"merchantCode");'>
+						<fin-input type="dropdown"
+							model="rakServiceReq.CCConvertionEmi.merchantCode"
+							display-row="full" 
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.MERCHANT_LIST}}"
+							on-change="rakServiceReq.CCConvertionEmiShowValidateFields();"
+							validation-flag='pageErrorArr["rakServiceReq.CCConvertionEmi.merchantCode"]'
+							option-array="merchantList"></fin-input>
+					
+					</div>	
+					
+					Merchant - End	
+					
+						 
+					 		<div class="label-wrap" ng-show="rakServiceReq.CCConvertionEmi.merchantCode!='' && rakServiceReq.CCConvertionEmi.merchantCode!='O'">
+							
+								  <button type="button"
+									class="btn--special-btn btn-middle rak-button-small rak-button-right"
+									ng-click="rakMyProfile.picImage();">
+									   {{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.TXT_UPLOAD}}</button>
+							
+
+				
+							</div> 
+					
+					Merchant Others  - Start
+					
+					<fin-input type="text" ng-hide="rakServiceReq.CCConvertionEmi.merchantCode!='O'"
+							model="rakServiceReq.CCConvertionEmi.merchantOthers"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.MERCHANT_NAME}}"
+							validation-flag='pageErrorArr["rakServiceReq.CCConvertionEmi.merchantOthers"]'></fin-input>
+							
+					Merchant Others  - End
+					
+					Charge Type - Start	
+					
+					<div
+					ng-init='chargeTypeList = createDropDownOptionArray(rakServiceReq.CCConvertionEmi.chargeTypeList,["chargeTypeDesc"],"chargeTypeCode");'>
+						<fin-input type="dropdown"
+							model="rakServiceReq.CCConvertionEmi.chargeTypeCode"
+							display-row="full" 
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.CHARGE_TYPE_LIST}}"
+							
+							validation-flag='pageErrorArr["rakServiceReq.CCConvertionEmi.chargeTypeCode"]'
+							option-array="chargeTypeList"></fin-input>
+					
+					</div>	
+					
+					Charge Type - End	
+						
+					Tenor - Start	
+					
+					<div
+					ng-init='tenorList = createDropDownOptionArray(rakServiceReq.CCConvertionEmi.tenorList,["tenorDesc"],"tenorCode");'>
+						<fin-input type="dropdown"
+							model="rakServiceReq.CCConvertionEmi.tenorCode"
+							display-row="full" 
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.TENOR_LIST}}"
+							
+							validation-flag='pageErrorArr["rakServiceReq.CCConvertionEmi.tenorCode"]'
+							option-array="tenorList"></fin-input>
+					
+					</div>	
+					
+					Tenor - End	
+					
+					 -->
+					
+					
+					
+				 	<!-- Button for submit after checking - Start -->
+				 	<div class="label-wrap">
+				 	
+				 	<!--  CHANGES FROM CREDIT CARD TO CONVERSION OF EMI START -->
+				 		<!-- <button type="button"
+							class="btn--special-btn btn-middle rak-button-small btn--back"
+							ng-click="setEvent('onCCConvertionEmiDetailsBackClick');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button> -->
+							
+							<button type="button"
+							class="btn--special-btn btn-middle rak-button-small btn--back"
+							ng-click="setGlobalEvent(rakServiceReq.CCConvertionEmi.getSendEvent());">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+				<!--  CHANGES FROM CREDIT CARD TO CONVERSION OF EMI END -->			
+				 		
+						
+						<button type="button" ng-show="rakServiceReq.CCConvertionEmi.merchantCode!='' && rakServiceReq.CCConvertionEmi.merchantCode!='O'"
+							class="btn--special-btn btn-middle rak-button-small rak-button-right"
+							ng-click="rakServiceReq.setMerchantText();setEvent('onSelectForConvertionEmiDetailsUpload');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+							
+								<button type="button" ng-show="rakServiceReq.CCConvertionEmi.merchantCode=='' || rakServiceReq.CCConvertionEmi.merchantCode=='O'"
+							class="btn--special-btn btn-middle rak-button-small rak-button-right"
+							ng-click="rakServiceReq.setMerchantText();setEvent('onSelectForConvertionEmiDetails');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+
+					</div>
+					<!-- Button for submit after checking - End -->
+					
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+</div>
+</div>

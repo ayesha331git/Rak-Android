@@ -1,0 +1,350 @@
+<div id="manageAlertDetailsPage" class="app app-arrow2 title-right"
+	ng-click="myProfile.manageAlert.clearAlertFrequency();setEvent('onManageAlertPageBackClick');myProfile.manageAlert.isBack = true"></div>
+<div class="finacle-container"
+	ng-init="resetPageError();formatAmountCrn('myProfile.manageAlert.amount','myProfile.manageAlert.currencyValue')">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper"></div>
+
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div id="title" class="item-title text-uppercase">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.TITLE}}</div>
+					</div>
+					<div class="dashboard-details">
+
+						<div class="account-detail-dash">
+							<b id="alertDescription" class="dash-ac-no col-sm-12">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_CONFIRM.TXT_ALERT_DESCRIPTION}}</b>
+							<span id="category" class="dash-ac-id col-sm-12">{{myProfile.manageAlert.alertCategoryDescription}}</span>
+						</div>
+
+						<div class="account-detail-dash">
+							<b id="txtcategory" class="dash-ac-no col-sm-12">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_CONFIRM.TXT_ALERT_CATEGORY}}</b>
+							<span id="alertCategory" class="dash-ac-id col-sm-12">{{myProfile.manageAlert.alertCategory}}</span>
+						</div>
+
+						<form
+							ng-submit="myProfile.manageAlert.unFormatNumbers();myProfile.manageAlert.checkForPageUpdateStatus();
+					 myProfile.manageAlert.setDeliveryMode();setEvent(myProfile.manageAlert.selectEventNameAlertDetailsPage())">
+							<div class="trans-detail padding-bottom-zero"
+								ng-if="myProfile.manageAlert.showAccountAlert"
+								ng-init='accountArr = createDropDownOptionAccountArray(myProfile.manageAlert.accountNumberArr,["accountNumber"],"value");'>
+								<div class="col-sm-12 ">
+									<div id="account" class="fut-txt1 margin-bottom-15">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.TXT_SELECT_ACC_ALERT}}</div>
+								</div>
+								<fin-input type="dropdown"
+									on-change="myProfile.manageAlert.onChangeAccount();"
+									model="myProfile.manageAlert.accountNumber" display-row="full"
+									placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_SELECT}}"
+									validation-flag='pageErrorArr["myProfile.manageAlert.accountNumber"]'
+									option-array="accountArr"></fin-input>
+							</div>
+
+							<div class="trans-detail col-sm-12">
+								<div class="trans-dash-left">
+									<div id="status" class="trans-no">{{appLiterals.APP.COMMON.TEXT.STATUS}}</div>
+								</div>
+								<div class="trans-dash-right">
+									<!-- <md-switch id="switchToggle" class="margin-top-zero margin-bottom-zero md-default-theme" ng-click="myProfile.manageAlert.toggleClick();"> -->
+									<md-switch id="switchToggle"
+										class="margin-top-zero margin-bottom-zero md-default-theme"
+										ng-false-value="'Unsubscribed'" ng-true-value="'Subscribed'"
+										ng-model="myProfile.manageAlert.alertStatus"
+										ng-change="myProfile.manageAlert.toggleClick()"> <!-- <div ng-transclude class="md-label">
+										<span id="statusOn" ng-if="myProfile.manageAlert.alertStatus == 'Subscribed'"
+												class="toggle_txt">
+												{{appLiterals.APP.MYPROFILE.DND_SETTINGS.DND_ON}}</span>
+										<span id="statusOff" ng-if="myProfile.manageAlert.alertStatus == 'Unsubscribed'"
+												class="toggle_txt">
+												{{appLiterals.APP.MYPROFILE.DND_SETTINGS.DND_OFF}}</span>
+										</div> --> </md-switch>
+								</div>
+							</div>
+
+							<div class="trans-detail padding-bottom-zero"
+								ng-if="myProfile.manageAlert.showAmountAlert">
+								<div class="col-sm-12">
+									<div id="amount" class="fut-txt1 margin-bottom-15">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.TXT_SET_AMT_FOR_ALERT}}</div>
+								</div>
+								<div>
+									<fin-input type="money" model="myProfile.manageAlert.amount"
+										related-field="myProfile.manageAlert.currencyValue"
+										display-row="full"
+										placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_AMOUNT}}"
+										max-length="6"
+										validation-flag='pageErrorArr["myProfile.manageAlert.amount"]'></fin-input>
+								</div>
+
+
+								<div ng-show="myProfile.manageAlert.validateFrequencyAlert">
+
+									<div class="col-sm-12">
+										<div id="freq"
+											class="fut-txt1  margin-bottom-15 margin-top-20">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.TXT_SET_FREQ_FOR_ALERT}}</div>
+									</div>
+									<div
+										ng-init='freqAlertArr = createDropDownOptionArray([{"label":"Weekly","value":"Weekly"},{"label":"Monthly","value":"Monthly"},{"label":"Yearly","value":"Yearly"},{"label":"Daily","value":"Daily"}],["label"],"value");'>
+										<fin-input type="dropdown"
+											model="myProfile.manageAlert.frequencyAlert"
+											display-row="full"
+											placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_SELECT}}"
+											validation-flag='pageErrorArr["myProfile.manageAlert.frequencyAlert"]'
+											option-array="freqAlertArr"></fin-input>
+									</div>
+									<!--Weekly Monthly Div-->
+									<div class="col-sm-12 padding-zero"
+										ng-if='myProfile.manageAlert.frequencyAlert=="Weekly"'>
+										<div
+											ng-init='daysArray = createDropDownOptionArray(dynamicDayList("day","value",false),["day"],"value");'>
+											<fin-input type="dropdown"
+												model="myProfile.manageAlert.weeklyFirstDate"
+												display-row="full"
+												placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_FIRST_DAY}}"
+												validation-flag='pageErrorArr["myProfile.manageAlert.weeklyFirstDate"]'
+												option-array="daysArray"></fin-input>
+										</div>
+										<fin-input type="dropdown"
+											model="myProfile.manageAlert.weeklySecondDate"
+											display-row="full"
+											placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_SECOND_DAY}}"
+											validation-flag='pageErrorArr["myProfile.manageAlert.weeklySecondDate"]'
+											option-array="daysArray"></fin-input>
+									</div>
+
+									<!-- Monthly Div-->
+									<div class="col-sm-12 padding-zero"
+										ng-if='myProfile.manageAlert.frequencyAlert=="Monthly"'>
+										<div
+											ng-init='monthArray = createDropDownOptionArray(dynamicIntList("date","value",1,31),["date"],"value");myProfile.manageAlert.days=1'>
+											<fin-input type="dropdown"
+												model="myProfile.manageAlert.monthlyFirstDate"
+												display-row="full"
+												placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_FIRST_DAY}}"
+												validation-flag='pageErrorArr["myProfile.manageAlert.monthlyFirstDate"]'
+												option-array="monthArray"></fin-input>
+										</div>
+										<fin-input type="dropdown"
+											model="myProfile.manageAlert.monthlySecondDate"
+											display-row="full"
+											placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_SECOND_DAY}}"
+											validation-flag='pageErrorArr["myProfile.manageAlert.monthlySecondDate"]'
+											option-array="monthArray"></fin-input>
+									</div>
+
+									<!-- Daily Yearly Div-->
+									<div class="avail-bal-wrap yearly-freaquency-wrap"
+										ng-if='myProfile.manageAlert.frequencyAlert=="Yearly"'>
+										<div
+											ng-init="myProfile.manageAlert.days?'':myProfile.manageAlert.days=1">
+
+											<div class="two-input-wrapper"
+												ng-init='dateArray = createDropDownOptionArray(dynamicIntList("date","value",1,31),["date"],"value"); monthArray = createDropDownOptionArray(dynamicMonthList("year","value",false),["year"],"value")'>
+												<fin-input type="dropdown"
+													model="myProfile.manageAlert.yearDate1" display-row="half1"
+													placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_FIRST_DATE}}"
+													validation-flag='pageErrorArr["myProfile.manageAlert.yearDate1"]'
+													option-array="dateArray"></fin-input>
+
+												<fin-input type="dropdown"
+													model="myProfile.manageAlert.yearMonth1"
+													display-row="half2"
+													placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_MONTH}}"
+													validation-flag='pageErrorArr["myProfile.manageAlert.yearMonth1"]'
+													option-array="monthArray"></fin-input>
+											</div>
+										</div>
+
+										<!-- rest 5 days of year -->
+
+										<div class="two-input-wrapper"
+											ng-if='myProfile.manageAlert.days>=1'>
+											<fin-input type="dropdown"
+												model="myProfile.manageAlert.yearDate2" display-row="half1"
+												placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_SECOND_DATE}}"
+												validation-flag='pageErrorArr["myProfile.manageAlert.yearDate2"]'
+												option-array="dateArray"></fin-input>
+
+											<fin-input type="dropdown"
+												model="myProfile.manageAlert.yearMonth2" display-row="half2"
+												placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_MONTH}}"
+												validation-flag='pageErrorArr["myProfile.manageAlert.yearMonth2"]'
+												option-array="monthArray"></fin-input>
+										</div>
+
+										<div class="two-input-wrapper"
+											ng-if='myProfile.manageAlert.days>=2'>
+
+											<fin-input type="dropdown"
+												model="myProfile.manageAlert.yearDate3" display-row="half1"
+												placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_THIRD_DATE}}"
+												validation-flag='pageErrorArr["myProfile.manageAlert.yearDate3"]'
+												option-array="dateArray"></fin-input>
+
+											<fin-input type="dropdown"
+												model="myProfile.manageAlert.yearMonth3" display-row="half2"
+												placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_MONTH}}"
+												validation-flag='pageErrorArr["myProfile.manageAlert.yearMonth3"]'
+												option-array="monthArray"></fin-input>
+
+										</div>
+										<div class="two-input-wrapper"
+											ng-if='myProfile.manageAlert.days>=3'>
+
+											<fin-input type="dropdown"
+												model="myProfile.manageAlert.yearDate4" display-row="half1"
+												placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_FOURTH_DATE}}"
+												validation-flag='pageErrorArr["myProfile.manageAlert.yearDate4"]'
+												option-array="dateArray"></fin-input>
+
+											<fin-input type="dropdown"
+												model="myProfile.manageAlert.yearMonth4" display-row="half2"
+												placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_MONTH}}"
+												validation-flag='pageErrorArr["myProfile.manageAlert.yearMonth4"]'
+												option-array="monthArray"></fin-input>
+
+										</div>
+										<div class="two-input-wrapper"
+											ng-if='myProfile.manageAlert.days>=4'>
+
+											<fin-input type="dropdown"
+												model="myProfile.manageAlert.yearDate5" display-row="half1"
+												placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_FIFTH_DATE}}"
+												validation-flag='pageErrorArr["myProfile.manageAlert.yearDate5"]'
+												option-array="dateArray"></fin-input>
+
+											<fin-input type="dropdown"
+												model="myProfile.manageAlert.yearMonth5" display-row="half2"
+												placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_MONTH}}"
+												validation-flag='pageErrorArr["myProfile.manageAlert.yearMonth5"]'
+												option-array="monthArray"></fin-input>
+
+										</div>
+										<div class="two-input-wrapper"
+											ng-if='myProfile.manageAlert.days>=5'>
+
+											<fin-input type="dropdown"
+												model="myProfile.manageAlert.yearDate6" display-row="half1"
+												placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_SIXTH_DATE}}"
+												validation-flag='pageErrorArr["myProfile.manageAlert.yearDate6"]'
+												option-array="dateArray"></fin-input>
+
+											<fin-input type="dropdown"
+												model="myProfile.manageAlert.yearMonth6" display-row="half2"
+												placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_MONTH}}"
+												validation-flag='pageErrorArr["myProfile.manageAlert.yearMonth6"]'
+												option-array="monthArray"></fin-input>
+
+										</div>
+										<!-- end of rest days -->
+
+										<div id="days" class="new_user balance-available"
+											ng-if='myProfile.manageAlert.days <6'
+											ng-click='myProfile.manageAlert.days=myProfile.manageAlert.days+1'>{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.ADD_MONTH}}</div>
+									</div>
+
+								</div>
+
+								<div ng-if="myProfile.manageAlert.showNumberOfDays"
+									class="margin-top-20">
+									<div class="col-sm-12">
+										<div id="expiry" class="fut-txt1 margin-bottom-20 clear-all">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.TXT_SET_EXPIRY_DAYS_FOR_ALERT}}</div>
+									</div>
+									<fin-input type="number"
+										model="myProfile.manageAlert.numberOfDays" display-row="full"
+										placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_NO_OF_DAYS}}"
+										max-length="2"
+										validation-flag='pageErrorArr["myProfile.manageAlert.numberOfDays"]'></fin-input>
+								</div>
+							</div>
+
+							<div class="col-sm-12 ">
+								<div id="channel"
+									class="fut-txt1 margin-top-20 margin-bottom-20">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.TXT_SELECT_CHANNELS}}</div>
+							</div>
+
+							<div class="special-txt" layout-wrap layout="row">
+								<div class="col-sm-12" flex="100"
+									ng-show="myProfile.manageAlert.alertDeliveryChannels.emailAlert.length!=0">
+
+									<md-checkbox id="emailid" aria-label="EMAIL"
+										ng-model="myProfile.manageAlert.email">
+									{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.EMAIL}} </md-checkbox>
+
+									<!-- <input type="checkbox" id="emailid" class="unchecked"
+											ng-model="myProfile.manageAlert.email"> <label
+											for="emailid"></label> -->
+
+									<!-- <label id="email" class="special-txt" for="emailid">
+										&nbsp; {{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.EMAIL}}</label> -->
+
+
+
+									<md-checkbox
+										ng-show="myProfile.manageAlert.alertDeliveryChannels.smsAlert.length!=0"
+										id="msg" aria-label="TEXT MESSAGE"
+										ng-model="myProfile.manageAlert.textMessage">
+									{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.TXT_TEXT_MESSAGE}}
+									</md-checkbox>
+									<!-- <input type="checkbox" id="msg" class="unchecked"
+											ng-model="myProfile.manageAlert.textMessage"> <label
+											for="msg"></label> -->
+
+									<!-- <label id="message" class="special-txt" for="msg">
+										&nbsp;
+										{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.TXT_TEXT_MESSAGE}}</label> -->
+
+
+									<md-checkbox
+										ng-show="myProfile.manageAlert.alertDeliveryChannels.inboxAlert.length!=0"
+										id="inbox" aria-label="inbox"
+										ng-model="myProfile.manageAlert.inbox">
+									{{appLiterals.APP.MAILS.MENU_PAGE.TXT_INBOX}} </md-checkbox>
+
+									<!-- <input type="checkbox" id="inbox" class="unchecked"
+											ng-model="myProfile.manageAlert.inbox"> <label
+											for="inbox"></label> -->
+
+									<!-- <label id="inbox" class="special-txt" for="inbox">
+										&nbsp; {{appLiterals.APP.MAILS.MENU_PAGE.TXT_INBOX}}</label> -->
+
+
+									<md-checkbox id="fax" aria-label="TXT FAX"
+										ng-model="myProfile.manageAlert.fax">
+									{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.TXT_FAX}} </md-checkbox>
+
+									<!-- <input type="checkbox" id="fax" class="unchecked"
+											ng-model="myProfile.manageAlert.fax"><label for="fax"></label> -->
+
+									<!-- <label id="fax" class="special-txt" for="fax"> &nbsp;
+										{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.TXT_FAX}}</label> -->
+
+
+
+									<md-checkbox id="voice" aria-label="TXT VOICE"
+										ng-model="myProfile.manageAlert.voice">
+									{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.TXT_VOICE}} </md-checkbox>
+
+									<!-- <input type="checkbox" id="voice" class="unchecked"
+											ng-model="myProfile.manageAlert.voice"><label
+											for="voice"></label> -->
+
+									<!-- <label id="voice" class="special-txt" for="voice">
+										&nbsp;
+										{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.TXT_VOICE}}</label> -->
+								</div>
+							</div>
+							<div ng-init="myProfile.manageAlert.disableAllInputField();"></div>
+
+							<section class="clear-all button-wrapper" layout="row"
+								layout-align="center center" layout-wrap>
+								<md-button id="manageAlertDetails" type="submit"
+									class=" md-raised btn--primary-btn">
+								{{appLiterals.APP.COMMON.BUTTON.SUBMIT}}</md-button>
+							</section>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

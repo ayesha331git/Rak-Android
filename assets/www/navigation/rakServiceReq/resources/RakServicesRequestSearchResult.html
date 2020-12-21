@@ -1,0 +1,107 @@
+	<div class="rak-back-header">
+
+			<i class="rak-back-img"
+				ng-click="rakServiceReq.serviceRequestStatusModel.isBackClick=true;rakServiceReq.serviceRequestStatusModel.resetBackData();setEvent('onServicesRequestSearchResultBackClick')"></i>
+
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.serviceRequestStatusModel.displayMessage();rakServiceReq.serviceRequestStatusModel.serviceRequestSearchResultService(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+
+					<div class="main-form-heading-ServiceReq">
+						<h2 class="rakBenfHeader">
+							{{rakServiceReq.serviceRequestStatusModel.isSRorTF=='SR' && appLiterals.APP.SERVICES.ACC_STM.SERVICES_HEADER || appLiterals.APP.RAK_SERVICES.STATUS_OF_REQ.TF_HEADER}}
+						</h2>
+					</div>
+					
+					<div class="bg-color rak-cont-padding rak-scroll">
+						<div class="row">
+							
+
+							<div class="app-future-results">
+								<div ng-if="rakServiceReq.serviceRequestStatusModel.searchResponse.length">
+								<div class="fut-result"
+									ng-if="!rakServiceReq.serviceRequestStatusModel.dateFieldSelected">
+									Showing <b> {{
+										rakServiceReq.serviceRequestStatusModel.messageString }} </b>
+								</div>
+								<div class="fut-result"
+									ng-if="rakServiceReq.serviceRequestStatusModel.dateFieldSelected">
+									Showing <b>{{
+										rakServiceReq.serviceRequestStatusModel.messageString }} |
+										from
+										{{rakServiceReq.serviceRequestStatusModel.fromDate|date:rakServiceReq.serviceRequestStatusModel.dateStringFormat}}
+										to
+										{{rakServiceReq.serviceRequestStatusModel.toDate|date:rakServiceReq.serviceRequestStatusModel.dateStringFormat}}</b>
+								</div>
+							</div>
+								<div class="fut-result"
+										ng-if="!rakServiceReq.serviceRequestStatusModel.searchResponse.length">
+										{{appLiterals.APP.SERVICES.SERVICE_STATUS_REQUEST.NO_SEARCH_RESULT_MESSAGE}}
+									</div>	
+								<div class="app app-cancel result-close"
+									ng-click="rakServiceReq.serviceRequestStatusModel.isCloseClick=true;setEvent('onServicesRequestSearchResultCloseClick')"></div>
+							</div>
+
+							<div class="nano service-scroll1">
+
+								<!-- Content for Transactions -->
+								<div class="transaction-info nano-content">
+
+								<!-- 	<div class="trans-detail"
+										ng-if="!rakServiceReq.serviceRequestStatusModel.searchResponse.length">
+										{{appLiterals.APP.SERVICES.SERVICE_STATUS_REQUEST.NO_SEARCH_RESULT_MESSAGE}}
+									</div> -->
+
+									<div class="trans-detail"
+										ng-if="rakServiceReq.serviceRequestStatusModel.searchResponse.length"
+										ng-repeat="serviceRequestDeatils in rakServiceReq.serviceRequestStatusModel.searchResponse">
+										<div class="trans-info-left" ng-if="!(rakServiceReq.serviceRequestStatusModel.delinkedSR.includes(serviceRequestDeatils.requestId))" 	ng-click="rakServiceReq.serviceRequestStatusModel.isFromSearchPage=true;rakServiceReq.serviceRequestStatusModel.selectedSR =serviceRequestDeatils;
+											rakServiceReq.serviceRequestStatusModel.getEventName(rakServiceReq.serviceRequestStatusModel.selectedSR)">
+											<div class="toggle_txt reqColorLink txt-dec">
+												{{serviceRequestDeatils.referenceId}} -
+												{{serviceRequestDeatils.requestDescription}}</div>
+											<div class="trans-date reqColorLink">
+												{{serviceRequestDeatils.requestDate}}
+											</div>
+										</div>
+
+
+										<div class="trans-info-left" ng-if="(rakServiceReq.serviceRequestStatusModel.delinkedSR.includes(serviceRequestDeatils.requestId))">
+											<div class="toggle_txt reqColorLink">
+												{{serviceRequestDeatils.referenceId}} -
+												{{serviceRequestDeatils.requestDescription}}</div>
+											<div class="trans-date reqColorLink">
+												{{serviceRequestDeatils.requestDate}}
+											</div>
+										</div>
+										<div class="trans-info-right">
+											<span class="amt-rs">
+												{{serviceRequestDeatils.requestStatus}} </span>
+										</div>
+										<hr class="app-hr1">
+									</div>
+
+								</div>
+
+							</div>
+
+
+							<div class="col-sm-1"></div>
+						</div>
+
+					</div>
+
+				</div>
+				<div class="col-sm-1"></div>
+			</div>
+		</div>
+		<!-- overlay for transaction details -->
+	</div>
+</div>
+</div>
+</div>

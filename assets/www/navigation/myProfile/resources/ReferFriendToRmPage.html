@@ -1,0 +1,57 @@
+<div id="referFrdToRmPgePrevClick" class="app app-arrow2 title-right"
+	ng-click="myProfile.referAndShare.clearContactData();setEvent('onPrevClick');"></div>
+<div class="finacle-container" ng-init="resetPageError();">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<form id="referFriendToRmPageForm"
+						ng-submit="myProfile.referAndShare.message='RefferingAFriend-'+myProfile.referAndShare.fullName+'-Mbnumber-'+myProfile.referAndShare.number;
+			setEvent('onReferSuccessClick');">
+						<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+							<div id="referFrdToRmPgeHEADER" class="item-title text-uppercase width-auto">
+								{{appLiterals.APP.MYPROFILE.REFER_FRND_RM.HEADER}}</div>
+						</div>
+
+						<md-button class="hide" id='hide-btn'
+							ng-click='myProfile.referAndShare.getNumber(myProfile.referAndShare.number)'></md-button>
+							
+						<div class="refer-view-details"
+							ng-show="myProfile.referAndShare.isFromContact">
+							<img src="images/face_default.png" class="payee-circle-img">
+							<p class="payee-circle-txt">
+								<span id="referFriendToRmPageAlpha" class="payee-first-txt ng-binding">
+									{{myProfile.referAndShare.alpha}} </span>
+							</p>
+							<p id="referFriendToRmPageName" class="second-name">{{myProfile.referAndShare.name}}</p>
+
+						</div>
+						<div class="avail-bal-wrap">
+
+							<fin-input type="text" model="myProfile.referAndShare.fullName"
+								display-row="full"
+								placeholder="{{appLiterals.APP.MYPROFILE.REFER_FRND_RM.PH_NAMEFRND}}"
+								min="0"
+								validation-flag='pageErrorArr["myProfile.referAndShare.fullName"]'
+								class=""></fin-input>
+							<md-button id="referFrdToRmPageGetContact" type="button"
+								class="md-icon-button mob-user-icon"
+								ng-click="myProfile.referAndShare.getContact()"> <span
+								class="app-user icons"></span> </md-button>
+							<fin-input type="phone"
+								model="myProfile.referAndShare.number" display-row="full"
+								placeholder="{{appLiterals.APP.MYPROFILE.REFER_FRND_RM.PH_MOBNO}}"
+								min="0"
+								validation-flag='pageErrorArr["myProfile.referAndShare.number"]' country-dropdown='false'></fin-input>
+
+							<md-button id="referFrdToRmPageSubmit" type="submit"
+								class=" md-raised btn--primary-btn">
+							{{appLiterals.APP.COMMON.BUTTON.SUBMIT}}</md-button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

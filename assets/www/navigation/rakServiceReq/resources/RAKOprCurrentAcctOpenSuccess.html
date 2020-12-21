@@ -1,0 +1,89 @@
+ <div class="finacle-container" ng-init="rakServiceReq.initRAKOprCurrentAcctOpenReqSucess(successResponse.responsesList)">
+	<div class="account-page">
+     <div class="col-sm-11">
+     
+     	<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.RAKOprCurrentAcctOpenReq.successMessage}}</span>
+				</div>
+			</div>
+		<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CURRENT_ACCOUNT}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+				      </h2>		       
+		 </div>
+
+      
+
+	 <div class="bg-color rak-cont-padding rak-scroll rak-scroll-account-open" >
+
+	    <div class="row" >
+
+				<p class="rak-sum-txt" ng-show="rakServiceReq.RAKOprCurrentAcctOpenLists.refAcctNoList.length > 0">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.REF_ACCT_NO}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprCurrentAcctOpenLists.refAcctNoList[rakServiceReq.RAKOprCurrentAcctOpenReq.selectedRefNo].accountNumber}}</span>
+                </p>
+
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.ACCTCRN}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprCurrentAcctOpenReq.selectedCrn}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="rakServiceReq.RAKOprCurrentAcctOpenReq.selectedCrn=='AED'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.DEBITCARDRQD}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprCurrentAcctOpenReq.debitCardRqd}}</span>
+				</p>
+
+			<div ng-if='rakServiceReq.common.EmiratesIdAvailable=="Y"'>
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.EMIRATESID}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprCurrentAcctOpenReq.EmiratesId}}</span>
+				</p>
+
+
+				<p class="rak-sum-txt">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.ID_EXPIRY_DATE}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.common.accountsOpenDisplayDate}}</span>
+				</p>
+		</div>
+				<p class="rak-sum-txt" ng-show="rakServiceReq.RAKOprCurrentAcctOpenLists.refAcctNoList.length > 0">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.UAERESIDENT}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprCurrentAcctOpenReq.uaeResident}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="rakServiceReq.RAKOprCurrentAcctOpenReq.uaeResident == 'Yes' && rakServiceReq.RAKOprCurrentAcctOpenLists.refAcctNoList.length > 0">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.VISA_EXPIRY_DATE}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprCurrentAcctOpenReq.previewDateOne}}</span>
+				</p>
+
+				<p class="rak-sum-txt">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.BRANCH_FOR_KIT}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprCurrentAcctOpenReq.branchNameContinue}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="rakServiceReq.RAKOprCurrentAcctOpenReq.isChqBookRqd == true">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.CHKBOOKRQD}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprCurrentAcctOpenReq.chkBookRqd}}</span>
+				</p>
+
+
+				<p class="rak-sum-txt" ng-show="rakServiceReq.RAKOprCurrentAcctOpenReq.isIntrstRAKValueRqd == true">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.INTRSTRAKVALUE}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprCurrentAcctOpenReq.intrstRAKValue}}</span>
+				</p>
+
+
+				<div class="label-wrap">
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-small"
+						ng-click='rakServiceReq.setRAKOprCurrentAcctOpenSuccessHomeBtnClicked();'>
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+				</div>
+	<div class="col-sm-10"> </div>
+	</div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

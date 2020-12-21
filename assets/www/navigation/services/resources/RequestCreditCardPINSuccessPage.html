@@ -1,0 +1,24 @@
+<div class="finacle-container">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+
+			<div class="dashboard-pad full-height">
+				<div class="dashboard-item-body full-height">
+					<fin-success
+						success-banner=""
+						success-message="{{successResponse.responsesList[0].message}}"
+						cross-click="setEvent('onCancelClick')"> </fin-success>
+					<div class="sucs-left-txt">
+						<span id="ccNumDesc" class="sucs-left-color">{{appLiterals.APP.SERVICES.REQ_CC_PIN_SUCC.TXT_CC_NO}}</span>
+						<span id="ccNumValue" class="sucs-right-color">{{successResponse.responsesList[0].cardNumber}}</span>
+					</div>
+
+					<div class="sucs-left-txt">
+						<span id="remarksDesc" class="sucs-left-color">{{appLiterals.APP.SERVICES.REQ_CC_PIN_SUCC.TXT_REMARK}}</span>
+						<span id="remarksValue" class="sucs-right-color">{{successResponse.responsesList[0].remarks}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

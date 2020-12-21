@@ -1,0 +1,64 @@
+<div id="updatePrimaryAccountPage" class="app app-arrow2 title-right"
+	ng-click="myProfile.isClose=true;setEvent('onPrimaryAccountCloseClick')"></div>
+
+<div class="finacle-container"
+	ng-init='myProfile.updatePrimaryAccount.initPrimaryAccountDetails(successResponse.responsesList);'>
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper"></div>
+
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+
+					<div class="dashboard-item-title col-sm-12  margin-bottom-20">
+						<div id="primaryTitle" class="item-title text-uppercase">{{appLiterals.APP.MYPROFILE.MY_PREFERENCE.UPDATE_PRIM_ACC}}</div>
+					</div>
+					<div class="col-sm-12">
+						<div id="selectPrimaryMsg" class="fut-txt1 lh13">
+							{{appLiterals.APP.MYPROFILE.UPDATE_PRIMARY.SELECT_PRIMARY_MSG}}</div>
+						<form
+							ng-submit="myProfile.updatePrimaryAccount.accountNumberHandler();setEvent('onPrimaryAccountContinueClick')">
+							<div>
+								<md-radio-group ng-model='myProfile.primaryAcc'
+									ng-change="myProfile.updatePrimaryAccount.checkBoxhandler($event);"
+									ng-checked='accountDetails.isPrimary =="Y"'>
+								<div class="trans-detail"
+									ng-repeat="accountDetails in myProfile.updatePrimaryAccount.primaryAccountDetails">
+									<div class="trans-dash-left">
+										<div id="nickName" class="trans-no">
+											{{accountDetails.accountNickName}}
+											<!-- <br>
+													<b>{{accountDetails.accountNumber}}</b><br>({{accountDetails.subAccountType}}) -->
+										</div>
+									</div>
+									<div class="trans-dash-right">
+										<div class="ques-cb">
+											<md-radio-button id="{{$index}}"
+												ng-value="{{accountDetails.index}}" class="margin-zero"></md-radio-button>
+											<!-- <input type="checkbox" id="{{$index}}" class="unchecked"
+												ng-model='myProfile.primaryAcc'
+												ng-true-value={{accountDetails.index}} ng-false-value='-1'
+												ng-checked='accountDetails.isPrimary =="Y"'
+												ng-click="myProfile.updatePrimaryAccount.checkBoxhandler($event);">
+											<label for="{{$index}}"></label> -->
+										</div>
+									</div>
+									<div id="accNum" class="trans-date">{{accountDetails.accountNumber}}
+										({{accountDetails.subAccountType}})</div>
+								</div>
+								</md-radio-group>
+							</div>
+
+							<section class="button-wrapper" layout="row"
+								layout-align="center center" layout-wrap>
+								<md-button id="updatePrimaryAcc" type="submit"
+									class=" md-raised btn--primary-btn">
+								{{appLiterals.APP.COMMON.BUTTON.CONTINUE}}</md-button>
+							</section>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

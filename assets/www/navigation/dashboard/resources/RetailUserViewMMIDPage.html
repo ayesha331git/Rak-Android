@@ -1,0 +1,40 @@
+<div id="retailUserViewMMIDPageOnViewCancelClick" class="icon icon-cancel title-right"
+	ng-click="setEvent('onViewCancelClick');"></div>
+<div class="finacle-container"
+	ng-init="dashboard.mmid.initMMID(successResponse.responsesList[0]);">
+	<div class="account-page">
+		<div class="col-sm-12">
+		<!--	<div class="app-title-wrapper">
+				<div class="title-left"></div>
+				<div class="title-center">{{appLiterals.APP.DASHBOARD.RETAIL_USER_VIEW_MMID.VIEW}}&nbsp;{{appLiterals.APP.DASHBOARD.RETAIL_USER_VIEW_MMID.MMID}}
+				</div>
+				<div class="icon icon-cancel title-right"
+					ng-click="setEvent('onViewCancelClick');"></div>
+			</div> -->
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div id="retailUserViewMMIDPageVIEW" class="item-title text-uppercase">{{appLiterals.APP.DASHBOARD.RETAIL_USER_VIEW_MMID.VIEW}}&nbsp;{{appLiterals.APP.DASHBOARD.RETAIL_USER_VIEW_MMID.MMID}}</div>
+					</div>
+		
+					<div class="col-sm-12">
+					
+						<p id="retailUserViewMMIDPageMMID" class="left-txt1">{{appLiterals.APP.DASHBOARD.RETAIL_USER_VIEW_MMID.MMID}}</p>
+						<p id="retailUserViewMMIDPageMMIDValue" class="left-txt2">
+							<b>{{dashboard.mmid.mmidValue}}</b>
+						</p>
+						<p id="retailUserViewMMIDPageACCOUNT_NO" class="left-txt1">{{appLiterals.APP.DASHBOARD.RETAIL_USER_VIEW_MMID.ACCOUNT_NO}}</p>
+						<p id="retailUserViewMMIDPageACCOUNT_ID" class="left-txt2">{{dashboard.mmid.accountId}}</p>
+						<p id="retailUserViewMMIDPageMOBILE_NO" class="left-txt1">{{appLiterals.APP.DASHBOARD.RETAIL_USER_VIEW_MMID.MOBILE_NO}}</p>
+						<p id="retailUserViewMMIDPagemobileNo" class="left-txt2">{{dashboard.mmid.mobileNo}}</p>
+						<md-button id="retailUserViewMMIDPageOnSuccessClick" type="button" class=" md-raised btn--primary-btn"
+							ng-click="setEvent('onSuccessClick');">
+							{{appLiterals.APP.DASHBOARD.RETAIL_USER_VIEW_MMID.SHARE_DETAILS_AS_SMS}}</md-button>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>

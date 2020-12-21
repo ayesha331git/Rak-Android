@@ -1,0 +1,476 @@
+<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="rakPayee.rakSelfConfirmationPayeeListFetch.model.authenticationPassword= '';rakPayee.rakSelfConfirmationPayeeListFetch.model.remarks='';rakPayee.rakSelfConfirmationPayeeListFetch.model.smsOtp='';setEvent('onRAKPayeeConfirmAuthBackClick')" ></i>
+</div>
+
+	<div class="finacle-container ng-scope"  ng-init="rakHome.AuthPageData.firstAuthModeValue='';rakHome.AuthPageData.firstAuthModeValuePIN='';rakPayee.rakSelfConfirmationPayeeListFetch.model.remarks='';rakPayee.authMode.firstAuthModeValue = '';rakPayee.authMode.secAuthModeValue = '';rakPayee.rakSelfConfirmationPayeeListFetch.model.smsOtp='';rakPayee.rakSelfConfirmationPayeeListFetch.processResponseAuth(successResponse.responsesList);rakHome.AuthPageData.firstAuthModeValue='';rak2FARegister.RegistrationModel.resendAuthMode(successResponse.responsesList);">
+    <div class="account-page">
+		 <div class="col-sm-11">
+
+		<div class="app-title-wrapper">
+		
+		<div class="form-block">
+	
+		  <div class="rak-scroll">
+			<div class="main-form-heading-payee" >
+                <h2 >{{rakPayee.rakSelfConfirmationPayeeListFetch.model.action==rakPayee.constants.SUBMIT ? "Confirm ": "Reject "}}{{appLiterals.APP.RAK_PAYESLFCONF_REQ.CONFIRMATION.RAK_TXT_PAY}}<span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2}} :{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2_TXT1}} </span></h2>
+            </div>
+
+        <div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh">
+        <div class="" >
+	    <div class="">
+
+	    <!-- For biller display -->
+	    <div ng-show='rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryType==rakPayee.rakSelfConfirmationPayeeListFetch.CONSTANTS.RAKCONFIRMPAYEE_BILLER'>
+          <p class="rak-sum-txt">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONFBILLERNAME}}</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryName}}</span>
+			  </p>
+            
+			  
+
+			   <div ng-repeat="fields in rakPayee.rakSelfConfirmationPayeeListFetch.model.labels">
+				<p class="rak-sum-txt" ng-show="fields.value">
+					<span class="rak-sum-label">{{fields.label}}</span>
+					<span class="rak-sum-label black">{{fields.value}}</span>
+				</p>
+			</div>
+			
+			   <p class="rak-sum-txt">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONFNICKNAME}}</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.cpNickName}}</span>
+			  </p>
+
+		</div>
+			  <!-- For biller display -->
+
+
+			  	    <!-- For mobile cash display -->
+	    <div ng-show='rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryType==rakPayee.rakSelfConfirmationPayeeListFetch.CONSTANTS.RAKCONFIRMPAYEE_MOBILECASHBENF'>
+          <p class="rak-sum-txt">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONFBNFTYPE}}&nbsp;</span>
+			
+				     <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfSubType}}</span>
+			  </p>
+               <p class="rak-sum-txt">
+				
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_MOBILE_PAYEE}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryName}}</span>
+			  </p>
+			<p class="rak-sum-txt">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONFMBCASHMOBNUM}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfAccountNumber}}</span>
+			  </p>
+		</div>
+			  <!-- For mobile cash display -->
+
+
+			    <!-- For benef display -->
+	    <div ng-show='rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryType==rakPayee.rakSelfConfirmationPayeeListFetch.CONSTANTS.RAKCONFIRMPAYEE_BENF'>
+          <p class="rak-sum-txt" >
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONFBNFTYPE}}&nbsp;</span>
+				  
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfSubType}}</span>
+			  </p>
+               <p class="rak-sum-txt">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONF_PAYEENN}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.cpNickName}}</span>
+			  </p>
+			<p class="rak-sum-txt" ng-hide="rakPayee.rakSelfConfirmationPayeeListFetch.model.payeeType==rakPayee.payeeTypes.WITHINUAEBANK">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONF_ACCOUNT}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.accNum}}</span>
+			  </p>
+			  <div ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.payeeType==rakPayee.payeeTypes.WITHINUAEBANK">
+			  <p class="rak-sum-txt" >
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONF_IBAN}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.accNum}}</span>
+			  </p>
+			  
+			   <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankName">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFBANKNAME}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankName}}</span>
+			  </p>
+			  </div>
+			    <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryName">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFNAME}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryName}}</span>
+			  </p>
+			 
+			  <div ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.payeeType==rakPayee.payeeTypes.OUTSIDEUAEBANK">
+
+			  <p class="rak-sum-txt" ng-show="rakHome.chkUserType=='1' && rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfIfsc!=''&&rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfIfsc!='undefined'  && (rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCountry == rakPayee.constants.INDIA || rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCountry == rakPayee.constants.INDIA_CAMEL)">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFIFSC}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfIfsc}}</span>
+			  </p>
+  <p class="rak-sum-txt"  ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfCity!=''&&rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfCity!='undefined' && rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfCity!='-'">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFCITY}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfCity}}</span>
+			  </p>
+
+			  <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfSwiftCode!=''&&rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfSwiftCode!='undefined'">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFSWIFTCODE}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfSwiftCode}}</span>
+			  </p>
+			
+			  <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfIntermedBank!=''&&rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfIntermedBank!='undefined'">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFINTERMEDBANK}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfIntermedBank}}</span>
+			  </p>
+			    <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCode!=''&&rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCode!='undefined'">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFSWIFTBANKCODE}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCode}}</span>
+			  </p>
+			  <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankName!=''&&rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankName!='undefined'">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFBANKNAME}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankName}}</span>
+			  </p>
+			   <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBranchName!=''&&rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBranchName!='undefined' && rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBranchName!='-'">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFBRANCHNAME}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBranchName}}</span>
+			  </p>
+			 
+			   <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCountry!=''&&rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCountry!='undefined'">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFBANKCOUNTRY}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCountry}}</span>
+			  </p>
+			  
+			     <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryResidentCountryDisplay">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_RESIDENT_COUNTRY}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryResidentCountryDisplay}}</span>
+			  </p>
+			  
+			  </div>
+		</div>
+			  <!-- For benef display -->
+								<!-- For CASH Payout benef display -->
+								<div
+									ng-if='rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryType==rakPayee.rakSelfConfirmationPayeeListFetch.CONSTANTS.RAKCONFIRMPAYEE_CASHBENF'>
+									
+									<p class="rak-sum-txt">
+										<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONFBNFTYPE}}&nbsp;</span>										
+										<span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfSubType}}</span>
+									</p>
+									
+									<p class="rak-sum-txt">
+										<!-- ng-hide="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryName!=''&&rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryName!='undefined'"> -->
+										<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFNAME}}&nbsp;</span>
+										<span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryName}}</span>
+									</p>
+									
+									<p class="rak-sum-txt">
+										<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONF_PAYEENN}}&nbsp;</span>
+										<span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.cpNickName}}</span>
+									</p>
+									
+									<p class="rak-sum-txt"
+										ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankName!='' && rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankName!='undefined'">
+										<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFBANKNAME}}&nbsp;</span>
+										<span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankName}}</span>
+									</p>
+										
+									<p class="rak-sum-txt"
+										ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCountry!='' && rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCountry!='undefined'">
+										<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFBANKCOUNTRY}}&nbsp;</span>
+										<span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCountry}}</span>
+									</p>
+								</div>
+								<!-- For CASH Payout benef display -->
+			  <!-- prepaid card -->
+			   <div ng-show='rakPayee.rakSelfConfirmationPayeeListFetch.model.payeeType==rakPayee.rakSelfConfirmationPayeeListFetch.CONSTANTS.RAKCONFIRMPAYEE_PREPAIDCARDS'>
+          <p class="rak-sum-txt">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONFBNFTYPE}}&nbsp;</span>
+				    
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfSubType}}</span>
+			  </p>
+
+			 
+               <p class="rak-sum-txt">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONF_PAYEENN}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.cpNickName}}</span>
+			  </p>
+
+
+			  	<p class="rak-sum-txt">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONFBILLERPREPAIDCARDNUMBER}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfAccountNumber}}</span>
+			  </p>
+			  </div>
+
+
+
+			    <!-- For card benef display -->
+	    <div ng-show='rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryType==rakPayee.rakSelfConfirmationPayeeListFetch.CONSTANTS.RAKCONFIRMPAYEE_CARDBENF'>
+          <p class="rak-sum-txt">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONFBNFTYPE}}&nbsp;</span>
+				 	 <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfSubType}}</span>
+			  </p>
+			 
+			   <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryName">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFNAME}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryName}}</span>
+			  </p>
+			
+               <p class="rak-sum-txt">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONF_PAYEENN}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.cpNickName}}</span>
+			  </p>
+
+
+			  	<p class="rak-sum-txt">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONFBILLERCARDNUMBER}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfAccountNumber}}</span>
+			  </p>
+			  <div ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.payeeType  == rakPayee.payeeTypes.WITHINUAECCARD">
+			     <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankName!='' && rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankName!='undefined'">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFBANKNAME}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankName}}</span>
+			  </p>
+		</div>
+
+			  <div ng-show= "rakPayee.rakSelfConfirmationPayeeListFetch.model.payeeType == rakPayee.payeeTypes.OUTSIDEUAECCARD">
+			      <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCountry!=''&&rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCountry!='undefined'">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFBANKCOUNTRY}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCountry}}</span>
+			  </p>
+
+
+			
+
+			  <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfIfsc!=''&& rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfIfsc!='undefined' && (rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCountry == rakPayee.constants.INDIA || rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCountry == rakPayee.constants.INDIA_CAMEL)">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFIFSC}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfIfsc}}</span>
+			  </p>
+
+			     <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBranchName!='' && rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBranchName!='undefined'">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFBRANCHNAME}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBranchName}}</span>
+			  </p>
+
+			  	    <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfCity!='' && rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfCity!='undefined'">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFCITY}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfCity}}</span>
+			  </p>
+			 <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfSwiftCode!=''&&rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfSwiftCode!='undefined'">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFSWIFTCODE}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfSwiftCode}}</span>
+			  </p>
+			  <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfIntermedBank!=''&&rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfIntermedBank!='undefined'">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFINTERMEDBANK}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfIntermedBank}}</span>
+			  </p>
+
+  <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCode!='' && rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCode!='undefined'">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFSWIFTBANKCODE}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCode}}</span>
+			  </p>
+
+			 
+			  
+			   
+                 <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryResidentCountryDisplay">
+                    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_RESIDENT_COUNTRY}}&nbsp;</span>
+                    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryResidentCountryDisplay}}</span>
+              </p>
+
+			</div>
+
+
+
+
+
+		</div>
+		
+		<!-- added for DD/MCHQ -->
+		   <div ng-show='rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryType==rakPayee.rakSelfConfirmationPayeeListFetch.CONSTANTS.RAKCONFIRMPAYEE_MCHQBENF||
+		   rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryType==rakPayee.rakSelfConfirmationPayeeListFetch.CONSTANTS.RAKCONFIRMPAYEE_DDBENF'>
+          <p class="rak-sum-txt " ng-if="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryType==rakPayee.rakSelfConfirmationPayeeListFetch.CONSTANTS.RAKCONFIRMPAYEE_MCHQBENF">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONFBNFTYPE}}&nbsp;</span>
+				  <span class="rak-sum-label black">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_MCHQ_BNF}}</span>
+			  </p>
+			  
+			  
+			  
+			  
+			    <p class="rak-sum-txt " ng-if="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryType==rakPayee.rakSelfConfirmationPayeeListFetch.CONSTANTS.RAKCONFIRMPAYEE_DDBENF">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONFBNFTYPE}}&nbsp;</span>
+				  <span class="rak-sum-label black">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_DD_BNF}}</span>
+			  </p>
+			  
+			    <p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_MOBILE_PAYEE}}&nbsp;</span>
+				     <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.beneficiaryName}}</span>
+			  </p>
+			  
+               <p class="rak-sum-txt">
+				
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONF_PAYEENN}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.cpNickName}}</span>
+			  </p>
+			<p class="rak-sum-txt">
+				    <!-- <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONFMBCASHMOBNUM}}&nbsp;</span> -->
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.RAK_SLFCONF_ACC}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfAccountNumber}}</span>
+			  </p>
+			  
+			   <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankName!=''&&rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankName!='undefined'">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFBANKNAME}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankName}}</span>
+			  </p>
+			    <p class="rak-sum-txt" ng-show="rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCountry!=''&&rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCountry!='undefined'">
+				    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.BNFBANKCOUNTRY}}&nbsp;</span>
+				    <span class="rak-sum-label black">{{rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller.bnfBankCountry}}</span>
+			  </p>
+		</div>
+			  <!-- For card benef display -->
+
+			<fin-input ng-hide="rakPayee.rakSelfConfirmationPayeeListFetch.model.action==rakPayee.constants.SUBMIT" type="text" model="rakPayee.rakSelfConfirmationPayeeListFetch.model.remarks" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYESLFCONF_REQ.CONFIRMATION.RAK_REM}}" validation-flag='pageErrorArr["rakPayee.rakSelfConfirmationPayeeListFetch.model.remarks"]' ></fin-input>
+			<div class="fin-txt"></div>
+
+			<div ng-init='rakHome.AuthPageData.initConfirmationPageData(successResponse.responsesList)'>
+					
+					<div class="label-wrap" ng-show='rakHome.AuthPageData.authStatus'>
+					<div ng-show='rakHome.AuthPageData.isFirstAuthMode'>
+					
+						<fin-input type="password_text"
+							model="rakHome.AuthPageData.firstAuthModeValue" display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+							validation-flag='pageErrorArr["rakHome.AuthPageData.firstAuthModeValue"]'
+							ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.TransactionPassword">
+						</fin-input>
+			
+					<fin-input type="password_num" model="rakHome.AuthPageData.firstAuthModeValue"
+						display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_HARDTOKEN}}"
+						validation-flag='pageErrorArr["rakHome.AuthPageData.firstAuthModeValue"]'
+						ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.HardToken">
+						 </fin-input>
+						
+						<fin-input type="password_num"
+							model="rakHome.AuthPageData.firstAuthModeValuePIN" display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SOFTTOKEN}}"
+							validation-flag='pageErrorArr["rakHome.AuthPageData.firstAuthModeValue"]'
+							max-length="{{rak2FARegister.constants.PINLENGTH}}"
+							ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.SoftToken">
+						</fin-input>
+						<span  class="forgotRAKTokenPIN" ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.SoftToken" ng-click="rakServiceReq.fetchDisclaimer('ForgotRAKTokenPIN.html');">{{appLiterals.APP.RAKCOMMONLITERALS.TOKEN_FORGOT_PIN}}</span> 
+						
+			
+						
+						<fin-input type="password_num"
+							model="rakHome.AuthPageData.firstAuthModeValue" display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OFFLINEOTP}}"
+							validation-flag='pageErrorArr["rakHome.AuthPageData.firstAuthModeValue"]'
+							max-length="16"
+							ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.OfflineOtp">
+						</fin-input>
+						<span  class="forgotRAKTokenPIN" ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.OfflineOtp" ng-click="rakServiceReq.fetchDisclaimer('TwoFactorAuthenticationFAQ.html');">{{appLiterals.APP.RAKCOMMONLITERALS.TOKEN_DEADLOCK}}</span> 
+						<div ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.OTP">
+							<div
+								ng-class="{'rak50':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+								<fin-input type="password_num"
+									model="rakHome.AuthPageData.firstAuthModeValue" display-row="full"
+									placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+									validation-flag='pageErrorArr["rakHome.AuthPageData.firstAuthModeValue"]'>
+								</fin-input>
+							</div>
+			
+							<div class="rak50 rakModeDropdownBenf"
+								ng-show='rakHome.otpModel.otpModesList.length>0'
+			                    ng-init="rakHome.otpModel.otpModeSelected='';toModeArray=createDropDownOptionArray(rakHome.otpModel.benfModesList, ['ModeDesc'],'ModeValue')">
+			
+								<fin-input type="dropdown" option-array="toModeArray"
+									model="rakHome.otpModel.otpModeSelected" display-row="full"
+									on-change="rakHome.benfToken();"
+									placeholder="{{appLiterals.APP.RAK_COMMON.DIDNOTRECEIVE}}"></fin-input>
+								
+							</div>
+			                
+			                <span  class="forgotRAKTokenResnd">{{appLiterals.APP.RAK_COMMON.Resend_OTP}}</span>
+			
+						</div>
+					</div>
+			
+					<div ng-show='rakHome.AuthPageData.isSecAuthMode'>
+						<fin-input type="password_text"
+							model="rakHome.AuthPageData.secAuthModeValue" display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+							validation-flag='pageErrorArr["rakHome.AuthPageData.secAuthModeValue"]'
+							ng-show="rakHome.AuthPageData.secAuthType==rakHome.AuthPageData.TransactionPassword">
+						</fin-input>
+			
+						<div ng-show="rakHome.AuthPageData.secAuthType==rakHome.AuthPageData.OTP">
+							<div class="rakwidth65">
+								<fin-input type="password_num"
+									model="rakHome.AuthPageData.secAuthModeValue" display-row="full"
+									placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+									validation-flag='pageErrorArr["rakHome.AuthPageData.secAuthModeValue"]'>
+								</fin-input>
+							</div>
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+								ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');">{{appLiterals.APP.RAK_COMMON.RESEND_OTP}}
+							</button>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+
+
+			<div class="label-wrap">
+			<button type="button" class="btn--special-btn btn-middle rak-button-small  center btn--back" ng-click="rakPayee.rakSelfConfirmationPayeeListFetch.model.authenticationPassword= '';rakPayee.rakSelfConfirmationPayeeListFetch.model.smsOtp='';setEvent('onRAKPayeeConfirmAuthBackClick')">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_BACK}}</button>
+
+		   <button type="button" class="btn--special-btn btn-middle rak-button-small  center" ng-click="rakHome.AuthPageData.fetchRejectBenf(rakPayee.rakSelfConfirmationPayeeListFetch.getEvent());">
+			   {{appLiterals.APP.RAK_PAYESLFCONF_REQ.CONFIRMATION.RAK_BTN_CNFRM}} </button>
+			   </div>
+
+		<div class="col-sm-1"> </div>
+		
+		<div class="disclaimer">
+							<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+											<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+							</div>
+
+							<div class="disclaimer3" ng-show="rakDisclaimerFlag" ng-if="rakHome.AuthPageData.authType==rakHome.AuthPageData.OTP && rakPayee.rakSelfConfirmationPayeeListFetch.model.action=='SUBMIT'">
+											<div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_CONFIRMPAYEE_OTP"></div>
+							</div>
+							
+							<div class="disclaimer3" ng-show="rakDisclaimerFlag" ng-if="rakHome.AuthPageData.authType==rakHome.AuthPageData.SoftToken && rakPayee.rakSelfConfirmationPayeeListFetch.model.action=='SUBMIT'">
+											<div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_CONFIRMPAYEE_SOFT_PIN"></div>
+							</div>
+							
+							<div class="disclaimer3" ng-show="rakDisclaimerFlag" ng-if="rakHome.AuthPageData.authType==rakHome.AuthPageData.OfflineOtp && rakPayee.rakSelfConfirmationPayeeListFetch.model.action=='SUBMIT'">
+											<div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_CONFIRMPAYEE_OFFLINE_TOKEN"></div>
+							</div>
+							
+							
+							<div class="disclaimer3" ng-show="rakDisclaimerFlag" ng-if="rakHome.AuthPageData.authType==rakHome.AuthPageData.HardToken && rakPayee.rakSelfConfirmationPayeeListFetch.model.action=='SUBMIT'">
+											<div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_CONFIRMPAYEE_HARD_TOKEN"></div>
+							</div>
+							
+							<div class="disclaimer3" ng-show="rakDisclaimerFlag" ng-if="rakHome.AuthPageData.authType==rakHome.AuthPageData.OTP && rakPayee.rakSelfConfirmationPayeeListFetch.model.action=='REJECT'">
+											<div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_REJECTPAYEE_OTP"></div>
+							</div>
+							
+							<div class="disclaimer3" ng-show="rakDisclaimerFlag" ng-if="rakHome.AuthPageData.authType==rakHome.AuthPageData.SoftToken && rakPayee.rakSelfConfirmationPayeeListFetch.model.action=='REJECT'">
+											<div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_REJECTPAYEE_SOFT_PIN"></div>
+							</div>
+							
+							<div class="disclaimer3" ng-show="rakDisclaimerFlag" ng-if="rakHome.AuthPageData.authType==rakHome.AuthPageData.OfflineOtp && rakPayee.rakSelfConfirmationPayeeListFetch.model.action=='REJECT'">
+											<div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_REJECTPAYEE_OFFLINE_TOKEN"></div>
+							</div>
+							
+							<div class="disclaimer3" ng-show="rakDisclaimerFlag" ng-if="rakHome.AuthPageData.authType==rakHome.AuthPageData.HardToken &&  rakPayee.rakSelfConfirmationPayeeListFetch.model.action=='REJECT'">
+											<div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_REJECTPAYEE_HARD_TOKEN"></div>
+							</div>
+			</div>
+		
+	</div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

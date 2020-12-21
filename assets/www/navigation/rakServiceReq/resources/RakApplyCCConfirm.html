@@ -1,0 +1,88 @@
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onRakApplyCCConfirmBackClick');"></i>
+	</div>
+<div class="finacle-container ng-scope"
+	ng-init="rakServiceReq.RakApplyCCModel.txnPwd = '';rakServiceReq.confirmRakApplyCC(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+			<!-- 	<div class="app-title-wrapper"> -->
+
+			<div class="main-form-heading">
+				<h2>
+					{{appLiterals.APP.RAK_COMMON.SUMMARY_HEADER}}<span>{{appLiterals.APP.RAK_COMMON.SUMMARY_REVIEW}}</span>
+				</h2>
+			</div>
+			<!-- </div> -->
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="">
+					<div class="">
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKAPPLYCC.CUST_NAME}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakApplyCCModel.CustomerName}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKAPPLYCC.MOB_NO}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakApplyCCModel.MobileNo}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKAPPLYCC.EMAIL_ID}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakApplyCCModel.EmailId}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKAPPLYCC.REMARKS}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakApplyCCModel.Remarks}}</span>
+						</p>
+
+					<div class="label-wrap"
+						ng-show='rakServiceReq.RakApplyCCModel.authStatus'>
+
+						<fin-input type="password_text"
+							model="rakServiceReq.RakApplyCCModel.txnPwd"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+							validation-flag='pageErrorArr["rakServiceReq.RakApplyCCModel.txnPwd"]'
+							ng-show="rakServiceReq.RakApplyCCModel.authMode==txnpwdString">
+						</fin-input>
+						<!-- <fin-input type="password_num"
+							model="rakServiceReq.RakApplyCCModel.txnPwd"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+							validation-flag='pageErrorArr["rakServiceReq.RakApplyCCModel.txnPwd"]'
+							ng-show="rakServiceReq.RakApplyCCModel.authMode=='SMS OTP'">
+						</fin-input> -->
+						<!-- RAK SUDIPTO CHANGES FOR RESEND OTP START -->
+						<div ng-show="rakServiceReq.RakApplyCCModel.authMode==otpString">
+						<div class="rakwidth65">
+						<fin-input type="password_num" model="rakServiceReq.RakApplyCCModel.txnPwd"
+						display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+						validation-flag='pageErrorArr["rakServiceReq.RakApplyCCModel.txnPwd"]'>
+						</fin-input>
+						</div>
+						<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> Resend OTP </button>
+						</div>
+						<!-- RAK SUDIPTO CHANGES FOR RESEND OTP END -->
+					</div>
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back"
+								ng-click="setEvent('onRakApplyCCConfirmBackClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="setEvent('onRakApplyCCConfirmFinalSubmitClick');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}
+							</button>
+
+						</div>
+						<div class="col-sm-1"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

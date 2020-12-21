@@ -1,0 +1,245 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container"
+			ng-init="resetPageError();rakPayCards.clearTab();rakPayCards.rakInvGold.editBack=false;rakPayCards.rakInvGold.initEditPayNowPage(successResponse.responsesList);rakPayCards.common.fromAuthPage=false;">
+			<div class="rak-back-header">
+<i class="rak-back-img"
+					ng-click="rakPayCards.rakInvGold.editBack=true;setEvent('onBackClick');"></i>		
+					</div>
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+
+
+
+
+							<ng-include
+								src="'./navigation/rakPayCards/resources/RakBuySellGoldTabPage.html'">
+							</ng-include>
+
+
+							<div class="bg-color rak-cont-padding rakScrollDiv">
+								<div class="">
+									<div class="col-sm-1"></div>
+                                   	<div ng-show="rakPayCards.rakInvGold.txnType==rakPayCards.BuySellGoldTypeConstant.BUY" >
+									<div
+										ng-init='toGoldAccountList=createDropDownOptionArray(rakPayCards.rakInvGold.goldAccounts, ["subAccountTypeDesc","-","accountNumber", "-", "currencyCode"],"accountIndex")'>
+										
+										
+										<fin-input type="text"
+												model="rakPayCards.rakInvGold.selectedGoldAccountDisp"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.TO}}"
+												readonly>
+											</fin-input>
+									</div>
+
+									
+								</div>
+								<div ng-show="rakPayCards.rakInvGold.txnType==rakPayCards.BuySellGoldTypeConstant.SELL" >
+								<div ng-init='toBenTypeArray=createDropDownOptionArray(rakPayCards.rakInvGold.benAccounts, ["bankName"," ","beneficiaryNickName"],"beneficiaryIndex")'>
+									
+										
+										<fin-input ng-show="rakPayCards.rakInvGold.selectedBenType!='OWNACT'" type="text"
+												model="rakPayCards.rakInvGold.selectedToBenAccountDisp"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.TO}}"
+												readonly>
+											</fin-input>
+									</div>
+
+								<div
+											ng-show="rakPayCards.rakInvGold.selectedBenType=='OWNACT'"
+											ng-init='toAccountList=createDropDownOptionArray(rakPayCards.rakInvGold.fromAccounts, ["subAccountTypeDesc"," ","accountNumber"," ","currencyCode"],"accountIndex")'>
+											
+											<fin-input type="text"
+												model="rakPayCards.rakInvGold.selectedToAccountDisp"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.TO}}"
+												readonly>
+											</fin-input>
+
+										</div>
+
+								</div>
+								
+                                   	<div ng-show='rakPayCards.rakInvGold.txnType==rakPayCards.BuySellGoldTypeConstant.BUY'
+										ng-init='fromAccountList=createDropDownOptionArray(rakPayCards.rakInvGold.fromAccounts, ["subAccountTypeDesc"," ","accountNumber","-","currencyCode"],"accountIndex")'>
+										<fin-input type="dropdown" option-array="fromAccountList"
+											model="rakPayCards.rakInvGold.selectedFromAccount"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.PLCHOLDER_FROM}}"
+											on-change="rakPayCards.rakInvGold.updateForBalCall('onAccountSelectionBalExchgCall');"
+											validation-flag='pageErrorArr["rakPayCards.rakInvGold.selectedFromAccount"]' >
+										</fin-input>
+									</div>
+
+                       <div ng-show='rakPayCards.rakInvGold.txnType==rakPayCards.BuySellGoldTypeConstant.SELL'
+										ng-init='fromGoldAccountList=createDropDownOptionArray(rakPayCards.rakInvGold.goldAccounts, ["subAccountTypeDesc"," ","accountNumber", " ", "currencyCode"],"accountIndex")'>
+										<fin-input type="dropdown" option-array="fromGoldAccountList"
+											model="rakPayCards.rakInvGold.selectedGoldAccount"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.PLCHOLDER_FROM}}"
+											on-change="rakPayCards.rakInvGold.updateBalForSelectedGoldAccount('onGoldAccountSelectionBalCall');"
+											validation-flag='pageErrorArr["rakPayCards.rakInvGold.selectedGoldAccount"]'>
+										</fin-input>
+									</div>
+
+	                             <p class="balance-available2"
+												ng-show="rakPayCards.common.availBal">
+												{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.TXT_BALANCE}}
+												<span class="rs-color">
+													{{rakPayCards.common.availBal}}</span>
+											</p>
+
+	                             
+<!--CHANGES DONE AS FIX OF PRCU-1497 and PROUAT-3651 START-->
+                                     <!-- <div class="fin-input-container rakTransfersexchangerate-block"
+											ng-show="rakPayCards.rakInvGold.goldRate!=null && rakPayCards.rakInvGold.goldRate!=undefined && rakPayCards.rakInvGold.goldRate!=''">
+
+											<p class="rakexchangevalue">{{rakPayCards.rakInvGold.goldRate}}</p>
+											<span class="rakImageWhiteAlert"></span>
+											<span class="rakImageWhiteAlertWithoutBackground"></span>
+										</div> -->
+<!--CHANGES DONE AS FIX OF PRCU-1497 and PROUAT-3651 END-->
+
+										<div>
+											<fin-input type="number_card" model="rakPayCards.rakInvGold.quantity"
+												display-row="full" ng-maxlength="9" on-change="rakPayCards.rakInvGold.getKeyUp();"
+												placeholder="{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.PLCHOLDER_QUANTITY}}"
+												validation-flag='pageErrorArr["rakPayCards.rakInvGold.quantity"]'>
+											</fin-input>
+										</div>
+										
+										
+									
+										
+										
+										<div class="fin-input-container rakTransfersexchangerate-withNoColorblock"
+											ng-if="(rakPayCards.common.eqtValues || rakPayCards.rakInvGold.goldRate) && rakPayCards.rakInvGold.txnType==rakPayCards.BuySellGoldTypeConstant.SELL">
+
+											<p class="rakexchangevalue rakGoldDisplayOne">{{rakPayCards.rakInvGold.goldRate}}</p>
+											<p class="rakexchangevalue rakGoldDisplayTwo" ng-if="rakPayCards.common.eqtValues" ng-bind-html=rakPayCards.common.eqtValues></p>
+																						
+										</div>
+										
+										  <div class="fin-input-container rakTransfersexchangerate-withNoColorblock"
+											ng-show="rakPayCards.rakInvGold.goldRate && rakPayCards.rakInvGold.txnType==rakPayCards.BuySellGoldTypeConstant.BUY">
+
+											<p class="rakexchangevalue rakGoldDisplayOne">{{rakPayCards.rakInvGold.goldRate}}</p>
+											<p class="rakexchangevalue rakGoldDisplayTwo" ng-if="rakPayCards.rakInvGold.convertedAmt && rakPayCards.common.eqtValues" ng-bind-html=rakPayCards.common.eqtValues></p>
+																				
+										</div>
+
+
+									<div>
+											<fin-input type="date"
+												model="rakPayCards.common.displayDate"
+												value="futureDatesOnly"
+												validation-flag='pageErrorArr["rakPayCards.common.displayDate"]'
+												placeholder="{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.PLCHOLDER_WHN}}"
+												display-row="full"> </fin-input>
+										</div>
+                                          
+										
+										<div>											
+											<fin-input type="text"
+												model="rakPayCards.rakInvGold.selectedFrequencyDisp"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_FRQ}}"
+												validation-flag='pageErrorArr["rakPayCards.rakInvGold.selectedFrequency"]' readonly>
+											</fin-input>
+
+										</div>
+
+										<div
+											ng-show="rakPayCards.rakInvGold.selectedFrequency!='O' && rakPayCards.rakInvGold.selectedFrequency!='undefined'">
+											<fin-input type="number_card"
+												model="rakPayCards.rakInvGold.noOfTransfer"
+												display-row="full"
+												max-length="5"
+												placeholder="{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.PLCHOLDER_NOOFTRA}}"
+												validation-flag='pageErrorArr["rakPayCards.rakInvGold.noOfTransfer"]' readonly>
+											</fin-input>
+										</div>
+										
+										
+										<div class="fin-txt"></div>
+										<div class="fin-txt"></div>
+
+
+					<div class="disclaimer3" ng-show="rakPayCards.rakInvGold.txnType==rakPayCards.BuySellGoldTypeConstant.BUY && rakPayCards.rakInvGold.selectedGoldAccount!=''">
+					
+										
+								<div class="check-boxsLeft">
+				                    <input id="termsFlag"  class="checkbox-custom-new"  type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" ng-model='rakPayCards.acceptTermscondition' >
+				                    <label for="termsFlag" class="checkbox-custom-label termsCheck smallCheck" ng-bind-html="appLiterals.APP.DISCLAIMER.RAKBUYGOLDCONTTERMS"></label>
+				                </div>										
+					</div>
+
+
+
+
+										<div class="label-wrap">
+
+											<button type="button" class="btn--special-btn btn-middle rak-button-right"
+												ng-click="rakPayCards.rakInvGold.schTxnListSubmitBtn='MODIFY';setEvent(rakPayCards.rakInvGold.getEventForGoldsConfirm())";>{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.SEND}}
+											</button>
+
+										</div>
+							
+									</div>
+									
+									
+																
+			<div class="disclaimer" ng-init='rakDisclaimerFlag=false;'  ng-show="rakPayCards.rakInvGold.txnType==rakPayCards.BuySellGoldTypeConstant.BUY && rakPayCards.rakInvGold.selectedGoldAccount!=''">
+								<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+									<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+								</div>
+						
+								
+								<div class="disclaimer3" ng-if="rakDisclaimerFlag">	
+									<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKGLDXAU"></span>								
+									<span ng-click="rakServiceReq.fetchDisclaimer('InvestmentCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+									<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKBUYGOLD_INITPAGE"></span>	
+									<span ng-click="rakSendMoney.fetchDisclaimer('DailyTransactionLimits.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>														
+								</div>
+								
+								
+							</div>	
+							
+							<div class="disclaimer" ng-init='rakDisclaimerFlag=false;'  ng-show="rakPayCards.rakInvGold.txnType==rakPayCards.BuySellGoldTypeConstant.SELL && rakPayCards.rakInvGold.selectedToBenAccount!=''">
+								<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+									<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+								</div>
+						
+								
+								<div class="disclaimer3" ng-if="rakDisclaimerFlag">
+									<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKGLDXAU"></span>
+									<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSELLGOLD_INITPAGECONT"></span>	
+									<span ng-click="rakServiceReq.fetchDisclaimer('InvestmentCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+									<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSELLGOLD_INITPAGE"></span>
+									<span ng-click="rakSendMoney.fetchDisclaimer('DailyTransactionLimits.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>	
+													
+								</div>
+								
+								
+							</div>
+									
+									
+									
+								</div>
+
+
+
+								</div>
+							</div>
+							<div class="col-sm-1"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

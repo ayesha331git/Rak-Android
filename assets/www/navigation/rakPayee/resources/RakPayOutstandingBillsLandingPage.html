@@ -1,0 +1,117 @@
+
+  
+  
+  <div class="rak-home-header" ng-if='!rakPayee.payBill.payAgainFromHistoryBack'>
+    <i class="homeCorner" ng-click="setGlobalEvent('onDashboardClick');"></i>
+  </div>
+  <div class="rak-back-header" ng-if='rakPayee.payBill.payAgainFromHistoryBack'>
+    <i class="rak-back-img" ng-click="rakPayee.clearTab();rakPayee.common.fromAuthPage=true;rakPayee.billHistoryTab=true;rakPayee.payBill.payAgainFromHistoryBack=false;setEvent('onBackClick');"></i>
+  </div>
+
+<div class="finacle-container" ng-init="rakPayee.isBackClicked=false;self.payBill.isBackfromConfirmPage=false;rakPayee.resetPayeeModule(); rakPayee.resetBillerModule(); rakPayee.payBill.initMultiplePayFetchOutStandingAmt(successResponse);resetPageError();rakPayee.outstandingTab=true;">
+<div class="account-page">
+<div class="col-sm-11">
+<div class="app-title-wrapper">
+<div class="form-block">
+
+		<ng-include  src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>	  
+             	 <!-- <div class="rakmain-form-heading" ng-show='rakPayee.payBill.outStandingAmtMsg'>
+                    	<h2 class="message"><span>{{rakPayee.payBill.outStandingAmtMsg}}</span></h2>
+            </div> -->	
+		  		
+		   <div class="">		   		
+			<div ng-show="rakPayee.payBill.outStandingAmtList.length == 0">
+			
+				<div class="summary-ServiceReq">
+											<div class="iconDivNorecord rakBillMsgFlex">
+												<span class="infoIcon"></span><span class="success">{{rakPayee.payBill.outStandingAmtMsg}}</span>
+											</div>
+				</div>
+			
+			
+		</div>
+		   		<div class="paybils-block-top" ng-show="rakPayee.payBill.outStandingAmtList.length > 0">
+		            <div class="paybils-block-top-left">
+		              <h3 ng-show="rakPayee.payBill.selectedOutStandingAmtList.length >= 1">{{rakPayee.payBill.homeCurCode}} <span id="payment-total"></span>{{rakPayee.payBill.outStandingAmountInfirstpageDisplayNotRoundOff}}</h3>
+		               <h3 ng-show="rakPayee.payBill.selectedOutStandingAmtList.length==0">{{rakPayee.payBill.homeCurCode}} <span id="payment-total"></span>{{rakPayee.payBill.totalOutStandingServerWithoutRoundOff}}</h3>
+		              <p ng-show="rakPayee.payBill.selectedOutStandingAmtList.length >= 1">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.TOTALBILLAMTPAY}}</p>
+		              <p ng-show="rakPayee.payBill.selectedOutStandingAmtList.length==0">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.TOTAL_OUT_STAND_AMT}}</p>
+		            </div>		            
+		            <div class="paybils-block-top-right" ng-show="rakPayee.payBill.selectedOutStandingAmtList.length==0 && rakPayee.payBill.outStandingAmtList.length > 1">
+		              <button type="button" class="pay-all" value="" ng-click="rakPayee.payBill.fromUpdateBtn=false;rakPayee.payBill.isBackfromInitPage=false;rakPayee.payBill.isBackfromConfirmPage=false;rakPayee.payBill.multiplePayFromAcct='';rakPayee.payBill.getMultiplePayAllAmount();setEvent('onMultiplePayClick');">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.PAYALL}}</button>
+		            </div>
+		            
+		             <div class="paybils-block-top-right" ng-show="rakPayee.payBill.selectedOutStandingAmtList.length==0 && rakPayee.payBill.outStandingAmtList.length ==1">
+		              <button type="button" class="pay-all" value="" ng-click="rakPayee.payBill.fromUpdateBtn=false;rakPayee.payBill.isBackfromInitPage=false;rakPayee.payBill.isBackfromConfirmPage=false;rakPayee.payBill.fromOutStandingPage=true;rakPayee.common.fromAuthPage=false;rakPayee.common.clearBalance();rakPayee.payBill.selectedFromAccount='';rakPayee.payBill.amount='';rakPayee.payeeSelected=rakPayee.payBill.outStandingAmtList[0];rakPayee.selectedBillerIndex='0';rakPayee.payeeSelected.conCode=rakPayee.payBill.outStandingAmtList[0].tempConsumerCode;setEvent('onPaymentInitiateTransferClick');">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.PAYALL}}</button>
+		            </div>
+		            
+		            <div class="paybils-block-top-right" ng-show="rakPayee.payBill.selectedOutStandingAmtList.length > 1">
+		               <button type="button" class="pay-all" value="" ng-click="rakPayee.payBill.fromUpdateBtn=false;rakPayee.payBill.isBackfromInitPage=false;rakPayee.payBill.isBackfromConfirmPage=false;rakPayee.payBill.multiplePayFromAcct='';setEvent('onMultiplePayClick');">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.PAYSELECTED}}</button>
+		            </div>
+		            <!-- Ayesha: added for single bill -->
+		            <div class="paybils-block-top-right" ng-show="rakPayee.payBill.selectedOutStandingAmtList.length==1">
+		              <button type="button" class="pay-all" value="" ng-click="rakPayee.payBill.fromUpdateBtn=false;rakPayee.payBill.isBackfromInitPage=false;rakPayee.payBill.isBackfromConfirmPage=false;rakPayee.payBill.fromOutStandingPage=true;rakPayee.common.fromAuthPage=false;rakPayee.common.clearBalance();rakPayee.payBill.selectedFromAccount='';rakPayee.payBill.amount='';rakPayee.payeeSelected=rakPayee.payBill.selectedOutStandingAmtList[0];
+		              rakPayee.getDisclaimerForMultipleBillPmt();setEvent('onPaymentInitiateTransferClick')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.PAYSELECTED}}</button>
+		            </div>
+		        </div>	
+		        
+		     <div ng-class="{'bg-color rakScrollDiv rak-cont-paddingforMultipleBillPay':'rakPayee.payBill.outStandingAmtMsg','bg-color rakHalfScrollDiv rak-cont-paddingforMultipleBillPay':'!rakPayee.payBill.outStandingAmtMsg'}" class="bg-color rakScrollDiv rak-cont-paddingforMultipleBillPay">   	     
+		   		<div ng-class="{'paybils-block-middle-item-block':rakPayee.payBill.outStandingAmtList[$index].checkedFlag,'paybils-block-middle-item':!rakPayee.payBill.outStandingAmtList[$index].checkedFlag}" ng-repeat="biller in rakPayee.payBill.outStandingAmtList | filter:searchText" ng-click="rakPayee.payeeSelected=biller;rakPayee.selectedBillerIndex=biller.index;rakPayee.isBackClicked=false;">
+	              <div class="paybils-block-middle-one"> 
+	            <!--   <img src="images/du.png" alt=""> -->
+	            <div class="people-details rakBillerImageForOutstanding"  ng-class="biller.billerName">
+	                <div class="check-boxs">
+	                    <input id="{{biller.index}}" value="{{biller.outStandingAmount}}" class="checkbox-custom checkbox1"  type="checkbox"  ng-model='rakPayee.payBill.outStandingAmtList[$index].checkedFlag' ng-click="rakPayee.payBill.getMultiplePayAmount($index);rakPayee.payBill.checkBoxStatus=!rakPayee.payBill.checkBoxStatus;"><!-- ng-checked="rakPayee.payBill.checkBoxStatus" -->
+	                  <label for="{{biller.index}}" class="checkbox-custom-label"></label>
+	                </div>	                	            
+            
+            
+	              </div>
+	              <div class="paybils-block-middle-two">
+	                <table>
+	                  <!-- <tbody ng-repeat="biller in rakPayee.billersList | filter:searchText" ng-click="rakPayee.payeeSelected=biller;rakPayee.selectedBillerIndex=biller.billerIndex;rakPayee.isBackClicked=false;"> -->
+	                  <tbody>
+	                    <tr>
+	                      <td>{{biller.billerName}}</td>
+	                      <td>{{biller.outStandingAmountString}}</td>
+	                    </tr>
+	                    <tr>
+	                      <td>{{biller.serviceTypeDesc}}</td>
+	                      <td>{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.AMOUNTDUE}}</td>
+	                    </tr>
+	                    <tr>
+	                      <td>{{biller.tempConsumerCode}}</td>
+	                      <td></td>
+	                    </tr>
+	                    <tr>
+	                      <td>{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.CONSUMERNUM}}</td>
+	                      <td></td>
+	                    </tr>
+	                  </tbody>
+	                </table>	                	                
+	                
+	              </div>
+            </div>
+            </div>
+            <div class="disclaimer" ng-show="rakPayee.payBill.outStandingAmtList.length > 0">
+                         <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                         <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                         </div>
+
+                         <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                         <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKMULTIPLEBILLS"></div>
+                         </div>
+                 </div>
+            
+            <div class="scroll-space"></div>
+			</div>
+    
+    	 
+	   <div class="col-sm-1"> </div>
+	
+
+</div>
+</div>
+</div>
+</div>
+</div>

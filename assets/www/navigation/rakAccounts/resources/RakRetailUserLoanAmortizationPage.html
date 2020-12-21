@@ -1,0 +1,181 @@
+
+	<div class="rak-back-header">
+		<i class="rak-back-img" ng-click="setGlobalEvent('onDashboardClick');"></i>
+	</div>
+	<div class="finacle-container"
+		ng-init='rakAccounts.accountList(successResponse.responsesList);'>
+		<div class="account-page">
+			<div class="col-sm-11">
+				<div class="bg-color rak-cont-padding">
+					<div class="row">
+						
+						<div class="rakwidth75"
+							ng-init='loanAccountArrayList=createDropDownOptionArray(rakAccounts.RAKAccountsModel.loanAccounts, ["subAccountTypeDesc", "-", "accountId","-","currency"],"accountIndex");
+				fields.browseAccountIndex=rakAccounts.RAKAccountsModel.selectedAccount;
+				fields.currAccountDetails.mainAccountType="LON"'>
+							<fin-input type="dropdown" option-array="loanAccountArrayList"
+								model="rakAccounts.RAKAccountsModel.selectedAccount"
+								display-row="full" select-req="false"
+								placeholder="{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.SELECT_ACCOUNT}}"
+								on-change='setEvent(rakAccounts.getEvent(fields.currAccountDetails.mainAccountType,rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType))'>
+							</fin-input>
+						</div>
+
+						<div class="rakAccounts-nickName">
+							<span class="amount-curr">
+								{{rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountNickName}}</span>
+							<div class="trans-date">
+								{{rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].isIslamicAcct == "Y"? appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.ISL_LON_NICKNAME:appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.LON_NICKNAME}}</div>
+						</div>
+						<!-- <span class="rakEditImg" ng-click="setEvent('onChangeNameClick')"></span> -->
+						<!-- 	<span class="rakEditImg"
+							ng-click="rakMyProfile.updateNickName.navigationType='RetailUserAccounts';
+							rakMyProfile.updateNickname.clearNicknameDetails();setEvent('onChangeNameClick')"></span> -->
+
+						<div class="balance-detail">
+							<div class="rakamount">
+								<span class="amount-ps">
+									{{rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance
+									== "" ? " ":
+									rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance}}
+								</span>
+							</div>
+
+							<p class="balance-available-dash rak-display-caption">
+								{{rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].isIslamicAcct == "Y"? appLiterals.APP.RAK_DASHBOARD.FIN_OUT:appLiterals.APP.RAK_DASHBOARD.LOAN_OUT}}</p>
+
+						</div>
+
+						<div class="money-block">
+							<ul>
+								<li class="active">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.LOAN_AMORTIZATION}}</li>
+							</ul>
+						</div>
+						<div class="balance-columns-header-row"
+										ng-show="rakAccounts.RAKAccountsModel.loanAmortizationList.length > 0">
+										<div class="balance-heade-col rak30">{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.DATE}}</div>
+										<div class="balance-heade-col rak30">{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.INST_AED}}</div>
+										 <div class="balance-heade-col rak30">{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.PRIN_AED}}</div>
+										  <div class="balance-heade-col rak10"></div>
+									
+						</div>	
+						<div class="nano rakHalfScrollDivLoanAmort">
+							<div class="rakTransactionAcc rakTxnSrchDiv">
+								
+									<div>
+									<div class="trans-detail rakGreyRow"
+										ng-show="rakAccounts.RAKAccountsModel.loanAmortizationList == null || rakAccounts.RAKAccountsModel.loanAmortizationList.length < 1">
+										{{appLiterals.APP.DASHBOARD.ACCOUNTS_PAGE.NO_TRANSACTIONS_MSG}}
+									</div>
+									
+									<div class="trans-detail"
+										ng-hide="rakAccounts.RAKAccountsModel.loanAmortizationList.length < 1" ng-init="rakAccounts.RAKAccountsModel.showMore=[];">
+
+										<div class="trans-detail rakGreyRowHeight rakMoreActions" ng-repeat="transaction in rakAccounts.RAKAccountsModel.loanAmortizationList" ng-init="rakAccounts.RAKAccountsModel.showMore[$index]=false">
+											<div
+												class="trans-date rakPaddingLeft6 rakPeopleNameRow1 rak30 rakPadding05 rakFont1em ">
+												{{transaction.loanDueDate}}</div>
+											
+											<div
+												class="trans-date rakPeopleNameRow1 rak30 rakPadding05 rakFont1em">
+												{{transaction.loanInstallmentAmt}}</div>
+											<div
+												class="trans-date rakPeopleNameRow1 rak30 rakPadding05 rakFont1em">
+												{{transaction.loanPrincipalAmt}}</div>
+											<div class="trans-date rakPeopleNameRow1 rak10 center" ng-click="rakAccounts.RAKAccountsModel.showMore[$index] = !rakAccounts.RAKAccountsModel.showMore[$index]">
+											
+												<!-- <img alt="" ng-show="rakAccounts.RAKAccountsModel.showMore[$index]==false" src="./images/more-dots.png">
+												<img alt="" ng-hide="rakAccounts.RAKAccountsModel.showMore[$index]==false" src="./images/close.png"> -->
+												<div alt="" ng-show="rakAccounts.RAKAccountsModel.showMore[$index]==false" class="image_2x image_2x_dots margin_top2px"/>
+												<div alt="" ng-hide="rakAccounts.RAKAccountsModel.showMore[$index]==false" class="image_2x image_2x_close margin_rightTopNegative"/>
+											</div>
+											<div
+												class="trans-date rakPeopleNameRow1 rak50 rakPadding05 rakFont1em rakPaddingLeft6" ng-hide="rakAccounts.RAKAccountsModel.showMore[$index]==false">
+												{{transaction.loanInterestAmt}}<div class="boldLabel" ng-if="rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].isIslamicAcct!='Y'">{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.INTEREST_AED}}</div>
+												<div class="boldLabel" ng-if="rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].isIslamicAcct=='Y'">{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.PROFIT_AED}}</div>
+												</div>
+											<div
+												class="trans-date rakPeopleNameRow1 rak50 rakPadding05 rakFont1em" ng-hide="rakAccounts.RAKAccountsModel.showMore[$index]==false">
+												{{transaction.loanCharges}}<div class="boldLabel">{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.CHARGE_AED}}</div></div>
+												<div
+												class="trans-dash-right rakPeopleNameRow1 rak50 rakPadding05 rakFont1em rakPaddingLeft6" ng-hide="rakAccounts.RAKAccountsModel.showMore[$index]==false">
+												{{transaction.loanClosingLiability}}<div class="boldLabel">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.LOAN_CLOSING_LIABILITY}}</div></div> 
+												<div
+												class="trans-dash-right rakPeopleNameRow1 rak50 rakPadding05 rakFont1em" ng-hide="rakAccounts.RAKAccountsModel.showMore[$index]==false">
+												{{transaction.loanOpenLiabilityAmt}}<div class="boldLabel">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.LOAN_OPENING_LIABILITY}}</div></div> 
+												
+												
+												
+
+										</div>
+									</div>
+								</div>
+
+						<div class="disclaimer"  ng-init='rakDisclaimerFlag=false;'>
+							<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+								<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+							</div>
+							<div class="disclaimer3" ng-if="rakDisclaimerFlag">
+								<div class="disclaimer3" ng-bind-html="appLiterals.APP.DISCLAIMER.LOANAMORT"></div>
+							</div>
+						</div>
+						
+						<div class="fin-txt"></div>
+                             	<div class="fin-txt"></div>
+
+							</div>
+						</div>
+						
+						
+
+
+						<!-- 
+						<div class="rakcustomer-wrapper rakHalfScrollDiv">
+
+							<div class="rakDetailFrame">
+								<div class="detail-pad">
+									<div class="nano scroll-height rakscroll-height">
+										<div class="nano-content rakTxnSrchDiv" ng-hide='rakAccounts.RAKAccountsModel.trxSearchFlag'>
+
+											<div class="trans-detail rakGreyRow"
+												ng-show="rakAccounts.RAKAccountsModel.loanAmortizationList == null || rakAccounts.RAKAccountsModel.loanAmortizationList.length < 1">
+												{{appLiterals.APP.DASHBOARD.ACCOUNTS_PAGE.NO_TRANSACTIONS_MSG}}
+											</div>
+											<div class="trans-detail rakGreyRow"
+												ng-hide="rakAccounts.RAKAccountsModel.loanAmortizationList.length < 1" ng-repeat="transaction in rakAccounts.RAKAccountsModel.loanAmortizationList">
+
+
+
+								<div class="trans-detail rakGreyRow">
+									<div class="trans-dash-right rakPeopleNameRow1 rak20 padding-zero rakFont1em">
+										{{transaction.loanDueDate}}</div>
+									<div class="trans-date rakPeopleNameRow1 rak20 padding-zero rakFont1em">
+										{{transaction.dealDate}}</div>
+									<div class="trans-dash-right rakPeopleNameRow1 rak20 padding-zero rakFont1em">
+										{{transaction.loanInstallmentAmt}}</div>
+									<div class="trans-dash-right rakPeopleNameRow1 rak20 padding-zero rakFont1em">
+										{{transaction.loanPrincipalAmt}}</div>
+									<div class="trans-dash-right rakPeopleNameRow1 rak20 padding-zero rakFont1em">
+										{{transaction.loanInterestAmt}}</div>
+									<div class="trans-dash-right rakPeopleNameRow1 rak20 padding-zero rakFont1em">
+										{{transaction.loanCharges}}</div>
+									<div class="trans-dash-right rakPeopleNameRow1 rak20 padding-zero rakFont1em">
+										{{transaction.loanClosingLiability}}</div> 
+
+								</div>
+											</div>
+										</div>
+									</div>
+
+
+
+								</div> 
+							</div>
+						</div>  -->
+
+					</div>
+				</div>
+			</div>
+
+		</div>

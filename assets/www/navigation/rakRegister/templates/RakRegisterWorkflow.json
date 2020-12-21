@@ -1,0 +1,572 @@
+{
+	"pageNavigation": [
+		{
+			"RakSelfRegInit":[				
+                {
+                    "eventName": "onRakloginLableClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {                    
+                        "pageName": "RakSelfRegInit"
+                    }
+                },
+                {
+                    "eventName": "onRakRegCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {                    
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onRakRegisterBackBtnClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {                    
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                
+                {
+                    "eventName": "onRakRegValidateAcctNo",                   
+                    "action": "RakRegValidateAcctNoService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                    	"rakRegister.RegistrationModel.selectedNoType",
+                    	"rakRegister.RegistrationModel.enteredAcctNo"
+                    ],
+                    "parameters": {                       
+                        "mbparam": "fields.finacleMbParam",
+                        "jsessionid": "rakRegister.jsessionid", 
+                        "acctNo": "rakRegister.RegistrationModel.enteredAcctNo.toString()",
+                        "acctType":"rakRegister.RegistrationModel.selectedNoType",
+                        "requestType":"rakRegister.RegistrationModel.requestType",
+                        "APPID":"applicationID",
+                        "APPVERSION":"applicationVersion",
+                        "corporateCustomer":"rakHome.CorpeventClicked"
+                    },
+                    "successPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegInit"
+                    }
+                }
+			
+			],
+			
+			"RakSelfRegPage": [			
+				{
+                    "eventName": "onSelfRegPageBackClick",
+                    "validation": "false",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "parameters": {                       
+                        "mbparam": "fields.finacleMbParam"                        
+                    },
+                    "successPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegInit"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegInit"
+                    }
+                },
+				{
+                    "eventName": "onRAKSelfRegConfirmClick",                    
+                    "action": "RakRegValidateDetailsService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams":[
+                    	"rakRegister.RegistrationModel.passportNo",
+                    	"rakRegister.RegistrationModel.dob"
+                    ],
+                    "parameters": {      
+                    
+                        "mbparam": "fields.finacleMbParam",
+                        "jsessionid": "rakRegister.jsessionid", 
+                        "selectedDate_year":"rakRegister.RegistrationModel.selectedDate_year",
+                        "selectedDate_month":"rakRegister.RegistrationModel.selectedDate_month",
+                        "selectedDate_day":"rakRegister.RegistrationModel.selectedDate_day",
+                        "passportNo":"rakRegister.RegistrationModel.passportNo.toString()"                        
+                    },
+                    "successPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegCheckPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegPage"
+                    }
+                },
+                
+                {
+                    "eventName": "rakGenerateOTPServiceCallEvent",
+                    "validation": "false",
+                    "action": "RakSelfRegGenerateOTPService",
+                    "actionType": "service",
+                    "parameters": {                       
+                        "mbparam": "fields.finacleMbParam",
+                        "jsessionid": "rakRegister.jsessionid",
+                         "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+                        
+                    },
+                    "successPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegConfirmationPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RakSelfRegCheckPage"
+                    }
+                } ,
+                {
+                    "eventName": "onSelfRegAuthenticateOTPSubmitClick",                    
+                    "action": "RakSelfRegValidateOTPService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams":[
+                    	"rakRegister.RegistrationModel.otp"
+                    ],
+                    "encryptionEnabled": true,
+					"sensitiveFields": ["rakRegister.RegistrationModel.otp"],
+                    "parameters": {                       
+                        "mbparam": "fields.finacleMbParam",
+                        "jsessionid": "rakRegister.jsessionid", 
+                        "RegMode":"rakRegister.RegistrationModel.otp"                                               
+                    },
+                    "successPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegOTPConfirmationPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegConfirmationPage"
+                    }
+                },
+                {
+                    "eventName": "onSelfRegGenerateOTPClick",
+                    "validation": "false",
+                    "action": "RakSelfRegGenerateOTPService",
+                    "actionType": "service",
+                    "parameters": {                       
+                        "mbparam": "fields.finacleMbParam",
+                        "jsessionid": "rakRegister.jsessionid",
+                         "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+                    },
+                    "successPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegConfirmationPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegConfirmationPage"
+                    }
+                },
+                {
+                    "eventName": "onRakRegCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {                    
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                
+                {
+                    "eventName": "onSelfRegGenerateOTPSubmitClick",
+                    "validation": "false",
+                    "action": "RakSelfRegGenerateOTPService",
+                    "actionType": "service",
+                    
+                    "parameters": {                       
+                        "mbparam": "fields.finacleMbParam",
+                        "jsessionid": "rakRegister.jsessionid",
+                         "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+                    },
+                    "successPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegConfirmationPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegConfirmationPage"
+                    }
+                }            
+               
+			],
+			"RakSelfRegCheckPage":[
+				{
+                    "eventName": "onRAKSelfRegCheckPageConfirmClick",                    
+                    "action": "RakRegReValidateDetailsService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams":[
+                    	"rakRegister.RegistrationModel.mobileNo"
+                    ],
+                    "parameters": {                       
+                        "mbparam": "fields.finacleMbParam",
+                        "jsessionid": "rakRegister.jsessionid", 
+                        "moblNo": "rakRegister.RegistrationModel.mobileNo.toString()"
+                    },
+                    "successPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegCheckPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegCheckPage"
+                    }
+                },
+				{
+                    "eventName": "rakGenerateOTPServiceCallEvent",
+                    "validation": "false",
+                    "action": "RakSelfRegGenerateOTPService",
+                    "actionType": "serviceNoNavigation",
+                    "parameters": {                       
+                        "mbparam": "fields.finacleMbParam",
+                        "jsessionid": "rakRegister.jsessionid",
+                         "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+                    },
+                    "successPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegConfirmationPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegConfirmationPage"
+                    }
+                } ,
+                {
+                    "eventName": "onSelfRegAuthenticateOTPSubmitClick",
+                    "validation": "true",
+                    "validationParams":[
+                    	"rakRegister.RegistrationModel.otp"
+                    ],
+                    "action": "RakSelfRegValidateOTPService",
+                    "actionType": "service",
+                    "encryptionEnabled" : true,
+	  	      		"sensitiveFields" : ["rakRegister.RegistrationModel.otp"],
+                    "parameters": {                       
+                        "mbparam": "fields.finacleMbParam",
+                        "jsessionid": "rakRegister.jsessionid", 
+                        "RegMode":"rakRegister.RegistrationModel.otp"                                                
+                    },
+                    "successPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegOTPConfirmationPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegOTPConfirmationPage"
+                    }
+                } ,
+                {
+                   
+		 		                   "eventName": "onSelfRegGenerateOTPClick",
+		 		                    "action": "RakResendOtpService",
+		 		                    "actionType": "serviceNoNavigation",
+		 		                    "validation": "false",
+		 		                    "parameters": {
+		 		                        "jsessionid": "rakRegister.jsessionid",
+		 		                        "mbparam": "fields.finacleMbParam",
+		 		                         "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+		 		                        
+		 		                    },
+		 		                    "successPage": {
+						    "subFeature": "rakRegister",
+		 		                      "pageName": "RakSelfRegConfirmationPage"
+		 		                    },
+		 		                    "errorPage": {
+								 "subFeature": "rakRegister",
+		 		                        "pageName": "RakSelfRegConfirmationPage"
+		 		                    }
+                },
+                {
+                    "eventName": "onSelfRegGenerateOTPSubmitClick",
+                    "validation": "false",
+                    "action": "RakSelfRegGenerateOTPService",
+                    "actionType": "service",
+                    
+                    "parameters": {                       
+                        "mbparam": "fields.finacleMbParam",
+                        "jsessionid": "rakRegister.jsessionid",
+                         "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+                    },
+                    "successPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegConfirmationPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegConfirmationPage"
+                    }
+                }        
+               
+			],
+			
+			"RakSelfRegConfirmationPage":[
+				{
+                    "eventName": "onSelfRegGenerateOTPClick",
+                    "validation": "false",
+                    "action": "RakSelfRegGenerateOTPService",
+                    "actionType": "service",
+                    "parameters": {                       
+                        "mbparam": "fields.finacleMbParam",
+                        "jsessionid": "rakRegister.jsessionid",
+                         "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+                    },
+                    "successPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegConfirmationPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegConfirmationPage"
+                    }
+                },
+                {
+                    "eventName": "onSelfRegAuthenticateOTPSubmitClick",
+                    "validation": "true",
+                    "validationParams":[
+                    	"rakRegister.RegistrationModel.otp"
+                    ],
+                    "encryptionEnabled": true,
+					"sensitiveFields": ["rakRegister.RegistrationModel.otp"],
+                    "action": "RakSelfRegValidateOTPService",
+                    "actionType": "service",
+                    
+                    "parameters": {                       
+                        "mbparam": "fields.finacleMbParam",
+                        "jsessionid": "rakRegister.jsessionid",
+                        "RegMode":"rakRegister.RegistrationModel.otp"                                                 
+                    },
+                    "successPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegOTPConfirmationPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegConfirmationPage"
+                    }
+                }
+                
+                
+                
+            ],
+            
+            "RakSelfRegOTPConfirmationPage":[
+            
+            {
+                    "eventName": "onSelfRegPageBackClick",
+                    "validation": "false",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "parameters": {                       
+                        "mbparam": "fields.finacleMbParam"                        
+                    },
+                    "successPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegConfirmationPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegOTPConfirmationPage"
+                    }
+                },
+            	{
+                    "eventName": "onSelfRegAuthenticatePINSubmitClick",
+                    "validation": "true",
+                    "validationParams":[
+                    	"rakRegister.RegistrationModel.pin"
+                    ],
+                    "action": "RakSelfRegValidatePINService",
+                    "actionType": "service",
+                   
+                    "parameters": {                       
+                        "mbparam": "fields.finacleMbParam",
+                        "jsessionid": "rakRegister.jsessionid",
+                        "Pin":"rakRegister.RegistrationModel.pin"                        
+                    },
+                    "successPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegOTPConfirmationPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegOTPConfirmationPage"
+                    }
+                },
+                
+                {
+                    "eventName": "checkUserIdAvailability",                  
+                    "action": "RakSelfRegCheckUserIdAvailabilityService",
+                    "actionType": "service",   
+                    "validation": "true",
+                    "validationParams":[
+                    	"rakRegister.LoginTxnPwdModel.userId"
+                    ],
+                    "encryptionEnabled": true,
+                    "sensitiveFields": ["rakRegister.LoginTxnPwdModel.userId"],                
+                    "parameters": {                       
+                        "mbparam": "fields.finacleMbParam",
+                        "jsessionid": "rakRegister.jsessionid", 
+                        "userId":"rakRegister.LoginTxnPwdModel.userId"                        
+                    },
+                    "successPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegSetPwdPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegOTPConfirmationPage"
+                    }
+                },
+                {
+                    "eventName": "onSetPasswordSubmitClicked",                    
+                    "action": "RakSelfRegSetPasswordSubmitService",
+                    "actionType": "service",
+                    "validation": "true",                    
+	  	      		"validationParams":[
+                    	"rakRegister.LoginTxnPwdModel.userId",
+                    	"rakRegister.LoginTxnPwdModel.loginPwd",
+                    	"rakRegister.LoginTxnPwdModel.loginPwdConfirm",
+                    	"rakRegister.LoginTxnPwdModel.email"
+                    ],                                
+                    "parameters": {                       
+                        "mbparam": "fields.finacleMbParam",
+                        "jsessionid": "rakRegister.jsessionid", 
+                        "userId":"rakRegister.LoginTxnPwdModel.userId",
+                    	"email":"rakRegister.LoginTxnPwdModel.email",
+                    	"loginPwd":"rakRegister.LoginTxnPwdModel.loginPwd",
+                    	"reTypeLoginPwd":"rakRegister.LoginTxnPwdModel.loginPwdConfirm"                    
+                    },
+                    "successPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegSetPwdPage"
+                    }
+                },
+                {
+                    "eventName": "onRakloginLableClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {                    
+                        "pageName": "RakSelfRegInit"
+                    }
+                }
+            ],
+            
+            "RakSelfRegSetPwdPage":[
+            	{
+                    "eventName": "onSetPasswordSubmitClicked",                    
+                    "action": "RakSelfRegSetPasswordSubmitService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams":[
+                    	"rakRegister.LoginTxnPwdModel.userId",
+                    	"rakRegister.LoginTxnPwdModel.email",
+                    	"rakRegister.LoginTxnPwdModel.loginPwd",
+                    	"rakRegister.LoginTxnPwdModel.loginPwdConfirm"
+                    ],                    
+                    "parameters": {                       
+                        "mbparam": "fields.finacleMbParam",
+                        "jsessionid": "rakRegister.jsessionid", 
+                        "userId":"rakRegister.LoginTxnPwdModel.userId",
+                    	"email":"rakRegister.LoginTxnPwdModel.email",
+                    	"loginPwd":"rakRegister.LoginTxnPwdModel.loginPwd",
+                    	"reTypeLoginPwd":"rakRegister.LoginTxnPwdModel.loginPwdConfirm"                   
+                    },
+                    "successPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegSetPwdPage"
+                    }
+                },
+                
+                  {
+                    "eventName": "checkUserIdAvailability",                  
+                    "action": "RakSelfRegCheckUserIdAvailabilityService",
+                    "actionType": "service",   
+                    "validation": "true",
+                    "validationParams":[
+                    	"rakRegister.LoginTxnPwdModel.userId"
+                    ], 
+                    "encryptionEnabled": true,
+                      "sensitiveFields": ["rakRegister.LoginTxnPwdModel.userId"],                     
+                    "parameters": {                       
+                        "mbparam": "fields.finacleMbParam",
+                        "jsessionid": "rakRegister.jsessionid", 
+                        "userId":"rakRegister.LoginTxnPwdModel.userId"                        
+                    },
+                    "successPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegSetPwdPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakRegister",
+                        "pageName": "RakSelfRegSetPwdPage"
+                    }
+                }
+            ],
+            
+            "RakSelfRegSuccessPage":[
+            	{
+                    "eventName": "onRakloginLableClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {                    
+                        "pageName": "RakSelfRegInit"
+                    }
+                }
+            ]
+            
+            
+		}
+	],
+	"subFeatureName": "rakRegister",
+	"startPage": "RakSelfRegPage"
+
+}

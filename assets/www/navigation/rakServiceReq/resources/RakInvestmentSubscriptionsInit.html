@@ -1,0 +1,104 @@
+		<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onInvestmentSubscriptionBackClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+
+<div class="finacle-container"
+	ng-init="rakServiceReq.investmentSubscription.initInvestmentSubscription(successResponse.responsesList);">
+	
+	<div class="account-page">
+		<div class="col-sm-11">
+ <div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.INVEST_SUBS}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+				      </h2>		       
+		 		</div>
+			<div class="bg-color rak-cont-padding rak-scroll">
+				
+				<div class="row">
+					<div class="col-sm-1"></div>
+					
+					<div class="label-wrap">
+										<p class="label-title-Inv">{{appLiterals.APP.RAK_SERVICES.RAK_INVEST_SUBS.SELECTION_CONTENT}}</p>
+					</div>
+					
+					<!-- Product list added with check box - start -->
+					
+					<div class="form-block">
+
+							<div class="subs-tab-links">
+								<div class="height18" >
+								
+								<div class="check-boxsLeft " ng-repeat="x in rakServiceReq.investmentSubscription.testArray">
+				                    <input id="{{$index}}"  class="checkbox-custom-new"  type="checkbox"  ng-model='x.flag' ><!-- ng-checked="rakPayee.payBill.checkBoxStatus" -->
+				                  <label for="{{$index}}" class="checkbox-custom-label"> {{x.productName}} </label>
+				                </div>
+									
+								</div>
+							</div>
+						</div>
+						
+					<!-- Product list added with check box - start -->
+					
+					
+					<!-- Mobile Number - Start -->
+					
+					<div class="rak100">
+								
+								<div class="rak30" ng-init='mobileprefixlist = createDropDownOptionArray(rakServiceReq.investmentSubscription.mobilePrefixList,["mobileprefixDesc"],"mobileprefixDesc");'> 
+								<fin-input type="dropdown"
+									model="rakServiceReq.investmentSubscription.mobilePrefix"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_INVEST_SUBS.MOBILEPREFIX}}"
+									validation-flag='pageErrorArr["rakServiceReq.investmentSubscription.mobilePrefix"]'
+									option-array="mobileprefixlist" ></fin-input>
+								</div>
+								
+							<!-- 	<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HOMENUM_CC}}</span> -->
+								<div class="rak65 pull-right">
+								<fin-input type="number_card"
+									model="rakServiceReq.investmentSubscription.mobileNumber"
+									display-row="full" max-length="7"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_INVEST_SUBS.MOBILENUMBER}}"
+									validation-flag='pageErrorArr["rakServiceReq.investmentSubscription.mobileNumber"]'></fin-input>
+								</fin-input>
+								</div>
+							
+					</div >
+					
+				
+					<!-- Mobile Number - End -->
+					
+					
+					
+					
+				 	<!-- Button for submit after checking - Start -->
+				 	<div class="label-wrap">
+						
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small rak-button-right"
+							ng-click="rakServiceReq.setMobilePrifixCode();rakServiceReq.CheckBoxClicked();">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+
+					</div>
+					<!-- Button for submit after checking - End -->
+					
+					
+					<div class="fin-txt"></div>
+					<div class="fin-txt"></div>
+					<div class="fin-txt"></div>
+					<div class="fin-txt"></div>
+					<div class="fin-txt"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+</div>
+</div>

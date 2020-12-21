@@ -1,0 +1,160 @@
+<!-- <div ng-if="(rakPayee.ccBeneficiaryList.length === 0)">
+		
+			  <div class='rakOverlay' >
+			 <div class="full-page-screen"  ></div>
+
+			<div class="confirmation-content-container">
+			   
+			    <div class="message-box-new">
+			    	 <div>
+			            <p class="round-icon-new">
+			            <span class="app app-alert pop-alert-icon rak-color"></span>
+			            </p>
+			
+			            <div class="conf-txt-title rak-black-color">
+			            </div>
+			        </div>
+			        
+			
+			        <div class="conf-txt-label rak-black-color">
+			          {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.NO_CARD}}
+			        </div>
+					
+				    <div class="conf-btn-wrap">
+			        	<button type="button" class="btn--confpri-btn rak-grey-color rak-border" ng-click="rakPayee.payeeModel.resetPayeeModel();rakPayee.selectedPayeeType='';setEvent('onPopoverAddCCBeneficiaryClick');"> &nbsp; {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.ADD_CARD}} &nbsp; </button>
+					<button type="button" class="btn--confpri-btn rak-grey-color rak-border" ng-click='setEvent("backToOverview")'> &nbsp; {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.HOME}} &nbsp; </button>						
+			        </div>
+		        </div>
+		        
+			    </div>
+			</div>
+		</div> -->
+<div class="rak-home-header">
+				<i class="homeCorner" ng-click="setGlobalEvent('onDashboardClick');"></i>
+</div>
+<div class="finacle-container" ng-init="rakPayee.isBackClicked=false; rakPayee.payeeModel.editBnfFlag=false;rakPayee.resetPayeeModule(); rakPayee.resetBillerModule();rakPayee.payeeModel.resetPayeeModel();rakPayee.loadPayeeList(successResponse);resetPageError();rakPayee.payeeModel.addBankBnfFlag=false;rakPayee.cardsTab=true;">
+ <div class="account-page">
+ <div class="col-sm-11">
+		  <div class="app-title-wrapper">
+		  <div class="form-block">
+		<ng-include  src="'./navigation/rakPayee/resources/RakPayCardsTabPage.html'"> </ng-include>
+
+  
+  <div>
+	<button type="button" class="btn--special-btn btn-middle rak-button-half-red-left" ng-click="rakPayee.isUserNavigatingBack=false;rakPayee.payeeModel.resetPayeeModel();rakPayee.selectedPayeeType='';setEvent('onPopoverAddCCBeneficiaryClick');"> {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_TXT_ADDNEWCARDPAYEE}} </button><!-- rakPayee.selectedPayeeType=rakPayee.payeeTypes.CCARD; -->
+	 <button type="button" class="btn--special-btn btn-middle rak-button-half-red-right" ng-click="rakPayee.payeeModel.resetPayeeModel();rakPayee.selectedPayeeType='CARDS';setGlobalEvent('onRAKConfirmPayeeClick');"> {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.CONFIRMCARDPAYEE}} </button>
+  </div>
+
+<!--  	<div class="raksearch-field-wrap">
+      <p class="search-field"><span class="rakGlyphicon glyphicon-search"> </span>
+        <input type="text" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.SEARCH_CARDBNFS}}" ng-model="searchText" class="raksearch-txt">
+      </p>
+    </div> -->
+    
+
+		
+<!-- 		<div  class="" ng-if="rakPayee.ccBeneficiaryList == undefined || rakPayee.ccBeneficiaryList.length == 0">
+			 <div class="">
+				  <div>
+					 <span class="">
+						{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.NO_BNFS}}
+					 </span>
+					</div>
+			 </div>
+		</div> -->
+		
+		<div ng-if="rakPayee.ccBeneficiaryList == undefined || rakPayee.ccBeneficiaryList.length == 0">
+
+							<div class="summary-ServiceReq">
+								<div class="iconDivNorecord">
+									<span class="infoIcon"></span><span class="success">{{appLiterals.APP.PAYEE.LANDLIST_PAGE.NO_BNFS_CARDPAYEE}}</span>
+								</div>
+							</div>
+		</div>
+    
+    
+           
+ <!--    <div ng-if="rakPayee.ccBeneficiaryList.length === 0 ">
+			 <div>
+				  <div>
+					 <span >
+						{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.NO_BNFS}}
+					 </span>
+					</div>
+			 </div>
+		</div> -->
+		
+		
+
+		
+    
+    	<div class="raksearch-field-wrap"  ng-show ="(rakPayee.ccBeneficiaryList.length >0)">
+      <p class="search-field"><span class="rakGlyphicon glyphicon-search"> </span>
+        <input type="text" input-restricted-special-character placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.SEARCH_CARDBNFS}}" ng-model="searchText" class="raksearch-txt">
+      </p>
+    </div>
+
+    
+
+	    <!-- CHNAGES DONE AS FIX OF PRCU-1685 START -->
+	    <div class="nano movemoney-scroll" ng-if ="(rakPayee.ccBeneficiaryList.length >0)">
+	    <!-- CHNAGES DONE AS FIX OF PRCU-1685 END -->
+    <div class="mm-content1 nano-content">
+    
+    <!-- CHNAGES DONE AS FIX OF PRCU-1685 START -->
+    <!-- <div class="bg-color rakHalfScrollDiv"> -->
+    <div class="bg-color rakSubScrollDiv rak-cont-paddingvh">
+     <!-- CHNAGES DONE AS FIX OF PRCU-1685 END -->
+  <div class="row" >
+
+     
+<!-- <div class="ng-hide" ng-if="rakPayee.doShowAlertMessage" ng-init='showAlert("The selected rakPayee is deleted successfully");rakPayee.doShowAlertMessage=false;rakPayee.bankbnftype="";setGlobalEvent("onPayCardsClick");'></div> -->
+
+ <!-- CHNAGES DONE AS FIX OF PRCU-1685 START -->
+	  <div class="">
+ <!-- CHNAGES DONE AS FIX OF PRCU-1685 END -->	  
+		
+	
+		
+
+		
+		<div class="rakGreyRow rakSrchVisible" ng-show="rakPayee.ccBeneficiaryList.length > 0"
+		ng-repeat="ccbeneficiary in rakPayee.ccBeneficiaryList | filter:searchText"
+		ng-click=" rakPayee.payeeSelected=ccbeneficiary;rakPayee.selectedPayeeIndex=ccbeneficiary.beneficiaryIndex; rakPayee.isBackClicked=false;rakPayee.bankbnftype=ccbeneficiary.bnfType" >
+			<div class="people-details">
+			 <div ng-show="ccbeneficiary.bnfType == rakPayee.constants.TXNTYPEPREPAIDCARD" class="rakPeopleNameRowBenf"> {{ccbeneficiary.beneficiaryName}} </div>
+			  <div ng-hide="ccbeneficiary.bnfType == rakPayee.constants.TXNTYPEPREPAIDCARD" class="rakPeopleNameRowBenf"> {{ccbeneficiary.beneficiaryNickname}} </div>
+				 <div class="rakPeopleNameRowBank">
+					{{ccbeneficiary.beneficiaryBankName}} 	</div> 
+
+			</div>
+
+   <div class="rakRelative">
+   	<span class="rakPullDown" ng-click="rakHome.handlePullDown($event);"></span>
+	  <ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+	    <li><a href="" ng-click="moveMoney.currentSubFeature=moveMoney.subFeature.Payee;rakPayee.fromBenfList=true;rakPayee.selectedPayeeIndex=ccbeneficiary.beneficiaryIndex;rakPayCards.ownCards.beneficiaryAccountNum=ccbeneficiary.beneficiaryAccountNumber;rakPayCards.ownCards.initFromBenfPage(ccbeneficiary.bnfPayeeListId,ccbeneficiary.bnfType,'onPaymentInitiateTransferClick')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_PAYCARD}}</a></li>
+	    <li><a href="" ng-click="rakPayee.isEditBeneficiaryMode=true;rakPayee.selectedPayeeIndex=ccbeneficiary.beneficiaryIndex;rakPayee.payBill.editIconFlag=false;rakPayee.selectedPayeeType=ccbeneficiary.bnfType;setEvent('onEditBeneficiaryClick')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_EDIT}}</a></li>
+	     <li><a href="" ng-click="rakPayee.isDeleteBeneficiaryMode=true;rakPayee.selectedPayeeIndex=ccbeneficiary.beneficiaryIndex;rakPayee.selectedPayeeType=ccbeneficiary.bnfType;rakPayee.bankbnftype==rakPayee.payeeTypes.PREPAIDCARD?rakPayee.payeeModel.txnType=rakPayee.constants.TXNTYPEPREPAIDCARD:rakPayee.payeeModel.txnType=rakPayee.constants.TXNTYPEBNF;rakPayee.bankbnftype==rakPayee.payeeTypes.PREPAIDCARD?setEvent('onDeletePPCardBeneficiaryClick'):setEvent('onDeleteBeneficiaryClick')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_DELETE}}</a></li>
+	     <li><a href="" ng-click="rakPayee.isBeneficiaryHistoryMode=true;
+	     rakPayee.selectedPayeeIndex=ccbeneficiary.beneficiaryIndex;
+	     rakPayee.payCard.fromSearchResult=true;
+	     rakPayee.payCard.selectedCardType='All';
+	     rakPayee.payCard.setInitialFromToDate();
+	     rakSendMoney.txnHistory.directView='CardTxnView';
+	     rakPayee.common.fromAuthPage=false;setEvent('onScheduleSearchFromBenfClick');">
+	     {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_VIEWHST}}</a></li>
+	  </ul>
+		  </div>
+
+		  </div>
+		</div>
+		</div>
+	</div>
+	</div>
+	</div>
+	
+	</div>
+	</div>
+	</div>
+	</div>
+</div>

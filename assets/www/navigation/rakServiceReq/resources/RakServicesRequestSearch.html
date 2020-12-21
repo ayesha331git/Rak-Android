@@ -1,0 +1,112 @@
+<div class="rak-back-header">
+
+			<i class="rak-back-img"
+				ng-if="!rakServiceReq.serviceRequestStatusModel.emptyPendingRecord"
+				ng-click="rakServiceReq.serviceRequestStatusModel.isBackClick=true;setEvent('onServicesRequestSearchBackClick')"></i>
+
+			<i class="rak-back-img"
+				ng-if="rakServiceReq.serviceRequestStatusModel.emptyPendingRecord"
+				ng-click="rakServiceReq.serviceRequestStatusModel.isBackClick=true;setEvent('onEmptyServicesRequestSearchBackClick')"></i>
+
+
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.serviceRequestStatusModel.initForm(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+
+					<div class="main-form-heading-ServiceReq">
+						<h2 class="rakBenfHeader">
+							{{appLiterals.APP.COMMON.TEXT.SEARCH}}<span></span>
+						</h2>
+					</div>
+				
+					<div class="bg-color rak-cont-padding rak-scroll">
+						<div class="row">
+							
+							
+							<div
+								ng-init='requestTypeListArr = createDropDownOptionArray(rakServiceReq.serviceRequestStatusModel.requestTypeList, ["content"], "value");'>
+								
+								<fin-input type="dropdown"
+									model="rakServiceReq.serviceRequestStatusModel.requestTypeSelected"
+									 display-row="full"
+									placeholder="Request Type"
+									
+									validation-flag='pageErrorArr["rakServiceReq.serviceRequestStatusModel.requestTypeSelected"]'
+									option-array="requestTypeListArr"></fin-input>
+							</div>
+							
+							<div
+								ng-init='requestTypeArr = createDropDownOptionArray(rakServiceReq.serviceRequestStatusModel.requestTypeResponse, ["content"], "value");'>
+								
+								<fin-input type="dropdown"
+									model="rakServiceReq.serviceRequestStatusModel.requestType"
+									 display-row="full"
+									placeholder="Request Status"
+									on-change="rakServiceReq.serviceRequestStatusModel.selelctedItem((rakServiceReq.serviceRequestStatusModel.requestTypeResponse|filter:{value:rakServiceReq.serviceRequestStatusModel.requestType})[0].content);"
+									validation-flag='pageErrorArr["rakServiceReq.serviceRequestStatusModel.requestType"]'
+									option-array="requestTypeArr"></fin-input>
+							</div>
+								<fin-input type="text"
+									model="rakServiceReq.serviceRequestStatusModel.referenceID"
+									display-row="full"
+									ng-keypress="validateAlphanumericWithMaxLength($event,rakServiceReq.serviceRequestStatusModel.referenceID,10);"
+									placeholder="Reference ID"
+									validation-flag='pageErrorArr["rakServiceReq.serviceRequestStatusModel.referenceID"]'></fin-input>
+								
+								<fin-input type="date"
+									model="rakServiceReq.serviceRequestStatusModel.fromDate"
+									display-row="half1" value="pastDatesOnly"
+									validation-flag='pageErrorArr["rakServiceReq.serviceRequestStatusModel.fromDate"]'
+									placeholder="From Date"></fin-input>
+									
+								<fin-input type="date"
+									model="rakServiceReq.serviceRequestStatusModel.toDate"
+									display-row="half2" value="pastDatesOnly"
+									validation-flag='pageErrorArr["rakServiceReq.serviceRequestStatusModel.toDate"]'
+									placeholder="To Date"></fin-input>
+								
+								<div class="label-wrap">
+								
+								 <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back"
+				 						ng-click="resetPageError();rakServiceReq.serviceRequestStatusModel.resetServiceRequestStatusSearchForm();
+				 						rakServiceReq.serviceRequestStatusModel.resettingsearchClick();">  
+				 						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CLEAR}} </button>
+									
+									
+									<button type="button"  ng-show='rakServiceReq.serviceRequestStatusModel.isSRorTF=="SR"'
+										class="btn--special-btn btn-middle rak-button-small rak-button-right"
+										ng-click="rakServiceReq.serviceRequestStatusModel.searchClick();
+										rakServiceReq.serviceRequestStatusModel.sendingDateOnButtonClick();rakServiceReq.serviceRequestStatusModel.isBackClick=false;
+										setEvent('onServicesRequestStatusSearchClick')">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SEARCH}}</button>
+										
+										  
+                                    <button type="button" ng-show='rakServiceReq.serviceRequestStatusModel.isSRorTF=="TF"'
+                                        class="btn--special-btn btn-middle rak-button-small rak-button-right"
+                                        ng-click="rakServiceReq.serviceRequestStatusModel.searchClick();
+                                        rakServiceReq.serviceRequestStatusModel.sendingDateOnButtonClick();rakServiceReq.serviceRequestStatusModel.isBackClick=false;
+                                        setEvent('onTFRequestStatusSearchClick')">
+                                        {{appLiterals.APP.RAKCOMMONLITERALS.TXT_SEARCH}}</button>
+								</div>
+
+
+							</div>
+							<div class="col-sm-1"></div>
+						</div>
+					</div>
+
+				</div>
+				<div class="col-sm-1"></div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+</div>
+</div>

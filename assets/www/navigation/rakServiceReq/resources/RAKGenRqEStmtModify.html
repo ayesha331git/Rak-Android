@@ -1,0 +1,127 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container"
+			ng-init="rakServiceReq.restOfPageRqdtoBeShown();">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+						
+						<div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.GENRQ_ESTMT}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+                              </h2>              
+                          </div>
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="">
+									<div class="col-sm-1"></div>
+										<div class="rakRow">
+											<div class="radio-biller rak100">
+										{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_STMT}}</div>
+											<div class="rak100">
+												<div>
+												
+												<div class="check-boxsLeft rakCheckBoxHalf"  ng-show="rakHome.userTypeIDValue!='CORPORATE'">
+                                                    <input id="checkbox1"  class="checkbox-custom-new"  type="checkbox"  ng-disabled="rakServiceReq.RakGenRqEStmtModel.showCreditCard===false"
+                                                            ng-model="rakServiceReq.RakGenRqEStmtModel.isStmtCreditCardSelected"
+                                                            ng-click="rakServiceReq.restOfPageRqdtoBeShown();" >
+                                                  <label for="checkbox1" class="checkbox-custom-label"> {{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_STMT_CC}} </label>
+                                                </div>
+                                                
+                                                
+                                                <div class="check-boxsLeft rakCheckBoxHalf" >
+                                                    <input id="checkbox2"  class="checkbox-custom-new"  type="checkbox" ng-disabled="rakServiceReq.RakGenRqEStmtModel.showAccounts===false"
+                                                            ng-model="rakServiceReq.RakGenRqEStmtModel.isStmtAccountsSelected"
+                                                            ng-click="rakServiceReq.restOfPageRqdtoBeShown();" >
+                                                  <label for="checkbox2" class="checkbox-custom-label"> {{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_STMT_ACC}} </label>
+                                                </div>
+												
+												
+												</div>
+											</div>
+										</div>
+
+										<div class="rakRow">
+											<div class="radio-biller rak100">
+										{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_ADVICES}}</div>
+											<div class="rak100">
+												<div>
+													<div class="check-boxsLeft rakCheckBoxHalf" >
+                                                    <input id="checkbox3"  class="checkbox-custom-new "  type="checkbox"  ng-disabled="rakServiceReq.RakGenRqEStmtModel.showRemittance===false"
+                                                            ng-model="rakServiceReq.RakGenRqEStmtModel.isAdviceRemitSelected"
+                                                            ng-click="rakServiceReq.restOfPageRqdtoBeShown();">
+                                                  <label for="checkbox3" class="checkbox-custom-label"> {{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_ADVICES_REMI}} </label>
+                                                </div>
+                                                
+                                                <div class="check-boxsLeft rakCheckBoxHalf">
+                                                    <input id="checkbox4"  class="checkbox-custom-new "  type="checkbox"  ng-disabled="rakServiceReq.RakGenRqEStmtModel.showDeposit===false"
+                                                            ng-model="rakServiceReq.RakGenRqEStmtModel.isAdviceDepositSelected"
+                                                            ng-click="rakServiceReq.restOfPageRqdtoBeShown();">
+                                                  <label for="checkbox4" class="checkbox-custom-label"> {{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_ADVICES_DEP}} </label>
+                                                </div>
+												</div>
+											</div>
+										</div>
+				<div class="" ng-show="rakServiceReq.RakGenRqEStmtModel.isRestOfPageRqdToBeShown">
+										                                       
+                                            
+                                            <div class="rakRow">
+                                                <div class="radio-biller rak100 rakWidth100 ">
+                                                {{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_DELIVER_BY}}</div>
+                                                <div class="rak100">
+                                                    <div>
+                
+                                                        <div class="rakCstmRadioDiv rak50 rakTop2emLeft3">
+                                                            <input type="radio"value="{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_DELIVER_BY_EMAIL}}" id="radio1"
+                                                                ng-model="rakServiceReq.RakGenRqEStmtModel.deliveryModeSelected" />
+                                                            <label for="radio1"><span><span></span></span>{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_DELIVER_BY_EMAIL}}</label>
+                                                        </div>
+                
+                                                        <div class="rakCstmRadioDiv rak47 rakTop2emLeft3 ">
+                                                            <input type="radio" value="{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_DELIVER_BY_FAX}}" id="radio2"
+                                                                ng-model="rakServiceReq.RakGenRqEStmtModel.deliveryModeSelected" />
+                                                            <label for="radio2"><span><span></span></span>{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_DELIVER_BY_FAX}}</label>
+                                                        </div>
+                
+                                                    </div>
+                                                </div>
+                                            
+                                            </div>
+                                    		
+										
+						<fin-input type="mail_Id"
+							model="rakServiceReq.RakGenRqEStmtModel.primaryEmail"
+							display-row="full" placeholder="{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_PRIM_EMAIL}}"
+							ng-show="rakServiceReq.RakGenRqEStmtModel.deliveryModeSelected=='{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_DELIVER_BY_EMAIL}}'"
+							validation-flag='pageErrorArr["rakServiceReq.RakGenRqEStmtModel.primaryEmail"]'></fin-input>
+
+						<fin-input type="mail_Id"
+							model="rakServiceReq.RakGenRqEStmtModel.secondaryEmail"
+							display-row="full" placeholder="{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_SECON_EMAIL}}"
+							ng-show="rakServiceReq.RakGenRqEStmtModel.deliveryModeSelected=='{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_DELIVER_BY_EMAIL}}'"
+							validation-flag='pageErrorArr["rakServiceReq.RakGenRqEStmtModel.secondaryEmail"]'></fin-input>
+
+						<fin-input type="number"
+							model="rakServiceReq.RakGenRqEStmtModel.faxNo"
+							display-row="full" placeholder="{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_FAX_NO}}"
+							ng-show="rakServiceReq.RakGenRqEStmtModel.deliveryModeSelected=='{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_DELIVER_BY_FAX}}'"
+							validation-flag='pageErrorArr["rakServiceReq.RakGenRqEStmtModel.faxNo"]'></fin-input>
+				</div>
+									<div class="label-wrap">
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-small btn--back"
+											ng-click="rakServiceReq.RakGenRqEStmtModel.isBack=false;rakServiceReq.resetRakGenRqEStmtDetails();setEvent('onRakGenRqEStmtInitClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-right"
+											ng-click="rakServiceReq.emailOrFaxRqdCheck();">
+											{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_BUTTON_UPDATE}}</button>
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

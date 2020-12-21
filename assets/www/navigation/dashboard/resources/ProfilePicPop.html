@@ -1,0 +1,40 @@
+<md-dialog id="md-dialog" ng-init="myProfile.showprofilePop($event, '#md-dialog')" class="selectImageBck"> <img
+	ng-hide="!myProfile.userProfilePicPresent"
+	src="{{myProfile.userProfilePic}}" class="user-img-Profile">
+<div class="hideDialogue" ng-click="hidemdDilogue()">
+	<span>x</span>
+</div>
+<p ng-hide="myProfile.userProfilePicPresent" class="user-wrap-profile">
+	<span class="app app-icon-retail"></span>
+</p>
+<div class=" full-width margin-bottom-20 align-center">
+	<div id="picTitle" class="fut-txt1">{{appLiterals.APP.MYPROFILE.UPDATEPROFILEPHOTO.CHANGE_PROFILE_PIC}}</div>
+</div>
+
+
+
+<!-- item start -->
+<div class="selectImageBlock">
+	<div id="gallery" class="selectFromGallery col-sm-12"
+		ng-click="picImage();addProfilePic=false">
+		<span class="app app-icon_gallery"></span>
+		<p class="trans-date">{{appLiterals.APP.MYPROFILE.UPDATEPROFILEPHOTO.CHOOSE_FROM_GALLERY}}</p>
+	</div>
+
+	<!-- item end -->
+	<!-- item start -->
+	<div id="takePhoto" class="selectFromCamera col-sm-12"
+		ng-click="captureImage();addProfilePic=false">
+		<span class="app app-icon_photo_camera"></span>
+		<p class="trans-date">{{appLiterals.APP.MYPROFILE.UPDATEPROFILEPHOTO.TAKE_PHOTO}}</p>
+	</div>
+</div>
+
+
+<!-- <section class="button-wrapper" layout="row"
+							layout-align="center center" layout-wrap>
+							<md-button id="profilePicCancel" type="button"
+								ng-click='addProfilePic = false;'
+								class=" md-raised btn--primary-btn">
+							{{appLiterals.APP.MYPROFILE.UPDATEPROFILEPHOTO.CANCEL_BTN}}</md-button>
+						</section> --> </md-dialog>

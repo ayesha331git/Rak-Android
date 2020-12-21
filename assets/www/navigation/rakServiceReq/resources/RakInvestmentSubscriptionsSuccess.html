@@ -1,0 +1,56 @@
+
+<!-- partial code start here-->
+<div class="finacle-container ng-scope"
+			ng-init="rakServiceReq.investmentSubscriptionSuccess(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+			
+			<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.investmentSubscription.investmentSubscriptionSuccessMessage}}</span>
+				</div>
+			</div>
+		<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.INVEST_SUBS}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+				      </h2>		       
+		 </div>
+		
+			<!-- Product list display - start -->
+					
+					<div class="bg-color rak-cont-padding rak-scroll-success">
+				<div class="row">
+					<div class="">
+						
+						<div class="rak-sum-txt">
+							<div class="rak-sum-label rak40Invest ">{{appLiterals.APP.RAK_SERVICES.RAK_INVEST_SUBS.PROD_NUM}}</div>
+							<div class="rak60Invest">
+							<div class="rak-sum-label-Invest black " ng-repeat="x in rakServiceReq.investmentSubscription.testArrayShow">{{x.prdtName}}{{$last ?'' : ','}}</div>
+							</div>
+						</div>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INVEST_SUBS.MOBILENUMBER}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.investmentSubscription.fullMobNum}}</span>
+						</p>
+						
+					
+					
+					
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small rak-button-right"
+								ng-click="setEvent('onInvestmentSubscriptionsDoneClick')">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+								<!-- ng-click="rakServiceReq.temporaryReleaseLetter.resetTemporaryReleaseLetter();setEvent('onTempReleaseLetterSuccessfulDoneClick')" -->
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- partial code end here-->

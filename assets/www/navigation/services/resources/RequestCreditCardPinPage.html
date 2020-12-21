@@ -1,0 +1,43 @@
+<div id="reqCreditCardPinPage" class="app app-arrow2 title-right"
+	ng-click="setEvent('onCancelClick')"></div>
+<div class="finacle-container"
+	ng-init="services.initReqCCPinData(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper">
+			</div>
+
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div id="reqPinTitle" class="item-title text-uppercase">{{appLiterals.APP.SERVICES.SERV_LANDPG.REQ_CREDIT_CARD_PIN}}</div>
+					</div>
+
+					<form
+						ng-submit="corpInit.corpModel.resetCorpInitDetails();setEvent('onReqCDConfirmClick')">
+						<div
+							ng-init='creditcardlist = createDropDownOptionArray(services.reqCCPinModel.cardList,["cardNumber"],"cardIndex");'>
+							<fin-input type="dropdown"
+								model="services.reqCCPinModel.cardNumber" display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.REQ_CC_PIN.PH_CC_NO}}"
+								validation-flag='pageErrorArr["services.reqCCPinModel.cardNumber"]'
+								option-array="creditcardlist"></fin-input>
+						</div>
+
+						<fin-input type="textarea" model="services.reqCCPinModel.remarks"
+							display-row="full"
+							placeholder="{{appLiterals.APP.SERVICES.BLOCK_CREDCARD.PH_REM}}"
+							validation-flag="false"></fin-input>
+
+						<section class="button-wrapper" layout="row"
+							layout-align="center center" layout-wrap>
+							<md-button id="reqcreditcardPin" type="submit"
+								class=" md-raised btn--primary-btn">
+							{{appLiterals.APP.COMMON.BUTTON.CONTINUE}}</md-button>
+						</section>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,49 @@
+<div class="finacle-container" ng-init="rakServiceReq.rakFFDepositOpenNewTermSuccess(successResponse.responsesList)">
+	<div class="account-page">   
+     	<div class="col-sm-11">
+	 		<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.RakFFDepositOpenNewTermReq.successMessage}}</span>
+				</div>
+			</div>
+		<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.FIXED_FLEXI_DEP}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+				      </h2>		       
+		 </div>
+		
+	 	
+     		<div class="bg-color rak-cont-padding rak-scroll rakHeight60" >	 
+		 		<div class="row" >		      	
+	      			
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_OPEN_NEW.ACC}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakFFDepositOpenNewTermReq.fromAccountId}}</span>
+			</p>
+       		
+					
+			<p class="rak-sum-txt" >
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_OPEN_NEW.LIMIT}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakFFDepositOpenNewTermReq.thresholdAmt}}</span>
+			</p>
+			
+		
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_OPEN_NEW.INT_RATE}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakFFDepositOpenNewTermReq.interestRate}} %</span>
+			</p>
+				
+	      			<div class="label-wrap">
+	      				<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click='setEvent("onRAKOpenFDDepositNewTermBackClick");'> {{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}} </button>	      									
+					</div>
+					<div class="col-sm-10"> </div> 
+	      		</div>
+	 		 </div>
+      			
+        	
+      		</div>
+    	</div>
+    	    
+  	</div>
+	
+</div>

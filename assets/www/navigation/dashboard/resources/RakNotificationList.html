@@ -1,0 +1,88 @@
+<div class="rak-back-header">
+					<i class="rak-back-img" ng-click="setGlobalEvent('onDashboardClick');"></i>
+		</div>
+
+<div class="finacle-container" ng-init='rakHome.resetBadgeCount();'>
+  <div class="account-page">
+    <div class="col-sm-11">
+       	<div class="selfReg-main-form-heading">
+						<div>
+							<span class="rak-black-color upd-label ">{{appLiterals.APP.RAKNOTIFICAIONS.HEADERINBOX}}</span>
+							 <div ng-show="notifications.notificationsList.length>0 && rakHome.checkMsgvalidity()" class="rakFloatRight">
+					           	<button type="button" class="btn--notif-btn rakNotificationButton" ng-click='notifications.removeAllNotification(customerId)' ng-show='isUserLoggedIn'>{{appLiterals.APP.DASHBOARD.NOTIFICATION_LIST.CLEAR_ALL}} </button>
+					      </div>
+						</div>
+					</div>
+
+       <div class="bg-color">
+				<div class="row">
+
+				<div class="summary-ServiceReq">
+                     <div class="iconDivNorecord" ng-hide="notifications.notificationsList.length>0 && rakHome.checkMsgvalidity() ">
+						<span class="infoIcon"></span><span class="success">{{appLiterals.APP.RAKNOTIFICAIONS.NO_NOTIFICATIONS}}</span>
+
+				</div>
+				<div class="fin-txt"> </div>
+		          <div class="">
+
+		            <div class="nano mail-scroll">
+		              <div class="nano-content">
+                         <div class="rak-cont-padding rakScrollDiv">
+
+					<!--        <div class="col-xs-11 notif-wrap"ng-repeat='notice in notifications.notificationsList' ng-show='notifications.isDisplayable(notice)'>
+
+					         	<div class="col-xs-3 padding-zero" ng-click="notifications.selNotifications=notice; notifications.notifyAction();">
+					         		<p class="notif-date">{{notice.json.time}}</p>
+					         	</div>
+					         	<div class="col-xs-8 padding-zero" ng-click="notifications.selNotifications=notice; notifications.notifyAction();">
+
+										<span class="bnk_nm"><b> {{notice.json.messege}} </b></span>
+										<div class="fin-txt"></div>
+										<span class="balance-available-dash padding-zero" ng-bind-html='notice.json.payload.content'></span>
+
+								</div>
+					            <div class="trash-lsplit" ng-click="notifications.removeNotifications(notice._id,notice.json.type,fields.finacleUserCorporateId)" ng-show='isUserLoggedIn'>
+					            	<span class="glyphicon glyphicon-trash notif-del"></span>
+					            </div>
+							</div> -->
+
+
+			<div class="trans-detail rakGreyRow rakMoreActions"  ng-repeat="notice in notifications.notificationsList"  ng-if='notifications.isDisplayable(notice)'>
+
+                    <div ng-init="">
+                    <div class="rakwidth25 rakFloatLeft rakNotificationListView" ng-click="notifications.selNotifications=notice; notifications.notifyAction();">
+                   		<span>{{notice.json.createdOn}}</span>
+                    </div>
+
+
+                  <div class="rakwidth65 rakFloatLeft rakNotificationListView" ng-click="notifications.selNotifications=notice; notifications.notifyAction();">
+
+                  <!-- <span  class="">
+                      {{notice.json.messege}}</span> -->
+
+					<span class="" ng-bind-html='notice.json.content.content'></span>
+                  </div>
+
+
+                   <div class="rakwidth7 rakFloatLeft rakNotificationListView" ng-click="notifications.removeNotifications(notice._id,notice.json.type,customerId)" ng-show='isUserLoggedIn'>
+					    <span class="glyphicon glyphicon-trash notif-del"></span>
+					</div>
+
+
+                </div>
+                </div>
+
+
+
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>
+
+       </div>
+
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+</div>

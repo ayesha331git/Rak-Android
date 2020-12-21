@@ -1,0 +1,57 @@
+		<div class="rak-back-header">
+
+			<i class="rak-back-img" ng-click="setEvent('onCancelClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+
+<div class="container-fluid finacle-container" >
+<div class="row title_wrap_row">
+	 <!--  <div class="title_wrap">
+		<div class="title">
+		  <p class="title_center"> {{appLiterals.APP.RAK_SERVICES.RAK_SERIES_STOP.HEADER}} </p>
+		</div>
+		<div class="close_wrap">
+				<span class="icon icon-cancel" ng-click="setEvent('onCancelClick')"></span>
+			</div>
+	  </div> -->
+  </div>
+<div class="bg-color payee-wrap">
+		<div class="border"></div>
+		<div class="future cp_wrap" style="height: 3.7em;">
+			<div class="details det_container" ng-click="setEvent('onChequeSingleClick')">
+				<span class="trans-text detail detail_txt"> {{appLiterals.APP.RAK_SERVICES.RAK_SERIES_STOP.TXT_SNGLE}}</span>
+			</div>
+		  <div class="trans-pad">
+		  </div>
+		  <div class="trans-wrapper cp_container">
+			<div class="trans-text tp_wrap" style="line-height: 2.2em;padding-top: 0;">  {{appLiterals.APP.RAK_SERVICES.RAK_SERIES_STOP.TXT_SERIES}} </div>
+			<div class="trans-line tp_line">
+			</div>
+			  <div class="trans-tri" >
+			  </div>
+			</div>
+		</div>
+		<fin-input type="dropdown" model="tempVar1" display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SERIES_STOP.PH_ACCNO}}" validation-flag="false" option-array="optionsArr"></fin-input>
+		<fin-input type="number" model="tempVar2" display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SERIES_STOP.PH_FROMCHQ}}"  validation-flag="testFlag"></fin-input>
+		<fin-input type="number" model="tempVar3" display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SERIES_STOP.PH_TOCHEQNO}}"  validation-flag="testFlag"></fin-input>
+		<fin-input type="dropdown" model="tempVar4" display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SERIES_STOP.PH_RSN}}" validation-flag="false" option-array="optionsArr"></fin-input>
+			<div class="label-wrap">
+							
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="setEvent('onSeriesAuthClick');">{{appLiterals.APP.RAK_SERVICES.RAK_SERIES_STOP.BTN_STP}} 
+							</button>
+
+			</div>
+		
+	<!-- 	   <div class="btn_wrap can_btn fin_btn3" ng-click="setEvent('onSeriesAuthClick')">
+				  <button type="button">
+				  <span class="login-procees"> {{appLiterals.APP.RAK_SERVICES.RAK_SERIES_STOP.BTN_STP}} </span>
+				  </button>
+			</div> -->
+</div>
+</div>
+</div>
+</div>

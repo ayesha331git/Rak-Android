@@ -1,0 +1,174 @@
+<div class="rak-back-header">
+	<i class="rak-back-img" ng-click="setEvent('onCancelClick');"></i>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container"
+			ng-init="rakServiceReq.initRakDebitReportCapture(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+						<div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DEBIT_REPORT_CAPTURE_CARDS}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+                              </h2>              
+						</div>
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="row">
+									
+
+									<div
+										ng-init='ccArr = createDropDownOptionArray(rakServiceReq.RakDebitReportCaptureModel.cardNoList, ["prodDesc","-","cardId"], "ccIndex");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RakDebitReportCaptureModel.selectedCCNo"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_DEB_REPORT_CAPTURE_CARD.TXT_CARDNO}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakDebitReportCaptureModel.selectedCCNo"]'
+										option-array="ccArr"> </fin-input>
+
+
+									
+									<div
+										ng-init='captureList = createDropDownOptionArray(rakServiceReq.RakDebitReportCaptureModel.captureList, ["description"], "code");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RakDebitReportCaptureModel.selectedCapture"
+										on-change="rakServiceReq.checkingDebitCaptureDetails();"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_DEB_REPORT_CAPTURE_CARD.CAPTURE_DETAILS}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakDebitReportCaptureModel.selectedCapture"]'
+										option-array="captureList"> </fin-input>
+
+
+									<fin-input type="text"
+											model="rakServiceReq.RakDebitReportCaptureModel.bankName"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_DEB_REPORT_CAPTURE_CARD.BANK_NAME}}"
+										ng-show="rakServiceReq.RakDebitReportCaptureModel.captureFlag"
+										validation-flag='pageErrorArr["rakServiceReq.RakDebitReportCaptureModel.bankName"]'>
+									</fin-input>
+
+
+									<fin-input type="text"
+										model="rakServiceReq.RakDebitReportCaptureModel.atmBranchName"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_DEB_REPORT_CAPTURE_CARD.ATM_BRANCH_NAME}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakDebitReportCaptureModel.atmBranchName"]'>
+									</fin-input>
+									
+									
+									<div class="rakRow rakRelative">
+										<div class="radio-biller rak30Radio rakMarginTop5 ">
+											{{appLiterals.APP.RAK_SERVICES.RAK_DEB_REPORT_CAPTURE_CARD.TXT_DELCHANNEL}}</div>
+										<div class="rak80 rakWidth70">
+
+
+											<div class="rakCstmRadioDiv rak50 rakTop2em">
+												<input type="radio" value="Branch" class="" 
+													id="radio1"
+													ng-model="rakServiceReq.RakDebitReportCaptureModel.delieveryMode" />
+												<label for="radio1"><span><span></span></span>
+													{{appLiterals.APP.RAK_SERVICES.RAK_DEB_REPORT_CAPTURE_CARD.TXT_BRANCH}}</label>
+
+											</div>
+
+											<div class="rakCstmRadioDiv rak40 rakTop2em">
+												<input type="radio" value="Courier" class="" value="Courier"
+													id="radio2"
+													ng-model="rakServiceReq.RakDebitReportCaptureModel.delieveryMode" />
+												<label for="radio2"><span><span></span></span>
+													{{appLiterals.APP.RAK_SERVICES.RAK_DEB_REPORT_CAPTURE_CARD.TXT_COURIER}}</label>
+
+											</div>
+
+										</div>
+									</div>
+
+
+
+									
+								
+									<div
+										ng-init='cardArr = createDropDownOptionArray(rakServiceReq.RakDebitReportCaptureModel.emirateList, ["codeDesc"], "code");'
+										ng-show="rakServiceReq.RakDebitReportCaptureModel.delieveryMode=='Branch'">
+										<fin-input type="dropdown"
+											model="rakServiceReq.RakDebitReportCaptureModel.emirateSeletected"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}"
+											on-change="rakServiceReq.rakDebitReportCaptureChange();"
+											validation-flag='pageErrorArr["rakServiceReq.RakDebitReportCaptureModel.emirateSeletected"]'
+											option-array="cardArr"> </fin-input>
+									</div>
+
+									<div class="fin-input-container"
+										ng-show="rakServiceReq.RakDebitReportCaptureModel.delieveryMode=='Branch' && rakServiceReq.RakDebitReportCaptureModel.isEmiSelected">
+										<div
+											ng-class="{'left-line': !pageErrorArr['rakServiceReq.RakDebitReportCaptureModel.selectedBranch'], 'left-line-error':pageErrorArr['rakServiceReq.RakDebitReportCaptureModel.selectedBranch']}"
+											class="left-line"></div>
+										<div class="input-body">
+											<div class="input-body2 input-body2-dropdown">
+												<select dropdownpicker title="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}" class="fin-input fin-select"
+													ng-model="rakServiceReq.RakDebitReportCaptureModel.selectedBranch"
+													ng-style="{{rakServiceReq.RakDebitReportCaptureModel.selectedBranch}} == '' ? {'font-size': '14px'} : {'color': 'initial'}">
+													<option class="place-holder-select" value=""
+														ng-selected="rakServiceReq.RakDebitReportCaptureModel.selectedBranch== null"
+														ng-show="{{rakServiceReq.RakDebitReportCaptureModel.selectedBranch== null ||
+												rakServiceReq.RakDebitReportCaptureModel.selectedBranch== ''}}">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}</option>
+													<option
+														ng-repeat="option in rakServiceReq.RakDebitReportCaptureModel.emiCategorizedBranchList"
+														ng-selected="{{option.branchIndex==rakServiceReq.RakDebitReportCaptureModel.selectedBranch}}"
+														value="{{option.branchIndex}}">{{option.branchName}}</option>
+												</select>
+											</div>
+											<div
+												ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.RakDebitReportCaptureModel.selectedBranch'], 'bottom-line-error':pageErrorArr['rakServiceReq.RakDebitReportCaptureModel.selectedBranch']}"
+												class="bottom-line"></div>
+											<div
+												ng-hide='pageErrorArr["rakServiceReq.RakDebitReportCaptureModel.selectedBranch"]==null'
+												class="rakErrorMsg">
+												{{pageErrorArr['rakServiceReq.RakDebitReportCaptureModel.selectedBranch']}}</div>
+
+										</div>
+									</div>
+									
+										<p class="rak-parent-txt"
+										ng-show="rakServiceReq.RakDebitReportCaptureModel.delieveryMode=='Courier'">
+										<span class="rak-sum-label-left-aligned">{{appLiterals.APP.RAK_SERVICES.RAK_DEB_REPORT_CAPTURE_CARD.REGISTER_ADD}}</span> <span class="rak-sum-label-left-aligned black">{{rakServiceReq.RakDebitReportCaptureModel.registeredAddress}}</span>
+									</p>
+
+
+
+
+										<div class="label-wrap">
+
+											<button type="button"
+												class="btn--special-btn btn-middle rak-button-small rak-button-right"
+												ng-click="rakServiceReq.captureDebitContinue();setEvent('onRAKCreditCardReportCaptureConfirmClick');">
+												{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+										</div>
+										
+										
+										<div class="disclaimer">
+                                                 <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                                 <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                                 </div>                                                 
+                                                 
+                                                 <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+													<span ng-click="rakServiceReq.fetchDisclaimer('AcntAndDebitCardSrvcRqstsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKDEBITCAPTURE_INITPAGE"></span>
+													<span ng-click="rakServiceReq.fetchDisclaimer('DebitCardServiceCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKDEBITCAPTURE_INITPAGECONT"></span>
+												</div>
+                                                 
+                                 </div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-1"></div>
+			</div>
+			<div class="scroll-space"></div>
+		</div>
+	</div>
+</div>

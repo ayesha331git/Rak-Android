@@ -1,0 +1,138 @@
+
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+	<div class="finacle-container"
+		ng-init="rakAccounts.rakValuationUpgradeValuationConfirm(successResponse.responsesList);">
+		<div class="account-page">
+			<div class="col-sm-11">
+				<!-- <div class="app-title-wrapper"> -->
+				
+				<div class="money-block">              
+         <ul>
+            <li ng-click="setEvent('onRakValuationClick');" >
+            {{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.ENROLL}}</li>
+           <li  class="active">
+            {{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.UPGRADE}}</li>
+
+          </ul>
+ </div>
+						<!-- Heading fix-start -->
+						<div class="main-form-heading-ServiceReq"> 
+			                      <h2 class="rakBenfHeader">{{appLiterals.APP.RAKBURGER.RAK_VALUE_COLLECTION}}
+			                      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>                
+			                      </h2>              
+						</div>
+						<!-- Heading fix-end -->
+		
+			
+			<div class="form-block">
+			<div class="bg-color rak-cont-padding">
+				<div class="row">
+					
+
+					<p class="rak-sum-txt"  ng-show="rakAccounts.RakValuationUpgradeValuation.accountType=='ODA'">
+						<span class="rak-sum-label ">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.AC_NO}}
+						</span> <span class="rak-sum-label black ">{{rakAccounts.RakValuationUpgradeValuation.accountNumber}}</span>
+					</p>
+					
+	<p class="rak-sum-txt" ng-show="rakAccounts.RakValuationUpgradeValuation.accountType=='CCD'"> 
+						<span class="rak-sum-label ">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CCD_NO}}
+							</span> <span class="rak-sum-label black ">{{rakAccounts.RakValuationUpgradeValuation.accountNumber}}</span>
+					</p>
+
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label ">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.PACKNAME}}
+							</span> <span class="rak-sum-label black ">{{rakAccounts.RakValuationUpgradeValuation.packageName}}</span>
+					</p>
+
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label ">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CHARGE}}
+							</span> <span class="rak-sum-label black">{{rakAccounts.RakValuationUpgradeValuation.packageCharge}}</span>
+					</p>
+
+					
+
+
+					<div class="label-wrap"
+						ng-show="rakAccounts.RakValuationUpgradeValuation.authStatus">
+
+						<fin-input type="password_text"
+							model="rakAccounts.RakValuationUpgradeValuation.txnPwd"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+							model="rakAccounts.RakValuationUpgradeValuation.txnPwd"
+							ng-show="rakAccounts.RakValuationUpgradeValuation.authMode==txnpwdString">
+						</fin-input>
+					<!-- 	<fin-input type="password_num"
+							model="rakAccounts.RakValuationUpgradeValuation.txnPwd"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP"
+							model="rakAccounts.RakValuationUpgradeValuation.txnPwd"
+							ng-show="rakAccounts.RakValuationUpgradeValuation.authMode=='SMS OTP'">
+						</fin-input> -->
+					</div>
+									<!--  CHANGES FOR RESEND OTP START -->
+									<!-- <div
+										ng-show="rakAccounts.RakValuationUpgradeValuation.authMode==otpString">
+										<div class="rakwidth65">
+											<fin-input type="password_num"
+												model="rakAccounts.RakValuationUpgradeValuation.txnPwd"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+												validation-flag='pageErrorArr["rakAccounts.RakValuationUpgradeValuation.txnPwd"]'>
+											</fin-input>
+										</div>
+										<button type="button"
+										class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+										ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');">
+										Resend OTP</button>
+									</div> -->
+								
+								<div ng-show="rakAccounts.RakValuationUpgradeValuation.authMode==otpString">
+									<div
+										ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+										<fin-input type="password_num" model="rakAccounts.RakValuationUpgradeValuation.txnPwd"
+											display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}"
+											validation-flag='pageErrorArr["rakAccounts.RakValuationUpgradeValuation.txnPwd"]'></fin-input>
+									</div>
+								
+								
+									<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0'
+										ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+								
+										<fin-input type="dropdown" option-array="toModeArray"
+											model="rakHome.otpModel.otpModeSelected" display-row="full"
+											placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+										<p class="balance-available2 white-space">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+								
+									</div>
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+										ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}}</button>
+								
+								</div>
+								
+								<!--  CHANGES FOR RESEND OTP END -->
+
+
+					<div class="label-wrap">
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small btn--back"
+							ng-click="setEvent('onRakValuationBackBtnClicked');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small"
+							ng-click="setEvent('onRakValuationUpgradeValuationSubmitClick');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}</button>
+					</div>
+					<div class="col-sm-1"></div>
+				</div>
+			</div>
+			</div>
+			
+				</div>
+		</div>
+	</div>
+	</div>
+	</div>

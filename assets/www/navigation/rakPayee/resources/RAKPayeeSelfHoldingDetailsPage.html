@@ -1,0 +1,46 @@
+<div class="finacle-container"
+	ng-init='rakPayee.selfHoldingAccounts = rakPayee.parseSelfHoldingAccounts(successResponse.responsesList) || rakPayee.selfHoldingAccounts;'>
+	
+	<div class="view-detail-wrap">
+	<div class="app app-arrow payee-left" ng-click='setEvent("onPayeeSelfHoldingAccountBackClick")'> </div>
+		<img src="images/face_default.png" class="payee-circle-img"> 
+		<p class="payee-circle-txt"> 
+		  <span class="payee-first-txt"> 
+                {{fields.customerInfo.customerName.charAt(0)}}
+                {{fields.customerInfo.customerName.split(" ").length > 1 ? successResponse.invocationResult.customerName.split(" ")[successResponse.invocationResult.customerName.split(" ").length-1].charAt(0) : ""}}
+              </span>
+            </p>
+			<p class="second-name"> {{appLiterals.APP.PAYEE.SELFHOLD_DETPAGE.TXT_MYACC}}</p> 
+			<p class="first-name"> {{fields.customerInfo.customerName}} </p> 
+
+      </div>
+
+	<!-- Generic code begins here -->
+	<div class="blue-bg"></div>
+	<div class="nano sche-scroll" >
+	  <!-- Content for Transactions -->
+	  <div class="mm-content nano-content">
+	<div class="mm-ac-wrap" ng-repeat="selfAccount in rakPayee.selfHoldingAccounts">
+		<div class="pp-ac-black" ng-init=""></div>
+		<div class="pp-ac-detail"
+			ng-click=''>
+			<p class="mm-ac-txt">
+				{{selfAccount.accountNickName}}</p>
+			<p class="mm-ac-txt1">
+				{{selfAccount.accountNumber}}</p>
+			<p class="mm-ac-arrow1">
+				<span class="app app-arrow3"> </span> </p>
+		</div>
+	</div>
+	
+
+	<div class="mm-ac-bg">
+		<div class="">
+			<div class="scroll-space"></div>
+			<div class="fin-txt"></div>
+			<div class="fin-txt"></div>
+		</div>
+	</div>
+</div>
+</div>
+</div>

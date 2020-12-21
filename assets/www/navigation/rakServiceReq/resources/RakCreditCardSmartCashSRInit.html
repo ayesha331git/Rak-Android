@@ -1,0 +1,105 @@
+	<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onBackClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container" ng-init="rakServiceReq.ccSmartCashRq.initCcSmartCashRequest(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+						
+						
+						  <div class="main-form-heading-ServiceReq"> 
+				                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CC_SMART_CASH}}
+				                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+				                 </h2>              
+						</div>
+							<div class="bg-color rak-cont-padding rak-scroll rakClear">
+								<div class="">																	
+										
+									 <div ng-init='ccAcctArr = createDropDownOptionArray(rakServiceReq.ccSmartCashRq.ccAccountList,["prodDesc","-","creditCardNo"], "cardIndex");'>		
+                                        <fin-input type="dropdown" model="rakServiceReq.ccSmartCashRq.ccAccountId" display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_SMARTCASH.CARDNUM}}" 
+                                                   option-array="ccAcctArr"  validation-flag='pageErrorArr["rakServiceReq.ccSmartCashRq.ccAccountId"]' on-change="rakServiceReq.ccSmartCashRq.getCcAccountDetailsUtil();setEvent('onRakCcSmartCashGetCCdetailsClick');"></fin-input> 	
+		                            </div>
+		                            <p class="balance-available2" ng-show='rakServiceReq.ccSmartCashRq.avlCredLimit && rakServiceReq.ccSmartCashRq.ccCombinedLimitFlag'>{{appLiterals.APP.RAK_COMMON.RAK_COMBINED_AVL_LIMIT}}&nbsp;<span class="rs-color">{{rakServiceReq.ccSmartCashRq.avlCredLimit}}</span></p>		                            		                         
+		                            <p class="balance-available2" ng-show='rakServiceReq.ccSmartCashRq.avlCredLimit && !rakServiceReq.ccSmartCashRq.ccCombinedLimitFlag'>{{appLiterals.APP.RAK_SERVICES.RAK_CC_SMARTCASH.AVL_CRED_LIMIT}}&nbsp;<span class="rs-color">{{rakServiceReq.ccSmartCashRq.avlCredLimit}}</span></p>		                            		                         
+		                            
+		                        
+		                           
+		                   
+		                            <div class="rakRow">
+						                 <div class="radio-biller rak100 rakWidth100 rakRadioBottom">{{appLiterals.APP.RAK_SERVICES.RAK_CC_SMARTCASH.TRANSFER_CASH_TO}}</div>
+							              <div class="rak100">
+										       <div class="rakCstmRadioDiv rak100 ">
+											       <input type="radio" ng-value="rakServiceReq.ccSmartCashRqConstants.MYRAKBANKACCOUNT" id="radio1" ng-click="rakServiceReq.ccSmartCashRq.getTransferCashToUtil();"
+															ng-model="rakServiceReq.ccSmartCashRq.transferCashTo" />
+											       	<label for="radio1"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_CC_SMARTCASH.MY_RAKBANK}}</label>
+										      	</div>
+									      
+											     <div class="rakCstmRadioDiv rak100 marginTopTen ">
+												       <input type="radio" ng-value="rakServiceReq.ccSmartCashRqConstants.MYOTHERBANKWITHINUAE" id="radio2" ng-click="rakServiceReq.ccSmartCashRq.getTransferCashToUtil();"
+															ng-model="rakServiceReq.ccSmartCashRq.transferCashTo" />
+										      			<label for="radio2"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_CC_SMARTCASH.MY_OTHERBANK}}</label>
+											     </div>
+							              </div>							             
+		                           </div>
+		                           
+		                          
+		                            <!-- Rajesh: Radio Btn style changes End -->
+		                           
+		                            <div ng-show="rakServiceReq.ccSmartCashRq.transferCashTo==rakServiceReq.ccSmartCashRqConstants.MYRAKBANKACCOUNT" ng-init='oprAcctArr = createDropDownOptionArray(rakServiceReq.ccSmartCashRq.oprAccountList,["productCatDesc","-","accountNumber","-","accountCurrency"], "accountIndex");'>		
+                                        <fin-input type="dropdown" model="rakServiceReq.ccSmartCashRq.oprAcctId" display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_SMARTCASH.MY_RAKBANK}}" 
+                                                   option-array="oprAcctArr"  validation-flag='pageErrorArr["rakServiceReq.ccSmartCashRq.oprAcctId"]' on-change="rakServiceReq.ccSmartCashRq.getOprAccountDetailsUtil();"></fin-input> 	
+		                          </div>
+		                          
+		                         
+		                            
+		                           <div>
+		                           <fin-input ng-show="rakServiceReq.ccSmartCashRq.transferCashTo==rakServiceReq.ccSmartCashRqConstants.MYOTHERBANKWITHINUAE" type="text" model="rakServiceReq.ccSmartCashRq.iban" display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_SMARTCASH.IBAN}}" validation-flag='pageErrorArr["rakServiceReq.ccSmartCashRq.iban"]'> </fin-input>
+		                           </div>
+		                           <div>
+		                           <fin-input  type="money" model="rakServiceReq.ccSmartCashRq.smartCashAmount" display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_SMARTCASH.SMARTCASH}}" validation-flag='pageErrorArr["rakServiceReq.ccSmartCashRq.smartCashAmount"]'> </fin-input>
+		                           </div>
+		                           		                         
+		                        
+								
+										
+									
+
+									<div class="label-wrap">
+										<button type="button"
+											    class="btn--special-btn btn-middle rak-button-small btn--back"
+											    ng-click="setEvent('onBackClick');">
+											    {{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+										<button type="button"
+											    class="btn--special-btn btn-middle rak-button-right"
+											    ng-click="setEvent('onRakCcSmartCashContinueClick');">
+											    {{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+									</div>
+									
+									<div class="col-sm-1"></div>
+									
+									<div class="disclaimer">
+                                                 <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                                 <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                                 </div>                                                 
+                                                 
+                                                 <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+                                                 	  <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSMARTCASH_INIT"></div>													
+													  <span ng-click="rakServiceReq.fetchDisclaimer('CreditCardServiceRequestsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSMARTCASH_CONT"></span>
+													  <span ng-click="rakServiceReq.fetchDisclaimer('CreditCardServiceCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSMARTCASH_CONT1"></span>
+												</div>
+                                                 
+                                 </div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

@@ -1,0 +1,71 @@
+<div class="app app-arrow2 title-right-dash" id="newCreditCardConfirmback"
+	ng-click="services.newCreditCardModel.isBack=true;setEvent('onPrevServiceClick')"></div>
+<div class="finacle-container"
+	ng-init="services.newCreditCardConfirm(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div class="item-title text-uppercase">
+							<span id="pageTitle">
+								{{appLiterals.APP.SERVICES.NEWCRED_CRDCNFRM.HEADER}} </span>
+						</div>
+					</div>
+					<!--  end of title -->
+					<div class="col-sm-12">
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtName">
+								{{appLiterals.APP.SERVICES.NEWCRED_CRDCNFRM.HEADERONE}}
+								{{appLiterals.APP.SERVICES.NEWCRED_CRDCNFRM.TXT_FOR}} </strong> <span
+								class="dash-ac-id" id="name">
+								{{services.newCreditCardModel.previewResponse.name}} </span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtDob">
+								{{appLiterals.APP.SERVICES.NEWCRED_CRDCNFRM.DOB}} </strong> <span
+								class="dash-ac-id" id="Dob"> <fin-Date
+									date-value='{{services.newCreditCardModel.previewResponse.dateOfBirth}}'></fin-Date>
+							</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtIncome">
+								{{appLiterals.APP.SERVICES.NEWCRED_CRDCNFRM.INCOME}} </strong> <span
+								class="dash-ac-id" id="income">
+								{{appLiterals.APP.SERVICES.BRKFXD_DEPAUTH.INR}}
+								{{services.newCreditCardModel.previewResponse.income}} </span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtCccupation">
+								{{appLiterals.APP.SERVICES.NEWCRED_CRDCNFRM.OCCUP}} </strong> <span
+								class="dash-ac-id" id="occupation">
+								{{services.newCreditCardModel.previewResponse.occupation}} </span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtCardType">
+								{{appLiterals.APP.SERVICES.NEWCRED_CRDCNFRM.CRDTYPE}} </strong> <span
+								class="dash-ac-id" id="cardType">
+								{{services.newCreditCardModel.previewResponse.cardType}} </span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtAddre">
+								{{appLiterals.APP.SERVICES.NEWCRED_CRDCNFRM.ADDRE}} </strong> <span
+								class="dash-ac-id" id="mailingAddress">
+								{{services.newCreditCardModel.previewResponse.name}}<br>{{services.newCreditCardModel.previewResponse.mailingAddress}}
+							</span>
+						</div>
+					</div>
+					<form ng-submit="corpInit.corpModel.getSelectedRoleDetailsAsString();setEvent('onCCSuccessClick');">
+						<div
+							ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+							<approval-input></approval-input>
+						</div>
+						<fin-Stepauth></fin-Stepauth>
+						<md-button id="submit" type="submit" class="md-raised btn--primary-btn">
+						{{appLiterals.APP.SERVICES.NEWCRED_CRDCNFRM.BTN_SUB}}</md-button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

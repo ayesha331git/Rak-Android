@@ -1,0 +1,257 @@
+ <div class="rak-back-header">
+	<i class="rak-back-img" ng-click="setEvent('onBackClick');"></i>
+</div>
+<div class="finacle-container bodyWhite"
+	ng-init="resetPageError();rakEDirham.utils.setFromToDate();rakEDirham.initTxnHistoryDetails(successResponse.responsesList);">
+	<div class="">
+
+		<div class="col-sm-11">
+			<div class="app-title-wrapper">
+
+				<div class="form-block">
+					
+
+					<div class="bg-color rak-cont-padding">
+						
+						<div class="row">
+
+
+							<div class="rakTxnSearch">
+								 <div class="">
+					              <div class="entr-edirham-pin-txt black-txt dashboard-item-title">{{appLiterals.APP.EDIRHAM.TRANS_DETAILS_HEADER}}</div>
+					              
+					            </div>	
+
+							</div>
+
+
+
+							<div>
+
+
+								<div class="nano Edirham-hist-details-scroll">
+									<div class="">
+
+
+										<div class="">
+										<div ng-if="rakEDirham.eDirhamHistory.selectedMcfRef"
+												class="rakPaddingPoint8em Edirham-hist-details-lst">
+											
+													<div class="Edirham-hist-details-label">
+														{{appLiterals.APP.EDIRHAM.TXN_REF_TXT}}
+													</div>
+														<div class="Edirham-hist-details-value">
+														{{rakEDirham.eDirhamHistory.selectedMcfRef}}
+														</div>
+												
+
+											</div>
+											<div ng-if="rakEDirham.eDirhamHistory.selectedTransferList.accountId"
+												class="rakPaddingPoint8em Edirham-hist-details-lst">
+											
+													<div class="Edirham-hist-details-label">
+														{{appLiterals.APP.EDIRHAM.FROM_ACCT_TXT}}
+													</div>
+														<div class="Edirham-hist-details-value">
+														{{rakEDirham.eDirhamHistory.selectedTransferList.accountId}}
+														</div>
+												
+
+											</div>
+
+
+											<div ng-if="rakEDirham.eDirhamHistory.selectedTransferList.txnDate"
+												class="rakPaddingPoint8em Edirham-hist-details-lst">
+											
+													<div class="Edirham-hist-details-label">
+														{{appLiterals.APP.EDIRHAM.TXN_DATE}}
+													</div>
+														 <div class="Edirham-hist-details-value">
+														{{rakEDirham.eDirhamHistory.selectedTransferList.txnDate}}
+														</div> 
+														
+														<!-- <div class="inner">
+														<fin-Date class="e-dirham-list-date-value" date-value='{{rakEDirham.eDirhamHistory.selectedTransferList.txnDate}}'></fin-Date>
+														
+														</div> -->
+												
+
+											</div>
+									<!-- 		
+											<div
+												class="rakPaddingPoint8em Edirham-hist-details-lst">
+											
+													<div class="Edirham-hist-details-label">
+														{{appLiterals.APP.EDIRHAM.CHANNEL_ID}}
+													</div>
+														<div class="Edirham-hist-details-value">
+														{{rakEDirham.eDirhamHistory.selectedTransferList.channelId}}
+														</div>
+												
+
+											</div> -->
+					
+											<div ng-if="rakEDirham.eDirhamHistory.selectedTransferList.txnAmount"
+												class="rakPaddingPoint8em Edirham-hist-details-lst">
+											
+													<div class="Edirham-hist-details-label">
+														{{appLiterals.APP.EDIRHAM.AMOUNT_TXT}}
+													</div>
+														<div class="Edirham-hist-details-value">
+														{{rakEDirham.eDirhamHistory.selectedTransferList.txnAmount}}
+														</div>
+												
+
+											</div>
+										
+								
+											<div ng-if="rakEDirham.eDirhamHistory.selectedTransferList.txnStatus"
+												class="rakPaddingPoint8em Edirham-hist-details-lst">
+											
+													<div class="Edirham-hist-details-label">
+														{{appLiterals.APP.EDIRHAM.TXN_STATUS}}
+													</div>
+														<div ng-if="rakEDirham.eDirhamHistory.selectedTransferList.txnStatus=='SUC'" class="Edirham-hist-details-value">
+														{{appLiterals.APP.EDIRHAM.CREDIT_TXT}} 
+														</div>
+														<div ng-if="rakEDirham.eDirhamHistory.selectedTransferList.txnStatus!='SUC' && rakEDirham.eDirhamHistory.selectedTransferList.txnStatus!='CAN' && rakEDirham.eDirhamHistory.selectedTransferList.txnStatus!='REJ'" class="Edirham-hist-details-value">
+														{{appLiterals.APP.EDIRHAM.DEBIT_TXT}} 
+														</div>
+												<div ng-if="rakEDirham.eDirhamHistory.selectedTransferList.txnStatus=='CAN'" class="Edirham-hist-details-value">
+												{{appLiterals.APP.EDIRHAM.CANCELLED_TXT}} 
+												</div>
+												<div ng-if="rakEDirham.eDirhamHistory.selectedTransferList.txnStatus=='REJ'" class="Edirham-hist-details-value">
+												{{appLiterals.APP.EDIRHAM.TXN_REJ_STATUS}} 
+												</div>
+												
+												
+
+											</div>
+											
+												<div ng-if="rakEDirham.eDirhamHistory.selectedTransferList.channelId"
+												class="rakPaddingPoint8em Edirham-hist-details-lst">
+											
+													<div class="Edirham-hist-details-label">
+														{{appLiterals.APP.EDIRHAM.CHANNEL_ID}}
+													</div>
+														<div class="Edirham-hist-details-value">
+														{{rakEDirham.eDirhamHistory.selectedTransferList.channelId}}
+														</div>
+												
+
+											</div>
+												<div ng-if="rakEDirham.eDirhamHistory.selectedTransferList.requestedby"
+												class="rakPaddingPoint8em Edirham-hist-details-lst">
+											
+													<div class="Edirham-hist-details-label">
+														{{appLiterals.APP.EDIRHAM.REQ_BY}}
+													</div>
+														<div class="Edirham-hist-details-value">
+														{{rakEDirham.eDirhamHistory.selectedTransferList.requestedby}}
+														</div>
+												
+
+											</div>
+											
+											
+												<div ng-if="rakEDirham.eDirhamHistory.selectedTransferList.merchantName"
+												class="rakPaddingPoint8em Edirham-hist-details-lst">
+											
+													<div class="Edirham-hist-details-label">
+														{{appLiterals.APP.EDIRHAM.MERCHANT_NAME}}
+													</div>
+														<div class="Edirham-hist-details-value">
+														{{rakEDirham.eDirhamHistory.selectedTransferList.merchantName}}
+														</div>
+												
+
+											</div>
+											
+												
+												<div ng-if="rakEDirham.eDirhamHistory.selectedTransferList.addressLine1"
+												class="rakPaddingPoint8em Edirham-hist-details-lst">
+											
+													<div class="Edirham-hist-details-label">
+														{{appLiterals.APP.EDIRHAM.ADDRS_LINE1}}
+													</div>
+														<div class="Edirham-hist-details-value">
+														{{rakEDirham.eDirhamHistory.selectedTransferList.addressLine1}}
+														</div>
+												
+
+											</div>
+											
+												
+												<div ng-if="rakEDirham.eDirhamHistory.selectedTransferList.addressLine2"
+												class="rakPaddingPoint8em Edirham-hist-details-lst">
+											
+													<div class="Edirham-hist-details-label">
+														{{appLiterals.APP.EDIRHAM.ADDRS_LINE2}}
+													</div>
+														<div class="Edirham-hist-details-value">
+														{{rakEDirham.eDirhamHistory.selectedTransferList.addressLine2}}
+														</div>
+												
+
+											</div>
+											
+													<div ng-if="rakEDirham.eDirhamHistory.selectedTransferList.city"
+												class="rakPaddingPoint8em Edirham-hist-details-lst">
+											
+													<div class="Edirham-hist-details-label">
+														{{appLiterals.APP.EDIRHAM.CITY_TXT}}
+													</div>
+														<div class="Edirham-hist-details-value">
+														{{rakEDirham.eDirhamHistory.selectedTransferList.city}}
+														</div>
+												
+
+											</div>
+											
+													<div ng-if="rakEDirham.eDirhamHistory.selectedTransferList.country"
+												class="rakPaddingPoint8em Edirham-hist-details-lst">
+											
+													<div class="Edirham-hist-details-label">
+														{{appLiterals.APP.EDIRHAM.COUNTRY_TXT}}
+													</div>
+														<div class="Edirham-hist-details-value">
+														{{rakEDirham.eDirhamHistory.selectedTransferList.country}}
+														</div>
+												
+
+											</div>
+											<div ng-if="rakEDirham.eDirhamHistory.selectedTransferList.zip"
+												class="rakPaddingPoint8em Edirham-hist-details-lst">
+											
+													<div class="Edirham-hist-details-label">
+														{{appLiterals.APP.EDIRHAM.ZIP_TXT}}
+													</div>
+														<div class="Edirham-hist-details-value">
+														{{rakEDirham.eDirhamHistory.selectedTransferList.zip}}
+														</div>
+												
+
+											</div>
+											
+												
+											
+											
+										</div>
+									</div>
+
+								</div>
+
+
+							</div>
+
+						</div>
+
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

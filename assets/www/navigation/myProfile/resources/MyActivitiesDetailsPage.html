@@ -1,0 +1,38 @@
+<div id="myActivitiesDetailsPagePrev" class="app app-arrow2 title-right"
+	ng-click="setEvent('onPrevServiceClick')"></div>
+<div class="finacle-container">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div id="myActivitiesDetailsPageTITLE" class="item-title text-uppercase">{{appLiterals.APP.MYPROFILE.MY_ACTIVITY_DETAILS.TITLE}}</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="account-detail-dash margin-zero">
+
+							<b id="myActivitiesDetailsPageTXT_DESCRIPTION" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.MY_ACTIVITY_DETAILS.TXT_DESCRIPTION}}</b><span
+								id="myActivitiesDetailsPageSelfAuditRecordDesc" class="dash-ac-id">{{myProfile.activityModel.activityDetails.selfAuditRecordDesc}}
+								<br>
+								{{myProfile.activityModel.activityDetails.selfAuditRecordTime}},{{myProfile.activityModel.activityDetails.date}}
+							</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<b id="myActivitiesDetailsPageTXT_RECORDED_DATA" class="dash-ac-no">
+								{{appLiterals.APP.MYPROFILE.MY_ACTIVITY_DETAILS.TXT_RECORDED_DATA}}</b><span id="myActivitiesDetailsPageSelfAuditData"
+								class="dash-ac-id">{{myProfile.activityModel.activityDetails.selfAuditData}}</span>
+						</div>
+
+						<div class="account-detail-dash margin-zero ">
+							<b  id="myActivitiesDetailsPageTXT_CHANNEL" class="dash-ac-no">
+								{{appLiterals.APP.MYPROFILE.MY_ACTIVITY_DETAILS.TXT_CHANNEL}}</b><span id="myActivitiesDetailsPageSelfAuditChannel"
+								class="dash-ac-id">{{myProfile.activityModel.activityDetails.selfAuditChannel}}</span>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

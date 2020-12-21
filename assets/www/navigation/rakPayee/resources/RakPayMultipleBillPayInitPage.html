@@ -1,0 +1,139 @@
+  <div class="rak-back-header">
+    <i class="rak-back-img" ng-click="rakPayee.payBill.isBackfromInitPage=true;setEvent('onBackClick');"></i>
+  </div>
+  <div class="nano menu-scroll">
+	<div class="nano-content">
+	<div class="finacle-container" ng-init="rakHome.AuthPageData.firstAuthModeValue='';resetPageError();rakCorpInit.corpModel.resetCorpInitDetails();rakPayee.payBill.getMultipleBillPayInit(successResponse.responsesList);rakPayee.outstandingTab=true;">
+	 <div class="account-page">
+		<div class="col-sm-11">
+		  <div class="app-title-wrapper">
+		 
+		  <div class="form-block">
+		   <ng-include  src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>
+		   <div class="">
+		<!--   <div class="main-form-heading-payee"> 
+		      <h2 >{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.MULTIPLEBILLPAY}}
+		      <span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1}}:{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1_TXT_MULTIPLEPAY}} </span>		     
+		      </h2>		       
+		  </div>	 -->	 
+			 
+		   <div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh">
+		   
+		   			<div class="main-form-heading">
+					             <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.MULTIPLEBILLPAY}}
+									      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAK_COMMON.STEP1_TXTBNF}}</span></h2>
+					       </div>
+		   
+			<div class="" >
+			
+
+        
+          <!-- <p class="rak-multiplePay-sum-txt">
+				<span class="rak-multiplePay-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.PAYINGTO}}&nbsp;</span>
+				<span class="rak-multiplePay-sum-label black">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.MULTIPLEBILLPAYMENTS}}</span>				
+			</p> --> 
+			
+			<div class="rak-parent-txt-new" >
+						<p  class="rak-sum-label-new"> {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.PAYINGTO}}</p>
+						<p  class="rak-sum-label-new black"> {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.MULTIPLEBILLPAYMENTS}}</p>
+				</div>
+		
+		
+		<div  ng-init='accountArr = createDropDownOptionArray(rakPayee.payBill.accountList, ["productCatDesc","-","displayAccountNumber","-","accountCurrency"], "accountIndex");'>
+		<fin-input type="dropdown" model="rakPayee.payBill.multiplePayFromAcct" display-row="full"
+		 on-change="rakPayee.payBill.getMultipleAcctBalance(rakPayee.payBill.getPayeeEvent());" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_FRM_ACC}}"  validation-flag='pageErrorArr["rakPayee.payBill.multiplePayFromAcct"]' option-array="accountArr">			
+		</fin-input></div>
+		   
+			<div ng-if="rakPayee.payBill.multiplePayFromAcct">
+									<p class="balance-available2" ng-if="rakPayee.payBill.accountList[rakPayee.payBill.multiplePayFromAcct]['accountType'].toString()=='CCD'">
+												{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDSINITPAGE.AVAIL_CREDIT}}
+												<span class="rs-color">
+													{{rakPayee.payBill.multiplePayFromAcctAvlBal}}</span>
+											</p>
+				</div> 
+					<div ng-if="rakPayee.payBill.multiplePayFromAcct">
+									<p class="balance-available2" ng-hide="rakPayee.payBill.accountList[rakPayee.payBill.multiplePayFromAcct]['accountType'].toString()=='CCD'">
+												{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.AVLBAL}}
+												<span class="rs-color">
+													{{rakPayee.payBill.multiplePayFromAcctAvlBal}}</span>
+											</p>
+				</div>
+			
+			
+		 <!--Account-end-->
+		 
+		<!-- Amount -->
+		
+		<!-- CHANGES DONE AS FIX OF PRCU-1324 START -->
+			<!-- <p class="rak-multiplePay-sum-txt">
+				<span class="rak-multiplePay-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.MULTIPLEPAYAMOUNT}}&nbsp;</span>
+				<span class="rak-multiplePay-sum-label black">{{rakPayee.payBill.multipleTotalSelectedAmount}}</span>
+				
+				<span class="rakEditImg" ng-click="rakPayee.payBill.showFlag=true;setEvent('rakMultiplePayListPage');"></span>
+			
+			</p> -->
+			
+			<!-- <div class="rak-parent-txt-new" >
+						<p  class="rak-sum-label-new"> {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.MULTIPLEPAYAMOUNT}}</p>
+						<p  class="rak-sum-label40 black rak20Imp"> {{rakPayee.payBill.multipleTotalSelectedAmount}}</p>
+						
+						<div class="rakEditImgWidth marginTop10" ng-click="rakPayee.payBill.showFlag=true;setEvent('rakMultiplePayListPage');"></div>
+				</div> -->
+				
+				
+				<div class="rak-parent-txt-new" >
+						<p  class="rak-sum-label-new"> {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.MULTIPLEPAYAMOUNT}}</p>
+						<p  class="rak-multipleBillLabel black"> {{rakPayee.payBill.multipleTotalSelectedAmount}}</p>
+						<div class="rakEditImgWidth marginTop10" ng-click="rakPayee.payBill.showFlag=true;setEvent('rakMultiplePayListPage');"></div>
+				</div>
+		<!-- CHANGES DONE AS FIX OF PRCU-1324 END -->
+		
+		
+				<div class="rak-link-new" >	
+						<span>{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.ROUNDOFFAMT}}</span>
+				</div>
+			
+			
+			
+			<div class="rak-parent-txt-new" >
+						<p  class="rak-sum-label-new"> {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.WHEN}}</p>
+						<p  class="rak-sum-label-new black"> {{rakPayee.payBill.when}}</p>
+				</div>
+				
+				<div class="fin-txt"></div>
+				<div class="fin-txt"></div>
+			
+		
+			
+		</div> 	
+
+
+			<div class="label-wrap">
+                                 <button type="button" class="btn--special-btn btn-middle rak-button-smallForBillPay" ng-click="rak2FARegister.RegistrationModel.resolveEventFor2FA('MULTIBILLPAY');rakPayee.payBill.multiplePaymentInitUtil();rakCorpInit.corpModel.eventName='MULTIBILLPMT';rakCorpInit.corpModel.backFlag='N';setEvent('onMultiplePaymentClick');"> {{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.CONTINUE}} </button>
+                 </div> 
+                 
+                 
+          <div class="disclaimer">
+                         <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                         <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                         </div>
+
+                         <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                         <span ng-click="rakServiceReq.fetchDisclaimer('UtilityBillPayMinAndMaxAmnt.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKMULTIPLEBILLS_INIT"></span>
+                         </div>
+                 </div>		
+              </div>
+            
+             <!--   <div class="label-wrap" ng-if='rakPayee.payBill.showFlag==false'> -->
+                       
+             
+             
+          </div>
+          </div>
+       </div>       
+       </div>             
+       </div>
+    </div>
+		</div>
+</div>
+</div>

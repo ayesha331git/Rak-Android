@@ -1,0 +1,107 @@
+<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setGlobalEvent('onLoginClick');"></i>
+		</div>
+<div class="container-fluid padding-auto"
+	ng-init="setSingleStepRealmAuthFailure();
+	 rak2FARegister.EzComToken.generatedToken='';rak2FARegister.RegistrationModel.ezComAccountPin=''; 
+	resetPageError();">
+
+
+	<div class="container-fluid padding-zero">
+
+		<div class="row">
+
+			<div class="col-sm-1 rakDblheight"></div>
+			
+			
+			<div class="login-form">
+				
+				<div class="center rakFont10">
+					<div class="rak-logintab tab-reduce-pad"
+						ng-click="setGlobalEvent('onLoginClick');">
+						<span class="rak-black-color login-label tokenLabelPadding">
+							{{appLiterals.APP.RAK_LOGIN_PAGE.LOGIN}} </span>
+					</div>
+
+					<!-- <div class="rak-logintab  border-left tab-reduce-pad"
+						ng-show="rak2FARegister.RegistrationModel.isRegisterClicked">
+						<span class="login-label rak-color border-bottom tokenLabelPadding">
+							{{appLiterals.APP.RAK_2FA_MESSAGES.OFFLINE_TOKEN_HEAD}}</span>
+					</div> -->
+					
+					<div class="rak-logintab border-left tab-reduce-pad"
+					ng-click="resetPageError();rak2FARegister.RegistrationModel.resetRegistrationModelData();rak2FARegister.RegistrationModel.requestType='FUON';rak2FARegister.RegistrationModel.clearFlag();rak2FARegister.RegistrationModel.isRegisterClicked=true;rak2FARegister.RegistrationModel.resolveEventFor2FA('REG');rak2FARegister.EzComToken.checkTSNStatus();">
+						<span class="rak-black-color login-label tokenLabelPadding">
+							{{appLiterals.APP.RAK_2FA_MESSAGES.TOKEN_STATUS_CHECK}}</span>
+					</div>
+			
+				
+				</div>
+					
+
+
+		<div>
+			<div class="selfReg-main-form-heading margin-top10px">
+				<div>
+					<span class="rak-black-color login-label-selfReg ">{{appLiterals.APP.RAK_2FA_MESSAGES.OFFLINE_TOKEN_HEAD}}</span>
+					<ul class="process-steps">
+						<li class="active"></li>
+						<li ></li>
+						
+					</ul>
+					</div>
+					
+					
+			</div>
+		</div>
+
+	
+</div>
+		
+
+
+		</br> 
+
+
+				<div class="fin-txt"></div>
+
+				<div class="rak-selfReg-lable" ng-show="buildType!='CORP';">
+					<p>{{appLiterals.APP.RAK_2FA_MESSAGES.GENERATE_TOKEN_MSG1}}</p>
+				</div>
+				<div class="rak-selfReg-lable" ng-show="buildType=='CORP';">
+					<p>{{appLiterals.APP.RAK_2FA_MESSAGES.GENERATE_TOKEN_MSG1_CORP}}</p>
+				</div>
+                
+              
+
+			<div>
+				<fin-input
+					type="password_num"
+					model="rak2FARegister.RegistrationModel.ezComAccountPin"
+					display-row="full" max-length="{{rak2FARegister.constants.PINLENGTH}}"
+					validation-flag='pageErrorArr["rak2FARegister.RegistrationModel.ezComAccountPin"]'
+					placeholder="{{appLiterals.APP.RAK_2FA_MESSAGES.ENTER_TOKEN_PIN}}"
+					style="width:95%;"> </fin-input>
+			<span  class="forgotRAKTokenPIN" ng-show="buildType!='CORP';" ng-click="rakServiceReq.fetchDisclaimer('ForgotRAKTokenPIN.html');">{{appLiterals.APP.RAKCOMMONLITERALS.TOKEN_FORGOT_PIN}}</span>  
+			 <span  class="forgotRAKTokenPIN" ng-show="buildType=='CORP';" ng-click="rakServiceReq.fetchDisclaimer('ForgotRAKTokenPINCorporate.html');">{{appLiterals.APP.RAKCOMMONLITERALS.TOKEN_FORGOT_PIN}}</span> 
+		
+
+			
+
+			</div>
+				<div class="label-wrap">
+
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-full rak-back rak-btn-large-text margin-top10px redButton"
+						ng-click="rak2FARegister.EzComToken.generateEzComTokenNumber(rak2FARegister.RegistrationModel.ezComAccountPin);setEvent('onRakGeneratedPin');">
+						{{appLiterals.APP.RAK_2FA_MESSAGES.GENERATE_BUTTON}}</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</div>
+

@@ -1,0 +1,64 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.RakDiscApply.initDiscApplyDetailsSuccessData(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">			
+		
+	
+			
+			<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.RakDiscApply.successMsg}}</span>
+				</div>
+			</div>
+		<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DIS_N_APPLY}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+				      </h2>		       
+		 </div>
+
+			
+			
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+					<!--<div class="col-sm-1">-->
+
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.NAME}}</span>
+						<span class="rak-sum-label black">{{rakServiceReq.RakDiscApply.name}}</span>
+					</p>
+					
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.MOBLNO}}</span>
+						<span class="rak-sum-label black">{{rakServiceReq.RakDiscApply.mobileNo}}</span>
+					</p>
+					
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.EMAIL}}</span>
+						<span class="rak-sum-label black">{{rakServiceReq.RakDiscApply.email}}</span>
+					</p>
+					
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.SELTPROD}}</span>
+						<span class="rak-sum-label black">{{rakServiceReq.RakDiscApply.selectedProd}}</span>
+					</p>
+					
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.REMARKS}}</span>
+						<span class="rak-sum-label black">{{rakServiceReq.RakDiscApply.remarks}}</span>
+					</p>
+					
+					
+					<div class="label-wrap">
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small"
+							ng-click='rakServiceReq.RakDiscApply.fromDashboard=false;setEvent("onRakDiscApplyDetailsHomeBtnClicked");'>
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+					</div>
+					
+					<div class="col-sm-1"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

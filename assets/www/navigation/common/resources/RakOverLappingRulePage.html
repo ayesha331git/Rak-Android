@@ -1,0 +1,23 @@
+
+
+<!-- <div class="TopBenificiary">
+<div  class="backArrow" ng-click="rakCorpInit.corpModel.rulesFlag=false;" ></div>
+<div><input type="text" placeholder="Enter Rule" class="live-search-box" ng-model="searchText"></div>
+</div>
+ -->
+
+<div class="TopBenificiary" ng-init="rakCorpInit.corpModel.searchText=''";>
+<a ><img class="TopBenificiary1" src="images/arrow.png" ng-click="rakCorpInit.corpModel.rulesFlag=false;" alt="" width="16" height="15" align="absmiddle"></a> &nbsp;&nbsp;&nbsp;
+<!-- <a ><img class="TopBenificiary1" src="images/arrow.png" ng-click="rakCorpInit.corpModel.rulesFlag=false;" alt="" width="16" height="15" align="absmiddle"></a> &nbsp;&nbsp;&nbsp; <input type="text" placeholder="Enter Rules" class="live-search-box" maxlength="32" ng-model="rakCorpInit.corpModel.searchText"> -->
+</div>
+<div class="BottomBenificiary" >
+<ul class="live-search-list"  ng-repeat="bank in rakCorpInit.corpModel.ruleAuthority[0].rules ">
+<li data-search-term="{{bank.descValue}}" ng-click="rakCorpInit.corpModel.rulesFlag=false;rakCorpInit.corpModel.selectedRuleId=bank.ruleId;rakCorpInit.corpModel.loopCount=bank.noOfApprovers;rakCorpInit.corpModel.index=bank.index;rakCorpInit.corpModel.selectedRuleDescription=bank.descValue;rakCorpInit.corpModel.lookUpvalidationReqd=true;rakCorpInit.corpModel.rulesFlag=false;pageErrorArr['rakCorpInit.corpModel.selectedRuleDescription']=null">
+{{bank.descValue}}
+</li>
+<!-- <li data-search-term="ajay 2159-8845-345 hsbc bank, dubai"><strong>Ajay</strong><br> 2159-8845-345 <br>HSBC Bank, Dubai</li>
+<li data-search-term="abhishek 2159-8845-345 hsbc bank, dubai"><strong>Abhishek</strong><br> 2159-8845-345 <br>HSBC Bank, Dubai</li>
+<li data-search-term="gaurav 2159-8845-345 hsbc bank, dubai"><strong>Gaurav</strong><br> 2159-8845-345 <br>HSBC Bank, Dubai</li>
+<li data-search-term="sandip 2159-8845-345 hsbc bank, dubai"><strong>Sandip</strong><br> 2159-8845-345 <br>HSBC Bank, Dubai</li> -->
+</ul>
+</div>

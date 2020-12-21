@@ -1,0 +1,126 @@
+
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakAccounts.rakValuationEnrollConfirm(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="money-block">
+							<ul>
+								<li class="active">
+									{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.ENROLL}}</li>
+								<li ng-click="setEvent('onRakValuationUpgradeValHomeClick');">
+									{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.UPGRADE}}</li>
+
+							</ul>
+						</div>
+						<!-- Heading fix-start -->
+						<div class="main-form-heading-ServiceReq"> 
+			                      <h2 class="rakBenfHeader">{{appLiterals.APP.RAKBURGER.RAK_VALUE_COLLECTION}}
+			                      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>                
+			                      </h2>              
+						</div>
+						<!-- Heading fix-end -->
+						<div
+							class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh">
+
+							<div class="">
+								<div class="">
+									<div class="">
+
+										<p class="rak-sum-txt"
+											ng-show="rakAccounts.RakValuationEnroll.accountType=='ODA'">
+											<span class="rak-sum-label">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.AC_NO}}
+											</span> <span class="rak-sum-label black">{{rakAccounts.RakValuationEnroll.accountNumber}}</span>
+										</p>
+
+										<p class="rak-sum-txt"
+											ng-show="rakAccounts.RakValuationEnroll.accountType=='CCD'">
+											<span class="rak-sum-label">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CCD_NO}}
+											</span> <span class="rak-sum-label black">{{rakAccounts.RakValuationEnroll.accountNumber}}</span>
+										</p>
+
+										<p class="rak-sum-txt">
+											<span class="rak-sum-label">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.PACKNAME}}
+											</span> <span class="rak-sum-label black">{{rakAccounts.RakValuationEnroll.packageName}}</span>
+										</p>
+
+										<p class="rak-sum-txt">
+											<span class="rak-sum-label">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CHARGE}}
+											</span> <span class="rak-sum-label black">{{rakAccounts.RakValuationEnroll.packageCharge}}</span>
+										</p>
+
+
+
+
+										<div class="label-wrap"
+											ng-show="rakAccounts.RakValuationEnroll.authStatus">
+
+											<fin-input type="password_text"
+												model="rakAccounts.RakValuationEnroll.txnPwd"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+												model="rakAccounts.RakValuationEnroll.txnPwd"
+												ng-show="rakAccounts.RakValuationEnroll.authMode==txnpwdString">
+											</fin-input>
+											
+										<div
+											ng-show="rakAccounts.RakValuationEnroll.authMode==otpString">
+											<div
+												ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+												<fin-input type="password_num"
+													model="rakAccounts.RakValuationEnroll.txnPwd"
+													display-row="full"
+													placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}"
+													validation-flag='pageErrorArr["rakAccounts.RakValuationEnroll.txnPwd"]'></fin-input>
+											</div>
+
+
+											<div class="rakwidth28 rakModeDropdown"
+												ng-show='rakHome.otpModel.otpModesList.length>0'
+												ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+
+												<fin-input type="dropdown" option-array="toModeArray"
+													model="rakHome.otpModel.otpModeSelected" display-row="full"
+													placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+												<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+
+											</div>
+											<button type="button"
+												class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+												ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');">
+												{{appLiterals.APP.RAK_COMMON.RESEND_OTP}}</button>
+
+										</div>
+
+
+										<!--  CHANGES FOR RESEND OTP END -->
+
+
+
+								
+									</div>
+									
+											<div class="label-wrap">
+											<button type="button"
+												class="btn--special-btn btn-middle rak-button-small btn--back"
+												ng-click="setEvent('onRakValuationBackBtnClicked');">
+												{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+											<button type="button"
+												class="btn--special-btn btn-middle rak-button-small"
+												ng-click="setEvent('onRAKValuationEnrollSubmitClick');">
+												{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}</button>
+										</div>
+										<div class="col-sm-1"></div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	</div>
+	</div>

@@ -1,0 +1,21 @@
+{
+  "pageNavigation":
+  [
+  		{ "RetailUserNetBankingLoginRegistrationPage" :
+  			[
+  				{ "eventName" : "onRegisterTouched",
+  				"action" : "navigation",
+  				"actionType":"navigation",
+  				"successPage" : {
+  								"pageName": "RetailUserLoginPage"
+  								},
+  				"errorPage" : {
+  								"pageName": "RetailUserLoginPage"
+  								}
+  				}
+  			]
+  		}
+  ],
+  	"subFeatureName": "RetailUserNetBankingLoginRegistration",
+  	"startPage": "RetailUserNetBankingLoginRegistrationPage"
+}

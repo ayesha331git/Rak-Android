@@ -1,0 +1,89 @@
+{
+  "pageNavigation":
+  [
+  		{ "RetailUserIndependentLoginRegistrationPage" :
+  			[
+  				{ "eventName" : "onRegisterTouched",
+  				"action" : "navigation",
+  				"actionType":"navigation",
+  				"successPage" : {
+  								"pageName": "RetailUserIndependentLoginRegistrationCredsPage"
+  								},
+  				"errorPage" : {
+  								"pageName": "RetailUserIndependentLoginRegistrationPage"
+  								}
+  				}
+  			]
+  		},
+  		{ "RetailUserIndependentLoginRegistrationCredsPage" :
+  			[
+  				{ "eventName" : "onRegisterHasCredsClicked",
+  				"action" : "navigation",
+  				"actionType":"navigation",
+  				"successPage" : {
+  								"pageName": "RetailUserIndependentLoginRegistrationChannelsPage"
+  								},
+  				"errorPage" : {
+  								"pageName": "RetailUserIndependentLoginRegistrationCredsPage"
+  								}
+  				},
+  				{ "eventName" : "onRegisterNoCredsClicked",
+  				"action" : "navigation",
+  				"actionType":"navigation",
+  				"successPage" : {
+  								"pageName": "RetailUserIndependentLoginRegistrationUserDetailsPage"
+  								},
+  				"errorPage" : {
+  								"pageName": "RetailUserIndependentLoginRegistrationCredsPage"
+  								}
+  				}
+
+  			]
+  		},
+  		{ "RetailUserIndependentLoginRegistrationChannelsPage" :
+  			[
+  				{ "eventName" : "onRegisterChannelsClicked",
+  				"action" : "navigation",
+  				"actionType":"navigation",
+  				"successPage" : {
+  								"subFeature": "RetailUserMBankingActivation",
+  								"pageName": "RetailUserMBankingActivationAuthenticatePage"
+  								},
+  				"errorPage" : {
+  								"pageName": "RetailUserIndependentLoginRegistrationChannelsPage"
+  								}
+  				}
+  			]
+  		},
+  		{ "RetailUserIndependentLoginRegistrationUserDetailsPage" :
+  			[
+  				{ "eventName" : "onRegisterUserDetailsClicked",
+  				"action" : "navigation",
+  				"actionType":"navigation",
+  				"successPage" : {
+  								"pageName": "RetailUserIndependentLoginRegistrationCardDetailsPage"
+  								},
+  				"errorPage" : {
+  								"pageName": "RetailUserIndependentLoginRegistrationUserDetailsPage"
+  								}
+  				}
+  			]
+  		},
+  		{ "RetailUserIndependentLoginRegistrationCardDetailsPage" :
+  			[
+  				{ "eventName" : "onRegisterCardDetailsClicked",
+  				"action" : "navigation",
+  				"actionType":"navigation",
+  				"successPage" : {
+  								"pageName": "RetailUserIndependentLoginRegistrationChannelsPage"
+  								},
+  				"errorPage" : {
+  								"pageName": "RetailUserIndependentLoginRegistrationCardDetailsPage"
+  								}
+  				}
+  			]
+  		}
+  ],
+  	"subFeatureName": "RetailUserIndependentLoginRegistration",
+  	"startPage": "RetailUserIndependentLoginRegistrationPage"
+}

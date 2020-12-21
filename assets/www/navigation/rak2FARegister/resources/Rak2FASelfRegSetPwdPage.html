@@ -1,0 +1,211 @@
+
+<div ng-init="rak2FARegister.common.flag=false;rak2FARegister.RegistrationModel.showSetPinPage=='true';rakSeamLessLogin.RakSeamLessLoginModel.IsUserMigrated='Y';rak2FARegister.RegistrationModel.chkOtpValidation(successResponse.responsesList)" >
+<div ng-show="rak2FARegister.common.registerOrErrorPopupFlag==false">
+<div class="full-page-screen"  ></div>
+
+<div class="confirmation-content-container">
+    <div class="message-box-new rakTop25">
+        <div>
+            <p class="round-icon-new">
+            <span class="app app-alert pop-alert-icon rak-color"></span>
+            </p>
+
+        </div>
+
+        <div class="conf-txt-label rak-black-color">
+          {{appLiterals.APP.RAK_2FA_MESSAGES.WANT_TO_REGISTER}}
+        </div>
+		<div class="conf-btn-wrap_alert rakpaddingBottom10 ">
+
+
+
+
+
+            <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click='rak2FARegister.RegistrationModel.navigateToPreviousFlow();'>
+                 &nbsp; {{appLiterals.APP.RAK_COMMON.NO}} &nbsp;
+            </button>
+
+            <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rak2FARegister.common.registerOrErrorPopupFlag='undefined';rak2FARegister.RegistrationModel.showSetPinPage=true" >
+                &nbsp; {{appLiterals.APP.RAK_COMMON.YES}} &nbsp;
+            </button>
+
+        </div>
+
+
+
+
+    </div>
+</div>
+</div>
+</div>
+
+
+<div ng-init="rak2FARegister.common.flag=false;rak2FARegister.RegistrationModel.showSetPinPage=='true';rak2FARegister.RegistrationModel.chkOtpValidation(successResponse.responsesList);" >
+<div ng-show="rak2FARegister.common.registerOrErrorPopupFlag==true">
+<div class="full-page-screen"  ></div>
+
+<div class="confirmation-content-container">
+    <div class="message-box-new rakTop25">
+        <div>
+            <p class="round-icon-new">
+            <span class="app app-alert pop-alert-icon rak-color"></span>
+            </p>
+
+        </div>
+
+        <div class="conf-txt-label rak-black-color">
+          {{appLiterals.APP.RAK_2FA_MESSAGES.REGISTER_NOT_ALLOWED}}
+        </div>
+		<div class="conf-btn-wrap_alert rakpaddingBottom10 ">
+
+
+
+
+
+            <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click='rak2FARegister.RegistrationModel.navigateToPreviousFlow();' >
+                 &nbsp; {{appLiterals.APP.COMMON.BUTTON.OK}} &nbsp;
+            </button>
+
+
+
+        </div>
+
+
+
+
+    </div>
+</div>
+</div>
+</div>
+		<div
+			ng-init="rak2FARegister.common.flag=false;rak2FARegister.RegistrationModel.chkOtpValidation(successResponse.responsesList)">
+			<div ng-show="rak2FARegister.RegistrationModel.otpCheck=='true'">
+				<div class="full-page-screen"></div>
+				<div class="confirmation-content-container">
+					<div class="message-box-new">
+         				<div class="message-box-new">
+         				
+         				 <div>
+				            <p class="round-icon-new">
+				            <span class="app app-alert pop-alert-icon rak-color"></span>
+				            </p>
+				
+				        </div>
+						<div>
+						<div class="otp-txt-label rak-black-color">{{rak2FARegister.RegistrationModel.otpMessage}}</div>
+						</div>
+
+
+						<div class="otp-btn-wrap">
+							<button type="button" class="btn--otppri-btn rak-grey-color" ng-click='rak2FARegister.RegistrationModel.otpCheck=false;setGlobalEvent("onLoginClick");'> &nbsp; {{alertOverlayObj.okText}}&nbsp;</button>
+        				</div>
+						</div>
+				</div>
+				</div>
+				
+			</div>
+		</div>
+<div class="account-page">
+	<div class="col-sm-11">
+
+		<div class="finacle-container"
+			ng-init="rak2FARegister.RegistrationModel.setEzComAccountPin='';rak2FARegister.RegistrationModel.setEzComAccountPinConfirm='';setSingleStepRealmAuthFailure();rak2FARegister.RegistrationModel.initSuccess(successResponse.responsesList);dashboard.init2FAPush();">
+			<div ng-show="rak2FARegister.RegistrationModel.showSetPinPage==true">
+			<div class="row">
+				<div class="col-sm-1 rakDblheight"></div>
+				<div class="login-form">
+
+
+					<div class="center rakFont10">
+						
+                        
+                        <div class="rak-logintab"
+                            ng-click="rak2FARegister.registerSuccess();">
+                            <span class="rak-black-color login-label">
+                                {{appLiterals.APP.RAK_LOGIN_PAGE.LOGIN}} </span>
+                        </div>
+                        
+                        
+
+					
+						<div class="rak-logintab  border-left"
+							ng-show="rak2FARegister.RegistrationModel.isRegisterClicked">
+							<span class="login-label rak-color border-bottom">
+								{{appLiterals.APP.RAK_LOGIN_PAGE.TOKEN_REGISTER}}</span>
+						</div>
+
+				
+					
+
+					</div>
+
+					<div class="selfReg-main-form-heading margin-top10px">
+						<div>
+							<span class="rak-black-color login-label-selfReg">{{appLiterals.APP.RAK_2FA_MESSAGES.ENTERPIN_HEAD}}</span>
+
+							<ul class="process-steps">
+								<li></li>
+								<li></li>
+								<li></li>
+								
+								<li class="active"></li>
+								<li ></li>
+							</ul>
+
+						</div>
+					</div>
+
+
+					<div class="rakWidth100Percent rakNicknameScroll rak-cont-paddingvh">
+						<div class="">
+                            
+                            <div class="rak-selfReg-lable">
+                                <p>{{appLiterals.APP.RAK_2FA_MESSAGES.PIN_SETUP_MSG1}} {{rak2FARegister.constants.PINLENGTH}}{{appLiterals.APP.RAK_2FA_MESSAGES.PIN_SETUP_MSG2}}</p>
+                            </div>
+
+
+							<div>
+
+
+
+</div>
+
+
+								<fin-input type="password_num"
+									model="rak2FARegister.RegistrationModel.setEzComAccountPin" max-length="{{rak2FARegister.constants.PINLENGTH}}"
+									validation-flag='pageErrorArr["rak2FARegister.RegistrationModel.setEzComAccountPin"]'
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_2FA_MESSAGES.ENTERPIN}}"
+									ng-keyup="rak2FARegister.LoginTxnPwdModel.currentPasswordType=rak2FARegister.passwordType.Login;"></fin-input>
+
+								<fin-input type="password_num"
+									model="rak2FARegister.RegistrationModel.setEzComAccountPinConfirm"  max-length="{{rak2FARegister.constants.PINLENGTH}}"
+									validation-flag='pageErrorArr["rak2FARegister.RegistrationModel.setEzComAccountPinConfirm"]'
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_2FA_MESSAGES.REENTERPIN}}"></fin-input>
+
+
+							
+
+
+						
+
+
+							<div class="label-wrap">
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small btn--back "
+									ng-click="rak2FARegister.registerSuccess();">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CANCEL}}</button>
+
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small "
+									ng-click="rak2FARegister.common.flag='false';rak2FARegister.initTxnPayLoadGeneration(rak2FARegister.EzComToken.payLoadGenerationReceivedData);">
+									{{appLiterals.APP.RAKCOMMONLITERALS.PROCEED}}</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+	</div>

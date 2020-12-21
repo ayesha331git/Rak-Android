@@ -1,0 +1,120 @@
+<div class="finacle-container" ng-init="rakPayCards.rakInvGold.initSuccessPage(successResponse.responsesList)">
+	<div class="account-page">
+     <div class="col-sm-11">
+	 <div class="app-title-wrapper">
+
+		<ng-include  src="'./navigation/rakPayCards/resources/RakBuySellGoldTabPage.html'"> </ng-include>
+
+            
+            <div class="summary-BenfReq main-form-heading-ServiceReq">
+				<div class="iconDivBenf">
+					<span class="infoIconBenf"></span><span class="success">{{rakPayCards.common.successMessage}}</span>
+				</div>
+			</div>
+
+
+	 <div class="bg-color  rakScrollDiv rak-cont-paddingforMultipleBillPay" >
+
+	    <div class="" >
+	      <div class="">
+
+						<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.TXT_FROM}}</span>
+				<span class="rak-sum-label black">{{rakPayCards.common.fromDisplayString}}</span>
+				</p>
+
+
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.TXT_TO}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.toDisplayString}}</span>
+				</p>
+
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.QUANTITY}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.amount}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakPayCards.rakInvGold.txnType==rakPayCards.BuySellGoldTypeConstant.BUY" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.BUYRATE}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.effectiveRate}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakPayCards.rakInvGold.txnType==rakPayCards.BuySellGoldTypeConstant.SELL">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.SELLRATE}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.effectiveRate}}</span>
+				</p>
+
+
+				<p class="rak-sum-txt" ng-show="rakPayCards.rakInvGold.txnType==rakPayCards.BuySellGoldTypeConstant.BUY">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.PURCHASEVAL}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.valueAmount}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakPayCards.rakInvGold.txnType==rakPayCards.BuySellGoldTypeConstant.SELL && rakPayCards.common.valueAmount">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.SELLVAL}} </span>
+					<span class="rak-sum-label black">{{rakPayCards.common.valueAmount}}</span>
+				</p>
+	
+				<p class="rak-sum-txt" ng-show="rakPayCards.common.creditAmount">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.NETAMOUNT}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.creditAmount}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.EQTXAU}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.eqtXAU}}</span>
+				</p>
+
+		<!-- 		<p class="rak-sum-txt" ng-show="rakPayCards.rakInvGold.txnType==rakPayCards.BuySellGoldTypeConstant.SELL && rakPayCards.common.currentRate">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.CURRENTRATE}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.currentRate}}</span>
+				</p> -->
+
+
+				<p class="rak-sum-txt" >
+					<span  class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.DATE}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.transactionDate}}</span>
+				</p>
+				<p class="rak-sum-txt" ng-hide="rakPayCards.rakInvGold.selectedFrequency=='O'" >
+					<span  class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.FREQUENCY}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.frequencyType}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="rakPayCards.rakInvGold.selectedFrequency=='O'">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.FREQUENCY}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.FREQ}}</span>
+				</p>
+
+			 	<p class="rak-sum-txt" ng-show="rakPayCards.rakInvGold.selectedFrequency!='O'">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.NOOFTRANSFERS}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.noOfTransfer}}</span>
+				</p>
+
+<!--  CHANGES FIX FOR PROUAT-634 START -->
+<div class="label-wrap">
+<button type="button"  class="btn--special-btn btn-middle rak-button-full rak-back rak-btn-large-text "
+ng-if="rakPayCards.rakInvGold.transactionType==rakPayCards.BUYSELLGOLDTRANSACTIONTYPE.SELLTOACCOUNT || rakPayCards.rakInvGold.transactionType==rakPayCards.BUYSELLGOLDTRANSACTIONTYPE.SELLTOBENF"  ng-click='rakPayCards.rakInvGold.clearSelfTransfersData();
+rakPayCards.utils.clearCommonData();
+setGlobalEvent(rakPayCards.rakInvGold.resolveLandingPage());'> {{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUCCESSPAGE.SEND_AGAIN}}  </button>
+
+ <button type="button" class="btn--special-btn btn-middle rak-button-full rak-back rak-btn-large-text "
+ ng-if="rakPayCards.rakInvGold.transactionType==rakPayCards.BUYSELLGOLDTRANSACTIONTYPE.BUY"  ng-click='rakPayCards.rakInvGold.clearSelfTransfersData();
+ rakPayCards.utils.clearCommonData();rakPayCards.rakInvGold.selectedGoldAccount="0";setGlobalEvent(rakPayCards.rakInvGold.resolveLandingPage());'>  {{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUCCESSPAGE.BUY_AGAIN}}  </button>
+<!--  CHANGES FIX FOR PROUAT-634 END -->
+
+<!-- <button type="button" class="btn--special-btn btn-middle rak-button-small"
+ng-click='fields.browseAccountIndexInt = 0;rakPayCards.rakInvGold.clearSelfTransfersData(); rakPayCards.utils.clearCommonData();
+									rakAccounts.myProducts.navigationType="ProductsGold";
+									rakAccounts.myProducts.navigationFlag=true;
+									fields.mainAccountType="GLD";
+									setGlobalEvent("onGoldBuySellSuccessClick");rakAccounts.clearPage();'> {{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUCCESSPAGE.HOME}} </button> -->
+</div>
+	<div class="col-sm-10"> </div>
+	</div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

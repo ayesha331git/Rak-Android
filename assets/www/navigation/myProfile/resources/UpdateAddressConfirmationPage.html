@@ -1,0 +1,118 @@
+<div id="updateAddressConfirmationPage"
+	class="app app-arrow2 title-right"
+	ng-click="setEvent('onPrevServiceClick')"></div>
+<div class="finacle-container"
+	ng-init="myProfile.initUpdateAddressDetailsConfirm(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper">
+			</div>
+
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12  margin-bottom-20">
+						<div id="updateAddressTitle" class="item-title text-uppercase">{{appLiterals.APP.STEPUP_AUTHENTICATION.CONFIRM_HEADER}}</div>
+					</div>
+
+
+					<div class="col-sm-12">
+
+						<div>
+							<span id="workDesc" class="fut-txt1 text-uppercase" >{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.WRK_ADDRESS}} </span> <span
+								id="workPref" class="fut-txt1 text-uppercase"
+								ng-show={{myProfile.updateAddressModel.prefferedAdd[0]}}>
+								{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.PRF_ADR}} </span>
+						</div>
+
+
+						<div class="account-detail-dash margin-zero">
+							<b id="addressName" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.ADDRESSEE_NAME}}
+							</b><span id="name" class="dash-ac-id">
+								{{myProfile.updateAddressModel.confirmResponse.name}} </span>
+						</div>
+
+
+						<div class="account-detail-dash margin-zero">
+							<b id="addressLine" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.ADDRESS}}
+							</b><span id="mobileDetails" class="dash-ac-id">
+								{{myProfile.updateAddressModel.confirmResponse.workAddressLineOne}}
+								</br>{{myProfile.updateAddressModel.confirmResponse.workAddressLineTwo}}
+								</br>{{myProfile.updateAddressModel.confirmResponse.workAddressLineThree}}
+								</br>{{myProfile.updateAddressModel.confirmResponse.workState}} </br>{{myProfile.updateAddressModel.confirmResponse.workCity}}-{{myProfile.updateAddressModel.confirmResponse.workPostalCode}}
+								</br>{{myProfile.updateAddressModel.confirmResponse.workCountry}}
+							</span>
+						</div>
+
+						
+						<div  class="margin-top-20">
+							<span id="commText" class="fut-txt1 text-uppercase margin-top-20">{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.COMM_ADDRESS}} </span> <span
+								id="commAdd" class="fut-txt1 text-uppercase"
+								ng-show={{myProfile.updateAddressModel.prefferedAdd[1]}}>
+								{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.PRF_ADR}} </span>
+						</div>
+
+
+						<div class="account-detail-dash margin-zero">
+							<b id="addName" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.ADDRESSEE_NAME}}
+							</b><span id="commAddName" class="dash-ac-id">
+								{{myProfile.updateAddressModel.confirmResponse.name}} </span>
+						</div>
+
+
+						<div class="account-detail-dash margin-zero">
+							<b id="commAddLine" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.ADDRESS}}
+							</b><span id="CcommAddValue" class="dash-ac-id">
+								{{myProfile.updateAddressModel.confirmResponse.communicationAddressLineOne}}
+								</br>{{myProfile.updateAddressModel.confirmResponse.communicationAddressLineTwo}}</br>
+								{{myProfile.updateAddressModel.confirmResponse.communicationAddressLineThree}}</br>
+								{{myProfile.updateAddressModel.confirmResponse.communicationState}}</br>
+								{{myProfile.updateAddressModel.confirmResponse.communicationCity}}-{{myProfile.updateAddressModel.confirmResponse.communicationPostalCode}}</br>
+								{{myProfile.updateAddressModel.confirmResponse.communicationCountry}}
+							</span>
+						</div>
+
+
+						<div class="margin-top-20">
+							<span id="permText" class="fut-txt1 text-uppercase">{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.PERMANENT_ADDRESS}} </span> <span 
+							class="fut-txt1 text-uppercase" id="permAddPref"
+								ng-show={{myProfile.updateAddressModel.prefferedAdd[2]}}>
+								{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.PRF_ADR}} </span>
+						</div>
+
+
+						<div class="account-detail-dash margin-zero">
+							<b id="permAddName" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.ADDRESSEE_NAME}}
+							</b><span id="permAddNameValue" class="dash-ac-id">
+								{{myProfile.updateAddressModel.confirmResponse.name}} </span>
+						</div>
+
+
+						<div class="account-detail-dash margin-zero">
+							<b id="permAddDesc" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.ADDRESS}}
+							</b><span id="permAddLineValue" class="dash-ac-id">
+								{{myProfile.updateAddressModel.confirmResponse.permanentAddressLineOne}}
+								</br>{{myProfile.updateAddressModel.confirmResponse.permanentAddressLineTwo}}
+								</br>{{myProfile.updateAddressModel.confirmResponse.permanentAddressLineThree}}
+								</br>{{myProfile.updateAddressModel.confirmResponse.permanentState}}
+								</br>{{myProfile.updateAddressModel.confirmResponse.permanentCity}}-{{myProfile.updateAddressModel.confirmResponse.permanentPostalCode}}
+								</br>{{myProfile.updateAddressModel.confirmResponse.permanentCountry}}
+							</span>
+						</div>
+
+
+						<form ng-submit="setEvent('onSubmit')">
+							<fin-Stepauth></fin-Stepauth>
+
+							<section class="button-wrapper" layout="row"
+								layout-align="center center" layout-wrap>
+								<md-button id="updateAddressConfirm" type="submit"
+									class=" md-raised btn--primary-btn">
+								{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.CONF_BTN}}</md-button>
+							</section>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

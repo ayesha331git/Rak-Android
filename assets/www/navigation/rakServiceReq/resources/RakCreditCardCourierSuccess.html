@@ -1,0 +1,94 @@
+
+  <div class="finacle-container">
+
+	      <div class="account-page">
+	      <div class="col-sm-11">
+
+         <div class="main-form-heading">
+                    	<h2 class="success">{{appLiterals.APP.RAK_SERVICES.RAK_CREDIT_REPLACEMENT.SENT_MSG}}
+                    	<span>{{successResponse.responsesList[0].successMessage}}</span>
+                    	</h2>
+            </div>
+
+			 <div class="bg-color rak-cont-padding rak-scroll-success">
+
+			<div class="row" >
+
+          <div class="">
+
+
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label"> {{appLiterals.APP.RAK_SERVICES.RAK_CREDIT_REPLACEMENT.CREDITCARD}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.ReplacementCCData.creditcardNo}}</span>
+			</p>
+			
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_TEMP_BLK_CREDITCARD.REASON}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.ReplacementCCData.reasonName}}</span>
+			</p>
+
+			<p ng-show="rakServiceReq.ReplacementCCData.reasonName=='Others'"
+				class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_TEMP_BLK_CREDITCARD.OTHER}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.ReplacementCCData.other}}</span>
+			</p>
+
+			
+
+
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">
+					{{appLiterals.APP.RAK_SERVICES.RAK_CREDIT_REPLACEMENT.DISPATCH_HEADER}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_CREDIT_REPLACEMENT.COURIER}}</span>
+			</p>
+
+
+			<p ng-if="rakServiceReq.ReplacementCCData.isDeliveryAddSet == 'true'" class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CREDIT_REPLACEMENT.REGADD}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.ReplacementCCData.registeredAddress}}</span>
+			</p>
+
+
+
+			<p  ng-if="rakServiceReq.ReplacementCCData.isDeliveryAddSet == 'false'" class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CREDIT_REPLACEMENT.OTHERADD}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.ReplacementCCData.otherAddress}}</span>
+			</p>
+
+
+
+			<p class="rak-sum-txt" ng-if="rakServiceReq.ReplacementCCData.AuthrizedPerson== 'true'">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CREDIT_REPLACEMENT.AUTH_NAME}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.ReplacementCCData.authorizedRecipient}}</span>
+			</p>
+
+			<p class="rak-sum-txt" ng-if="rakServiceReq.ReplacementCCData.AuthrizedPerson== 'true'">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CREDIT_REPLACEMENT.AUTH_CONTACT}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.ReplacementCCData.authContactNumber}}</span>
+			</p>
+
+
+
+
+			<p class="rak-sum-txt"  ng-if="rakServiceReq.ReplacementCCData.AuthrizedPerson == 'false'">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CREDIT_REPLACEMENT.CONTACTNUMBER}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.ReplacementCCData.contactNumber}}</span>
+			</p>
+
+			
+			
+		<div class="label-wrap">
+			<!-- <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="setEvent('CCReplacementBackClick')">{{appLiterals.APP.RAK_SERVICES.RAK_CREDIT_REPLACEMENT.HOME}}</button> -->
+				<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakServiceReq.ReplacementCCData.clearReplacementCCData();setEvent('CCReplacementDoneClick')">{{appLiterals.APP.RAKCOMMONLITERALS.DONE}}</button>
+			</div>
+
+         	</div>
+         	</div>
+
+          </div>
+          <div class="col-sm-1"> </div>
+        </div>
+      </div>
+    </div>
+
+

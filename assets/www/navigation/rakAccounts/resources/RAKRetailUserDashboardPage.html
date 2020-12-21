@@ -1,0 +1,282 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container"
+		      ng-init='
+		        myProfile.rememberUserID.rememberUserIDChk==true? jsonStore.addDoc(fields.finacleUserCorporateId):jsonStore.removeDoc(fields.finacleUserCorporateId);
+		        oppAccountIndex = 0;
+		        loanAccountIndex = 0;
+		        depositAccountIndex = 0;
+		        fields.selectAcccountMax = 0;
+		        successResponse.invocationResult=successResponse.hasOwnProperty("responsesList")?successResponse.responsesList[0]:successResponse.invocationResult;
+		        fields.customerInfo = successResponse.invocationResult;
+		        dashboard.setCustomerName(successResponse.invocationResult.customerName,successResponse.invocationResult.userType);
+		        creditCard.getList(successResponse.invocationResult);
+		        rakAccounts.accountList(successResponse.invocationResult);
+		        rakHome.getBurgerMenuHeaderContent(successResponse.invocationResult);' >
+
+
+		<div class="nano menu-scroll dash-tiles rak-dash">
+		<div class="nano-content">
+		  <div class="dashboard-body" ng-show="successResponse.invocationResult.operativeAccountsList.length > 0">
+
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+				<div class="dashboard-item-title">
+					  <div class="rak-item-title"> <i class="spirt-icon account-icon"></i> 
+					  {{appLiterals.APP.RAK_DASHBOARD.ACCOUNTS}} </div>
+					  <div style="float:right;">{{appLiterals.APP.RAK_DASHBOARD.SWIPE_MSG}}</div>
+					</div>
+
+		        <!-- <div class="touch-press dashboard-item-body" class="touch-press" ng-hide="successResponse.invocationResult.operativeAccountsList.length == 0"> -->
+					<div class="dashboard-item-body" class="" ng-hide="successResponse.invocationResult.operativeAccountsList.length == 0">
+		          <div class="swiper-container rak-leftborder" dir="rtl" ng-repeat="accountVO in successResponse.invocationResult.operativeAccountsList">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide balance-table" 
+								ng-click='fields.selectedOprAccount = accountVO;
+								fields.selectedAccount = accountVO;
+								fields.accountAmountLabel = "Available Balance";
+								fields.accountBlockTitle = "OPERATIVE";
+								fields.accountDetailSource = "DASHBOARD";
+								dashboard.mmid.accountIndex=accountVO.accountIndex.toString();
+								fields.browseAccountIndexInt = accountVO.accountIndex;
+								rakAccounts.RAKAccountsModel.selectedAccount= accountVO.accountIndex;
+								fields.dashboardResponseList = successResponse.invocationResult.operativeAccountsList;
+								setEvent("onOprAccountDetailsClick");'>
+									<div class="rak-swipe-dev">
+										<div class="rak-swipe-acctText rak-color">
+										 {{accountVO.balance}}</div>
+										<div class="rak-swipe-caption">
+										{{appLiterals.APP.RAK_DASHBOARD.AVAILABLE_BALANCE}}</div>
+										<span style="width: 5%;float: right;margin-top: -30px;"><a class="balance-link" data-tab="record-1"><img src="images/arrow-right1.png" alt=""></a></span>
+									</div>
+									<div class="rak-swipe-dev">
+										<div class="rak-swipe-acctText">{{accountVO.subAccountTypeDesc}}</div>
+										<div class="rak-swipe-caption">{{accountVO.accountId}}</div>
+									</div>
+
+								</div>
+								<div class="swiper-slide rak-swipe-background" >
+									<div class="rak-swipe-background1 border-left-white"><img src="images/debit-card.png" alt=""><p>Manage Debit Card</p></div>
+									<div class="rak-swipe-background1"><img src="images/statement.png" alt=""><p>Statement</p></div>
+								</div>
+							</div>
+					</div>
+		        </div>
+
+		      </div>
+		    </div>
+		  </div>
+
+		  <div class="dashboard-body dashboard-pad" ng-show="successResponse.invocationResult.depositAccountsList.length > 0">
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+		        <div class="dashboard-item-title">
+		          <div class="rak-item-title"> <i class="spirt-icon deposits-icon"></i> {{appLiterals.APP.RAK_DASHBOARD.DEPOSITS}} </div>
+		        </div>
+
+		        <div class="dashboard-item-body" ng-hide="successResponse.invocationResult.depositAccountsList.length == 0">
+
+				  <div class="swiper-container rak-leftborder" dir="rtl" ng-repeat="depAccountVO in successResponse.invocationResult.depositAccountsList">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide balance-table" ng-click='fields.selectedDepositAccount = depAccountVO; 
+								fields.selectedAccount = depAccountVO;
+								 fields.accountAmountLabel = "Ledger Amount"; fields.accountBlockTitle = "DEPOSIT"; 
+								 fields.accountDetailSource = "DASHBOARD"; 
+								 fields.browseAccountIndexInt = depAccountVO.accountIndex; 
+								 rakAccounts.RAKAccountsModel.selectedAccount= depAccountVO.accountIndex; 
+								 fields.dashboardResponseList = successResponse.invocationResult.depositAccountsList; setEvent("onDepositAccountDetailsClick");' >
+									<div class="rak-swipe-dev">
+										<div class="rak-swipe-acctText rak-color">{{depAccountVO.currency}} {{parseMoney(depAccountVO.balance).rs}} {{parseMoney(depAccountVO.balance).ps}}</div>
+										<div class="rak-swipe-caption">{{appLiterals.APP.RAK_DASHBOARD.DEPOSIT_AMOUNT}}</div>
+										<span style="width: 5%;float: right;margin-top: -30px;"><a class="balance-link" data-tab="record-1"><img src="images/arrow-right1.png" alt=""></a></span>
+									</div>
+									<div class="rak-swipe-dev">
+										<div class="rak-swipe-acctText">{{depAccountVO.accountNickName}}</div>
+										<div class="rak-swipe-caption">{{depAccountVO.accountId}}</div>
+									</div>
+
+								</div>
+								<div class="swiper-slide rak-swipe-background" >
+									<div class="rak-swipe-background1 border-left-white"><p>Manage Debit Card</p></div>
+									<div class="rak-swipe-background1"><p>Statement<p/></div>
+								</div>
+							</div>
+					</div>
+
+		        </div>
+
+		      </div>
+		    </div>
+		  </div>
+		  <div class="dashboard-body dashboard-pad" ng-show="successResponse.invocationResult.loanAccountsList.length > 0">
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+		        <div class="dashboard-item-title">
+		          <div class="rak-item-title"> <i class="spirt-icon loan-finance-icon"></i> {{appLiterals.APP.RAK_DASHBOARD.LOANS}} </div>
+		        </div>
+
+		        <div class="dashboard-item-body" ng-hide="successResponse.invocationResult.loanAccountsList.length == 0">
+
+				  <div class="swiper-container rak-leftborder" dir="rtl" ng-repeat="lnAccountVO in successResponse.invocationResult.loanAccountsList">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide balance-table" ng-click='fields.selectedLoanAccount = lnAccountVO; 
+								fields.selectedAccount = lnAccountVO; fields.accountAmountLabel = "Current Outstanding"; 
+								fields.accountBlockTitle = "LOANS"; fields.accountDetailSource = "DASHBOARD";
+								 fields.browseAccountIndexInt = lnAccountVO.accountIndex; 
+								 rakAccounts.RAKAccountsModel.selectedAccount = lnAccountVO.accountIndex; 
+								 fields.dashboardResponseList = successResponse.invocationResult.loanAccountsList;'>
+									<div class="rak-swipe-dev">
+										<div class="rak-swipe-acctText rak-color">{{lnAccountVO.currency}} {{parseMoney(lnAccountVO.balance).rs}} {{parseMoney(lnAccountVO.balance).ps}}</div>
+										<div class="rak-swipe-caption">{{appLiterals.APP.RAK_DASHBOARD.TOTAL_OUTSTANDING}}</div>
+										<span style="width: 5%;float: right;margin-top: -30px;"><a class="balance-link" data-tab="record-1"><img src="images/arrow-right1.png" alt=""></a></span>
+									</div>
+									<div class="rak-swipe-dev">
+										<div class="rak-swipe-acctText">{{lnAccountVO.accountNickName}}</div>
+										<div class="rak-swipe-caption">{{lnAccountVO.accountId}}</div>
+									</div>
+
+								</div>
+								<div class="swiper-slide rak-swipe-background" >
+									<div class="rak-swipe-background1 border-left-white"><p>Manage Debit Card</p></div>
+									<div class="rak-swipe-background1"><p>Statement</p></div>
+								</div>
+							</div>
+					</div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+
+
+		  <div class="dashboard-body dashboard-pad" ng-show="creditCard.ccList.length > 0">
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+		    <div class="dashboard-item-title">
+		          <div class="rak-item-title"><i class="spirt-icon credit-icon"></i> {{appLiterals.APP.RAK_DASHBOARD.CARDS}} </div>
+		        </div>
+
+		        <div class="dashboard-item-body" ng-hide="creditCard.ccList.length == 0">
+
+					<div class="swiper-container rak-leftborder" dir="rtl" ng-repeat="ccListVO in creditCard.ccList">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide balance-table">
+									<div class="rak-swipe-dev">
+										<div class="rak-swipe-acctText rak-color">{{ccListVO.amountDue.split(' ')[1]}} {{parseMoney(ccListVO.amountDue).rs}} {{parseMoney(ccListVO.amountDue).ps}}</div>
+										<div class="rak-swipe-caption">{{appLiterals.APP.RAK_DASHBOARD.CURRENT_BALANCE}}</div>
+										<span style="width: 5%;float: right;margin-top: -30px;"><a class="balance-link" data-tab="record-1"><img src="images/arrow-right1.png" alt=""></a></span>
+									</div>
+									<div class="rak-swipe-dev">
+										<div class="rak-swipe-acctText">{{ccListVO.subAccountTypeDesc}}</div>
+										<div class="rak-swipe-caption">{{ccListVO.creditCardNo}}</div>
+									</div>
+
+								</div>
+								<div class="swiper-slide rak-swipe-background" >
+									<div class="rak-swipe-background1 border-left-white"><p>Manage Debit Card</p></div>
+									<div class="rak-swipe-background1"><p>Statement</p></div>
+								</div>
+							</div>
+					</div>
+		        </div>
+
+		      </div>
+		    </div>
+		    </div>
+		    <div class="dashboard-body dashboard-pad" ng-show="successResponse.invocationResult.goldAccountsList.length > 0">
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+		    <div class="dashboard-item-title">
+		          <div class="rak-item-title"><i class="spirt-icon credit-icon"></i> {{appLiterals.APP.RAK_DASHBOARD.GOLD_ACCOUNTS}} </div>
+		        </div>
+
+		        <div class="dashboard-item-body" ng-show="successResponse.invocationResult.goldAccountsList.length > 0">
+
+					<div class="swiper-container rak-leftborder" dir="rtl" ng-repeat="goldAccntVO in successResponse.invocationResult.goldAccountsList">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide balance-table">
+									<div class="rak-swipe-dev">
+										<div class="rak-swipe-acctText rak-color">{{goldAccntVO.amountDue.split(' ')[1]}} {{parseMoney(goldAccntVO.amountDue).rs}} {{parseMoney(goldAccntVO.amountDue).ps}}</div>
+										<div class="rak-swipe-caption">{{appLiterals.APP.DASHBOARD.DASHBOARD_PAGE.LOAN_BAL}}</div>
+										<span style="width: 5%;float: right;margin-top: -30px;"><a class="balance-link" data-tab="record-1"><img src="images/arrow-right1.png" alt=""></a></span>
+									</div>
+									<!--  CHANGING GOLD ACCOUNT LITERAL AS FIX OF PROUAT-611 START -->
+									<div class="rak-swipe-dev">
+										<!-- <div class="rak-swipe-acctText">{{goldAccntVO.accountType}}</div> -->
+                                             <div class="rak-swipe-acctText">{{goldAccntVO.subAccountTypeDesc}}</div>
+									</div>
+									<!--  CHANGING GOLD ACCOUNT LITERAL AS FIX OF PROUAT-611 END -->
+
+								</div>
+								<div class="swiper-slide rak-swipe-background" >
+									<div class="rak-swipe-background1 border-left-white"><p>Manage Debit Card</p></div>
+									<div class="rak-swipe-background1"><p>Statement</p></div>
+								</div>
+							</div>
+					</div>
+		        </div>
+
+		      </div>
+		    </div>
+		  </div>
+
+
+
+		   <div class="dashboard-body dashboard-pad" ng-show="successResponse.invocationResult.invAccountsList.length > 0">
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+		    <div class="dashboard-item-title">
+		          <div class="rak-item-title"><i class="spirt-icon deposits1-icon"></i> {{appLiterals.APP.RAK_DASHBOARD.INVESTMENTS}} </div>
+		        </div>
+
+		        <div class="dashboard-item-body" ng-show="successResponse.invocationResult.invAccountsList.length > 0">
+
+					<div class="swiper-container rak-leftborder" dir="rtl" ng-repeat="invAccntVO in successResponse.invocationResult.invAccountsList">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide balance-table">
+									<div class="rak-swipe-dev">
+										<div class="rak-swipe-acctText rak-color">{{invAccntVO.amountDue.split(' ')[1]}} {{parseMoney(invAccntVO.amountDue).rs}} {{parseMoney(goldAccntVO.amountDue).ps}}</div>
+										<div class="rak-swipe-caption">{{appLiterals.APP.RAK_DASHBOARD.RELATIONSHIP_VALUE}}</div>
+										<span style="width: 5%;float: right;margin-top: -30px;"><a class="balance-link" data-tab="record-1"><img src="images/arrow-right1.png" alt=""></a></span>
+									</div>
+									<div class="rak-swipe-dev">
+										<div class="rak-swipe-acctText">{{invAccntVO.accountId}}</div>
+										<div class="rak-swipe-caption">{{invAccntVO.creditCardNo}}</div>
+									</div>
+
+								</div>
+								<div class="swiper-slide rak-swipe-background" >
+									<div class="rak-swipe-background1 border-left-white"><p>Manage Debit Card</p></div>
+									<div class="rak-swipe-background1"><p>Statement</p></div>
+								</div>
+							</div>
+					</div>
+		        </div>
+
+		      </div>
+		    </div>
+		  </div>
+
+
+
+		  <div class="scroll-space"></div>
+
+		<div class="fin-txt"></div>
+		<div class="fin-txt"></div>
+
+		  </div>
+		</div>
+
+		    </div>
+
+	</div>
+</div>
+ <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container');
+    </script>

@@ -1,0 +1,65 @@
+<!-- partial code start here-->
+<div class="nano menu-scroll">
+    <div class="nano-content">
+        <div class="finacle-container" ng-init="payee.imps.initDetailsPage(successResponse.responsesList)">
+            <div class="view-detail-wrap">
+                <div class="app app-arrow payee-left" ng-click="setGlobalEvent('onPayeeClick')"> </div>
+                <img src="images/face_default.png" class="payee-circle-img">
+                    <p class="payee-circle-txt">
+                    <span class="payee-first-txt">
+                        {{payee.imps.payeeNickname.charAt(0).toUpperCase()}}{{payee.imps.payeeNickname.split(" ").length > 1 ? payee.imps.payeeNickname.split(" ")[payee.imps.payeeNickname.split(" ").length-1].charAt(0).toUpperCase() : ""}}
+                    </span>
+                    </p>
+                    <p class="second-name"> {{payee.imps.payeeNickname}}</p>
+                    <p class="first-name"> {{payee.imps.payeeNickname}} </p>
+                    
+                    </div>
+            <div ng-show="payee.imps.isIFSC">
+                <div class="beneficiary-black-screen2">
+                </div>
+                
+                <div class="beneficiary-wrap2">
+                    <div class="my-ac-type">
+                        <p class="type-name">Account No.</p>
+                        <p class="trans-no1">{{payee.imps.accountNo==null || payee.imps.accountNo=="" ? "-" : payee.imps.accountNo}}</p>
+                    </div>
+                    
+                    <div class="my-ac-type">
+                        <p class="type-name">IFSC Code</p>
+                        <p class="trans-no1"> {{payee.imps.ifscCode==null || payee.imps.ifscCode=="" ? "-" : payee.imps.ifscCode}} </p>
+                    </div>
+                </div>
+                
+                <div class="fin-txt"></div>
+            </div>
+            <div ng-show="payee.imps.isMMID || payee.imps.isMER">
+                <div class="benf-black-scr-min">
+                </div>
+                
+                <div class="beneficiary-wrap3">
+                    <div class="my-ac-type">
+                        <p class="type-name">MMID No.</p>
+                        <p class="trans-no1"> {{payee.imps.mmid == null || payee.imps.mmid == "" ? "-" : payee.imps.mmid}} </p>
+                    </div>
+                    <div class="my-ac-type">
+                        <p class="type-name">Mobile No.</p>
+                        <p class="trans-no1">{{payee.imps.mobileNo == null || payee.imps.mobileNo == "" ? "-" : payee.imps.mobileNo}}</p>
+                    </div>
+                    <div class="my-ac-type" ng-show="payee.imps.isMER">
+                        <p class="type-name">Payee Reference.</p>
+                        <p class="trans-no1">{{payee.imps.merRefrence == null || payee.imps.merRefrence == "" ? "-" : payee.imps.merRefrence}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-10">
+                <button type="button" class="btn--init-btn" ng-click="moveMoney.currentSubFeature=moveMoney.subFeature.Payee; setEvent('onIMPSInitiateTransferClick')"> {{appLiterals.APP.PAYEE.BENF_DETPAGE.BTN_INITRANSF}} </button>
+                <button type="button" class="btn--edit-btn"  ng-click="payee.isEditBeneficiaryMode=true;setEvent('onIMPSEditClick')"> {{appLiterals.APP.PAYEE.BENF_DETPAGE.BTN_EDT_DET}} </button>
+                <button type="button" class="btn--delete-btn" ng-click="payee.imps.isDeleteMode=true;setEvent('onIMPSDeleteClick')">  {{appLiterals.APP.PAYEE.BENF_DETPAGE.BTN_DELPAYE}}  </button>
+            </div>
+            
+        </div>
+        <div class="scroll-space"></div>
+    </div>
+</div>
+
+<!--partial code end here-->

@@ -1,0 +1,91 @@
+		<div class="rak-back-header">
+
+			<i class="rak-back-img" ng-click="setEvent('onCancelClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.stopCheques.parseStopChequeInitResponse(successResponse);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<!--  <div class="app-title-wrapper">
+		<div class="title-left"></div>
+		<div class="title-center">{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_STOP.HEADER}}</div>
+		<div class="app app-cancel title-right" ng-click="setEvent('onCancelClick')"></div>
+	  </div> -->
+					<!--  <div class="highlight-color"> </div> -->
+					<div class="bg-color rak-cont-padding rak-scroll">
+						<div class="row">
+							<div class="col-sm-11">
+							
+							 <div class="money-block">
+						          <ul>
+						               <li ng-class="{'active':rakPayCards.payCards,'':!rakPayCards.payCards}" ng-click="rakPayCards.clearTab();rakPayCards.payCards=true;cheque=true;rakServiceReq.stopCheques.model.isSingleChequeFlow=true;rakServiceReq.stopCheques.resetSingleSeriesOnTabSwitch();">{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_STOP.TXT_SNGL}}</li>
+						            <li ng-class="{'active':rakPayCards.cardsTab,'':!rakPayCards.cardsTab}" ng-click="rakPayCards.clearTab();rakPayCards.cardsTab=true;rakPayCards.bankbnftype='';cheque=false;rakServiceReq.stopCheques.model.isSingleChequeFlow=false;rakServiceReq.stopCheques.resetSingleSeriesOnTabSwitch();">{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_STOP.TXT_SER}} </li>
+						            
+						          </ul>
+					        </div>
+							
+								
+								<div
+									ng-init='stopChequeAccountNumberArr=createDropDownOptionArray(rakServiceReq.stopCheques.model.accountNumberList, ["accountNumber"], "index");'>
+									<fin-input type="dropdown"
+										model="rakServiceReq.stopCheques.model.pageUserInputs.accountNumber"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_STOP.PH_ACCNO}}"
+										validation-flag='pageErrorArr["rakServiceReq.stopCheques.model.pageUserInputs.accountNumber"]'
+										option-array="stopChequeAccountNumberArr"></fin-input>
+								</div>
+
+								<div ng-show="cheque">
+									<fin-input type="number"
+										model="rakServiceReq.stopCheques.model.pageUserInputs.singleChequeNumber"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_STOP.PH_CHEQNO}}"
+										validation-flag='pageErrorArr["rakServiceReq.stopCheques.model.pageUserInputs.singleChequeNumber"]'></fin-input>
+								</div>
+
+								<div ng-hide="cheque">
+									<fin-input type="number"
+										model="rakServiceReq.stopCheques.model.pageUserInputs.fromChequeNumber"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_STOP.PH_FROMCHQ}}"
+										validation-flag='pageErrorArr["rakServiceReq.stopCheques.model.pageUserInputs.fromChequeNumber"]'></fin-input>
+									<fin-input type="number"
+										model="rakServiceReq.stopCheques.model.pageUserInputs.toChequeNumber"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_STOP.PH_TOCHEQNO}}"
+										validation-flag='pageErrorArr["rakServiceReq.stopCheques.model.pageUserInputs.toChequeNumber"]'></fin-input>
+								</div>
+								<div
+									ng-init='stopChequeResonsArr=createDropDownOptionArray(rakServiceReq.stopCheques.model.reasonList, ["reasonDescription"], "reasonCode")'>
+									<fin-input type="dropdown"
+										model="rakServiceReq.stopCheques.model.pageUserInputs.reasonCode"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_STOP.PH_RSN}}"
+										validation-flag='pageErrorArr["rakServiceReq.stopCheques.model.pageUserInputs.reasonCode"]'
+										option-array="stopChequeResonsArr"></fin-input>
+								</div>
+
+
+								<div class="label-wrap">
+								
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small rak-button-right"
+										ng-click="rakServiceReq.stopCheques.fireEventForChequeStop();">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+
+								</div>
+								
+							<!-- 	<button type="button" class="btn--primary-btn"
+									ng-click="rakServiceReq.stopCheques.fireEventForChequeStop();">
+									{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_STOP.BTN_STP}}</button> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

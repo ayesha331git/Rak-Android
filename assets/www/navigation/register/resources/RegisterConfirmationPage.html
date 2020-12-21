@@ -1,0 +1,32 @@
+<div class="full-height"
+	ng-init='register.jsessionid=successResponse.responsesList[0].sessKey;register.mbParam=successResponse.responsesList[0].mbParam'>
+	<div class="account-page full-height">
+		<div class="dashboard-item-body full-height ">
+			<div class="sticky-footer">
+				<div class="dashboard-item-title col-sm-12" layout="row"
+					layout-align="center center" layout-wrap>
+					<h2 class="md-headline item-title text-uppercase"
+						id="registerConfHeader" layout="row" layout-align="center center"
+						layout-wrap>{{appLiterals.APP.REGISTER.REG_CONF_PAGE.HEADER}}</h2>
+				</div>
+				<div class="col-sm-12">
+					<div class="col-sm-12">
+						<p class="fut-txt1 lh13" id="registerConfMsg">
+							{{successResponse.responsesList[0].message}}</p>
+					</div>
+				</div>
+			</div>
+			<section layout="row" layout-align="center center"
+				class="btn-wrap button-wrapper sticky-footer-block">
+				<md-button id="registerMobileAppNo" type="button"
+					class=" md-raised btn--secondary-btn"
+					ng-click="setGlobalEvent('onLoginClick');">
+				{{appLiterals.APP.REGISTER.REG_CONF_PAGE.BTN_NO}} </md-button>
+				<md-button id="registerMobileAppYes" type="button"
+					class=" md-raised btn--primary-btn"
+					ng-click="setEvent(register.existingEBUserNavigation());">
+				{{appLiterals.APP.REGISTER.REG_CONF_PAGE.BTN_YES}}</md-button>
+			</section>
+		</div>
+	</div>
+</div>

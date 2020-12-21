@@ -1,0 +1,145 @@
+<div class="rak-back-header">
+				<i class="rak-back-img" ng-click="setEvent('onBackClick');"></i>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+<div class="finacle-container" ng-init="rakPayee.payCard.initScheduleTransferDetailsPage(successResponse.responsesList)">
+  <div class="account-page">
+    <div class="col-sm-11">
+     <div class="app-title-wrapper">
+
+
+		  <ng-include  src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>
+
+		  <div class="rak-scroll">
+
+                    	<h2><span>{{appLiterals.APP.RAK_PAYEE.HISTORY.PAYMENTDETAILS}}</span></h2>
+
+
+
+		<div class="bg-color rak-cont-padding">
+
+			<div class="row" >
+			  <div class="">
+
+			  <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.REFID}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payBill.selectedCompltTxn.txnReferenceId}}</span>
+				</p>
+
+
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.INIT_ACCOUNT}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.displayAccount}}</span>
+				</p>
+
+
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.DATE}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payBill.selectedCompltTxn.txnDate}}</span>
+				</p>
+
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.TOTALAMOUNT}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.totalTxnAmt}}</span>
+				</p>
+
+					<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.TOT_NOOFENTRY}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.totalEntry}}</span>
+				</p>
+
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.CHANNELNAME}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.channelId}}</span>
+				</p>
+
+
+      </div>
+
+      <h2><span>{{appLiterals.APP.RAK_PAYEE.HISTORY.ENTRYDETAILS}}</span></h2>
+
+
+
+      		<div>
+
+							<div class="money-block rakBottomZero">
+						         <ul>
+						      <!--    <li  class="active rak25 ng-binding" >{{appLiterals.APP.RAK_PAYEE.HISTORY.ENTRYID}}</li> -->
+						      <li class="active rak25 ng-binding">{{appLiterals.APP.RAK_PAYEE.HISTORY.PAYEE}}</li>
+						            <li  class="active rak25 ng-binding" >{{appLiterals.APP.RAK_PAYEE.HISTORY.CONSUMERNO}}</li>						           
+						            <li class="active rak25 ng-binding">{{appLiterals.APP.RAK_PAYEE.HISTORY.AMOUNT}} {{appLiterals.APP.RAK_PAYEE.HISTORY.AED}}</li>
+						              <li class="active rak25 ng-binding">{{appLiterals.APP.RAK_PAYEE.HISTORY.STATUS}}</li>
+
+						         </ul>
+						 	</div>
+
+
+						 	<div class="nano rakHalfScrollDiv rak-cont-paddingvh" >
+					            <div class="" >
+
+<div class="trans-detail rakGreyRow" ng-repeat="transfers in rakPayee.payCard.mutipleList">
+
+
+					           <!--        <div class="trans-dash-left rakPeopleNameRow1 rak25 pull-left rakPaddingPoint8em">
+					                    <div>
+					                    <div class="trans-no rakFont1em">
+					                    {{transfers.entryID}}
+					                    </div>
+					                  </div>
+
+					                  </div> -->
+					                  
+					                  <div class="trans-dash-left rakPeopleNameRow1 rak25 pull-left rakPaddingPoint8em">
+									   					                    <div>
+									   					                    <div class="trans-no rakFont1em">
+									   					                    {{transfers.billerName}}
+									   					                    </div>
+									   					                  </div>
+
+									   					                  </div>
+
+
+
+					                  	<div class="trans-dash-right rakPeopleNameRow1 rak25  rakPaddingPoint8em pull-left">
+					                   		<div>
+					                    <div class="trans-no rakFont1em">
+					                    {{transfers.consumerNo}}
+					                    </div>
+					                    </div>
+
+					                    </div>
+
+
+
+					                  <div class="trans-dash-right rakPeopleNameRow1 rak25 pull-left rakPaddingPoint8em" >
+					                  <div>
+					                    <div class="trans-no rakFont1em">
+					                    {{transfers.multipleBillAmount}}
+					                    </div>
+					               </div>
+					                  </div>
+					                  
+					                  
+  								 <div class="trans-dash-left rakPeopleNameRow1 rak25 pull-left rakPaddingPoint8em">
+					                    <div>
+					                    <div class="trans-no rakFont1em">
+					                    {{transfers.entryStatus}}
+					                    </div>
+					                  </div>
+
+					                  </div> 
+
+					              </div>
+</div>
+						</div>
+						</div>
+
+    </div>
+  </div>
+		  </div>
+		</div>
+	</div>
+<div class="scroll-space"></div>
+		</div>
+<!-- partial code end here-->

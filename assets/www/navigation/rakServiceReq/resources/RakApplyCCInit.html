@@ -1,0 +1,58 @@
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onRakApplyCCBackClick');"></i>
+	</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.setApplyTypeDesc();rakServiceReq.fetchRakApplyCCData(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="">
+									<div class="col-sm-1"></div>
+									
+								<div class="fin-input-container rakTransfersexchangerate-block">
+									<p class="rakexchangevalue">{{rakServiceReq.RakApplyCCModel.ApplyTypeDesc}}</p>
+								</div>
+
+									<fin-input type="text"
+										model="rakServiceReq.RakApplyCCModel.CustomerName"
+										display-row="full" placeholder="{{rakServiceReq.RakApplyCCModel.CustomerName}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakApplyCCModel.CustomerName"]'></fin-input>
+
+									<fin-input type="number"
+										model="rakServiceReq.RakApplyCCModel.MobileNo"
+										display-row="full" placeholder="{{rakServiceReq.RakApplyCCModel.MobileNo}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakApplyCCModel.MobileNo"]'></fin-input>
+									
+									<fin-input type="text"
+										model="rakServiceReq.RakApplyCCModel.EmailId"
+										display-row="full" placeholder="{{rakServiceReq.RakApplyCCModel.EmailId}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakApplyCCModel.EmailId"]'></fin-input>
+									
+									<fin-input type="text"
+										model="rakServiceReq.RakApplyCCModel.Remarks"
+										display-row="full" placeholder="{{appLiterals.APP.RAKAPPLYCC.REMARKS}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakApplyCCModel.Remarks"]'></fin-input>
+
+									<div class="label-wrap">
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-small btn--back"
+											ng-click="setEvent('onRakApplyCCBackClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>										
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-right"
+											ng-click="rakServiceReq.detectServiceIdAndReqId();setEvent('onRakApplyCCConfirmClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

@@ -1,0 +1,1511 @@
+ {
+	"pageNavigation": [{
+		"RakProfileLandingPage": [{
+		
+		    "eventName": "enableTouchId",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam"
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakTouchIdActivationPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			}
+		},
+	{
+		
+		    "eventName": "proceedToOverview",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam"
+			},
+			"successPage": {
+			 "subFeature": "RetailUserLogin",
+             "pageName": "RetailUserDashboardPage"
+             },
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			}
+		},
+		{
+			"eventName": "onTxnPwdClick",
+			"action": "RakChangeTxnPwdInitService",
+			"actionType": "service",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam"
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakTransactionPassword"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			}
+		},
+		
+			{
+			"eventName": "onLoginPwdClick",
+			"action": "RakChangeLoginPasswordInitService",
+			"actionType": "service",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam"
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakLoginPassword"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakLoginPassword"
+			}
+		},
+		{
+			"eventName": "onViewPPClick",
+			"action": "RakViewPPInit",
+			"actionType": "service",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"USER_TYPE_VALUE": "dashboard.userType",
+				"mbparam": "fields.finacleMbParam"
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakViewPersonalProfile"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			}
+		},
+		{
+			"eventName": "onChangeMPINClick",
+			"action": "MPINChangeInitService",
+			"actionType": "service",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam"
+			},
+			"successPage": {
+				"subFeature": "AppActivation",
+				"pageName": "ActivationChangeMPINPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			}
+		},
+		{
+			"eventName": "onSelectChannnelClick",
+			"action": "ChannelSelectionInitService",
+			"actionType": "service",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam"
+			},
+			"successPage": {
+				"subFeature": "Register",
+				"pageName": "RegisterChannelSelection"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			}
+		},
+		{
+			"eventName": "onReferFrndClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "ReferAndSharePage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "ChannelSelection"
+			}
+		},
+		{
+			"eventName": "onActivityClick",
+			"validation": "false",
+			"action": "SelfAuditContinueService",
+			"actionType": "service",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"ActInqFromDate_day": "myProfile.emptyStr",
+				"ActInqFromDate_month": "myProfile.emptyStr",
+				"ActInqFromDate_year": "myProfile.emptyStr",
+				"ActInqToDate_day": "myProfile.emptyStr",
+				"ActInqToDate_month": "myProfile.emptyStr",
+				"ActInqToDate_year": "myProfile.emptyStr",
+				"CHANNEL_ID_QUERY": "myProfile.emptyStr",
+				"NO_OF_DAYS": "myProfile.activityModel.isDays"
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "MyActivitiesPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "MyActivitiesPage"
+			}
+		},
+		{
+			"eventName": "onUpdateNicknameClick",
+			"action": "RakUpdateNicknameInitService",
+			"actionType": "service",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam"
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateNicknameLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			}
+		},
+		{
+			"eventName": "onUserIDClick",
+			"validation": "false",
+			"action": "RakUpdateUserId",
+			"actionType": "service",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam"
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateUserID"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			}
+		},
+		{
+			"eventName": "onContactDetailClick",
+			"validation": "false",
+			"action": "UpdateContactDetails",
+			"actionType": "service",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam"
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "UpdateContactDetailPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "UpdateContactDetailPage"
+			}
+		},
+		{
+			"eventName": "onMyPreferenceClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "MyPreferencesPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "ChannelSelection"
+			}
+		},
+		{
+			"eventName": "onMngAcClick",
+			"action": "ManageDeviceInitService",
+			"actionType": "service",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam"
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "ManageDevicePage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "ChannelSelection"
+			}
+		},
+		{
+			"eventName": "onBioMatrixLoginClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "BioMatrixLoginPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			}
+		},
+			{
+				"eventName": "onRakUpdatePersonalProfileClick",
+				"action": "RakUpdatePPInit",
+				"actionType": "service",
+				"validation": "false",
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"USER_TYPE_VALUE": "dashboard.userType",
+					"mbparam": "fields.finacleMbParam"
+				},
+				"successPage": {
+					"subFeature": "rakMyProfile",
+					"pageName": "RakUpdatePersonalProfile"
+				},
+				"errorPage": {
+					"subFeature": "rakMyProfile",
+					"pageName": "RakProfileLandingPage"
+				}
+			}
+			]
+	},
+	{
+		"RakTransactionPassword": [{
+			"eventName": "txnPwdSubmitClick",
+			"action": "RakChangeTxnPwdSubmitService",
+			"actionType": "service",
+			"validation": "true",
+			"validationParams": ["rakMyProfile.txnOldPassword",
+			"rakMyProfile.txnNewPassword",
+			"rakMyProfile.txnConfirmPassword"],
+			"encryptionEnabled": true,
+			"sensitiveFields": ["rakMyProfile.txnOldPassword",
+			"rakMyProfile.txnNewPassword",
+			"rakMyProfile.txnConfirmPassword"],
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"TxnOldPwd": "rakMyProfile.txnOldPassword",
+				"TxnNewPwd": "rakMyProfile.txnNewPassword",
+				"TxnNewCnfPwd": "rakMyProfile.txnConfirmPassword"
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakLoginPasswordSuccessful"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakTransactionPassword"
+			}
+		},
+		{
+			"eventName": "onTxnPwdPageCloseClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			}
+		},
+		{
+			"eventName": "onTxnPwdClick",
+			"action": "RakChangeTxnPwdInitService",
+			"actionType": "service",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam"
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakTransactionPassword"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakTransactionPassword"
+			}
+		},
+		{
+			"eventName": "loginPwdSubmitClick",
+			"action": "RakChangeLoginPasswordSubmitService",
+			"actionType": "service",
+			"validation": "true",
+			"validationParams": ["rakMyProfile.oldPassword",
+			"rakMyProfile.newPassword",
+			"rakMyProfile.confirmPassword"],
+			"encryptionEnabled": true,
+			"sensitiveFields": ["rakMyProfile.oldPassword",
+			"rakMyProfile.newPassword",
+			"rakMyProfile.confirmPassword"],
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"LginOldPwd": "rakMyProfile.oldPassword",
+				"LginNewPwd": "rakMyProfile.newPassword",
+				"LginNewCnfPwd": "rakMyProfile.confirmPassword"
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakLoginPasswordSuccessful"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakLoginPassword"
+			}
+		},
+		{
+			"eventName": "onLoginPwdPageCloseClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			}
+		}
+		
+	
+			]
+	},
+	{
+		"RakLoginPassword": [{
+			"eventName": "onTxnPwdClick",
+			"action": "RakChangeTxnPwdInitService",
+			"actionType": "service",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam"
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakTransactionPassword"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakTransactionPassword"
+			}
+		},
+		{
+			"eventName": "loginPwdSubmitClick",
+			"action": "RakChangeLoginPasswordSubmitService",
+			"actionType": "service",
+			"validation": "true",
+			"validationParams": ["rakMyProfile.oldPassword",
+			"rakMyProfile.newPassword",
+			"rakMyProfile.confirmPassword"],
+			"encryptionEnabled": true,
+			"sensitiveFields": ["rakMyProfile.oldPassword",
+			"rakMyProfile.newPassword",
+			"rakMyProfile.confirmPassword"],
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"LginOldPwd": "rakMyProfile.oldPassword",
+				"LginNewPwd": "rakMyProfile.newPassword",
+				"LginNewCnfPwd": "rakMyProfile.confirmPassword"
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakLoginPasswordSuccessful"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakLoginPassword"
+			}
+		},
+		{
+			"eventName": "onLoginPwdPageCloseClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			}
+		}]
+	},
+	{
+		"RakLoginPasswordSuccessful": [{
+			"eventName": "onLoginPasswordDoneClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			}
+		}]
+	},
+	{
+		"RakUpdateNicknameLandingPage": [{
+			"eventName": "onUpdateNicknameContinueClick",
+			"action": "RakUpdateNicknameSubmitService",
+			"actionType": "service",
+			"validation": "true",
+			"validationParams": ["rakMyProfile.updateNickname.nickname"],
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"index": "rakMyProfile.updateNickname.selectedIndexAsString",
+				"NickName": "rakMyProfile.updateNickname.selectedNicknameAsString"
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateNicknameAuthPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateNicknameLandingPage"
+			}
+		},
+		{
+			"eventName": "onUpdateNicknameAccDetailsBackClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakAccounts",
+				"pageName": "RAKRetailUserAccountDetailsPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateNicknameAuthPage"
+			}
+		},
+			{
+			"eventName": "onUpdateNicknameCCAccDetailsBackClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakAccounts",
+				"pageName": "RAKRetailUserAccountDetailsPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateNicknameAuthPage"
+			}
+		},
+		{
+			"eventName": "onUpdateNicknameSUPCCAccDetailsBackClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakAccounts",
+				"pageName": "RAKSupplimentaryCCUserPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateNicknameAuthPage"
+			}
+		},
+		{
+			"eventName": "onUpdateNicknameTransSearchBackClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakAccounts",
+				"pageName": "RAKRetailUserTransSearchPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateNicknameAuthPage"
+			}
+		},
+			{
+			"eventName": "onUpdateNicknameCCTransSearchBackClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakAccounts",
+				"pageName": "RAKRetailUserCCTransSearchPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateNicknameAuthPage"
+			}
+		},
+		{
+			"eventName": "onUpdateNicknameAccountsBackClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakAccounts",
+				"pageName": "RAKRetailUserAccountsPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateNicknameAuthPage"
+			}
+		},
+		{
+			"eventName": "onUpdateNicknameCCAccountsBackClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakAccounts",
+				"pageName": "RAKRetailCCUserAccountsPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateNicknameAuthPage"
+			}
+		},
+		{
+			"eventName": "onUpdateNicknameCloseClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateNicknameAuthPage"
+			}
+		}]
+	},
+	{
+		"RakUpdateNicknameAuthPage": [
+		
+		{
+				                   "eventName": "onGenerateOtp",
+				                    "action": "RakResendOtpService",
+				                    "actionType": "serviceNoNavigation",
+				                    "validation": "false",
+				                    "parameters": {
+				                        "jsessionid": "fields.finacleUserSessionId",
+				                        "mbparam": "fields.finacleMbParam"
+				                        
+				                    },
+				                    "successPage": {
+				                      "pageName": "RakUpdateNicknameAuthPage"
+				                    },
+				                    "errorPage": {
+				                        "pageName": "RakUpdateNicknameAuthPage"
+				                    }
+		                },
+		
+		
+		{
+			"eventName": "onUpdateNicknameConfirmClick",
+			"action": "RakUpdateNicknameSuccessService",
+			"actionType": "service",
+			"validation": "true",
+			"validationParams": ["rakMyProfile.updateNickName.transactionPassword"],
+			"encryptionEnabled": true,
+			"sensitiveFields": ["rakMyProfile.updateNickName.transactionPassword"],
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"Mode": "rakMyProfile.updateNickName.transactionPassword"
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateNicknameSuccessPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateNicknameAuthPage"
+			}
+		},
+		{
+			"eventName": "onUpdateNicknamePrevClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateNicknameLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateNicknameAuthPage"
+			}
+		},
+		{
+			"eventName": "onUpdateNicknameCloseClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateNicknameAuthPage"
+			}
+		}]
+	},
+	{
+		"RakUpdateNicknameSuccessPage": [{
+			"eventName": "onUpdateNickNameSuccessClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateNicknameSuccessPage"
+			}
+		},
+		{
+			"eventName": "onUpdateNickNameAccountsSuccessClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakAccounts",
+				"pageName": "RAKRetailUserAccountsPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateNicknameSuccessPage"
+			}
+		},
+		{
+			"eventName": "onUpdateNickNameTransSearchSuccessClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakAccounts",
+				"pageName": "RAKRetailUserTransSearchPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateNicknameSuccessPage"
+			}
+		},
+		{
+                    "eventName": "onUpdateNickNameAccDetailsSuccessClick",
+                    "action": "RefreshAccountDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                         "jsessionid": "fields.finacleUserSessionId",
+                		 "mbparam": "fields.finacleMbParam",
+                		 "USER_TYPE": "dashboard.userType"
+                    },
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserDashboardPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+       },
+		{
+			"eventName": "onUpdateNickNameAccDetailsSuccessClickTest",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakAccounts",
+				"pageName": "RAKRetailUserAccountDetailsPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateNicknameSuccessPage"
+			}
+		}]
+	},
+	
+	{
+		"RakViewPersonalProfile": [{
+			"eventName": "onViewPPBackClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			}
+		},
+		{
+				"eventName": "onTLUploadInit",
+				"action": "RakTLUploadInitService",
+				"actionType": "service",
+				"validation": "false",
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam"
+				},
+				"successPage": {
+					"subFeature": "rakServiceReq",
+					"pageName": "RakTLUploadInit"
+				},
+				"errorPage": {
+					"subFeature": "rakMyProfile",
+					"pageName": "RakViewPersonalProfile"
+				}
+			}]
+	},
+	{
+		"RakUpdateUserID": [{
+			"eventName": "onCancelClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			}
+		},
+		{
+			"eventName": "onNNConfirmClick",
+			"action": "RakUpdateUserIdConfirm",
+			"actionType": "service",
+			"validation": "true",
+			"validationParams": ["rakMyProfile.updateIdModel.Userid"],
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"index": "rakMyProfile.updateIdModel.strUpdateIndex",
+				"userId": "rakMyProfile.updateIdModel.strUpdateIds"
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateUserIDAuthPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateUserID"
+			}
+		}]
+	},
+	{
+		"RakUpdateUserIDAuthPage": [
+		
+		{
+						                   "eventName": "onGenerateOtp",
+						                    "action": "RakResendOtpService",
+						                    "actionType": "serviceNoNavigation",
+						                    "validation": "false",
+						                    "parameters": {
+						                        "jsessionid": "fields.finacleUserSessionId",
+						                        "mbparam": "fields.finacleMbParam"
+						                        
+						                    },
+						                    "successPage": {
+						                      "pageName": "RakUpdateUserIDAuthPage"
+						                    },
+						                    "errorPage": {
+						                        "pageName": "RakUpdateUserIDAuthPage"
+						                    }
+		                },
+		
+		{
+			"eventName": "onPrevServiceClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateUserID"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateUserIDAuthPage"
+			}
+		},
+		{
+			"eventName": "onCancelClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateUserIDAuthPage"
+			}
+		},
+		{
+			"eventName": "onNNSuccessClick",
+			"action": "RakUpdateUserIdSuccess",
+			"actionType": "service",
+			"validation": "true",
+			"validationParams": ["rakMyProfile.updateIdModel.transactionPwD"],
+			"sensitiveFields": ["rakMyProfile.updateIdModel.transactionPwD"],
+			"encryptionEnabled": true,
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"Mode": "rakMyProfile.updateIdModel.transactionPwD"
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateUserIDSuccessPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateUserIDAuthPage"
+			}
+		}]
+	},
+	{
+		"RakUpdateUserIDSuccessPage": [{
+			"eventName": "onCancelClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			}
+		}]
+	},
+	{
+            "RakForcePasswordChangeMessage": [
+                {
+                    "eventName": "onForcePasswordChangeOkButtonClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "rakMyProfile",
+                        "pageName": "RakForcePasswordLoginTransaction"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakMyProfile",
+                        "pageName": "RakForcePasswordLoginTransaction"
+                    }
+                }
+            ]
+        },
+        {
+            "RakForcePasswordLoginTransaction": [
+                {
+                    "eventName": "onSubmitButtonClick",
+                    "action": "RakForcePasswordChangeUpdateService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "myProfile.oldForceLoginPassword",
+                        "myProfile.newForceLoginPassword",
+                        "myProfile.confirmForceLoginPassword"
+                    ],
+                  "encryptionEnabled": true, 
+					"sensitiveFields": ["myProfile.oldForceLoginPassword",
+						"myProfile.newForceLoginPassword",
+                        "myProfile.confirmForceLoginPassword" ],
+                    "parameters": {
+                        "jsessionid": "myProfile.sessionId",
+                        "mbparam": "myProfile.mparam",
+                        "LginOldPwd": "myProfile.oldForceLoginPassword",
+                        "LginNewPwd": "myProfile.newForceLoginPassword",
+                        "LginNewCnfPwd": "myProfile.confirmForceLoginPassword",
+                        "LoginPwdChk": "myProfile.loginPwdChk",
+                        "TxnOldPwd": "myProfile.oldForceTxnPassword",
+                        "TxnNewPwd": "myProfile.newForceTxnPassword",
+                        "TxnNewCnfPwd": "myProfile.confirmForceTxnPassword",
+                        "TxnPwdChk": "myProfile.txnPwdChk"
+                    },
+                    "successPage": {
+                        "subFeature": "rakMyProfile",
+                        "pageName": "RakForceChangePasswordSuccessMessage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakMyProfile",
+                        "pageName": "RakForcePasswordLoginTransaction"
+                    }
+                },
+                {
+                    "eventName": "onForceChangePasswordCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                }
+            ]
+        },
+        {
+            "RakForceChangePasswordSuccessMessage": [
+                {
+                     "eventName": "onOkButtonClick",
+                    "validation": "false",
+                    "validationParams": [
+                       
+                    ],
+                    "action": "RakForcePwdSMESuccessOnLoginClickService",
+                    "actionType": "service",
+                    "encryptionEnabled": true,
+                    "sensitiveFields": [
+                        "fields.finacleUserCorporateId",
+                        "myProfile.confirmForceLoginPassword",
+                        "fields.finacleCorporateId"
+                        
+                    ],
+                    "validationErrorMessage": [
+                        	{
+                            	"maxLength": "APP.DASHBOARD.RETAIL_USER_LOGIN.USER_ID_LENGTH_ERROR"
+                        	}
+                    ],
+                    "parameters": {
+                     	 "UserID": "fields.finacleCorporateId",
+                        "CorpId":"fields.finacleUserCorporateId",
+                         "PassWord": "myProfile.confirmForceLoginPassword",
+                        
+                        "QUICK_BALANCE":"quickBalValue",
+                         "CORPLOGIN":"buildType",
+                        "jsessionid": "myProfile.sessionId",
+                        "mbparam": "myProfile.mparam"
+                        
+                    },
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserDashboardPage"
+                    },
+                    "errorPage": { 
+                        "subFeature": "rakMyProfile",
+                        "pageName": "RakForceChangePasswordSuccessMessage"
+                    }
+            },
+             {
+                     "eventName": "onCorpOkButtonClick",
+                    "validation": "false",
+                    "validationParams": [
+                       
+                    ],
+                    "action": "RakForcePwdCorpSuccessOnLoginClickService",
+                    "actionType": "service",
+                    "encryptionEnabled": false,
+                   
+                  
+                    "parameters": {
+                       "QUICK_BALANCE":"quickBalValue",
+                         "CORPLOGIN":"buildType",
+                        "jsessionid": "myProfile.sessionId",
+                        "mbparam": "myProfile.mparam"
+                        
+                    },
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserDashboardPage"
+                    },
+                    "errorPage": { 
+                        "subFeature": "rakMyProfile",
+                        "pageName": "RakForceChangePasswordSuccessMessage"
+                    }
+            }
+            
+            ]
+           },
+           
+           
+           {
+            "RakHardTokenPage": [
+             {
+                                               "eventName": "onMobileValidationClick",
+                                               "action": "navigation",
+                                                "actionType": "navigation",
+                                                "validation": "false",
+                                                
+                                              
+                                               "successPage": {
+                                               "pageName": "RakCorpSoftTokenMobileNoPage"
+                                               },
+                                               "errorPage": {
+                                               "pageName": "RakHardTokenPage"
+                                               }
+                                               
+                                               
+                                               } ,
+            
+             {
+                                                 "eventName": "onRakCorpSignUpPageInit",
+                                                 "action": "navigation",
+                                                 "actionType": "navigation",
+                                                 "validation": "false",
+                                                 "successPage": {
+                                                 "subFeature": "rak2FARegister",
+                                                 "pageName": "Rak2FASignupPage"
+                                                 },
+                                                 "errorPage": {
+                                                 "pageName": "RakHardTokenPage"
+                                                 }
+                                                 },
+						 
+						 {
+				                    "eventName": "onHardTokenToSoftTokenClick",
+				                    "validation": "false",
+				                    
+				                    "action": "RakCorpHtknToStknTokenStatusService",
+				                    "actionType": "service",
+				                    "encryptionEnabled": false,
+				                   
+				                  
+				                    "parameters": {
+				                         "jsessionid": "fields.finacleUserSessionId",
+				                             "mbparam": "fields.finacleMbParam",
+				                              "tsn":"rak2FARegister.EzComToken.tsn"
+				                        
+				                      
+				                         
+				                    },
+				                    "successPage": {
+				                        "subFeature": "rak2FARegister",
+				                        "pageName": "Rak2FASignupPage"
+				                    },
+				                    "errorPage": {
+				                        "pageName": "RakHardTokenPage"
+				                    }
+				                } , 
+                {
+                     "eventName": "onHardTokenOkButtonClick",
+                    "validation": "true",
+                    "validationParams": [
+                       "rakMyProfile.hardToken"
+                    ],
+                    "action": "RSATokenStepupAuthenticatorService",
+                    "actionType": "service",
+                    "encryptionEnabled": true,
+                    "sensitiveFields": [
+                       
+                        "rakMyProfile.hardToken"
+                    ],
+                   
+                    "parameters": {
+                        
+                        "Mode": "rakMyProfile.hardToken",
+                        "jsessionid": "rakMyProfile.sessionId",
+                        "mbparam": "rakMyProfile.mparam"
+                        
+                    },
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserDashboardPage"
+                    },
+                    "errorPage": { 
+                        "subFeature": "rakMyProfile",
+                        "pageName": "RakHardTokenPage"
+                    }
+            }
+            ]
+           },
+           { 
+            "RakUpdatePersonalProfile": [{
+			"eventName": "onUpdatePPBackClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			}
+		},
+		
+		{
+			"eventName": "onUpdatePPBackToSerRqClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakServiceReq",
+				"pageName": "RakServicesLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			}
+		},
+		 {
+			"eventName": "onUpdatePPEditClick",
+			"action": "RakUpdatePPContinueService",
+			"actionType": "service",
+			"validation": "true",
+			"validationParams": [
+			    "rakMyProfile.updatePersonalProfile.address1",
+				"rakMyProfile.updatePersonalProfile.offaddress1",
+				"rakMyProfile.updatePersonalProfile.offaddress2",
+				"rakMyProfile.updatePersonalProfile.address3",
+				
+				
+				"rakMyProfile.updatePersonalProfile.country",
+				
+				"rakMyProfile.updatePersonalProfile.offcountry",
+				"rakMyProfile.updatePersonalProfile.OffCountrycode",
+				"rakMyProfile.updatePersonalProfile.offNumber",
+                 "rakMyProfile.updatePersonalProfile.emirateID",
+				"rakMyProfile.updatePersonalProfile.homeNumber",
+				"rakMyProfile.updatePersonalProfile.homeNumberTwo",
+				"rakMyProfile.updatePersonalProfile.offNumber",
+				"rakMyProfile.updatePersonalProfile.offNumberTwo",
+				"rakMyProfile.updatePersonalProfile.faxHome",
+				"rakMyProfile.updatePersonalProfile.faxOffOne",
+				"rakMyProfile.updatePersonalProfile.faxOffTwo",
+				"rakMyProfile.updatePersonalProfile.preferredAddressType",
+				"rakMyProfile.updatePersonalProfile.address2",
+				"rakMyProfile.updatePersonalProfile.offaddress3",
+				"rakMyProfile.updatePersonalProfile.street",
+				"rakMyProfile.updatePersonalProfile.head_offaddress1",
+				"rakMyProfile.updatePersonalProfile.head_offaddress2",
+				"rakMyProfile.updatePersonalProfile.head_offaddress3",
+				"rakMyProfile.updatePersonalProfile.faxOffTwo_CC",
+				"rakMyProfile.updatePersonalProfile.faxOffOne_CC",
+				"rakMyProfile.updatePersonalProfile.faxHome_CC",
+				"rakMyProfile.updatePersonalProfile.OffTwoCountrycode",
+				"rakMyProfile.updatePersonalProfile.OffCountrycode",
+				"rakMyProfile.updatePersonalProfile.homeTwoCountrycode",
+				"rakMyProfile.updatePersonalProfile.homeCountrycode"
+				
+			],
+
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				
+				"FULLNAME": "rakMyProfile.updatePersonalProfile.fullName",
+
+
+				"FLATNO": "rakMyProfile.updatePersonalProfile.address1",
+				"BUILDNAME": "rakMyProfile.updatePersonalProfile.address2",
+				"LANDMARK": "rakMyProfile.updatePersonalProfile.address3",
+				"POBOX": "rakMyProfile.updatePersonalProfile.pobox",
+				"HCITY": "rakMyProfile.updatePersonalProfile.city",
+				"COUNTRYCODE": "rakMyProfile.updatePersonalProfile.country",
+
+				"CMPNAME": "rakMyProfile.updatePersonalProfile.offaddress1",
+				"DESIG": "rakMyProfile.updatePersonalProfile.offaddress2",
+				"EMP_NO": "rakMyProfile.updatePersonalProfile.offaddress3",
+				"O_POBOX": "rakMyProfile.updatePersonalProfile.offpobox",
+				"O_CITY": "rakMyProfile.updatePersonalProfile.offcity",
+				"O_COUNTRYCODE": "rakMyProfile.updatePersonalProfile.offcountry",
+
+				"H_P_CC": "rakMyProfile.updatePersonalProfile.homeCountrycode.toString()",
+				"HPHONE": "rakMyProfile.updatePersonalProfile.homeNumber.toString()",
+
+				"H_PH_CC_ALT": "rakMyProfile.updatePersonalProfile.homeTwoCountrycode.toString()",
+				"HPHONETWO": "rakMyProfile.updatePersonalProfile.homeNumberTwo.toString()",
+
+				"O_P_CC": "rakMyProfile.updatePersonalProfile.OffCountrycode.toString()",
+				"OFFNUMBERONE": "rakMyProfile.updatePersonalProfile.offNumber.toString()",
+
+				"O_PH_CC_ALT": "rakMyProfile.updatePersonalProfile.OffTwoCountrycode.toString()",
+				"OFFNUMBERTWO": "rakMyProfile.updatePersonalProfile.offNumberTwo.toString()",
+
+				"HFAX_CC": "rakMyProfile.updatePersonalProfile.faxHome_CC.toString()",
+				"HFAX": "rakMyProfile.updatePersonalProfile.faxHome.toString()",
+
+				"OFAXONE_CC": "rakMyProfile.updatePersonalProfile.faxOffOne_CC.toString()",
+				"OFAXONE": "rakMyProfile.updatePersonalProfile.faxOffOne.toString()",
+
+				"OFAXTWO_CC": "rakMyProfile.updatePersonalProfile.faxOffTwo_CC.toString()",
+				"OFAXTWO": "rakMyProfile.updatePersonalProfile.faxOffTwo.toString()",
+
+				"PREF_MAIL_ADD": "rakMyProfile.updatePersonalProfile.preferredAddressTypeServer",
+				
+				"emiratesId":"rakMyProfile.updatePersonalProfile.emirateID.toString()",
+				"expiryDateClient_year":"rakMyProfile.updatePersonalProfile.dateExpiry_year",
+                "expiryDateClient_month":"rakMyProfile.updatePersonalProfile.dateExpiry_month",
+                "expiryDateClient_day":"rakMyProfile.updatePersonalProfile.dateExpiry_day",
+                "ADD_LINE3":"rakMyProfile.updatePersonalProfile.street",
+                
+                "HEAD_CMPNAME": "rakMyProfile.updatePersonalProfile.head_offaddress1",
+				"HEAD_DESIG": "rakMyProfile.updatePersonalProfile.head_offaddress2",
+				"HEAD_EMP_NO": "rakMyProfile.updatePersonalProfile.head_offaddress3",
+				"HEAD_POBOX": "rakMyProfile.updatePersonalProfile.head_offpobox",
+				"HEAD_CITY": "rakMyProfile.updatePersonalProfile.head_offcity",
+				"HEAD_COUNTRYCODE": "rakMyProfile.updatePersonalProfile.head_offcountry"
+                
+           
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdatePersonalProfileConfirm"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdatePersonalProfile"
+			}
+		},
+		{
+			"eventName": "onGetCityNameListSearchClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam"				
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateProfileCitySearch"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdatePersonalProfile"
+			}
+		}
+		],
+       "RakUpdateProfileCitySearch":[
+       {
+			"eventName": "onCitySearchBackClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdatePersonalProfile"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdatePersonalProfile"
+			}
+		},
+		{
+			"eventName": "onSearchCityGetListClick",
+			"action": "RakUpdateProfileSearchCityService",
+			"actionType": "service",
+			"validation": "true",
+			"validationParams": ["rakMyProfile.updatePersonalProfile.citySearchText"
+			],
+
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"CITY_SEARCH":"rakMyProfile.updatePersonalProfile.citySearchText"
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateProfileCitySearch"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdateProfileCitySearch"
+			}
+		},
+		{
+			"eventName": "onCitySelectedClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdatePersonalProfile"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdatePersonalProfile"
+			}
+		}
+       ],
+		"RakUpdatePersonalProfileConfirm": [
+		{
+								                   "eventName": "onGenerateOtp",
+								                    "action": "RakResendOtpService",
+								                    "actionType": "serviceNoNavigation",
+								                    "validation": "false",
+								                    "parameters": {
+								                        "jsessionid": "fields.finacleUserSessionId",
+								                        "mbparam": "fields.finacleMbParam",
+								                        "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+								                    },
+								                    "successPage": {
+								                      "pageName": "RakUpdatePersonalProfileConfirm"
+								                    },
+								                    "errorPage": {
+								                        "pageName": "RakUpdatePersonalProfileConfirm"
+								                    }
+		                },
+		
+		{
+			"eventName": "onUpdatePPConfirmBackClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdatePersonalProfile"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdatePersonalProfile"
+			}
+		}, {
+			"eventName": "onUpdatePPConfirmConfirmClick",
+			"action": "RakUpdatePPSuccessService",
+			"actionType": "service",
+			"validation": "true",
+			"encryptionEnabled": true,
+			"sensitiveFields": ["rakMyProfile.updatePersonalProfile.transactionPassword"],
+			"validationParams": ["rakMyProfile.updatePersonalProfile.transactionPassword",
+				"rakMyProfile.updatePersonalProfile.faxHome"
+			],
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+
+				"FULLNAME": "rakMyProfile.updatePersonalProfile.fullName",
+
+
+				"FLATNO": "rakMyProfile.updatePersonalProfile.address1",
+				"BUILDNAME": "rakMyProfile.updatePersonalProfile.address2",
+				"LANDMARK": "rakMyProfile.updatePersonalProfile.address3",
+				"POBOX": "rakMyProfile.updatePersonalProfile.pobox",
+				"HCITY": "rakMyProfile.updatePersonalProfile.city",
+				"COUNTRYCODE": "rakMyProfile.updatePersonalProfile.country",
+
+				"CMPNAME": "rakMyProfile.updatePersonalProfile.offaddress1",
+				"DESIG": "rakMyProfile.updatePersonalProfile.offaddress2",
+				"EMP_NO": "rakMyProfile.updatePersonalProfile.offaddress3",
+				"O_POBOX": "rakMyProfile.updatePersonalProfile.offpobox",
+				"O_CITY": "rakMyProfile.updatePersonalProfile.offcity",
+				"O_COUNTRYCODE": "rakMyProfile.updatePersonalProfile.offcountry",
+
+				"H_P_CC": "rakMyProfile.updatePersonalProfile.homeCountrycode.toString()",
+				"HPHONE": "rakMyProfile.updatePersonalProfile.homeNumber.toString()",
+
+				"H_PH_CC_ALT": "rakMyProfile.updatePersonalProfile.homeTwoCountrycode.toString()",
+				"HPHONETWO": "rakMyProfile.updatePersonalProfile.homeNumberTwo.toString()",
+
+				"O_P_CC": "rakMyProfile.updatePersonalProfile.OffCountrycode.toString()",
+				"OFFNUMBERONE": "rakMyProfile.updatePersonalProfile.offNumber.toString()",
+
+				"O_PH_CC_ALT": "rakMyProfile.updatePersonalProfile.OffTwoCountrycode.toString()",
+				"OFFNUMBERTWO": "rakMyProfile.updatePersonalProfile.offNumberTwo.toString()",
+
+				"HFAX_CC": "rakMyProfile.updatePersonalProfile.faxHome_CC.toString()",
+				"HFAX": "rakMyProfile.updatePersonalProfile.faxHome.toString()",
+
+				"OFAXONE_CC": "rakMyProfile.updatePersonalProfile.faxOffOne_CC.toString()",
+				"OFAXONE": "rakMyProfile.updatePersonalProfile.faxOffOne.toString()",
+
+				"OFAXTWO_CC": "rakMyProfile.updatePersonalProfile.faxOffTwo_CC.toString()",
+				"OFAXTWO": "rakMyProfile.updatePersonalProfile.faxOffTwo.toString()",
+
+				"PREF_MAIL_ADD": "rakMyProfile.updatePersonalProfile.preferredAddressTypeServer",
+				"expiryDateClient_year":"rakMyProfile.updatePersonalProfile.dateExpiry_year",
+                "expiryDateClient_month":"rakMyProfile.updatePersonalProfile.dateExpiry_month",
+                "expiryDateClient_day":"rakMyProfile.updatePersonalProfile.dateExpiry_day",
+                 "ADD_LINE3":"rakMyProfile.updatePersonalProfile.street",
+				"Mode": "rakMyProfile.updatePersonalProfile.transactionPassword",
+				
+				  "HEAD_CMPNAME": "rakMyProfile.updatePersonalProfile.head_offaddress1",
+				"HEAD_DESIG": "rakMyProfile.updatePersonalProfile.head_offaddress2",
+				"HEAD_EMP_NO": "rakMyProfile.updatePersonalProfile.head_offaddress3",
+				"HEAD_POBOX": "rakMyProfile.updatePersonalProfile.head_offpobox",
+				"HEAD_CITY": "rakMyProfile.updatePersonalProfile.head_offcity",
+				"HEAD_COUNTRYCODE": "rakMyProfile.updatePersonalProfile.head_offcountry"
+
+
+			},
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdatePersonalProfileSuccessful"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakUpdatePersonalProfileConfirm"
+			}
+		}],
+
+		"RakUpdatePersonalProfileSuccessful": [
+		{
+		
+			"eventName": "onUpdatePPSuccessfulDoneClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			}
+		}],
+		
+		    	"RakTouchIdActivationPage": [
+		{
+		
+			"eventName": "onBackClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakMyProfile",
+				"pageName": "RakProfileLandingPage"
+			}
+		}]
+        }
+        ],
+	"subFeatureName": "rakMyProfile",
+	"startPage": "RakProfileLandingPage"
+}

@@ -1,0 +1,171 @@
+<div class="finacle-container ng-scope" ng-init="rakPayee.clearDDSTab();rakPayee.ddsPayeeTab=true;                                                 
+                                                 rakPayee.payeeModel.isEditDdsPayee?rakPayee.payeeModel.processEditDDSPayeeAuthResponse(successResponse.responsesList):rakPayee.payeeModel.isDeleteDdsPayee?rakPayee.payeeModel.processDeleteDDSPayeeAuthResponse(successResponse.responsesList):rakPayee.payeeModel.processDDSPayeeAuthResponse(successResponse.responsesList);
+                                                 rakPayee.authMode.firstAuthModeValue = '';rakPayee.authMode.secAuthModeValue = '';">
+
+    <div class="account-page">
+		 <div class="col-sm-11">
+			<div class="app-title-wrapper">
+				<ng-include  src="'./navigation/rakPayee/resources/RakDDSPayeeTabPage.html'"> </ng-include>
+				  <div class="rak-scroll">
+				<div class="main-form-heading-payee" ng-hide="rakPayee.payeeModel.isEditDdsPayee||rakPayee.payeeModel.isDeleteDdsPayee">                 
+                <h2 >{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.DIRECT_DEBIT_SYSTEMBNF}}
+		      <span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2}}:{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2_TXT}} </span>		     
+		      </h2>	
+            </div>
+            <div class="main-form-heading-payee" ng-show="rakPayee.payeeModel.isEditDdsPayee">                 
+                <h2 >{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.EDIT_DIRECT_DEBIT_SYSTEMBNF}}
+		      <span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2}}:{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2_TXT}} </span>		     
+		      </h2>	
+            </div>
+            <div class="main-form-heading-payee" ng-show="rakPayee.payeeModel.isDeleteDdsPayee">                 
+                <h2 >{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.DELETE_DIRECT_DEBIT_SYSTEMBNF}}
+		      <span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2}}:{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2_TXT}} </span>		     
+		      </h2>	
+            </div> 
+							         
+		  <div class="bg-color rak-cont-padding">   
+			<div class="" >			  
+			  <div class="">
+			  
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.SERVICE_PROVIDER}}:&nbsp;</span>
+				<span class="rak-sum-label black">{{rakPayee.payeeModel.serviceProviderDisplayName}}</span>
+			</p>
+			
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.UTILITY_SERVICE}}:&nbsp;</span>
+				<span class="rak-sum-label black">{{rakPayee.payeeModel.utilityServiceDisplayName}}</span>
+			</p>
+			
+			<p class="rak-sum-txt"> 
+			    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.UTILITY_NUMBER}}: &nbsp;</span>
+			    <span class="rak-sum-label black">{{rakPayee.payeeModel.utilityNumber}}</span>
+			</p>			
+		  												
+			<!-- <p class="rak-sum-txt"> 
+			     <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.DEBIT_FROM}}: &nbsp;</span>
+			     <span class="rak-sum-label black">{{rakPayee.payeeModel.debitFrom}}</span>
+			</p> -->
+		
+		    <p class="rak-sum-txt" ng-show="rakPayee.payeeModel.debitFrom==rakPayee.constants.ACCOUNT"> 
+			     <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.DEBIT_FROM}}: &nbsp;</span>
+			     <span class="rak-sum-label black">{{rakPayee.payeeModel.accountDisplayName}}</span>
+			</p>		  		    
+             
+             <p class="rak-sum-txt" ng-show="rakPayee.payeeModel.debitFrom==rakPayee.constants.CREDITCARD">
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.DEBIT_FROM}}&nbsp;</span>		              		             
+		              <span class="rak-sum-label black">{{rakPayee.payeeModel.creditCardNumberDisplayName}}</span>
+		         </p>		         
+		         
+		         <p class="rak-sum-txt">
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.ISSUED_FOR}}&nbsp;</span>
+		              <span class="rak-sum-label black">{{rakPayee.payeeModel.issuedFor}}</span>
+		         </p>
+		         
+		          <p class="rak-sum-txt" ng-hide="rakPayee.payeeModel.paymentFrequency==rakPayee.constants.PAYFREQONETIME">
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.COMMENCES_ON}}&nbsp;</span>
+		              <span class="rak-sum-label black" ng-hide="rakPayee.payeeModel.isEditDdsPayee">{{rakPayee.payeeModel.commenceDateDisplay}}</span>
+		              <span class="rak-sum-label black" ng-show="rakPayee.payeeModel.isEditDdsPayee">{{rakPayee.payeeModel.commenceDateDdsEditDisplay}}</span>
+		         </p>
+		         
+		          <p class="rak-sum-txt">
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.EXPIRY_ON}}&nbsp;</span>
+		              <span class="rak-sum-label black" ng-hide="rakPayee.payeeModel.isEditDdsPayee">{{rakPayee.payeeModel.expiryDateDisplay}}</span>
+		               <span class="rak-sum-label black" ng-show="rakPayee.payeeModel.isEditDdsPayee">{{rakPayee.payeeModel.expiryDateDdsEditDisplay}}</span>
+		         </p>
+		         
+		          <p class="rak-sum-txt" >
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.PAYMENT_FREQUENCY}}&nbsp;</span>
+		              <span class="rak-sum-label black">{{rakPayee.payeeModel.paymentFrequencyDisplayName}}</span>
+		         </p>
+		         
+		          <p class="rak-sum-txt" ng-show="rakPayee.payeeModel.paymentFrequency==rakPayee.constants.DEFINEDDAYS">
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.DEFINEDDAYS}}&nbsp;</span>
+		              <span class="rak-sum-label black">{{rakPayee.payeeModel.definedDays}}</span>
+		         </p>
+		         <p class="rak-sum-txt">
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.FIXEDVAR_AMT}}&nbsp;</span>
+		              <span class="rak-sum-label black">{{rakPayee.payeeModel.fixedVarAmountDisplayName}}</span>
+		          </p>				
+				  <p class="rak-sum-txt" ng-show="rakPayee.payeeModel.fixedVarAmount==rakPayee.constants.FIXEDAMOUNT" >
+				      <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.FIXEDAMOUNT}}&nbsp;</span>
+				      <span class="rak-sum-label black">{{rakPayee.payeeModel.fixedAmount}}</span></p>				      	
+				   				
+			      <p class="rak-sum-txt" ng-show="rakPayee.payeeModel.fixedVarAmount==rakPayee.constants.VARIABLEAMOUNT"> 
+			        <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.VAR_MAX_AMT}}&nbsp;</span>
+			        <span class="rak-sum-label black">{{rakPayee.payeeModel.variableMaxAmount}}</span>
+			     </p>
+			     <p class="rak-sum-txt"  ng-show="rakPayee.payeeModel.fixedVarAmount==rakPayee.constants.VARIABLEAMOUNT"> 
+			       <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.VAR_MIN_AMT}}&nbsp;</span>
+			       <span class="rak-sum-label black">{{rakPayee.payeeModel.variableMinAmount}}</span>
+			    </p>
+			    <!-- Cancel reason-->	
+		        <fin-input  ng-show="rakPayee.payeeModel.isDeleteDdsPayee" type="text" model="rakPayee.payeeModel.ddsCancelReason" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.CANCELREASON}}" validation-flag='pageErrorArr["rakPayee.payeeModel.ddsCancelReason"]'> </fin-input>
+		 
+
+		 	    
+			<div class="label-wrap" ng-show='rakPayee.payeeModel.isAuthSet'>
+			      <p class="label-title">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_TXT_AUTH}}</p>				
+				  <p class="label-txt"> {{appLiterals.APP.COMMON.TITLE.CONF_AUTH}}</p>  
+			<div ng-show='rakPayee.authMode.isFirstAuthMode'>
+			<fin-input type="password_text" model="rakPayee.authMode.firstAuthModeValue" 
+			display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXN_PWD}}" 
+			validation-flag='pageErrorArr["rakPayee.authMode.firstAuthModeValue"]' 
+			ng-show="rakPayee.authMode.authType==rakPayee.authMode.TransactionPassword"> </fin-input>
+			
+			
+			
+			<div ng-show="rakPayee.authMode.authType==rakPayee.authMode.OTP">
+			<div class="rakwidth65">
+			<fin-input type="password_num" model="rakPayee.authMode.firstAuthModeValue" 
+			display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}" 
+			validation-flag='pageErrorArr["rakPayee.authMode.firstAuthModeValue"]' > </fin-input>
+		</div>   
+		<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>   
+		</div>
+			
+			</div>
+			
+			<div ng-show='rakPayee.authMode.isSecAuthMode'>
+			<fin-input type="password_text" model="rakPayee.authMode.secAuthModeValue" 
+			display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXN_PWD}}" 
+			validation-flag='pageErrorArr["rakPayee.authMode.secAuthModeValue"]' 
+			ng-show="rakPayee.authMode.secAuthType==rakPayee.authMode.TransactionPassword"> </fin-input>
+			
+			
+			<div ng-show="rakPayee.authMode.secAuthType==rakPayee.authMode.OTP">
+			<div class="rakwidth65">
+			<fin-input type="password_num" model="rakPayee.authMode.firstAuthModeValue" 
+			display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}" 
+			validation-flag='pageErrorArr["rakPayee.authMode.secAuthModeValue"]' > </fin-input>
+		</div>   
+		<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>   
+		</div>
+		
+			<!-- <fin-input type="password_num" model="rakPayee.authMode.secAuthModeValue" 
+			display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}" 
+			validation-flag='pageErrorArr["rakPayee.authMode.secAuthModeValue"]' 
+			ng-show="rakPayee.authMode.secAuthType==rakPayee.authMode.OTP"> </fin-input> -->
+			</div>
+			</div>
+			
+			
+			<div class="label-wrap" >							
+						
+			 <button type="button"  class="btn--special-btn btn-middle rak-button-small btn--back" 
+			        ng-click="rakPayee.isUserNavigatingBack=true;setEvent(rakPayee.payeeModel.getDDSBackEvent());">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_BACK}}</button>
+			
+			<button type="button" class="btn--special-btn btn-middle rak-button-small" 
+			        ng-click="setEvent(rakPayee.payeeModel.getDDSAuthEvent());">{{appLiterals.APP.PAYEE.ADDBENF_AUTHPAGE.BTN_CNFRM}}</button>
+            </div>
+           
+            <div class="col-sm-1"> </div>
+		  </div>
+	  </div>
+	  </div>
+	</div>
+</div>	
+</div>
+</div>
+</div>
+  

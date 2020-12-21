@@ -1,0 +1,73 @@
+<div class="finacle-container" ng-init="rakPayee.isBackClicked=false; rakPayee.resetPayeeModule(); rakPayee.resetBillerModule();rakPayee.payeeModel.resetPayeeModel();rakPayee.payeeModel.getDdsPayeeRegList(successResponse);resetPageError();rakPayee.clearDDSTab();rakPayee.ddsPayeeTab=true;">
+<div class="account-page">
+<div class="col-sm-11">
+<div class="app-title-wrapper">
+<div class="form-block">
+	
+<!-- <ng-include  src="'./navigation/rakPayee/resources/RakDDSPayeeTabPage.html'"> </ng-include> -->
+  
+         
+    <div class="bank-hr"> </div>
+  
+ 
+ <div>
+	<button  type="button" class="btn--special-btn btn-middle rak-button-full-red" ng-click="rakPayee.payeeModel.resetPayeeModel();setEvent(rakPayee.addBnfEvent(rakPayee.selectedPayeeType));"> {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_TXT_ADDBILLER}} </button>	
+  </div>
+  
+	  <div class="fin-txt"></div>
+	  <div class="fin-txt"></div>
+	  <div class="nano movemoney-scroll">
+	    <div class="mm-content1 nano-content">
+  <div class="bg-color rak-cont-padding">
+			<div class="row" >
+			  <div class="col-sm-1"> </div>
+<!-- DDS Payee -->            
+
+	  <div class="rakcustomer-wrapper">
+		 <div ng-show="rakPayee.payeeModel.ddsRegPayeeList.length == 0">
+			 <div class="error-details">
+				  <div>
+					 <span class="error-details-txt">
+						{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.NO_BNFS}}
+					 </span>
+					</div>
+			 </div>
+		</div>		
+			
+		<div class="rakGreyRow" ng-show="rakPayee.payeeModel.ddsRegPayeeList.length > 0" 
+		ng-repeat="ddsPayee in rakPayee.payeeModel.ddsRegPayeeList | filter:searchText" 
+		ng-click=" rakPayee.payeeSelected=ddsPayee;rakPayee.selectedPayeeIndex=ddsPayee.index; rakPayee.isBackClicked=false;" >				
+			<div class="people-details">	
+			  <div class="rakPeopleNameRow1"> 
+				{{ddsPayee.ddsKey}}<div class="raknew_user" ng-click="setEvent('onViewDDSDetailsClick');">{{ddsPayee.utilityServiceDescription}}</div>		
+			</div>			
+			<div class="rakPeopleNameRow2">
+					{{ddsPayee.serviceProviderDescription}} {{ddsPayee.ddsAmount}} {{ddsPayee.transactionCurrency}} </div>								
+			</div>
+			
+			<!-- Sindhu -->
+   
+   <div class="pull-right">
+   <span class="rakPullDown" ng-click="rakHome.handlePullDown($event);"></span> 
+  <ul class="rakPullDownMenu">     
+    <li><a href="" ng-click="rakPayee.payeeModel.isEditDdsPayee=true;rakPayee.selectedPayeeIndex=ddsPayee.index;rakPayee.payeeModel.txnType=rakPayee.constants.TXNTYPEDDS;setEvent('onEditDDSPayeeClick')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_EDIT}}</a></li>    
+    <li><a href="" ng-click="rakPayee.payeeModel.isDeleteDdsPayee=true;rakPayee.selectedPayeeIndex=ddsPayee.index;rakPayee.payeeModel.txnType=rakPayee.constants.TXNTYPEDDS;setEvent('onDeleteDDSPayeeClick')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_DELETE}}</a></li>       
+    <li><a href="" ng-click="rakPayee.selectedPayeeIndex=ddsPayee.index;setEvent('onDdsServiceHistoryClick');">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.GETHISTORY}}</a></li>     
+  </ul>
+</div>
+<!-- Sindhu -->
+		  </div>
+		  	  		 
+		</div>			
+		
+	</div>	
+	</div>
+	  <div class="col-sm-1"> </div>
+	  </div>
+	</div>
+	
+	</div>
+	</div>
+	</div>
+	</div>
+</div> 

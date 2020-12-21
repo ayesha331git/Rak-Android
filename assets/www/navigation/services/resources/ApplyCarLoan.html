@@ -1,0 +1,134 @@
+<div class="app app-arrow2 title-right-dash"
+	id="applyCarLoanBack" ng-click="setEvent('onCancelClick')"></div>
+<div class="finacle-container"
+	ng-init="services.initApplyCarLoan(successResponse.responsesList);formatAmountCrn('services.applyCarLoanModel.loanAmount','services.applyCarLoanModel.currency')">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase">
+							<span id="pageTitle"> {{appLiterals.APP.SERVICES.APP_CARLOAN.HEADER}} </span>
+						</div>
+					</div>
+					<!--  end of title -->
+					<form
+						ng-submit="corpInit.corpModel.resetCorpInitDetails();services.applyCarLoanModel.unFormatNumbers();services.convertToStr(); setEvent('onPreviewClick');">
+						<div class="two-input-wrapper"
+							ng-init='currencyArr = createDropDownOptionArray(services.applyCarLoanResponse.currencyList,["currencyDescription"], "currency");'>
+							<fin-input type="dropdown"
+								model="services.applyCarLoanModel.currency"
+								onchange="angular.element(this).scope().formatAmountCrn('services.applyCarLoanModel.loanAmount','services.applyCarLoanModel.currency')"
+								display-row="half1"
+								placeholder="{{appLiterals.APP.SERVICES.APP_CARLOAN.PH_CURR}}"
+								validation-flag='pageErrorArr["services.applyCarLoanModel.currency"]'
+								option-array="currencyArr"></fin-input>
+								<fin-input type="money"
+								model="services.applyCarLoanModel.loanAmount"
+								related-field="services.applyCarLoanModel.currency"
+								display-row="half2"
+								placeholder="{{appLiterals.APP.SERVICES.APP_CARLOAN.PH_LNAMT}}"
+								min="0" max-length="10"
+								validation-flag='pageErrorArr["services.applyCarLoanModel.loanAmount"]'></fin-input>
+						</div>
+						<div class="avail-bal-wrap">
+							<fin-input type="date" model="services.applyCarLoanModel.date"
+								on-change='services.parseLoanDate()' display-row="full"
+								validation-flag='pageErrorArr["services.applyCarLoanModel.date"]'
+								placeholder="{{appLiterals.APP.SERVICES.APP_CARLOAN.PH_DTE}}"></fin-input>
+						</div>
+						<!--<div
+							class=" col-sm-12 fin-input-container fin-input-container-half2 ng-scope">
+							 <p class="view-in-txt1" id="TXT_VIEW_INT_RATE">
+								{{appLiterals.APP.SERVICES.APP_CARLOAN.TXT_VIEW_INT_RATE}}</p> 
+						</div>-->
+						<div class="avail-bal-wrap">
+							<fin-input type="text" model="services.applyCarLoanModel.purpose"
+								display-row="full"
+								validation-flag='pageErrorArr["services.applyCarLoanModel.purpose"]'
+								min="0"
+								placeholder="{{appLiterals.APP.SERVICES.APP_CARLOAN.PH_PURPOFLOAN}}"></fin-input>
+						</div>
+						<!-- <div class="col-sm-12 label-wrap">
+							<p class="des-title" id="PH_DISBMDE">
+								{{appLiterals.APP.SERVICES.APP_CARLOAN.PH_DISBMDE}}</p>
+						</div> -->
+						<div class="avail-bal-wrap"
+							ng-init='disbursementMode = createDropDownOptionArray(services.applyCarLoanResponse.disbursementMode, ["Content"], "Value");'>
+							<fin-input type="dropdown"
+								model="services.applyCarLoanModel.disbursementMode"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.APP_CARLOAN.PH_DISBMDE}}"
+								validation-flag='pageErrorArr["services.applyCarLoanModel.disbursementMode"]'
+								option-array="disbursementMode"></fin-input>
+						</div>
+						<div class="avail-bal-wrap"
+							ng-show="services.applyCarLoanModel.disbursementMode == 'Credit to Account'">
+							<div
+								ng-init='disbursementAccList = createDropDownOptionAccountArray(services.applyCarLoanResponse.accountList, ["accountNumber"], "accountNumberValue");'>
+								<fin-input type="dropdown"
+									model="services.applyCarLoanModel.accountNumberDisbursement"
+									display-row="full"
+									placeholder="{{appLiterals.APP.SERVICES.APP_CARLOAN.PH_SELACC}}"
+									validation-flag='pageErrorArr["services.applyCarLoanModel.accountNumberDisbursement"]'
+									option-array="disbursementAccList"></fin-input>
+							</div>
+						</div>
+						<div class="col-sm-12 label-wrap">
+							<p class="des-title" id="TXT_REPAYOPT">{{appLiterals.APP.SERVICES.APP_CARLOAN.TXT_REPAYOPT}}
+							</p>
+						</div>
+						<!-- <span class="special-txt">{{appLiterals.APP.SERVICES.APP_CARLOAN.PH_PRINPAYMDE}}
+						</span> -->
+						<div class="avail-bal-wrap"
+							ng-init='PrincipalMode = createDropDownOptionArray(services.applyCarLoanResponse.principalPaymentMode, ["Content"], "Value");'>
+							<fin-input type="dropdown"
+								model="services.applyCarLoanModel.principalPayment"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.APP_CARLOAN.PH_PRINPAYMDE}}"
+								validation-flag='pageErrorArr["services.applyCarLoanModel.principalPayment"]'
+								option-array="PrincipalMode"></fin-input>
+						</div>
+						<div class="avail-bal-wrap"
+							ng-show="services.applyCarLoanModel.principalPayment == 'Debit to Account'">
+							<div
+								ng-init='PrincipalAccList = createDropDownOptionAccountArray(services.applyCarLoanResponse.accountList, ["accountNumber"], "accountNumberValue");'>
+								<fin-input type="dropdown"
+									model="services.applyCarLoanModel.accountNumberPrincipal"
+									display-row="full"
+									placeholder="{{appLiterals.APP.SERVICES.APP_CARLOAN.PH_SELACC}}"
+									validation-flag='pageErrorArr["services.applyCarLoanModel.accountNumberPrincipal"]'
+									option-array="PrincipalAccList"></fin-input>
+							</div>
+						</div>
+						<!-- <span class="special-txt">{{appLiterals.APP.SERVICES.APP_CARLOAN.PH_INTPAYMODEL}} -->
+						</span>
+						<div class="avail-bal-wrap"
+							ng-init='InterestPaymentMode = createDropDownOptionArray(services.applyCarLoanResponse.interestPaymentMode, ["Content"], "Value");'>
+							<fin-input type="dropdown"
+								model="services.applyCarLoanModel.interestPaymentMode"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.APP_CARLOAN.PH_INTPAYMODEL}}"
+								validation-flag='pageErrorArr["services.applyCarLoanModel.interestPaymentMode"]'
+								option-array="InterestPaymentMode"></fin-input>
+						</div>
+						<div class="avail-bal-wrap"
+							ng-show="services.applyCarLoanModel.interestPaymentMode == 'Debit to Account'">
+							<div
+								ng-init='InterestAccList = createDropDownOptionAccountArray(services.applyCarLoanResponse.accountList, ["accountNumber"], "accountNumberValue");'>
+								<fin-input type="dropdown"
+									model="services.applyCarLoanModel.accountNumberInterest"
+									display-row="full"
+									placeholder="{{appLiterals.APP.SERVICES.APP_CARLOAN.PH_SELACC}}"
+									validation-flag='pageErrorArr["services.applyCarLoanModel.accountNumberInterest"]'
+									option-array="InterestAccList"></fin-input>
+							</div>
+						</div>
+						<md-button type="submit" class="md-raised btn--primary-btn">
+						{{appLiterals.APP.SERVICES.APP_CARLOAN.BTN_CONT}}</md-button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

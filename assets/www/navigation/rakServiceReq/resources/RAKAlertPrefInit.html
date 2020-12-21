@@ -1,0 +1,180 @@
+<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onAlertPrefInitPageBackClick');"></i>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.initRAKAlertPref(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+						<div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.RAK_APR}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+                              </h2>              
+							</div>
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="row">
+							
+							
+								<p class="rak-parent-txt">
+									<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_NAME}}</span> 
+									<span class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RAKAlertPrefModel.name}}</span>
+								</p>
+								
+								<p class="rak-parent-txt" >
+									<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_MOBILE1}}</span> 
+									<span class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RAKAlertPrefModel.mobileNo1}}</span>
+								</p>
+								
+								<p class="rak-parent-txt" >
+									<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_MOBILE2}}</span> 
+									<span class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RAKAlertPrefModel.mobileNo2}}</span>
+								</p>
+								
+									<p class="rak-parent-txt">
+									<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_EMAIL}}</span> 
+									<span class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RAKAlertPrefModel.email}}</span>
+								</p>
+								
+								
+		
+									
+									<div class="label-wrap">
+										<p class="label-title-dndTime">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.DND_TXT}}</p>
+									</div>
+									
+									<div
+										ng-init='dnd1Arr=createDropDownOptionArray(rakServiceReq.RAKAlertPrefLists.sortedDnd1List, ["dndTime"], "dndCode");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RAKAlertPrefModel.selectedDnd1From"
+										display-row="half1" placeholder="{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_DND1}}: {{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_FROM}} hrs"
+										validation-flag='pageErrorArr["rakServiceReq.RAKAlertPrefModel.selectedDnd1From"]'
+										option-array="dnd1Arr" on-change="rakServiceReq.onDndTime1FromChanged()"> </fin-input>
+										
+										
+									<div
+										ng-init='dnd1Arr=createDropDownOptionArray(rakServiceReq.RAKAlertPrefLists.sortedDnd1List, ["dndTime"], "dndCode");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RAKAlertPrefModel.selectedDnd1To"
+										display-row="half2" placeholder="{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_DND1}}: {{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_TO}} hrs"
+										validation-flag='pageErrorArr["rakServiceReq.RAKAlertPrefModel.selectedDnd1To"]'
+										option-array="dnd1Arr" on-change="rakServiceReq.onDndTime1ToChanged()"> </fin-input>
+									
+										
+								<div>
+										<span class="dateLabelLeftAlert">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_FROM}}</span>
+								</div>
+										
+								<div>
+										<span class="dateLabelRightAlert">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_TO}}</span>
+								</div>
+
+									<div
+										ng-init='dnd2Arr=createDropDownOptionArray(rakServiceReq.RAKAlertPrefLists.sortedDnd1List, ["dndTime"], "dndCode");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RAKAlertPrefModel.selectedDnd2From"
+										display-row="half1" placeholder="{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_DND2}}: {{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_FROM}} hrs"
+										validation-flag='pageErrorArr["rakServiceReq.RAKAlertPrefModel.selectedDnd2From"]'
+										option-array="dnd2Arr" on-change="rakServiceReq.onDndTime2FromChanged()"> </fin-input>
+										
+										
+									<div
+										ng-init='dnd2Arr=createDropDownOptionArray(rakServiceReq.RAKAlertPrefLists.sortedDnd1List, ["dndTime"], "dndCode");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RAKAlertPrefModel.selectedDnd2To"
+										display-row="half2" placeholder="{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_DND2}}: {{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_TO}} hrs"
+										validation-flag='pageErrorArr["rakServiceReq.RAKAlertPrefModel.selectedDnd2To"]'
+										option-array="dnd1Arr" on-change="rakServiceReq.onDndTime2ToChanged()"> </fin-input>
+										
+										
+								<div>
+										<span class="dateLabelLeftAlert">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_FROM}}</span>
+								</div>
+										
+								<div>
+										<span class="dateLabelRightAlert">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_TO}}</span>
+								</div>
+
+									<div
+										ng-init='dnd3Arr=createDropDownOptionArray(rakServiceReq.RAKAlertPrefLists.sortedDnd1List, ["dndTime"], "dndCode");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RAKAlertPrefModel.selectedDnd3From"
+										display-row="half1" placeholder="{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_DND3}}: {{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_FROM}} hrs"
+										validation-flag='pageErrorArr["rakServiceReq.RAKAlertPrefModel.selectedDnd3From"]'
+										option-array="dnd3Arr" on-change="rakServiceReq.onDndTime3FromChanged()"> </fin-input>
+										
+									
+									<div
+										ng-init='dnd3Arr=createDropDownOptionArray(rakServiceReq.RAKAlertPrefLists.sortedDnd1List, ["dndTime"], "dndCode");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RAKAlertPrefModel.selectedDnd3To"
+										display-row="half2" placeholder="{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_DND3}}: {{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_TO}} hrs"
+										validation-flag='pageErrorArr["rakServiceReq.RAKAlertPrefModel.selectedDnd3To"]'
+										option-array="dnd3Arr" on-change="rakServiceReq.onDndTime3ToChanged()"> </fin-input>
+										
+								<div>
+										<span class="dateLabelLeftAlert">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_FROM}}</span>
+								</div>
+										
+								<div>
+										<span class="dateLabelRightAlert">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_TO}}</span>
+								</div>
+
+									<div
+										ng-init='dnd4Arr = createDropDownOptionArray(rakServiceReq.RAKAlertPrefLists.sortedDnd1List, ["dndTime"], "dndCode");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RAKAlertPrefModel.selectedDnd4From"
+										display-row="half1" placeholder="{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_DND4}}: {{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_FROM}} hrs"
+										validation-flag='pageErrorArr["rakServiceReq.RAKAlertPrefModel.selectedDnd4From"]'
+										option-array="dnd4Arr" on-change="rakServiceReq.onDndTime4FromChanged()"> </fin-input>
+										
+										
+									<div
+										ng-init='dnd4Arr = createDropDownOptionArray(rakServiceReq.RAKAlertPrefLists.sortedDnd1List, ["dndTime"], "dndCode");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RAKAlertPrefModel.selectedDnd4To"
+										display-row="half2" placeholder="{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_DND4}}: {{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_TO}} hrs"
+										validation-flag='pageErrorArr["rakServiceReq.RAKAlertPrefModel.selectedDnd4To"]'
+										option-array="dnd4Arr" on-change="rakServiceReq.onDndTime4ToChanged()"> </fin-input>
+										
+								<div>
+										<span class="dateLabelLeftAlert">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_FROM}}</span>
+								</div>
+										
+								<div>
+										<span class="dateLabelRightAlert">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_TO}}</span>
+								</div>
+
+									<div class="fin-txt"></div>
+									<div class="special-txt rakCheckbox">
+										<input type="checkbox" class="rakCheckbox" ng-checked="rakServiceReq.RAKAlertPrefModel.promoFlag"
+										ng-model="rakServiceReq.RAKAlertPrefModel.isPromoMsgEnabled">
+										 <b>{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_PROMOMSG}}</b>
+									</div>
+									
+									<div class="special-txt rakCheckbox topPadding4">
+										 <span>{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_TIME}}</span>
+									</div>
+
+									<div class="label-wrap">
+									<!-- 	<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="setEvent('onAlertPrefInitPageBackClick');">  Back </button> -->
+										<button type="button"  class="btn--special-btn btn-middle rak-button-small rak-button-right" ng-click="rakServiceReq.promoMsgCheckBoxClicked();setEvent('onRAKAlertPrefConfirmClick');">  Continue</button>						
+									</div>
+									
+								</div>
+
+								<div class="col-sm-1"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="scroll-space"></div>
+			</div>
+	</div>
+</div>

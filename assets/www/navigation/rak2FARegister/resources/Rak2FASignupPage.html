@@ -1,0 +1,108 @@
+<div class="rak-back-header">
+
+			<i class="rak-back-img"  ng-show="rak2FARegister.RegistrationModel.fromHardTokenRegPage!='YES' && corploginCliked=='N'" ng-click="setEvent('onRakRegisterBackBtnClick');"></i>
+			<i class="rak-back-img" ng-show="rak2FARegister.RegistrationModel.fromHardTokenRegPage!='YES' && corploginCliked=='Y'" ng-click="setEvent('onRakRegisterBackBtnClick');"></i>
+			<i class="rak-back-img" ng-show="rak2FARegister.RegistrationModel.fromHardTokenRegPage=='YES'" ng-click="setEvent('onRakHardTokenBackBtnClick');"></i>
+		</div>
+
+<div class="finacle-container" ng-init="setSingleStepRealmAuthFailure();rakHome.clearBurgerMenuHeaderContent();
+    myProfile.rememberUserID.initLoginPage(); fields.finacleUserCorporateId = '';
+    fields.finacleUserPassword ='';resetPageError();rakHome.getDeviceID();myProfile.errorCheck(successResponse.responsesList);">
+    <div class='fin-txt'></div>
+ <div class="col-sm-11 rakNicknameScroll">
+	  <div class="signupHeight">
+		
+		
+		<div class="label-wrap ">
+		  <div class="raktokenPopUpSecHeader">
+		  
+		  <div class="">
+					<span class="rakTokenIcon"></span><span class="raktokenSignupPageSecHeaderText">{{appLiterals.APP.RAK_2FA_MESSAGES.SIGNUP_HEADER}}</span>
+				</div>
+			
+		  </div>
+		  
+		  </div>
+          
+          
+		 <!--  <p class="rakTouch_sucs_circle_wrap"> <span class="app-tickcircle sucs_circle_icon"></span> </p> -->
+          
+		  
+	  </div>
+	
+	 <div class="raktouchIdLayout">
+
+	<div ng-show="rak2FARegister.EzComToken.corpFlow=='CORP' || buildType=='CORP'">
+ 	  <div class="raktouchIdMsgLabel" ng-hide='rakTouchIdActivation.touchIdReg.isReRegister'>
+	  {{appLiterals.APP.RAK_2FA_MESSAGES.SIGNUP_MSG1_CORP}}
+	  </div> 
+
+	   <div class="raktouchIdMsgLabel">
+	  	   {{appLiterals.APP.RAK_2FA_MESSAGES.SIGNUP_MSG2_CORP}}
+	  </div>
+
+	   <div class="raktouchIdMsgLabel">
+	  	  	    {{appLiterals.APP.RAK_2FA_MESSAGES.SIGNUP_MSG4_CORP}}
+	  	  </div>
+	  	  
+	  	 
+	</div>
+
+	<div ng-show="rak2FARegister.EzComToken.corpFlow!='CORP' && buildType!='CORP'"> 
+ 	  <div class="raktouchIdMsgLabel" ng-hide='rakTouchIdActivation.touchIdReg.isReRegister'>
+	  {{appLiterals.APP.RAK_2FA_MESSAGES.SIGNUP_MSG1_NEW_SME}}
+	  </div> 
+
+	<!--    <div class="raktouchIdMsgLabel">
+	  	   {{appLiterals.APP.RAK_2FA_MESSAGES.SIGNUP_MSG2}}
+	  </div> -->
+
+	   <div class="raktouchIdMsgLabel">
+	  	  	    {{appLiterals.APP.RAK_2FA_MESSAGES.SIGNUP_MSG4}}
+	  	  </div>
+	  	  
+	  	   <div class="raktouchIdMsgLabel">
+	  	  	    {{appLiterals.APP.RAK_2FA_MESSAGES.SIGNUP_MSG5}}
+	  	  </div>
+	</div>
+
+
+
+
+
+
+
+	 	<button ng-show="rak2FARegister.EzComToken.corpFlow!='CORP' && corploginCliked=='N'" class="raktouchIdOverviewButtonEnable registerButton" ng-click="setEvent('onRakSignUpInit');" > {{appLiterals.APP.RAK_2FA_MESSAGES.PROCEED_TOKEN_SIGNUP}}</button>
+        	<button ng-show="rak2FARegister.EzComToken.corpFlow=='CORP' && corploginCliked=='N'" class="raktouchIdOverviewButtonEnable registerButton" ng-click="setEvent('onRakCorpSignUpInit');" > {{appLiterals.APP.RAK_2FA_MESSAGES.PROCEED_TOKEN_SIGNUP}}</button>
+        	<button ng-show="corploginCliked=='Y'" class="raktouchIdOverviewButtonEnable registerButton" ng-click="setEvent('onMobileValidationClick');" > {{appLiterals.APP.RAK_2FA_MESSAGES.PROCEED_TOKEN_SIGNUP}}</button>
+        
+        <button class="cancebutton" ng-show="rak2FARegister.RegistrationModel.fromHardTokenRegPage!='YES' && corploginCliked=='N'" ng-click="setEvent('onRakRegisterBackBtnClick');;"> {{appLiterals.APP.RAK_2FA_MESSAGES.CANCEL_BTN}}</button>
+         <button class="cancebutton" ng-show="rak2FARegister.RegistrationModel.fromHardTokenRegPage!='YES' && corploginCliked=='Y'" ng-click="setEvent('onRakRegisterBackBtnClick');"> {{appLiterals.APP.RAK_2FA_MESSAGES.CANCEL_BTN}}</button>
+          <button class="cancebutton" ng-show="rak2FARegister.RegistrationModel.fromHardTokenRegPage=='YES' && corploginCliked=='Y'" ng-click="rak2FARegister.registerSuccess();"> {{appLiterals.APP.RAK_2FA_MESSAGES.CANCEL_BTN}}</button>
+
+
+<!-- Added for RAKToke-Deregistration Pre Login CR Start -->
+<!-- <button class="rakTknTutorial" ng-click="rakHome.productUrl();"> {{appLiterals.APP.RAK_2FA_MESSAGES.RAK_TKN_TUTORIAL_BTN}}</button> -->
+
+<div class='fin-txt'></div>
+
+<div class="disclaimer3">
+	<span ng-click="rakServiceReq.fetchDisclaimer('ForgotRAKTokenPINCorporate.html');" class="hyperLinkRed">{{appLiterals.APP.RAK_2FA_MESSAGES.RAK_TKN_TUTORIAL_BTN}}</span><span ng-bind-html="appLiterals.APP.RAK_2FA_MESSAGES.RAK_TKN_TUTORIAL_BTN1"></span><span ng-click="rakServiceReq.rakTokenTutorialUrl();" class="hyperLinkRed">{{appLiterals.APP.RAK_2FA_MESSAGES.RAK_TKN_TUTORIAL_BTN2}}</span>
+</div>
+
+<div class='fin-txt'></div>
+
+
+
+
+<!-- <span class="deRegRakTokenLink" ng-click="rak2FARegister.constants.isRakTknDeReg='YES';setEvent('onDeRegisterRakTknClick');" style="font-size:12px;">Click here to De-register for RAKToken if you are already registered</span> -->											
+<div class="disclaimer3">	
+	<span ng-click="rak2FARegister.constants.isRakTknDeReg='YES';setEvent('onDeRegisterRakTknClick');" class="hyperLinkRed">{{appLiterals.APP.RAK_2FA_MESSAGES.RAK_TKN_DE_REG_CLICK_HERE}}</span><span ng-bind-html="appLiterals.APP.RAK_2FA_MESSAGES.RAK_TKN_DE_REG_TXT"></span>
+</div>
+<!-- Added for RAKToke-Deregistration Pre Login CR End -->	
+	 </div>
+	 </div>
+</div>
+
+
+

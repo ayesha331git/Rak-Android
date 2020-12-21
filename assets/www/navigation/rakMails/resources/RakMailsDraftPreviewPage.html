@@ -1,0 +1,80 @@
+<div class="finacle-container ng-scope"
+	ng-init="rakMails.clearTab();rakMails.draftsTab=true;rakMails.draft.initDraftPage(successResponse.responsesList)">
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setGlobalEvent('onDashboardClick');"></i>
+</div>
+
+<div class="account-page">
+		<div class="col-sm-11">
+<div class="">
+				<div class="row">
+					<div class="col-sm-1"></div>
+					
+					<div
+							ng-init='mailTypeArray=createDropDownOptionArray(rakMails.mailOptions, ["mailOption"],"mailValue")'>
+							<fin-input type="dropdown" option-array="mailTypeArray"
+								model="rakMails.selectedMailType"
+								display-row="full"
+								placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_SELCT}}"
+								on-change="resetPageError();setGlobalEvent(rakMails.getMailEvent());"
+								validation-flag='pageErrorArr["rakMails.selectedMailType"]'>
+							</fin-input>
+						</div>
+
+    
+
+
+<div class="ng-show" ng-if='rakMails.isDraftEmpty'>
+		<span class="bnk_nm toggle_btn">{{rakMails.successMessage}}</span>
+	</div>
+
+<div class="rakmail-field-wrap" ng-hide="rakMails.isDraftEmpty">
+      <p class="search-field">
+      
+        <span class="rakGlyphicon glyphicon-search"> </span>
+        <input type="text" input-restricted-special-character placeholder="{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.SEARCH_MAILS}}" ng-model="searchText" class="raksearch-txt">
+      </p>
+</div>
+
+	<div class="rakMargin5px" ng-hide="rakMails.isDraftEmpty">
+<a  class="advanceSearch" ng-click="rakMails.RakSearchMails.fromDraftFlag=true;rakMails.RakSearchMails.criteriaFlag=false;rakMails.RakSearchMails.rakSearchMailReset();rakMails.RakSearchMails.rakMailFolderIdInbox();setEvent('onMailSearchClick');">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.ADVANCESEARCH}}</a>
+</div>
+
+
+		<div class="bg-color rak-cont-padding rak-scroll">
+						<div class="row">
+							
+							
+
+<!-- CHNAGES DONE AS FIX OF PROUAT-2315 START -->
+							<div class="landingpage-list read" 
+								ng-class="{'unread':mail.mailStatus=='U'}">
+								
+                                      <div class="i-mailInbox" ng-repeat="mail in filteredList =(rakMails.draft.draftList | filter:searchText)">
+									          <div class="inbox-rsplit-inbox" ng-click="rakMails.selectedMailId=mail.mBoxId;rakMails.detailType='Draft';
+									         setEvent('onDraftMailClick')">
+										            <span class="bnk_nm">{{mail.mailSubject}}</span>   
+						                       </div>
+							                  
+							                    <div class="inbox-csplit-new">{{mail.mailDate}}</div>
+                                        </div>
+							</div>
+							<!-- <span ng-show="filteredList.length=='0'" class="noMails">No mails found</span> -->
+							
+							
+<!-- CHNAGES DONE AS FIX OF PROUAT-2315 END -->
+
+
+						</div>
+					</div>
+
+
+
+
+		<div class="col-sm-1"></div>
+	</div>
+  </div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,43 @@
+<div class="finacle-container" ng-init="rakServiceReq.RakBusinessEliteSubscribe.RakBusinessEliteSubscribeSuccess(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+	
+            
+            <div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{successResponse.responsesList[0].successMessage}}</span>
+                        </div>
+                  </div>
+                  
+            <div class="summary-ServiceReq">
+                        <div class="iconDiv">                        	  
+                              <span class="infoIcon" style="visibility: hidden"></span><span ng-if='successResponse.responsesList[0].txnStatus =="SUCCESS"' class="success">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.SME_BUSINESS_ELITE_SUCCESS_MESSAGE}}</span>
+                              <span class="infoIcon" style="visibility: hidden"></span><span ng-if='successResponse.responsesList[0].txnStatus =="FAIL"' class="success">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.SME_BUSINESS_ELITE_FAILURE_MESSAGE}}</span>
+                        </div>
+                  </div>
+            
+          
+				
+				          
+		<div class="bg-color rak-cont-padding rak-scroll-success">
+
+				<div class="">
+					<div class="">
+					
+					
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakServiceReq.RakBusinessEliteSubscribe.resetRakEliteSubcribeDetails();setEvent('onSubScribeOkClick')">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>

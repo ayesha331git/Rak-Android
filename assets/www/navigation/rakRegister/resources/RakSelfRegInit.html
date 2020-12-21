@@ -1,0 +1,198 @@
+<div class="container-fluid padding-auto"
+	ng-init="setSingleStepRealmAuthFailure();rakHome.clearBurgerMenuHeaderContent();appActivation.checkTouchIDStatus();appActivation.checkResignedActivationStatus();
+	myProfile.rememberUserID.initLoginPage(); fields.finacleUserCorporateId = ''; 
+	fields.finacleUserPassword ='';resetPageError();myProfile.errorCheck(successResponse.responsesList);">
+
+
+	<div class="container-fluid padding-zero">
+
+		<div class="row">
+
+			<div class="col-sm-1 rakDblheight"></div>
+
+			<div class="col-sm-11 login-form">
+				
+				<div class="center rakFont10">
+					<div class="rak-logintab"
+						ng-click="setGlobalEvent('onLoginClick');">
+						<span class="rak-black-color login-label">
+							{{appLiterals.APP.RAK_LOGIN_PAGE.LOGIN}} </span>
+					</div>
+
+					<!-- CHANGES DONE AS FIX OF PRCU-1412 START -->
+					<div class="rak-logintab  border-left"
+						ng-show="rakRegister.RegistrationModel.isRegisterClicked">
+						<span class="login-label rak-color border-bottom">
+							{{appLiterals.APP.RAK_LOGIN_PAGE.REGISTER}}</span>
+					</div>
+
+					<div class="rak-logintab  border-left"
+						ng-show="rakRegister.RegistrationModel.isforgotUserIdClicked">
+						<span class="login-label rak-color border-bottom">
+							{{appLiterals.APP.RAK_LOGIN_PAGE.FORGOT_USERID}}</span>
+					</div>
+
+					<div class="rak-logintab  border-left"
+						ng-show="rakRegister.RegistrationModel.isforgotPasswordClicked">
+						<span class="login-label rak-color border-bottom">
+							{{appLiterals.APP.RAK_LOGIN_PAGE.FORGOT_PASSWORD}}</span>
+					</div>
+
+					<div class="rak-logintab  border-left"
+						ng-show="rakRegister.RegistrationModel.isEnableUserIdClicked">
+						<span class="login-label rak-color border-bottom">
+						{{appLiterals.APP.RAK_LOGIN_PAGE.ENABLE_USERID}}</span>
+					</div>
+			<!--  CHANGES DONE AS FIX OF PRCU-1412 END -->
+				
+				</div>
+				
+<!-- CHANGES DONE AS FIX OF UI START -->		
+				<div ng-if="rakRegister.RegistrationModel.requestType=='ORON'">
+					<div class="selfReg-main-form-heading margin-bottom10px margin-top10px">
+
+						<div>
+							<span class="rak-black-color login-label-selfReg ">{{appLiterals.APP.RAKSELFREG.NEWREG_TXT}}</span>
+						<ul class="process-steps">
+							<li class="active"></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+						
+</div>
+					</div>
+				</div>
+
+				<div ng-if="rakRegister.RegistrationModel.requestType=='FUON'">					
+					<div class="selfReg-main-form-heading margin-bottom10px margin-top10px">
+						<div>
+							<span class="rak-black-color login-label-selfReg ">{{appLiterals.APP.RAK_LOGIN_PAGE.FORGOT_USERID}}</span>
+							<ul class="process-steps">
+							<li class="active"></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+						</div>
+					</div>
+					
+				</div>
+
+				<div ng-if="rakRegister.RegistrationModel.requestType=='FPON'">
+					<div class="selfReg-main-form-heading margin-bottom10px margin-top10px">
+						<div>
+							<span class="rak-black-color login-label-selfReg ">{{appLiterals.APP.RAK_LOGIN_PAGE.FORGOT_PASSWORD}}</span>
+								<ul class="process-steps">
+							<li class="active"></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+
+				<div ng-if="rakRegister.RegistrationModel.requestType=='EUON'">
+					<div class="selfReg-main-form-heading margin-bottom10px margin-top10px">
+						<div>
+							<span class="rak-black-color login-label-selfReg ">{{appLiterals.APP.RAK_LOGIN_PAGE.ENABLE_USERID}}</span>
+							<ul class="process-steps">
+							<li class="active"></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							</ul>
+							</div>
+					</div>
+
+				</div>
+<!-- CHANGES DONE AS FIX OF UI END -->	
+
+				</br> </br>
+
+
+				<div class="fin-txt"></div>
+
+				<div class="rak-selfReg-lable">
+					<p>{{appLiterals.APP.RAKSELFREG.ENTER_ACTTNO_TXT}}</p>
+				</div>
+
+				<div class="rakRow">
+				<!--CHANGES DONE AS FIX OF UI START-->	
+					<div class="rak80-selfReg">
+						<div>
+							<div class="rakCstmRadioDiv rak100 rakTop1em margin-bottom10px">
+								<input type="radio" value="A" id="radio1"
+									ng-model="rakRegister.RegistrationModel.selectedNoType"
+									ng-change="rakRegister.RegistrationModel.enteredAcctNo=''" /> <label
+									for="radio1"><span><span></span></span>{{appLiterals.APP.RAKSELFREG.ACCTNO}}</label>
+
+							</div>
+						<!-- 	<div class="rakCstmRadioDiv rak100 rakTop1em margin-bottom10px">
+								<input type="radio" value="C" id="radio2"
+									ng-model="rakRegister.RegistrationModel.selectedNoType"
+									ng-change="rakRegister.RegistrationModel.enteredAcctNo=''" /> <label
+									for="radio2"><span><span></span></span>{{appLiterals.APP.RAKSELFREG.CCNO}}</label>
+							</div> -->
+							<div class="rakCstmRadioDiv rak100 rakTop1em margin-bottom10px">
+								<input type="radio" value="D" id="radio3"
+									ng-model="rakRegister.RegistrationModel.selectedNoType"
+									ng-change="rakRegister.RegistrationModel.enteredAcctNo=''" /> <label
+									for="radio3"><span><span></span></span>{{appLiterals.APP.RAKSELFREG.DCNO}}</label>
+							</div>
+						</div>
+						<!--CHANGES DONE AS FIX OF UI END-->	
+					</div>
+				</div>
+			<div >
+				<fin-input ng-if="rakRegister.RegistrationModel.selectedNoType=='A'"
+					type="number_card"
+					model="rakRegister.RegistrationModel.enteredAcctNo"
+					display-row="full" max-length="13"
+					validation-flag='pageErrorArr["rakRegister.RegistrationModel.enteredAcctNo"]'
+					placeholder="{{appLiterals.APP.RAKSELFREG.ACCTNO}}"
+					style="width:95%;"> </fin-input>
+
+				<fin-input ng-if="rakRegister.RegistrationModel.selectedNoType=='C'"
+					type="number_card"
+					model="rakRegister.RegistrationModel.enteredAcctNo"
+					display-row="full" max-length="16"
+					validation-flag='pageErrorArr["rakRegister.RegistrationModel.enteredAcctNo"]'
+					placeholder="{{appLiterals.APP.RAKSELFREG.CCNO}}"
+					style="width:95%;"> </fin-input>
+
+				<fin-input ng-if="rakRegister.RegistrationModel.selectedNoType=='D'"
+					type="number_card"
+					model="rakRegister.RegistrationModel.enteredAcctNo"
+					display-row="full" max-length="16"
+					validation-flag='pageErrorArr["rakRegister.RegistrationModel.enteredAcctNo"]'
+					placeholder="{{appLiterals.APP.RAKSELFREG.DCNO}}"
+					style="width:95%;"> </fin-input>
+
+</div>
+				<div class="label-wrap">
+					<!-- <button type="button"
+						class="btn--special-btn btn-middle rak-button-small"
+						ng-click="setGlobalEvent('onLoginClick');">
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CANCEL}}</button> -->
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-small rak-button-right margin-top10px"
+						ng-click="rakRegister.RegistrationModel.isProceedClicked=false;setEvent('onRakRegValidateAcctNo');">
+						{{appLiterals.APP.RAKCOMMONLITERALS.PROCEED}}</button>
+				</div>
+
+			</div>
+			<div class="disclaimer3">
+				<br>
+                <div class="disclaimerDac"  ng-bind-html="appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DAC_DISCLAIMER_PRELOGIN"></div>
+            </div>
+		</div>
+	</div>
+
+</div>

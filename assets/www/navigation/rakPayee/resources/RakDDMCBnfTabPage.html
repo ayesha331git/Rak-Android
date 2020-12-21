@@ -1,0 +1,7 @@
+ <div class="money-block">
+          <ul>
+               <li ng-class="{'active':rakPayee.ddmcServReqTab,'':!rakPayee.ddmcServReqTab}" ng-click="rakPayee.clearDdmcTab();rakPayee.clearDdmcTab=true;setGlobalEvent('')">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.SERVICEREQ}}</li>
+            <li ng-class="{'active':rakPayee.ddmcBenfTab,'':!rakPayee.ddmcBenfTab}" ng-click="rakPayee.clearDdmcTab();rakPayee.ddmcBenfTab=true;rakPayee.selectedPayeeType=rakPayee.payeeTypes.DD;rakPayee.bankbnftype=rakPayee.constants.NETWORKTYPEDDMC;setGlobalEvent('onPayDDMCHClick')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BNF}}</li>
+            <li ng-class="{'active':rakPayee.ddmcTxnHistTab,'':!rakPayee.ddmcTxnHistTab}" ng-click="rakPayee.clearDdmcTab();rakPayee.ddmcTxnHistTab=true;setGlobalEvent('')">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.TXN_HIST}}</li>
+          </ul>
+        </div>

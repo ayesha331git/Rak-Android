@@ -1,0 +1,47 @@
+<div class="rak-back-header" >
+					<i class="rak-back-img" ng-click="setGlobalEvent('onDashboardClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+<div class="finacle-container " ng-init="resetPageError();">
+	<div class="account-page">
+	<div class="col-sm-11">
+	<div class="selfReg-main-form-heading">
+						<div>
+							<span class="rak-black-color upd-label ">{{appLiterals.APP.RAK_MYPROFILE.RAK_PROFLANDPAGE.SETTING}}</span>
+								
+						</div>
+					</div>
+		</div>
+		<div class="bg-color rak-cont-padding">
+	<div class="rakServiceReqList marginProfileLanding">
+		<ul class="rak-accordianUL blockWidth">
+
+
+
+			<li class="rak-accordianList" >
+				<ul class="reqSubMenu blockDisplay profilelanding" id="srId">
+					<li ng-click="setEvent('onViewPPClick');rakMyProfile.viewPersonalProfile.resetViewPersonalProfileModel();"><span>{{appLiterals.APP.RAK_MYPROFILE.RAK_PROFLANDPAGE.VIEW_PP}}</span></li>
+					<li ng-if="rakHome.userTypeIDValue!='CORPORATE'" ng-click="rakMyProfile.fromSettingsMenu=true;rakMyProfile.updatePersonalProfile.resetUpdatePersonalProfileModel();setEvent('onRakUpdatePersonalProfileClick');"><span>{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.UPDATE_PP}}</span></li>
+
+
+					<li ng-click="setEvent('onLoginPwdClick');"><span>{{appLiterals.APP.RAK_MYPROFILE.RAK_PROFLANDPAGE.CHNG_PASS}}</span></li>
+
+					<li  ng-if="dashboard.userType=='1' || rakHome.userTypeIDValue!='CORPORATE'" ng-click="setEvent('onUserIDClick');rakMyProfile.updateIdModel.resetUpdateIDModel();"><span>{{appLiterals.APP.RAK_MYPROFILE.RAK_PROFLANDPAGE.UPDATE_USER_ID}}</span></li>
+				
+					<li ng-if="appActivation.touchIdEnable && rakHome.userTypeIDValue!='CORPORATE' && !faceIDEnabled" ng-click="rakTouchIdActivation.touchIdReg.fromLoggedInflow=true;appActivation.touchBack=true;setEvent('enableTouchId');"><span>{{appLiterals.APP.RAK_MYPROFILE.RAK_PROFLANDPAGE["TOUCH_ID"+biometricType]}}</span></li>
+				
+					
+				</ul>
+			</li>
+
+
+
+		</ul>
+	</div>
+	
+</div>
+</div>
+</div>
+</div>
+</div>

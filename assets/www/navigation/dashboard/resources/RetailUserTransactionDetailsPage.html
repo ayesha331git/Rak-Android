@@ -1,0 +1,224 @@
+<div class="container-fluid finacle-container"
+	ng-init='fields.txnSrcFromDate_day = "02"; fields.txnSrcFromDate_month = "11"; fields.txnSrcFromDate_year = "2014"; fields.txnSrcToDate_day = "20"; fields.txnSrcToDate_month = "01"; fields.txnSrcToDate_year = "2015";'>
+
+
+
+
+	<div class="dashboard-item-body"
+		style="padding-bottom: 1.5em; margin-left: 0; margin-right: 0;">
+
+		<div class="col-sm-12">
+
+			<div style="height: 5.2em;">
+				<div
+					style="height: 5.2em; position: absolute; left: 1.5em; right: 1.5em;">
+
+					<!--  <div class="row-new">
+        <div class="circle-new" style="background-color: white;"></div>
+        <div class="circle-new"></div>
+        <div class="circle-new"></div>
+        <div class="circle-new"></div>
+      </div> -->
+
+				</div>
+
+				<div id="retailUserTxnDetPageOnDashboardClick"
+					style="height: 5.2em; width: 5.2em; position: absolute; right: 1.5em;"
+					ng-click='setEvent("onDashboardClick")'>
+					<p style="margin: 0; text-align: right; line-height: 7.5em;">
+						<span class="icon icon-cancel"
+							style="color: white; font-size: 3.6em;"></span>
+					</p>
+				</div>
+			</div>
+
+
+
+			<div style="background-color: white;">
+
+				<div class="dashboard-item-body">
+					<div class="col-sm-12">
+
+
+
+						<div>
+							<div>
+								<div id="retailUserTxnDetPageSelectedAccountAccountId"
+									style="float: left; margin: 0; color: #232020; font-size: 1.8em; padding-top: 1em; padding-left: 1em; padding-bottom: 1.2em; margin: 0;">
+									{{fields.selectedAccount.accountId}}</div>
+
+								<div style="float: right; margin: 1.6em;">
+									<span class="icon icon-ellipses"
+										style="color: #9e9a9a; font-size: 2.5em;"></span>
+								</div>
+							</div>
+						</div>
+
+						<div style="clear: both; padding-bottom: 3em; position: relative;">
+							<p id="retailUserTxnDetPageSelectedAccountTEXT_AVAILABLE_BALANCE"
+								style="font-size: 1em; color: #232020; padding-bottom: 0.5em; padding-left: 2em; margin: 0;">
+								{{appLiterals.APP.DASHBOARD.TRANSACTION_DETAILS_PAGE.TEXT_AVAILABLE_BALANCE}}
+							</p>
+							<!--
+              <div style="
+                padding-left: 2em;
+                margin: 0;
+              ">
+                <span style="font-size: 25px; color: #e21619;"> $ </span>
+                <span style="font-size: 25px; color: #e21619;"> 12,203.</span>
+                <span style="font-size: 18px; color: #e21619; margin-left: -4px;">23 </span>
+                <p style="font-size: 11px; color: #232020;padding-top: 0.5em;margin: 0;"> <i> as of 29-Dec-14 </i> </p>
+
+              </div> -->
+
+							<div style="padding-left: 2em; margin: 0;">
+								<span id="retailUserTxnDetPageSelectedAccountSelectedAccountBalance" style="font-size: 2.5em; color: #e21619;"> $
+									{{fields.selectedAccount.balance}}.</span> <span
+									style="font-size: 1.8em; color: #e21619; margin-left: -0.2em;">23
+								</span>
+								<p
+									style="font-size: 1.1em; color: #232020; padding-top: 0.5em; margin: 0;">
+									<i> as of 2-Jan-2015 </i>
+								</p>
+
+							</div>
+
+						</div>
+
+
+						<div
+							style="height: 3.7em; margin-left: 2em; margin-right: 2em; border-bottom: solid 1px #dbe3e7;">
+
+							<div style="text-align: center; float: left;">
+								<div id="retailUserTxnDetPageSelectedAccountDESCRIPTION_TRANSACTION_DETAILS_PAGE"
+									style="font-size: 1.4em; color: #0c2d53; line-height: 2.7em;">
+									{{appLiterals.APP.DASHBOARD.TRANSACTION_DETAILS_PAGE.DESCRIPTION_TRANSACTION_DETAILS_PAGE}}
+								</div>
+								<div
+									style="height: 0.2em; background-color: #0c2d53; margin-top: -0.2em; position: relative;">
+								</div>
+								<div
+									style="width: 0; height: 0; border-left: 0.6em solid transparent; border-right: 0.6em solid transparent; border-bottom: 0.6em solid #0c2d53; margin-top: -0.8em; margin-left: auto; margin-right: auto;">
+								</div>
+							</div>
+
+							<div style="width: 2em; height: 3.7em; float: left;"></div>
+
+							<div id="retailUserTxnDetPageOnAccountDetailsClick" style="text-align: center; float: left;"
+								ng-click='setEvent("onAccountDetailsClick")'>
+								<span id="retailUserTxnDetPageSelectedAccountTEXT_DETAILS"
+									style="font-size: 1.4em; color: #424040; line-height: 2.7em;">
+									{{appLiterals.APP.DASHBOARD.TRANSACTION_DETAILS_PAGE.TEXT_DETAILS}}
+								</span>
+							</div>
+
+							<div
+								style="text-align: center; float: right; height: 100%; width: 3.7em; border: solid 1px #dbe3e7; margin-top: 1px;">
+								<span class="glyphicon glyphicon-search"
+									style="font-size: 1.4em; color: #9e9a9a; line-height: 2.7em;"></span>
+							</div>
+
+						</div>
+
+
+						<div
+							style="margin-left: 2em; margin-right: 2em; margin-top: 1.7em;">
+
+							<p id="retailUserTxnDetPageSelectedAccountTEXT_SEARCH_TRANSACTIONS"
+								style="margin: 0; text-align: left; float: left; font-size: 1.8rem;">
+								{{appLiterals.APP.DASHBOARD.TRANSACTION_DETAILS_PAGE.TEXT_SEARCH_TRANSACTIONS}}
+							</p>
+
+							<p id="retailUserTxnDetPageOnAccountClick"
+								style="margin: 0; text-align: right; float: right; margin-top: -0.5rem;"
+								ng-click='setEvent("onAccountClick")'>
+								<span class="icon icon-cancel" style="font-size: 3.6em;"></span>
+							</p>
+
+							<div class="dashboard-item-body"
+								style="clear: both; padding-bottom: 1.4em; height: 6.9em; position: relative; margin-left: -3rem; margin-right: -3rem;">
+								<span id="retailUserTxnDetPagePH_KEYWRDS"
+									style="border-bottom: solid 0.1em #dbe3e7; border-left: solid 0.1em #dbe3e7; margin-left: 2.6em; border-right: solid 0.1em #dbe3e7; overflow: visible; max-height: 0.5em; display: inline-block; padding: 0.2em; position: absolute; bottom: 0;"
+									class="input-width-var"> <input type="text"
+									style="outline: none; border: none; background: transparent; display: inline-block; position: relative; bottom: 1.6em; padding-left: 0.2em; font-size: 1.8em;"
+									placeholder="{{appLiterals.APP.DASHBOARD.TRANSACTION_DETAILS_PAGE.PH_KEYWRDS}}">
+								</span>
+							</div>
+
+							<div class="dashboard-item-body"
+								style="padding-bottom: 1.4em; height: 6.9em; position: relative;">
+
+								<div class="dashboard-item-body"
+									style="padding-bottom: 1.4em; height: 6em; position: relative;">
+									<span
+										style="border-bottom: solid 0.1em #dbe3e7; border-left: solid 0.1em #dbe3e7; margin-left: 2.5em; border-right: solid 0.1em #dbe3e7; overflow: visible; max-height: 0.5em; display: inline-block; padding: 0.2em; position: absolute; bottom: 0;"
+										class="input-width-var-date2"> <!--               <input type="date" style="
+                outline: none;
+                border: none;
+                background: transparent;
+                display: inline-block;
+                position: relative;
+                bottom: 1.6em;
+                padding-left: 0.2em;
+                font-size: 1.8em; margin-top:0;
+                "
+                placeholder="From Date" onClick="$(this).removeClass('placeholderclass')" class="dateclass placeholderclass"
+              > --> <input
+										placeholder="{{appLiterals.APP.DASHBOARD.TRANSACTION_DETAILS_PAGE.PH_DOB}}"
+										type="text" onfocus="(this.type='date')"
+										style="outline: none; border: none; background: transparent; display: inline-block; position: relative; bottom: 1.6em; padding-left: 0.2em; font-size: 1.8em; margin-top: 0;">
+									</span>
+								</div>
+
+								<span class="glyphicon glyphicon-calendar cal-marign-var"
+									style="float: right; margin-right: 1em; color: #aaa; font-size: 1.8em;"></span>
+
+								<!-- </span>
+ -->
+							</div>
+
+							<div class="dashboard-item-body"
+								style="padding-bottom: 1.4em; height: 6em; position: relative; margin-left: -3.5em; margin-right: -3em;">
+
+								<span
+									style="border-bottom: solid 0.1em #dbe3e7; margin-left: 2.6em; overflow: visible; max-height: 0.5em; display: inline-block; padding: 0.2em; position: absolute; bottom: 0;"
+									class="input-width-var"> <select
+									style="width: 90%; background-color: transparent; border: transparent; display: inline-block; position: relative; bottom: 1.6em; font-size: 1.8em;">
+										<option id="retailUserTransactionDetailsPageTEXT_TRANSACTION_PERIOD" value="1" style="color: #aaa;">
+											{{appLiterals.APP.DASHBOARD.TRANSACTION_DETAILS_PAGE.TEXT_TRANSACTION_PERIOD}}</option>
+										<option id="retailUserTransactionDetailsPageTRANSACTION_PERIOD1" value="1">{{appLiterals.APP.DASHBOARD.TRANSACTION_DETAILS_PAGE.TRANSACTION_PERIOD1}}</option>
+										<option id="retailUserTransactionDetailsPageTRANSACTION_PERIOD2" value="2">
+											{{appLiterals.APP.DASHBOARD.TRANSACTION_DETAILS_PAGE.TRANSACTION_PERIOD2}}</option>
+										<option id="retailUserTransactionDetailsPageTRANSACTION_PERIOD3" value="3">
+											{{appLiterals.APP.DASHBOARD.TRANSACTION_DETAILS_PAGE.TRANSACTION_PERIOD3}}</option>
+										<option id="retailUserTransactionDetailsPageTRANSACTION_PERIOD4" value="4">
+											{{appLiterals.APP.DASHBOARD.TRANSACTION_DETAILS_PAGE.TRANSACTION_PERIOD4}}</option>
+								</select> <span
+									style="width: 0; height: 0; border-left: 2em solid transparent; border-bottom: 2em solid #dbe3e7; float: right; margin-top: -1.8em; right: 0; position: absolute;">
+								</span>
+								</span>
+							</div>
+
+						</div>
+
+						<div style="text-align: center;">
+							<md-button id="retailUserTxnDetPageBUTTON_SEARCH"
+								style="margin-top: 3em; margin-bottom: 1.5em; height: 5em; background-color: transparent; border: solid 0.1em #e21619; width: 93%;"
+								ng-click='fields.selectedAccount.mainAccountType == "LON" ? setEvent("onLoanTransSearchClick") : fields.selectedAccount.mainAccountType == "OPR" ? setEvent("onOprTransSearchClick") : setEvent("onDepTransSearchClick")'>
+							<span id="retailUserTransactionDetailsPageBUTTON_SEARCH" style="color: #e21619; font-size: 1.4em;">
+								{{appLiterals.APP.DASHBOARD.TRANSACTION_DETAILS_PAGE.BUTTON_SEARCH}}
+							</span> </md-button>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+</div>

@@ -1,0 +1,75 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRAKOprFSAcctOpenReqSucess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+
+			<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.RAKOprFSAcctOpenReq.successMessage}}</span>
+				</div>
+			</div>
+			<div class="main-form-heading-ServiceReq">
+				<h2 class="rakBenfHeader">
+					{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.FASTSAVER_ACCOUNT}}<span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>
+				</h2>
+			</div>
+
+
+		<div class="bg-color rak-cont-padding rak-scroll rak-scroll-account-open">
+			<div class="row">
+
+				<p class="rak-sum-txt" ng-show="rakServiceReq.RAKOprFSAcctOpenLists.refAcctNoList.length > 0">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRFSACCOPEN.REF_ACCT_NO}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprFSAcctOpenLists.refAcctNoList[rakServiceReq.RAKOprFSAcctOpenReq.selectedRefNo].accountNumber}}</span>
+                </p>
+
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRFSACCOPEN.ACCTCRN}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprFSAcctOpenReq.selectedCrn}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="rakServiceReq.RAKOprFSAcctOpenReq.selectedCrn=='AED'">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRFSACCOPEN.DEBIT_CARD_RQD}}</span>
+					<span class="rak-sum-label black">Yes</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="rakServiceReq.RAKOprFSAcctOpenLists.refAcctNoList.length == 0">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRFSACCOPEN.BRANCH}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprFSAcctOpenReq.branchNameContinue}}</span>
+				</p>
+	<div ng-if='rakServiceReq.common.EmiratesIdAvailable=="Y"'> 
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRFSACCOPEN.EMIRATESID}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprFSAcctOpenReq.EmiratesId}}</span>
+				</p>
+
+
+				<p class="rak-sum-txt">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRFSACCOPEN.ID_EXPIRY_DATE}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.common.accountsOpenDisplayDate}}</span>
+				</p>
+	</div>
+				<p class="rak-sum-txt" ng-show="rakServiceReq.RAKOprFSAcctOpenLists.refAcctNoList.length != 0
+				&& rakServiceReq.RAKOprFSAcctOpenLists.refAcctNoList[rakServiceReq.RAKOprFSAcctOpenReq.selectedRefNo].mode=='JOINTOR'">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRFSACCOPEN.OPER_MODE}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprFSAcctOpenReq.operationMode}}</span>
+				</p>
+
+
+
+				<div class="label-wrap">
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-small"
+						ng-click='rakServiceReq.setRAKOprFSAcctOpenSuccessHomeBtnClicked();'>
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+				</div>
+
+				<div class="col-sm-1"></div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>

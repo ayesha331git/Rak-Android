@@ -1,0 +1,33 @@
+
+
+<!-- page has been modified for rak customization -->
+<div class="full-page-screen rakfullpageScreenBackground"></div>
+
+<div class="confirmation-content-container">
+    <div class="message-box-new rakConfirmBoxShadow">
+        <div>
+
+
+         <!--    <div  class="rakConfirmHeader">
+             <span class="rakAlertIconForSessionTimeOut ng-binding"></span>
+           <span class="rakConfirmLogouttext"> {{appLiterals.APP.RAK_COMMON.SESSIONMSG1}}</span>
+            <span class="logoutMsg rakPaddingleft20"> {{appLiterals.APP.RAK_COMMON.SESSIONMSG2}}</span>
+          </div> -->
+
+          <div class="session-summary-ServiceReq">
+				<div class="session-iconDiv">
+					<span class="session-infoIcon"></span><span class="success">{{appLiterals.APP.RAK_COMMON.SESSIONMSG1}}</span>
+				</div>
+			</div>
+
+           <div  class="sessionTimeOutLabel">
+           <span class="rakLabelValue">{{appLiterals.APP.RAK_COMMON.SESSIONMSG2}}</span>
+          </div>
+
+        <div class="conf-btn-wrap  sessionButton">
+	 <button type="button"  class="btn--confsec-btn rakButtonGreyColor sessionBtn rak-border rakWhiteFont" ng-click='callInProgress=false;reloadFunction();'>{{appLiterals.APP.COMMON.BUTTON.OK}}</button>
+
+        </div>
+    </div>
+</div>
+</div>

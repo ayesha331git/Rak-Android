@@ -1,0 +1,21 @@
+<div class="nano ">
+	<div class="">
+
+		
+		<div class="finacle-container"
+			ng-init="rak2FARegister.common.successMsg='';rak2FARegister.ClearUserPwdRakRegister(successResponse.responsesList);rak2FARegister.LoginTxnPwdModel.resetPwdFields();rak2FARegister.RegistrationModel.initSelfRegistrationPostOTPConfirmData(successResponse.responsesList);">
+
+
+			<div ng-if="rak2FARegister.RegistrationModel.sectionId=='LGCC'">
+				<ng-include
+					src="'./navigation/rak2FARegister/resources/Rak2FASelfRegPinInputPage.html'" />
+			</div>
+			<div ng-if="rak2FARegister.RegistrationModel.sectionId=='ORSP'">
+				<ng-include
+					src="'./navigation/rak2FARegister/resources/Rak2FASelfRegSetPwdPage.html'" />
+			</div>
+		
+
+		</div>
+	</div>
+</div>

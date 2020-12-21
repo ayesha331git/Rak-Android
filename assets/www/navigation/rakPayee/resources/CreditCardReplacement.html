@@ -1,0 +1,118 @@
+<div class="finacle-container" ng-init="RakServices.ReplacementCCData.initReplacementCCData(successResponse.responsesList);">
+  <div class="account-page fin-txt" >
+    <div class="col-sm-11"> 
+    
+           
+      <div class="bg-color rak-cont-padding">
+        <div class="row" >
+          <div class="col-sm-1"> </div>
+         
+          		<div ng-init='creditcardListed = createDropDownOptionArray(RakServices.ReplacementCCData.creditCardList,["creditCardNumber"],"creditIndex");'>
+					<fin-input type="dropdown"  on-change="setEvent('onCreditCardSelected');" model="RakServices.ReplacementCCData.creditCardNumber" display-row="full" placeholder="{{appLiterals.APP.SERVICES.CREDIT_REPLACEMENT.CREDITCARD}}" validation-flag='pageErrorArr["RakServices.ReplacementCCData.creditcardNumber"]' option-array="creditcardListed"></fin-input>
+				</div>
+				<fin-input type="number" model="RakServices.ReplacementCCData.mobileNo" max-length="10" min="0" display-row="full" validation-flag='pageErrorArr["RakServices.ReplacementCCData.mobileNo"]' placeholder="{{appLiterals.APP.SERVICES.CREDIT_REPLACEMENT.MOBILE_NUMBER}}" ></fin-input>
+				<div>&nbsp;</div>
+			
+			
+		<div class="rakRow">	
+		<div class="radio-biller rak20">
+             {{appLiterals.APP.SERVICES.CREDIT_REPLACEMENT.DISPATCH_HEADER}}
+             </div>
+             <div class="rak80">
+	             <div>
+	             <div class="rak33">
+	            		<input type="radio" ng-value="false" class="rakRadio" ng-model="RakServices.ReplacementCCData.isDispatchModeSet" /><span  class="rakRadioLabel" >{{appLiterals.APP.SERVICES.CREDIT_REPLACEMENT.COURIER}}</span>
+	            	</div>
+	            	<div class="rak33">
+	            		<input type="radio" ng-value="true" class="rakRadio" ng-model="RakServices.ReplacementCCData.isDispatchModeSet"/> <span  class="rakRadioLabel" > {{appLiterals.APP.SERVICES.CREDIT_REPLACEMENT.BRANCH}}</span>
+	            	</div>
+	            </div>                	
+        	 </div>
+         </div>
+          <!--  If Branch is selected: Populate Branch -->
+         <div ng-init='branchArr = createDropDownOptionArray(RakServices.ReplacementCCData.branchList, ["branchName"], "branchId");' ng-show="RakServices.ReplacementCCData.isDispatchModeSet">
+			<fin-input type="dropdown" model="RakServices.ReplacementCCData.branchName" display-row="full" placeholder="{{appLiterals.APP.SERVICES.CREDIT_REPLACEMENT.SELECTEDBRANCH}}" option-array="branchArr" validation-flag='pageErrorArr["RakServices.ReplacementCCData.branchName"]'></fin-input>
+		</div>
+		
+	    <div ng-hide="RakServices.ReplacementCCData.isDispatchModeSet" class="rakRow">
+     
+			<div class="radio-biller rak20" >
+		      {{appLiterals.APP.SERVICES.CREDIT_REPLACEMENT.DELIVERADD}}      
+		            		
+		    </div>
+		    <div class="rak80">
+		    	<div class="rak33">
+		    		<input type="radio" ng-value="true" class="rakRadio" ng-model="RakServices.ReplacementCCData.isDeliveryAddSet" /><span class="rakRadioLabel">{{appLiterals.APP.SERVICES.CREDIT_REPLACEMENT.REGADD}}</span> 
+		    	</div>
+		    	<div class="rak33">
+		            		<input type="radio" ng-value="false" class="rakRadio" ng-model="RakServices.ReplacementCCData.isDeliveryAddSet" /><span class="rakRadioLabel">{{appLiterals.APP.SERVICES.CREDIT_REPLACEMENT.OTHERADD}}</span> }
+		         </div>       	
+		    </div>
+    </div>
+    	<div  ng-show="RakServices.ReplacementCCData.isDeliveryAddSet" class="rakRow">
+			
+			<span class="rak20">
+			{{appLiterals.APP.SERVICES.CREDIT_REPLACEMENT.REGADD}}</span>
+			<span class="rak80">{{RakServices.ReplacementCCData.registeredAddress}}</span>
+			
+			
+		</div>
+		
+		<div  ng-show="!RakServices.ReplacementCCData.isDeliveryAddSet" class="rakRow">
+		
+			  <fin-input type="text" model="RakServices.ReplacementCCData.otherAddress"   display-row="full" validation-flag='pageErrorArr["RakServices.ReplacementCCData.otherAddress"]' placeholder="{{appLiterals.APP.SERVICES.CREDIT_REPLACEMENT.OTHERADD}}"  ></fin-input>
+			  </div>
+		</div>
+     
+     <div class="fin-txt"></div>
+     
+     	<div  ng-show="!RakServices.ReplacementCCData.isDispatchModeSet" class="rakRow">
+             
+            <div class="radio-biller rak20" >
+            
+           {{appLiterals.APP.SERVICES.CREDIT_REPLACEMENT.AUTHPREC}}
+           </div>
+		    <div class="rak80">
+		    	<div class="rak33">
+            		<input type="radio"  ng-value="false" class="rakRadio" name="recepient"  ng-model="RakServices.ReplacementCCData.AuthrizedPerson" />  {{appLiterals.APP.SERVICES.CREDIT_REPLACEMENT.SELF}}
+                </div>
+                <div class="rak33">
+            		<input type="radio"  ng-value="true" name="recepient" class="rakRadio"  ng-model="RakServices.ReplacementCCData.AuthrizedPerson" />   {{appLiterals.APP.SERVICES.CREDIT_REPLACEMENT.AUTHPERSON}}
+                </div>
+    
+     </div>       	
+		    </div>
+    	<div  ng-show="RakServices.ReplacementCCData.AuthrizedPerson">
+             
+            		 <fin-input type="text" model="RakServices.ReplacementCCData.authorizedRecipient"   display-row="full" validation-flag='pageErrorArr["RakServices.ReplacementCCData.authorizedRecipient"]' placeholder="{{appLiterals.APP.SERVICES.CREDIT_REPLACEMENT.AUTHPREC}}"  >
+            		 </fin-input>
+            		 <fin-input type="number" model="RakServices.ReplacementCCData.authContactNumber" max-length="10" min="0" display-row="full" placeholder="{{appLiterals.APP.SERVICES.CREDIT_REPLACEMENT.CONTACTNUMBER}}" validation-flag='pageErrorArr["RakServices.ReplacementCCData.authContactNumber"]'  ></fin-input>
+            		 
+            		 </div> 
+        
+                	
+ 
+    <div  ng-show="!RakServices.ReplacementCCData.AuthrizedPerson" class="rakRow">
+             
+            		
+            		<span class="rak20">{{appLiterals.APP.SERVICES.CREDIT_REPLACEMENT.CONTACTNUMBER}}</span>
+            		<span class="rak80">{{RakServices.ReplacementCCData.contactNumber}}
+            		</span>
+            		
+                	</div>
+    
+		<div class="label-wrap">
+		 <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakSendMoney.common.fromAuthPage=true; setEvent('onCancelClick');"> {{appLiterals.APP.SERVICES.CREDIT_REPLACEMENT.BACK}}</button>
+				  <button ng-if="RakServices.ReplacementCCData.isDispatchModeSet" type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="RakServices.ReplacementCCData.onClickNumber();setEvent('onReplacementBranchConfirmClick');">{{appLiterals.APP.SERVICES.CREDIT_REPLACEMENT.CONTINUE}}</button>
+			  <button ng-if="!(RakServices.ReplacementCCData.isDispatchModeSet)" type="button" ng-click="RakServices.ReplacementCCData.onClickNumber();setEvent('onReplacementCourierConfirmClick');" class="btn--special-btn btn-middle rak-button-small">{{appLiterals.APP.SERVICES.CREDIT_REPLACEMENT.CONTINUE}}</button>				
+				
+          </div>
+          
+         	
+			</div>
+		 </div>
+          <div class="col-sm-1"> 
+          </div>
+        </div> 
+      </div>
+   

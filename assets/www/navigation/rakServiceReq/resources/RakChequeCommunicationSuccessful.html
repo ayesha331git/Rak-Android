@@ -1,0 +1,177 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.checkBookRequest.parseChequeBookRequestSubmit(successResponse)">
+	<div class="account-page">
+		<div class="col-sm-11">
+
+
+ 		<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.checkBookRequest.model.chequeRequestResponse}}</span>
+				</div>
+			</div>
+		<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.REQ_NEWCHEQBK}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+				      </h2>		       
+		 </div>
+		
+
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+
+				<div class="row">
+					<div class="">
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKCOMMUN_AUTH.TXT_ACC}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.checkBookRequest.model.selAccount}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKCOMMUN_AUTH.TXT_CHEQLEAF}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.checkBookRequest.model.selectedCheque}}</span>
+						</p>
+
+						<p class="rak-sum-txt" ng-show="rakServiceReq.chequeBookRequest.isDispatchModeSet=='B'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_DISPMODE}}</span>
+							<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_DISPBRANCH}}</span>
+						</p>
+						<p class="rak-sum-txt" 
+							ng-show="rakServiceReq.chequeBookRequest.isDispatchModeSet=='B'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.checkBookRequest.emiSelDesc}}</span>
+						</p>
+						<p class="rak-sum-txt"
+							ng-show="rakServiceReq.chequeBookRequest.isDispatchModeSet=='B'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}</span> <span
+								class="rak-sum-label black">{{rakServiceReq.checkBookRequest.model.seletedBranchDesc}}</span>
+						</p>
+
+						<div
+							ng-if="rakServiceReq.chequeBookRequest.isDispatchModeSet=='C'">
+
+							<!-- <p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_DISPMODE}}</span>
+								<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_DISPCOURIER}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_ADDDEL}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.checkBookRequest.registeredAddress}}</span>
+							</p> -->									
+
+					<!-- 	<p class="rak-sum-txt"
+								ng-show="rakServiceReq.chequeBookRequest.isDeliveryAddSet=='Registered Address'">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_ADDREG}}</span> <span
+									class="rak-sum-label black">{{rakServiceReq.checkBookRequest.registeredAddress}}</span>
+							</p> -->
+							
+							
+						<!-- New Changes Start  -->
+					
+					<div ng-show="rakServiceReq.chequeBookRequest.isDeliveryAddSet=='Registered Address'"> 
+							<!-- <p class="rak-sum-txt" >
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_DELDET}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.chequeBookRequest.isDeliveryDetSet}}</span>
+							</p> -->
+							
+							
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_DISPMODE}}</span>
+								<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_AUTH_ADD}}</span>
+							</p>
+							
+							 	
+
+							<p class="rak-sum-txt" ng-show="rakServiceReq.chequeBookRequest.isDeliveryDetSet=='Self'">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_ADDDEL}}</span> <span
+									class="rak-sum-label black">{{rakServiceReq.checkBookRequest.registeredAddress}}</span>
+							</p> 
+						
+						<div ng-show="rakServiceReq.chequeBookRequest.isDeliveryDetSet=='Authorized Person'">
+						
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_ADDDEL}}</span> <span
+									class="rak-sum-label black">{{rakServiceReq.checkBookRequest.registeredAddress}}</span>
+							</p>
+						
+							<p class="rak-sum-txt" >
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_NAME}}</span> <span
+									class="rak-sum-label black">{{rakServiceReq.checkBookRequest.model.AuthName}}</span>
+							</p>
+							
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_MOBILE}}</span> <span
+									class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_MOBILE_PREFIX}}{{rakServiceReq.checkBookRequest.model.mobilePrefix}}{{rakServiceReq.checkBookRequest.model.AuthMobile}}</span>
+							</p>
+							
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_EID_DISP}}</span> <span
+									class="rak-sum-label black">{{rakServiceReq.checkBookRequest.model.AuthEid}}</span>
+							</p>
+						</div>
+					</div>		
+					
+					<!-- New Changes End  -->	
+
+							<div
+								ng-if="rakServiceReq.chequeBookRequest.isDeliveryAddSet=='Other Address'">
+								
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_DISPMODE}}</span>
+									<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_ADDOTHER}}</span>
+								</p>
+
+
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_ADDOTHER}}</span> <span
+										class="rak-sum-label black">{{rakServiceReq.checkBookRequest.model.Address}}</span>
+								</p>
+
+
+							</div>
+							
+							<!-- Commented the code due to change REquest -->
+			<!-- 
+								<div
+									ng-if="rakServiceReq.chequeBookRequest.isAuthorizedPersonSet=='Authorized Person'">
+									<p class="rak-sum-txt">
+										<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.PH_AUTHNAME}}
+											&nbsp;</span> <span class="rak-sum-label black">{{rakServiceReq.checkBookRequest.model.recipientName}}</span>
+									</p>
+
+									<p class="rak-sum-txt">
+										<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.PH_CONTNUM}}
+											&nbsp;</span> <span class="rak-sum-label black">{{rakServiceReq.checkBookRequest.model.previewContactNumber}}</span>
+									</p>
+
+								</div>
+								
+							 -->
+ 
+ <!-- Commented the code due to change REquest -->
+
+								<div
+									ng-if="rakServiceReq.chequeBookRequest.isDeliveryDetSet=='Self' && dashboard.userType=='1'">
+
+									<p class="rak-sum-txt">
+										<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.PH_CONTNUM}}
+											&nbsp;</span> <span class="rak-sum-label black">{{rakServiceReq.checkBookRequest.contactNumber}}</span>
+									</p>
+
+							</div>
+				
+						</div>
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakServiceReq.checkBookRequest.resetModel();setEvent('onCancelClick');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}
+							</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>

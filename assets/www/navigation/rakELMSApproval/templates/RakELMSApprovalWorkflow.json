@@ -1,0 +1,674 @@
+{
+    "pageNavigation": [
+        {
+            "RakELMSApprovalLandingPage": [
+            	
+              {
+                    "eventName": "onRakELMSRequestSweepDetailsRecallValidate",
+                    "action": "RakELMSRequestSweepRecallValidateService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		                "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType",
+		                "TXN_TYPE":"rakELMSApproval.ELMSsrDetItem.txnType"
+		                
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                },
+                  {
+                    "eventName": "onRakELMSRequestPoolDetailsRecallValidate",
+                    "action": "RakELMSRequestPoolRecallValidateService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		                "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType",
+		                "TXN_TYPE":"rakELMSApproval.ELMSsrDetItem.txnType"
+		                
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                },
+              
+  				{
+                    "eventName": "onRakELMSRequestSweepModifyRecallValidate",
+                    "action": "RakELMSRequestSweepModifyRecallValidateService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		                "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType",
+		                "TXN_TYPE":"rakELMSApproval.ELMSsrDetItem.txnType"
+		                
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                },
+                  {
+                    "eventName": "onRakELMSRequestPoolModifyRecallValidate",
+                    "action": "RakELMSRequestPoolModifyRecallValidateService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		                "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType",
+		                "TXN_TYPE":"rakELMSApproval.ELMSsrDetItem.txnType"
+		                
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                },
+              
+                 {
+                    "eventName": "onRakELMSRequestSweepDetailsFetch",
+                    "action": "RakELMSServiceRequestSweepDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		                "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType"
+		                
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                },
+                 {
+                    "eventName": "onRakELMSRequestPoolDetailsFetch",
+                    "action": "RakELMSServiceRequestPoolDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		                "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType"
+		                
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                },
+                 {
+                    "eventName": "onRakELMSRequestSweepDetailsModifyFetch",
+                    "action": "RakELMSServiceRequestSweepViewDetailsModifyService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		                "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType"
+		                
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                },
+                 {
+                    "eventName": "onRakELMSRequestPoolDetailsModifyFetch",
+                    "action": "RakELMSServiceRequestPoolViewDetailsModifyService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		                "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType"
+		                
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                },
+                
+                 {
+                    "eventName": "onRakELMSRequestSweepDetailsValidate",
+                    "action": "RakELMSServiceRequestSweepDetailsValidateService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		                "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType",
+		                "TXN_TYPE":"rakELMSApproval.ELMSsrDetItem.txnType"
+		                
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                },
+                 {
+                    "eventName": "onRakELMSRequestSweepDetailsModifyValidate",
+                    "action": "RakELMSServiceRequestSweepDetailsModifyValidateService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		                "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType",
+		                "TXN_TYPE":"rakELMSApproval.ELMSsrDetItem.txnType"
+		                
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onRakELMSRequestPoolDetailsValidate",
+                    "action": "RakELMSServiceRequestPoolDetailsValidateService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		                "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType",
+		                 "TXN_TYPE":"rakELMSApproval.ELMSsrDetItem.txnType"
+		                
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onRakELMSRequestPoolDetailsModifyValidate",
+                    "action": "RakELMSServiceRequestPoolDetailsModifyValidateService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		                "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType",
+		                "TXN_TYPE":"rakELMSApproval.ELMSsrDetItem.txnType"
+		                
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                },
+                  {
+                    "eventName": "onRakELMSRequestRejectSweepDetailsFetch",
+                    "action": "RakELMSServiceRequestRejectSweepDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		                "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType",
+		                "TXN_TYPE":"rakELMSApproval.ELMSsrDetItem.txnType"
+		                
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onRakELMSRequestRejectSweepDetailsModifyFetch",
+                    "action": "RakELMSServiceRequestRejectSweepViewDetailsModifyService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		                "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType",
+		                "TXN_TYPE":"rakELMSApproval.ELMSsrDetItem.txnType"
+		                
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onRakELMSRequestRejectPoolDetailsFetch",
+                    "action": "RakELMSServiceRequestRejectPoolDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		                "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType",
+		                "TXN_TYPE":"rakELMSApproval.ELMSsrDetItem.txnType"
+		                
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                },
+                 {
+                    "eventName": "onRakELMSRequestRejectPoolDetailsModifyFetch",
+                    "action": "RakELMSServiceRequestRejectPoolViewDetailsModifyService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		                "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType",
+		                "TXN_TYPE":"rakELMSApproval.ELMSsrDetItem.txnType"
+		                
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                },                
+				 {
+                    "eventName": "onRakELMSRequestRepairSweepDetailsFetch",
+                    "action": "RakELMSServiceRequestRepairSweepDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		                "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType",
+		                "TXN_TYPE":"rakELMSApproval.ELMSsrDetItem.txnType"
+		                
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                },
+                 {
+                    "eventName": "onRakELMSRequestRepairSweepDetailsModifyFetch",
+                    "action": "RakELMSServiceRequestRepairSweepViewDetailsModifyService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		                "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType",
+		                "TXN_TYPE":"rakELMSApproval.ELMSsrDetItem.txnType"
+		                
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                },
+                 {
+                    "eventName": "onRakELMSRequestRepairPoolDetailsFetch",
+                    "action": "RakELMSServiceRequestRepairPoolDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		                "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType",
+		                "TXN_TYPE":"rakELMSApproval.ELMSsrDetItem.txnType"
+		                
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                },
+                 {
+                    "eventName": "onRakELMSRequestRepairPoolDetailsModifyFetch",
+                    "action": "RakELMSServiceRequestRepairPoolViewDetailsModifyService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		                "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType",
+		                "TXN_TYPE":"rakELMSApproval.ELMSsrDetItem.txnType"
+		                
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                },                
+                 {
+                    "eventName": "onELMSApprUnapprSearchClick",
+                    "action": "RakELMSPendingApprovalListSearchService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakELMSApproval.pendingApprovalTab",
+		                "selectedStructureType":"rakELMSApproval.selectedStructureType",
+		                "structureName":"rakELMSApproval.StructureName",
+		                "selectedRole":"rakELMSApproval.selectedRoleType",
+		                "referenceId":"rakELMSApproval.RefrenceID",
+		                "FROMDATE_day":"rakELMSApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakELMSApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakELMSApproval.searchFromDate_year",
+		                "TODATE_day":"rakELMSApproval.searchToDate_day",
+		                "TODATE_month":"rakELMSApproval.searchToDate_month",
+		                "TODATE_year":"rakELMSApproval.searchToDate_year"
+		                },
+                    "successPage": {
+                    	"subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakELMSApproval",
+                        "pageName": "RakELMSApprovalLandingPage"
+                    }
+                }
+               ],
+                
+                "RakELMSServiceReqStatusDetailsSuccess" :[
+                
+                {
+                    "eventName": "onELMSViewDetailsBackClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "pageName": "RakELMSApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakELMSServiceReqStatusDetailsSuccess"
+                    }
+                },
+                
+                 {
+                    "eventName": "onRecallConfirmClick",
+                    "action": "RakELMSRecallConfirmSuccessService",
+                   "actionType": "service",
+				"validation": "true",
+				"validationParams": [
+					"rakHome.AuthPageData.firstAuthModeValue"
+				],
+				"encryptionEnabled": true,
+				"sensitiveFields": ["rakHome.AuthPageData.firstAuthModeValue"],
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+		            "mbparam": "fields.finacleMbParam",
+		            "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		            "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType",
+		            "Mode": "rakHome.AuthPageData.firstAuthModeValue"
+				},
+				"successPage": {
+					"subFeature": "rakELMSApproval",
+					"pageName": "RakELMSSRSuccessPage"
+				},
+				"errorPage": {
+					"subFeature": "rakELMSApproval",
+					"pageName": "RakELMSServiceReqStatusDetailsSuccess"
+				    }
+                  },
+                   {
+				"eventName": "onELMSRejectConfirmClick",
+				"action": "RakELMSRejectConfirmService",
+				"actionType": "service",
+				"validation": "true",
+				"validationParams": [
+					"rakHome.AuthPageData.firstAuthModeValue"
+				],
+				"encryptionEnabled": true,
+				"sensitiveFields": ["rakHome.AuthPageData.firstAuthModeValue"],
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+		            "mbparam": "fields.finacleMbParam",
+		            "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		            "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType",
+		            "APPR_REJ":"rakELMSApproval.ELMSsrApprRejClicked",
+		            "REMARK":"rakELMSApproval.reason",
+		            "Mode": "rakHome.AuthPageData.firstAuthModeValue"
+				},
+				"successPage": {
+					"subFeature": "rakELMSApproval",
+					"pageName": "RakELMSSRSuccessPage"
+				},
+				"errorPage": {
+					"subFeature": "rakELMSApproval",
+					"pageName": "RakELMSServiceReqStatusDetailsSuccess"
+				}
+			},
+			 {
+				"eventName": "onRepairConfirmClick",
+				"action": "RakELMSRepairConfirmService",
+				"actionType": "service",
+				"validation": "true",
+				"validationParams": [
+					"rakHome.AuthPageData.firstAuthModeValue"
+				],
+				"encryptionEnabled": true,
+				"sensitiveFields": ["rakHome.AuthPageData.firstAuthModeValue"],
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+		            "mbparam": "fields.finacleMbParam",
+		            "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		            "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType",
+		            "Mode": "rakHome.AuthPageData.firstAuthModeValue"
+		            
+				},
+				"successPage": {
+					"subFeature": "rakELMSApproval",
+					"pageName": "RakELMSSRSuccessPage"
+				},
+				"errorPage": {
+					"subFeature": "rakELMSApproval",
+					"pageName": "RakELMSServiceReqStatusDetailsSuccess"
+				}
+			},
+			 {
+				"eventName": "onApprovalConfirmClick",
+				"action": "RakELMSApprovalConfirmService",
+				"actionType": "service",
+				"validation": "true",
+				"validationParams": [
+					"rakHome.AuthPageData.firstAuthModeValue"
+				],
+				"encryptionEnabled": true,
+				"sensitiveFields": ["rakHome.AuthPageData.firstAuthModeValue"],
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+		            "mbparam": "fields.finacleMbParam",
+		            "REF_ID":"rakELMSApproval.ELMSsrDetItem.txnReferenceId",
+		            "REQUEST_ID":"rakELMSApproval.ELMSsrDetItem.txnType",
+		            "NEXT_APPROVER":"rakELMSApproval.approveAuthModel.userName",
+		            "NEXT_APPROVERID_TYPE":"rakELMSApproval.nxtApprIdType",
+		            "Mode": "rakHome.AuthPageData.firstAuthModeValue"
+		            
+				},
+				"successPage": {
+					"subFeature": "rakELMSApproval",
+					"pageName": "RakELMSSRSuccessPage"
+				},
+				"errorPage": {
+					"subFeature": "rakELMSApproval",
+					"pageName": "RakELMSServiceReqStatusDetailsSuccess"
+				}
+			},
+			
+			 {
+				"eventName": "onCorpELMSGetPendingLookUpClick",
+				"action": "navigation",
+				"actionType": "navigation",
+				"validation": "false",				
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam"
+				},
+				"successPage": {
+				
+					"pageName": "RakELMSPenApprApproverLookUpPage"
+				},
+				"errorPage": {
+					
+					"pageName": "RakELMSServiceReqStatusDetailsSuccess"
+				}
+			},
+			{
+		         "eventName": "onGenerateOtp",
+		         "action": "RakResendOtpService",
+		         "actionType": "serviceNoNavigation",
+		         "validation": "false",
+		         "parameters": {
+			         "jsessionid": "fields.finacleUserSessionId",
+			         "mbparam": "fields.finacleMbParam",
+			         "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+		           },
+		          "successPage": {
+		             "pageName": "RakTFServiceReqStatusDetailsSuccess"
+		           },
+		           "errorPage": {
+		           		"pageName": "RakTFServiceReqStatusDetailsSuccess"
+		            }
+                }
+                
+                
+                ],
+                
+              "RakELMSPenApprApproverLookUpPage":[
+              
+             {
+				"eventName": "onELMSBackClickedApprove",
+				"action": "navigation",
+				"actionType": "navigation",
+				"validation": "false",				
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam"
+				},
+				"successPage": {
+					"subFeature": "rakELMSApproval",
+					"pageName": "RakELMSServiceReqStatusDetailsSuccess"
+				},
+				"errorPage": {
+					"subFeature": "rakELMSApproval",
+					"pageName": "RakELMSPenApprApproverLookUpPage"
+				}
+			} 	
+              
+              ]  
+                
+                
+               
+ 
+           
+          
+            
+          }
+    ],
+    "subFeatureName": "rakELMSApproval",
+    "startPage": "RakELMSApprovalLandingPage"
+}

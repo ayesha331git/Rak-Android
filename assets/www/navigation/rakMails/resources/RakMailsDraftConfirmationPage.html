@@ -1,0 +1,19 @@
+<div class="full-page-screen"></div>
+
+<div class="confirmation-content-container">
+	<div class="message-box-new">
+        <div>
+            <p class="round-icon-new">
+            <span class="app app-alert pop-alert-icon"></span>
+            </p>
+            
+           <div class="conf-txt-title"> {{appLiterals.APP.MAILS.CNFRM_PAGE.TXT_MISSUB}}</div>
+           <div class="conf-txt-label"> {{appLiterals.APP.MAILS.CNFRM_PAGE.TXT1}}</div>
+        </div>
+        <div class="conf-btn-wrap">
+        	<button type="button" class="btn--confpri-btn" ng-click='mails.draft.isSendClicked=true; mails.fromInbox ? setEvent("onReplySendClick") : setEvent("onSendClick")'> &nbsp; {{appLiterals.APP.MAILS.CNFRM_PAGE.BTN_SEND}}  &nbsp; </button>
+			<button type="button" class="btn--confsec-btn" ng-click='mails.draft.isCancelClicked=true;setEvent("onCancelClick")'> &nbsp; {{appLiterals.APP.MAILS.CNFRM_PAGE.BTN_CAN}} &nbsp; </button>
+        </div>
+    </div>
+
+</div>

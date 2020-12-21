@@ -1,0 +1,116 @@
+ <div class="rak-back-header">
+					<i class="rak-back-img" ng-click="setGlobalEvent('onDashboardClick');"></i>
+		</div>
+
+<div class="finacle-container bg-color"
+	ng-init="resetPageError(); rakServiceReq.RakDiscApply.initDiscApplyData(successResponse.responsesList)">
+	<div class="rakServiceReqList rakScrollDiv">
+
+		<div class="LandingPage-main-form-heading">
+						<div>
+							<span class="rak-black-color upd-label ">{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.DISC_APPLY}}</span>
+
+						</div>
+					</div>
+		<ul class="rak-accordianUL" ng-init="rakServiceReq.expandSpecificMenu();">
+
+			<li class="rak-accordianList landing-top-margin" ng-show="rakServiceReq.RakDiscApply.acctMenuList.length>0"
+				ng-click="rakServiceReq.expandMenu($event);" id="OprFlag"><span>{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.ACCOUNTS}}</span>
+				<ul class="reqSubMenu" id="srId">
+
+					<div ng-repeat="menu in rakServiceReq.RakDiscApply.acctMenuList">
+						<li
+							ng-click="rakServiceReq.RakDiscApply.resetAccountServices();rakServiceReq.RakDiscApply.contentId=menu.contentId;rakServiceReq.RakDiscApply.selectedSubMenu=menu;setEvent('onDiscApplySubMenuClicked');"><span>{{menu.headerText}}</span>
+						</li>
+					</div>
+				</ul>
+			</li>
+
+
+			<li class="rak-accordianList" ng-show="rakServiceReq.RakDiscApply.credCardMenuList.length>0"
+				ng-click="rakServiceReq.expandMenu($event);" id="CreFlag"><span>{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.CARDS}}</span>
+				<ul class="reqSubMenu" id="srId">
+
+					<div ng-repeat="menu in rakServiceReq.RakDiscApply.credCardMenuList ">
+						<li
+							ng-click="rakServiceReq.RakDiscApply.contentId=menu.contentId;rakServiceReq.RakDiscApply.selectedSubMenu=menu;setEvent('onDiscApplySubMenuClicked');"><span>{{menu.headerText}}</span>
+						</li>
+					</div>
+				</ul>
+			</li>
+
+			<li class="rak-accordianList" ng-show="rakServiceReq.RakDiscApply.debitCardMenuList.length>0"
+				ng-click="rakServiceReq.expandMenu($event);" id="DebFlg"><span>{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.DEBITCARD}}</span>
+				<ul class="reqSubMenu" id="srId">
+
+					<div ng-repeat="menu in rakServiceReq.RakDiscApply.debitCardMenuList ">
+						<li
+							ng-click="rakServiceReq.RakDiscApply.contentId=menu.contentId;rakServiceReq.RakDiscApply.selectedSubMenu=menu;setEvent('onDiscApplySubMenuClicked');"><span>{{menu.headerText}}</span>
+						</li>
+					</div>
+				</ul>
+			</li>
+			
+			<li class="rak-accordianList" ng-show="rakServiceReq.RakDiscApply.prepaidCardMenuList.length>0"
+				ng-click="rakServiceReq.expandMenu($event);" id="PrepCardFlg"><span>{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.PREPAIDCARDS}}</span>
+				<ul class="reqSubMenu" id="srId">
+
+					<div ng-repeat="menu in rakServiceReq.RakDiscApply.prepaidCardMenuList">
+						<li
+							ng-click="rakServiceReq.RakDiscApply.contentId=menu.contentId;rakServiceReq.RakDiscApply.selectedSubMenu=menu;setEvent('onDiscApplySubMenuClicked');"><span>{{menu.headerText}}</span>
+						</li>
+					</div>
+				</ul>
+			</li>
+			
+			<li class="rak-accordianList" ng-show="rakServiceReq.RakDiscApply.depositMenuList.length>0"
+				ng-click="rakServiceReq.expandMenu($event);" id="DepFlag"><span>{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.DEPOSIT}}</span>
+				<ul class="reqSubMenu" id="srId">
+
+					<div ng-repeat="menu in rakServiceReq.RakDiscApply.depositMenuList ">
+						<li
+							ng-click="rakServiceReq.RakDiscApply.contentId=menu.contentId;rakServiceReq.RakDiscApply.selectedSubMenu=menu;setEvent('onDiscApplySubMenuClicked');"><span>{{menu.headerText}}</span>
+						</li>
+					</div>
+				</ul>
+			</li>
+
+			<li class="rak-accordianList" ng-show="rakServiceReq.RakDiscApply.insuranceMenuList.length>0"
+				ng-click="rakServiceReq.expandMenu($event);" id="InsuFlag"><span>{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.INSU}}</span>
+				<ul class="reqSubMenu" id="srId">
+
+					<div ng-repeat="menu in rakServiceReq.RakDiscApply.insuranceMenuList ">
+						<li
+							ng-click="rakServiceReq.RakDiscApply.contentId=menu.contentId;rakServiceReq.RakDiscApply.selectedSubMenu=menu;setEvent('onDiscApplySubMenuClicked');"><span>{{menu.headerText}}</span>
+						</li>
+					</div>
+				</ul>
+			</li>
+
+			<li class="rak-accordianList" ng-show="rakServiceReq.RakDiscApply.loansMenuList.length>0"
+				ng-click="rakServiceReq.expandMenu($event);" id="LonFlag"><span>{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.LOANS_FIN}}</span>
+				<ul class="reqSubMenu" id="srId">
+
+					<div ng-repeat="menu in rakServiceReq.RakDiscApply.loansMenuList ">
+						<li
+							ng-click="rakServiceReq.RakDiscApply.contentId=menu.contentId;rakServiceReq.RakDiscApply.selectedSubMenu=menu;setEvent('onDiscApplySubMenuClicked');"><span>{{menu.headerText}}</span>
+						</li>
+					</div>
+				</ul>
+			</li>
+
+			<li class="rak-accordianList" ng-show="rakServiceReq.RakDiscApply.othersMenuList.length>0"
+				ng-click="rakServiceReq.expandMenu($event);" id="OTHFlag"><span>{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.OTHERS}}</span>
+				<ul class="reqSubMenu" id="srId">
+
+					<div ng-repeat="menu in rakServiceReq.RakDiscApply.othersMenuList ">
+						<li
+							ng-click="rakServiceReq.RakDiscApply.contentId=menu.contentId;rakServiceReq.RakDiscApply.selectedSubMenu=menu;setEvent('onDiscApplySubMenuClicked');"><span>{{menu.headerText}}</span>
+						</li>
+					</div>
+				</ul>
+			</li>
+
+		</ul>
+	</div>
+</div>

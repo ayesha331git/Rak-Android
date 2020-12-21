@@ -1,0 +1,85 @@
+<div class="finacle-container"
+	ng-init="services.initCarLoanSuccess(successResponse.responsesList);formatAmountCrn('services.applyCarLoanModel.loanAmount','services.applyCarLoanModel.currency')">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+			<div class="dashboard-pad full-height">
+				<div class="dashboard-item-body full-height">
+					<fin-success
+						success-banner="{{appLiterals.APP.COMMON.MSG.SUCCESS}}"
+						success-message="{{services.applyCarLoanModel.responseText}}"
+						cross-click="setEvent('onCancelClick')">
+					</fin-success>
+					<p class="sucs-left-txt text-center">{{appLiterals.APP.SERVICES.CARLOAN_SUCC.TXT_APPCARLOAN}}
+						{{appLiterals.APP.SERVICES.CARLOAN_SUCC.TXT_FR}}</p>
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtAmmount">
+							{{appLiterals.APP.COMMON.TEXT.AMOUNT}} </span> <span
+							class="sucs-right-color" id="amount">
+							{{services.applyCarLoanModel.currency}}
+							{{services.applyCarLoanModel.loanAmount}} </span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtStartDate">
+							{{appLiterals.APP.SERVICES.CARLOAN_SUCC.LOAN_STRT_DATE}} </span> <span
+							class="sucs-right-color" id="startDate"> <fin-Date
+								date-value='{{services.applyCarLoanModel.date}}'></fin-Date>
+						</span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtIntRate">
+							{{appLiterals.APP.SERVICES.CARLOAN_SUCC.INT_RATE}} </span> <span
+							class="sucs-right-color" id="intRate">
+							{{services.applyCarLoanModel.InterestRate}} </span>
+					</div>
+					<div class="sucs-left-txt"
+						ng-if="services.applyCarLoanModel.hidePurpose">
+						<span class="sucs-left-color" id="txtLoanPurpose">
+							{{appLiterals.APP.SERVICES.CARLOAN_SUCC.PURP_LOAN}} </span> <span
+							class="sucs-right-color" id="prupose">
+							{{services.applyCarLoanModel.purpose}} </span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtSuccDiburseMode">
+							{{appLiterals.APP.SERVICES.CARLOAN_SUCC.DISBUR_MODE}} </span> <span
+							class="sucs-right-color" id="disbursementMode">
+							{{services.applyCarLoanModel.disbursementMode}} </span>
+					</div>
+					<div class="sucs-left-txt"
+						ng-show="services.applyCarLoanModel.disbursementMode == 'Account'">
+						<span class="sucs-left-color" id="txtDiburseAcc_no">
+							{{appLiterals.APP.SERVICES.CARLOAN_SUCC.ACC_NO}} </span> <span
+							class="sucs-right-color" id="disburseAccNo">
+							{{services.applyCarLoanModel.accountNumberDisbursement}} </span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtPrinPaymode">
+							{{appLiterals.APP.SERVICES.CARLOAN_SUCC.PRIN_PAYMODE}} </span> <span
+							class="sucs-right-color" id="prinPaymode">
+							{{services.applyCarLoanModel.principalPayment}} </span>
+					</div>
+					<div class="sucs-left-txt"
+						ng-show="services.applyCarLoanModel.principalPayment == 'Account'">
+						<span class="sucs-left-color" id="txtprinAccNo">
+							{{appLiterals.APP.SERVICES.CARLOAN_SUCC.ACC_NO}}</span> <span
+							class="sucs-right-color" id="prinAccNo">
+							{{services.applyCarLoanModel.accountNumberPrincipal}} </span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtIntPaymode">
+							{{appLiterals.APP.SERVICES.CARLOAN_SUCC.INT_PAYMODE}} </span> <span
+							class="sucs-right-color" id="intPaymode">
+							{{services.applyCarLoanModel.interestPaymentMode}} </span>
+					</div>
+					<div class="sucs-left-txt"
+						ng-show="services.applyCarLoanModel.interestPaymentMode == 'Account'">
+						<span class="sucs-left-color" id="txtIntAccNo">
+							{{appLiterals.APP.SERVICES.CARLOAN_SUCC.ACC_NO}} </span> <span
+							class="sucs-right-color" id="intAccNo">
+							{{services.applyCarLoanModel.accountNumberInterest}} </span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

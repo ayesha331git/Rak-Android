@@ -1,0 +1,115 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.GenericAuthorizationVariable.transactionPassword = '';rakServiceReq.initGenericConfirmationMethod(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+
+				<div class="main-form-heading-ServiceReq"> 
+                      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.REPORT_CAPTURE_CARDS}}
+                      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>                
+                      </h2>              
+			</div>
+
+		<!-- </div> -->
+		<div class="bg-color rak-cont-padding rak-scroll">
+			<div class="">
+				<div class="">
+				
+				<div class="rakDupliSRChkMsgImg" ng-show='rakServiceReq.common.message'>
+					<span class='rakAlertForDupStmt'></span> <span class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+				</div>
+
+						<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKREPORTCAPTURECARD.TXT_CARDNO}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKChangeReportCapture.cardNoList[rakServiceReq.RAKChangeReportCaptureModel.selectedCCNo].cardId}}</span>
+						</p>
+
+						<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKREPORTCAPTURECARD.CAPTURE_DETAILS}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKChangeReportCaptureModel.selectedCaptureDesc}}</span>
+						</p>
+
+						<p class="rak-sum-txt"
+							ng-show="rakServiceReq.RAKChangeReportCaptureModel.captureFlag">
+							<span class="rak-sum-label"
+								ng-show="rakServiceReq.RAKChangeReportCaptureModel.captureFlag">{{appLiterals.APP.RAK_SERVICES.RAKREPORTCAPTURECARD.BANK_NAME}}
+							</span> <span class="rak-sum-label black"
+								ng-show="rakServiceReq.RAKChangeReportCaptureModel.captureFlag">{{rakServiceReq.RAKChangeReportCaptureModel.bankName}}</span>
+						</p>
+
+
+						<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKREPORTCAPTURECARD.ATM_BRANCH_NAME}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKChangeReportCaptureModel.atmBranchName}}</span>
+						</p>
+
+						<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKREPORTCAPTURECARD.TXT_DELCHANNEL}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKChangeReportCaptureModel.delieveryMode}}</span>
+						</p>
+						<p class="rak-sum-txt"
+							ng-show="rakServiceReq.RAKChangeReportCaptureModel.delieveryMode=='Branch'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKChangeReportCapture.emiSelDesc}}</span>
+						</p>
+						<p class="rak-sum-txt "
+							ng-show="rakServiceReq.RAKChangeReportCaptureModel.delieveryMode=='Branch'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKREPORTCAPTURECARD.TXT_BRANCH}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKChangeReportCapture.branchList[rakServiceReq.RAKChangeReportCaptureModel.selectedBranch].branchName}}</span>
+						</p>
+
+
+						<fin-input type="password_text"
+							model="rakServiceReq.GenericAuthorizationVariable.transactionPassword"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+							min="0"
+							validation-flag='pageErrorArr["rakServiceReq.GenericAuthorizationVariable.transactionPassword"]'
+							ng-show="rakServiceReq.GenericAuthorizationVariable.authMode==txnpwdString">
+						</fin-input>
+
+
+
+						<!--CHANGES FOR RESEND OTP START -->
+						<div
+							ng-show="rakServiceReq.GenericAuthorizationVariable.authMode==otpString">
+							<div
+								ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+								<fin-input type="password_num"
+									model="rakServiceReq.GenericAuthorizationVariable.transactionPassword"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+									validation-flag='pageErrorArr["rakServiceReq.GenericAuthorizationVariable.transactionPassword"]'>
+								</fin-input>
+							</div>
+							<div class="rakwidth28 rakModeDropdown"
+								ng-show='rakHome.otpModel.otpModesList.length>0'
+								ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+
+								<fin-input type="dropdown" option-array="toModeArray"
+									model="rakHome.otpModel.otpModeSelected" display-row="full"
+									placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+								<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+
+							</div>
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+								ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');">{{appLiterals.APP.RAK_COMMON.RESEND_OTP}}</button>
+						</div>
+						<!-- CHANGES FOR RESEND OTP END -->
+					<div class="label-wrap">
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small btn--back"
+							ng-click="rakServiceReq.GenericAuthorizationVariable.transactionPassword = '';setEvent('onRAKCreditCardReportCaptureBackClick');">
+							{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.BACK}}</button>
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small"
+							ng-click="rakServiceReq.setRAKRenewalTermDepositDate();setEvent('onRAKCreditCardReportCaptureContinueClick');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}</button>
+					</div>
+					<div class="col-sm-1"></div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,54 @@
+<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setGlobalEvent('onDashboardClick');"></i>
+</div>
+<div class="nano menu-scroll">
+<div class="nano-content">
+<div class="finacle-container ng-scope" ng-init="rakTradeFinance.responseTFPendingApproval(successResponse.responsesList);">
+	<div class="account-page">
+	<div class="col-sm-11">	
+		<div class="main-form-heading-ServiceReq" style="margin-bottom: 2%;">
+                <h2 class="rakBenfHeader">{{appLiterals.APP.RAKPENDINGAPPROVAL.TF_APPROVAL.MAIN_HEADER}}
+                </h2>
+		</div>
+		<div></div>
+
+		<div ng-show="rakTradeFinance.pendingListTFSRApprovals.length > 0">
+			<div class="money-block rakBottomZero">
+	         <ul>
+	            <li  class="active rak50 left-align rakPaddingLeft10" >
+	            {{appLiterals.APP.RAKPENDINGAPPROVAL.TF_APPROVAL.REQ_TYPE_HEADING}}</li>
+	            <li class="active rak50 left-align rakPaddingLeft10">
+	            {{appLiterals.APP.RAKPENDINGAPPROVAL.TF_APPROVAL.NO_RECORDS_HEADING}}</li>
+	         </ul>
+			</div>
+			<div class="rakScrollDivHistory rak-cont-paddingvh RakWhiteBg"  ng-class="{'rak-history-paddingvh':rakTxnSearch}">
+				<div class="trans-detail rakGreyRow rakTfCountHeight" ng-repeat="item in rakTradeFinance.pendingListTFSRApprovals">
+					<div class="trans-dash-right rakPeopleNameRow1  rak70  rakPaddingPoint8em pull-left">
+						<div>
+					      <div class="trans-no rakFont1em blueLink" ng-click='rakTradeFinance.fromSearchResult=false;rakTradeFinance.tfsrItem=item;rakTradeFinance.fromLandingPage=true;setEvent("onTFPendingApprovalSubListClick");'>
+					          {{item.tfsrDesc}}
+					      </div>
+					    </div>
+					</div>
+					<div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em">
+					    <div>
+					       <div class="trans-no rakFont1em">
+					          {{item.tfsrCount}}
+					       </div>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div ng-if="rakTradeFinance.pendingListTFSRApprovals.length == 0 ">
+		 <div class="error-details">
+			 <span class="error-details-txt">
+				{{appLiterals.APP.RAKPENDINGAPPROVAL.TF_APPROVAL.TXT_NO_TF_APPR}}
+			 </span>
+		 </div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>

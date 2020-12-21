@@ -1,0 +1,187 @@
+<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onRemittanceSummaryCancelBackClick')"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		
+		
+		<div class="finacle-container bg-color" 
+		ng-init="resetPageError();rakHome.AuthPageData.resetConfirmPageDataAfterNavigation();rakFundTfr.remitSummary.remittanceSummaryCancel(successResponse.responsesList);rakCorpInit.corpModel.processCorpInit(successResponse.responsesList);">
+		
+			<div class="account-page"> 
+				<div class="col-sm-11">
+				
+				<div class="main-form-heading-ServiceReq"> 
+							      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.MUL_REMITTANCE}}
+							      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}}</span>		     
+							      </h2>		       
+					</div>
+				
+					<!-- <div class="main-form-heading">
+						<h2>
+							{{appLiterals.APP.RAK_COMMON.SUMMARY_HEADER}}<span>{{appLiterals.APP.RAK_COMMON.SUMMARY_REVIEW}}</span>
+						</h2>
+					</div> -->
+				
+<!--CHANGES DONE AS FIX OF CONFIRMATION UI START -->
+  <!--     <div class="main-form-heading">
+              <h2>{{appLiterals.APP.RAK_COMMON.SUMMARY_REVIEW_HEADER}}<span>{{appLiterals.APP.RAK_COMMON.SUMMARY_REVIEW}}</span></h2>
+      </div> -->
+<!--CHANGES DONE AS FIX OF CONFIRMATION UI END -->
+					
+					
+					<div class="bg-color rak-scroll rakWidth100 rak-cont-padding">
+						<div class="row">
+							<div class="" ng-repeat="x in rakFundTfr.remitSummary.testArrayShow" >
+									
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.REFERENCE_NUM}}
+									</span> <span class="rak-sum-label black">{{x.refnum}}</span>
+								</p>
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.CHANNEL_NAME}}
+									</span> <span class="rak-sum-label black">{{x.channelDesc}}</span>
+								</p>
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.DEBIT_ACCOUNT}}
+									</span> <span class="rak-sum-label black">{{x.debitnolist}}</span>
+								</p>
+								 <p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.REQUESTED_DATE}}
+									</span> <span class="rak-sum-label black">{{x.requestdtlist.split(' ')[0]}}</span>
+								</p> 
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">
+									{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.BENF_NAME}}
+									</span> <span class="rak-sum-label black">{{x.benfnmlist}}</span>
+								</p>
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.BENF_ACC_NO}}
+									</span> <span class="rak-sum-label black">{{x.benfaccountlist}}</span>
+								</p>
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">
+									{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.BENF_BANK}}
+									</span> <span class="rak-sum-label black">{{x.benfbankslist}}</span>
+								</p>
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">
+									{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.AMOUNT}}
+									</span> <span class="rak-sum-label black">{{x.amtlist}}</span>
+								</p>
+					
+							<fin-input type="text_restriction"
+							model="rakFundTfr.remitSummary.remarksTemp[$index]"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.REMARKS}}"
+							validation-flag='pageErrorArr["rakFundTfr.remitSummary.remarksTemp[" + {{$index}} +"]"]' ></fin-input>
+						
+							
+								
+								
+							</div>
+
+							<!-- 	<div
+							ng-init="rakCorpInit.corpModel.processCorpInit(successResponse.responsesList);">
+							
+							
+							
+							
+							 <corpapproval-input></corpapproval-input>
+							 
+		<div ng-if="rakCorpInit.corpModel.ruleCount>1">
+						
+						<div>
+										<fin-input type="text" 
+											model="rakCorpInit.corpModel.selectedRuleDescription"
+											display-row="full"
+											placeholder="select Rules"
+											ng-click="rakCorpInit.corpModel.setOverlapping();"
+											validation-flag='pageErrorArr["rakCorpInit.corpModel.selectedRuleDescription"]'>
+										</fin-input>
+									</div>
+									</div>
+	
+ 					<div ng-if="rakCorpInit.corpModel.ruleCount>0">
+
+
+		
+				<div class="apprHeadingMain rakWidth100">
+								<div class="apprHeading">{{appLiterals.APP.CORPORATE.SELECTAPPR}}</div>
+						
+						</div> 
+						<div>
+			<div class="workFlowInputs">
+			<fin-input  type="text" model="rakCorpInit.corpModel.apprRoleId" display-row="full"  validation-flag='pageErrorArr["rakCorpInit.corpModel.apprRoleId"]' placeholder="{{appLiterals.APP.CORPORATE.SELECTUSER}}" > </fin-input>validation-flag='pageErrorArr["rakPayee.payeeModel.name"]'
+			</div>
+			<div class="workFlowInputsGetID">
+			<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakLookUpbutton" ng-click="rakHome.AuthPageData.approvalLookUpClick='Y';setEvent('onCorpGetLookUpClick');"> {{appLiterals.APP.CORPORATE.LOOKUP}}</button>
+</div>
+			
+			</div>
+		
+		
+							</div>
+ 
+							 
+							
+		
+						</div> -->
+							 <corpapproval-input></corpapproval-input>
+						<fin-input type="password_text" model="rakFundTfr.remitSummary.transactionPassword"
+					display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+					validation-flag='pageErrorArr["rakFundTfr.remitSummary.transactionPassword"]'
+					ng-show="rakFundTfr.remitSummary.auth==txnpwdString">
+					</fin-input>
+
+
+						<div ng-show="rakFundTfr.remitSummary.auth==otpString">
+
+
+						<div ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+						<fin-input type="password_num" model="rakFundTfr.remitSummary.transactionPassword"
+						display-row="full" placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.PH_OTP}}"
+						validation-flag='pageErrorArr["rakFundTfr.remitSummary.transactionPassword"]' > </fin-input>
+						</div>
+
+
+						<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0' ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+			
+							<fin-input type="dropdown" option-array="toModeArray" model="rakHome.otpModel.otpModeSelected" display-row="full" placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+							<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+			
+						</div>
+
+						<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>
+          			</div>
+
+					<div class="label-wrap">
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small btn--back"
+							ng-click="rakFundTfr.remitSummary.transactionPassword = '';
+							setEvent('onRemittanceSummaryCancelBackClick');">
+							{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.BACK}}</button>
+
+
+				 	<button type="button"
+							class="btn--special-btn btn-middle rak-button-small"
+							ng-click="rakFundTfr.remitSummary.concatRemarksSubmit();">
+							<!-- ng-click="setEvent('onCancelConfirm');"> -->
+							{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.SUBMIT}}</button>
+					</div>	
+							
+							
+							
+			
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="scroll-space"></div>
+		</div>
+	</div>
+</div>
+

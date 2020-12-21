@@ -1,0 +1,55 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRakInvGoldAccOpenSuccess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+			
+			<div class="summary-BenfReq main-form-heading-ServiceReq">
+				<div class="iconDivBenf">
+					<span class="infoIconBenf"></span><span class="success">{{rakServiceReq.RakInvOpenGoldAccModel.successMessage}}</span>
+				</div>
+			</div>
+
+		<div class="bg-color rak-cont-padding rak-scroll">
+			<div class="">
+				<div class="">
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKGLDACCOPEN.GAO_OPR_FROM}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakInvOpenGoldAccModel.OprAcctList[rakServiceReq.RakInvOpenGoldAccModel.selectedOprAcct].acctTypeDesc}} {{rakServiceReq.RakInvOpenGoldAccModel.OprAcctList[rakServiceReq.RakInvOpenGoldAccModel.selectedOprAcct].accountId}} {{rakServiceReq.RakInvOpenGoldAccModel.OprAcctList[rakServiceReq.RakInvOpenGoldAccModel.selectedOprAcct].currencyCode}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKGLDACCOPEN.PLCHOLDER_QUANTITY}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakInvOpenGoldAccModel.quantity}}{{appLiterals.APP.RAKGLDACCOPEN.GRAM}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKGLDACCOPEN.BUY_RATE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakInvOpenGoldAccModel.buyRate}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKGLDACCOPEN.EQT_VALUES}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakInvOpenGoldAccModel.eqtAmt}} or XAU {{rakServiceReq.RakInvOpenGoldAccModel.eqtXau}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKGLDACCOPEN.GAO_MODE_OF_ACC}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakInvOpenGoldAccModel.isSingleOrJoint}}</span>
+						</p>
+						<p class="rak-sum-txt" ng-show="rakServiceReq.RakInvOpenGoldAccModel.remarks!=''">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKGLDACCOPEN.PLCHOLDER_REMARKS}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakInvOpenGoldAccModel.remarks}}</span>
+						</p>
+						<div>{{rakServiceReq.RakInvOpenGoldAccModel.openSuccessMessage}}</div>
+
+				<div class="label-wrap">
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-right"
+						ng-click='setEvent("onRakInvOpenGoldAccSuccessOkClick");'>
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+				</div>
+
+				<div class="col-sm-10"></div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,81 @@
+<div class="finacle-container ng-scope"
+	ng-init="rakMyProfile.updateNickName.transactionPassword='';rakMyProfile.updateNickname.submitNicknameResponseDetails(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+			<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_MYPROFILE.RAK_PROFLANDPAGE.CHANGE_NICKNAME}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}}</span>		     
+				      </h2>		       
+		 	</div>
+			
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+					<div class="">
+						<!-- <div class="fin-txt">{{rakMyProfile.updateNickname.selectedIndexAsString}}</div> -->
+						<div
+							ng-repeat="accountDetails in rakMyProfile.updateNickname.submitNicknameDetails">
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label" ng-if="accountDetails.AccountType !='CCD'">{{appLiterals.APP.RAK_MYPROFILE.RAK_UPDATENICKNAME.ACCCOUNT_NO}}&nbsp;</span>
+								<span class="rak-sum-label" ng-if="accountDetails.AccountType =='CCD'">{{appLiterals.APP.RAK_MYPROFILE.RAK_UPDATENICKNAME.CC_ACCCOUNT_NO}}&nbsp;</span> <span
+									class="rak-sum-label black">{{accountDetails.accountNumber}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_UPDATENICKNAME.ACCCOUNT_TYPE}}&nbsp;</span> 
+								<span class="rak-sum-label black">{{accountDetails.subAccountTypeDesc}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label" ng-if="accountDetails.AccountType =='CCD'">{{appLiterals.APP.RAK_MYPROFILE.RAK_UPDATENICKNAME.CC_ACCOUNT_NICKNAME}}&nbsp;</span>
+								<span class="rak-sum-label" ng-if="accountDetails.AccountType !='CCD'">{{appLiterals.APP.RAK_MYPROFILE.RAK_UPDATENICKNAME.ACCOUNT_NICKNAME}}&nbsp;</span> <span
+									class="rak-sum-label black">{{accountDetails.accountNickName}}</span>
+							</p>
+							<div class="fin-txt"></div>
+						</div>
+
+
+						<fin-input type="password_text"
+							model="rakMyProfile.updateNickName.transactionPassword"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+							min="0"
+							validation-flag='pageErrorArr["rakMyProfile.updateNickName.transactionPassword"]'
+							ng-show="rakMyProfile.updateNickname.auth==txnpwdString"></fin-input>
+
+
+
+<!-- 								<div ng-show="rakMyProfile.updateNickname.auth==otpString">
+										<div class="rakwidth65">
+											<fin-input type="password_num" model="rakMyProfile.updateNickName.transactionPassword"
+												display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OTP}}"
+												validation-flag='pageErrorArr["rakMyProfile.updateNickName.transactionPassword"]'
+												>
+												</fin-input>
+											</div>
+											<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>
+</div> -->
+         </div>
+
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back"
+								ng-click="setEvent('onUpdateNicknamePrevClick')">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakMyProfile.updateNickName.transactionPassword='dummy';setEvent('onUpdateNicknameConfirmClick')">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}
+							</button>
+
+						</div>
+
+					</div>
+
+
+					<div class="col-sm-1"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

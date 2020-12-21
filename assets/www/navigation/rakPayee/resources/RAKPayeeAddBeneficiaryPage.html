@@ -1,0 +1,265 @@
+
+   <div class="rak-back-header" ng-if="!rakPayee.payeeModel.addMobCashBnfFlag">
+    <i class="rak-back-img" ng-click="rakPayee.selectedPayeeType=rakPayee.payeeTypes.BANK;rakPayee.common.fromAuthPage=true;setEvent('onAddBeneficiaryPageCloseClick');"></i>
+  </div>
+    <div class="rak-back-header" ng-if="rakPayee.payeeModel.addMobCashBnfFlag">
+    <i class="rak-back-img" ng-click="rakPayee.selectedPayeeType=rakPayee.payeeTypes.MOBCASH;rakPayee.common.fromAuthPage=true;setEvent('onAddMobBeneficiaryPageCloseClick');"></i>
+  </div> 
+
+<!-- <div class="rak-back-header">
+    <i class="rak-back-img" ng-click="rakPayee.common.fromAuthPage=true;setEvent('onAddBeneficiaryPageCloseClick');"></i>
+  </div> -->
+  
+  <div class="nano menu-scroll">
+	<div class="nano-content">
+	<div class="finacle-container" ng-init="resetPageError();rakPayee.selectedPayee = successResponse.responsesList || rakPayee.selectedPayee;rakPayee.getPayeeInitForBankType(rakPayee.selectedPayee);rakSendMoney.clearTab();rakSendMoney.benfTab=true;">
+	 <div class="account-page">
+		<div class="col-sm-11">
+		  <div class="app-title-wrapper">
+
+		  <div class="form-block">
+		   <ng-include  src="'./navigation/rakSendMoney/resources/RakSendMoneyTabPage.html'"> </ng-include>
+
+	        <!-- Added for Cooling Period CR Start -->
+	        <div class="summary-ServiceReq" ng-repeat="tempCoolingPeriod in rakPayee.prpmCoolingPeriod">
+				<div class="iconDivBenf" ng-show="rakPayee.selectedPayeeType==tempCoolingPeriod && rakPayee.isEligibleCoolingPeriodSmeSegment=='Y'">
+					<span class="infoIconBenf"></span><span class="success">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_COOLING_PERIOD_MSG}}{{rakPayee.prpmCoolingPeriodAmount}}</span>
+				</div>
+			</div>
+			<!-- Added for Cooling Period CR End -->
+
+		   <div class="rak-cont-padding rakScrollDiv rak-cont-paddingvh">
+		  <div class="main-form-heading-payee">
+		      <h2 class="rakBenfHeader">{{rakPayee.selectedPayeeType == rakPayee.payeeTypes.MOBCASH ? "Create Mobile Cash " : "Create "}} {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BENF}}
+		      <span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2}} : {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1_TXTBNF}} </span>
+		      </h2>
+		  </div>
+
+		 <button class="ng-hide" id='mr-btn' ng-click='rakPayee.payeeModel.getNumber(rakPayee.payeeModel.mobileNumber)'></button>
+		   <div class="bg-color">
+
+			<div class="" >
+
+
+
+             <!-- Type drop down-start -->
+              <!-- <div  ng-hide="rakPayee.selectedPayeeType == rakPayee.payeeTypes.MOBCASH" ng-init='benfTypeArr = createDropDownOptionArray(rakPayee.rakBnfBankTypeList,["type"], "value");'>
+
+
+ <fin-input type="dropdown" model="rakPayee.selectedPayeeType" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_TYPE}}"
+ option-array="benfTypeArr"  validation-flag='pageErrorArr["rakPayee.selectedPayeeType"]' on-change="rakPayee.payeeModel.resetPayeeModel();rakPayee.getDisclaimerForAddBenf();rakPayee.payeeModel.addBankBnfFlag=true;"></fin-input>
+		     </div> -->
+
+             <!-- Type drop down-end -->
+             <!-- Name -->
+             <div ng-hide="rakPayee.selectedPayeeType==null||rakPayee.selectedPayeeType==''||rakPayee.selectedPayeeType == rakPayee.payeeTypes.RAKBANK">
+            <fin-input  type="text_restrictedSpecialCharacter" max-length="64" model="rakPayee.payeeModel.name" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NAME}}" validation-flag='pageErrorArr["rakPayee.payeeModel.name"]'> </fin-input>
+             </div>
+
+            <!-- Nick Name -->
+            <div ng-hide="rakPayee.selectedPayeeType==null||rakPayee.selectedPayeeType==''||rakPayee.selectedPayeeType == rakPayee.payeeTypes.MOBCASH" >
+            <fin-input  type="text_restrictedSpecialCharacter" model="rakPayee.payeeModel.nickName" max-length="64" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NICKNAME}}" validation-flag='pageErrorArr["rakPayee.payeeModel.nickName"]'> </fin-input>
+            </div>
+           	<div ng-if="rakPayee.selectedPayeeType == rakPayee.payeeTypes.CEBUANA">
+           		<div class="fin-txt"></div>
+           		<div class="fin-input-container rakstaticdata-block" >
+					<p class="rakexchangevalue">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BANK_NAME}} &nbsp;&nbsp;
+								:
+								&nbsp;&nbsp; {{rakPayee.payeeModel.cebuanaBankName}}</p>
+           		</div>
+           		
+           		<div class="fin-input-container rakstaticdata-block" >
+					<p class="rakexchangevalue">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_COUNTRY}} &nbsp;&nbsp;
+								:
+								&nbsp;&nbsp; {{rakPayee.payeeModel.cebuanaCountry}}</p>
+           		</div>	
+           	</div>
+        <div ng-if="rakPayee.selectedPayeeType == rakPayee.payeeTypes.OUTSIDEUAEBANK">
+
+         <!-- Country-start -->
+		<div  ng-init='countryArr = createDropDownOptionArray(rakPayee.rakCountryList, ["countryDesc"], "countryCode");'>
+		<fin-input type="dropdown" model="rakPayee.payeeModel.rakBnfCountry" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_COUNTRY}}"
+		validation-flag='pageErrorArr["rakPayee.payeeModel.rakBnfCountry"]' option-array="countryArr" on-change="rakPayee.payeeModel.resetBankDetails();rakPayee.payeeModel.fetchAccorIban();rakPayee.getDisclaimerForAddBenf();">
+		</fin-input></div>
+		<!-- Country-end -->
+
+		<!-- Payee Bank Name -->
+	<!-- 	 <div ng-hide="rakPayee.payeeModel.rakBnfCountry==rakPayee.constants.INDIA||rakPayee.payeeModel.rakBnfCountry==rakPayee.constants.IN">
+		   <fin-input  type="text" model="rakPayee.payeeModel.selectedBank" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BANK_NAME}}" validation-flag='pageErrorArr["rakPayee.payeeModel.selectedBank"]'> </fin-input>
+		 </div>
+		  -->
+		  <div ng-hide="rakPayee.payeeModel.rakBnfCountry==rakPayee.constants.IN && dashboard.userType=='1'">
+		   <fin-input  type="text" model="rakPayee.payeeModel.selectedBank" display-row="full" max-length="35" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BANK_NAME}}" validation-flag='pageErrorArr["rakPayee.payeeModel.selectedBank"]'> </fin-input>
+		 </div>
+		<!-- Payee Bank Branch -->
+		<!--  <div ng-hide="rakPayee.payeeModel.rakBnfCountry==rakPayee.constants.INDIA||rakPayee.payeeModel.rakBnfCountry==rakPayee.constants.IN">
+		 <fin-input  type="text" model="rakPayee.payeeModel.bankBranch" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BANK_BRANCH}}" validation-flag='pageErrorArr["rakPayee.payeeModel.bankBranch"]'> </fin-input>
+		</div> -->
+
+
+		 <div ng-hide="rakPayee.payeeModel.rakBnfCountry==rakPayee.constants.IN && dashboard.userType=='1'">
+		 <fin-input  type="text" model="rakPayee.payeeModel.bankBranch" display-row="full" max-length="35" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BANK_BRANCH}}" validation-flag='pageErrorArr["rakPayee.payeeModel.bankBranch"]'> </fin-input>
+		</div>
+
+		<!-- Payee Bank City -->
+		 <div ng-hide="rakPayee.payeeModel.rakBnfCountry==rakPayee.constants.IN && dashboard.userType=='1'">
+		 <fin-input  type="text" model="rakPayee.payeeModel.bankCity" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BANK_CITY}}" validation-flag='pageErrorArr["rakPayee.payeeModel.bankCity"]'> </fin-input>
+		</div>
+
+	
+			<!-- IFSC -->
+			<div ng-show="rakPayee.payeeModel.rakBnfCountry==rakPayee.constants.IN && dashboard.userType=='1'">
+		 <fin-input  type="text" model="rakPayee.payeeModel.selectedRoutingNumber" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_ROUTNUM}}" validation-flag='pageErrorArr["rakPayee.payeeModel.selectedRoutingNumber"]'> </fin-input>
+    	 <div  ng-class="{'new_user_margin':pageErrorArr['rakPayee.payeeModel.selectedRoutingNumber']==null ,'new_user_validation':pageErrorArr['rakPayee.payeeModel.selectedRoutingNumber']!=null}"  ng-click="setEvent('onPayeeNetworkTypeChanged')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_SEARCH_IFSC}}</div>
+            </div>
+    <!-- Swift Code -->
+              <div>
+            <fin-input  type="text" model="rakPayee.payeeModel.swiftCode" display-row="full" max-length="11" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_SWIFTCODE}}" validation-flag='pageErrorArr["rakPayee.payeeModel.swiftCode"]'> </fin-input>
+           </div>
+             <!-- Intermediary Bank -->
+             <div>
+            <fin-input  type="text" model="rakPayee.payeeModel.rakInterMedBank" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_INTMEDBANK}}" validation-flag='pageErrorArr["rakPayee.payeeModel.rakInterMedBank"]'> </fin-input>
+           </div>
+                      <!-- Bank Code -->
+            <div>
+            <fin-input  type="text" model="rakPayee.payeeModel.rakBnkCode" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BANKCODE}}" validation-flag='pageErrorArr["rakPayee.payeeModel.rakBnkCode"]'> </fin-input>
+           </div>
+
+         <!--   XM start -->
+         
+            <!--Benf Resident Country-start -->
+            <div  ng-init='benfRestcountryArr = createDropDownOptionArray(rakPayee.benfRestCountryList, ["countryDesc"], "countryCode");'>
+            <fin-input type="dropdown" model="rakPayee.payeeModel.rakBenfResidentCountry" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_RESIDENT_COUNTRY}}"
+            validation-flag='pageErrorArr["rakPayee.payeeModel.rakBenfResidentCountry"]' option-array="benfRestcountryArr">
+            </fin-input></div>
+        <!-- Benf Resident Country-end -->
+         <!--   XM END -->
+           
+          
+            <!-- Radio-->
+            <div ng-show="!rakPayee.payeeModel.isIbanCountry">
+         <div class="rakRow" >
+						<div class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px">
+							{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_RADIO}}</div>
+							<div class="rak100">
+								<div>
+									<div class="rakCstmRadioDiv rak60 rakTop2emLeft3">
+										<input type="radio" value="A" class="rakRadio" id="radio1"
+														ng-model="rakPayee.payeeModel.isAccIban" ng-click="rakPayee.payeeModel.accountNumber='';" />
+										<label for="radio1"><span><span></span></span>{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_ACCNO_RADIO}}</label>
+									</div>
+									<div class="rakCstmRadioDiv rak30 rakTop2emLeft3">
+										<input type="radio" value="I" class="rakRadio" id="radio2"
+														ng-model="rakPayee.payeeModel.isAccIban" ng-click="rakHome.textModelWithSpace='';"  />
+										<label for="radio2"><span><span></span></span>{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_IBAN_RADIO}}</label>
+									</div>
+								</div>
+							</div>
+		</div>
+
+		 <!-- Account number  -->
+		 <div ng-show="rakPayee.payeeModel.isAccIban==rakPayee.constants.ACCOUNT">
+            <fin-input  type="number_card" max-length="34" model="rakPayee.payeeModel.accountNumber" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_ACCNO_RADIO}}" validation-flag='pageErrorArr["rakPayee.payeeModel.accountNumber"]'> </fin-input>
+		</div>
+		 <!-- IBAN Number -->
+         <div ng-show="rakPayee.payeeModel.isAccIban==rakPayee.constants.IBAN">
+            <fin-input  type="textWithBlank" max-length="42" model="rakPayee.payeeModel.accountNumber" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.IBAN}}"  validation-flag='pageErrorArr["rakHome.textModelWithSpace"]'> </fin-input>
+		</div>
+		</div>
+
+		<div ng-show="rakPayee.payeeModel.isIbanCountry">
+            <fin-input  type="textWithBlank" model="rakPayee.payeeModel.accountNumber" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.IBAN}}" max-length="42" validation-flag='pageErrorArr["rakPayee.payeeModel.accountNumber"]'> </fin-input>
+		</div>
+
+      </div>
+            <!-- Account number  -->
+          <div ng-show="rakPayee.selectedPayeeType == rakPayee.payeeTypes.RAKBANK" >
+            <fin-input  type="number_card"  max-length ="13" model="rakPayee.payeeModel.accountNumber" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_ACCNO_RADIO}}" validation-flag='pageErrorArr["rakPayee.payeeModel.accountNumber"]'> </fin-input>
+         </div>
+
+            <!-- IBAN Number -->
+            <div ng-show="rakPayee.selectedPayeeType == rakPayee.payeeTypes.WITHINUAEBANK">
+            <fin-input   type="textWithBlank" max-length="28" model="rakPayee.payeeModel.accountNumber" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.IBAN}}" validation-flag='pageErrorArr["rakPayee.payeeModel.accountNumber"]'> </fin-input>
+          </div>
+
+
+
+
+             <!-- Mobile number  -->
+            <div ng-show="rakPayee.selectedPayeeType == rakPayee.payeeTypes.MOBCASH"  class="rakClearBothImp"  >
+
+			<fin-input  type="number_card" model="rakPayee.payeeModel.mobileNumber" display-row="full" max-length="12" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.MOBILE_NO}}" validation-flag='pageErrorArr["rakPayee.payeeModel.mobileNumber"]'> </fin-input>
+			<button type="button" class="mob-user-icon" ng-click="rakPayee.payeeModel.getContactNumberFromPhoneBook()"><span class="app-user icons"></span>
+			</button>
+				<span class="smallLabel">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.MOB_EXM}}</span>
+
+			</div>
+
+
+		<div class="label-wrap">
+              <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakPayee.checkCountry(rakPayee.payeeModel.rakBnfCountry);rak2FARegister.RegistrationModel.resolveEventFor2FA('BENF_ADD_FUND');setEvent(rakPayee.getAddPayeeEventDetails());"> {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.ADD_BUTTON}} </button>
+        </div>
+
+         <div class="disclaimer" ng-init="rakDisclaimerFlag=false" ng-show='rakPayee.selectedPayeeType!="" && rakPayee.selectedPayeeType!=null && rakPayee.disclaimerText!=null && rakPayee.disclaimerText!=""
+         && rakPayee.payeeModel.rakBnfCountry != rakPayee.constants.IN'>
+				<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+					<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+				</div>
+
+				<div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+					<span ng-if="rakPayee.isEligibleCoolingPeriodSmeSegment=='Y'" ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_ADDBENF_COMMON"></span>
+					<span ng-click="rakPayee.fetchDisclaimer('CountryListIBAN.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.OBF"></span>
+				</div>
+			</div>
+
+
+			<div class="disclaimer" ng-init="rakDisclaimerFlag=false" ng-show='rakPayee.selectedPayeeType!="" && rakPayee.selectedPayeeType!=null && rakPayee.disclaimerText!=null && rakPayee.disclaimerText!=""
+			&& rakPayee.payeeModel.rakBnfCountry == rakPayee.constants.IN && rakPayee.selectedPayeeType!=rakPayee.payeeTypes.MOBCASH'>
+				<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+					<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+				</div>
+
+				<div class="disclaimer3" ng-if="rakDisclaimerFlag">
+					<span ng-if="rakPayee.isEligibleCoolingPeriodSmeSegment=='Y'" ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_ADDBENF_COMMON"></span>
+					<span ng-click="rakPayee.fetchDisclaimer('CountryListIBAN.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.OBFINDIA"></span>
+				</div>
+			</div>
+
+			<div class="disclaimer" ng-init="rakDisclaimerFlag=false" ng-show='rakPayee.selectedPayeeType == rakPayee.payeeTypes.MOBCASH'>
+				<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+					<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+				</div>
+
+				<div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+					<span ng-if="rakPayee.isEligibleCoolingPeriodSmeSegment=='Y'" ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_ADDBENF_COMMON"></span>
+					<span ng-bind-html="appLiterals.APP.DISCLAIMER.ADDMOBBENF"></span>
+				</div>
+			</div>
+			
+			<div class="disclaimer" ng-init="rakDisclaimerFlag=false" ng-show="(rakPayee.selectedPayeeType == rakPayee.payeeTypes.RAKBANK || rakPayee.selectedPayeeType == rakPayee.payeeTypes.WITHINUAEBANK) && rakPayee.isEligibleCoolingPeriodSmeSegment=='Y'">
+				<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+					<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+				</div>
+
+				<div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+					<span ng-if="rakPayee.isEligibleCoolingPeriodSmeSegment=='Y'" ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_ADDBENF_COMMON"></span>					
+				</div>
+			</div>
+
+			</div>
+
+
+              </div>
+
+          </div>
+
+
+
+
+          </div>
+       </div>
+       </div>
+       </div>
+    </div>
+		</div>
+</div>

@@ -1,0 +1,80 @@
+<div class="finacle-container" ng-init="rakSendMoney.mobileCash.initSuccessPage(successResponse.responsesList)">
+	<div class="account-page">
+     <div class="col-sm-11">
+	 <div class="app-title-wrapper">
+
+		<ng-include  src="'./navigation/rakSendMoney/resources/RakSendMoneyTabPage.html'"> </ng-include>
+
+		<div class="tab-links">
+       			<ul>
+					<li ng-click="setGlobalEvent('onRakMoveMoneyClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_BNKTRANSFER}}</span></li>
+					<li ng-show="dashboard.userType=='1'" ng-click="setGlobalEvent('onRakMoneyPayTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_RAKMNY}}</span></li>
+					<li class="active"><span class="active">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_MBLCASH}}</span></li>
+				</ul>
+        </div>
+		<div class="noHeaderBottom"></div>
+		<div class="rak-scroll">
+     <!--     <div class="main-form-heading">
+                    	<h2 class="success">{{appLiterals.APP.RAK_SERVICES.RAK_GENERAL.SENT_MSG}}<span>{{rakSendMoney.common.successMessage}}</span></h2>
+            </div>
+ -->
+ <div class="summary-BenfReq main-form-heading-ServiceReq">
+				<div class="iconDivBenf">
+					<span class="infoIconBenf"></span><span class="success">{{rakSendMoney.common.successMessage}}</span>
+				</div>
+</div>
+
+	 <div class="bg-color rak-cont-padding" >
+
+	    <div class="row" >
+	      <div class="">
+				<p class="rak-sum-txt" ng-show="rakSendMoney.mobileCash.selectedBenfType=='Benf' && rakSendMoney.mobileCash.fromBenfScreen">
+				<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.PAY_TO}}</span>
+				<span class="rak-sum-label black">{{rakSendMoney.mobileCash.Beneficiary.beneficiaryName}} - {{rakSendMoney.mobileCash.Beneficiary.beneficiaryAccountNumber}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="rakSendMoney.mobileCash.selectedBenfType=='Benf' && !rakSendMoney.mobileCash.fromBenfScreen">
+				<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.PAY_TO}}</span>
+				<span class="rak-sum-label black">{{rakSendMoney.mobileCash.benfList[rakSendMoney.mobileCash.selectedBenf].beneficiaryName}} - {{rakSendMoney.mobileCash.benfList[rakSendMoney.mobileCash.selectedBenf].beneficiaryAccountNumber}}</span>
+				</p>
+
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.TXT_FROM}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCash.fromAccounts[rakSendMoney.mobileCash.selectedFromAccount].subAccountTypeDesc}} {{rakSendMoney.mobileCash.fromAccounts[rakSendMoney.mobileCash.selectedFromAccount].accountNumber}} {{rakSendMoney.mobileCash.fromAccounts[rakSendMoney.mobileCash.selectedFromAccount].currencyCode}}</span>
+				</p>
+
+			<p class="rak-sum-txt" ng-show="rakSendMoney.mobileCash.selectedBenfType==rakSendMoney.mobileCash.selfTxn" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.TXT_TO}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCash.custName}}</span>
+				</p>
+
+
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_AMT}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.AED}} {{rakSendMoney.mobileCash.amountDisp}} </span>
+				</p>
+			<p class="rak-sum-txt" ng-if="rakSendMoney.common.nextApprover">
+					<span class="rak-sum-label">{{appLiterals.APP.CORPORATE.APPROVERNAME}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.common.nextApprover}}</span>
+				</p>
+				
+
+
+				<div class="label-wrap">
+
+
+				 	<!-- <button type="button" class="btn--special-btn btn-middle rak-button-small rak-back" ng-click="rakSendMoney.mobileCash.clearFields();setEvent(rakSendMoney.mobileCash.getSuccessEvent());">  {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_SUCCESSPAGE.SEND_AGAIN}}  </button> -->
+				 	<!-- PROUAT - 2083 commented below and replaced the above 
+				 	<button type="button" class="btn--special-btn btn-middle rak-button-small rak-back rak-btn-large-text" ng-click="rakSendMoney.mobileCash.isBenfTypeSelected=false;rakSendMoney.mobileCash.selectedBenfType='';rakSendMoney.mobileCash.clearFields();rakSendMoney.mobileCash.isBenfTypeSelected=false;setGlobalEvent('onMobileCashTabClick');">
+				 	  {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_SUCCESSPAGE.SEND_AGAIN}}  </button>-->
+				 	 <button type="button" class="btn--special-btn btn-middle rak-button-small_updated " ng-click="rakSendMoney.mobileCash.isBenfTypeSelected=false;rakSendMoney.mobileCash.selectedBenfType='';rakSendMoney.mobileCash.clearFields();rakSendMoney.mobileCash.isBenfTypeSelected=false;setGlobalEvent('onMobileCashTabClick');"> {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_SUCCESSPAGE.SEND_AGAIN_PAY}}</button> 
+				 	
+					<button type="button" class="btn--special-btn btn-middle rak-button-small_updated" ng-click='rakSendMoney.mobileCash.clearFields();setEvent("onTransfersSuccessOkClick")'> {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_SUCCESSPAGE.HOME}} </button>
+				</div>
+	<div class="col-sm-10"> </div>
+	</div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default" role="navigation">
+	<div class="navbar-header">
+		<img class="banner" width=64px height=64px>
+		<p class="navbar-text">{{appLiterals.APP.REGISTRATION.CREDS_PAGE.HEADER}}</p>
+	</div>
+</nav>
+<div class="container-fluid"
+	ng-init="options = [
+            				{displayText:'Yes, I Have', hasCreds:true},
+            				{displayText: 'No, I dont', hasCreds:false}
+            				]; userHasCreds = true;">
+	<div class="row-fluid">
+		<div class="centering text-center">
+			<h2>{{appLiterals.APP.REGISTRATION.CREDS_PAGE.TXT_REG}}</h2>
+			<br>
+			<p>{{appLiterals.APP.REGISTRATION.CREDS_PAGE.SENT_GOTINT}}</p>
+			<p>
+			<form id="retUsrIndepLgnRegCredPageForm" ng-submit='setEvent(userHasCreds ? "onRegisterHasCredsClicked" : "onRegisterNoCredsClicked")'>
+				<div>
+					<span> <input type="radio" ng-value="options[0].hasCreds"
+						ng-model="userHasCreds" />{{options[0].displayText}} <input id="retUsrIndepLgnRegCredPageuserHasCreds"
+						type="radio" ng-value="options[1].hasCreds"
+						ng-model="userHasCreds" />{{options[1].displayText}}
+					</span>
+				</div>
+				</p>
+				<div class="form-group">
+					<input type="text" class="form-control" id="userName"
+						placeholder="{{appLiterals.APP.REGISTRATION.CREDS_PAGE.PH_USERNAM}}">
+					<input type="text" class="form-control" id="passWord"
+						placeholder="{{appLiterals.APP.REGISTRATION.CREDS_PAGE.PH_IPINPASS}}">
+				</div>
+				<div class="form-group">
+					<md-button id="retUsrIndepLgnRegCredPageBtnProceed"
+						type="submit" class="btn md-raised btn-success">{{appLiterals.APP.REGISTRATION.CREDS_PAGE.BTN_PROC}}</md-button>
+				</div>
+				<md-button id="retUsrIndepLgnRegCredPageBtnLgn" type="button" class="btn md-raised btn-link">{{appLiterals.APP.REGISTRATION.CREDS_PAGE.BTN_LGN}}</md-button>
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,119 @@
+<!--  <div class="rak-back-header">
+	<i class="rak-back-img" ng-click="setEvent('onBackClick');"></i>
+</div> -->
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div ng-if="isEdhirhamAuth=='true'" ng-init='rakEDirham.initEdirham(successResponse.invocationResult)' class="finacle-container">
+			<div class="account-page">
+			
+					<div class="app-title-wrapper">
+						<div class="form-block">	
+						
+											 
+							
+							<div class="bg-color rak-cont-padding rak-scroll margn-5-5-0-5">
+							<div class="paybils-block-top w-100">
+					            <div class="">
+					              <div class="entr-edirham-pin-txt black-txt dashboard-item-title">{{appLiterals.APP.EDIRHAM.SET_PIN_TXT}}</div>
+					              
+					            </div>	
+					            <div>
+					            <h3 class="setPin-msg">
+									{{appLiterals.APP.EDIRHAM.CRETE_PIN_TXT}}
+									</h3>	
+					            </div>	            
+					            
+					        </div>
+								<div class="">
+									
+										
+									<div class="setPin"
+										ng-init=''>
+											<fin-input flex="100" type="number" model="rakEDirham.eDirhamDetails.pin" required
+											display-row="full"  placeholder="{{appLiterals.APP.EDIRHAM.ENTR_PIN_PLCHOLDER}}"  max-length="4" validation-flag='pageErrorArr["rakEDirham.eDirhamDetails.pin"]'>
+											</fin-input>
+											<fin-input flex="100" type="number" model="rakEDirham.eDirhamDetails.confirmPin" required
+											display-row="full"  placeholder="{{appLiterals.APP.EDIRHAM.CONFIRM_PIN_PLCHOLDER}}"  max-length="4" validation-flag='pageErrorArr["rakEDirham.eDirhamDetails.confirmPin"]'>
+											</fin-input>
+
+									</div>	
+								
+								</div>
+													
+										 <div class="mt-35Per">
+		    					 <button type="button" class="btn--special-btn btn-middle go-overview-btn"
+									ng-click="setEvent('onEdirhamSkipClick');">{{appLiterals.APP.EDIRHAM.SKIP_BTN}}
+									</button>
+									 <button type="button" class="btn--special-btn btn-middle generate-token-btn"
+									ng-click="rakEDirham.pinRegisterSubmit()"> {{appLiterals.APP.EDIRHAM.NEXT_BTN}} 
+									</button>
+			
+		     </div>
+						
+									
+							</div>
+							
+					</div>
+				</div>
+			
+		</div>
+	</div>
+	
+	
+			<div ng-if="isEdhirhamAuth=='false'" ng-init='rakEDirham.initEdirham(successResponse.responsesList[0]);' class="finacle-container">
+			<div class="account-page">
+			
+					<div class="app-title-wrapper">
+						<div class="form-block">	
+						
+											 
+							
+							<div class="bg-color rak-cont-padding rak-scroll margn-5-5-0-5">
+							<div class="paybils-block-top w-100">
+					            <div class="">
+					              <div class="entr-edirham-pin-txt black-txt">{{appLiterals.APP.EDIRHAM.SET_PIN_TXT}}</div>
+					              
+					            </div>	
+					            <div>
+					            <h3 class="setPin-msg">
+									{{appLiterals.APP.EDIRHAM.CRETE_PIN_TXT}}
+									</h3>	
+					            </div>	            
+					            
+					        </div>
+								<div class="">
+									
+										
+									<div class="setPin"
+										ng-init=''>
+											<fin-input flex="100" type="number" model="rakEDirham.eDirhamDetails.pin" required
+											display-row="full"  placeholder="{{appLiterals.APP.EDIRHAM.ENTR_PIN_PLCHOLDER}}"  max-length="4" validation-flag='pageErrorArr["rakEDirham.eDirhamDetails.pin"]'>
+											</fin-input>
+											<fin-input flex="100" type="number" model="rakEDirham.eDirhamDetails.confirmPin" required
+											display-row="full"  placeholder="{{appLiterals.APP.EDIRHAM.CONFIRM_PIN_PLCHOLDER}}"  max-length="4" validation-flag='pageErrorArr["rakEDirham.eDirhamDetails.confirmPin"]'>
+											</fin-input>
+
+									</div>	
+								
+								</div>
+													
+										 <div class="mt-35Per">
+		    					 <button type="button" class="btn--special-btn btn-middle go-overview-btn"
+									ng-click="setEvent('onEdirhamSkipClick');">{{appLiterals.APP.EDIRHAM.SKIP_BTN}}
+									</button>
+									 <button type="button" class="btn--special-btn btn-middle generate-token-btn"
+									ng-click="rakEDirham.pinRegisterSubmit()"> {{appLiterals.APP.EDIRHAM.NEXT_BTN}} 
+									</button>
+			
+		     </div>
+						
+									
+							</div>
+							
+					</div>
+				</div>
+			
+		</div>
+	</div>
+	</div>
+	</div>

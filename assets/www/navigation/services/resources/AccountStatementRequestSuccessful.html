@@ -1,0 +1,59 @@
+<!-- partial code start here-->
+<div class="finacle-container">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+			<div class="dashboard-pad full-height">
+				<div class="dashboard-item-body full-height">
+					<fin-success
+						success-banner="{{appLiterals.APP.COMMON.MSG.SUCCESS}}"
+						success-message="{{successResponse.responsesList[0].accountStatementResponse}}"
+						cross-click="services.accountStatement.resetAccountStatement();setEvent('onDoneButtonClick')">
+					</fin-success>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtAccNo" id="txtaccountNumber">
+							{{appLiterals.APP.SERVICES.ACC_STM.TXT_ACC_STAT_REQ}} </span> <span
+							class="sucs-right-color" id="accountNumber">
+							{{(services.accountStatement.accountsList |
+							filter:{index:services.accountStatement.cardNumber})[0].accountNumber}}
+						</span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtfrequency"
+							id="txtDepositAccount">
+							{{appLiterals.APP.COMMON.TEXT.FREQUENCY}} </span> <span
+							class="sucs-right-color" id="frequency">
+							{{successResponse.responsesList[0].frequency}} </span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtstatementDate"
+							id="txtDepositAccount">
+							{{appLiterals.APP.SERVICES.ACC_STM.STM_DATE}} </span> <span
+							class="sucs-right-color" id="statementDate"><fin-Date
+								date-value='{{successResponse.responsesList[0].statementDate}}'></fin-Date>
+						</span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtAccNo" id="txtdepatchMode">
+							{{appLiterals.APP.SERVICES.ACC_STM.DISPACH_MODE}} </span> <span
+							class="sucs-right-color" id="depatchMode">
+							{{successResponse.responsesList[0].depatchMode}} </span>
+					</div>
+					<div class="sucs-left-txt"
+						ng-show="successResponse.responsesList[0].email.length != 0">
+						<span class="sucs-left-color" id="txtAccNo" id="txtemail">
+							{{appLiterals.APP.SERVICES.ACC_STM.EMAIL}} </span> <span
+							class="sucs-right-color" id="email">
+							{{successResponse.responsesList[0].email}} </span>
+					</div>
+					<div class="sucs-left-txt"
+						ng-show="successResponse.responsesList[0].depatchMode != 'Email'">
+						<span class="sucs-left-color" id="txtAccNo" id="txtaddress">
+							{{appLiterals.APP.SERVICES.COMMON.ADDRESS}}</span> <span
+							class="sucs-right-color" id="address">
+							{{services.accountStatement.address}} </span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

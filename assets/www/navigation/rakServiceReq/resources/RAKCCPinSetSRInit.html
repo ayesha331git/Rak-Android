@@ -1,0 +1,86 @@
+
+<div class="rak-back-header">
+	<i class="rak-back-img"
+		ng-click="setEvent('onRAKCCPinSetBackClick');"></i>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.rakCCPinSetSRInit(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<!--  <div class="app-title-wrapper"> -->
+					<div class="form-block">
+					
+						<div class="main-form-heading-ServiceReq"> 
+			                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_CC_PIN_SET.PS_REQ}}
+			                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+			                 </h2>              
+						</div>
+						
+						<div class="bg-color rak-cont-padding rak-scroll">
+							<div class="row">
+								
+
+								<div
+									ng-init='cardArr = createDropDownOptionArray(rakServiceReq.RakCCPinSetSR.accList, ["creditCardDesc","-","creditCardNumber"], "creditCardIndex");'></div>
+								<fin-input type="dropdown"
+									model="rakServiceReq.RakCCPinSetSR.selectedAcc"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_PIN_SET.CC}}"
+									validation-flag='pageErrorArr["rakServiceReq.RakCCPinSetSR.selectedAcc"]'
+									option-array="cardArr"> </fin-input>
+
+
+								<fin-input type="password_num"
+									model="rakServiceReq.RakCCPinSetSR.numPin" display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_PIN_SET.PIN}}"
+									validation-flag='pageErrorArr["rakServiceReq.RakCCPinSetSR.numPin"]'>
+								</fin-input>
+
+
+								<fin-input type="password_num"
+									model="rakServiceReq.RakCCPinSetSR.numConfirmPin"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_PIN_SET.CPIN}}"
+									validation-flag='pageErrorArr["rakServiceReq.RakCCPinSetSR.numConfirmPin"]'>
+								</fin-input>
+
+
+
+
+
+
+								<div class="label-wrap">
+									<!-- 	<button type="button"
+										class="btn--special-btn btn-middle rak-button-small btn--back"
+										ng-click="setEvent('onUnBlockCreditCardHomeBackClick');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button> -->
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small"
+										ng-click="rakServiceReq.RakCCPinSetSR.resetRakCCPinSetSRConfirm();rakServiceReq.RakCCPinSetSR.rakCCPinSetSRContinue();setEvent('onRAKCCPinSetContClick');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+								</div>
+								<div class="col-sm-1"></div>
+								
+								<div class="disclaimer">
+                                          <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                          <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                          </div>                                                 
+                                          
+                                    <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+										<span ng-click="rakServiceReq.fetchDisclaimer('CreditCardServiceRequestsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCCPINSET_INITPAGE"></span>													
+									</div>
+                                            
+                            </div>
+								
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

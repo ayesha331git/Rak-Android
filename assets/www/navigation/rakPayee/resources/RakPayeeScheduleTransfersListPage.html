@@ -1,0 +1,115 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="rak-back-header">
+			<i class="rak-back-img" ng-click="setEvent('onViewSchTxnBackClick');"></i>
+		</div>
+
+		<div class="finacle-container"
+			ng-init="rakPayee.payBill.initScheduleTransferListPage(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+
+							 <ng-include  src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>
+   
+   							<div class="tab-links">
+								<ul>
+									<li ng-click="rakPayee.clearTab();rakPayee.billHistoryTab=true;rakPayee.payBill.clearSearchHistory();rakPayee.payBill.clearPayBillData();rakPayee.common.clearBalance();rakPayee.payBill.setInitialDate();setGlobalEvent('onRakPayeeBillHistoryTabClick')"><span>{{appLiterals.APP.RAK_PAYEE.HISTORY.PMTHISTORY}}</span></li>
+									<li class="active"><span class="active">{{appLiterals.APP.RAK_PAYEE.HISTORY.SCHPMT}}</span></li>
+									
+								</ul>
+							</div>
+						</div>
+
+						<div class="bg-color rak-cont-padding">
+							
+							
+							<div class="money-block rakBottomZero">              
+						         <ul>
+						            <li  class="active rak15 ng-binding" >
+						            {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.REFID}}</li>						        
+						           <li class="active rak25 ng-binding">
+						            {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.BENFNAME}}</li>
+						            <li class="active rak25 ng-binding">
+						           {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.AMOUNT}}</li>
+						           <li class="active rak25 ng-binding">
+						           {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.DATE}}</li>
+						           <li class="active rak10 ng-binding">&nbsp;</li> 
+						         </ul>
+						 	</div>
+						 	
+						 	
+						 	
+						 	<div class="nano rakHalfScrollDiv rak-cont-padding" >    
+					            <div class="" >
+					       
+					               
+									<div class="trans-detail rakGreyRow" ng-repeat="transfers in rakPayee.payBill.scheduleList">
+									
+					                  	<div class="trans-dash-right rakPeopleNameRow1 rak15  rakPaddingPoint8em pull-left"  
+					                  	ng-click="rakPayee.schedule.schTxnListSubmitBtn='VIEW';rakPayee.schedule.selectedTxn = transfers;
+					                  	rakPayee.schedule.selectedTxnIndex = transfers.index;setEvent('onSchTxnSelectClick')">					                   		
+					                   		<div> 
+					                    <div class="trans-no rakFont1em rakAnchorTag">  
+					                     
+					                   {{transfers.txnReferenceId}}                  
+					                    </div>
+					                    </div>
+					                                  
+					                    </div>
+					                    
+					                  <div class="trans-dash-right rakPeopleNameRow1 rak25 pull-left rakPaddingPoint8em" >					                
+					                  <div> 
+					                    <div class="trans-no rakFont1em">   
+					                    {{transfers.toAccount}}                   
+					                    </div>
+					               </div> 
+					                  </div>
+					                    
+					                    
+					                  <div class="trans-dash-left rakPeopleNameRow1 rak25 pull-left rakPaddingPoint8em">					                  
+					                    <div> 
+					                    <div class="trans-no rakFont1em"> 
+					                    {{transfers.txnCurrency}} {{transfers.txnAmount}}                    
+					                    </div>
+					                  </div> 
+					                        
+					                  </div>
+					                  
+					                  <div class="trans-dash-left rakPeopleNameRow1 rak25 pull-left rakPaddingPoint8em">					                  
+					                    <div> 
+					                    <div class="trans-no rakFont1em"> 
+					                    {{transfers.txnDate}}                    
+					                    </div>
+					                  </div> 
+					                        
+					                  </div>
+					                  
+					                  <div class="pull-right rakPaddingPoint5em" style="width:8%">
+										   	<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											  <ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											    <li><a href="" ng-click="rakPayee.schedule.schTxnListSubmitBtn='VIEW';rakPayee.schedule.selectedTxn = transfers;rakPayee.schedule.selectedTxnIndex = transfers.index;setEvent('onSchTxnSelectClick')">
+											    {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW}}</a></li>
+											    <li><a href="" ng-click="rakPayee.payBill.chargesFlagBoolean=false;rakPayee.schedule.schTxnListSubmitBtn='MODIFY';rakPayee.schedule.selectedTxn = transfers;rakPayee.schedule.selectedTxnIndex = transfers.index;rakPayee.schedule.selectedPayee = transfers.toAccount;setEvent('onRakPayeeEditClick')">
+											    {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.MODIFY}}</a></li>  
+											    <li><a href="" ng-show="transfers.txnFrequency!='O'" ng-click="rakPayee.schedule.schTxnListSubmitBtn='STOP';rakPayee.schedule.selectedTxn = transfers;rakPayee.schedule.selectedTxnIndex = transfers.index;rakPayee.schedule.selectedTxn = transfers;setEvent('onSchTxnSelectClick')">
+											    {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.STOP}}</a></li>  
+											    <li><a href="" ng-show="transfers.txnFrequency=='O'" ng-click="rakPayee.schedule.schTxnListSubmitBtn='STOP';rakPayee.schedule.freqType='O';rakPayee.schedule.selectedTxnIndex = transfers.index;rakPayee.schedule.selectedTxn = transfers;setEvent('onSchTxnListStopBtnClick')">
+											    {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.STOP}}</a></li>    
+											        
+											  </ul>
+										</div>
+										
+										
+					                </div>
+					              </div> 
+              
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

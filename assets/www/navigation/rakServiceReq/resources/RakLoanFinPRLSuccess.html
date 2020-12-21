@@ -1,0 +1,79 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRakLoanFinPRLConfirmSuccess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+			
+			
+			<div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakServiceReq.RakLoanFinPRLModel.successMessage}}</span>
+                        </div>
+                  </div>
+			
+			
+			<div class="main-form-heading-ServiceReq"> 
+			      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.PERM_REL_LETTER}}
+			      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+			      </h2>		       
+	 		</div>
+
+		<div class="bg-color rak-cont-padding rak-scroll-success">
+			<div class="">
+				<div class="">
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLNFINPRL.PRL_SELECT_LON_ACCOUNTS}} </span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakLoanFinPRLModel.LonAcctList[rakServiceReq.RakLoanFinPRLModel.selectedLonAcct].accountId}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLNFINPRL.PRL_REQ_FOR_DUP}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakLoanFinPRLModel.duplicateRequestSelected}}</span>
+						</p>
+
+						<p class="rak-sum-txt" ng-show="rakServiceReq.RakLoanFinPRLModel.duplicateRequestSelected=='{{appLiterals.APP.RAKLNFINPRL.PRL_DUP_YES}}'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLNFINPRL.PRL_DEBIT_ACC}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakLoanFinPRLModel.DrAcctList[rakServiceReq.RakLoanFinPRLModel.selectedDrAcct].accountId}}</span>
+						</p>
+
+						<!-- <p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLNFINPRL.PRL_BRANCHES}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakLoanFinPRLModel.branchList[rakServiceReq.RakLoanFinPRLModel.selectedBranchId].branchCode}}</span>
+						</p> -->
+						
+						<p class="rak-sum-txt" 
+							ng-show="rakServiceReq.RAKEarlyCardRenewalModel.isBranchOptionSelected">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakLoanFinPRLModel.emiSelDesc}}</span>
+						</p>
+						
+						
+						<p class="rak-sum-txt"
+							ng-show="rakServiceReq.RAKEarlyCardRenewalModel.isBranchOptionSelected">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}</span> <span
+								class="rak-sum-label black">{{rakServiceReq.RakLoanFinPRLModel.selectedBranchDesc}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLNFINPRL.PRL_MOBILENO}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakLoanFinPRLModel.MobileNo}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKLNFINPRL.PRL_NOTES}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakLoanFinPRLModel.notes}}</span>
+						</p>
+
+				<div class="label-wrap">
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-right"
+						ng-click='setEvent("onRakLoanFinPRLSuccessOkClick");'>
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+				</div>
+
+				<div class="col-sm-10"></div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

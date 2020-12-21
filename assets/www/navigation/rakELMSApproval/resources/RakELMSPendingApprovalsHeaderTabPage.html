@@ -1,0 +1,15 @@
+		<div class="main-form-heading-ServiceReq">
+                <h2 class="rakBenfHeader">{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.CUSTOM_LM_MAIN_HEADER}}
+                </h2>
+		</div>
+		<div class="money-block">
+				<ul>					
+					<li ng-class="{'active':rakELMSApproval.pendingApprovalTab=='PMA','':rakELMSApproval.pendingApprovalTab!='PMA'}"
+						ng-click='rakELMSApproval.pendingApprovalTab="PMA";rakELMSApproval.setInitialFromToDate();rakELMSApproval.setFromToDate();rakELMSApproval.resetSearchVals();rakELMSApproval.setInitialData();setGlobalEvent("onELMSSPendingApprovalClick");'>
+						{{appLiterals.APP.RAKPENDINGAPPROVAL.TABHEADERS.VIEW_APPROVAL_Q}}</li>						
+					<li ng-class="{'active':rakELMSApproval.pendingApprovalTab=='PCA','':rakELMSApproval.pendingApprovalTab!='PCA'}"
+						ng-click='rakELMSApproval.pendingApprovalTab="PCA";rakELMSApproval.setInitialFromToDate();rakELMSApproval.setFromToDate();rakELMSApproval.resetSearchVals();rakELMSApproval.setInitialData();setGlobalEvent("onELMSSPendingApprovalClick");'>
+						{{appLiterals.APP.RAKPENDINGAPPROVAL.TABHEADERS.VIEW_UNAPPROVED_TXNS}}</li>					
+					
+				</ul>
+		</div>

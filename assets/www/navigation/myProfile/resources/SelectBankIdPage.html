@@ -1,0 +1,39 @@
+<div id="selectBankId" class="app app-arrow2 title-right"
+	ng-click="setGlobalEvent('onSelectBankIdBackClick')"></div>
+<div class="finacle-container"
+	ng-init="myProfile.bankId='';myProfile.getBankId();setSingleStepRealmAuthFailure();">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad padding-bottom-zero full-height">
+				<div class="dashboard-item-body full-height">
+
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div id="bankIdTitle" class="item-title text-uppercase">Set Bank Id</div>
+					</div>
+
+					<div id="text" class="col-sm-12 fut-txt1 margin-bottom-20">Please enter your Bank Id</div>
+					<form ng-submit="myProfile.setBankId();">
+						<fin-input type="text" model="myProfile.bankId" display-row="full"
+							placeholder="Bank Id"
+							validation-flag='pageErrorArr["myProfile.bankId"]'> </fin-input>
+
+						<section class="button-wrapper" layout="row"
+							layout-align="center center" layout-wrap>
+							<md-button id="saveBankId" type="submit"
+								class=" md-raised btn--primary-btn"> SAVE</md-button>
+						</section>
+					</form>
+
+					<div id="bankId" class="col-sm-12 fut-txt1 margin-top-20 margin-bottom-15">Current Bank Id {{setBankId}}</div>
+
+					<section class="button-wrapper" layout="row"
+						layout-align="center center" layout-wrap>
+						<md-button id="fetchBankId" type="button"
+							ng-click="myProfile.getBankId();"
+							class=" md-raised btn--primary-btn">FETCH CURRENT BANK ID</md-button>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

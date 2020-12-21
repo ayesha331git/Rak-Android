@@ -1,0 +1,29 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="rak-back-header">
+
+			<i class="rak-back-img"
+				ng-click="setEvent('onSelfRegPageBackClick');"></i>
+		</div>
+		
+		<div class="finacle-container"
+			ng-init="rakRegister.common.successMsg='';rakRegister.resetPwdFields();rakRegister.LoginTxnPwdModel.initPasswordStrengthRules(successResponse.responsesList);rakRegister.initSelfRegistrationPostOTPConfirmData(successResponse.responsesList);">
+
+
+			<div ng-if="rakRegister.RegistrationModel.sectionId=='LGCC'">
+				<ng-include
+					src="'./navigation/rakRegister/resources/RakSelfRegPinInputPage.html'" />
+			</div>
+			<div ng-if="rakRegister.RegistrationModel.sectionId=='ORSP'">
+				<ng-include
+					src="'./navigation/rakRegister/resources/RakSelfRegSetPwdPage.html'" />
+			</div>
+			<div ng-if="rakRegister.RegistrationModel.sectionId=='ONCOMP'">
+				<ng-include
+					src="'./navigation/rakRegister/resources/RakForgotEnableUserIDSuccess.html'" />
+			</div>
+
+		</div>
+	</div>
+</div>

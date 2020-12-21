@@ -1,0 +1,142 @@
+
+
+<div class="finacle-container ng-scope"
+			ng-init="rakServiceReq.successLcOrNlc(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+			
+			
+			<div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakServiceReq.lcOrNlc.lcOrNlcSuccessMessage}}</span>
+                        </div>
+                  </div>
+			
+			
+			<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.LC_NLC}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+				      </h2>		       
+		 		</div>
+		
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+
+				<div class="row">
+					<div class="">
+
+						<!-- <p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.REQ_LC_OR_NLC}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.isRequested}}</span>
+						</p> -->
+
+						<p class="rak-sum-txt" >
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_CERT_REQUIRED}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.acctountNumber}}</span>
+						</p>
+
+<!--CHANGES DONE AS FIX OF PROUAT-2781 START  -->
+						<p class="rak-sum-txt"
+							ng-hide="rakServiceReq.lcOrNlc.isSelectAccount!='LAA' || rakServiceReq.lcOrNlc.isRequestFor!='LC'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.LOAN_OR_FIN_ACC}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.loanFinAccList[rakServiceReq.lcOrNlc.loanFinAcc].loanFinAcc}}</span>
+						</p>
+
+
+						<p class="rak-sum-txt"
+							ng-hide="rakServiceReq.lcOrNlc.isSelectAccount!='CCD' || rakServiceReq.lcOrNlc.isRequestFor!='LC'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CREDIT_CARD_ACC}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.creditCardList[rakServiceReq.lcOrNlc.creditCardNumber].creditCardNumber}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_COMP_NAME}}</span>
+								<span class="rak-sum-label black">
+									{{rakServiceReq.lcOrNlc.compName}}</span>
+					</p>
+<!--CHANGES DONE AS FIX OF PROUAT-2781 END  -->
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.LANG_ENG_OR_ARB}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.isLangSelected}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.ADDRESSED_TO}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.addressedTo}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_DISPATCH_MODE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.isDispatchMode}}</span>
+						</p>
+						
+						<p class="rak-sum-txt"
+						ng-show="rakServiceReq.lcOrNlc.isDispatchMode=='{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_COLLECT_BRANCH}}'"	>
+							<span class="rak-sum-label">{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_CONF_BRANCH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.OprAcctBranchList[rakServiceReq.lcOrNlc.selectedBranchId].branchCode}}</span>
+						</p>
+						
+						<p class="rak-sum-txt"
+						ng-show="rakServiceReq.lcOrNlc.isDispatchMode=='{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_DELIVER_ADDRESS}}'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_ADDREG}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.registeredAddress}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.MOBILENUMBER}}&nbsp;</span>
+							   <span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.mobileNumber}}</span>
+						 </p>
+						 
+						 <!--CHANGES DONE AS FIX OF PROUAT-2485 START-->	
+						<p class="rak-sum-txt" ng-hide="rakServiceReq.lcOrNlc.notes==''">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.NOTES}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.notes}}</span>
+						</p>
+<!--CHANGES DONE AS FIX OF PROUAT-2485 END-->	
+						       
+
+<!--CHANGES DONE AS FIX OF PROUAT-2781 START  -->
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.DEBIT_ACCOUNT}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.debitOprAccList[rakServiceReq.lcOrNlc.debitOprAcc].debitOprAcc}}</span>
+						</p>
+<!--CHANGES DONE AS FIX OF PROUAT-2781 END  -->
+						
+<!--CHANGES DONE AS FIX OF PROUAT-2485 START-->	
+						<!-- <p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.BRANCH_NAME}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.confirmedBranch}}</span>
+						</p> -->
+					<!-- 	<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.emiSelDesc}}</span>
+						</p> -->
+
+						
+<!--CHANGES DONE AS FIX OF PROUAT-2485 END-->	
+
+						
+
+	                          
+
+
+
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="setEvent('onLcorNlcDoneClick')">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+								<!-- ng-click="rakServiceReq.temporaryReleaseLetter.resetTemporaryReleaseLetter();setEvent('onTempReleaseLetterSuccessfulDoneClick')" -->
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+

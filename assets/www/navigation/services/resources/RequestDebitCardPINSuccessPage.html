@@ -1,0 +1,36 @@
+<!-- setEvent('onRequestDebitCardPinSuccessButtonClick') -->
+<!-- partial code start here-->
+<div class="finacle-container">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+			<div class="dashboard-pad full-height">
+				<div class="dashboard-item-body full-height">
+					<fin-success
+						success-banner="{{appLiterals.APP.COMMON.MSG.SUCCESS}}"
+						success-message="{{successResponse.responsesList[0].message}}"
+						cross-click="setEvent('onRequestDebitCardPinSuccessButtonClick')">
+					</fin-success>					
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtAccNo">
+							{{appLiterals.APP.SERVICES.APP_NEW_DC_AUTH.TXT_ACC_NO}} </span> <span
+							class="sucs-right-color" id="accNo">
+							{{successResponse.responsesList[0].accountNickname}}-{{successResponse.responsesList[0].accountNumber}}
+						</span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtDebitCardNo">
+							{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD_AUTH.TXT_DEBIT_CARD_NO}}
+						</span> <span class="sucs-right-color" id="debitCardNo">
+							{{successResponse.responsesList[0].debitCardNumber}} </span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtReason">
+							{{appLiterals.APP.SERVICES.COMMON.REASON}} </span> <span
+							class="sucs-right-color" id="reason">
+							{{successResponse.responsesList[0].reasonForReissue}} </span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

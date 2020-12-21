@@ -1,0 +1,55 @@
+<nav class="navbar navbar-default" role="navigation">
+	<div class="navbar-header">
+		<img class="banner" width=64px height=64px>
+		<p class="navbar-text">{{appLiterals.APP.REGISTRATION.CARDET_PAGE.HEADER}}</p>
+	</div>
+</nav>
+
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="centering text-center">
+			<h2>{{appLiterals.APP.REGISTRATION.CARDET_PAGE.TXT_AUTH}}</h2>
+			<br>
+			<p>{{appLiterals.APP.REGISTRATION.CARDET_PAGE.SENT_AUTH}}</p>
+			<form id="retailUserIndepLgnRegCardDetPageForm"
+				ng-submit="setEvent('onRegisterCardDetailsClicked')">
+				<div class="form-group">
+					<input type="text" class="form-control" id="OTP"
+						placeholder="{{appLiterals.APP.REGISTRATION.CARDET_PAGE.PH_OTP}}">
+					<md-button id="retailUserIndepLgnRegCardDetPageSendOTP" ng-click=""
+						type="button" class="btn md-raised btn-success">{{appLiterals.APP.REGISTRATION.CARDET_PAGE.SND_OTP}}
+					</button>
+				</div>
+				<p>
+				<div
+					ng-init="options = [
+            				{displayText:'Credit Card', cardType:'credit'},
+            				{displayText: 'Debit Card', cardType:'debit'}
+            				]">
+					<input ng-repeat-start="option in options" type="radio"
+						value="{{option.cardType}}"> <span ng-repeat-end>{{option.displayText}}
+					</span>
+				</div>
+				</p>
+				<div class="form-group">
+					<input type="text" class="form-control" id="cardNumber"
+						placeholder="{{appLiterals.APP.REGISTRATION.CARDET_PAGE.PH_CARDNO}}">
+					<input type="text" class="form-control" id="nameOnCard"
+						placeholder="{{appLiterals.APP.REGISTRATION.CARDET_PAGE.PH_NAMONCARD}}">
+					<input type="text" class="form-control" id="atmPin"
+						placeholder="{{appLiterals.APP.REGISTRATION.CARDET_PAGE.PH_ATMPIN}}">
+					<md-button
+						id="retailUserIndepLgnRegCardDetPageonRegisterCardDetailsClicked"
+						ng-click="setEvent('onRegisterCardDetailsClicked')" type="submit"
+						class="btn md-raised btn-success">{{appLiterals.APP.REGISTRATION.CARDET_PAGE.TXT_AUTH}}</md-button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<footer class="navbar-default navbar-fixed-bottom">
+	<ul class="pager">
+		<li class="previous"><a href="#"><span aria-hidden="true">&larr;</span>{{appLiterals.APP.REGISTRATION.CARDET_PAGE.TXT_BCK}}</a></li>
+	</ul>
+</footer>

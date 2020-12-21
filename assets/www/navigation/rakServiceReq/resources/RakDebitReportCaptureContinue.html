@@ -1,0 +1,119 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.RakDebitReportCaptureModel.transactionPassword = '';rakServiceReq.RakDebitReportCaptureContinue(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+
+				<div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DEBIT_REPORT_CAPTURE_CARDS}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>                
+                              </h2>              
+                        </div>
+
+
+	
+		<div class="bg-color rak-cont-padding rak-scroll">
+			<div class="">
+				<div class="">
+					<div class="rakDupliSRChkMsgImg" ng-show='rakServiceReq.common.message'>
+      					<span class='rakAlertForDupStmt'></span> <span class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+					</div>
+					<p class="rak-sum-txt ">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEB_REPORT_CAPTURE_CARD.TXT_CARDNO}}
+						</span> <span class="rak-sum-label black">{{rakServiceReq.RakDebitReportCaptureModel.cardNoContinue}}</span>
+					</p>
+
+ 					<p class="rak-sum-txt ">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEB_REPORT_CAPTURE_CARD.CAPTURE_DETAILS}}
+						</span> <span class="rak-sum-label black">{{rakServiceReq.RakDebitReportCaptureModel.selectedCaptureContinue}}</span>
+					</p>
+					
+					 <p class="rak-sum-txt" ng-show="rakServiceReq.RakDebitReportCaptureModel.captureFlag">
+						<span class="rak-sum-label" ng-show="rakServiceReq.RakDebitReportCaptureModel.captureFlag">{{appLiterals.APP.RAK_SERVICES.RAK_DEB_REPORT_CAPTURE_CARD.BANK_NAME}}
+						</span> <span class="rak-sum-label black" ng-show="rakServiceReq.RakDebitReportCaptureModel.captureFlag">{{rakServiceReq.RakDebitReportCaptureModel.bankName}}</span>
+					</p>
+
+					 <p class="rak-sum-txt ">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEB_REPORT_CAPTURE_CARD.ATM_BRANCH_NAME}}
+						</span> <span class="rak-sum-label black">{{rakServiceReq.RakDebitReportCaptureModel.atmBranchName}}</span>
+					</p>
+					
+					 <p class="rak-sum-txt ">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEB_REPORT_CAPTURE_CARD.TXT_DELCHANNEL}}
+						</span> <span class="rak-sum-label black">{{rakServiceReq.RakDebitReportCaptureModel.delieveryMode}}</span>
+					</p>
+					
+					<p class="rak-sum-txt" 
+							ng-show="rakServiceReq.RakDebitReportCaptureModel.delieveryMode=='Branch'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakDebitReportCaptureModel.emiSelDesc}}</span>
+					</p>
+
+					 <p class="rak-sum-txt " ng-show="rakServiceReq.RakDebitReportCaptureModel.delieveryMode=='Branch'">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEB_REPORT_CAPTURE_CARD.TXT_BRANCH}}
+						</span> <span class="rak-sum-label black">{{rakServiceReq.RakDebitReportCaptureModel.selectedBranchContinue}}</span>
+					</p>
+
+					
+
+					 <fin-input  type="password_text"
+					 model="rakServiceReq.RakDebitReportCaptureModel.transactionPassword"
+					 display-row="full"
+					 placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+					 min="0" validation-flag='pageErrorArr["rakServiceReq.RakDebitReportCaptureModel.transactionPassword"]'
+					 ng-show="rakServiceReq.GenericAuthorizationVariable.authMode==txnpwdString">
+					 </fin-input>
+
+				
+					<div ng-show="rakServiceReq.GenericAuthorizationVariable.authMode==otpString">
+						<div
+								ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+								<fin-input type="password_num"
+									model="rakServiceReq.RakDebitReportCaptureModel.transactionPassword"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+									validation-flag='pageErrorArr["rakServiceReq.RakDebitReportCaptureModel.transactionPassword"]'>
+								</fin-input>
+							</div>
+							<div class="rakwidth28 rakModeDropdown"
+								ng-show='rakHome.otpModel.otpModesList.length>0'
+								ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+
+								<fin-input type="dropdown" option-array="toModeArray"
+									model="rakHome.otpModel.otpModeSelected" display-row="full"
+									placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+								<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+
+							</div>
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+								ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');">{{appLiterals.APP.RAK_COMMON.RESEND_OTP}}</button>
+						
+					
+
+					<div class="label-wrap">
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small btn--back"
+							ng-click="rakServiceReq.RakDebitReportCaptureModel.transactionPassword = '';setEvent('onRAKCreditCardReportCaptureBackClick');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small"
+							ng-click="rakServiceReq.setRAKRenewalTermDepositDate();setEvent('onRAKCreditCardReportCaptureContinueClick');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}</button>
+					</div>
+					<div class="col-sm-1"></div>
+					
+					<div class="disclaimer">
+                         <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                         <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                         </div>
+
+                         <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                         <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSERREQ_CONF"></div>
+                         </div>
+                 </div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

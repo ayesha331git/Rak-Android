@@ -1,0 +1,38 @@
+<div class="full-height"
+	ng-init="register.initRegisterSelfEnrolment(successResponse);">
+	<div class="account-page full-height">
+		<div class="dashboard-item-body full-height">
+			<div class="sticky-footer">
+				<div class="dashboard-item-title col-sm-12" layout="row"
+					layout-align="center center" layout-wrap>
+					<h2 class="item-title md-headline text-uppercase"
+						id="registerHeader" layout="row" layout-align="center center"
+						layout-wrap>{{appLiterals.APP.REGISTER.REGSELF_ENROL.HEADER}}</h2>
+				</div>
+				<div class="col-sm-12  lh13 margin-bottom-20" id="registerText">
+					<div class="col-sm-12">
+						<p class=" fut-txt1">{{appLiterals.APP.REGISTER.REGSELF_ENROL.PLZ_REG}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="sticky-footer">
+				<section class="col-sm-12" layout="row" layout-align="center center"
+					class="btn-wrap button-wrapper sticky-footer-block">
+					<md-button type="button" id="registerCancel"
+						class=" md-raised btn--secondary-btn  md-raised btn--primary-three-btn"
+						ng-click="setGlobalEvent('onLoginClick');setSingleStepRealmAuthFailure();">
+					{{appLiterals.APP.COMMON.BUTTON.CANCEL}} </md-button>
+					<md-button type="button" id="registerOffline"
+						class=" md-raised btn--primary-btn  md-raised btn--primary-three-btn"
+						ng-click="register.isOnline=false; setEvent('onRegisterMbaService')">{{appLiterals.APP.REGISTER.REGSELF_ENROL.BTN_REGOFF}}
+					</md-button>
+					<md-button type="button" id="registerOnline"
+						class=" md-raised btn--primary-btn  md-raised btn--primary-three-btn"
+						ng-click="register.isOnline=true; setEvent('onRegisterMbaService')">{{appLiterals.APP.REGISTER.REGSELF_ENROL.BTN_REGONL}}
+					</md-button>
+				</section>
+			</div>
+
+		</div>
+	</div>
+</div>

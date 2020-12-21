@@ -1,0 +1,65 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRakKYCRenSuccess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+			
+			<div class="main-form-heading">
+				<h2 class="success">
+					{{appLiterals.APP.RAKCOMMONLITERALS.REQSTATUS}} <span class="ng-binding"
+						style="white-space: initial;">{{rakServiceReq.RakKYCRenModel.successMessage}}</span>
+				</h2>
+			</div>
+
+		<div class="bg-color rak-cont-padding rak-scroll-success">
+			<div class="">
+				<div class="">
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.KYC_REN.KYC_REN_TOT_MONTHLY_CR_CASH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakKYCRenModel.totMonthlyCrCash}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.KYC_REN.KYC_REN_TOT_MONTHLY_CR_NONCASH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakKYCRenModel.totMonthlyCrNonCash}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.KYC_REN.KYC_REN_TOT_MONTHLY_CR_CASH_NONCASH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakKYCRenModel.totMonthlyCr}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.KYC_REN.KYC_REN_MAX_AMT_EXPECTED_CASH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakKYCRenModel.maxAmtExpctdCash}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.KYC_REN.KYC_REN_MAX_AMT_EXPECTED_NONCASH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakKYCRenModel.maxAmtExpctdNonCash}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.KYC_REN.KYC_REN_PER_TMC_CASH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakKYCRenModel.percentageTMCCash}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.KYC_REN.KYC_REN_PER_TMC_NONCASH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakKYCRenModel.percentageTMCNonCash}}</span>
+						</p>
+
+				<div class="label-wrap">
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-right"
+						ng-click='rakServiceReq.resetRakKYCRenDetails();setEvent("onRAKKYCRenSuccessOkClick");'>
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+				</div>
+
+				<div class="col-sm-10"></div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,21 @@
+<div class="full-page-screen"></div>
+
+ <div class="confirmation-content-container">
+  <div class="message-box-new">
+         <div class="message-box-new">
+         <div>
+             <p class="round-icon-new">
+             <span class="app app-alert pop-alert-icon rak-color" ng-show='alertOverlayObj.isCancel'></span>
+             <span class="app app-tickcircle pop-alert-icon rak-color" ng-show='!alertOverlayObj.isCancel'></span>
+
+             </p>
+
+             <div class="otp-txt-label rak-black-color"> {{alertOverlayObj.message}}</div>
+         </div>
+         <div class="otp-btn-wrap">
+             <button type="button" class="btn--otppri-btn rak-grey-color" ng-show="alertOverlayObj.noSetEvent" ng-click='callInProgress=false;showAlertFlag = false; hideAlert()'> &nbsp; {{alertOverlayObj.okText}}&nbsp; </button>
+             <button type="button" class="btn--otppri-btn rak-grey-color" ng-hide="alertOverlayObj.noSetEvent" ng-click='callInProgress=false;showAlertFlag = false; setGlobalEvent("onErrorPageOKClick")'> &nbsp; {{alertOverlayObj.okText}}  &nbsp; </button>
+         </div>
+     </div>
+</div>
+</div>

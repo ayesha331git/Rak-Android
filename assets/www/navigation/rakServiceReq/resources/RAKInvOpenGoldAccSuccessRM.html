@@ -1,0 +1,39 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRakInvGoldAccOpenSuccess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+			<div class="fin-txt"></div>
+			<div class="main-form-heading">
+				<h2 class="success">
+					{{appLiterals.APP.RAKCOMMONLITERALS.REQSTATUS}} <span class="ng-binding"
+						style="white-space: initial;">{{rakServiceReq.RakInvOpenGoldAccModel.successMessage}}</span>
+				</h2>
+			</div>
+
+		<div class="bg-color rak-cont-padding rak-scroll">
+			<div class="">
+				<div class="">
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKGLDACCOPEN.GAO_OPR_ACCOUNT}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakInvOpenGoldAccModel.OprAcctList[rakServiceReq.RakInvOpenGoldAccModel.selectedOprAcct].accountId}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKGLDACCOPEN.GAO_MODE_OF_ACC}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakInvOpenGoldAccModel.isSingleOrJoint}}</span>
+						</p>
+
+				<div class="label-wrap">
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-right"
+						ng-click='setEvent("onRakInvOpenGoldAccSuccessOkClick");'>
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+				</div>
+
+				<div class="col-sm-10"></div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,106 @@
+
+<div class="rak-back-header">
+	<i class="rak-back-img" ng-click="setEvent('onRakTFLimitDetailsBackClick');"></i>
+</div>
+
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.RakTFLimitDetails.initTFLimitDetailsData(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11 ">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="row">
+									<div class="col-sm-1"></div>
+
+
+									<div class="rakTFLimit-wrapper rakHalfScrollDiv" ng-repeat = "detail in rakServiceReq.RakTFLimitDetails.customLimitDetailsArrayList">
+										<div class="" >
+											<div class="rakStmtdetAccounts-details1">
+												<div class="rakStmtDetRowLabel">{{detail.title}}</div>												
+											</div>
+											
+											<div class="rakStmtdetAccounts-details1">
+												<div class="rakStmtDetRowLabel">{{appLiterals.APP.RAK_SERVICES.RAK_TF_LIMIT_DETAILS.TYPE}}</div>
+												<div class="rakStmtDetRow1">{{detail.limitCatgoryDescArray}}</div>
+											</div>
+
+											<div class="rakStmtdetAccounts-details1">
+												<div class="rakStmtDetRowLabel">{{appLiterals.APP.RAK_SERVICES.RAK_TF_LIMIT_DETAILS.LIMIT}}</div>
+												<div class="rakStmtDetRow1">{{detail.limitArray}}</div>
+											</div>
+
+											<div class="rakStmtdetAccounts-details1">
+												<div class="rakStmtDetRowLabel">{{appLiterals.APP.RAK_SERVICES.RAK_TF_LIMIT_DETAILS.UTILISED}}</div>
+												<div class="rakStmtDetRow1">{{detail.utilisedArray}}</div>
+											</div>
+
+											<div class="rakStmtdetAccounts-details1">
+												<div class="rakStmtDetRowLabel">{{appLiterals.APP.RAK_SERVICES.RAK_TF_LIMIT_DETAILS.AVAILABLE}}</div>
+												<div class="rakStmtDetRow1">{{detail.availableArray}}</div>
+											</div>
+
+										</div>
+									</div>
+
+ 									
+
+									<!-- AMOL: Below commented part is for TABULAR UI. Please check which one is fine -->
+									<!-- 
+									<div class="nano-content rakTFLimitDiv">
+										<div class="balance-columns-header-row">
+											<div class="balance-heade-col rak25">{{appLiterals.APP.RAK_SERVICES.RAK_TF_LIMIT_DETAILS.TYPE}}</div>											
+											<div class="balance-heade-col rak25">{{appLiterals.APP.RAK_SERVICES.RAK_TF_LIMIT_DETAILS.LIMIT}}</div>
+											<div class="balance-heade-col rak25">{{appLiterals.APP.RAK_SERVICES.RAK_TF_LIMIT_DETAILS.UTILISED}}</div>
+											<div class="balance-heade-col rak25">{{appLiterals.APP.RAK_SERVICES.RAK_TF_LIMIT_DETAILS.AVAILABLE}}</div>											
+										</div>
+
+										<div class="rakHalfScrollDiv">
+											<div ng-repeat = "detail in rakServiceReq.RakTFLimitDetails.customLimitDetailsArrayList">
+												<div class="trans-detail rakTFLimitTitleRow rakWidth100Percent" >
+													{{detail.title}}
+												</div>
+												<div class="trans-detail rakTFLimitGreyRow rakWidth100Percent" >
+													<div
+													class="trans-date rakPeopleNameRow1 rak25 rakPadding0505 rakFont1em">
+													{{detail.limitCatgoryDescArray}}</div>
+
+													<div
+													class="trans-date rakPeopleNameRow1 pull-left rak25 rakPadding0505 rakFont1em">
+													{{detail.limitArray}}</div>
+
+													<div
+													class="trans-date rakPeopleNameRow1 rak25 rakPadding0505 rakFont1em">
+													{{detail.utilisedArray}}</div>
+
+													<div
+													class="trans-date rakPeopleNameRow1 rak25 rakPadding0505 rakFont1em">
+													{{detail.availableArray}}</div>
+												</div>
+											</div>
+										</div>
+									</div> -->
+
+
+
+									<div class="label-wrap">
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-small rak-button-right"
+											ng-click="setEvent('onRakTFLimitDetailsBackClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

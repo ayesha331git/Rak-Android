@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.FinacleMobileApp.FinacleMobileAppPlugIn"
+        version="0.0.1">
+	<name>FinacleMobileAppPlugIn</name>
+	<description>Cordova Device Plugin</description>
+	<js-module src="www/plugins.js" name="FinacleMobileAppPlugIn">
+    <clobbers target="FinacleMobileAppPlugIn"/>
+	</js-module>
+	
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="FinacleOpenPDF">
+                <param name="ios-package" value="FinacleOpenPDF"/>
+            </feature>
+            <feature name="FinacleCameraPlugin">
+                <param name="ios-package" value="FinacleCameraPlugin"/>
+            </feature>
+            <feature name="SocialMessage">
+                <param name="ios-package" value="SocialMessage" />
+            </feature>
+            <feature name="Utils">
+                <param name="ios-package" value="Utils" />
+            </feature>
+            <feature name="MAuth">
+                <param name="ios-package" value="MAuth" />
+            </feature>
+            <feature name="TouchID">
+                <param name="ios-package" value="TouchID" />
+            </feature>
+            <feature name="ApplyThemes">
+                <param name="ios-package" value="ApplyThemes" />
+            </feature>
+            <feature name="GalleryPhotosPlugin">
+                <param name="ios-package" value="PhotosPlugin"/>
+            </feature>
+            <feature name="CameraPhotosPlugin">
+                <param name="ios-package" value="PhotosPlugin"/>
+            </feature>
+            
+        </config-file>
+        <plugin name="cordova-plugin-blurred-snapshot" spec="~0.1.2" />
+        <plugin name="cordova-plugin-vibration" spec="~1.1.0" />
+        <source-file src="src/ios/FinacleMobileApp/Classes/Utils.m" />
+        <header-file src="src/ios/FinacleMobileApp/Classes/Utils.h" />
+        <source-file src="src/ios/FinacleMobileApp/Classes/TouchID.m" />
+        <header-file src="src/ios/FinacleMobileApp/Classes/TouchID.h" />
+        <source-file src="src/ios/FinacleMobileApp/Classes/SocialMessage.m" />
+        <header-file src="src/ios/FinacleMobileApp/Classes/SocialMessage.h" />
+        <source-file src="src/ios/FinacleMobileApp/Classes/OverlayView.m" />
+        <header-file src="src/ios/FinacleMobileApp/Classes/OverlayView.h" />
+        <source-file src="src/ios/FinacleMobileApp/Classes/MAuth.m" />
+        <header-file src="src/ios/FinacleMobileApp/Classes/MAuth.h" />
+        <source-file src="src/ios/FinacleMobileApp/Classes/FinacleOpenPDF.m" />
+        <header-file src="src/ios/FinacleMobileApp/Classes/FinacleOpenPDF.h" />
+        <source-file src="src/ios/FinacleMobileApp/Classes/FinacleCameraPlugin.m" />
+        <header-file src="src/ios/FinacleMobileApp/Classes/FinacleCameraPlugin.h" />
+        <header-file src="src/ios/FinacleMobileApp/Classes/NSData+Base64.h" />
+        <source-file src="src/ios/FinacleMobileApp/Classes/NSData+Base64.m" />
+        <header-file src="src/ios/FinacleMobileApp/Classes/PhotosPlugin.h" />
+        <source-file src="src/ios/FinacleMobileApp/Classes/PhotosPlugin.m" />
+        <header-file src="src/ios/FinacleMobileApp/Classes/Dyna.h" />
+        <source-file src="src/ios/FinacleMobileApp/Classes/libDynaCredS.a" framework="true" />
+        <resource-file src="src/ios/FinacleMobileApp/Resources/arrow.png" />
+        <resource-file src="src/ios/FinacleMobileApp/Resources/Back1.png" />
+        <resource-file src="src/ios/FinacleMobileApp/Resources/Back2.png" />
+        <resource-file src="src/ios/FinacleMobileApp/Resources/capture.png" />
+        <resource-file src="src/ios/FinacleMobileApp/Resources/Front1.png" />
+        <resource-file src="src/ios/FinacleMobileApp/Resources/Front2.png" />
+        <resource-file src="src/ios/FinacleMobileApp/Resources/Retake.png" />
+        <resource-file src="src/ios/FinacleMobileApp/Resources/tick.png" />
+        <resource-file src="src/ios/FinacleMobileApp/Resources/Close.png" />
+        <resource-file src="src/ios/FinacleMobileApp/Resources/SourceOption.xib" />
+        <header-file src="src/ios/FinacleMobileApp/Classes/ApplyThemes.h" />
+        <source-file src="src/ios/FinacleMobileApp/Classes/ApplyThemes.m" />
+    </platform>
+    
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+			<feature name="App">
+				<param name="android-package" value="org.apache.cordova.App" />
+			</feature>
+			<!--
+			<feature name="Geolocation">
+				<param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />
+			</feature> 
+			-->
+			
+			<feature name="Device">
+				<param name="android-package" value="org.apache.cordova.device.Device" />
+			</feature>
+			
+			<feature name="Accelerometer">
+				<param name="android-package" value="org.apache.cordova.devicemotion.AccelListener" />
+			</feature>
+			<feature name="Compass">
+				<param name="android-package" value="org.apache.cordova.deviceorientation.CompassListener" />
+			</feature>
+			<feature name="Media">
+				<param name="android-package" value="org.apache.cordova.media.AudioHandler" />
+			</feature>         
+			
+			<feature name="Camera">
+				<param name="android-package" value="com.FinacleMobileApp.ForegroundCameraLauncher" />
+			</feature>
+			<feature name="Contacts">
+				<param name="android-package" value="com.FinacleMobileApp.FinacleFetchContact" />
+			</feature>
+			
+			<feature name="File">
+				<param name="android-package" value="org.apache.cordova.file.FileUtils" />
+			</feature>
+			<feature name="NetworkStatus">
+				<param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+			</feature>
+			<feature name="Notification">
+				<param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+			</feature>    
+			<feature name="FileTransfer">
+				<param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
+			</feature>
+			
+			<feature name="Capture">
+				<param name="android-package" value="org.apache.cordova.mediacapture.Capture" />
+			</feature>
+			
+			<feature name="Battery">
+				<param name="android-package" value="org.apache.cordova.batterystatus.BatteryListener" />
+			</feature>
+			<feature name="SplashScreen">
+				<param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+			</feature> 
+			<feature name="Globalization">
+				<param name="android-package" value="org.apache.cordova.globalization.Globalization" />
+			</feature>
+			
+			<feature name="InAppBrowser">
+				<param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+			</feature>    
+			
+			<feature name="Vibration">
+				<param name="android-package" value="org.apache.cordova.vibration.Vibration" />
+			</feature> 
+			<feature name="StatusBar">
+				<param name="android-package" value="org.apache.cordova.statusbar.StatusBar" onload="true" />
+			</feature>
+			
+			<preference name="loadUrlTimeoutValue" value="60000" />
+			
+			<feature name="FinacleCameraPlugin">
+				<param name="android-package" value="com.FinacleMobileApp.ForegroundCameraLauncher" />
+			</feature>
+		   <feature name="FinacleOpenPDF">
+				<param name="android-package" value="com.FinacleMobileApp.FinaclePDFFileOpener" />
+			</feature>
+			<feature name="SocialMessage">
+				<param name="android-package" value="com.FinacleMobileApp.FinacleFetchContact" />
+			</feature>
+			  <feature name="MAuth">
+				<param name="android-package" value="com.FinacleMobileApp.FinacleMAuth" />
+			</feature>
+			 <feature name="Utils">
+				<param name="android-package" value="com.FinacleMobileApp.Utils" />
+			</feature>
+			 <feature name="BarcodeScanner">
+				<param name="android-package" value="com.FinacleMobileApp.BarcodeScanner" />
+			</feature>
+			<feature name="GalleryPhotosPlugin">
+				<param name="android-package" value="com.FinacleMobileApp.ProfilePicGallery" />
+			</feature>
+			<feature name="CameraPhotosPlugin">
+				<param name="android-package" value="com.FinacleMobileApp.ProfilePicUpdate" />
+			</feature>
+		</config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+			<supports-screens android:smallScreens="false" android:normalScreens="true" android:largeScreens="false"/>  
+			<uses-permission android:name="android.permission.INTERNET"/>  
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>  
+			<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>  
+			<!-- Push permissions -->  
+			<permission android:name="com.FinacleMobileApp.permission.C2D_MESSAGE" android:protectionLevel="signature"/>  
+			<uses-permission android:name="com.FinacleMobileApp.permission.C2D_MESSAGE"/>  
+			<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>  
+		  
+		  <uses-permission android:name="android.permission.READ_CONTACTS" />
+			<uses-permission android:name="android.permission.WAKE_LOCK"/>  
+			<uses-permission android:name="android.permission.GET_ACCOUNTS"/>  
+			<uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+			<uses-permission android:name="android.permission.CAMERA"/>
+			<uses-feature android:name="android.hardware.camera" />
+			<uses-feature android:name="android.hardware.camera.autofocus"/>
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+			<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> 
+			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+			<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+			<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/> 
+		</config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<activity
+				android:name=".CaptureCheckImageActivity"
+				android:label=""
+				android:screenOrientation="landscape" >
+			</activity>
+			<activity android:name=".OpenGalleryActivity" >
+			</activity>
+			<activity android:name=".OpenCameraActivity" >
+			</activity>
+			<activity android:name=".GalleryUtil" >
+			</activity>
+			
+			<!--
+			<service android:name=".GCMIntentService"/>  
+			<service android:name=".ForegroundService"/> 
+			
+			<receiver android:name="com.google.android.gcm.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND"> 
+			-->
+				<!-- Receive the actual message -->  
+			<!--
+				<intent-filter> 
+					<action android:name="com.google.android.c2dm.intent.RECEIVE"/>  
+					<category android:name="com.FinacleMobileApp"/> 
+				</intent-filter>  
+			-->
+				<!-- Receive the registration id -->  
+			<!--
+				<intent-filter> 
+					<action android:name="com.google.android.c2dm.intent.REGISTRATION"/>  
+					<category android:name="com.FinacleMobileApp"/> 
+				</intent-filter> 
+				
+			</receiver> 
+			-->
+			<activity
+				android:name=".ContactActivity"
+				android:label="Contact" >
+			</activity>
+			 
+		</config-file>
+		
+		<source-file src="src/android/src/com/FinacleMobileApp/Utils.java"
+			target-dir="src/com/FinacleMobileApp/"/>
+		<source-file src="src/android/src/com/FinacleMobileApp/ProfilePicUpdate.java"
+			target-dir="src/com/FinacleMobileApp/"/>
+		<source-file src="src/android/src/com/FinacleMobileApp/ProfilePicGallery.java"
+			target-dir="src/com/FinacleMobileApp/"/>
+		<source-file src="src/android/src/com/FinacleMobileApp/OpenGalleryActivity.java"
+			target-dir="src/com/FinacleMobileApp/"/>
+		<source-file src="src/android/src/com/FinacleMobileApp/OpenCameraActivity.java"
+			target-dir="src/com/FinacleMobileApp/"/>
+		<source-file src="src/android/src/com/FinacleMobileApp/LanguageUtility.java"
+			target-dir="src/com/FinacleMobileApp/"/>
+		<!-- <source-file src="src/android/src/com/FinacleMobileApp/KeypadHandler.java"
+			target-dir="src/com/FinacleMobileApp/"/> -->
+		<source-file src="src/android/src/com/FinacleMobileApp/GalleryUtil.java"
+			target-dir="src/com/FinacleMobileApp/"/>
+		<source-file src="src/android/src/com/FinacleMobileApp/FrontClickFragment.java"
+			target-dir="src/com/FinacleMobileApp/"/>
+		<source-file src="src/android/src/com/FinacleMobileApp/ForegroundCameraLauncher.java"
+			target-dir="src/com/FinacleMobileApp/"/>
+		<source-file src="src/android/src/com/FinacleMobileApp/FinaclePDFFileOpener.java"
+			target-dir="src/com/FinacleMobileApp/"/>
+		<!-- <source-file src="src/android/src/com/FinacleMobileApp/FinacleMobileApp.java"
+			target-dir="src/com/FinacleMobileApp/"/> !-->
+		<source-file src="src/android/src/com/FinacleMobileApp/FinacleMAuth.java"
+			target-dir="src/com/FinacleMobileApp/"/>
+		<source-file src="src/android/src/com/FinacleMobileApp/FinacleFetchContact.java"
+			target-dir="src/com/FinacleMobileApp/"/>
+		<source-file src="src/android/src/com/FinacleMobileApp/ContactActivity.java"
+			target-dir="src/com/FinacleMobileApp/"/>
+		<source-file src="src/android/src/com/FinacleMobileApp/CaptureCheckImageActivity.java"
+			target-dir="src/com/FinacleMobileApp/"/>
+		<source-file src="src/android/src/com/FinacleMobileApp/BarcodeScanner.java"	
+			target-dir="src/com/FinacleMobileApp/"/>
+		<source-file src="src/android/src/com/FinacleMobileApp/BackClickFragment.java"
+			target-dir="src/com/FinacleMobileApp/"/>
+		<source-file src="src/android/src/com/FinacleMobileApp/FinacleMobileApp.java"
+			target-dir="src/com/FinacleMobileApp/"/>
+		
+					 
+		<resource-file src="src/android/res/layout/fragment_capture_check_image.xml" target="res/layout/fragment_capture_check_image.xml" />
+		<resource-file src="src/android/res/layout/fragment_capture_check_back.xml" target="res/layout/fragment_capture_check_back.xml" />
+		<resource-file src="src/android/res/layout/contact_number_view.xml" target="res/layout/contact_number_view.xml" />
+		<resource-file src="src/android/res/layout/activity_gallery.xml" target="res/layout/activity_gallery.xml" />
+		<resource-file src="src/android/res/layout/activity_contact.xml" target="res/layout/activity_contact.xml" />
+		<resource-file src="src/android/res/layout/activity_capture_check_image.xml" target="res/layout/activity_capture_check_image.xml" />
+		<resource-file src="src/android/res/layout/activity_camera.xml" target="res/layout/activity_camera.xml" />
+		
+		<resource-file src="src/android/res/drawable/tick.png" target="res/drawable/tick.png" />
+		<resource-file src="src/android/res/drawable/splash.png" target="res/drawable/splash.png" />
+		<resource-file src="src/android/res/drawable/retake.png" target="res/drawable/retake.png" />
+		<resource-file src="src/android/res/drawable/push.png" target="res/drawable/push.png" />
+		<resource-file src="src/android/res/drawable/front2.png" target="res/drawable/front2.png" />
+		<resource-file src="src/android/res/drawable/front1.png" target="res/drawable/front1.png" />
+		<resource-file src="src/android/res/drawable/close.png" target="res/drawable/close.png" />
+		<resource-file src="src/android/res/drawable/capture.png" target="res/drawable/capture.png" />
+		<resource-file src="src/android/res/drawable/border.xml" target="res/drawable/border.xml" />
+		<resource-file src="src/android/res/drawable/back2.png" target="res/drawable/back2.png" />
+		<resource-file src="src/android/res/drawable/back1.png" target="res/drawable/back1.png" />
+		<resource-file src="src/android/res/drawable/icon.png" target="res/drawable/icon.png" />
+		
+			
+		<source-file src="src/android/libs/android-support-v4.jar"
+				target-dir="libs"/>
+			
+		<source-file src="src/android/libs/DynacredAndroid.jar" 
+			target-dir="libs"/>
+	</platform>
+</plugin>

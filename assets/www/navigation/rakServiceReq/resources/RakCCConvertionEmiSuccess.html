@@ -1,0 +1,82 @@
+
+<!-- partial code start here-->
+<div class="finacle-container ng-scope"
+			ng-init="rakServiceReq.successCCConvertionEmi(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+			<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.CCConvertionEmi.convertEMISuccessMessage}}</span>
+				</div>
+			</div>
+		<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CONVERT_EMI}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+				      </h2>		       
+		 </div>
+			
+		
+
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+
+				<div class="row">
+					<div class="">
+					
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.CREDIT_NUM}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.CCConvertionEmi.creditCardNumber}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.TRAN_DATE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.CCConvertionEmi.tranDate}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.TRAN_ORG_AMT}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.CCConvertionEmi.txnAmountOriginalShow}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.TRAN_BILL_AMT}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.CCConvertionEmi.txnAmountAEDBillShow}}</span>
+						</p>
+					<!-- 	<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.MERCHANT_DESC}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.CCConvertionEmi.merchantDesc}}</span>
+						</p>
+						<p class="rak-sum-txt" ng-hide="rakServiceReq.CCConvertionEmi.merchantCode != 'O'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.MERCHANT_NAME}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.CCConvertionEmi.merchantOthers}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.CHARGE_TYPE_DESC}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.CCConvertionEmi.chargeTypeDesc}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.TENOR_DESC}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.CCConvertionEmi.tenorDesc}}</span>
+						</p> -->
+						
+						
+						<!--  CHANGES CLEARING DATA ON CLICK OF HOME BUTTON START -->
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small rak-button-right"
+								ng-click="rakServiceReq.CCConvertionEmi.resetCCConvertionEmi();setEvent('onCCConvertionEmiDoneClick')">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+								<!-- ng-click="rakServiceReq.temporaryReleaseLetter.resetTemporaryReleaseLetter();setEvent('onTempReleaseLetterSuccessfulDoneClick')" -->
+						</div>
+                       <!--  CHANGES CLEARING DATA ON CLICK OF HOME BUTTON END -->
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+<!-- partial code end here-->

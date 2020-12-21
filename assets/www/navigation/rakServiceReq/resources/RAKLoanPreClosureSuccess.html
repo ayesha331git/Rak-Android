@@ -1,0 +1,79 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRAKLoanPreClosureConfirmSuccess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+			<div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakServiceReq.RAKLoanPreClosureModel.successMessage}}</span>
+                        </div>
+                  </div>
+			
+			
+			<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.PRECLOSURELOAN}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+				      </h2>		       
+		 		</div>
+
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+				<div class="row">
+				
+
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKLOANPRECLOSURE.LNAGREE}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKLoanPreClosureModel.selectedLoanAcct}}</span>
+					</p>
+
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKLOANPRECLOSURE.DEBTACCTNO}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKLoanPreClosureModel.selectedDebitAcct}}</span>
+					</p>
+					
+					<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.LOAN_PRDT_NAME}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.RAKLoanPreClosureModel.loanProductName}}</span>
+						</p>			
+						
+						<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.CURRENCY}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.RAKLoanPreClosureModel.currency}}</span>
+						</p>			
+						
+						<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.LOAN_AMOUNT}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.RAKLoanPreClosureModel.loanAmount}}</span>
+						</p>			
+						
+						<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.LOAN_OUTSTANDING}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.RAKLoanPreClosureModel.loanOutstanding}}</span>
+						</p>			
+						
+						<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.NEXT_INSTALLMENT_AMOUNT}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.RAKLoanPreClosureModel.nextInstallmentAmount}}</span>
+						</p>			
+						
+						<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.NEXT_INSTALLMENT_DATE}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.RAKLoanPreClosureModel.nextInstallmentDate}}</span>
+						</p>			
+						
+						<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.LOAN_OVERDUE_AMOUNT}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.RAKLoanPreClosureModel.loanOverdueAmount}}</span>
+						</p>
+
+					<div class="label-wrap">
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small"
+							ng-click='setEvent("onRAKLoanPreClosureOkClick");'>
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+					</div>
+					<div class="col-sm-1"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

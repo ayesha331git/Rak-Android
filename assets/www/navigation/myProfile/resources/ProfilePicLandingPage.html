@@ -1,0 +1,67 @@
+<div id="profilePicLandingPage" class="app app-arrow2 title-right"
+	ng-click="setGlobalEvent('onDashboardClick')"></div>
+<div class="finacle-container bg-color bg-color-height"
+	ng-init="myProfile.showToast=false;addProfilePic = false;">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper">
+
+			</div>
+
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div id="picTitle" class="item-title text-uppercase">{{appLiterals.APP.MYPROFILE.UPDATEPROFILEPHOTO.CHANGE_PROFILE_PIC}}</div>
+					</div>
+
+					<div class="app-user-img-container">
+						<div id="photo" class="user-img-Profile"
+							ng-click="addProfilePic=true">
+							<img ng-hide="!myProfile.userProfilePicPresent"
+								src="{{myProfile.userProfilePic}}" class="user-img-Profile">
+							<p ng-hide="myProfile.userProfilePicPresent"
+								class="user-char-wrap-profile">
+								<span id="pic" class="first-char-profile">
+									{{dashboard.customerName.customerName.charAt(0)}}
+									{{dashboard.customerName.split(" ").length > 1 ?
+									dashboard.customerName.split("
+									")[dashboard.customerName.split(" ").length-1].charAt(0) : ""}}
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="fixed-wrap" ng-show="addProfilePic">
+						<div class="trans-add-wrap">
+
+
+							<!-- item start -->
+							<div id="gallery" class="select-bank col-sm-12"
+								ng-click="myProfile.picImage();addProfilePic=false">
+								{{appLiterals.APP.MYPROFILE.UPDATEPROFILEPHOTO.CHOOSE_FROM_GALLERY}}
+							</div>
+							<div class="bank-hr"></div>
+							<!-- item end -->
+
+							<!-- item start -->
+							<div id="takePhoto" class="select-bank col-sm-12"
+								ng-click="myProfile.captureImage();addProfilePic=false">
+								{{appLiterals.APP.MYPROFILE.UPDATEPROFILEPHOTO.TAKE_PHOTO}}</div>
+							<div class="bank-hr"></div>
+
+
+							<section class="button-wrapper" layout="row"
+								layout-align="center center" layout-wrap>
+								<md-button id="profilePicCancel" type="button"
+									ng-click='addProfilePic = false;'
+									class=" md-raised btn--primary-btn">
+								{{appLiterals.APP.MYPROFILE.UPDATEPROFILEPHOTO.CANCEL_BTN}}</md-button>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

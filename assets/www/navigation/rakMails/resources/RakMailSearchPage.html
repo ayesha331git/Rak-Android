@@ -1,0 +1,207 @@
+<div class="rak-back-header">
+	<i class="rak-back-img"
+		ng-click="setGlobalEvent(rakMails.RakSearchMails.getBackEvent());"></i>
+</div> 
+
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakMails.RakSearchMails.rakSearchMailsInit(successResponse.responsesList);">
+			<div class="account-page fin-txt">
+				<div class="col-sm-11">
+					<!-- 		<div class="app-title-wrapper"> -->
+					<div class="form-block">
+						<div class="bg-color rak-cont-padding rak-scroll">
+							<div class="row">
+							
+								<div
+									ng-init='mailTypeArray=createDropDownOptionArray(rakMails.mailOptions, ["mailOption"],"mailValue")'>
+									<fin-input type="dropdown" option-array="mailTypeArray"
+										model="rakMails.selectedMailType"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_SELCT}}"
+										on-change="resetPageError();setGlobalEvent(rakMails.getMailEvent());"
+										validation-flag='pageErrorArr["rakMails.selectedMailType"]'>
+									</fin-input>
+								</div>
+								
+								
+
+
+								<!--  CHANGES SHOWING TAB AT HEADER START-->
+							
+								<!--  CHANGES SHOWING TAB AT HEADER END-->
+
+								<!-- RAK START OF SEARCH FIELDS START -->
+							  <div class=""
+									ng-init='cardArr = createDropDownOptionArray(rakMails.RakSearchMails.subjectList, ["codeDesc"], "codeDesc");'></div>
+								<fin-input type="dropdown"
+								    ng-hide="rakMails.RakSearchMails.criteriaFlag"
+									model="rakMails.RakSearchMails.selectedSubject"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_MAILS.RAK_SEARCH_MAIL.SUBJECT}}"
+									validation-flag='pageErrorArr["rakMails.RakSearchMails.selectedSubject"]'
+									option-array="cardArr"> </fin-input>
+
+								<fin-input type="date" model="rakMails.RakSearchMails.fromDate"
+								    ng-hide="rakMails.RakSearchMails.criteriaFlag"
+								    value="pastDateValues"
+									display-row="half1"
+									placeholder="{{appLiterals.APP.RAK_MAILS.RAK_SEARCH_MAIL.FROM_DATE}}"
+									validation-flag='pageErrorArr["rakMails.RakSearchMails.fromDate"]'></fin-input>
+
+
+								<fin-input type="date" 
+								    ng-hide="rakMails.RakSearchMails.criteriaFlag"
+								    value="pastDateValues"
+								    model="rakMails.RakSearchMails.toDate"
+									display-row="half2"
+									placeholder="{{appLiterals.APP.RAK_MAILS.RAK_SEARCH_MAIL.TO_DATE}}"
+									validation-flag='pageErrorArr["rakMails.RakSearchMails.toDate"]'></fin-input>
+
+
+								<div class="label-wrap">
+
+									<!-- <button type="button"
+										class="btn--special-btn btn-middle rak-button-small"
+										ng-hide="rakMails.RakSearchMails.criteriaFlag"
+										ng-click="rakMails.RakSearchMails.criteriaFlag=true;
+										rakMails.RakSearchMails.rakMailSearchContinue();
+										rakMails.RakSearchMails.setFromToDate();setEvent('onRakMailSearchClick');">
+										{{appLiterals.APP.RAK_MAILS.RAK_SEARCH_MAIL.SEARCH}}</button> -->
+										
+										
+										<button type="button"
+										class="btn--special-btn btn-middle rak-button-small"
+										ng-hide="rakMails.RakSearchMails.criteriaFlag"
+										ng-click="rakMails.RakSearchMails.setFromToDate();
+										rakMails.RakSearchMails.selectedSubject=(rakMails.RakSearchMails.selectedSubject != null || rakMails.RakSearchMails.selectedSubject != '') ? rakMails.RakSearchMails.selectedSubject :'';
+										setEvent('onRakMailSearchClick');">
+										{{appLiterals.APP.RAK_MAILS.RAK_SEARCH_MAIL.SEARCH}}</button>
+										
+								</div>
+								
+								<div class="searchMarginTop">
+									<span class="rakSearchIco"
+									       ng-show="rakMails.RakSearchMails.criteriaFlag"
+											ng-click="rakMails.RakSearchMails.criteriaFlag=false;
+											rakMails.RakSearchMails.rakSearchMailReset();
+											rakMails.RakSearchMails.rakMailFolderIdInbox();
+											setEvent('onMailSearchClick');">Search your mail</span>
+									
+									</div>
+								<!-- RAK END OF SEARCH FIELDS  -->
+
+								<!-- RAK START OF MAILS LIST INBOX DISPLAY -->
+<div ng-show="rakMails.RakSearchMails.criteriaFlag">
+								
+								<div class="landingpage-list read RakSearchIBListTop" ng-class="{'unread':mail.mailStatus=='U'}"
+									ng-show="rakMails.RakSearchMails.isMailsListPresent && rakMails.RakSearchMails.folderId=='IB'">
+									<div class="i-mail"
+										ng-repeat="mail in rakMails.RakSearchMails.searchMailsList">
+										<div class="inbox-rsplit" ng-class="{'unread':mail.mailStatus=='U'}"
+											ng-click="rakMails.selectedMailId=mail.mboxID;rakMails.detailType='Inbox';
+									          rakMails.clearTab();rakMails.inboxTab=true;rakMails.fromBroadcast=false;rakMails.fromInbox=true;
+									          setEvent('onRakInboxMailClick')">
+											<span class="bnk_nm" ng-if="mail.mailStatus=='U'">{{mail.subject}}</span>
+											<span class="bnk_nm" ng-if="mail.mailStatus=='R'">{{mail.subject}}</span>
+
+										</div>
+
+										<div class="inbox-csplit" ng-if="mail.mailStatus=='U'">{{mail.dateTime}}</div>
+										<div class="inbox-csplit" ng-if="mail.mailStatus=='R'">{{mail.dateTime}}</div>
+
+									</div>
+
+								</div>
+
+								<!-- RAK END OF MAILS LIST INBOX DISPLAY -->
+
+
+
+								<!-- RAK SENT MAILS LIST START-->
+								<div class="rakTop50px"
+									ng-show="rakMails.RakSearchMails.isMailsListPresent && rakMails.RakSearchMails.folderId=='ML'">
+									<div class="landingpage-list read"
+										ng-repeat="mail in rakMails.RakSearchMails.searchMailsList">
+
+										<div class="i-mail">
+											<div class="inbox-rsplit"
+												ng-click="rakMails.selectedMailId=mail.mboxID;rakMails.detailType='Sent';rakMails.fromInbox=false;rakMails.inboxComposeFlag=false;setEvent('onSentMessageClick')">
+												<span class="bnk_nm">{{mail.subject}}</span>
+											</div>
+
+											<div class="inbox-csplit">{{mail.dateTime}}</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- RAK SENT MAILS LIST END-->
+
+
+
+								<!-- RAK DRAFT MAILS LIST START-->
+
+								<div class="landingpage-list read"
+									ng-show="rakMails.RakSearchMails.isMailsListPresent && rakMails.RakSearchMails.folderId=='DR'"
+									ng-class="{'unread':mail.mailStatus=='U'}">
+									<div class="i-mail imailTop"
+										ng-repeat="mail in rakMails.RakSearchMails.searchMailsList">
+										<div class="inbox-rsplit"
+											ng-click="rakMails.selectedMailId=mail.mboxID;rakMails.detailType='Draft';setEvent('onDraftMailClick')">
+											<span class="bnk_nm">{{mail.subject}}</span>
+											<!-- <span class="bnk_nm">{{mail.fromId}}</span>  -->
+
+										</div>
+										<!-- <div class="inbox-csplit"><span class="rakBoldFnt block"  >{{mail.mailDate}}</span></div> -->
+										<div class="inbox-csplit">{{mail.dateTime}}</div>
+									</div>
+								</div>
+								<!-- RAK DRAFT MAILS LIST END-->
+								<!-- RAK TRASH MAILS LIST START-->
+								<div class="landingpage-list read"
+									ng-show="rakMails.RakSearchMails.isMailsListPresent && rakMails.RakSearchMails.folderId=='TR'"
+									ng-repeat="mail in rakMails.RakSearchMails.searchMailsList">
+									<div class="i-mail imailTop">
+
+
+										<div class="inbox-rsplit"
+											ng-click="rakMails.selectedMailId=mail.mboxID;rakMails.detailType='Trash';setEvent('onTrashMessageClick')">
+											<span class="bnk_nm">{{mail.subject}}</span>
+										</div>
+
+										<div class="inbox-csplit">{{mail.dateTime}}</div>
+
+
+
+									</div>
+
+								</div>
+								<!-- RAK TRASH MAILS LIST END-->
+
+								<!-- RAK PERSONAL MAILS START  -->
+								<div class="landingpage-list read" ng-show="rakMails.RakSearchMails.isMailsListPresent && rakMails.RakSearchMails.folderId=='PF'">
+									<div class="i-mail imailTop"
+										ng-repeat="mail in rakMails.RakSearchMails.searchMailsList">
+										<div class="inbox-rsplit"
+											ng-click="rakMails.selectedMailId=mail.mboxID;rakMails.detailType='Personal';rakMails.fromBroadcast=false;setEvent('onRakPersonalFolderMailClick')">
+											<span class="bnk_nm">{{mail.subject}}</span>
+										</div>
+
+										<div class="inbox-csplit">{{mail.dateTime}}</div>
+									</div>
+								</div>
+								
+								</div>
+								<!-- RAK PERSONAL MAILS END  -->
+								<div class="col-sm-1"></div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

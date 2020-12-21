@@ -1,0 +1,11 @@
+ <div class="money-block">
+          <ul>
+            <li ng-class="{'active headerSelectedMargin':rakSendMoney.sendMoneyTab,'':!rakSendMoney.sendMoneyTab}" ng-click="rakSendMoney.common.fromAuthPage=false;rakPayee.isUserNavigatingBack=false;rakSendMoney.clearTab();rakSendMoney.sendMoney.clearSelfTransfersData(); rakSendMoney.utils.clearCommonData();rakSendMoney.sendMoneyTab=true;rakPayee.isUserNavigatingBack=false;setGlobalEvent('onRakSendMoneyTabClick');rakSendMoney.limitDispFlag='Y'">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_SENDMONEY}}</li>
+            <li ng-class="{'active headerSelectedMargin':rakSendMoney.benfTab,'':!rakSendMoney.benfTab}" ng-click="rakSendMoney.common.fromAuthPage=false;rakSendMoney.clearTab();rakPayee.isUserNavigatingBack=false;rakSendMoney.benfTab=true;rakPayee.bankbnftype='';rakPayee.common.fromAuthPage=false;rakPayee.selectedPayeeType=rakPayee.payeeTypes.BANK;setGlobalEvent('onPayeeClick');rakSendMoney.limitDispFlag='N'">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_BENEFICIARY}}</li>
+            
+             <!--CHANGES DONE AS FIX OF PRCU 1273 START-->
+           <!--  <li ng-class="{'active':rakSendMoney.history,'':!rakSendMoney.history}" ng-click="rakSendMoney.common.fromAuthPage=false;rakSendMoney.clearTab();rakPayee.isUserNavigatingBack=false;rakSendMoney.common.clearSearchData();rakSendMoney.sendMoney.clearSelfTransfersData();rakSendMoney.schedule.clearScheduleTransferData();rakSendMoney.history=true;setGlobalEvent('onRakHistoryTabClick')">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_HISTORY}}</li> -->
+            <li ng-class="{'active headerSelectedMargin':rakSendMoney.history,'':!rakSendMoney.history}" ng-click="rakSendMoney.common.fromAuthPage=false;rakSendMoney.clearTab();rakPayee.isUserNavigatingBack=false;rakSendMoney.common.clearSearchData();rakSendMoney.sendMoney.clearSelfTransfersData();rakSendMoney.schedule.clearScheduleTransferData();rakSendMoney.txnHistory.setInitialDate();rakSendMoney.history=true;setGlobalEvent('onRakSendMoneyHistoryTabClick');rakSendMoney.limitDispFlag='N'">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_HISTORY}}</li>
+             <!--CHANGES DONE AS FIX OF PRCU 1273 END-->
+          </ul>
+        </div>

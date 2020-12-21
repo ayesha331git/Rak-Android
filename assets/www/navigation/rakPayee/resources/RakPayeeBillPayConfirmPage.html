@@ -1,0 +1,201 @@
+<div class="rak-back-header" >
+	<i class="rak-back-img" ng-click="rakHome.AuthPageData.firstAuthModeValue='';rakPayee.common.fromAuthPage=true;rakPayee.payBill.txnPwd='';setEvent('onPayBillAuthBackClick')"></i>
+</div>
+
+
+<div
+	ng-init="rakHome.AuthPageData.firstAuthModeValue='';rakPayee.payBill.txnPwd='';rakPayee.payBill.initAuthPage(successResponse.responsesList);rakCorpInit.corpModel.processCorpInit(successResponse.responsesList); ">
+	<div ng-show="rakPayee.payBill.balCheck== 'true'">
+		<div class="full-page-screen"></div>
+		<div class="confirmation-content-container">
+			<div class="message-box-new rakTop25">
+				<div>
+					<p class="round-icon-new">
+						<span class="app app-alert pop-alert-icon rak-color"></span>
+					</p>
+					
+				</div>
+				<div class="conf-txt-label rak-black-color">
+					{{rakPayee.payBill.poolBalMsg}}</div>
+				<div class="conf-btn-wrap_alert rakpaddingBottom10">
+					<button type="button"class="btn--special-btn btn-middle rak-button-small btn--back"
+						ng-click='setEvent("onTransfersAuthBackClick")'>&nbsp;
+						{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.BTN_CNL}}
+						&nbsp;</button>
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-small"
+						ng-click='rakPayee.payBill.balCheck="false";setEvent("onPoolBalanceConfirmation")'>
+						&nbsp;
+						{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.BTN_YES}}
+						&nbsp;</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="finacle-container ng-scope" ng-show="rakPayee.payBill.balCheck== 'false' || rakCorpInit.corpModel.backFlag=='Y'">
+	<div class="account-page">
+    <div class="col-sm-11">
+	  <div class="app-title-wrapper">
+
+		<ng-include  src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>
+
+        <div class="rak-scroll">
+      <!-- <div class="main-form-heading">
+                    	<h2>{{appLiterals.APP.RAK_COMMON.SUMMARY_HEADER}}<span>{{appLiterals.APP.RAK_COMMON.SUMMARY_REVIEW}}</span></h2>
+            </div>-->
+
+<!--CHANGES DONE AS FIX OF CONFIRMATION UI START -->
+      <div class="main-form-heading">
+             <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_COMMON.PAYBILL}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAK_COMMON.PAYCARDS_SUBHEADER}}</span></h2>
+       </div>
+<!--CHANGES DONE AS FIX OF CONFIRMATION UI END -->
+
+
+		<div class="bg-color rak-cont-padding">
+
+			<div class="row" >
+			  <div class="">
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.PAY_TO}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payeeSelected.billerNickName}} - {{rakPayee.payeeSelected.serviceType}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="rakPayee.payeeSelected.consumerCodeDisplay!='' && rakPayee.payeeSelected.consumerCodeDisplay!=undefined">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.CONSUMERNO}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payeeSelected.consumerCodeDisplay}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="rakPayee.payeeSelected.consumerCodeDisplay=='' || rakPayee.payeeSelected.consumerCodeDisplay==undefined">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.CONSUMERNO}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payeeSelected.conCode}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.FROM}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payBill.accountNumber}}</span>
+				</p>		
+
+				
+				<p class="rak-sum-txt" ng-show="rakPayee.payBill.amountType=='2'">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.AMOUNT}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payBill.outAmount}}</span>
+				</p>
+
+
+				<p class="rak-sum-txt" ng-show="rakPayee.payBill.amountType=='1' && rakPayee.payeeSelected.serviceType!=rakPayee.constants.RAKTOLLTOPUP">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.AMOUNT}}</span>
+					<span class="rak-sum-label black">AED {{rakPayee.payBill.amountDisp}}</span>
+				</p>
+				
+				<div ng-if='rakPayee.payeeSelected.serviceType==rakPayee.constants.RAKTOLLTOPUP'>
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.CHARGES}}</span>
+						<span class="rak-sum-label black">AED {{rakPayee.payBill.chargesRakToll}} <span ng-if="rakPayee.payBill.amountChargesRadio=='Y'">({{appLiterals.APP.PAYEE.PAY_BILL.INCLUDE_CHARGES}})</span><span ng-if="rakPayee.payBill.amountChargesRadio=='N'">({{appLiterals.APP.PAYEE.PAY_BILL.EXCLUDE_CHARGES}})</span></span>
+					</p>
+					<p class="rak-sum-txt" ng-if="rakPayee.payBill.amountChargesRadio=='Y'">
+						<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.TOPUP_AMOUNT}}</span>
+						<span class="rak-sum-label black">AED {{rakPayee.payBill.topUpAmount}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-if="rakPayee.payBill.amountChargesRadio=='Y'">
+						<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.TOTAL_AMOUNT}}</span>
+						<span class="rak-sum-label black">AED {{rakPayee.payBill.amountRakToll}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-if="rakPayee.payBill.amountChargesRadio=='N'">
+						<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.TOPUP_AMOUNT}}</span>
+						<span class="rak-sum-label black">AED {{rakPayee.payBill.amountDisp}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-if="rakPayee.payBill.amountChargesRadio=='N'">
+						<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.TOTAL_AMOUNT}}</span>
+						<span class="rak-sum-label black">AED {{rakPayee.payBill.totalAmount}}</span>
+					</p>
+				</div>
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.WHEN}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payBill.displayDate}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="rakPayee.payBill.selectedFrequency!='O'">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.FREQTYPE}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.FREQ_REC}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakPayee.payBill.selectedFrequency!='O'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.TXT_FRQ}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payBill.recFreq}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakPayee.payBill.selectedFrequency=='O'">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.FREQTYPE}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.PAYEE.PAY_BILL.ONCE}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="rakPayee.payBill.selectedFrequency!='O' && rakPayee.payBill.selectedFrequency!='undefined'">
+					<span  class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.NOOFTRANSFERS}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payBill.noOfTransfer}}</span>
+				</p>
+
+
+							 <corpapproval-input></corpapproval-input>
+							
+		
+<!-- Dynamic Component used for authorization START -->
+				<fin-dynamicauth></fin-dynamicauth>
+			<!--	<fin-input type="password_text" model="rakPayee.payBill.txnPwd"
+					display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+					validation-flag='pageErrorArr["rakPayee.payBill.txnPwd"]'
+				ng-show="rakPayee.payBill.authFlag==txnpwdString">
+					</fin-input>
+
+
+
+		<div ng-show="rakPayee.payBill.authFlag==otpString">
+
+
+
+				<div ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+							<fin-input type="password_num" model="rakPayee.payBill.txnPwd"
+							display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+							validation-flag='pageErrorArr["rakPayee.payBill.txnPwd"]' > </fin-input>
+							</div>
+
+
+							<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0' ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+
+								<fin-input type="dropdown" option-array="toModeArray" model="rakHome.otpModel.otpModeSelected" display-row="full" placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+								<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+
+			</div>
+				<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>
+				</div> -->
+<!-- Dynamic Component used for authorization END -->
+				<div class="label-wrap">
+
+				 <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back"
+				 ng-click="rakPayee.common.fromAuthPage=true;rakPayee.payBill.txnPwd='';setEvent('onPayBillAuthBackClick');">
+				 {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.BTN_BACK}} </button>
+				 <button type="button"  class="btn--special-btn btn-middle rak-button-small"
+				 ng-click="rakHome.AuthPageData.fetchOtp('onPayBillNowSubmit');">  {{appLiterals.APP.PAYEE.PAY_BILL.BTN_CONFIRM}} </button>
+			  </div>
+          <div class="col-sm-1"> </div>
+          	<div class="disclaimer" ng-init="rakDisclaimerFlag=false;">
+				<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+					<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+				</div>
+
+				<div class="disclaimer3" ng-show="rakDisclaimerFlag">
+					<div ng-bind-html="appLiterals.APP.DISCLAIMER.PMT_AUTH"></div>
+				</div>
+
+			</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>

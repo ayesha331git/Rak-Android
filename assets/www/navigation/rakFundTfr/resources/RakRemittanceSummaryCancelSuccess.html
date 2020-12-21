@@ -1,0 +1,112 @@
+
+<div class="finacle-container"
+	ng-init="rakFundTfr.remitSummary.remittanceSummaryCancelSuccess(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+		   <div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{successResponse.responsesList[0].SuccessMsg}}</span>
+                        </div>
+                  </div>
+            
+		
+					<div class="main-form-heading-ServiceReq"> 
+							      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.MUL_REMITTANCE}}		     
+							      </h2>		       
+					</div>
+			
+
+		<div class="bg-color rak-scroll-success rakWidth100 rak-cont-padding">
+						<div class="row">
+							<div class="" ng-repeat="x in rakFundTfr.remitSummary.testArraySuccess">
+								
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.REFERENCE_NUM}}
+									</span> <span class="rak-sum-label black">{{x.refnum}}</span>
+								</p>
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.CHANNEL_NAME}}
+									</span> <span class="rak-sum-label black">{{x.channelDesc}}</span>
+								</p>
+								<p class="rak-sum-txt">
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">
+									{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.STATUS}}
+									</span> <span class="rak-sum-label black">{{x.poStat}}</span>
+								</p>
+							
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.DEBIT_ACCOUNT}}
+									</span> <span class="rak-sum-label black">{{x.debitnolist}}</span>
+								</p>
+								 <p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.REQUESTED_DATE}}
+									</span> <span class="rak-sum-label black">{{x.requestdtlist.split(' ')[0]}}</span>
+								</p> 
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">
+									{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.BENF_NAME}}
+									</span> <span class="rak-sum-label black">{{x.benfnmlist}}</span>
+								</p>
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.BENF_ACC_NO}}
+									</span> <span class="rak-sum-label black">{{x.benfaccountlist}}</span>
+								</p>
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">
+									{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.BENF_BANK}}
+									</span> <span class="rak-sum-label black">{{x.benfbankslist}}</span>
+								</p> 
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">
+									{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.AMOUNT}}
+									</span> <span class="rak-sum-label black">{{x.amtlist}}</span>
+								</p>
+								
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">
+									{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.REMARKS}}
+									</span> <span class="rak-sum-label black">{{rakFundTfr.remitSummary.remarksTemp[$index]}}</span>
+								</p>
+								
+								<p class="rak-sum-txt" ng-if="rakCorpInit.corpModel.apprRoleId">
+					<span class="rak-sum-label">{{appLiterals.APP.CORPORATE.APPROVERNAME}}</span>
+					<span class="rak-sum-label black">{{rakCorpInit.corpModel.apprRoleId}}</span>
+				</p>
+								</br>
+								
+							</div>
+
+							
+					
+						<div class="label-wrap">
+
+							<button type="button"
+							class="btn--special-btn btn-middle rak-button-small rak-button-right"
+							ng-click="setEvent('onSuccessClick');">
+							{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_SUCCESSPAGE.HOME}}</button>
+
+						</div>
+						
+
+						
+						</div>
+					</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

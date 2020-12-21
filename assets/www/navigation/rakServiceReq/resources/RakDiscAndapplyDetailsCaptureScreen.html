@@ -1,0 +1,71 @@
+<div class="rak-back-header">
+	<i class="rak-back-img" ng-click="setEvent('onRakDiscApplyDetailsBackBtnClicked');"></i>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.CCardStmtReq.initRakCSRInitData(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+				
+					<div class="main-form-heading-ServiceReq"> 
+					      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DIS_N_APPLY}}	
+					      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>	     
+					      </h2>		       
+			 		</div>
+					
+					<div class="app-title-wrapper">
+						<div class="form-block">
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="row">
+									
+									
+									<fin-input type="text" model="rakServiceReq.RakDiscApply.name"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.NAME}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakDiscApply.name"]'> 
+									</fin-input>
+								<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.NAME}}</span>
+									
+									<fin-input type="number_card" model="rakServiceReq.RakDiscApply.mobileNo"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.MOBLNO}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakDiscApply.mobileNo"]' max-length="14"> 
+									</fin-input>
+								<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.MOBLNO}}</span>
+										
+									<fin-input type="mail_Id" model="rakServiceReq.RakDiscApply.email"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.EMAIL}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakDiscApply.email"]'> 
+									</fin-input>
+									<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.EMAIL}}</span>
+									
+									<fin-input type="text" model="rakServiceReq.RakDiscApply.selectedProd"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.SELTPROD}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakDiscApply.selectedProd"]' readonly="true"> 
+									</fin-input>
+									<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.SELTPROD}}</span>
+								
+									
+									<fin-input type="text" model="rakServiceReq.RakDiscApply.remarks"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_DISCAPPLY.REMARKS}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakDiscApply.remarks"]'> 
+									</fin-input>
+									
+									<div class="label-wrap">										
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-small rak-button-right"
+											ng-click="setEvent('onRakDiscApplyDetailsContinue');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+									</div>
+
+								</div>
+
+								<div class="col-sm-1"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="scroll-space"></div>
+		</div>
+	</div>
+</div>

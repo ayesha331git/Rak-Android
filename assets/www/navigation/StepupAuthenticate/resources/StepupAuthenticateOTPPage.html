@@ -1,0 +1,57 @@
+
+
+<div id="stepupAuthenticateOTPPage" class="app app-arrow2 title-right"
+	ng-click="stepupAuthentication.isErrorPage=true;setEvent('onStepupAuthenticateOTPCancelClick')"></div>
+	
+<div class="finacle-container"
+	ng-init="stepupAuthentication.SMS_OTP.smsOTP='';StepupAuthenticate.initResponse(successResponse.invocationResult)">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper">
+			</div>
+
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+				
+				<div class="dashboard-item-title col-sm-12  margin-bottom-20">
+						<div id="primaryTitle" class="item-title text-uppercase">{{appLiterals.APP.STEPUP_AUTHENTICATION.CONFIRM_HEADER}}</div>
+					</div>
+					
+						<form
+							ng-submit="setEvent('onStepupAuthenticateOTPSubmitClick')">
+						<div class="avail-bal-wrap">
+						<fin-input type="password_num"
+							model="stepupAuthentication.SMS_OTP.smsOTP"
+							validation-flag='pageErrorArr["stepupAuthentication.SMS_OTP.smsOTP"]'
+							display-row="full"
+							placeholder="{{appLiterals.APP.STEPUP_AUTHENTICATION.PH_OTP}}"
+							max-length="8"></fin-input>
+
+						
+								<div id="enableOtp"
+									ng-show='StepupAuthenticate.otpLinkenable'
+									class="new_user balance-available"
+									ng-click="stepupAuthentication.SMS_OTP.smsOTP='';StepupAuthenticate.disableOTPClick();setEvent('onGenerateOTPClick')">
+									{{appLiterals.APP.STEPUP_AUTHENTICATION.REGENERATE_OTP}}</div>
+									
+									<div id="disableOtp"
+									ng-show='!StepupAuthenticate.otpLinkenable'
+									class="new_user balance-available disable-text">
+									{{appLiterals.APP.STEPUP_AUTHENTICATION.REGENERATE_OTP}}</div>
+							</div>
+							
+						<section class="button-wrapper" layout="row"
+								layout-align="center center" layout-wrap>
+								<md-button id="otpContinue" type="submit"
+									class=" md-raised btn--primary-btn">
+								{{appLiterals.APP.STEPUP_AUTHENTICATION.BUTTON_SUBMIT}}</md-button>
+							</section>
+
+						</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

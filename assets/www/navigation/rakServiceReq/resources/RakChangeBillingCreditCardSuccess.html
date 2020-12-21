@@ -1,0 +1,44 @@
+<div class="finacle-container">
+	      <div class="account-page">
+	      <div class="col-sm-11">
+		
+			<div class="main-form-heading">
+                    	<h2 class="success">{{appLiterals.APP.RAK_SERVICES.RAK_CREDIT_REPLACEMENT.SENT_MSG}}
+                    	<span>{{successResponse.responsesList[0].SuccessMsg}}</span>
+                    	</h2>
+            </div>
+			 <div class="bg-color rak-cont-padding rak-scroll-success">
+				<div class="row" >
+					<div class="">
+
+
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CHANGE_BILLING_CCD.CREDITCARD}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.RAKChangeBillDateData.creditCardList[rakServiceReq.RAKChangeBillDateData.creditCardNum].creditCardNumber}}</span>
+			</p>
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CHANGE_BILLING_CCD.DUE_DATE}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.RAKChangeBillDateData.dueDate}}</span>
+			</p>
+
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CHANGE_BILLING_CCD.NEW_BILLING_DATE}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.RAKChangeBillDateData.selectedPeriod}}</span>
+			</p>
+
+
+
+
+							<div class="label-wrap">
+								<button type="button" class="btn--special-btn btn-middle rak-button-right"
+								ng-click="rakServiceReq.RAKChangeBillDateData.clearBlockedCreditCard();setEvent('RakChangeBillingCreditDoneClick')">
+								{{appLiterals.APP.RAKCOMMONLITERALS.DONE}}
+								</button>
+							</div>
+				<div class="col-sm-10"> </div>
+         	</div>
+         	</div>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,56 @@
+<div class="finacle-container col-sm-12"
+	ng-init="dashboard.initSwitchUserData(successResponse.invocationResult)">
+
+	<div class="app-title-wrapper">
+
+		<!-- <div class="title-special-center">{{appLiterals.APP.COMMON.TEXT.SWITCHUSER}}</div> -->
+	</div>
+	<div class="col-sm-12 dashboard-item-body">
+
+
+
+		<!-- <div class="customer-detail-wrap1"
+					ng-click="setEvent('onProfileClick')">
+					<div class="people-circle-wrap">
+						<img class="people-circle-pic" src="images/face_default.png">
+					</div>
+					<div class="people-details">
+						<div class="people-name1">{{appLiterals.APP.COMMON.TEXT.RETAIL}}</div>
+						<div class="apps">
+							<div class="apps-name">User ID -
+								{{successResponse.invocationResult.masterID_nickname}}</div>
+						</div>
+					</div>
+					<div class="app-hr2"></div>
+				</div> -->
+
+		<div id="switchProfilePageSwitchProfile{{$index}}" layout="row" layout-align="left center"
+			class="customer-detail-wrap1"
+			ng-repeat="switchUserDetails in dashboard.relationShipDetails"
+			ng-click="showBurgerMenu();dashboard.relationUsertype = switchUserDetails.profile_type; dashboard.relationUserID = switchUserDetails.relationship_id; $first ? setEvent('onProfileClick') : setEvent('onLinkProfileClick')">
+			<div class="app app-icon-retail menu-icon"
+				ng-class="{'app-icon-corporate':$last}">
+				<!--img class="people-circle-pic" src="images/face_default.png"-->
+			</div>
+			<div class="people-details col-xs-8 padding-zero">
+				<div id="switchProfilePageSwitchProfile_typeRET{{$index}}" ng-if="switchUserDetails.profile_type == 'RET'"
+					class="people-name1">{{appLiterals.APP.COMMON.TEXT.RETAIL}}</div>
+				<div id="switchProfilePageSwitchProfile_typeCRP{{$index}}" ng-if="switchUserDetails.profile_type == 'CRP'"
+					class="people-name1">{{appLiterals.APP.COMMON.TEXT.CORPORATE}}</div>
+				<div class="apps">
+					<div id="switchProfilePageSwitchProfileTEXT_USERID{{$index}}" class="apps-name"
+						ng-if="switchUserDetails.profile_type == 'RET'">{{appLiterals.APP.COMMON.TEXT.USERID}}
+						- {{switchUserDetails.relationship_id}} -
+						{{switchUserDetails.relationship_nickname}}</div>
+					<div id="switchProfilePageSwitchProfileTEXT_CORPORATEID{{$index}}" class="apps-name"
+						ng-if="switchUserDetails.profile_type == 'CRP'">{{appLiterals.APP.COMMON.TEXT.CORPORATEID}}
+						- {{switchUserDetails.relationship_id}} -
+						{{switchUserDetails.relationship_nickname}}</div>
+				</div>
+			</div>
+
+
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,64 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRak2FADeRegSuccess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+		
+
+<div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakServiceReq.Rak2FADeRegModel.successMessage}}</span>
+                        </div>
+                  </div>
+            <div class="main-form-heading-ServiceReq">
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.SOFTTOKENDEREG}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>                 
+                              </h2>              
+</div>
+                  
+
+		<div class="bg-color rak-cont-padding rak-scroll-success">
+			<div class="">
+				<div class="">
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.SOFTTOKENDEREG.USERNAME}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.Rak2FADeRegModel.userName}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.SOFTTOKENDEREG.MOBNO}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.Rak2FADeRegModel.mobNo}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.SOFTTOKENDEREG.REASON}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.Rak2FADeRegModel.reasonDisplay}}</span>
+						</p>
+				<div class="disclaimer">
+                          <div class="disclaimer1"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                         <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.FA_NOTE}}</h3>
+                             </div>
+                                
+                                 <div class="disclaimer3">
+                                             <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.FA_DEREGISTER_NOTE"></div>
+                                 </div>
+                  </div>		
+
+				<div class="label-wrap">
+					<button type="button"  ng-if="rak2FARegister.constants.isRakTknDeReg == 'YES'"
+						class="btn--special-btn btn-middle rak-button-right"
+						ng-click='rakHome.handleLoginPage();'>
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+						<button type="button"  ng-if="rak2FARegister.constants.isRakTknDeReg == 'NO'"
+						class="btn--special-btn btn-middle rak-button-right"
+						ng-click='rakServiceReq.resetRak2FADeRegData();setEvent("onRak2FADeRegSuccessOkClick");'>
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+				</div>
+
+				<div class="col-sm-10"></div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

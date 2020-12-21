@@ -1,0 +1,106 @@
+<div class="rak-back-header">
+			<i class="rak-back-img" ng-click="setEvent('onViewSchTxnBackClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		
+
+		<div class="finacle-container"
+			ng-init="rakSendMoney.schedule.initScheduleTransferListPage(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+
+							<ng-include
+								src="'./navigation/rakSendMoney/resources/RakSendMoneyTabPage.html'">
+							</ng-include>
+
+							<div class="tab-links">
+								<ul>
+								<li ng-click="rakSendMoney.txnHistory.clearSearchHistory();rakSendMoney.txnHistory.setInitialDate();rakPayee.isBeneficiaryHistoryMode=false;setGlobalEvent('onRakSendMoneyHistoryTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_HISTORY}}</span></li>
+								<li class="active"><span class="active">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_SCHEDULE}}</span></li>
+									<!-- <li ng-click="setGlobalEvent('onRakMoneyPayTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_INCOMPLETE}}</span></li> -->
+								<li ng-hide="rakHome.userTypeIDValue=='CORPORATE'" ng-click="rakSendMoney.mobileCashHistory.clearSearchHistory();rakSendMoney.mobileCashHistory.setInitialDate();setGlobalEvent('onRakSendMoneyMobileCashHistoryTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_MOBILECASH_HISTORY}}</span></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="bg-color rak-cont-padding">
+							<!-- CHANGES FOR UI START  -->
+							<div class="money-block rakBottomZero">              
+						         <ul>
+						            <li  class="active rak30 rakPaddingPoint8em">
+						           {{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.DATE}}</li>						        
+						           <li class="active rak30  ">
+						             {{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.BENEFICIARY}}</li>
+						        <!--     PROAUT -960 -->
+						           <!--  <li class="active rak25 ng-binding">
+						           {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.TYPE}}</li> -->
+						           <li class="active rak30 ">
+						           {{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.AMOUNT}}</li>
+						          <li class="active rak10 ">&nbsp;</li>
+						         </ul>
+						 	</div>
+						 	<!-- CHANGES FOR UI END  -->
+						 	
+						 	
+						 	<div class="nano nano rakHalfScrollDiv rak-cont-paddingvh" >    
+					            <div class="" >
+					       
+					               
+									<div class="trans-detail rakGreyRow" ng-repeat="transfers in rakSendMoney.schedule.scheduleList">
+									
+					                  	<div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em ">					                   		
+					                   		<div> 
+					                    <div class="trans-no rakTextCenter rakFont1em">   
+					                  {{transfers.txnDate}}                 
+					                    </div>
+					                    </div>
+					                                  
+					                    </div>
+					                    
+					                  <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em" >					                
+					                  <div> 
+					                    <div class="trans-no rakTextCenter rakFont1em">   
+					                    {{transfers.toAccount}}                   
+					                    </div>
+					               </div> 
+					                  </div>
+					                  
+					                  <div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em">					                  
+					                    <div> 
+					                    <div class="trans-no rakTextCenter rakFont1em"> 
+					                    {{transfers.txnCurrency}} {{transfers.txnAmount}}                       
+					                    </div>
+					                  </div> 
+					                        
+					                  </div>
+					                  
+					                  <div class="pull-right rakPaddingPoint5em" style="width:8%">
+										   	<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											  <ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											    <li><a href="" ng-click="rakSendMoney.schedule.schTxnListSubmitBtn='VIEW';rakSendMoney.common.fromAuthPage=false;rakSendMoney.schedule.selectedTxnIndex = transfers.index;rakSendMoney.schedule.selectedTxn = transfers;setEvent('onSchTxnSelectClick')">
+											    {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW}}</a></li>
+											    <li><a href="" ng-if="transfers.isFileUploadTxn=='N'" ng-click="rakSendMoney.schedule.schTxnListSubmitBtn='MODIFY';rakSendMoney.schedule.selectedTxn = transfers;rakSendMoney.schedule.selectedTxnIndex = transfers.index;rakSendMoney.schedule.setBenType();rakSendMoney.schedule.selectedTxn.txnType = transfers.txnType;rakSendMoney.common.fromAuthPage=false;setEvent('onRakSendMoneyEditClick')">
+											    {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.MODIFY}}</a></li>  
+											    <li><a href="" ng-show="transfers.txnFrequency!='O'" ng-click="rakSendMoney.schedule.schTxnListSubmitBtn='STOP';rakSendMoney.schedule.stopBtnClicked=false;rakSendMoney.common.fromAuthPage=false;rakSendMoney.schedule.selectedTxn = transfers;rakSendMoney.schedule.selectedTxnIndex = transfers.index;setEvent('onSchTxnSelectClick')">
+											    {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.STOP}}</a></li>  
+											    <li><a href="" ng-show="transfers.txnFrequency=='O'" ng-click="rakSendMoney.schedule.schTxnListSubmitBtn='STOP';rakSendMoney.schedule.stopBtnClicked=false;rakSendMoney.common.fromAuthPage=false;rakSendMoney.schedule.freqType='O';rakSendMoney.schedule.selectedTxn = transfers;rakSendMoney.schedule.selectedTxnIndex = transfers.index;setEvent('onSchTxnListStopBtnClick')">
+											    {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.STOP}}</a></li>    
+											        
+											  </ul>
+										</div>
+										
+										
+					                </div>
+					              </div> 
+              
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

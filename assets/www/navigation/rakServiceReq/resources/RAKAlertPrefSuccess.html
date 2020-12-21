@@ -1,0 +1,98 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRAKAlertPrefSucess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+
+
+
+<div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakServiceReq.RAKAlertPrefModel.successMessage}}</span>
+                        </div>
+                  </div>
+            <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.RAK_APR}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>                 
+                              </h2>              
+</div>
+                  
+
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+				<div class="row">
+					<div class="">
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_NAME}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKAlertPrefModel.name}}</span>
+						</p>
+
+						<p class="rak-sum-txt"
+							ng-hide="rakServiceReq.RAKAlertPrefModel.mobileNo1==''">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_MOBILE1}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKAlertPrefModel.mobileNo1}}</span>
+						</p>
+
+						<p class="rak-sum-txt"
+							ng-hide="rakServiceReq.RAKAlertPrefModel.mobileNo2 ==''">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_MOBILE2}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKAlertPrefModel.mobileNo2}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_EMAIL}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKAlertPrefModel.email}}</span>
+						</p>
+
+						<p class="rak-sum-txt"
+							ng-hide="rakServiceReq.RAKAlertPrefModel.selectedDnd1From =='' ||rakServiceReq.RAKAlertPrefModel.selectedDnd1To ==''">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_DND1}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKAlertPrefModel.selectedDnd1FromDesc}}
+								hrs to {{rakServiceReq.RAKAlertPrefModel.selectedDnd1ToDesc}}
+								hrs</span></span>
+						</p>
+
+						<p class="rak-sum-txt"
+							ng-hide="rakServiceReq.RAKAlertPrefModel.selectedDnd2From =='' ||rakServiceReq.RAKAlertPrefModel.selectedDnd2To ==''">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_DND2}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKAlertPrefModel.selectedDnd2FromDesc}}
+								hrs to {{rakServiceReq.RAKAlertPrefModel.selectedDnd2ToDesc}}
+								hrs</span></span>
+						</p>
+
+						<p class="rak-sum-txt"
+							ng-hide="rakServiceReq.RAKAlertPrefModel.selectedDnd3From =='' ||rakServiceReq.RAKAlertPrefModel.selectedDnd3To ==''">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_DND3}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKAlertPrefModel.selectedDnd3FromDesc}}
+								hrs to {{rakServiceReq.RAKAlertPrefModel.selectedDnd3ToDesc}}
+								hrs</span></span>
+						</p>
+
+						<p class="rak-sum-txt"
+							ng-hide="rakServiceReq.RAKAlertPrefModel.selectedDnd4From =='' ||rakServiceReq.RAKAlertPrefModel.selectedDnd4To ==''">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.TXT_DND4}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKAlertPrefModel.selectedDnd4FromDesc}}
+								hrs to {{rakServiceReq.RAKAlertPrefModel.selectedDnd4ToDesc}}
+								hrs</span></span>
+						</p>
+
+						 <p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKALERTPREF.PROMOTIONAL_MSG}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKAlertPrefModel.promoMsgTxt}}</span></span>
+						</p> 
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click='setEvent("onRAKAlertPrefOkClick");'>
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+
+						</div>
+						<div class="col-sm-10"></div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>

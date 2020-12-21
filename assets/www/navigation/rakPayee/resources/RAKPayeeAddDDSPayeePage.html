@@ -1,0 +1,146 @@
+  <div class="rak-back-header">
+    <i class="rak-back-img" ng-click="setEvent('onAddDDSPayeePageCloseClick');"></i>
+  </div>
+  <div class="nano menu-scroll">
+	<div class="nano-content">
+	<div class="finacle-container" ng-init="resetPageError();rakPayee.payeeModel.getInitPageDDSPayee(successResponse.responsesList);rakPayee.clearDDSTab();rakPayee.ddsPayeeTab=true;">
+	 <div class="account-page">
+		<div class="col-sm-11">
+		  <div class="app-title-wrapper">
+		 
+		  <div class="form-block">
+		   <ng-include  src="'./navigation/rakPayee/resources/RakDDSPayeeTabPage.html'"> </ng-include>
+		   <div class="rak-scroll">
+		  <div class="main-form-heading-payee"> 
+		      <h2 >{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.DIRECT_DEBIT_SYSTEMBNF}}
+		      <span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1}}:{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1_TXT}} </span>		     
+		      </h2>		       
+		  </div>		 
+			 
+		   <div class="bg-color rak-cont-padding">
+		   
+			<div class="" >
+			  <div class="col-sm-1"> </div>
+
+         <!-- Service provider-start -->
+		<div  ng-init='serviceProviderArr = createDropDownOptionArray(rakPayee.payeeModel.serviceProviderList, ["companyName"], "index");'>
+		<fin-input type="dropdown" model="rakPayee.payeeModel.serviceProvider" display-row="full" on-change="rakPayee.payeeModel.getserviceProviderforDDS();" placeholder="{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.SERVICE_PROVIDER}}"  validation-flag='pageErrorArr["rakPayee.payeeModel.serviceProvider"]' option-array="serviceProviderArr">			
+		</fin-input></div>
+		<!-- Service provider-end -->
+		
+		<!--Utility Service-Start-->
+		 <div  ng-init='utilityServiceArr = createDropDownOptionArray(rakPayee.payeeModel.utilityServiceList, ["description"], "index");'>
+		<fin-input type="dropdown" model="rakPayee.payeeModel.utilityService" display-row="full" on-change="rakPayee.payeeModel.getutilityServiceforDDS();" placeholder="{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.UTILITY_SERVICE}}"  validation-flag='pageErrorArr["rakPayee.payeeModel.utilityService"]' option-array="utilityServiceArr">			
+		</fin-input></div>
+		 
+		 <!--Utility Service-end-->
+		 
+		<!-- Utility Number-alphanumeric -->
+		 <div>
+		 <fin-input  type="text" model="rakPayee.payeeModel.utilityNumber" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.UTILITY_NUMBER}}" validation-flag='pageErrorArr["rakPayee.payeeModel.utilityNumber"]'> </fin-input>
+		</div>
+		
+		<!-- Debit from-->
+         <div class="rakRow">
+						<div class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px">
+							{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.DEBIT_FROM}}</div>
+							<div class="rak90">
+								<div>
+									<div class="rakCstmRadioDiv rak50 rakTop2emLeft3">
+										<input type="radio" ng-value="rakPayee.constants.ACCOUNT" class="rakRadio" id="radio1"
+														ng-model="rakPayee.payeeModel.debitFrom" />
+										<label for="radio1"><span><span></span></span>{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.ACCOUNT}}</label>
+									</div>
+									<div class="rakCstmRadioDiv rak47 rakTop2emLeft3">
+										<input type="radio" ng-value="rakPayee.constants.CREDITCARD" class="rakRadio" id="radio2"
+														ng-model="rakPayee.payeeModel.debitFrom" />
+										<label for="radio2"><span><span></span></span>{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.CREDITCARD}}</label>
+									</div>
+								</div>
+							</div>
+		</div>
+		
+		
+		<!--Account-Start-->
+		 <div  ng-show="rakPayee.payeeModel.debitFrom==rakPayee.constants.ACCOUNT" ng-init='accountArr = createDropDownOptionArray(rakPayee.payeeModel.accountList, ["productCatDesc","-","accountNumber","-","accountCurrency"], "accountIndex");'>
+		<fin-input type="dropdown" model="rakPayee.payeeModel.accountNumberdds" display-row="full" on-change="rakPayee.payeeModel.getAccountForDDS();" placeholder="{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.ACCOUNT}}"  validation-flag='pageErrorArr["rakPayee.payeeModel.accountNumberdds"]' option-array="accountArr">			
+		</fin-input></div>
+		 
+		 <!--Account-end-->
+		 
+		 <!--CCard-Start-->
+		 <div  ng-show="rakPayee.payeeModel.debitFrom==rakPayee.constants.CREDITCARD" ng-init='ccardArr = createDropDownOptionArray(rakPayee.payeeModel.creditCardList, ["prodDesc","-","creditCardNo"], "cardIndex");'>
+		<fin-input type="dropdown" model="rakPayee.payeeModel.creditCardNumberdds" display-row="full" on-change="rakPayee.payeeModel.getCreditCardAccountForDDS();" placeholder="{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.CREDITCARD}}"  validation-flag='pageErrorArr["rakPayee.payeeModel.creditCardNumberdds"]' option-array="ccardArr">			
+		</fin-input></div>
+		 
+		 <!--CCard-end-->
+		
+		<!-- Issued for-->
+		 
+		 <fin-input  type="text" model="rakPayee.payeeModel.issuedFor" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.ISSUED_FOR}}" validation-flag='pageErrorArr["rakPayee.payeeModel.issuedFor"]'> </fin-input>
+		
+		
+		<!-- Commences on -->
+		<fin-input ng-hide="rakPayee.payeeModel.paymentFrequency==rakPayee.constants.PAYFREQONETIME" type="date" model="rakPayee.payeeModel.commenceDate" placeholder="{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.COMMENCES_ON}}" display-row="full"  validation-flag='pageErrorArr["rakPayee.payeeModel.commenceDate"]'> </fin-input>
+										
+	    <!-- Expires on -->
+		<fin-input type="date" model="rakPayee.payeeModel.expiryDate" value="futureDatesOnly" placeholder="{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.EXPIRY_ON}}" display-row="full"  validation-flag='pageErrorArr["rakPayee.payeeModel.expiryDate"]'> </fin-input>
+			
+		<!--PaymentFrequency-Start-->
+		 <div  ng-init='payFreqArr = createDropDownOptionArray(rakPayee.payeeModel.paymentFrequencyList, ["type"], "index");'>
+		<fin-input type="dropdown" model="rakPayee.payeeModel.paymentFrequencyIndex" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.PAYMENT_FREQUENCY}}"  on-change="rakPayee.payeeModel.getPaymentFrequencyforDDS();" validation-flag='pageErrorArr["rakPayee.payeeModel.paymentFrequency"]' option-array="payFreqArr"></fin-input></div>
+		 
+		 <!--PaymentFrequency-end-->
+
+          <!-- Defined Days -->
+        <fin-input ng-show="rakPayee.payeeModel.paymentFrequency==rakPayee.constants.DEFINEDDAYS" type="number" model="rakPayee.payeeModel.definedDays"  display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.DEFINEDDAYS}}" validation-flag='pageErrorArr["rakPayee.payeeModel.definedDays"]'></fin-input>
+				 								
+         <!-- Fixed/Variable amount-->
+         <div class="rakRow">
+						<div class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px">
+							{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.FIXEDVAR_AMT}}</div>
+							<div class="rak90">
+								<div>
+									<div class="rakCstmRadioDiv rak50 rakTop2emLeft3">
+										<input type="radio" ng-value="rakPayee.constants.FIXEDAMOUNT" class="rakRadio" id="radio3"
+														ng-model="rakPayee.payeeModel.fixedVarAmount" />
+										<label for="radio3"><span><span></span></span>{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.FIXED_AMT}}</label>
+									</div>
+									<div class="rakCstmRadioDiv rak47 rakTop2emLeft3">
+										<input type="radio" ng-value="rakPayee.constants.VARIABLEAMOUNT" class="rakRadio" id="radio4"
+														ng-model="rakPayee.payeeModel.fixedVarAmount" />
+										<label for="radio4"><span><span></span></span>{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.VAR_AMT}}</label>
+									</div>
+								</div>
+							</div>
+		</div>																			
+			
+			
+	     <!-- Fixed amount -->
+        <fin-input ng-show="rakPayee.payeeModel.fixedVarAmount==rakPayee.constants.FIXEDAMOUNT" type="number" model="rakPayee.payeeModel.fixedAmount"  display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.FIXEDAMOUNT}}" validation-flag='pageErrorArr["rakPayee.payeeModel.fixedAmount"]'></fin-input>
+				
+          <!-- Variable max amount -->
+        <fin-input ng-show="rakPayee.payeeModel.fixedVarAmount==rakPayee.constants.VARIABLEAMOUNT" type="number" model="rakPayee.payeeModel.variableMaxAmount"  display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.VAR_MAX_AMT}}" validation-flag='pageErrorArr["rakPayee.payeeModel.variableMaxAmount"]'></fin-input>
+										
+            <!-- Variable min amount -->
+        <fin-input  ng-show="rakPayee.payeeModel.fixedVarAmount==rakPayee.constants.VARIABLEAMOUNT"  type="number" model="rakPayee.payeeModel.variableMinAmount"  display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.VAR_MIN_AMT}}" validation-flag='pageErrorArr["rrakPayee.payeeModel.variableMinAmount"]'></fin-input>
+ 
+		<div class="fin-txt"></div>	       
+            
+			
+		<div class="label-wrap">
+              <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakPayee.payeeModel.getDdsPayeeAddUtil();setEvent('onAddDDSPayeeContinueClick');"> {{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.CONTINUE}} </button>
+        </div>
+				
+				<div class="col-sm-1"> </div>
+              </div>
+             
+          </div>
+          </div>
+       </div>       
+       </div>             
+       </div>
+    </div>
+		</div>
+</div>
+</div>

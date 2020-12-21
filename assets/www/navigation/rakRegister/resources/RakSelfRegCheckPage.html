@@ -1,0 +1,18 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container"
+			ng-init="rakRegister.initSelfRegistrationData(successResponse.responsesList);">
+
+
+			<div ng-if="rakRegister.RegistrationModel.sectionId=='OTPV'">
+				<ng-include
+					src="'./navigation/rakRegister/resources/RakSelfRegConfirmationPage.html'" />
+			</div>
+			<div ng-if="rakRegister.RegistrationModel.sectionId!='OTPV'">
+				<ng-include
+					src="'./navigation/rakRegister/resources/RakSelfRegCheckInputPage.html'" />
+			</div>
+
+		</div>
+	</div>
+</div>

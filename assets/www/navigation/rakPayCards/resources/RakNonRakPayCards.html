@@ -1,0 +1,444 @@
+
+
+								<div ng-if="rakPayCards.ownCards.errMessage=='N'">
+
+
+
+                                 <div ng-show="rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.OUTSIDEUAE ||rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.WITHINUAE">
+                                   <div 	ng-show="rakPayCards.ownCards.isCardBenfTypeSelected" ng-init='toBenTypeArray=createDropDownOptionArray(rakPayCards.ownCards.benAccounts, ["cardbeneficiaryNickName","-","cardBankName"],"cardIndex")'>
+										<fin-input type="dropdown" option-array="toBenTypeArray"
+											model="rakPayCards.ownCards.selectedToBenAccount"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.TXT_SELCT}}"
+											on-change="rakPayCards.ownCards.clearFields();rakPayCards.ownCards.isBenfAccountSelected=true;rakPayCards.ownCards.getEventForBenf();rakPayCards.ownCards.getPurposeList();rakPayCards.ownCards.getRemCurrencyPrepopulate();rakPayCards.ownCards.filterCurrencyArray();rakPayCards.ownCards.getresidentCountryForBenf();"
+											validation-flag='pageErrorArr["rakPayCards.ownCards.selectedToBenAccount"]'>
+										</fin-input>
+									</div>
+									</div>
+                                    <div ng-show='rakPayCards.ownCards.isBenfAccountSelected && rakPayCards.ownCards.selectedToBenAccount && rakPayCards.ownCards.fromAccounts.length>0'>
+                                    
+                                    
+          <!--Benf Resident Country-start -->
+			<div  ng-show='rakPayCards.ownCards.showResidentCountryField=="Y" || rakPayCards.ownCards.showUBFResidentCountry=="YES"''  ng-init='benfRestcountryArr = createDropDownOptionArray(rakPayCards.ownCards.benfRestCountryList, ["countryDesc"], "countryCode");'>
+			<fin-input type="dropdown" model="rakPayCards.ownCards.rakBenfResidentCountry" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_RESIDENT_COUNTRY}}"
+			validation-flag='pageErrorArr["rakPayCards.ownCards.rakBenfResidentCountry"]' option-array="benfRestcountryArr">
+			</fin-input></div>
+		<!-- Benf Resident Country-end -->
+		
+									<div ng-show='rakPayCards.ownCards.isPromoSelected && !(rakPayCards.ownCards.selectedBenType==rakPayCards.CardsBenTypeConstant.WITHINUAE || rakPayCards.ownCards.selectedBenType==rakPayCards.CardsBenTypeConstant.OUTSIDEUAE)'>
+										<fin-input type="text" option-array="fromAccountArray"
+											model="rakPayCards.ownCards.selectedFromAccountDisp" readonly
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_FROM}}"
+											on-change="rakPayCards.ownCards.getDefaultTransCurr();rakPayCards.common.updateBal('onNonRakAccountSelectionBalCall');rakPayCards.ownCards.filterCurrencyArray();"
+											validation-flag='pageErrorArr["rakPayCards.ownCards.selectedFromAccount"]'>
+										</fin-input>
+
+									</div>
+									
+									<!-- Added for Access Level CR Start -->
+									<div ng-show='rakPayCards.ownCards.isPromoSelected && rakPayCards.ownCards.selectedBenType==rakPayCards.CardsBenTypeConstant.WITHINUAE'>
+										<fin-input type="text" option-array="fromAccountArray"
+											model="rakPayCards.ownCards.selectedFromAccountDisp" readonly
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_FROM}}"
+											on-change="rakPayCards.ownCards.getDefaultTransCurr();rakPayCards.common.updateBal('onNonRakAccountSelectionBalCall');rakPayCards.ownCards.filterCurrencyArray();"
+											validation-flag='pageErrorArr["rakPayCards.ownCards.selectedFromAccount"]'>
+										</fin-input>
+
+									</div>
+									
+									<div ng-show='rakPayCards.ownCards.isPromoSelected && rakPayCards.ownCards.selectedBenType==rakPayCards.CardsBenTypeConstant.OUTSIDEUAE'>
+										<fin-input type="text" option-array="fromAccountArray"
+											model="rakPayCards.ownCards.selectedFromAccountDisp" readonly
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_FROM}}"
+											on-change="rakPayCards.ownCards.getDefaultTransCurr();rakPayCards.common.updateBal('onNonRakAccountSelectionBalCall');rakPayCards.ownCards.filterCurrencyArray();"
+											validation-flag='pageErrorArr["rakPayCards.ownCards.selectedFromAccount"]'>
+										</fin-input>
+
+									</div>
+									
+									
+
+
+								<!-- 	  <div ng-show="rakPayCards.ownCards.selectedBenType==rakPayCards.CardsBenTypeConstant.WITHINUAE && rakPayCards.ownCards.beneficiaryAccountNum">
+											<fin-input type="text"
+												model="rakPayCards.ownCards.beneficiaryAccountNum"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDSINITPAGE.CURR
+												BAL}}"
+												readonly> </fin-input>
+										</div> -->
+
+									<div ng-hide='rakPayCards.ownCards.isPromoSelected || (rakPayCards.ownCards.selectedBenType==rakPayCards.CardsBenTypeConstant.WITHINUAE || rakPayCards.ownCards.selectedBenType==rakPayCards.CardsBenTypeConstant.OUTSIDEUAE) || rakPayCards.ownCards.selectedBenType==""'
+										ng-init='fromAccountArray=createDropDownOptionArray(rakPayCards.ownCards.fromAccounts, ["subAccountTypeDesc","-","accountNumber", "-", "currencyCode"],"accountIndex")'>
+										<fin-input type="dropdown" option-array="fromAccountArray"
+											model="rakPayCards.ownCards.selectedFromAccount"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_FROM}}"
+											on-change="rakPayCards.ownCards.getDefaultTransCurr();rakPayCards.common.updateBal('onNonRakAccountSelectionBalCall');rakPayCards.ownCards.filterCurrencyArray();"
+											validation-flag='pageErrorArr["rakPayCards.ownCards.selectedFromAccount"]'>
+										</fin-input>
+
+									</div>
+									
+									<div ng-hide='rakPayCards.ownCards.isPromoSelected || rakPayCards.ownCards.selectedBenType==rakPayCards.CardsBenTypeConstant.WITHINUAE || rakPayCards.ownCards.selectedBenType==""'
+										ng-init='fromAccountArrayWCP=createDropDownOptionArray(rakPayCards.ownCards.fromAccountsWCP, ["subAccountTypeDesc","-","accountNumber", "-", "currencyCode"],"accountIndex")'>
+										<fin-input type="dropdown" option-array="fromAccountArrayWCP"
+											model="rakPayCards.ownCards.selectedFromAccount"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_FROM}}"
+											on-change="rakPayCards.ownCards.getDefaultTransCurr();rakPayCards.common.updateBal('onNonRakAccountSelectionBalCall');rakPayCards.ownCards.filterCurrencyArray();"
+											validation-flag='pageErrorArr["rakPayCards.ownCards.selectedFromAccount"]'>
+										</fin-input>
+
+									</div>
+									
+									<div ng-hide='rakPayCards.ownCards.isPromoSelected || rakPayCards.ownCards.selectedBenType==rakPayCards.CardsBenTypeConstant.OUTSIDEUAE || rakPayCards.ownCards.selectedBenType==""'
+										ng-init='fromAccountArrayNCP=createDropDownOptionArray(rakPayCards.ownCards.fromAccountsNCP, ["subAccountTypeDesc","-","accountNumber", "-", "currencyCode"],"accountIndex")'>
+										<fin-input type="dropdown" option-array="fromAccountArrayNCP"
+											model="rakPayCards.ownCards.selectedFromAccount"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_FROM}}"
+											on-change="rakPayCards.ownCards.getDefaultTransCurr();rakPayCards.common.updateBal('onNonRakAccountSelectionBalCall');rakPayCards.ownCards.filterCurrencyArray();"
+											validation-flag='pageErrorArr["rakPayCards.ownCards.selectedFromAccount"]'>
+										</fin-input>
+
+									</div>
+									
+									<!-- Added for Access Level CR End -->
+
+									<div ng-show="rakPayCards.ownCards.selectedFromAccount">
+											<p class="balance-available2"
+												ng-show="rakPayCards.common.availBal">
+												{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.TXT_BALANCE}}
+												<span class="rs-color">
+													{{rakPayCards.common.availBal}}</span>
+											</p>
+
+											<p class="balance-available2"
+												ng-show="rakPayCards.ownCards.subAccountTypeDesc=='Credit'">
+												{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.TXT_ELGIBLEAMT}}
+												<span class="rs-color">
+													{{rakPayCards.common.availBal}}</span>
+											</p>
+										</div>
+
+
+
+
+									<div ng-hide="true">
+											<fin-input type="text"
+												model="rakPayCards.ownCards.eligibleAmount"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.TXT_AMT}}"
+												validation-flag='pageErrorArr["rakPayCards.ownCards.eligibleAmount"]'
+												readonly> </fin-input>
+										</div>
+
+										<!-- This field will be displayed only when the user has a deal for selected currency combination.
+Page will not refresh on selection of from account, if promo code is not available for the selected beneficiary type
+ -->
+
+
+
+	<div class="fin-input-container fin-input-container" ng-show="rakPayCards.ownCards.promoCode.length > 0 && rakPayCards.ownCards.selectedFromAccount">
+               <div ng-class="{'left-line': !pageErrorArr['rakPayCards.ownCards.selectedpromoCode'], 'left-line-error':pageErrorArr['rakPayCards.ownCards.selectedpromoCode']}" class="left-line">
+               </div>
+       <div class="input-body">
+              <div class="input-body2 input-body2-dropdown">
+		         <select dropdownpicker title="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_PROMO}}" class="fin-input fin-select" ng-model="rakPayCards.ownCards.selectedpromoCode" ng-change="rakPayCards.ownCards.promoCodeSelected();" ng-style="{{rakPayCards.ownCards.selectedpromoCode}}== null || {{rakPayCards.ownCards.selectedpromoCode}} == '' ? {'font-size': '14px'} : {'color': 'initial'}"  >
+			         <option class="place-holder-select" value="" ng-selected="rakPayCards.ownCards.selectedpromoCode==''" ng-show="rakPayCards.ownCards.selectedpromoCode==''">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_PROMO}}</option>
+			   	    <option ng-repeat="option in rakPayCards.ownCards.promoCode" ng-selected="'{{option.index}}'==='{{rakPayCards.ownCards.selectedpromoCode}}'" value="{{option.index}}" >{{option.dealnumber}}</option>
+		         </select>
+	</div>
+		<div ng-class="{'bottom-line': !pageErrorArr['rakPayCards.ownCards.selectedpromoCode], 'bottom-line-error':pageErrorArr['rakPayCards.ownCards.selectedpromoCode']}" class="bottom-line">
+        </div><div ng-hide='pageErrorArr["rakPayCards.ownCards.selectedpromoCode"]==null' class="rakErrorMsg"> {{pageErrorArr['rakPayCards.ownCards.selectedpromoCode']}}</div>
+</div>
+</div>
+
+
+ <div class="rak100">	
+	<div  ng-show='rakPayCards.ownCards.isPromoSelected'>
+										<div>
+											<fin-input type="text" 
+												model="rakPayCards.ownCards.selectedRCurr"
+												display-row="half1"												
+												placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.SELECT}}"
+												validation-flag='pageErrorArr["rakPayCards.ownCards.selectedRCurr"]' readonly>
+											</fin-input>
+											
+											
+											<fin-input type="text"
+												model="rakPayCards.ownCards.selectedCurrency"
+												display-row="half2"												
+												placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.SELECT}}"
+												validation-flag='pageErrorArr["rakPayCards.ownCards.selectedCurrency"]' readonly>
+
+											</fin-input>
+
+
+	<!-- <div class="fin-input-container fin-input-container-half2">
+               <div ng-class="{'left-line': !pageErrorArr['rakPayCards.ownCards.selectedCurrency'], 'left-line-error':pageErrorArr['rakPayCards.ownCards.selectedCurrency']}" class="left-line">
+               </div>
+  <div class="input-body">
+    <div class="input-body2 input-body2-dropdown">
+		      <select dropdownpicker title="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.SELECT}}" class="fin-input fin-select" disabled ng-model="rakPayCards.ownCards.selectedCurrency" ng-style="{{rakPayCards.ownCards.selectedCurrency}}== null || {{rakPayCards.ownCards.selectedCurrency}} == '' ? {'font-size': '14px'} : {'color': 'initial'}" >
+			    <option class="place-holder-select" value="" ng-selected="rakPayCards.ownCards.selectedCurrency== null" ng-show="rakPayCards.ownCards.selectedCurrency== null">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.SELECT}}</option>
+			   	<option ng-repeat="option in rakPayCards.ownCards.txnCurrencyArray"  ng-selected="'{{option.currencyCode}}'==='{{rakPayCards.ownCards.selectedCurrency}}'" value="{{option.currencyCode}}" >{{option.currencyDesc}}</option>
+		      </select>
+	</div>
+		<div ng-class="{'bottom-line': !pageErrorArr['rakPayCards.ownCards.selectedCurrency'], 'bottom-line-error':pageErrorArr['rakPayCards.ownCards.selectedCurrency']}" class="bottom-line">
+        </div><div ng-hide='pageErrorArr["rakPayCards.ownCards.selectedCurrency"]==null' class="rakErrorMsg"> {{pageErrorArr['rakPayCards.ownCards.selectedCurrency']}}</div>
+</div>
+</div> -->
+						
+
+
+				<div>
+				   	<p class="rakSplitLabelForCurrLeft" >{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_RMTCUUR}}</p>
+				    <p class="rakSplitLabelForCurrRight">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_TRACURR}}</p>
+				</div>
+		
+			</div>
+		</div>
+</div>
+
+<div  ng-hide='rakPayCards.ownCards.isPromoSelected'>
+										<div
+											ng-init='RemcurrencyArray=createDropDownOptionArray(rakPayCards.ownCards.RemcurrencyList, ["currencyDesc"], "currencyCode");currencyArray=createDropDownOptionArray(rakPayCards.ownCards.txnCurrencyArray, ["currencyDesc"], "currencyCode");'>
+											<fin-input type="dropdown" option-array="RemcurrencyArray"
+												model="rakPayCards.ownCards.selectedRCurr"
+												display-row="half1"
+												on-change="rakPayCards.ownCards.filterCurrencyArray();rakPayCards.ownCards.refreshValueforExchangeRate();rakPayCards.ownCards.refreshBenfResidentCountry();"
+												placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.SELECT}}"
+												validation-flag='pageErrorArr["rakPayCards.ownCards.selectedRCurr"]'>
+
+											</fin-input>
+
+
+	<div class="fin-input-container fin-input-container-half2">
+               <div ng-class="{'left-line': !pageErrorArr['rakPayCards.ownCards.selectedCurrency'], 'left-line-error':pageErrorArr['rakPayCards.ownCards.selectedCurrency']}" class="left-line">
+               </div>
+  <div class="input-body">
+    <div class="input-body2 input-body2-dropdown">
+		      <select dropdownpicker title="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.SELECT}}" class="fin-input fin-select" ng-change='rakPayCards.ownCards.refreshValueforExchangeRate();' ng-model="rakPayCards.ownCards.selectedCurrency" ng-style="{{rakPayCards.ownCards.selectedCurrency}}== null || {{rakPayCards.ownCards.selectedCurrency}} == '' ? {'font-size': '14px'} : {'color': 'initial'}" >
+			    <option class="place-holder-select" value="" ng-selected="rakPayCards.ownCards.selectedCurrency== null" ng-show="rakPayCards.ownCards.selectedCurrency== null">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.SELECT}}</option>
+			   	<option ng-repeat="option in rakPayCards.ownCards.txnCurrencyArray"  ng-selected="'{{option.currencyCode}}'==='{{rakPayCards.ownCards.selectedCurrency}}'" value="{{option.currencyCode}}" >{{option.currencyDesc}}</option>
+		      </select>
+	</div>
+		<div ng-class="{'bottom-line': !pageErrorArr['rakPayCards.ownCards.selectedCurrency'], 'bottom-line-error':pageErrorArr['rakPayCards.ownCards.selectedCurrency']}" class="bottom-line">
+        </div><div ng-hide='pageErrorArr["rakPayCards.ownCards.selectedCurrency"]==null' class="rakErrorMsg"> {{pageErrorArr['rakPayCards.ownCards.selectedCurrency']}}</div>
+</div>
+</div>
+
+<div>
+   <p class="rakSplitLabelForCurrLeft" >{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_RMTCUUR}}</p>
+    <p class="rakSplitLabelForCurrRight">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_TRACURR}}</p>
+
+</div>
+
+</div>
+</div>
+
+										<div ng-show='rakPayCards.ownCards.isPromoSelected'>
+											<fin-input type="text" model="rakPayCards.ownCards.amount"
+												display-row="full" readonly
+												placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_AMT}}"
+												on-change="rakPayCards.ownCards.getKeyUp();"
+												validation-flag='pageErrorArr["rakPayCards.ownCards.amount"]'>
+											</fin-input>
+										</div>
+
+											<div ng-hide='rakPayCards.ownCards.isPromoSelected'>
+											<fin-input type="money" model="rakPayCards.ownCards.amount"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_AMT}}"
+												on-change="rakPayCards.ownCards.getKeyUp();"
+												validation-flag='pageErrorArr["rakPayCards.ownCards.amount"]'>
+											</fin-input>
+										</div>
+
+											<div class="fin-input-container rakTransfersexchangerate-block"
+											ng-show="rakPayCards.ownCards.exchangeRate">
+											<p class="rakexchangevalue">{{rakPayCards.ownCards.exchangeRate}}</p>
+											<span class="rakImageWhiteAlert" ng-click="rakPayCards.getExchangePopUp();"></span>
+										</div>
+
+										<div>
+											<fin-input type="date"
+												model="rakPayCards.common.displayDate" value="futureDatesOnly"
+												validation-flag='pageErrorArr["rakPayCards.common.displayDate"]'
+												placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_WHN}}"
+												display-row="full"> </fin-input>
+										</div>
+
+
+										<div
+											ng-init='frequencyArray=createDropDownOptionArray(rakPayCards.ownCards.frequencyType, ["frequencyTypeDesc"],"frequencyTypeCode")'>
+											<fin-input type="dropdown" option-array="frequencyArray"
+												model="rakPayCards.ownCards.selectedFrequency"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_FRQ}}"
+												validation-flag='pageErrorArr["rakPayCards.ownCards.selectedFrequency"]'>
+											</fin-input>
+
+										</div>
+
+
+											<div
+											ng-show="rakPayCards.ownCards.selectedFrequency!='O' && rakPayCards.ownCards.selectedFrequency!='undefined'">
+											<fin-input type="number_card"
+												model="rakPayCards.ownCards.noOfTransfer"
+												display-row="full"
+												max-length="5"
+												placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_NOOFTRA}}"
+												validation-flag='pageErrorArr["rakPayCards.ownCards.noOfTransfer"]'>
+											</fin-input>
+										</div>
+
+
+										<div
+
+											ng-init='chargesArray=createDropDownOptionArray(rakPayCards.ownCards.charges, ["chargeDesc"], "chargeCode");'>
+											<fin-input type="dropdown" option-array="chargesArray"
+												model="rakPayCards.ownCards.selectedCharges"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_CHARGES}}"
+												on-change="rakPayCards.ownCards.getStaticText();"
+												validation-flag='pageErrorArr["rakPayCards.ownCards.selectedCharges"]'>
+											</fin-input>
+
+										</div>
+
+
+										<div>
+
+										<!--	<p class="balance-available2"
+												ng-show="rakPayCards.ownCards.selectedCharges==rakPayCards.CONSTANTS.CHARGESALLTYPE && rakPayCards.ownCards.selectedBenType==rakPayCards.CardsBenTypeConstant.WITHINUAE">
+												{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.CHARGES_MSG}}
+
+											</p> -->
+										</div>
+
+
+
+									<div ng-show="rakPayCards.ownCards.selectedBenType==rakPayCards.CardsBenTypeConstant.WITHINUAE">
+											<fin-input type="text" option-array="purposeArray"
+												model="rakPayCards.ownCards.selectedPurposeDisp"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_REASON}}"
+												validation-flag='pageErrorArr["rakPayCards.ownCards.selectedPurpose"]' readonly>
+											</fin-input>
+
+										</div>
+
+
+										<p class="left-txt"></p>
+    <div ng-show="rakPayCards.ownCards.selectedBenType==rakPayCards.CardsBenTypeConstant.OUTSIDEUAE"
+											ng-init='reasonArray=createDropDownOptionArray(rakPayCards.ownCards.reasonList, ["reasonDesc"], "reasonCode");'>
+											<fin-input type="dropdown" option-array="reasonArray"
+												model="rakPayCards.ownCards.selectedReason"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_REASON}}"
+												validation-flag='pageErrorArr["rakPayCards.ownCards.selectedReason"]'>
+											</fin-input>
+
+										</div>
+
+	<div class="addDet"  ng-init='rakAddDetFlag=false;' >
+				<div class="addDet1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakAddDetFlag}"  ng-click="rakAddDetFlag=!rakAddDetFlag">
+					<h3 class="addDet2">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.ADDET}}</h3>
+				</div>
+				<div  ng-if="rakAddDetFlag">
+									<div class="marginTop15less">
+                                
+
+										<div>
+											<fin-input type="text_restrictedSpecialCharacter" model="rakPayCards.ownCards.selectedReason1"
+												display-row="full" max-length="34"
+												placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_REASON}}"
+												>
+											</fin-input>
+										</div>
+
+										<div>
+											<fin-input type="text_restrictedSpecialCharacter" model="rakPayCards.ownCards.selectedReason2"
+												display-row="full" max-length="34"
+												placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_REASON}}"
+												>
+											</fin-input>
+										</div>
+
+
+										<div >
+											<fin-input type="text_restrictedSpecialCharacter" model="rakPayCards.ownCards.selectedReason3"
+												display-row="full" max-length="34"
+												placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_REASON}}"
+												>
+											</fin-input>
+										</div>
+</div>
+</div>
+</div>
+
+
+
+										<div class="label-wrap">
+
+											<button type="button"
+												class="btn--special-btn btn-middle rak-button-right"
+												ng-click="rakPayCards.utils.parseNumbers();rak2FARegister.RegistrationModel.resolveEventFor2FA('PAYCARDS');rakCorpInit.corpModel.eventName='PAYCARDS';rakCorpInit.corpModel.backFlag='N';setEvent(rakPayCards.ownCards.getEventForTransfer())";>{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_NONRAKBANK.PLCHOLDER_PROCEED}}
+											</button>
+
+										</div>
+									</div>
+
+
+		 <div class="disclaimer"  ng-init='rakDisclaimerFlag=false;' ng-if='rakPayCards.ownCards.selectedBenType==rakPayCards.CardsBenTypeConstant.WITHINUAE'>
+				<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+					<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+				</div>
+
+				<div class="disclaimer3" ng-if="rakDisclaimerFlag">
+
+
+                             <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKPAYCARDSINIT_GENERALMSG"></span> 
+                             <span ng-click="rakSendMoney.fetchDisclaimer('FundsTransferCutOffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                             <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKPAYCARDSINIT_WITHIN"></span>
+                              <span ng-click="rakSendMoney.fetchDisclaimer('FundTransferCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                             <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKPAYCARDSINIT_WITHINCONT"></span>
+                           <span ng-show="rakHome.userTypeIDValue!='CORPORATE'" ng-click="rakSendMoney.fetchDisclaimer('DailyTransactionLimits.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                   				<span ng-show="rakHome.userTypeIDValue=='CORPORATE'" ng-click="rakSendMoney.fetchDisclaimer('DailyTransactionLimits_CORP.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                  <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKPAYCARDSINIT_WITHINCONT1"></span>
+
+				</div>
+
+			</div>
+			
+			
+			 <div class="disclaimer"  ng-init='rakDisclaimerFlag=false;' ng-if='rakPayCards.ownCards.selectedBenType==rakPayCards.CardsBenTypeConstant.OUTSIDEUAE'>
+				<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+					<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+				</div>
+
+				<div class="disclaimer3" ng-if="rakDisclaimerFlag">
+
+
+                             <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKPAYCARDSINIT_GENERALMSG"></span> 
+                             <span ng-click="rakSendMoney.fetchDisclaimer('FundsTransferCutOffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                             <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKPAYCARDSINIT_OUTSIDE"></span>
+                   			<span ng-show="rakHome.userTypeIDValue!='CORPORATE'" ng-click="rakSendMoney.fetchDisclaimer('DailyTransactionLimits.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                   				<span ng-show="rakHome.userTypeIDValue=='CORPORATE'" ng-click="rakSendMoney.fetchDisclaimer('DailyTransactionLimits_CORP.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                   		
+                   			<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKPAYCARDSINIT_OUTUAE"></span>
+                             <span ng-click="rakSendMoney.fetchDisclaimer('FundTransferCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                             <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKPAYCARDSINIT_OUTSIDECONT2"></span>
+
+				</div>
+
+			</div>
+
+</div>
+

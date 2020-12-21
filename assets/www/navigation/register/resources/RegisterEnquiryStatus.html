@@ -1,0 +1,30 @@
+<div class="full-height">
+	<div class="account-page full-height">
+		<div class="dashboard-item-body full-height ">
+			<div class="sticky-footer">
+				<div class="dashboard-item-title col-sm-12" layout="row"
+					layout-align="center center">
+					<h2 class=" md-headline item-title text-uppercase"
+						id="registerEnquiryHeader" layout="row"
+						layout-align="center center">{{appLiterals.APP.REGISTER.REG_ENQ.HEADER}}</h2>
+				</div>
+				<div class="col-sm-12 lh13 margin-bottom-20" id="registerEnquiryTxt">
+					<div class="col-sm-12">
+						<p class=" fut-txt1">{{appLiterals.APP.REGISTER.REG_ENQ.REG_MSG}}</p>
+					</div>
+				</div>
+			</div>
+			<section layout="row" layout-align="center center"
+				class="btn-wrap button-wrapper sticky-footer-block">
+				<md-button id="registerMobileAppLater" type="button"
+					class=" md-raised btn--secondary-btn"
+					ng-click="statusOfRequest=true;setGlobalEvent('onLoginClick')">
+				{{appLiterals.APP.REGISTER.REG_ENQ.REG_LATER}} </md-button>
+				<md-button id="registerMobileAppNow" type="button"
+					class=" md-raised btn--primary-btn"
+					ng-click="statusOfRequest=true;setEvent('onRegisterNavigation')">
+				{{appLiterals.APP.REGISTER.REG_ENQ.REG_NOW}}</md-button>
+			</section>
+		</div>
+	</div>
+</div>

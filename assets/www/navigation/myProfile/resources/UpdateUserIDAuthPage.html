@@ -1,0 +1,57 @@
+<div id="updateUserIdAuthPage" class="app app-arrow2 title-right"
+	ng-click="myProfile.updateIdModel.isBack=true;setEvent('onPrevServiceClick')"></div>
+<div class="finacle-container"
+	ng-init="myProfile.initUpdateIdConfirm(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper">
+
+			</div>
+
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div id="updateConfirmIdTitle" class="item-title text-uppercase">{{appLiterals.APP.MYPROFILE.UPDATEUSERID.CONF_AUTH_TXT}}</div>
+					</div>
+
+					<div class="col-sm-12">
+
+						<div class="account-detail-dash margin-zero">
+							<b id="masterUserId" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.UPDATEUSERID.MASTER_USER_ID}}
+							<!-- </b> <span id="masterUserIdValue" class="dash-ac-id">{{myProfile.updateIdInitResponse.masterID}}</span> -->
+							
+							</b> <span id="masterUserIdValue" class="dash-ac-id">{{myProfile.updateIdModel.confirmResponse.masterId}}</span>
+						</div>
+
+						<div
+							ng-repeat="channel in myProfile.updateIdModel.confirmResponse.channelList">
+
+							<div class="account-detail-dash margin-zero">
+								<b id="channelDesc" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.UPDATEUSERID.CHANNEL}}
+								</b> <span id="channelValue" class="dash-ac-id">{{channel.channelName}}</span>
+							</div>
+
+
+							<div class="account-detail-dash margin-zero">
+								<b id="newUserId" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.UPDATEUSERID.NEW_USER_ID}}
+								</b> <span id="newUserIdValue" class="dash-ac-id">{{channel.userId}}</span>
+							</div>
+
+						</div>
+
+						<form ng-submit="setEvent('onNNSuccessClick')">
+							<fin-Stepauth></fin-Stepauth>
+
+							<section class="button-wrapper" layout="row"
+								layout-align="center center" layout-wrap>
+								<md-button id="updateUserIdConfirm" type="submit"
+									class=" md-raised btn--primary-btn">
+								{{appLiterals.APP.MYPROFILE.UPDATEUSERID.CONFIRM_BTN}}</md-button>
+							</section>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

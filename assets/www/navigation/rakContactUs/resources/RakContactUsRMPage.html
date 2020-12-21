@@ -1,0 +1,59 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+<div class="finacle-container"
+	ng-init="setSingleStepRealmAuthFailure();rakContactUs.initContactUs(successResponse.responsesList);">
+	<div class="account-page">
+	<div class="col-sm-11">
+	<div class="app-title-wrapper">
+	<div class="form-block">
+
+    
+
+      <div class="money-block">
+         <ul>
+            <li  ng-click="setEvent('onRakCallUsTabClick');">
+            {{appLiterals.APP.RAK_CONTACTUS.CALLUS}}</li>
+           <li class="active">
+            {{appLiterals.APP.RAK_CONTACTUS.RM_BUDDY}}</li>
+           <!--  <li ng-click="setEvent('onRakSocialTabClick');">
+          {{appLiterals.APP.RAK_CONTACTUS.SOC_LINK}}</li> -->
+          </ul>
+ </div>
+ <div class="rakScrollDiv">
+ 
+
+
+				 <div class="">
+           <h2 class="rakHeadingTxt">{{appLiterals.APP.RAK_CONTACTUS.RM}}</h2>
+       </div>
+		 <div class="bg-color">
+			<div class="row" >
+
+
+			<p class="rak-sum-txt rakBoxShadow" ng-if="rakContactUs.contact.nameBud != ''">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_CONTACTUS.NAME}}</span>
+				<span class="rak-sum-label black">{{rakContactUs.contact.nameBud}}</span>
+			</p>
+
+			<p class="rak-sum-txt rakBoxShadow" ng-if="rakContactUs.contact.mailBud != ''">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_CONTACTUS.MAIL}}</span>
+				<span class="rak-sum-label black">{{rakContactUs.contact.mailBud}}</span>
+			</p> 
+			<p class="rak-sum-txt rakBoxShadow" ng-if="rakContactUs.contact.phoneBud != '' && (rakContactUs.contact.isPremium=='Y' || rakContactUs.contact.isPremium=='B')">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_CONTACTUS.PHONE}}</span>
+				<span class="rak-sum-label black"><a ng-href="tel:{{rakContactUs.contact.phoneBud}}" class="callIco callTxt">{{rakContactUs.contact.phoneBud}}</a></span>
+			</p>
+
+
+
+						</div>
+				</div>
+				</div>
+		 </div>
+          <div class="col-sm-1"> </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>

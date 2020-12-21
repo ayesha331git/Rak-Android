@@ -1,0 +1,60 @@
+<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="rakMyProfile.reLoadLoginPage();"></i>
+		</div>
+<div class="finacle-container"
+	ng-init="rak2FARegister.RegistrationModel.fromHardTokenRegPage='';rakMyProfile.resetPwdFields();rakMyProfile.HardTokenOnLoad(HardTokenModel);rakMyProfile.HardTokenLoginScenario();">
+	<div class="account-page">
+		<div class="col-sm-11">
+
+
+			<!-- <div class="main-form-heading-ServiceReq">
+				<h2 class="rakBenfHeader">{{appLiterals.APP.RAK_FP_CHANGEMSG.LGN}}
+
+				</h2>
+			</div>
+ -->
+			<div class="bg-color rak-cont-padding">
+
+<div class="main-form-heading-ServiceReq"> 
+							      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_2FA_MESSAGES.AAA_HARTOKEN}}
+							   		     
+							      </h2>		       
+					 		</div>
+
+
+	
+				<div>
+				<fin-input type="password_text" model="rakMyProfile.hardToken"
+								validation-flag='pageErrorArr["rakMyProfile.hardToken"]'
+								display-row="full"
+								placeholder="{{appLiterals.APP.RAK_2FA_MESSAGES.ENTER_AAA}}">
+							</fin-input>
+							
+							<div class="fin-txt"></div>
+							</div>
+							<div class="rak-hardToken-lable">
+								<p><span ng-bind-html="appLiterals.APP.RAK_2FA_MESSAGES.HARDTOKEN_MSG3"></span></p>
+								<p><span ng-bind-html="appLiterals.APP.RAK_2FA_MESSAGES.HARDTOKEN_MSG4"></span></p>
+								  <span  class="hyperLinkRed"  ng-click="rakServiceReq.fetchDisclaimer('ForgotRAKTokenPINCorporate.html');" ng-bind-html="appLiterals.APP.RAK_2FA_MESSAGES.CLICK_HERE_KNOWMORE"></span>
+								  									  
+							
+							</div>
+				<div class="label-wrap">
+	<div
+						
+						class="label-wrap">
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small  "
+							ng-click='rak2FARegister.RegistrationModel.fromHardTokenRegPage="YES";setEvent("onHardTokenToSoftTokenClick");'>{{appLiterals.APP.COMMON.TEXT.HARDTOKEN_BUTTON1}}</button>
+					<button type="button" class="btn--special-btn btn-middle rak-button-small"
+						ng-click="setEvent('onHardTokenOkButtonClick')">{{appLiterals.APP.COMMON.TEXT.HARDTOKEN_BUTTOn2}}</button>
+
+				</div>
+				<div class="col-sm-1"></div>
+
+			</div>
+		</div>
+	</div>
+</div>

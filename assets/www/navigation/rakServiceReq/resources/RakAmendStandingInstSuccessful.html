@@ -1,0 +1,101 @@
+
+<!-- partial code start here-->
+<div class="finacle-container">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+		<div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{successResponse.responsesList[0].ResponseMsg}}</span>
+                        </div>
+                  </div>
+            <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.AMEND_SI}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>                 
+                              </h2>              
+</div>
+                  
+		
+
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+
+				<div class="row">
+					<div class="">
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_CREDCRDNO}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.amendStandingInst.ccSelectedContinue}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_PYMT_PER}}</span>
+							<span class="rak-sum-label black" ng-if="rakServiceReq.amendStandingInst.paymentPercentage=='P'">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_PER_CURR_BAL}}</span>
+							<span class="rak-sum-label black" ng-if="rakServiceReq.amendStandingInst.paymentPercentage=='M'">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_MIN_AMT_DUE}}</span>
+							<span class="rak-sum-label black" ng-if="rakServiceReq.amendStandingInst.paymentPercentage=='F'">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_FLAT_AMT}}</span>
+						</p>
+						
+						
+						<p class="rak-sum-txt" ng-show="rakServiceReq.amendStandingInst.paymentPercentage =='P'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.TXT_PERCENTAGE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.amendStandingInst.perentageCurrBal}} {{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.TXT_PERCENTAGE_SIGN}}</span>
+						</p>
+						<p class="rak-sum-txt" ng-show="rakServiceReq.amendStandingInst.paymentPercentage =='F'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_FLAT_AMT}}</span>
+							<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.AED_CURR}} {{rakServiceReq.amendStandingInst.flatAmount}}</span>
+						</p>
+						
+						<p class="rak-sum-txt" ng-if="rakServiceReq.amendStandingInst.changeSIDate=='N'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_CNGE_SI_DATE}}</span>
+							<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_DAYS_DATE}}</span>
+						</p>
+						
+						<p class="rak-sum-txt" ng-if="rakServiceReq.amendStandingInst.changeSIDate=='Y'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_CNGE_SI_DATE}}</span>
+							<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_PYMT_DUE_DATE}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_DEB_ACC}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.amendStandingInst.debAccNumberContinue}}</span>
+						</p>
+						
+						<p class="rak-sum-txt" ng-if="rakServiceReq.amendStandingInst.changeSIDate =='N'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_DAYS_OF_MONTH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.amendStandingInst.selectedDate}}</span>
+						</p>
+						
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.HOLD_SI}}</span>
+							<span class="rak-sum-label black" ng-if="rakServiceReq.amendStandingInst.holdSISelected == 'T'">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_TEMP}}</span>
+							<span class="rak-sum-label black" ng-if="rakServiceReq.amendStandingInst.holdSISelected == 'P'">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_PERMANENT}}</span>
+						</p>
+						
+						<div class="rak-sum-txt" ng-if="rakServiceReq.amendStandingInst.holdSISelected == 'T'">
+							<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.FROM_DATE}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.amendStandingInst.previewDateOne}}</span>
+			</p> 
+       		
+       		<p class="rak-sum-txt" >
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.TO_DATE}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.amendStandingInst.previewDateTwo}}</span>
+			</p>
+						</div>
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakServiceReq.amendStandingInst.resetAmendStandingInst();setEvent('onAmendStandingInstSuccessfulDoneClick')">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+						</div>
+						<div class="col-sm-1"></div>
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+<!-- partial code end here-->

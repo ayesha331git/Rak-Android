@@ -1,0 +1,117 @@
+<div class="finacle-container" ng-init='setSingleStepRealmAuthFailure();locationFilter=getSelectedLocationDetails(0); home.responseLocator(successResponse.responsesList); branchFlag=true; fields.selectedLocation=null;'>
+
+<div>
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+	<div class="fin-txt"></div>
+    <div class="highlight-color"> </div>
+    <div>
+      <div class="loc-search-wrap">
+		<input type="text" placeholder="{{appLiterals.APP.COMMON.FINLOC_LISTPAGE.PH_ENTCITY}}" ng-model="fields.locationSearchText" class="search-input" />
+      </div>
+      <div class="loc-search" ng-click="fields.locatorMethodName='getLocationsByBankID';fields.isSearchInProgress=true;setGlobalEvent('onLocatorSearch');">
+        <span class="loc-search-icon glyphicon glyphicon-search"></span>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-sm-1"></div>
+</div>
+<div class="fin-txt"></div>
+<div>
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+    <div class="map-marker">
+      <span class="glyphicon glyphicon-map-marker"></span>
+      <span>{{fields.isSearchInProgress ? fields.locationSearchText.length >0 ? fields.locationSearchText:"Near by" : "Near by"}} </span>
+    </div>
+    <div class="highlight-color"> </div>
+    <div class="bg-color">
+
+      <div class="loc-split">
+        <div class="pwd-transaction" ng-click="branchFlag=true; locationFilter = getSelectedLocationDetails(0)">
+          <span class="loc-type-txt"> {{appLiterals.APP.COMMON.FINLOC_LISTPAGE.BRNCH}} </span>
+          <div ng-show="branchFlag" class="app-fut-line">
+          </div>
+		  <div ng-show="branchFlag" class="app-fut-tri">
+		  </div>
+        </div>
+        <div class="pwd-transaction" ng-click="branchFlag=false; locationFilter=getSelectedLocationDetails(1);">
+          <span class="loc-type-txt1"> {{appLiterals.APP.COMMON.FINLOC_LISTPAGE.ATM}} </span>
+          <div ng-hide="branchFlag" class="app-fut-line">
+          </div>
+          <div ng-hide="branchFlag" class="app-fut-tri">
+          </div>
+        </div>
+      </div>
+
+      <div class="row" >
+        <div class="col-sm-1"> </div>
+        <div class="col-sm-10">
+    <div ng-show="home.atmBranchDetails.length == 0" class="no-found">
+      {{appLiterals.APP.COMMON.FINLOC_LISTPAGE.SENT_NOBRNCH}}
+    </div>
+    <div ng-if='currentLocation.position.coords && branchFlag==true'>
+        <div ng-repeat="location in home.atmBranchDetails | filter:locationFilter | orderBy :'distance'" >
+        <div ng-if='isUserLoggedIn' ng-click="fields.selectedLocation=location; mapAction = 'SHOWMARKER';setGlobalEvent('onLocatorBranchDetailsClickPostLogin'); setMapCenter(location);  ">
+        	<div class="col-sm-12" >
+                <p class="loc-address"> {{location.postal_address}} </p>
+                <p class="loc-km"> {{location.distance.toFixed(2)}} KM</p>
+            </div>
+        </div>
+        <div ng-if='!isUserLoggedIn' ng-click="fields.selectedLocation=location; mapAction = 'SHOWMARKER';setGlobalEvent('onLocatorBranchDetailsClick'); setMapCenter(location);  ">
+            <div class="col-sm-12" >
+                <p class="loc-address"> {{location.postal_address}} </p>
+                <p class="loc-km"> {{location.distance.toFixed(2)}} KM</p>
+            </div>
+        </div>
+            <div class="app-hr"> </div>
+        </div>
+        </div>
+       <div ng-if='!currentLocation.position.coords && branchFlag==true'>
+        <div ng-repeat="location in home.atmBranchDetails | filter:locationFilter" >
+        <div ng-if='isUserLoggedIn' ng-click="fields.selectedLocation=location; mapAction = 'SHOWMARKER';setGlobalEvent('onLocatorBranchDetailsClickPostLogin'); setMapCenter(location);  ">
+        	<div class="col-sm-12">
+                <p class="loc-address"> {{location.postal_address}} </p>
+            </div>
+        </div>
+        <div ng-if='!isUserLoggedIn' ng-click="fields.selectedLocation=location; mapAction = 'SHOWMARKER';setGlobalEvent('onLocatorBranchDetailsClick'); setMapCenter(location);  ">
+            <div class="col-sm-12">
+                <p class="loc-address"> {{location.postal_address}} </p>
+            </div>
+        </div>
+            <div class="app-hr"> </div>
+        </div>
+        </div>
+        
+        <div ng-if='currentLocation.position.coords && branchFlag==false'>
+        <div ng-repeat="location in home.atmBranchDetails | filter:locationFilter | orderBy :'distance'" >
+        <div ng-click="fields.selectedLocation=location; mapAction = 'SHOWMARKER';setGlobalEvent('onLocatorAtmDetailsClick'); setMapCenter(location);  ">
+            <div class="col-sm-12" >
+                <p class="loc-address"> {{location.postal_address}} </p>
+                <p class="loc-km"> {{location.distance.toFixed(2)}} KM</p>
+            </div>
+        </div>
+            <div class="app-hr"> </div>
+        </div>
+        </div>
+       <div ng-if='!currentLocation.position.coords && branchFlag==false'>
+        <div ng-repeat="location in home.atmBranchDetails | filter:locationFilter" >
+        <div ng-click="fields.selectedLocation=location; mapAction = 'SHOWMARKER';setGlobalEvent('onLocatorAtmDetailsClick'); setMapCenter(location);  ">
+            <div class="col-sm-12">
+                <p class="loc-address"> {{location.postal_address}} </p>
+            </div>
+        </div>
+            <div class="app-hr"> </div>
+        </div>
+        </div>
+
+        </div>
+
+        </div>
+        <div class="col-sm-1"> </div>
+      </div>
+    </div>
+  <div class="col-sm-1"></div>
+</div>
+</div>

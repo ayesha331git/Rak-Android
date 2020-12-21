@@ -1,0 +1,75 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRAKOprIslamicAcctOpenReqSucess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+
+			<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.RAKOprIslamicAcctOpenReq.successMessage}}</span>
+				</div>
+			</div>
+			<div class="main-form-heading-ServiceReq">
+				<h2 class="rakBenfHeader">
+					{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.ISLAMIC_ACCOUNT}}<span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>
+				</h2>
+			</div>
+	
+		<div class="bg-color rak-cont-padding rak-scroll rak-scroll-account-open">
+			<div class="row">
+				<div class="col-sm-1"></div>
+
+				<p class="rak-sum-txt" ng-show="rakServiceReq.RAKOprIslamicAcctOpenLists.refAcctNoList.length > 0">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.REF_ACCT_NO}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprIslamicAcctOpenLists.refAcctNoList[rakServiceReq.RAKOprIslamicAcctOpenReq.selectedRefNo].accountNumber}}</span>
+                </p>
+
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.ACCTCRN}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprIslamicAcctOpenReq.selectedCrn}}</span>
+				</p>
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.DEBIT_CARD_RQD}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprIslamicAcctOpenReq.debitCardRqd}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="rakServiceReq.RAKOprIslamicAcctOpenLists.refAcctNoList.length == 0">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.BRANCH}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprIslamicAcctOpenReq.branchNameContinue}}</span>
+				</p>
+	
+	<div ng-if='rakServiceReq.common.EmiratesIdAvailable=="Y"'>
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.EMIRATESID}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprIslamicAcctOpenReq.EmiratesId}}</span>
+				</p>
+
+
+				<p class="rak-sum-txt">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.ID_EXPIRY_DATE}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.common.accountsOpenDisplayDate}}</span>
+				</p>
+	</div>
+				<p class="rak-sum-txt" ng-show="rakServiceReq.RAKOprIslamicAcctOpenLists.refAcctNoList.length != 0 &&
+						rakServiceReq.RAKOprIslamicAcctOpenLists.refAcctNoList[rakServiceReq.RAKOprIslamicAcctOpenReq.selectedRefNo].mode=='JOINTOR'">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.OPER_MODE}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprIslamicAcctOpenReq.operationMode}}</span>
+				</p>
+
+
+				<div class="label-wrap">
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-small"
+						ng-click='rakServiceReq.setRAKOprIslamicAcctOpenSuccessHomeBtnClicked();'>
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+				</div>
+
+				<div class="col-sm-1"></div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>

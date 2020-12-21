@@ -1,0 +1,130 @@
+
+<div class="rak-back-header">
+	<i class="rak-back-img"
+		ng-click="rakPayee.payBill.isBackfromInitPage=true;setEvent('onBackClick');"></i>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container"
+			ng-init="resetPageError();rakPayee.payBill.getMultipleBillPayInit(successResponse.responsesList);rakPayee.outstandingTab=true;">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+
+						<div class="form-block">
+							<ng-include
+								src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'">
+							</ng-include>
+							<div class="">
+
+								<div class="bg-color rak-cont-padding">
+
+									<div class="">
+										<div class="col-sm-1"></div>
+
+										<div ng-show='rakPayee.payBill.showFlag'>
+											<!-- <div class="money-block"
+												ng-show="rakPayee.payBill.outStandingAmtList.length> 0">
+												<ul>
+													<li class="active rak25">
+														{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.PAY}}</li>
+													<li class="active rak25">
+														{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.CONSUMER_NUM}}</li>
+													<li class="active rak25">
+														{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.AMT_DUE}}</li>
+
+
+													CHANGES AS FIX FOR PROUAT-1481 START 
+													<li class="active rak25">
+														{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.PAY}}</li>
+													CHANGES AS FIX FOR PROUAT-1481 END 
+
+												</ul>
+											</div> -->
+
+											<div 
+												ng-show='rakPayee.payBill.showFlag'>
+												<div class="nano">
+													<div class="rak-cont-padding rakScrollDiv">
+
+														<!-- CHANGES AS FIX FOR PROUAT-1481 START  -->
+														<div class="trans-detail rakGreyRow"
+															ng-repeat="biller in rakPayee.payBill.selectedOutStandingAmtList">
+															<div
+																class="trans-dash-right rakPeopleNameRow2 rak25 pull-left rakMarginTop5">
+																<div>
+																	<div class="trans-no rakTextCenterSmall rakMargin5px">{{biller.serviceType}}</div>
+																	<div class="trans-no rakTextCenterBold rakMargin5px">{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.PAY}}</div>
+																</div>
+
+															</div>
+
+															<div
+																class="trans-dash-right rakPeopleNameRow2 rak25 pull-left rakMarginTop5">
+																<div>
+																	<div class="trans-no rakTextCenterSmall rakMargin5px">{{biller.conCode}}</div>
+																	<div class="trans-no rakTextCenterBold rakMargin5px">{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.CONSUMER_NUM}}</div>
+																</div>
+															</div>
+
+															<!-- CHANGES AS FIX FOR PROUAT-1482 START-->
+															<div
+																class="trans-dash-left rakPeopleNameRow2 rak25 pull-left rakListTextbox rakMarginTop5">
+																<div>
+																<div class="trans-no rakTextCenterSmall rakMargin5px">{{biller.outAmount.toLocaleString()}}</div>
+																<div class="trans-no rakTextCenterBold rakMargin5px">{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.DUE}}</div>
+																</div>
+															</div>
+															<!-- CHANGES AS FIX FOR PROUAT-1482 END-->
+
+															<div
+																class="trans-dash-left rakPeopleNameRow2 rak25 pull-left rakListTextbox marginTop5less">
+																<div>
+																<fin-input type="money" display-row="qtr1"
+																		model="rakPayee.payBill.getMultipleUpdateAmount[$index]">
+																	</fin-input>
+																	<div class="trans-no rakTextCenterBold rakMargin5px">{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.AED}}</div>
+																	<!-- <fin-input type="money" display-row="qtr1"
+																		model="rakPayee.payBill.getMultipleUpdateAmount[$index]"
+																		on-change="rakPayee.payBill.multiplePaymentAmountUpdate();">
+																	</fin-input> -->
+																</div>
+															</div>
+
+															<!-- CHANGES AS FIX FOR PROUAT-1481 END  -->
+
+
+
+														</div>
+														<div class="label-wrap">
+															<button type="button"
+																class="btn--special-btn btn-middle rak-button-smallForBillPay"
+																ng-click="rakPayee.payBill.multiplePaymentAmountUpdate();setEvent('onMultipleUpdateClick');">
+																{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.UPDATE}}</button>
+														</div>
+														
+														<div class="rak-link-new" >	
+						<span ng-click="rakServiceReq.fetchDisclaimer('UtilityBillPayMinAndMaxAmnt.html');" class="blueLink">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.MINMAXAMOUNTS}}</span>
+				</div>
+
+													</div>
+
+												</div>
+
+											</div>
+
+
+										</div>
+									</div>
+
+									
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

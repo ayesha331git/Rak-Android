@@ -1,0 +1,126 @@
+<div ng-if="rakServiceReq.rakDigitalAccessCardBlock.digitalAccessCardUsersEligible.length!=0">
+	<div
+		ng-init='selectedUserArr = createDropDownOptionArray(rakServiceReq.rakDigitalAccessCardBlock.digitalAccessCardUsersEligible, ["cardCustName","-","cardRcif"], "index");'>
+		<fin-input type="dropdown"
+			model="rakServiceReq.rakDigitalAccessCardBlock.selectedUser"
+			display-row="full"
+			placeholder="{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.CARD_HOLDERS_NAME}}"
+			validation-flag='pageErrorArr["rakServiceReq.rakDigitalAccessCardBlock.selectedUser"]'
+			option-array="selectedUserArr"> </fin-input>
+	</div>
+	
+	<fin-input type="text_noSpecialCharacterAndNum"
+		model="rakServiceReq.rakDigitalAccessCardBlock.embossingName"
+		display-row="full"
+		max-length="19"
+		validation-flag='pageErrorArr["rakServiceReq.rakDigitalAccessCardBlock.embossingName"]'
+		placeholder="{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.EMBOSSING_NAME}}" >
+	</fin-input>
+	
+	<!-- <div class="rakRowDac">
+		<div class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px">{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_DISPATCH_MODE}}</div>
+		<div class="rak90">
+			<div>
+				<div class="rakCstmRadioDiv rak50 rakTop2emLeft3">
+					<input type="radio" id="radio3"
+						value="{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_DISPATCH_BRANCH}}"
+						class="rakRadio"
+						ng-model="rakServiceReq.rakDigitalAccessCardBlock.isBranchOrAddress" /> <label
+						for="radio3"><span><span></span></span>{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_DISPATCH_BRANCH}}</label>
+				</div>
+				<div class="rakCstmRadioDiv rak47 rakTop2emLeft3">
+					<input type="radio" id="radio4"
+						value="{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_DISPATCH_ADDRESS}}"
+						class="rakRadio"
+						ng-model="rakServiceReq.rakDigitalAccessCardBlock.isBranchOrAddress" /> <label
+						for="radio4"><span><span></span></span>{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_DISPATCH_ADDRESS}}</label>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	
+	<!-- <div
+		ng-init='emirateArr = createDropDownOptionArray(rakServiceReq.rakDigitalAccessCardBlock.emirateList, ["codeDesc"], "code");'>
+		<fin-input type="dropdown"
+			model="rakServiceReq.rakDigitalAccessCardBlock.emirateSeletected"
+			display-row="full"
+			ng-show="rakServiceReq.rakDigitalAccessCardBlock.isBranchOrAddress=='{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_DISPATCH_BRANCH}}'"
+			placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}"
+			on-change="rakServiceReq.rakDigitalAccessCardBlock.rakDACApplyModelOptionChange();"
+			validation-flag='pageErrorArr["rakServiceReq.rakDigitalAccessCardBlock.emirateSeletected"]'
+			option-array="emirateArr"> </fin-input>
+	</div> -->
+	
+	
+	<!-- <div class="fin-input-container"
+		ng-show="rakServiceReq.rakDigitalAccessCardBlock.isBranchOrAddress=='{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_DISPATCH_BRANCH}}' && rakServiceReq.rakDigitalAccessCardBlock.isEmiSelected">
+		<div
+			ng-class="{'left-line': !pageErrorArr['rakServiceReq.rakDigitalAccessCardBlock.selectedBranchId'], 'left-line-error':pageErrorArr['rakServiceReq.rakDigitalAccessCardBlock.selectedBranchId']}"
+			class="left-line"></div>
+		<div class="input-body">
+			<div class="input-body2 input-body2-dropdown">
+				<select dropdownpicker
+					title="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}"
+					class="fin-input fin-select"
+					ng-model="rakServiceReq.rakDigitalAccessCardBlock.selectedBranchId"
+					ng-style="{{rakServiceReq.rakDigitalAccessCardBlock.selectedBranchId}} == '' ? {'font-size': '14px'} : {'color': 'initial'}">
+					<option class="place-holder-select" value=""
+						ng-selected="rakServiceReq.rakDigitalAccessCardBlock.selectedBranchId== null"
+						ng-show="rakServiceReq.rakDigitalAccessCardBlock.selectedBranchId== null">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}</option>
+					<option
+						ng-repeat="option in rakServiceReq.rakDigitalAccessCardBlock.emiCategorizedBranchList"
+						ng-selected="option.value=={{rakServiceReq.rakDigitalAccessCardBlock.selectedBranchId}}"
+						value="{{option.branchIndex}}">{{option.branchCode}}</option>
+				</select>
+			</div>
+			<div
+				ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.rakDigitalAccessCardBlock.selectedBranchId'], 'bottom-line-error':pageErrorArr['rakServiceReq.rakDigitalAccessCardBlock.selectedBranchId']}"
+				class="bottom-line"></div>
+			<div
+				ng-hide='pageErrorArr["rakServiceReq.rakDigitalAccessCardBlock.selectedBranchId"]==null'
+				class="rakErrorMsg">
+				{{pageErrorArr['rakServiceReq.rakDigitalAccessCardBlock.selectedBranchId']}}</div>
+	
+		</div>
+	</div> -->
+	
+	<!-- <fin-input type="text"
+		model="rakServiceReq.rakDigitalAccessCardBlock.mailingAddress" display-row="full"
+		placeholder="{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_ADDRESS}}"
+		ng-show="rakServiceReq.rakDigitalAccessCardBlock.isBranchOrAddress=='{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_DISPATCH_ADDRESS}}'"
+		validation-flag='pageErrorArr["rakServiceReq.rakDigitalAccessCardBlock.mailingAddress"]'></fin-input> -->
+	<div class="fin-txt"></div>
+	<div class="disclaimer3" >
+		<span ng-click="rakServiceReq.fetchDisclaimer('DACTermsAndConditions.html');" class="hyperLinkBlue">{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DAC_UNDERTAKING2}}</span>
+		<span ng-bind-html="appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DAC_UNDERTAKING3"></span>
+	</div>
+	<div class="check-boxsLeft">
+	    <input id="termsFlag"  class="checkbox-custom-new"  type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" ng-model='rakServiceReq.rakDigitalAccessCardBlock.acceptTermscondition' >
+	    <label for="termsFlag" class="checkbox-custom-label termsCheck smallCheck"><span ng-bind-html="appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DAC_UNDERTAKING1"></span></label>
+	</div>	
+	<div class="label-wrap">
+		<!-- <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button> -->
+		<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakServiceReq.rakDigitalAccessCardBlock.rakIssuanceDigitalAccessCardClick();">
+			{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+	</div>
+	<div class="col-sm-1"></div>
+
+
+	<div class="disclaimer">
+		<div class="disclaimer1 rakSupplCardIco"
+			ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"
+			ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+			<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+		</div>
+	
+		<div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+			<span ng-bind-html="appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DISCLAIMER1"></span>
+			<span ng-bind-html="appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DISCLAIMER6"></span><span ng-click="rakServiceReq.rakDigitalAccessCardBlock.rakApplyDigitalAccessCard();" class="hyperLinkBlue">{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DISCLAIMER7}}</span>
+			<span ng-bind-html="appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DISCLAIMER2"></span>
+			<span ng-bind-html="appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DISCLAIMER3"></span>
+			<span ng-bind-html="appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DISCLAIMER5"></span>
+			<span ng-bind-html="appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DISCLAIMER4"></span>
+		</div>
+	
+	</div>
+</div>

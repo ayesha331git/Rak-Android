@@ -1,0 +1,50 @@
+<div >
+ 					<div ng-if="rakCorpInit.corpModel.ruleCount>0">
+		<div ng-if="rakCorpInit.corpModel.ruleCount>1">
+						
+						
+						<div class="disclaimer3" ng-hide="rakCorpInit.corpModel.selectedRuleDescription">
+					 <span class="black" ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_OVERLAPPINGRULE"></span> 
+                       <!--  <span ng-click="rakCorpInit.corpModel.setOverlapping();" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span> -->
+				</div>
+				
+					<div>
+										<fin-input type="text_noEdited" id="BeniF"
+											model="rakCorpInit.corpModel.selectedRuleDescription"
+											display-row="full"
+											placeholder="Select Rule"
+											ng-click="rakCorpInit.corpModel.setOverlapping();"
+											validation-flag='pageErrorArr["rakCorpInit.corpModel.selectedRuleDescription"]' readonly>
+										</fin-input>
+									</div> 
+			</div>
+			
+				<p class="rak-sum-txt" ng-show="rakCorpInit.corpModel.selectedRuleId && rakCorpInit.corpModel.apprRoleId">
+					<span class="rak-sum-label ng-binding">Approver Name</span>
+					<span class="rak-sum-label black ng-binding">{{rakCorpInit.corpModel.apprRoleId}}</span>
+				</p>	
+				
+						<div>
+						</div>
+						   <div class="fin-txt"></div>
+
+			<div ng-show="rakCorpInit.corpModel.selectedRuleId && rakCorpInit.corpModel.roleSelectedFlag=='N'">
+			<div class="disclaimer3" ng-hide="rakCorpInit.corpModel.apprRoleId">
+					 <span class="black" ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_OVERLAPPINGRULE1"></span> 
+                       <!--  <span ng-click="rakCorpInit.corpModel.setOverlapping();" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span> -->
+				</div>
+				</div>
+				
+		
+			<div class="label-wrap">
+			<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="rakCorpInit.corpModel.roleSelectedFlag='N';rakHome.AuthPageData.approvalLookUpClick='Y';setEvent('onCorpGetLookUpClick');"> {{appLiterals.APP.CORPORATE.SELECTAPPR}}</button>
+			</div>
+			</div>
+			
+		
+			
+
+				
+							</div>
+ 
+</div>

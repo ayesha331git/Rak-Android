@@ -1,0 +1,143 @@
+<div class="rak-back-header" ng-show='rakServiceReq.serviceRequestStatusModel.isSRorTF=="SR"'>
+	<i class="rak-back-img" ng-click="setEvent('onRakTfsrDetBackClick');"></i>
+</div>
+<div class="rak-back-header" ng-if="!rakServiceReq.serviceRequestStatusModel.isFromSearchPage && rakServiceReq.serviceRequestStatusModel.isSRorTF=='TF'">
+    <i class="rak-back-img" ng-click="rakServiceReq.serviceRequestStatusModel.isBackClick=true;setEvent('onServicesRequestDetailsBackClick');"></i>
+</div>
+<div class="rak-back-header" ng-if="rakServiceReq.serviceRequestStatusModel.isFromSearchPage && rakServiceReq.serviceRequestStatusModel.isSRorTF=='TF'">
+    <i class="rak-back-img" ng-click="rakServiceReq.serviceRequestStatusModel.isBackClick=true;setEvent('onServicesRequestSearchBackClick');"></i>
+</div>
+
+<div class="finacle-container"
+	ng-init="rakCorpInit.corpModel.eventName='TRADEFINANCE';resetPageError();rakTradeFinance.reason=''; rakHome.AuthPageData.firstAuthModeValue='';
+	rakTradeFinance.rakFetchTFSRStatusDetResponse(successResponse.responsesList);rakTradeFinance.responseApproveAuth(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+		<div class="summary-ServiceReq" ng-show='rakTradeFinance.common.message'>
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakTradeFinance.common.message}}</span>
+                        </div>
+                  </div>
+			
+	
+	 		
+            <div class="main-form-heading-ServiceReq">
+                <h2 class="rakBenfHeader">{{rakTradeFinance.tfsrDetItem.tfsrDesc}}
+                 <span  ng-show="rakTradeFinance.isTfsrApprRejClicked!='N'">{{rakTradeFinance.tfsrApprRejClicked=='A' && appLiterals.APP.RAKCOMMONLITERALS.APPROVE_REQ || appLiterals.APP.RAKCOMMONLITERALS.REJECT_REQ}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}}</span>
+                
+				</h2>
+			</div>
+		<div class="bg-color rak-cont-padding rak-scroll-success">
+		
+		
+			<div class=""  ng-repeat='item in rakTradeFinance.tfServiceRequestStatusModel.detailModel.labelKeySetArr'>
+			<div ng-if="item.value">
+				<div class="fin-input-container rakTransfersexchangerate-block" ng-if="item.label=='SrStatusSubHeader'">
+					<p class="rakexchangevalue">{{item.value}}</p>
+				</div>
+				<p class="rak-sum-txt " ng-if="item.label!='SrStatusSubHeader'">
+					<span class="rak-sum-label">{{item.label}}</span>
+					<span class="rak-sum-label black">{{item.value}}</span>
+				</p>
+			</div>
+			
+			</div>
+
+			<div ng-if="rakTradeFinance.isTfsrApprRejClicked=='Y'">
+		<!-- 	<div class="avail-bal-wrap" ng-if="rakTradeFinance.tfsrApprRejClicked=='A'">
+			<fin-input type="text"
+				model="rakTradeFinance.reason"
+				display-row="full" placeholder="{{appLiterals.APP.COMMON.TEXT.NOTE}}"
+				validation-flag='pageErrorArr["rakTradeFinance.reason"]'></fin-input>
+			</div> -->
+		<!-- 	<div class="avail-bal-wrap" ng-if="rakTradeFinance.tfsrApprRejClicked=='R'">
+				<fin-input type="text" model="rakTradeFinance.reason"
+					display-row="full"
+					placeholder="{{appLiterals.APP.RAKPENDINGAPPROVAL.REJECT_AUTH.PH_REASON}} "
+					max-length="255"
+					validation-flag='pageErrorArr["rakTradeFinance.reason"]'></fin-input>
+			</div> -->
+			<div ng-show="rakTradeFinance.tfsrApprRejClicked=='A'">
+				<div ng-show="rakTradeFinance.approveAuthModel.userRoleDetails.length>0">
+						<p class="rak-sum-txt " ng-show='rakTradeFinance.approveAuthModel.tfsrRequestedBy'>
+							<span  class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.APPROVEDBY}}</span>
+							<span  class="rak-sum-label black">{{rakTradeFinance.approveAuthModel.tfsrRequestedBy}}</span>
+						</p>
+				</div>
+				<div ng-hide="rakTradeFinance.approveAuthModel.userRoleDetails.length>0">
+						<p class="rak-sum-txt " ng-show='rakTradeFinance.approveAuthModel.tfsrRequestedBy'>
+							<span  class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.APPROVEDBY}}</span>
+							<span  class="rak-sum-label black">{{rakTradeFinance.approveAuthModel.tfsrRequestedBy}}</span>
+						</p>
+				</div>    
+			
+				  	
+				
+			</div>
+			
+			<div ng-if="rakTradeFinance.approveAuthModel.userRoleDetails.length>0">								
+				
+				<p class="rak-sum-txt" ng-show="rakTradeFinance.approveAuthModel.userName">
+					<span class="rak-sum-label ng-binding">Approver Name</span>
+					<span class="rak-sum-label black ng-binding">{{rakTradeFinance.approveAuthModel.userName}}</span>
+				</p>	
+				
+				<div class="fin-txt"></div>	
+						
+				<div class="disclaimer3" ng-show="rakCorpInit.corpModel.roleSelectedFlag=='N'>
+					 <span class="black" ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_OVERLAPPINGRULE1"></span>                        				
+				</div>
+				
+				<div class="label-wrap">
+					<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="rakCorpInit.corpModel.roleSelectedFlag=='N';setEvent('onCorpGetPendingLookUpClick');"> {{appLiterals.APP.CORPORATE.SELECTAPPR}}</button>
+				</div>	
+						
+			</div>
+			
+			<!-- <div ng-show="rakTradeFinance.approveAuthModel.userRoleDetails.length>0">
+				<div class="apprHeadingMain rakWidth100">
+						<div class="apprHeading">{{appLiterals.APP.CORPORATE.SELECTAPPR}}</div>
+				</div> 
+				<div>
+						<div class="rakwidth65">
+						<fin-input  type="text" model="rakTradeFinance.approveAuthModel.userName" display-row="full"  validation-flag='pageErrorArr["rakTradeFinance.approveAuthModel.userName"]' placeholder="{{appLiterals.APP.CORPORATE.SELECTUSER}}" > </fin-input>
+						</div>
+						<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakLookUpbutton" ng-click="setEvent('onCorpGetPendingLookUpClick');"> {{appLiterals.APP.CORPORATE.LOOKUP}}</button>
+				</div>
+			</div> -->
+
+			
+			<fin-dynamicauth></fin-dynamicauth>
+
+			<div class="label-wrap" layout-align="center center" class="btn-wrap button-wrapper" ng-show='rakServiceReq.serviceRequestStatusModel.isSRorTF=="SR"'>
+				<button type="button"
+					id="moveMoneyAAPSubmitButton"
+					class="btn--special-btn btn-middle rak-button-small"
+					ng-click="setEvent('onTfsrApproveRejectSuccesslick');">
+					{{appLiterals.APP.COMMON.BUTTON.CONFIRM}}</button>
+			</div>
+			
+			
+				
+				</div>
+				
+				<div class="label-wrap" ng-show="!rakServiceReq.serviceRequestStatusModel.isFromSearchPage && rakServiceReq.serviceRequestStatusModel.isSRorTF=='TF'">
+                <button type="button"
+                    class="btn--special-btn btn-middle rak-button-small btn--back"
+                    ng-click="rakServiceReq.serviceRequestStatusModel.isBackClick=true;setEvent('onServicesRequestDetailsBackClick');">
+                    {{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+            </div>
+            <div class="label-wrap" ng-show="rakServiceReq.serviceRequestStatusModel.isFromSearchPage && rakServiceReq.serviceRequestStatusModel.isSRorTF=='TF'">
+                <button type="button"
+                    class="btn--special-btn btn-middle rak-button-small btn--back"
+                    ng-click="rakServiceReq.serviceRequestStatusModel.isBackClick=true;setEvent('onServicesRequestSearchBackClick');">
+                    {{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+            </div>
+		
+
+		</div>
+		</div>
+		</div>
+	</div>
+</div>

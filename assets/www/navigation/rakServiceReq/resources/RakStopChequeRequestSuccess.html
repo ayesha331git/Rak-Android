@@ -1,0 +1,88 @@
+
+<!-- partial code start here-->
+<div class="finacle-container ng-scope"
+			ng-init="rakServiceReq.successstopChequeReq(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+		
+			<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.stopChequeReq.stopChequeReqSuccessMessage}}</span>
+				</div>
+			</div>
+			<div class="main-form-heading-ServiceReq">
+				<h2 class="rakBenfHeader">
+					{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.STOP_CHQ_REQ}}<span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>
+				</h2>
+			</div>
+		
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+				<div class="row">
+					<div class="">
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_STOP_CHQ_REQ.OPR_ACC_NUM}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.stopChequeReq.oprAccountDesc}}</span>
+						</p>
+						
+						<p class="rak-sum-txt" >
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_STOP_CHQ_REQ.CHQ_BOOK_NUM}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.stopChequeReq.selChqBk}}</span>
+						</p>
+						
+						
+			
+				<div class="scq-rakColumnDivDarkBackTop">
+					
+						<span class="pullLeft">&nbsp;</span>
+						<span class="scq-rakColumnLabelDark">&nbsp;{{appLiterals.APP.RAK_SERVICES.RAK_STOP_CHQ_REQ.CHQ_NUM_TO_STOP}}</span>
+						
+						<span class="scq-rakColumnLabelDark">&nbsp;{{appLiterals.APP.RAK_SERVICES.RAK_STOP_CHQ_REQ.STATUS}}</span>
+						
+						<!-- <span class="emi-rakColumnLabelDark">Issue Date</span> -->
+					
+				</div>
+						
+							
+				<div class="emi-rak-scroll" >	
+					
+						<div class="rakColumnDiv" >
+							
+								<div ng-repeat="x in rakServiceReq.stopChequeReq.testArrayShow">
+									
+									<span class="pullLeft">&nbsp;</span>
+									
+									<span class="scq-rakColumnLabel">&nbsp;{{x.chqNumShow}}</span>
+									
+									<span class="scq-rakColumnLabel">&nbsp;{{x.StatusShow}}</span>
+									
+								</div>
+								
+							</div>
+						
+						
+						
+						
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small rak-button-right"
+								ng-click="setEvent('onstopChequeReqDoneClick')">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+								<!-- ng-click="rakServiceReq.temporaryReleaseLetter.resetTemporaryReleaseLetter();setEvent('onTempReleaseLetterSuccessfulDoneClick')" -->
+						</div>
+						
+					<div class="fin-txt"></div>
+					<div class="fin-txt"></div>
+					<div class="fin-txt"></div>
+					<div class="fin-txt"></div>
+					</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+<!-- partial code end here-->

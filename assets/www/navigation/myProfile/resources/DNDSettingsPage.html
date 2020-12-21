@@ -1,0 +1,114 @@
+<div id="dndSettingsPage" class="app app-arrow2 title-right"
+	ng-click="setEvent('onCancelClick')"></div>
+<div class="finacle-container"
+	ng-init="myProfile.initDNDSettings(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper"></div>
+
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div id="dndTitle" class="item-title text-uppercase">{{appLiterals.APP.MYPROFILE.DND_SETTINGS.TITLE}}</div>
+					</div>
+
+					<div id="header" class="col-sm-12 fut-txt1 margin-bottom-15">{{appLiterals.APP.MYPROFILE.DND_SETTINGS.DND_HEADER}}</div>
+
+					<form
+						ng-submit="myProfile.dndSettings.isInputModified ? setEvent('onDNDConfirmClick'):showErrorPopup(appLiterals.APP.MYPROFILE.DND_SETTINGS.DND_INPUT_NOT_MODIFIED)">
+						<div class="col-sm-12">
+							<div class="trans-detail">
+								<div class="trans-dash-left">
+									<div id="status" class="trans-no">{{appLiterals.APP.MYPROFILE.DND_SETTINGS.STATUS}}</div>
+								</div>
+								<div class="trans-dash-right">
+									<md-switch id="switchToggle"
+										class="margin-top-zero margin-bottom-zero md-default-theme"
+										ng-model="myProfile.dndSettings.dndEnabled"
+										ng-true-value="'Y'" ng-false-value="'N'"
+										ng-change="myProfile.dndSettings.toggleClick();myProfile.dndSettings.inputModified(successResponse.responsesList);">
+									</md-switch>
+								</div>
+							</div>
+
+							<div class="margin-top-20"
+								ng-if="myProfile.dndSettings.dndEnabled == 'Y'"
+								ng-init='timeDropdownArr = createDropDownOptionArray(myProfile.dndSettings.timeDropdown, ["content"], "value");'>
+
+								<fin-input type="dropdown" option-array="timeDropdownArr"
+									placeholder="{{appLiterals.APP.MYPROFILE.DND_SETTINGS.FROM_TIME}}"
+									model="myProfile.dndSettings.dndFromTime" display-row="half2"
+									on-change="myProfile.dndSettings.inputModified(successResponse.responsesList);">
+								</fin-input>
+
+								<fin-input type="dropdown" option-array="timeDropdownArr"
+									placeholder="{{appLiterals.APP.MYPROFILE.DND_SETTINGS.TO_TIME}}"
+									model="myProfile.dndSettings.dndToTime" display-row="half2"
+									on-change="myProfile.dndSettings.inputModified(successResponse.responsesList);">
+								</fin-input>
+							</div>
+
+
+							<div class="margin-top-20"
+								ng-if="myProfile.dndSettings.dndEnabled == 'N'"
+								ng-init='timeDropdownArr = createDropDownOptionArray(myProfile.dndSettings.timeDropdown, ["content"], "value");'>
+
+								<fin-input type="dropdown" option-array="timeDropdownArr"
+									placeholder="{{appLiterals.APP.MYPROFILE.DND_SETTINGS.FROM_TIME}}"
+									model="myProfile.dndSettings.dndFromTime" display-row="half1"
+									on-change="myProfile.dndSettings.inputModified(successResponse.responsesList);"
+									readonly> </fin-input>
+
+
+								<fin-input type="dropdown" option-array="timeDropdownArr"
+									placeholder="{{appLiterals.APP.MYPROFILE.DND_SETTINGS.TO_TIME}}"
+									model="myProfile.dndSettings.dndToTime" display-row="half1"
+									on-change="myProfile.dndSettings.inputModified(successResponse.responsesList);"
+									readonly> </fin-input>
+							</div>
+
+						</div>
+
+						<!-- 		<div class="col-xs-6 reg_toggle_wrap">
+								<div class="toggle_container">
+									<p ng-if="myProfile.dndSettings.dndEnabled == 'Y'"
+										class="toggle_txt toggle_color">{{appLiterals.APP.MYPROFILE.DND_SETTINGS.DND_ON}}</p>
+									<p ng-if="myProfile.dndSettings.dndEnabled == 'N'"
+										class="toggle_txt">{{appLiterals.APP.MYPROFILE.DND_SETTINGS.DND_ON}}</p>
+								</div>
+
+								<div class="reg-toggle-button-margin toggle_container">
+									<div class="toggle_btn_wrap"
+										ng-click="myProfile.dndSettings.toggleClick();myProfile.dndSettings.inputModified(successResponse.responsesList);">
+										<div class="toggle_btn_con"
+											ng-if="myProfile.dndSettings.dndEnabled == 'Y'"></div>
+										<div class="toggle_btn_con_red"
+											ng-if="myProfile.dndSettings.dndEnabled == 'N'"></div>
+										<div class="toggle_btn">
+											<span class="caret"></span>
+										</div>
+									</div>
+								</div>
+
+								<div class="toggle_container">
+									<p ng-if="myProfile.dndSettings.dndEnabled == 'Y'"
+										class=" txt_right">{{appLiterals.APP.MYPROFILE.DND_SETTINGS.DND_OFF}}</p>
+									<p ng-if="myProfile.dndSettings.dndEnabled == 'N'"
+										class=" txt_right toggle_color_red">{{appLiterals.APP.MYPROFILE.DND_SETTINGS.DND_OFF}}</p>
+								</div>
+							</div> -->
+
+						<section class="button-wrapper" layout="row"
+							layout-align="center center" layout-wrap>
+							<md-button id="dndConfirm" type="submit"
+								class=" md-raised btn--primary-btn">
+							{{appLiterals.APP.MYPROFILE.DND_SETTINGS.SUBMIT_BUTTON}}</md-button>
+						</section>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

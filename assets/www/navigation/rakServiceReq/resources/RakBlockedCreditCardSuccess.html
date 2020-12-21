@@ -1,0 +1,60 @@
+<div class="finacle-container" >
+  <div class="account-page">
+    <div class="col-sm-11">
+			
+
+
+
+<div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{successResponse.responsesList[0].successMessage}}</span>
+                        </div>
+                  </div>
+            <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.TEMP_BLOCKED_CREDITCARD}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>                 
+                              </h2>              
+</div>
+                  
+
+      
+      <div class="bg-color rak-cont-padding rak-scroll-success">
+        <div class="row" >
+
+
+
+
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_TEMP_BLK_CREDITCARD.CREDITCARD}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.BlockedCreditCardData.creditCardNumber}}</span>
+			</p>
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_TEMP_BLK_CREDITCARD.EXPIRE_DATE}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.BlockedCreditCardData.expDate}}</span>
+			</p>
+
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_TEMP_BLK_CREDITCARD.REASON}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.BlockedCreditCardData.reasonName}}</span>
+			</p>
+
+			<p ng-show="rakServiceReq.BlockedCreditCardData.reasonName=='Others'" class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_TEMP_BLK_CREDITCARD.OTHER}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.BlockedCreditCardData.other}}</span>
+			</p>
+
+
+
+
+			   <div class="label-wrap">
+			 <!--  <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakServiceReq.BlockedCreditCardData.transactionPassword = '';setEvent('onTempBlockedBackClick')"> {{appLiterals.APP.RAK_SERVICES.ADVANCE_SALARY.BACK}} </button> -->
+			  <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakServiceReq.BlockedCreditCardData.clearBlockedCreditCard();setEvent('onTempBlockedCreditSuccessClick');">{{appLiterals.APP.RAKCOMMONLITERALS.DONE}}</button>
+		  </div>
+          <div class="col-sm-1"> </div>
+
+      </div>
+    </div>
+    </div>
+
+</div>
+</div>

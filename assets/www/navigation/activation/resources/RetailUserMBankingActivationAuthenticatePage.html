@@ -1,0 +1,37 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+    	<img class="banner" width=64px height=64px>
+        <p class="navbar-text">{{appLiterals.APP.ACTIVATION.AUTH_PAGE.HEADER}}</p>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="centering text-center">
+            <h2>{{appLiterals.APP.ACTIVATION.AUTH_PAGE.AUTH}}</h2><br>
+            <h4>{{appLiterals.APP.ACTIVATION.AUTH_PAGE.SEC_QN}}</h4>
+            <p>{{appLiterals.APP.ACTIVATION.AUTH_PAGE.SENT_AUTH}}</p>
+            <div class="form-group">
+			    <input type="text" class="form-control" id="dob" placeholder="{{appLiterals.APP.ACTIVATION.AUTH_PAGE.PH_DOB}}">
+			    <input type="text" class="form-control" id="passportno" placeholder="{{appLiterals.APP.ACTIVATION.AUTH_PAGE.PH_PASSNO}}">
+			    <input type="text" class="form-control" id="panno" placeholder="{{appLiterals.APP.ACTIVATION.AUTH_PAGE.PH_PANO}}">
+			  </div>
+			  <div class="form-group">
+			  <h4>{{appLiterals.APP.ACTIVATION.AUTH_PAGE.OTP}}</h4>
+			    <div class="input-group">
+				      <input type="text" class="form-control" id="otp" placeholder="{{appLiterals.APP.ACTIVATION.AUTH_PAGE.OTP}}">
+				      <span class="input-group-btn">
+				        <button class="btn btn-default" type="button">{{appLiterals.APP.ACTIVATION.AUTH_PAGE.SND_OTP}}</button>
+				      </span>
+				    </div>
+			  </div>
+              <div class="form-group">
+                    <button ng-click="setEvent('onActivationAuthenticateClicked')" type="button" class="btn btn-success">{{appLiterals.APP.ACTIVATION.AUTH_PAGE.AUTH}}</button>
+              </div>
+        </div>
+    </div>
+</div>
+<footer class="navbar-default navbar-fixed-bottom">
+<ul class="pager">
+<li class="previous"><a href="#"><span aria-hidden="true">&larr;</span>{{appLiterals.APP.ACTIVATION.AUTH_PAGE.TXT_BACK}}</a></li>
+</ul>
+</footer>

@@ -1,0 +1,213 @@
+<div ng-if="rakPendingApproval.fromSearch==true">
+<div class="rak-back-header" ng-if="rakPendingApproval.isFromLandingPage==true">
+	<i class="rak-back-img" ng-click="rakPendingApproval.isBack=true; setEvent('gotoLandingPageClickBack');"></i>
+</div>
+<div class="rak-back-header" ng-if="rakPendingApproval.isFromLandingPage==false">
+	<i class="rak-back-img" ng-click="rakPendingApproval.isBack=true; setEvent('onPrevClick');"></i>
+</div>
+</div>
+
+<div ng-if="rakPendingApproval.fromSearch==false">
+<div class="rak-back-header" ng-if="rakPendingApproval.isFromLandingPage==true">
+	<i class="rak-back-img" ng-click="rakPendingApproval.isBack=true; setGlobalEvent('onPendingApprovalClick');"></i>
+</div>
+<div class="rak-back-header" ng-if="rakPendingApproval.isFromLandingPage==false">
+	<i class="rak-back-img" ng-click="rakPendingApproval.isBack=true; setEvent('onPrevClick');"></i>
+</div>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container ng-scope"
+			ng-init='resetPageError(); rakHome.AuthPageData.firstAuthModeValue=""; 
+	rakPendingApproval.responsePendingApprovalSwipeRejectDetails(successResponse.responsesList);'>
+		<div class="account-page">
+			<div class="col-sm-11">
+										
+				<div class="main-form-heading-ServiceReq">
+	                <h2 class="rakBenfHeader">{{appLiterals.APP.RAKCOMMONLITERALS.REJECT_TXN}}
+	                 <span >{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}}</span>
+	                
+	                </h2>
+	            </div>
+					<div class="bg-color rak-cont-padding rak-scroll">
+						<div class="row">
+						
+					
+						<p class="rak-sum-txt ">
+								<span id="moveMoneyTAPToField1" class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.MULTIPLE_BILL_PAY.LB_TXN_TYPE}}</span>
+								<span id="moveMoneyTAPToFieldValue" class="rak-sum-label black">{{rakPendingApproval.detailModel.txnDesc}}</span>
+							</p>
+							
+						<p class="rak-sum-txt ">
+							<span id="moveMoneyTAPToField1" class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.REQUEST_TYPE}}</span>
+							<span id="moveMoneyTAPToFieldValue" class="rak-sum-label black">{{rakPendingApproval.approvalReasonDesc}}</span>
+						</p>
+							
+						<p class="rak-sum-txt ">
+								<span id="moveMoneyTAPToField1" class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.MULTIPLE_BILL_PAY.LB_REFERENCE_ID}}</span>
+								<span id="moveMoneyTAPToFieldValue" class="rak-sum-label black">{{rakPendingApproval.detailModel.requestId}}</span>
+							</p>
+							
+							<p class="rak-sum-txt ">
+								<span id="moveMoneyTAPToField1" class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.MULTIPLE_BILL_PAY.LB_PAY_TO}}</span>
+								<span id="moveMoneyTAPToFieldValue" class="rak-sum-label black">{{appLiterals.APP.RAKPENDINGAPPROVAL.DETAILS.MULTIPLE_PAYEE}}</span>
+							</p>
+
+							<p class="rak-sum-txt">
+								<span id="moveMoneyTAPToField1" class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.MULTIPLE_BILL_PAY.LB_FROM}}</span>
+								<span id="moveMoneyTAPToFieldValue" class="rak-sum-label black">{{rakPendingApproval.detailModel.displayAccount}}</span>
+							</p>
+						
+
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.MULTIPLE_BILL_PAY.LB_AMOUNT}}</span>
+								<span class="rak-sum-label black">{{rakPendingApproval.detailModel.totalAmount}}</span>
+							</p>
+
+							
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.MULTIPLE_BILL_PAY.LB_WHEN}}</span>
+								<span class="rak-sum-label black">{{rakPendingApproval.detailModel.txnDate}}</span>
+							</p>
+
+
+
+							<p class="rak-sum-txt" ng-show="rakPendingApproval.detailModel.freqType=='O'">
+								<span class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.MULTIPLE_BILL_PAY.LB_FREQ_TYPE}}</span>
+								<span class="rak-sum-label black">{{appLiterals.APP.RAK_PAYEE.HISTORY.ONCE}}</span>
+							</p>
+							
+							<p class="rak-sum-txt" ng-show="rakPendingApproval.detailModel.freqType!='O'">
+								<span class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.MULTIPLE_BILL_PAY.LB_FREQ_TYPE}}</span>
+								<span class="rak-sum-label black">{{appLiterals.APP.RAK_PAYEE.HISTORY.REC}}</span>
+							</p>
+							
+								<p class="rak-sum-txt"
+								ng-show="rakPendingApproval.detailModel.freqType!='O'">
+								<span class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.MULTIPLE_BILL_PAY.LB_FREQ}}
+								</span> <span class="rak-sum-label black">{{rakPendingApproval.detailModel.recFreq}}</span>
+							</p>
+							<p class="rak-sum-txt"
+								ng-show="rakPendingApproval.detailModel.freqType!='O'">
+								<span class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.MULTIPLE_BILL_PAY.LB_INSTALLMENTS}}
+								</span> <span class="rak-sum-label black">{{rakPendingApproval.detailModel.installments}}</span>
+							</p>
+
+
+
+					
+
+
+
+
+
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.MULTIPLE_BILL_PAY.LB_TXN_STATUS}}</span>
+								<span class="rak-sum-label black">{{rakPendingApproval.detailModel.txn_status}}</span>
+							</p>
+
+
+							<p class="rak-sum-txt ">
+								<span id="moveMoneyTAPAmountField" class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.MULTIPLE_BILL_PAY.LB_CHANNEL_ID}}</span>
+								<span id="moveMoneyTAPToFieldValue" class="rak-sum-label black">{{rakPendingApproval.detailModel.channelId}}</span>
+							</p>
+							
+							
+								<div ng-init='rakBillerFlag=false;' class="col-sm-11">
+		  	<span class="rakCardIcoSuppli"  ng-class="{'rakCardIcoSuppliExpnd':rakBillerFlag}"  ng-click="rakBillerFlag=!rakBillerFlag" >{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.VIEW_BILLERS}}</span>
+		  </div>
+		  
+		 <div ng-show='rakBillerFlag'>
+			
+				<h2>
+								<span>{{appLiterals.APP.RAKPENDINGAPPROVAL.MULTIPLE_BILL_PAY.LB_BILLER_ADDED}}</span>
+							</h2>
+
+
+
+							<div>
+
+								<div class="money-block rakBottomZero">
+									<ul>
+									
+											<li class="active rakwidth33.3 ng-binding">{{appLiterals.APP.RAKPENDINGAPPROVAL.MULTIPLE_BILL_PAY.LB_PAYEE}}</li>
+										<li class="active rakwidth33.3 ng-binding">{{appLiterals.APP.RAKPENDINGAPPROVAL.MULTIPLE_BILL_PAY.LB_CONSUMER_NO}}</li>
+										<li class="active rakwidth33.3 ng-binding">{{appLiterals.APP.RAKPENDINGAPPROVAL.MULTIPLE_BILL_PAY.LB_PAY}}</li>
+										<!-- <li class="active rak25 ng-binding">{{appLiterals.APP.RAK_PAYEE.HISTORY.PAY}}</li> -->
+
+									</ul>
+								</div>
+
+
+								<div class="nano scrollheightAuto">
+									<div class="">
+
+										<div class="trans-detail rakGreyRow"
+											ng-repeat="transfers in rakPendingApproval.mutipleList">
+
+
+
+
+											
+
+
+											<div
+												class="trans-dash-left rakPeopleNameRow1 rakwidth33 pull-left rakPaddingPoint8em">
+												<div>
+													<div class="trans-no rakFont1em">
+														{{transfers.billerName}}</div>
+												</div>
+
+											</div>
+
+						<div
+												class="trans-dash-right rakPeopleNameRow1 rakwidth33  rakPaddingPoint8em pull-left">
+												<div>
+													<div class="trans-no rakFont1em">
+														{{transfers.consumerNo}}</div>
+												</div>
+
+											</div>
+
+											<div
+												class="trans-dash-right rakPeopleNameRow1 rakwidth33 pull-left rakPaddingPoint8em">
+												<div>
+													<div class="trans-no rakFont1em">
+														{{transfers.totalAmount}}</div>
+												</div>
+
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+							<div></div></div>
+					
+					
+								
+								<div class="avail-bal-wrap">
+									<fin-input type="text" model="rakPendingApproval.reason"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAKPENDINGAPPROVAL.REJECT_AUTH.PH_REASON}} "
+										max-length="255"
+										validation-flag='pageErrorArr["rakPendingApproval.reason"]'></fin-input>
+		
+								</div>
+
+								<fin-dynamicauth></fin-dynamicauth>
+		
+								<div class="label-wrap" layout-align="center center" class="btn-wrap button-wrapper">
+									<button type="button"
+										id="moveMoneyRAPSubmitButton"
+										class="btn--special-btn btn-middle rak-button-small"
+										ng-click="setEvent('onConfirmClick');">
+										{{appLiterals.APP.COMMON.BUTTON.CONFIRM}}</button>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

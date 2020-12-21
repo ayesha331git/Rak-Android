@@ -1,0 +1,225 @@
+{
+ 
+    "Activation": {
+        "subFeatures": [
+            {
+                "name": "RetailUserMBankingActivation",
+                "workflowTemplateFile": "navigation/activation/templates/RetailUserMBankingActivationWorkflow.json"
+            }
+        ]
+    },
+     "AppActivation": {
+        "subFeatures": [
+            {
+                "name": "AppActivation",
+                "workflowTemplateFile": "navigation/appActivation/templates/AppActivationWorkflow.json"
+            }
+        ]
+    },
+    "Dashboard": {
+        "subFeatures": [
+            {
+                "name": "RetailUserLogin",
+                "workflowTemplateFile": "navigation/dashboard/templates/RetailUserLoginWorkflow.json"
+            }
+        ]
+    },
+    "FinacleCommonFeatures": {
+        "subFeatures": [
+            {
+                "name": "FinacleCommon",
+                "workflowTemplateFile": "navigation/common/templates/FinacleCommonWorkflow.json"
+            }
+        ]
+    },
+ 
+   
+    "MyProfile": {
+        "subFeatures": [
+            {
+                "name": "MyProfile",
+                "workflowTemplateFile": "navigation/myProfile/templates/MyProfileWorkflow.json"
+            }
+        ]
+    },
+    "AppVersion": {
+        "subFeatures": [
+            {
+                "name": "AppVersion",
+                "workflowTemplateFile": "navigation/appVersion/templates/AppVersionWorkflow.json"
+            }
+        ]
+    },
+   
+
+    "StepupAuthenticate": {
+        "subFeatures": [
+            {
+                "name": "StepupAuth",
+                "workflowTemplateFile": "navigation/StepupAuthenticate/templates/StepupAuthenticateWorkflow.json"
+            }
+        ]
+    },
+    
+    
+     "rakAccounts": {
+        "subFeatures": [
+            {
+                "name": "rakAccounts",
+                "workflowTemplateFile": "navigation/rakAccounts/templates/RAKRetailUserLoginWorkflow.json"
+            }
+        ]
+    },
+     "rakSendMoney": {
+        "subFeatures": [
+            {
+                "name": "rakSendMoney",
+                  "workflowTemplateFile":"navigation/rakSendMoney/templates/RakSendMoneyWorkflow.json"
+            }
+        ]
+    },
+	"rakServiceReq": {
+        "subFeatures": [
+            {
+                "name": "rakServiceReq",
+    			"workflowTemplateFile": "navigation/rakServiceReq/templates/RakServiceReqWorkflow.json"
+            }
+        ]
+    },
+    
+    "rak2FARegister": {
+        "subFeatures": [
+                        {
+                        "name": "rak2FARegister",
+                        "workflowTemplateFile": "navigation/rak2FARegister/templates/Rak2FARegisterWorkflow.json"
+                        }
+                        ]
+    },
+    
+    "rakFundTfr": {
+        "subFeatures": [
+            {
+                "name": "rakFundTfr",
+    			"workflowTemplateFile": "navigation/rakFundTfr/templates/RakFundTfrWorkflow.json"
+            }
+        ]
+    },
+    
+    
+
+"rakPayee": {
+        "subFeatures": [
+            {
+                "name": "rakPayee",
+                "workflowTemplateFile": "navigation/rakPayee/templates/RAKPayeeManagementWorkflow.json"
+            }
+        ]
+    },
+	"rakContactUs": {
+        "subFeatures": [
+            {
+                "name": "rakContactUs",
+                "workflowTemplateFile": "navigation/rakContactUs/templates/RAKContactUsWorkflow.json"
+            }
+        ]
+    },
+    "rakMyProfile": {
+        "subFeatures": [
+            {
+                "name": "rakMyProfile",
+                "workflowTemplateFile": "navigation/rakMyProfile/templates/RakMyProfileWorkflow.json"
+            }
+        ]
+    },
+	
+	 "rakMails": {
+        "subFeatures": [
+            {
+                "name": "rakMails",
+                "workflowTemplateFile": "navigation/rakMails/templates/RakMailsWorkflow.json"
+            }
+        ]
+    },
+	"rakCommon": {
+        "subFeatures": [
+            {
+                "name": "rakCommon",
+    			"workflowTemplateFile": "navigation/rakCommon/templates/RakFinacleCommonWorkflow.json"
+            }
+        ]
+    },
+	"rakRegister": {
+        "subFeatures": [
+            {
+                "name": "rakRegister",
+    			"workflowTemplateFile": "navigation/rakRegister/templates/RakRegisterWorkflow.json"
+            }
+        ]
+	},
+	
+	"rakPayCards": {
+        "subFeatures": [
+            {
+                "name": "rakPayCards",
+    			"workflowTemplateFile": "navigation/rakPayCards/templates/RakPayCardsWorkflow.json"
+            }
+        ]
+	},
+	
+	     "rakDashboard": {
+        "subFeatures": [
+            {
+                "name": "rakDashboard",
+                "workflowTemplateFile": "navigation/rakDashboard/templates/RAKIslamicUserLoginWorkflow.json"
+            }
+        ]
+    },
+    "rakPostLoginIntermidiateScreen": {
+        "subFeatures": [
+            {
+                "name": "rakPostLoginIntermidiateScreen",
+                "workflowTemplateFile": "navigation/rakPostLoginIntermidiateScreen/templates/rakPostLoginIntermidiateScreenWorkflow.json"
+            }
+        ]
+    },
+    "rakDemo": {
+        "subFeatures": [
+            {
+                "name": "rakDemo",
+                "workflowTemplateFile": "navigation/rakDemo/templates/rakDemoWorkflow.json"
+            }
+        ]
+    },
+	"rakTradeFinance": {
+        "subFeatures": [
+            {
+                "name": "rakTradeFinance",
+                "workflowTemplateFile": "navigation/rakTradeFinance/templates/RakTradeFinanceWorkflow.json"
+            }
+        ]
+    },
+	"rakPendingApproval": {
+        "subFeatures": [
+            {
+                "name": "rakPendingApproval",
+                "workflowTemplateFile": "navigation/rakPendingApproval/templates/RakPendingApprovalWorkflow.json"
+            }
+        ]
+    },
+    	"rakELMSApproval": {
+        "subFeatures": [
+            {
+                "name": "rakELMSApproval",
+                "workflowTemplateFile": "navigation/rakELMSApproval/templates/RakELMSApprovalWorkflow.json"
+            }
+        ]
+    },
+   "rakEDirham": {
+        "subFeatures": [
+            {
+                "name": "rakEDirham",
+                "workflowTemplateFile": "navigation/rakEDirham/templates/RakEDirhamWorkflow.json"
+            }
+        ]
+    }
+}

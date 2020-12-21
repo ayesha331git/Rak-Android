@@ -1,0 +1,180 @@
+<div class="finacle-container"
+	ng-init="resetPageError();rakCorpInit.corpModel.resetCorpInitDetails();rakPayee.payBill.initSearchPage(successResponse.responsesList);">
+	<div class="account-page">
+
+		<div class="col-sm-11">
+			<div class="app-title-wrapper">
+
+				<div class="form-block">
+					<ng-include
+						src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'">
+					</ng-include>
+
+					<div class="tab-links">
+						<ul>
+							<li
+								ng-click="rakPayee.clearTab();rakPayee.billHistoryTab=true;rakPayee.payBill.clearSearchHistory();rakPayee.payBill.clearPayBillData();rakPayee.common.clearBalance();rakPayee.payBill.setInitialDate();setGlobalEvent('onRakPayeeBillHistoryTabClick')"><span>{{appLiterals.APP.RAK_PAYEE.HISTORY.PMTHISTORY}}</span></li>
+							<li class="active"><span class="active">{{appLiterals.APP.RAK_PAYEE.HISTORY.SCHPMT}}</span></li>
+						</ul>
+					</div>
+
+					<div class="bg-color rak-cont-padding">
+						
+						
+						<div class="summary-BenfReq main-form-heading-ServiceReq" ng-if="rakPayee.schedule.stopBtnClicked==true">
+							<div class="iconDivBenf">
+								<span class="infoIconBenf"></span><span class="success">{{rakPayee.schedule.successMessage}}</span>
+							</div>
+						</div>
+
+						<div class="row">
+
+
+							<div class="rakTxnSearch" ng-init='rakPayee.payBill.scheduleList.length == 0 ? rakTxnSearch=true : rakTxnSearch=false;'>
+								<div class="rakTxnSearch1 rakTxnSearchIcon" ng-class="{'rakTxnSearchIconExpnd':rakTxnSearch}"
+									ng-click="rakTxnSearch=!rakTxnSearch">
+									<h3 class="rakTxnSearch2">{{appLiterals.APP.RAK_COMMON.SEARCH}}</h3>
+								</div>
+
+								<div class="rakTxnSearch3" ng-show="rakTxnSearch">
+									<div
+										ng-init='billerTypeArray=createDropDownOptionArray(rakPayee.payBill.billerTypeList, ["billerName"],"billerType")'>
+										<fin-input type="dropdown" option-array="billerTypeArray"
+											model="rakPayee.payBill.selectedBillerType" display-row="full"
+											placeholder="{{appLiterals.APP.RAK_PAYEE.HISTORY.BILLER}}"
+											validation-flag='pageErrorArr["rakPayee.payBill.selectedBillerType"]'>
+										</fin-input>
+									</div>
+
+									<div
+										ng-init='fromArr = createDropDownOptionArray(rakPayee.payBill.searchFromList, ["subAccountTypeDesc","-","accountNumber", "-", "currencyCode"], "accountIndex")'>
+										<fin-input type="dropdown" model="rakPayee.payBill.fromAccount"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAK_PAYEE.HISTORY.FROM_ACCOUNT}}"
+											validation-flag='pageErrorArr["rakPayee.payBill.fromAccount"]'
+											option-array="fromArr"></fin-input>
+									</div>
+
+
+										<fin-input type="date" model="rakPayee.payBill.searchFromDate"
+											display-row="half1" value="futureDatesOnly"
+											placeholder="{{appLiterals.APP.RAK_PAYEE.HISTORY.FROM_DATE}}"
+											validation-flag='pageErrorArr["rakPayee.payBill.searchFromDate"]'></fin-input>
+
+										<fin-input type="date" model="rakPayee.payBill.searchToDate"
+											display-row="half2" value="futureDatesOnly"
+											placeholder="{{appLiterals.APP.RAK_PAYEE.HISTORY.TO_DATE}}"
+											validation-flag='pageErrorArr["rakPayee.payBill.searchToDate"]'></fin-input>
+
+										<div class="">
+												<span class="fieldLabelLeft" >{{appLiterals.APP.RAK_PAYEE.HISTORY.FROM_DATE}}</span>
+												<span class="fieldLabelRight rak42" >{{appLiterals.APP.RAK_PAYEE.HISTORY.TO_DATE}}</span>
+											</div>
+
+									<button type="button" class="btn--special-btn btn-middle rak-button-full-black"
+									ng-click="rakPayee.schedule.stopBtnClicked=false;rakPayee.payBill.fromSearchResult=true;rakPayee.payBill.setFromToDate();setEvent('onScheduleSearchClick')">{{appLiterals.APP.RAK_COMMON.GO}}
+									</button>
+
+								</div>
+							</div>
+
+							<div ng-show="rakPayee.payBill.scheduleList.length == 0 ">
+								<div class="summary-ServiceReq">
+									<div class="iconDivNorecord">
+										<span class="infoIcon"></span><span class="success">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.NO_TXNS}}</span>
+									</div>
+								</div>
+							</div>
+
+
+							<div ng-show="rakPayee.payBill.scheduleList.length > 0">
+
+								<div class="money-block rakBottomZero">
+									<ul>
+										<li class="active rak30 rakPaddingPoint8em">
+											{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.DATE}}</li>
+										<li class="active rak30 ">
+											{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.PAYEE}}</li>
+										<li class="active rak30 ">
+											{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.AMOUNT}}</li>
+										<li class="active rak10 ">&nbsp;</li>
+									</ul>
+								</div>
+
+
+								<div class="nano rakHalfScrollDiv rak-cont-paddingvh">
+									<div class="">
+
+
+										<div class="trans-detail rakGreyRow"
+											ng-repeat="transfers in rakPayee.payBill.scheduleList">
+											<div
+												class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em">
+												<div>
+													<div class="trans-no rakTextCenter rakFont1em">
+														{{transfers.txnDate}}</div>
+												</div>
+
+											</div>
+
+											<div
+												class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em">
+												<div>
+													<div class="trans-no rakTextCenter rakFont1em">
+														{{transfers.toAccount}}</div>
+												</div>
+											</div>
+
+
+											<div
+												class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em">
+												<div>
+													<div class="trans-no rakTextCenter rakFont1em">
+														{{transfers.txnCurrency}} {{transfers.txnAmount}}</div>
+												</div>
+
+											</div>
+
+											<div class="pull-right" style="width: 8%">
+                                                <div class="rakRelative">
+												<span class="rakPullDown"
+													ng-click="rakHome.handlePullDown($event);"></span>
+												<ul
+													class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+													<li><a href=""
+														ng-click="rakPayee.schedule.schTxnListSubmitBtn='VIEW';rakPayee.schedule.selectedTxn = transfers;rakPayee.schedule.selectedTxnIndex = transfers.index;setEvent('onSchTxnSelectClick')">
+															{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW}}</a></li>
+
+											    <li><a href="" ng-click="rakPayee.payBill.chargesFlagBoolean=false;rakPayee.schedule.schTxnListSubmitBtn='MODIFY';rakPendingApproval.pendingApprovalTab='';rakPayee.schedule.selectedTxn = transfers;rakPayee.schedule.selectedTxnIndex = transfers.index;rakPayee.schedule.selectedPayee = transfers.toAccount;rakPayee.schedule.selectedID=transfers.destAccountID; setEvent('onRakPayeeEditClick')">
+															{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.MODIFY}}</a></li>
+													<li><a href="" ng-show="transfers.txnFrequency!='O'"
+														ng-click="rakPayee.schedule.schTxnListSubmitBtn='STOP';rakPayee.schedule.selectedTxn = transfers;rakPayee.schedule.selectedTxnIndex = transfers.index;rakPayee.schedule.selectedTxn = transfers;rakCorpInit.corpModel.eventName='PAYEESTOP';rakCorpInit.corpModel.backFlag='N';setEvent('onSchTxnSelectClick')">
+															{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.STOP}}</a></li>
+													<li><a href="" ng-show="transfers.txnFrequency=='O'"
+														ng-click="rakPayee.schedule.schTxnListSubmitBtn='STOP';rakPayee.schedule.freqType='O';rakPayee.schedule.selectedTxnIndex = transfers.index;rakPayee.schedule.selectedTxn = transfers;rakPayee.schedule.stopBtnClicked=false;rakCorpInit.corpModel.eventName='PAYEESTOP';rakCorpInit.corpModel.backFlag='N';setEvent('onSchTxnListStopBtnClick')">
+															{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.STOP}}</a></li>
+
+												</ul>
+                                                </div>
+											</div>
+
+
+										</div>
+									</div>
+
+								</div>
+
+
+							</div>
+
+						</div>
+
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

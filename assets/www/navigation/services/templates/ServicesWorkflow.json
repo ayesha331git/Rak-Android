@@ -1,0 +1,3385 @@
+{
+    "pageNavigation": [
+        {
+            "ServicesLandingPage": [
+            	{
+                    "eventName": "onHotlistClick",
+                    "action": "HotlistDebitCardInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "HotlistDebitCard"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onNewAcClick",
+                    "action": "OpenOperativeAccountService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewOperativeAccount"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onNewDepositClick",
+                    "action": "OpenDepositAccountService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewFixedDepositAccount"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onBlockCreditCardClick",
+                    "action": "BlockCreditCardInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "BlockCreditCard"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onChangeCCClick",
+                    "action": "ChangeCreditCardLimitInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ChangeCCLimitPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onCarLoanApplyClick",
+                    "action": "CarLoanApplyService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ApplyCarLoan"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onNewCreditCardClick",
+                    "action": "ApplyNewCreditCardService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ApplyNewCreditCard"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ApplyNewCreditCard"
+                    }
+                },
+                {
+                    "eventName": "onRenewDBClick",
+                    "action": "RenewFixedDepositInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "RenewFixedDeposit"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onAccountStatementClick",
+                    "action": "AccountStatementRequestInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "AccountStatementRequest"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onBreakDBClick",
+                    "action": "BreakFixedDepositInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "BreakFixedDepositInit"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onDelinkClick",
+                    "action": "DelinkCreditCardService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "DelinkCreditCard"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onLinkClick",
+                    "action": "LinkCreditCardService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "LinkCreditCard"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onApplyNewDCClick",
+                    "action": "ApplyNewDebitCardService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ApplyNewDCPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ApplyNewDCPage"
+                    }
+                },
+                {
+                    "eventName": "onChangeDCClick",
+                    "action": "ChangeDCLimitGetAccount",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ChangeDebitLimitPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ChangeDebitLimitPage"
+                    }
+                },
+                {
+                    "eventName": "onActiveDebitCardClick",
+                   	"action": "ActivateDebitCardInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ActivateDebitCardPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onDebitCardPINChangeClick",
+                   	"action": "ChangeDebitCardPinInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ChangeDebitCardPinPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                 {
+                    "eventName": "onRequestDebitCardPINClick",
+                   	"action": "RequestDebitCardPINInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "RequestDebitCardPINPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                 {
+                    "eventName": "onCancelDebitCardAndApplyNewCardClick",
+                   	"action": "CancelAndApplyNewDebitCardInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "CancelAndApplyDebitCard"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onServiceRequestStatusClick",
+                    "action": "ServiceRequestStatusInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "TXN_DATE_FROM_day":"services.serviceRequestStatusModel.emptyValue",
+								"TXN_DATE_FROM_month":"services.serviceRequestStatusModel.emptyValue",
+								"TXN_DATE_FROM_year":"services.serviceRequestStatusModel.emptyValue",
+								"TXN_DATE_TO_day":"services.serviceRequestStatusModel.emptyValue",
+								"TXN_DATE_TO_month":"services.serviceRequestStatusModel.emptyValue",
+								"TXN_DATE_TO_year":"services.serviceRequestStatusModel.emptyValue",
+								"RequestStatus":"services.serviceRequestStatusModel.requestType",
+								"ReferenceId":"services.serviceRequestStatusModel.emptyValue"
+		                   },
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ServicesRequestStatus"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onReqCCPinClick",
+                    "action": "RequestCreditCardPinInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "RequestCreditCardPinPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                }
+            ],
+            "OpenNewOperativeAccount": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewOperativeAccount"
+                    }
+                },
+                {
+                    "eventName": "onConfirmClick",
+                    "action": "OpenOperativeAccountConfirmService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "services.operativeAccountModel.accountOpenDate",
+                        "services.operativeAccountModel.accountOpenAmount",
+                        "services.operativeAccountModel.selectedAccountNumber",
+                        "services.operativeAccountModel.selectedCurrency",
+                        "services.operativeAccountModel.selectedBranch",
+                        "services.operativeAccountModel.accountHolderName",
+                        "services.operativeAccountModel.addressDetails",
+                        "services.operativeAccountModel.selectedCity",
+                        "services.operativeAccountModel.postalCode",
+                        "services.operativeAccountModel.selectedCountry"
+                    ],
+                     "validationErrorMessage": [
+                        {
+                            "isAlphaNumeric": "APP.SERVICES.VAL_ERROR.VALID_POSTALCODE"
+                        },
+                        {
+                            "maxLength": "APP.SERVICES.VAL_ERROR.VALID_ADDRESS"
+                        },
+                        {
+                            "dateGreaterThanNowAndEqual":"APP.SERVICES.VAL_ERROR.VALID_START_DATE"
+                        }
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "PROCESS_DATE": "services.operativeAccountModel.blankValue",
+                        "PROCESS_DATE_day": "services.operativeAccountModel.accountOpenDay",
+                        "PROCESS_DATE_month": "services.operativeAccountModel.accountOpenMonth",
+                        "PROCESS_DATE_year": "services.operativeAccountModel.accountOpenYear",
+                        "USERENTEREDAMOUNT": "services.operativeAccountModel.accountOpenAmount.toString()",
+                        "USERNAME": "services.operativeAccountModel.accountHolderName",
+                        "ADDRESS": "services.operativeAccountModel.addressDetails",
+                        "CITY": "services.operativeAccountModel.selectedCity",
+                        "PINCODE": "services.operativeAccountModel.postalCode.toString()",
+                        "COUNTRY": "services.operativeAccountModel.selectedCountry",
+                        "OPERATIVEBRANCH": "services.operativeAccountModel.selectedBranch",
+                        "USERCHOSENCURRENCY": "services.operativeAccountModel.selectedCurrency",
+                        "USERCHOSENACCID": "services.operativeAccountModel.selectedAccountNumber"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewOperativeAccountConfirm"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewOperativeAccount"
+                    }
+                }
+            ],
+            "OpenNewOperativeAccountConfirm": [
+                {
+                    "eventName": "onOperativeAccountCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onOperativeAccountBackClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewOperativeAccount"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewOperativeAccount"
+                    }
+                },
+                {
+                    "eventName": "onOperativeAccountSubmitClick",
+                    "action": "OpenOperativeAccountSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode": "services.operativeAccountModel.transactionPassword",
+                        "WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"corpInit.corpModel.remarks"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewOperativeAccountSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewOperativeAccountConfirm"
+                    }
+                },
+		{
+                    "eventName": "onOperativeAccountSubmitOnlineClick",
+                    "action": "OpenOperativeAccountSubmitOnlineService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode": "services.operativeAccountModel.transactionPassword",
+                        "WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"corpInit.corpModel.remarks"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewOperativeAccountSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewOperativeAccountConfirm"
+                    }
+                }
+            ],
+            "OpenNewOperativeAccountSuccessful": [
+                {
+                    "eventName": "onOperativeAccountDoneClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                                                  {
+                                                  "eventName": "onApplyNewDCClick",
+                                                  "action": "ApplyNewDebitCardService",
+                                                  "actionType": "service",
+                                                  "validation": "false",
+                                                  "parameters": {
+                                                  "jsessionid": "fields.finacleUserSessionId",
+                                                  "mbparam": "fields.finacleMbParam"
+                                                  },
+                                                  "successPage": {
+                                                  "subfeature": "Services",
+                                                  "pageName": "ApplyNewDCPage"
+                                                  },
+                                                  "errorPage": {
+                                                  "subfeature": "Services",
+                                                  "pageName": "ApplyNewDCPage"
+                                                  }
+                                                  },
+                                                  {
+                                                  "eventName": "onAccountStatementClick",
+                                                  "action": "AccountStatementRequestInitService",
+                                                  "actionType": "service",
+                                                  "validation": "false",
+                                                  "parameters": {
+                                                  "jsessionid": "fields.finacleUserSessionId",
+                                                  "mbparam": "fields.finacleMbParam"
+                                                  },
+                                                  "successPage": {
+                                                  "subFeature": "Services",
+                                                  "pageName": "AccountStatementRequest"
+                                                  },
+                                                  "errorPage": {
+                                                  "subFeature": "Services",
+                                                  "pageName": "ServicesLandingPage"
+                                                  }
+                                                  },
+                                                  {
+                                                  "eventName": "onChequeCommuincationBookClick",
+                                                  "action": "ChequeBookRequestInitService",
+                                                  "actionType": "service",
+                                                  "validation": "false",
+                                                  "parameters": {
+                                                  "jsessionid": "fields.finacleUserSessionId",
+                                                  "mbparam": "fields.finacleMbParam"
+                                                  },
+                                                  "successPage": {
+                                                  "subFeature": "chequesManagement",
+                                                  "pageName": "ChequeCommuincationBook"
+                                                  },
+                                                  "errorPage": {
+                                                  "subFeature": "chequesManagement",
+                                                  "pageName": "ChequesLandingPage"
+                                                  }
+                                                  }
+                    
+            ],
+            "OpenNewFixedDepositAccount": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onConfirmClick",
+                    "action": "OpenDepositAccountConfirmService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "services.fDAccountModel.depositAmount",
+                        "services.fDAccountModel.fDmonth",
+                        "services.fDAccountModel.fDDate",
+                        "services.fDAccountModel.selectedAccountNumber",
+                        "services.fDAccountModel.fDCalendarDate",
+                        "services.fDAccountModel.identificationPin",
+                        "services.fDAccountModel.selectedBranch",
+                        "services.fDAccountModel.selectedMaturity",
+                        "services.fDAccountModel.selectedMaturityTransferType",
+                        "services.fDAccountModel.selectedOperativeAccountMaturity",
+                        "services.fDAccountModel.selectedInterestOption",
+                        "services.fDAccountModel.selectedInterestTransferRenewalFrequencyType",
+                        "services.fDAccountModel.selectedInterestTransferRedeemFrequencyType",
+                        "services.fDAccountModel.selectedInterestTransferType",
+                        "services.fDAccountModel.selectedInterestInstructionAccount"
+                    ],
+                     "validationErrorMessage": [
+                        {
+                            "isDayGreaterThanThirty": "APP.SERVICES.VAL_ERROR.VALID_NOOFDAYS"
+                        },
+                        {
+                            "isAlphaNumeric": "APP.SERVICES.VAL_ERROR.VALID_IDENTIFICATIONNO"
+                        },
+                        {
+                            "stringDateYearLimit":"APP.SERVICES.VAL_ERROR.VALID_YEAR"
+                        },
+                        {
+                            "nonZeroMultipleField":"APP.SERVICES.VAL_ERROR.VALID_DURATION"
+                        },
+                         {
+                            "dateGreaterThanNowAndEqual":"APP.SERVICES.VAL_ERROR.VALID_START_DATE"
+                        }
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "AMOUNT": "services.fDAccountModel.fixedAccountDepositAmount",
+                        "depositDurationMonths": "services.fDAccountModel.fixedAccountMonth",
+                        "depositDurationDays": "services.fDAccountModel.fixedAccountDate",
+                        "DATE": "services.fDAccountModel.blankValue",
+                        "DATE_day": "services.fDAccountModel.fixedAccountOpenDay",
+                        "DATE_month": "services.fDAccountModel.fixedAccountOpenMonth",
+                        "DATE_year": "services.fDAccountModel.fixedAccountOpenYear",
+                        "IDNO": "services.fDAccountModel.fixedAccountIdentificationPin",
+                        "BRANCH": "services.fDAccountModel.selectedBranch",
+                        "TaxOperative": "services.fDAccountModel.isTaxOperative",
+                        "TRANSFERTYPE": "services.fDAccountModel.selectedMaturityTransferType",
+                        "RENEWAL": "services.fDAccountModel.selectedInterestTransferFrequencyType",
+                        "PrincipalMaturity": "services.fDAccountModel.selectedMaturity",
+                        "InstructType": "services.fDAccountModel.selectedInterestOption",
+                        "Debit_Account": "services.fDAccountModel.selectedAccountNumber",
+                        "Inflow": "services.fDAccountModel.selectedInterestTransferRenewalFrequencyType",
+                        "Outflow": "services.fDAccountModel.selectedInterestTransferRedeemFrequencyType"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewFixedDepositAcountConfirm"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewFixedDepositAccount"
+                    }
+                }
+            ],
+            "OpenNewFixedDepositAcountConfirm": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPrevServiceClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewFixedDepositAccount"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewFixedDepositAccount"
+                    }
+                },
+                {
+                    "eventName": "onServicesSuccessClick",
+                    "action": "OpenDepositAccountSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode": "services.fDAccountModel.transactionPassword",
+                        "SecMode":"StepupAuthenticate.RSAorOTP||''",
+						"WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"corpInit.corpModel.remarks"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewFixedDepositAccountSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewFixedDepositAcountConfirm"
+                    }
+                },
+                  {
+                    "eventName": "onServicesSuccessNoAuthClick",
+                    "action": "OpenDepositAccountSuccessService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode": "emptyStr"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewFixedDepositAccountSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewFixedDepositAcountConfirm"
+                    }
+                },
+                {
+                    "eventName": "onOnlineServicesSuccessClick",
+                    "action": "OpenDepositAccountOnlineService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "mode": "services.fDAccountModel.transactionPassword"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewFixedDepositAccountSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "OpenNewFixedDepositAcountConfirm"
+                    }
+                }
+            ],
+            "OpenNewFixedDepositAccountSuccessful": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                }
+            ],
+            "BlockCreditCard": [
+                {
+                    "eventName": "onBlockCreditCardCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "BlockCreditCard"
+                    }
+                },
+                {
+                    "eventName": "onBlockCreditCardConfirmClick",
+                    "action": "BlockCreditCardContinueService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "services.blockCreditCardModel.blockCreditCardNumber"
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "CARDNO": "services.blockCreditCardModel.blockCreditCardNumber",
+                        "REMARKS": "services.blockCreditCardModel.remarks"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "BlockCreditCardConfirm"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "BlockCreditCard"
+                    }
+                }
+            ],
+            "BlockCreditCardConfirm": [
+                {
+                    "eventName": "onBlockCreditCardConfirmCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onBlockCreditCardConfirmBackClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "BlockCreditCard"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "BlockCreditCard"
+                    }
+                },
+                {
+                    "eventName": "onBlockCreditCardConfirmSubmitToRMClick",
+                    "action": "BlockCreditCardSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode": "services.blockCreditCardModel.transactionPassword",
+                        "SecMode":"StepupAuthenticate.RSAorOTP||''",
+                        "WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"corpInit.corpModel.remarks"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "BlockCreditCardSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "BlockCreditCardConfirm"
+                    }
+                }
+            ],
+            "BlockCreditCardSuccessful": [
+                {
+                    "eventName": "onBlockCreditCardSuccessfulDoneClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                }
+            ],
+            "ChangeCCLimitPage": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ChangeCCLimitPage"
+                    }
+                },
+                {
+                    "eventName": "onConfirmClick",
+                    "action": "ChangeCreditCardLimitContinueService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "services.creditCardLimitChange.ccSelected",
+                        "services.creditCardLimitChange.newLimitAmt",
+                        "services.creditCardLimitChange.note"
+                    ],
+                    "encryptionEnabled": true,
+                    "sensitiveFields": [
+                        "services.creditCardLimitChange.ccSelected",
+                         "services.creditCardLimitChange.newLimitAmtString"
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "NEWLIMIT": "services.creditCardLimitChange.newLimitAmtString",
+                        "CARDNO": "services.creditCardLimitChange.ccSelected",
+                        "REMARKS": "services.creditCardLimitChange.note"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ChangeCCLConfirmPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ChangeCCLimitPage"
+                    }
+                }
+            ],
+            "ChangeCCLConfirmPage": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ChangeCCLConfirmPage"
+                    }
+                },
+                {
+                    "eventName": "onPrevServiceClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ChangeCCLimitPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ChangeCCLConfirmPage"
+                    }
+                },
+                {
+                    "eventName": "onSuccessClick",
+                    "action": "ChangeCreditCardLimitSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode": "services.creditCardLimitChange.auth",
+                        "SecMode":"StepupAuthenticate.RSAorOTP||''",
+                        "WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"corpInit.corpModel.remarks"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ChangeCCLSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ChangeCCLConfirmPage"
+                    }
+                },
+                {
+                    "eventName": "onNoAuthSuccessClick",
+                    "action": "ChangeCreditCardLimitSuccessService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode": "services.creditCardLimitChange.auth",
+                        "SecMode":"StepupAuthenticate.RSAorOTP||''",
+						"WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"corpInit.corpModel.remarks"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ChangeCCLSuccessPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ChangeCCLConfirmPage"
+                    }
+                }
+            ],
+            "ChangeCCLSuccessPage": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ChangeCCLSuccessPage"
+                    }
+                }
+            ],
+            "ApplyCarLoan": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ApplyCarLoan"
+                    }
+                },
+                {
+                    "eventName": "onPreviewClick",
+                    "action": "CarLoanPreviewService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "services.applyCarLoanModel.loanAmount",
+                        "services.applyCarLoanModel.currency",
+                        "services.applyCarLoanModel.accountNumberDisbursement",
+                        "services.applyCarLoanModel.date",
+                        "services.applyCarLoanModel.disbursementMode",
+                        "services.applyCarLoanModel.purpose",
+                        "services.applyCarLoanModel.interestPaymentMode",
+                        "services.applyCarLoanModel.accountNumberInterest",
+                        "services.applyCarLoanModel.principalPayment",
+                        "services.applyCarLoanModel.accountNumberPrincipal"
+                    ],
+                    "validationErrorMessage": [
+                        {
+                            "requiredNonZero": "APP.SERVICES.VAL_ERROR.VALID_LOANAMT"
+                        },
+                        {
+                            "dateGreaterThanNowAndEqual": "APP.SERVICES.VAL_ERROR.VALID_START_DATE"
+                        }
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "USERENTEREDAMOUNT": "services.applyCarLoanModel.confirmLoanAmount",
+                        "USERCHOSENCURRENCY": "services.applyCarLoanModel.currency",
+                        "USERCHOSENACCID_LOAN": "services.applyCarLoanModel.accountNumberDisbursement",
+                        "LOAN_START_DATE": "services.applyCarLoanModel.date2",
+                        "LOAN_START_DATE_day": "services.applyCarLoanModel.loanDay",
+                        "LOAN_START_DATE_month": "services.applyCarLoanModel.loanMonth",
+                        "LOAN_START_DATE_year": "services.applyCarLoanModel.loanYear",
+                        "DISBURSEMENT_MODE": "services.applyCarLoanModel.disbursementMode",
+                        "INTEREST_RATE_VALUE": "services.applyCarLoanModel.InterestRate",
+                        "PURPOSE": "services.applyCarLoanModel.purpose",
+                        "INTEREST_PAY_MODE": "services.applyCarLoanModel.interestPaymentMode",
+                        "INT_PAY_ACC": "services.applyCarLoanModel.accountNumberInterest",
+                        "PRINCIPAL_PAY_MODE": "services.applyCarLoanModel.principalPayment",
+                        "PRIN_PAY_ACC": "services.applyCarLoanModel.accountNumberPrincipal"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "CarLoanPreview"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ApplyCarLoan"
+                    }
+                }
+            ],
+            "CarLoanPreview": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPrevServiceClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ApplyCarLoan"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ApplyCarLoan"
+                    }
+                },
+                {
+                    "eventName": "onLoanSuccessClick",
+                    "action": "CarLoanSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [                       
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode": "services.applyCarLoanModel.transactionpwd",
+                        "SecMode":"StepupAuthenticate.RSAorOTP||''",
+						"WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"corpInit.corpModel.remarks"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "CarLoanSuccess"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "CarLoanPreview"
+                    }
+                }
+            ],
+            "CarLoanSuccess": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                }
+            ],
+            "ApplyNewCreditCard": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ApplyNewCreditCard"
+                    }
+                },
+                {
+                    "eventName": "onCCConfirmClick",
+                    "action": "NewCreditCardConfirmService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "services.newCreditCardModel.name",
+                        "services.newCreditCardModel.selectedIncome",
+                        "services.newCreditCardModel.dateOfBirth",
+                        "services.newCreditCardModel.selectedOccupation",
+                        "services.newCreditCardModel.selectedCardType",
+                        "services.newCreditCardModel.address1",
+                        "services.newCreditCardModel.city",
+                        "services.newCreditCardModel.postalCode",
+                        "services.newCreditCardModel.selectedCountry"
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "NAME": "services.newCreditCardModel.name",
+                        "MADDR": "services.newCreditCardModel.detailedAddress",
+                        "DOB": "services.newCreditCardModel.dateReq",
+                        "DOB_day": "services.newCreditCardModel.DOBday",
+                        "DOB_month": "services.newCreditCardModel.DOBmonth",
+                        "DOB_year": "services.newCreditCardModel.DOByear",
+                        "INCOME": "services.newCreditCardModel.selectedIncome",
+                        "OCCUPATION": "services.newCreditCardModel.selectedOccupation",
+                        "CARDTYPE": "services.newCreditCardModel.selectedCardType"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "NewCreditCardConfirm"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ApplyNewCreditCard"
+                    }
+                }
+            ],
+            "NewCreditCardConfirm": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPrevServiceClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ApplyNewCreditCard"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ApplyNewCreditCard"
+                    }
+                },
+                {
+                    "eventName": "onCCSuccessClick",
+                    "action": "NewCreditCardSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                       
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode": "services.newCreditCardModel.transactionPwd",
+                        "SecMode":"StepupAuthenticate.RSAorOTP||''",
+						"WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"corpInit.corpModel.remarks"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "NewCreditCardSuccess"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "NewCreditCardConfirm"
+                    }
+                }
+            ],
+            "NewCreditCardSuccess": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                }
+            ],
+            "BreakFixedDepositInit": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "BreakFixedDepositInit"
+                    }
+                },
+                {
+                    "eventName": "onConfirmClick",
+                    "action": "BreakFixedDepositAuthService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "services.breakFixedDepositModel.depositAccount",
+                        "services.breakFixedDepositModel.amountBroken",
+                        "services.breakFixedDepositModel.date",
+                        "services.breakFixedDepositModel.transferType",
+                        "services.breakFixedDepositModel.initorID"
+                    ],
+                    "validationErrorMessage": [
+                    {
+                            "requiredNonZero": "APP.SERVICES.VAL_ERROR.VALID_BRKFDAMT"
+                        },
+                        {
+                            "dateGreaterThanNowAndEqual": "APP.SERVICES.VAL_ERROR.VALID_START_DATE"
+                        }],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "AMOUNT": "services.breakFixedDepositModel.confirmamountBroken",
+                        "DATE_day": "services.breakFixedDepositModel.dateDay",
+                        "DATE_month": "services.breakFixedDepositModel.dateMonth",
+                        "DATE_year": "services.breakFixedDepositModel.dateYear",
+                        "TRANSFERTYPE": "services.breakFixedDepositModel.transferType",
+                        "Deposit_Account": "services.breakFixedDepositModel.depositAccount",
+                        "INITOR_ID": "services.breakFixedDepositModel.initorID"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "BreakFixedDepositAuthentication"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "BreakFixedDepositAuthentication"
+                    }
+                }
+            ],
+            "BreakFixedDepositAuthentication": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPrevServiceClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "BreakFixedDepositInit"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "BreakFixedDepositInit"
+                    }
+                },
+                 {
+                    "eventName": "breakFixedDepositOnlineClick",
+                    "action": "BreakFixedDepositOnlineService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "SecMode":"StepupAuthenticate.RSAorOTP||''",
+						"WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"corpInit.corpModel.remarks"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "BreakFixedDepositSuccess"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "BreakFixedDepositAuthentication"
+                    }
+                },
+                   {
+                    "eventName": "breakFixedDepositOfflineClick",
+                    "action": "BreakFixedDepositSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "SecMode":"StepupAuthenticate.RSAorOTP||''",
+						"WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"corpInit.corpModel.remarks"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "BreakFixedDepositSuccess"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "BreakFixedDepositAuthentication"
+                    }
+                }
+            ],
+            "BreakFixedDepositSuccess": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                }
+            ],
+            "RenewFixedDeposit": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "RenewFixedDeposit"
+                    }
+                },
+                {
+                    "eventName": "onConfirmClick",
+                    "action": "RenewFixedDepositConfirmService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "services.renewFixedDepositModel.depositAccount",
+                        "services.renewFixedDepositModel.renewList",
+                        "services.renewFixedDepositModel.interestInstruction",
+                        "services.renewFixedDepositModel.dateMonth",
+                        "services.renewFixedDepositModel.dateDay",
+                        "services.renewFixedDepositModel.inflow",
+                        "services.renewFixedDepositModel.outflow",
+                        "services.renewFixedDepositModel.account"
+                    ],
+                    "validationErrorMessage": [
+                        {
+                            "isDayGreaterThanThirty": "APP.SERVICES.VAL_ERROR.VALID_NOOFDAYS"
+                        },
+                        {
+                            "nonZeroMultipleField":"APP.SERVICES.VAL_ERROR.VALID_DURATION"
+                        }
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Deposit_Account": "services.renewFixedDepositModel.depositAccount",
+                        "RENEWAL": "services.renewFixedDepositModel.renewList",
+                        "InstructType": "services.renewFixedDepositModel.interestInstruction",
+                        "Inflow": "services.renewFixedDepositModel.inflow",
+                        "Outflow": "services.renewFixedDepositModel.outflow",
+                        "depositDurationMonths": "services.renewFixedDepositModel.dateMonth",
+                        "depositDurationDays": "services.renewFixedDepositModel.dateDay",
+                        "Redeem_Account": "services.renewFixedDepositModel.account"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "RenewFixedDepositAuth"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "RenewFixedDeposit"
+                    }
+                },
+                {
+                    "eventName": "onContinueClick",
+                    "action": "RenewFixedDepositConfirmService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "services.renewFixedDepositModel.depositAccount",
+                        "services.renewFixedDepositModel.renewList",
+                        "services.renewFixedDepositModel.interestInstruction",
+                        "services.renewFixedDepositModel.dateMonth",
+                        "services.renewFixedDepositModel.dateDay",
+                        "services.renewFixedDepositModel.inflow",
+                        "services.renewFixedDepositModel.outflow"
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Deposit_Account": "services.renewFixedDepositModel.depositAccount",
+                        "RENEWAL": "services.renewFixedDepositModel.renewList",
+                        "InstructType": "services.renewFixedDepositModel.interestInstruction",
+                        "Inflow": "services.renewFixedDepositModel.inflow",
+                        "Outflow": "services.renewFixedDepositModel.outflow",
+                        "depositDurationMonths": "services.renewFixedDepositModel.dateMonth",
+                        "depositDurationDays": "services.renewFixedDepositModel.dateDay",
+                        "Redeem_Account": "services.renewFixedDepositModel.account"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "RenewFixedDepositAuth"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "RenewFixedDeposit"
+                    }
+                }
+            ],
+            "RenewFixedDepositAuth": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "RenewFixedDepositAuth"
+                    }
+                },
+                {
+                    "eventName": "onPrevServiceClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "RenewFixedDeposit"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "RenewFixedDepositAuth"
+                    }
+                },
+                {
+                    "eventName": "renewFixedDepositOfflineClick",
+                    "action": "RenewFixedDepositSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                       
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode": "services.renewFixedDepositModel.transactionPwD",
+                        "SecMode":"StepupAuthenticate.RSAorOTP||''",
+						"WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"corpInit.corpModel.remarks"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "RenewFixedDepositSuccess"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "RenewFixedDepositAuth"
+                    }
+                },
+                {
+                    "eventName": "renewFixedDepositOnlineClick",
+                    "action": "RenewFixedDepositOnlineService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                       
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode": "services.renewFixedDepositModel.transactionPwD",
+                        "SecMode":"StepupAuthenticate.RSAorOTP||''",
+						"WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"corpInit.corpModel.remarks"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "RenewFixedDepositSuccess"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "RenewFixedDepositAuth"
+                    }
+                }
+            ],
+            "RenewFixedDepositSuccess": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "RenewFixedDepositSuccess"
+                    }
+                }
+            ],
+            "AccountStatementRequest": [
+                {
+                    "eventName": "onStatementContinueClick",
+                    "action": "AccountStatementContinueService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "services.accountStatement.cardNumber",
+                        "services.accountStatement.frequency",
+                        "services.accountStatement.startDate",
+                        "services.accountStatement.email"
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "AccountID": "services.accountStatement.cardNumber",
+                        "StatementFreq": "services.accountStatement.frequency",
+                        "Dispatch": "services.accountStatement.selectedDispatchMode",
+                        "Email": "services.accountStatement.email",
+                        "TXN_DATE_day": "services.accountStatement.day",
+                        "TXN_DATE_month": "services.accountStatement.month",
+                        "TXN_DATE_year": "services.accountStatement.year"
+                    },
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "AccountStatementRequestAuth"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "AccountStatementRequest"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "AccountStatementRequest"
+                    }
+                }
+            ],
+            "AccountStatementRequestAuth": [
+                {
+                    "eventName": "onAccountStatementSuccessClick",
+                    "action": "AccountStatementSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode": "services.common.transactionPassword",
+                        "SecMode":"StepupAuthenticate.RSAorOTP||''",
+						"WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"corpInit.corpModel.remarks"
+                    },
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "AccountStatementRequestSuccessful"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "AccountStatementRequestAuth"
+                    }
+                },
+                {
+                    "eventName": "onPrevServiceClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "AccountStatementRequest"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "AccountStatementRequestAuth"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "AccountStatementRequestAuth"
+                    }
+                }
+            ],
+            "AccountStatementRequestSuccessful": [
+                {
+                    "eventName": "onDoneButtonClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "AccountStatementRequestSuccessful"
+                    }
+                }
+            ],
+            "DelinkCreditCard": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "DelinkCreditCard"
+                    }
+                },
+                {
+                    "eventName": "onConfirmClick",
+                    "action": "DelinkCreditCardConfirmService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "services.delinkCreditCardModel.selectedCardNumber",
+                        "services.delinkCreditCardModel.remarks"
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "CARDNO": "services.delinkCreditCardModel.selectedCardNumber",
+                        "REMARKS": "services.delinkCreditCardModel.remarks"
+                    },
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "DelinkCreditCardConfirm"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "DelinkCreditCard"
+                    }
+                }
+            ],
+            "DelinkCreditCardConfirm": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "DelinkCreditCardConfirm"
+                    }
+                },
+                {
+                    "eventName": "onPrevServiceClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "DelinkCreditCard"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "DelinkCreditCardConfirm"
+                    }
+                },
+                {
+                    "eventName": "onSuccessClick",
+                    "action": "DelinkCreditCardSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                       
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode": "services.delinkCreditCardModel.transactionPwd",
+                        "SecMode":"StepupAuthenticate.RSAorOTP||''",
+						"WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"corpInit.corpModel.remarks"
+                    },
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "DelinkCreditCardSuccess"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "DelinkCreditCardConfirm"
+                    }
+                },
+                {
+                    "eventName": "onNoAuthSuccessClick",
+                    "action": "DelinkCreditCardSuccessService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode": "services.delinkCreditCardModel.transactionPwd",
+						"WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"corpInit.corpModel.remarks"
+                    },
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "DelinkCreditCardSuccess"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "DelinkCreditCardConfirm"
+                    }
+                }
+            ],
+            "DelinkCreditCardSuccess": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                }
+            ],
+            "LinkCreditCard": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "LinkCreditCard"
+                    }
+                },
+                {
+                    "eventName": "onConfirmClick",
+                    "action": "LinkCreditCardConfirmService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "services.linkCreditCardModel.ccNo1",
+                        "services.linkCreditCardModel.ccNo2",
+                        "services.linkCreditCardModel.ccNo3",
+                        "services.linkCreditCardModel.ccNo4",
+                        "services.linkCreditCardModel.name",
+                        "services.linkCreditCardModel.addrLn1",
+                        "services.linkCreditCardModel.addrLn2",
+                        "services.linkCreditCardModel.city",
+                        "services.linkCreditCardModel.postal",
+                        "services.linkCreditCardModel.selectedCountry"
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "CARDNO": "services.linkCreditCardModel.cardNo",
+                        "MADDR": "services.linkCreditCardModel.address"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "LinkCreditCardConfirm"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "LinkCreditCard"
+                    }
+                }
+            ],
+            "LinkCreditCardConfirm": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPrevServiceClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "LinkCreditCard"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "LinkCreditCardConfirm"
+                    }
+                },
+                {
+                    "eventName": "onSuccessClick",
+                    "action": "LinkCreditCardSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode": "services.linkCreditCardModel.pwd",
+                        "SecMode":"StepupAuthenticate.RSAorOTP||''",
+						"WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"corpInit.corpModel.remarks"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "LinkCreditCardSuccess"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "LinkCreditCardConfirm"
+                    }
+                },
+                {
+                    "eventName": "onConfirmClick",
+                    "action": "LinkCreditCardSuccessService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode": "emptyStr"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "LinkCreditCardSuccess"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "LinkCreditCardConfirm"
+                    }
+                }
+            ],
+            "LinkCreditCardSuccess": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                }
+            ],
+            "ApplyNewDCPage": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onDCConfirmClick",
+                    "action": "ApplyNewDebitCardConfirm",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams":["services.applyNewDCModel.cardType","services.applyNewDCModel.nameOnCard","services.applyNewDCModel.accountNumber"],
+                    "validationErrorMessage": [
+                           { "textWithoutZero": "APP.SERVICES.VAL_ERROR.VALID_NAME"},
+                            {"byPassRequired": "APP.SERVICES.VAL_ERROR.VALID_CARD"}
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "name_on_card_input": "services.applyNewDCModel.nameOnCard",
+                        "card_type_input": "services.applyNewDCModel.cardSelected",
+                        "account_input2": "services.applyNewDCModel.accountNumber"
+                    },
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ApplyNewDCAuthPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ApplyNewDCPage"
+                    }
+                },
+                {
+                    "eventName": "onCardDetails",
+                    "action": "ApplyNewDebitCardDetails",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "card_type_input": "services.applyNewDCModel.cardSelected"
+                    },
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ApplyNewDCDetails"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ApplyNewDCPage"
+                    }
+                }
+            ],
+            "ApplyNewDCAuthPage": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ApplyNewDCAuthPage"
+                    }
+                },
+                {
+                    "eventName": "onPrevServiceClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ApplyNewDCPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ApplyNewDCAuthPage"
+                    }
+                },
+                {
+                    "eventName": "onDCSuccessClick",
+                    "action": "ApplyNewDebitCardSuccess",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams":[],
+                     "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode": "services.applyNewDCModel.transactionPwD",
+                        "WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"corpInit.corpModel.remarks"
+                    },
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ApplyNewDCSuccessPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ApplyNewDCAuthPage"
+                    }
+                }
+            ],
+            "ApplyNewDCSuccessPage": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ApplyNewDCSuccessPage"
+                    }
+                }
+            ],
+            "ApplyNewDCDetails": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPrevServiceClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ApplyNewDCPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ApplyNewDCPage"
+                    }
+                }
+            ],
+				
+		 "ChangeDebitLimitPage": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onAccountNumberChange",
+                    "action": "ChangeDCLimitGetDebitCards",
+                    "actionType": "service",
+                    "validation": "false",
+                    "validationParams":["services.changeDCLimitModel.accountNumber"],
+                     "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "account_input2":"services.changeDCLimitModel.accountNumber"
+              		 },
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ChangeDebitLimitPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ChangeDebitLimitPage"
+                    }
+                },
+                {
+                    "eventName": "onDebitCardChange",
+                    "action": "ChangeDCLimitGetDebitCardsList",
+                    "actionType": "service",
+                    "validation": "false",
+                    "validationParams":["services.changeDCLimitModel.cardType","services.changeDCLimitModel.accountNumber"],
+                     "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "debitcard":"services.changeDCLimitModel.cardType"
+              		 },
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ChangeDebitLimitPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ChangeDebitLimitPage"
+                    }
+                },
+				{
+                    "eventName": "onDCConfirmClick",
+                    "action": "ChangeDCLimitConfirm",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams":[
+                    "services.changeDCLimitModel.isChanged",
+                    "services.changeDCLimitModel.cardType",
+                    "services.changeDCLimitModel.accountNumber",
+                    "services.changeDCLimitModel.newLimit"
+                    ],
+                      "validationErrorMessage": [
+                        {
+                            "validateNonZeroArray": "APP.MYPROFILE.VAL_ERROR.VALID_AMOUNT"
+                        }],
+                     "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "NEWLIMIT0":"services.changeDCLimitModel.limit[0]",
+						"NEWLIMIT1":"services.changeDCLimitModel.limit[1]",
+						"NEWLIMIT2":"services.changeDCLimitModel.limit[2]",
+						"NEWLIMIT3":"services.changeDCLimitModel.limit[3]"
+              		 },
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ChangeDebitLimitAuthPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ChangeDebitLimitPage"
+                    }
+                }
+				],
+				 "ChangeDebitLimitAuthPage": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                },
+				{
+                    "eventName": "onPrevServiceClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ChangeDebitLimitPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ChangeDebitLimitPage"
+                    }
+                },
+				{
+                    "eventName": "onDCSuccessClick",
+                    "action": "ChangeDCLimitSuccess",
+                    "actionType": "service",
+                    "validation": "true",
+                     "validationParams":[],
+                     "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode":"services.changeDCLimitModel.transactionPwD",
+                        "HIFRequestID":"services.changeDCLimitModel.hifReqID",
+                        "eventExecuted":"services.changeDCLimitModel.eventExe",
+                        "WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"corpInit.corpModel.remarks"
+                        },
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ChangeDebitLimitSuccessPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ChangeDebitLimitAuthPage"
+                    }
+                }
+				],
+				 "ChangeDebitLimitSuccessPage": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subfeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subfeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    }
+                }
+				],
+				 "ActivateDebitCardPage": [
+                {
+                    "eventName": "onActivateDebitCardCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ActivateDebitCardPage"
+                    }
+                },
+                {
+                    "eventName": "onAccountNumberSelect",
+                    "action": "ActivateDebitCardEntryDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "account_input2":"services.debitCardCommonData.accountNumber"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ActivateDebitCardPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ActivateDebitCardPage"
+                    }
+                },
+                {
+                    "eventName": "onActivateDebitCardContinueClick",
+                    "action": "ActivateDebitCardConfirmService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                    	"services.debitCardCommonData.accountNumber",
+                    	"services.debitCardCommonData.debitCardNumber",
+                    	"services.debitCardCommonData.pinFirstDigit",
+                    	"services.debitCardCommonData.pinSecondDigit",
+                    	"services.debitCardCommonData.pinThirdDigit",
+                    	"services.debitCardCommonData.pinFourthDigit"
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "pin":"services.debitCardCommonData.pin",
+                        "debitcard":"services.debitCardCommonData.debitCardNumber",
+                        "Remarks":"services.debitCardCommonData.remarks"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ActivateDebitCardAuthPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ActivateDebitCardPage"
+                    }
+                }
+			],
+			"ActivateDebitCardAuthPage": [
+				{
+                    "eventName": "onActivateDebitCardAuthBackClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ActivateDebitCardPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ActivateDebitCardAuthPage"
+                    }
+                },
+                {
+                    "eventName": "onActivateDebitCardAuthCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ActivateDebitCardAuthPage"
+                    }
+                },
+                {
+                    "eventName": "onActivateDebitCardAuthConfirmClick",
+                    "action": "ActivateDebitCardSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode":"services.debitCardCommonData.transactionPassword",
+                        "WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"corpInit.corpModel.remarks"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ActivateDebitCardSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ActivateDebitCardAuthPage"
+                    }
+                },
+                {
+                    "eventName": "onActivateDebitCardOffAuthConfirmClick",
+                    "action": "ActivateDebitCardSubmitToRMService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode":"services.debitCardCommonData.transactionPassword",
+                        "WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"corpInit.corpModel.remarks"
+                    },
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ActivateDebitCardSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ActivateDebitCardAuthPage"
+                    }
+                }
+
+             ],
+             "ActivateDebitCardSuccessPage": [
+                {
+                    "eventName": "onActivatingDebitCardOkClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Services",
+                        "pageName": "ServicesLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "Services",
+                        "pageName": "ActivateDebitCardSuccessPage"
+                    }
+                }
+             ],
+             
+		     "ChangeDebitCardPinPage" :
+		        [
+		     			{
+		                    "eventName": "onChangeDebitCardPinCancelClick",
+		                    "action": "navigation",
+		                    "actionType": "navigation",
+		                    "validation": "false",
+		                    "successPage": {
+		                        "subFeature": "Services",
+		                        "pageName": "ServicesLandingPage"
+		                    },
+		                    "errorPage": {
+		                        "subFeature": "Services",
+		                        "pageName": "ChangeDebitCardPinPage"
+		                    }
+		                },
+				    	{ 
+				    		"eventName" : "onChangeDebitCardContinueClick",
+				          	"action" : "ChangeDebitCardPinSubmitService",
+				         	 "actionType":"service",
+				         	 "validation": "true",
+				         	 "validationParams": [
+		                    	"services.ChangeDebitCardPinPageData.accountNumber",
+		                    	"services.ChangeDebitCardPinPageData.debitCardNumber",
+		                    	"services.ChangeDebitCardPinPageData.existingPinFirstDigit",
+		                    	"services.ChangeDebitCardPinPageData.existingPinSecondDigit",
+		                    	"services.ChangeDebitCardPinPageData.existingPinThirdDigit",
+		                    	"services.ChangeDebitCardPinPageData.existingPinFourthDigit",
+		                    	"services.ChangeDebitCardPinPageData.newPinFirstDigit",
+		                    	"services.ChangeDebitCardPinPageData.newPinSecondDigit",
+		                    	"services.ChangeDebitCardPinPageData.newPinThirdDigit",
+		                    	"services.ChangeDebitCardPinPageData.newPinFourthDigit",
+		                    	"services.ChangeDebitCardPinPageData.confirmPinFirstDigit",
+		                    	"services.ChangeDebitCardPinPageData.confirmPinSecondDigit",
+		                    	"services.ChangeDebitCardPinPageData.confirmPinThirdDigit",
+		                    	"services.ChangeDebitCardPinPageData.confirmPinFourthDigit"
+		                    ],
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "oldpin":"services.ChangeDebitCardPinPageData.oldpin",
+		                        "newpin":"services.ChangeDebitCardPinPageData.newpin",
+		                        "confirmpin":"services.ChangeDebitCardPinPageData.confirmpin",
+		                        "FORGOT_PIN":"services.ChangeDebitCardPinPageData.FORGOT_PIN",
+		                        "debitcard":"services.ChangeDebitCardPinPageData.debitCardNumber"
+		                    },
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ChangeDebitCardPinAuthPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ChangeDebitCardPinPage"
+				                }
+				         },
+				         {
+		                    "eventName": "onChangePinAccountNumberSelect",
+		                    "action": "ChangeDebitCardPinListService",
+		                    "actionType": "service",
+		                    "validation": "false",
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "account_input2":"services.ChangeDebitCardPinPageData.accountNumber"
+		                    },
+		                    "successPage": {
+		                        "subFeature": "Services",
+		                        "pageName": "ChangeDebitCardPinPage"
+		                    },
+		                    "errorPage": {
+		                        "subFeature": "Services",
+		                        "pageName": "ChangeDebitCardPinPage"
+		                    }
+		                }
+		        ],
+		        "ChangeDebitCardPinAuthPage" :
+		        [
+		     			{ "eventName" : "onChangeDebitCardBackClick",
+				          "action" : "navigation",
+				          "actionType":"navigation",
+				          "validation": "false",
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ChangeDebitCardPinPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ChangeDebitCardPinAuthPage"
+				                }
+				         },
+				         { "eventName" : "onChangeDebitCardAuthCancelClick",
+				          "action" : "navigation",
+				          "actionType":"navigation",
+				          "validation": "false",
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesLandingPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ChangeDebitCardPinAuthPage"
+				                }
+				         },
+				    	{ "eventName" : "onChangeDebitCardSubmitClick",
+				          "action" : "ChangeDebitCardPinSuccessService",
+				          "actionType":"service",
+				          "validation": "true",
+		                  "validationParams": [],
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "Mode":"services.ChangeDebitCardPinPageData.transactionPwD",
+		                        "WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+								"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+								"Remarks":"corpInit.corpModel.remarks"
+		                   },
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ChangeDebitCardPinSuccessPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ChangeDebitCardPinAuthPage"
+				                }
+				         }
+		        ],
+		        "ChangeDebitCardPinSuccessPage" :
+		        [
+
+				    	{ "eventName" : "onChangeDebitCardSuccessOkClick",
+				          "action" : "navigation",
+				          "actionType":"navigation",
+				          "validation": "false",
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesLandingPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ChangeDebitCardPinSuccessPage"
+				                }
+				         }
+		        ],
+		        "RequestDebitCardPINPage" :
+		        [
+
+				    	{ "eventName" : "onRequestDebitCardPinCancelClick",
+				          "action" : "navigation",
+				          "actionType":"navigation",
+				          "validation": "false",
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesLandingPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "RequestDebitCardPINPage"
+				                }
+				         },
+				         {
+		                    "eventName": "onRequestDebitCardPINAccountNumberSelect",
+		                    "action": "RequestDebitCardPinDetailsService",
+		                    "actionType": "service",
+		                    "validation": "false",
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "account_input_atmpin":"services.debitCardCommonData.accountNumber"
+		                    },
+		                    "successPage": {
+		                        "subFeature": "Services",
+		                        "pageName": "RequestDebitCardPINPage"
+		                    },
+		                    "errorPage": {
+		                        "subFeature": "Services",
+		                        "pageName": "RequestDebitCardPINPage"
+		                    }
+		                },
+				         { "eventName" : "onRequestDebitCardPinContinueClick",
+				          "action" : "RequestDebitCardPinSubmitService",
+				          "actionType":"service",
+				          "validation": "true",
+				          "validationParams": [
+		                    	"services.debitCardCommonData.accountNumber",
+		                    	"services.debitCardCommonData.ccNo1",
+		                    	"services.debitCardCommonData.ccNo2",
+		                    	"services.debitCardCommonData.ccNo3",
+		                    	"services.debitCardCommonData.ccNo4",
+		                    	"services.debitCardCommonData.reason"
+		                    ],
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "card_number_input_atm":"services.debitCardCommonData.ccNo1 + services.debitCardCommonData.ccNo2 + services.debitCardCommonData.ccNo3 + services.debitCardCommonData.ccNo4",
+		                        "reason_input_atmpin":"services.debitCardCommonData.reason",
+		                        "Remarks":"services.debitCardCommonData.remarks"
+		                    },
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "RequestDebitCardPINAuthPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "RequestDebitCardPINPage"
+				                }
+				         }
+		        ],
+		        "RequestDebitCardPINAuthPage" :
+		        [
+		     			{ "eventName" : "onRequestDebitCardPinAuthBackClick",
+				          "action" : "navigation",
+				          "actionType":"navigation",
+				          "validation": "false",
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "RequestDebitCardPINPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "RequestDebitCardPINAuthPage"
+				                }
+				         },
+				         { "eventName" : "onRequestDebitCardPinAuthCancelClick",
+				          "action" : "navigation",
+				          "actionType":"navigation",
+				          "validation": "false",
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesLandingPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "RequestDebitCardPINAuthPage"
+				                }
+				         },
+				    	{ "eventName" : "onRequestDebitCardPinAuthSubmitClick",
+				          "action" : "RequestDebitCardPinSuccessService",
+				          "actionType":"service",
+				          "validation": "true",
+		                  "validationParams": [],
+		                  "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "Mode":"services.debitCardCommonData.transactionPassword",
+		                        "WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+								"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+								"Remarks":"corpInit.corpModel.remarks"
+		                   },
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "RequestDebitCardPINSuccessPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "RequestDebitCardPINAuthPage"
+				                }
+				         }
+		        ],
+		        "RequestDebitCardPINSuccessPage" :
+		        [
+
+				    	{ "eventName" : "onRequestDebitCardPinSuccessButtonClick",
+				          "action" : "navigation",
+				          "actionType":"navigation",
+				          "validation": "false",
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesLandingPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "RequestDebitCardPINSuccessPage"
+				                }
+				         }
+		        ],
+		        "CancelAndApplyDebitCard" :
+		        [
+
+				    	{ "eventName" : "onCancelAndApplyDebitCardCancelClick",
+				          "action" : "navigation",
+				          "actionType":"navigation",
+				          "validation": "false",
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesLandingPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "CancelAndApplyDebitCard"
+				                }
+				         },
+				         {
+		                    "eventName": "onCancelAndApplyDebitCardAccountNumberSelect",
+		                    "action": "CancelAndApplyNewDebitCardDetailsService",
+		                    "actionType": "service",
+		                    "validation": "false",
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "account_input2":"services.cancelApplyDebitCard.accountNumber"
+		                    },
+		                    "successPage": {
+		                        "subFeature": "Services",
+		                        "pageName": "CancelAndApplyDebitCard"
+		                    },
+		                    "errorPage": {
+		                        "subFeature": "Services",
+		                        "pageName": "CancelAndApplyDebitCard"
+		                    }
+		                },
+				         { "eventName" : "onCancelAndApplyDebitCardContinueClick",
+				          "action" : "CancelAndApplyNewDebitCardSubmitService",
+				          "actionType":"service",
+				          "validation": "true",
+				          "validationParams": [
+		                    	"services.cancelApplyDebitCard.accountNumber",
+		                    	"services.cancelApplyDebitCard.debitCardNumber",
+		                    	"services.cancelApplyDebitCard.reason"
+		                    ],
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "debitcard":"services.cancelApplyDebitCard.debitCardNumber",
+		                        "reason_input":"services.cancelApplyDebitCard.reason",
+		                        "REGISTER_DEBITCARD":"services.cancelApplyDebitCard.addr"
+		                    },
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "CancelAndApplyDebitCardAuth"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "CancelAndApplyDebitCard"
+				                }
+				         }
+		        ],
+		         "CancelAndApplyDebitCardAuth" :
+		        [
+
+				    	{ "eventName" : "onCancelAndApplyDebitCardAuthCancelClick",
+				          "action" : "navigation",
+				          "actionType":"navigation",
+				          "validation": "false",
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesLandingPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "CancelAndApplyDebitCardAuth"
+				                }
+				         },
+				         { "eventName" : "onCancelAndApplyDebitCardAuthBackClick",
+				          "action" : "navigation",
+				          "actionType":"navigation",
+				          "validation": "false",
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "CancelAndApplyDebitCard"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "CancelAndApplyDebitCardAuth"
+				                }
+				         },
+				         { "eventName" : "onCancelAndApplyDebitCardAuthSubmitClick",
+				          "action" : "CancelAndApplyNewDebitCardSuccessService",
+				          "actionType":"service",
+				          "validation": "true",
+				          "validationParams": [
+				          	
+				          	"StepupAuthenticate.actionDetails[0].params.Questions",
+				          	"StepupAuthenticate.RSAorOTP"
+				          ],
+		                  "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "Mode":"services.cancelApplyDebitCard.transactionPassword",
+		                        "REGISTER_DEBITCARD":"services.cancelApplyDebitCard.addr",
+		                        "eventExecuted":"services.cancelApplyDebitCard.eventExecuted",
+		                        "HIFRequestID":"services.cancelApplyDebitCard.hifRequestID",
+		                        "SecMode":"StepupAuthenticate.RSAorOTP||''",
+		                        "SECURITY_ANSWER":"StepupAuthenticate.onContinueClick()",
+		                        "WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+								"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+								"Remarks":"corpInit.corpModel.remarks"
+		                        },
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "CancelAndApplyDebitCardSuccess"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "CancelAndApplyDebitCardAuth"
+				                }
+				         }
+		        ],
+		        "CancelAndApplyDebitCardSuccess" :
+		        [
+
+				    	{ "eventName" : "onCancelAndApplyDebitCardSuccessButtonClick",
+				          "action" : "navigation",
+				          "actionType":"navigation",
+				          "validation": "false",
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesLandingPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "CancelAndApplyDebitCardSuccess"
+				                }
+				         }
+		        ],
+		        "ServicesRequestStatus" :
+		        [
+
+				    	{ "eventName" : "onServiceRequestStatusCancelClick",
+				          "action" : "navigation",
+				          "actionType":"navigation",
+				          "validation": "false",
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesLandingPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesRequestStatus"
+				                }
+				         },
+				         {
+				         "eventName" : "onServiceRequestStatusSearchClick",
+				          "action" : "ServiceRequestStatusFormInitService",
+				          "actionType":"service",
+				          "validation": "false",
+				          "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam"
+		                   },
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesRequestSearch"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesRequestStatus"
+				                }
+				         }
+		        ],
+		        "ServicesRequestSearch" :
+		        [
+				    	{
+				    	  "eventName" : "onServicesRequestSearchCancelClick",
+				          "action" : "ServiceRequestStatusInitService",
+				          "actionType":"service",
+				          "validation": "false",
+		                  "parameters": {
+				                        "jsessionid": "fields.finacleUserSessionId",
+				                        "mbparam": "fields.finacleMbParam",
+				                        "TXN_DATE_FROM_day":"services.serviceRequestStatusModel.emptyValue",
+										"TXN_DATE_FROM_month":"services.serviceRequestStatusModel.emptyValue",
+										"TXN_DATE_FROM_year":"services.serviceRequestStatusModel.emptyValue",
+										"TXN_DATE_TO_day":"services.serviceRequestStatusModel.emptyValue",
+										"TXN_DATE_TO_month":"services.serviceRequestStatusModel.emptyValue",
+										"TXN_DATE_TO_year":"services.serviceRequestStatusModel.emptyValue",
+										"RequestStatus":"services.serviceRequestStatusModel.requestType",
+										"ReferenceId":"services.serviceRequestStatusModel.emptyValue"
+				                   },
+		                  "successPage": {
+		                        "subFeature": "Services",
+		                        "pageName": "ServicesRequestStatus"
+		                  },
+		                  "errorPage": {
+		                        "subFeature": "Services",
+		                        "pageName": "ServicesRequestSearch"
+		                  }
+				         },
+				         {
+				         "eventName" : "onServicesRequestSearchBackClick",
+				          "action" : "navigation",
+				          "actionType":"navigation",
+				          "validation": "false",
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesRequestStatus"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesRequestSearch"
+				                }
+				         },
+				         {
+				         "eventName" : "onEmptyServicesRequestSearchBackClick",
+				          "action" : "navigation",
+				          "actionType":"navigation",
+				          "validation": "false",
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesLandingPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesRequestSearch"
+				                }
+				         },
+				         {
+				    	  "eventName" : "onServicesRequestStatusSearchClick",
+				          "action" : "ServiceRequestStatusInitService",
+				          "actionType":"service",
+				          "validation": "true",
+				          "validationParams": [
+				          		"services.serviceRequestStatusModel.referenceID",
+				          		"services.serviceRequestStatusModel.fromDate",
+				          		"services.serviceRequestStatusModel.toDate"
+				          ],
+				          "validationErrorMessage": [
+                        	{
+                        		"ifValuethanNumber":"APP.SERVICES.VAL_ERROR.VALID_REFERENCEID"
+                        	},
+                        	{
+                        		"isAlphaNumeric":"APP.SERVICES.VAL_ERROR.VALID_CHARACTERS"
+                        	},
+                        	{
+                        		"dateGreaterThanFromDateNow":"APP.SERVICES.VAL_ERROR.VALID_FROMDATE"
+                        	},
+                        	{
+                        		"dateGreaterThanToDateNow":"APP.SERVICES.VAL_ERROR.VALID_TODATE"
+                        	},
+                        	{
+                      			"actualDateLessThan":"APP.SERVICES.VAL_ERROR.VALID_ACTUALDATE"
+                      		},
+                            {
+                            	"dateYearLimit": "APP.SERVICES.VAL_ERROR.VALID_DATEYEAR"
+                            },
+                        	{
+                        		"dateLessThanNow":"APP.SERVICES.VAL_ERROR.VALID_ACTUALDATE"
+                        	},
+                        	{
+                        		"maxLength":"APP.SERVICES.VAL_ERROR.VALID_MAXLENGTH"
+                        	}
+                           ],
+		                  "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "TXN_DATE_FROM_day":"findDayFromDate(services.serviceRequestStatusModel.fromDate)",
+								"TXN_DATE_FROM_month":"findMonthFromDate(services.serviceRequestStatusModel.fromDate)",
+								"TXN_DATE_FROM_year":"findYearFromDate(services.serviceRequestStatusModel.fromDate)",
+								"TXN_DATE_TO_day":"findDayFromDate(services.serviceRequestStatusModel.toDate)",
+								"TXN_DATE_TO_month":"findMonthFromDate(services.serviceRequestStatusModel.toDate)",
+								"TXN_DATE_TO_year":"findYearFromDate(services.serviceRequestStatusModel.toDate)",
+								"RequestStatus":"services.serviceRequestStatusModel.requestType",
+								"ReferenceId":"services.serviceRequestStatusModel.referenceID"
+		                   },
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesRequestSearchResult"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesRequestSearch"
+				                }
+				         }
+		        ],
+		        "ServicesRequestSearchResult" :
+		        [
+				    	{
+				         "eventName" : "onServicesRequestSearchResultBackClick",
+				          "action" : "navigation",
+				          "actionType":"navigation",
+				          "validation": "false",
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesRequestSearch"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesRequestSearchResult"
+				                }
+				         },
+				         {
+				         "eventName" : "onServicesRequestSearchResultCloseClick",
+				          "action" : "navigation",
+				          "actionType":"navigation",
+				          "validation": "false",
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesRequestStatus"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesRequestSearchResult"
+				                }
+				         },
+				         {
+				    	  "eventName" : "onServicesRequestSearchResultCancelClick",
+				          "action" : "navigation",
+				          "actionType":"navigation",
+				          "validation": "false",
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesLandingPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesRequestSearch"
+				                }
+				         }
+		        ],
+		        "HotlistDebitCard" :
+		        [
+
+				    	{
+				    	  "eventName" : "onHotlistDebitCardContinueClick",
+				          "action" : "HotlistDebitCardConfirmService",
+				          "actionType":"service",
+				          "validation": "true",
+				          "validationParams":
+				          	[
+		                        "services.hotlistDCModel.accountNumber",
+		                        "services.hotlistDCModel.debitCardNumber",
+		                        "services.hotlistDCModel.reasonDescription"
+		                    ],
+				          "parameters" : {
+				          		  "jsessionid": "fields.finacleUserSessionId",
+		                       	  "mbparam": "fields.finacleMbParam",
+				                  "card_number_input": "services.hotlistDCModel.debitCardNumber",
+				                  "reason_input": "services.hotlistDCModel.reasonDescription"
+				                  },
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "HotlistDebitCardAuthPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "HotlistDebitCard"
+				                }
+				         },
+
+				         {
+					         "eventName" : "onHotlistDebitCardCancelClick",
+					          "action" : "navigation",
+					          "actionType":"navigation",
+					          "validation": "false",
+					          "successPage" : {
+					          		  "subFeature": "Services",
+					                  "pageName": "ServicesLandingPage"
+					                  },
+					          "errorPage" : {
+					          		  "subFeature": "Services",
+					                  "pageName": "HotlistDebitCard"
+					                }
+				         },
+
+                		{
+		                    "eventName": "onHotlistDebitCardAccountNumberSelect",
+		                    "action": "HotlistDebitCardAccFetch",
+		                    "actionType": "service",
+		                    "validation": "false",
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "account_input2":"services.hotlistDCModel.accountNumber"
+		                    },
+		                    "successPage": {
+		                        "subFeature": "Services",
+		                        "pageName": "HotlistDebitCard"
+		                    },
+		                    "errorPage": {
+		                        "subFeature": "Services",
+		                        "pageName": "HotlistDebitCard"
+                    		}
+                		}
+		        ],
+		         "HotlistDebitCardAuthPage" :
+		        [
+
+				    	{ "eventName" : "onHotistDebitCardAuthSubmitClick",
+				          "action" : "HotlistDebitCardSubmitService",
+				          "actionType":"service",
+				          "validation": "true",
+				          "validationParams": [
+                    		],
+                    		"parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "Mode":"services.hotlistDCModel.transactionPassword",
+		                        "WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+								"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+								"Remarks":"corpInit.corpModel.remarks"
+		                    },
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "HotlistDebitCardSuccess"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "HotlistDebitCardAuthPage"
+				                }
+				         },
+				         { "eventName" : "onHotlistDebitCardCancelClick",
+				          "action" : "navigation",
+				          "actionType":"navigation",
+				          "validation": "false",
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesLandingPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "HotlistDebitCardAuthPage"
+				                }
+				         },
+				         { "eventName" : "onHotlistDebitCardAuthBackClick",
+				          "action" : "navigation",
+				          "actionType":"navigation",
+				          "validation": "false",
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "HotlistDebitCard"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "HotlistDebitCardAuthPage"
+				                }
+				         }
+		        ],
+		        "HotlistDebitCardSuccess" :
+		        [
+
+				    	{ "eventName" : "onHotlistDebitCardSuccessButtonClick",
+				          "action" : "navigation",
+				          "actionType":"navigation",
+				          "validation": "false",
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesLandingPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "HotlistDebitCardSuccess"
+				                }
+				         }
+		        ],
+		        "RequestCreditCardPinPage" :
+		        [
+
+				    	{ "eventName" : "onReqCDConfirmClick",
+				          "action" : "RequestCreditCardPinConfirmService",
+				          "actionType":"service",
+				          "validation": "true",
+				          "validationParams":
+				          	[
+		                        "services.reqCCPinModel.cardNumber"
+		                    ],
+		                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "ccaccount_input": "services.reqCCPinModel.cardNumber",
+                        "Remarks": "services.reqCCPinModel.remarks"
+                    	},
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "RequestCreditCardConfirmPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "ServicesLandingPage"
+				                }
+				         },
+                 {
+                     "eventName": "onCancelClick",
+                     "action": "navigation",
+                     "actionType": "navigation",
+                     "validation": "false",
+                     "successPage": {
+                         "subFeature": "Services",
+                         "pageName": "ServicesLandingPage"
+                     },
+                     "errorPage": {
+                         "subFeature": "Services",
+                         "pageName": "ServicesLandingPage"
+                     }
+                 }
+		        ],
+		        "RequestCreditCardConfirmPage" :
+		        [
+
+				    	{ "eventName" : "onReqCDSuccessClick",
+				          "action" : "RequestCreditCardPinSuccessService",
+				          "actionType":"service",
+				          "validation": "true",
+				          "validationParams":
+				          	[],
+		                    
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode": "services.reqCCPinModel.transactionPassword",
+                        "WFRULEINDEX":"corpInit.corpModel.selectedRuleId",
+						"ROLEDETAIL_ARRAY":"corpInit.corpModel.selectedRoleasString",
+						"Remarks":"services.reqCCPinModel.remarks"
+                    },
+				          "successPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "RequestCreditCardPINSuccessPage"
+				                  },
+				          "errorPage" : {
+				          		  "subFeature": "Services",
+				                  "pageName": "RequestCreditCardConfirmPage"
+				                }
+				         },
+                 {
+                     "eventName": "onCancelClick",
+                     "action": "navigation",
+                     "actionType": "navigation",
+                     "validation": "false",
+                     "successPage": {
+                         "subFeature": "Services",
+                         "pageName": "ServicesLandingPage"
+                     },
+                     "errorPage": {
+                         "subFeature": "Services",
+                         "pageName": "ServicesLandingPage"
+                     }
+                 },
+                 {
+                     "eventName": "onPrevServiceClick",
+                     "action": "navigation",
+                     "actionType": "navigation",
+                     "validation": "false",
+                     "successPage": {
+                         "subFeature": "Services",
+                         "pageName": "RequestCreditCardPinPage"
+                     },
+                     "errorPage": {
+                         "subFeature": "Services",
+                         "pageName": "ServicesLandingPage"
+                     }
+                 }
+		        ],
+		        "RequestCreditCardPINSuccessPage" :
+		        [
+                 {
+                     "eventName": "onCancelClick",
+                     "action": "navigation",
+                     "actionType": "navigation",
+                     "validation": "false",
+                     "successPage": {
+                         "subFeature": "Services",
+                         "pageName": "ServicesLandingPage"
+                     },
+                     "errorPage": {
+                         "subFeature": "Services",
+                         "pageName": "ServicesLandingPage"
+                     }
+                 }
+		        ]
+
+        }
+    ],
+    "subFeatureName": "Services",
+    "startPage": "ServicesLandingPage"
+}

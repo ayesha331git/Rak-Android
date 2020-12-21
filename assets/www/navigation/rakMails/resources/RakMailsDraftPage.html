@@ -1,0 +1,55 @@
+<div class="finacle-container"
+	ng-init="mails.initDetailsPage(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-10">
+			<div class="app-title-wrapper">
+				<div class="app-arrow title-left" ng-if="mails.detailType != 'Draft'" ng-click="setEvent(mails.setBackPageName(mails.detailType))"></div>
+		  		<div class="title-center">{{mails.detailType}} </div>
+		  		<div class="app app-cancel title-right" ng-click="setEvent('onDetailsCloseClick')"></div>
+		      </div>
+
+			<div class="highlight-color"></div>
+			<div class="bg-color">
+				<div class="row">
+					<div class="col-sm-10">
+						<div class=""
+							ng-hide='mails.detailType=="Broadcast"'>
+							<div class="label-title-ellipsis1">{{mails.mailSubject}}</div>
+						</div>
+<!-- 						<div class="msg-mrg" ng-hide='mails.detailType=="Broadcast"'></div> -->
+						<div ng-if="mails.detailType == 'Draft' || mails.detailType == 'Broadcast' || mails.detailType == 'Trash'">
+							<p class="label-title-ellipsis">From &nbsp;{{mails.mailFromId}}</p>
+						</div>
+						
+						<div ng-if="mails.detailType == 'Sent' || mails.detailType == 'Trash'">
+							<p class="label-title-ellipsis">To &nbsp;{{mails.mailToId}}</p>
+						</div>
+						<!-- <div ng-if="mails.detailType == 'Trash'">
+							<p  class="label-title-ellipsis">From &nbsp;{{mails.mailFromId}}</p>
+							<p  class="label-title-ellipsis">To &nbsp;{{mails.mailToId}}</p>
+						</div> -->
+						<div>
+							<p class="label-title-ellipsis">Date &nbsp;{{mails.mailDate}}</p>
+						</div>
+
+						<br>
+						<div class="mail-sub"><pre>{{mails.mailBody}}</pre></div>
+						<div class="fin-txt"></div>
+						<div class="col-sm-10">
+							<button type="button" class="btn--primary-left1-btn"
+								ng-click="mails.fromDraft=true; setEvent('onReplyClick')"
+								ng-show='mails.detailType=="Draft"'>{{appLiterals.APP.MAILS.DETAILS_PAGE.BTN_REPLY}}
+							</button>
+							<button type="button" class="btn--secondary-right-btn"
+								ng-hide='mails.detailType=="Broadcast"'
+								ng-click="mails.isDeleteClicked=true;setEvent(mails.setDeletePageName(mails.detailType))" ng-class="{'del-btn-left':mails.detailType!=''}">{{appLiterals.APP.MAILS.DETAILS_PAGE.BTN_DEL}}
+							</button>
+						</div>
+						<div class="col-sm-1"></div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

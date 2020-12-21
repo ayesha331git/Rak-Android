@@ -1,0 +1,161 @@
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onRakOprAccDupStmtInitBackClick');"></i>
+	</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.fetchRakOprAccDupStmtInitData(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+							<div class="main-form-heading-ServiceReq"> 
+							      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.OPR_ACC_DUPLICATESTMT}}
+							      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+							      </h2>		       
+					 		</div>
+						
+						
+							<div class="bg-color rak-cont-padding rak-scroll">
+							 <div class="row" >
+								<div class="">
+									
+
+									<div
+										ng-init='OprAcctArr = createDropDownOptionArray(rakServiceReq.RakOprAccDupStmtModel.OprAcctList, ["acctTypeDesc","-","accountId"], "accountIndex");'>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RakOprAccDupStmtModel.selectedOprAcct"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_SELECT_OPR_ACCOUNTS}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakOprAccDupStmtModel.selectedOprAcct"]'
+										option-array="OprAcctArr"> </fin-input>
+										</div>
+
+										<fin-input type="date" model="rakServiceReq.RakOprAccDupStmtModel.fromDatePeriod"
+										display-row="half1" value="pastDatesOnly"
+										validation-flag='pageErrorArr["rakServiceReq.RakOprAccDupStmtModel.fromDatePeriod"]'
+										placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.DATE_PLACEHOLDER}}">
+										</fin-input>
+
+										<fin-input type="date" model="rakServiceReq.RakOprAccDupStmtModel.toDatePeriod"
+										display-row="half2" value="pastDatesOnly"
+										validation-flag='pageErrorArr["rakServiceReq.RakOprAccDupStmtModel.toDatePeriod"]'
+										placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.DATE_PLACEHOLDER}}">
+										</fin-input>
+
+										<div class=""> 
+												<span class="fieldLabelLeft" >{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_SELECT_PERIOD_FROM}}</span> 
+												<span class="fieldLabelRight rak42" >{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_SELECT_PERIOD_TO}}</span> 
+											</div> 	
+
+										<div class="rakRow">
+											<div class="radio-biller rak100 rakWidth100 rakRadioBottom">
+												{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_DISPATCH_MODE}}</div>
+											<div class="rak100">
+												<div>
+												
+																								
+													<div class="rakCstmRadioDiv rak50 " ng-if="!rakServiceReq.branchDelOptHideSrList.includes('DSR') || rakServiceReq.hideBranchDelOpt!='Y'">
+														<input type="radio" value="{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_DISPATCH_BRANCH}}" 
+															id="radio1"
+															ng-model="rakServiceReq.RakOprAccDupStmtModel.isBranchOrAddress" />
+															<label for="radio1"><span><span></span></span>
+															{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_DISPATCH_BRANCH}}</label>
+													
+													</div>
+													<div class="rakCstmRadioDiv rak47 ">
+														<input type="radio" value="{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_DISPATCH_ADDRESS}}"
+															id="radio2"
+															ng-model="rakServiceReq.RakOprAccDupStmtModel.isBranchOrAddress" />
+															<label for="radio2"><span><span></span></span>{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_DISPATCH_ADDRESS}}</label>
+														
+													</div>
+												</div>
+											<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.RakOprAccDupStmtModel.isBranchOrAddress"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_DISPATCH_MODE}}</div>
+											</div>
+										</div>
+										
+										<div class="fin-txt"></div>
+
+
+<!-- Added By Nikitha Start -->
+  <!-- Added by Nikitha for Emirates DropDown -->
+       	<div
+									ng-init='cardArr = createDropDownOptionArray(rakServiceReq.RakOprAccDupStmtModel.emirateList, ["codeDesc"], "code");'></div>
+								<fin-input type="dropdown"
+								ng-show="rakServiceReq.RakOprAccDupStmtModel.isBranchOrAddress=='{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_DISPATCH_BRANCH}}'"
+										
+									model="rakServiceReq.RakOprAccDupStmtModel.emirateSeletected"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}"
+								on-change="rakServiceReq.rakOprAccDupStmtBranchOptionChange();" 	validation-flag='pageErrorArr["rakServiceReq.RakOprAccDupStmtModel.emirateSeletected"]'
+									option-array="cardArr"> </fin-input>
+
+
+
+									<div class="fin-input-container"
+										ng-show="rakServiceReq.RakOprAccDupStmtModel.isBranchOrAddress=='{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_DISPATCH_BRANCH}}'">
+										<div
+											ng-class="{'left-line': !pageErrorArr['rakServiceReq.RakOprAccDupStmtModel.selectedBranchId'], 'left-line-error':pageErrorArr['rakServiceReq.RakOprAccDupStmtModel.selectedBranchId']}"
+											class="left-line"></div>
+										<div class="input-body">
+											<div class="input-body2 input-body2-dropdown">
+												<select dropdownpicker title="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}" class="fin-input fin-select"
+													ng-model="rakServiceReq.RakOprAccDupStmtModel.selectedBranchId"
+													ng-style="{{rakServiceReq.RakOprAccDupStmtModel.selectedBranchId}} == '' ? {'font-size': '14px'} : {'color': 'initial'}">
+													<option class="place-holder-select" value=""
+														ng-selected="rakServiceReq.RakOprAccDupStmtModel.selectedBranchId== null"
+														ng-show="rakServiceReq.RakOprAccDupStmtModel.selectedBranchId== null">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}</option>
+													<option
+														ng-repeat="option in rakServiceReq.RakOprAccDupStmtModel.OprAcctBranchList"
+														ng-selected="option.value=={{rakServiceReq.RakOprAccDupStmtModel.selectedBranchId}}"
+														value="{{option.branchIndex}}">{{option.branchCode}}</option>
+												</select>
+											</div>
+											<div
+												ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.RakOprAccDupStmtModel.selectedBranchId'], 'bottom-line-error':pageErrorArr['rakServiceReq.RakOprAccDupStmtModel.selectedBranchId']}"
+												class="bottom-line"></div>
+											<div
+												ng-hide='pageErrorArr["rakServiceReq.RakOprAccDupStmtModel.selectedBranchId"]==null'
+												class="rakErrorMsg">
+												{{pageErrorArr['rakServiceReq.RakOprAccDupStmtModel.selectedBranchId']}}</div>
+
+										</div>
+									</div>
+
+									<!-- Added By Nikitha End  -->
+
+									<fin-input type="text"
+										model="rakServiceReq.RakOprAccDupStmtModel.remarks"
+										display-row="full" placeholder="{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_REMARKS}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakOprAccDupStmtModel.remarks"]'></fin-input>
+
+									<div class="label-wrap">
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-right"
+											ng-click="rakServiceReq.branchIdValidationRqdCheck();rakServiceReq.sendFormattedDate();setEvent('onRakOprAccDupStmtConfirmClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+									</div>
+									</div>
+									<div class="col-sm-1"></div>
+									
+									<div class="disclaimer">
+                                                 <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                                 <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                                 </div>                                                 
+                                                 
+                                                 <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+													<span ng-click="rakServiceReq.fetchDisclaimer('AcntAndDebitCardSrvcRqstsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKDUPSTMT_INITPAGE"></span>
+													<span ng-click="rakServiceReq.fetchDisclaimer('AccountServiceRequestsCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKDUPSTMT_INITPAGECONT"></span>
+													<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKDUPSTMT_INITPAGENEW"></span>
+												</div>
+                                                 
+                                 </div>
+								
+								
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

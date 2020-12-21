@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <SurfaceView
+        android:id="@+id/preview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="45dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginBottom="2dp"
+        />
+
+    <ImageView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="45dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginBottom="2dp"
+        android:id="@+id/image" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/relative">
+
+        <Button
+            android:id="@+id/frontCancel"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+         android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/close"
+            android:text=""
+            android:onClick="onFrontCancelClick" />
+
+        <Button
+            android:id="@+id/frontSnap"
+           android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="8dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/capture"
+            android:text=""
+            android:onClick="onFrontSnapClick" />
+
+        <Button
+            android:id="@+id/confirmFrontSnap"
+        android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+           
+ android:background="@drawable/tick"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text=""
+            android:onClick="onFrontConfirmClicked"
+
+            />
+    </RelativeLayout>
+</RelativeLayout>

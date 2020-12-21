@@ -1,0 +1,59 @@
+
+<div class="finacle-container"
+ng-init="rakServiceReq.initTLUploadSuccess(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+
+			
+			<div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakServiceReq.TLUpload.finalMsg}}</span>
+                        </div>
+                  </div>
+                  
+                  
+            <div class="main-form-heading-ServiceReq">
+				<h2 class="rakBenfHeader">
+					{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.TL_UPLOAD}} <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}
+					</span>
+				</h2>
+			</div>
+			
+			
+		
+
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+
+				<div class="row">
+					<div class="">
+						<p class="rak-sum-txt " >
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_TL_UPLOAD.TXT_TLNUM}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.TLUpload.licenceNo}}</span>
+
+							</p>
+							
+							<p class="rak-sum-txt " >
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_TL_UPLOAD.TXT_TLEXP}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.TLUpload.expiryDate}}</span>
+
+							</p>
+
+				
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakServiceReq.TLUpload.resetTLUpload();setEvent('onDoneClick')">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+						</div>
+						<div class="col-sm-1"></div>
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+

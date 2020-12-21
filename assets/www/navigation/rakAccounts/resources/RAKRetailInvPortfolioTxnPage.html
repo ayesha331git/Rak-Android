@@ -1,0 +1,148 @@
+<div class="finacle-container" 
+     ng-init='
+        successResponse.invocationResult=successResponse.hasOwnProperty("responsesList")?successResponse.responsesList:successResponse.invocationResult.response.responsesList;
+        rakAccounts.accountList(successResponse.invocationResult);
+        rakAccounts.initPage(successResponse.responsesList,rakAccounts.RAKAccountsModel.accountType);'>
+      
+	<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onInvBackPage');"></i>
+		</div>
+
+  <div class="account-page">
+    <div class="col-sm-11">     
+      <div class="bg-color rak-cont-padding">
+          <div class="row" >
+         <div class="col-sm-1"> </div>
+			  <div class="rakwidth75" 
+			ng-init='invtPortfolioArrayList=createDropDownOptionArray(rakAccounts.RAKAccountsModel.invPortfolioList,["productName"],"accountIndex");'> 
+			<fin-input type="dropdown" option-array="invtPortfolioArrayList"
+			model="rakAccounts.RAKAccountsModel.profileSelectedAccount" 
+			select-req="false"
+			display-row="full"
+			placeholder="{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.SELECT_ACCOUNT}}"
+			on-change="setEvent(rakAccounts.onInvPortfolioChange())">  
+			</fin-input>
+			</div> 
+	<div class="rakScrollDiv">
+		<div class="balance-detail">
+		<div class="rakamount"> <span class="amount-ps"> {{rakAccounts.RAKAccountsModel.invPortfolioList[rakAccounts.RAKAccountsModel.profileSelectedAccount].productName}}</span></div>
+		<p class="balance-available-dash rak-display-caption">{{appLiterals.APP.RAK_ACCOUNTS.INVESTMENT_PAGE.PRODUCT_NAME}}</p>
+		</div>
+		
+		<div class="balance-detail">
+		<div class="rakamount"> <span class="amount-ps"> {{rakAccounts.RAKAccountsModel.invPortfolioList[rakAccounts.RAKAccountsModel.profileSelectedAccount].productType}}</span></div>
+		<p class="balance-available-dash rak-display-caption">{{appLiterals.APP.RAK_ACCOUNTS.INVESTMENT_PAGE.PRODUCT_TYPE}}</p>
+		</div>
+		
+           <div  class="balance-detail" >
+              <div class="rakamount"> 
+               <span class="amount-ps"> {{rakAccounts.RAKAccountsModel.invPortfolioList[rakAccounts.RAKAccountsModel.profileSelectedAccount].holdingAsOn== "" ? " ": rakAccounts.RAKAccountsModel.invPortfolioList[rakAccounts.RAKAccountsModel.profileSelectedAccount].holdingAsOn}}</span>                
+             </div>
+              <p class="balance-available-dash rak-display-caption">  {{appLiterals.APP.RAK_ACCOUNTS.INVESTMENT_PAGE.HOLDING_AS_ON}} </p> 
+            </div>
+                   <div  class="balance-detail" >
+              <div class="rakamount"> 
+               <span class="amount-ps"> 
+               {{rakAccounts.RAKAccountsModel.invPortfolioList[rakAccounts.RAKAccountsModel.profileSelectedAccount].quantity}}</span>                
+             </div>
+              <p class="balance-available-dash rak-display-caption">  {{appLiterals.APP.RAK_ACCOUNTS.INVESTMENT_PAGE.QUANTITY}} </p> 
+            </div>
+                   <div  class="balance-detail" >
+              <div class="rakamount"> 
+               <span class="amount-ps"> 
+               {{rakAccounts.RAKAccountsModel.invPortfolioList[rakAccounts.RAKAccountsModel.profileSelectedAccount].holdingCost}}</span>                
+             </div>
+              <p class="balance-available-dash rak-display-caption">  {{appLiterals.APP.RAK_ACCOUNTS.INVESTMENT_PAGE.HOLDING_COST}} </p> 
+            </div>
+                   <div  class="balance-detail" >
+              <div class="rakamount"> 
+               <span class="amount-ps"> {{rakAccounts.RAKAccountsModel.invPortfolioList[rakAccounts.RAKAccountsModel.profileSelectedAccount].facilityAmt}}</span>                
+             </div>
+              <p class="balance-available-dash rak-display-caption">  {{appLiterals.APP.RAK_ACCOUNTS.INVESTMENT_PAGE.FACILITY_AMOUNT}} </p> 
+            </div>
+            
+         <div class="money-block">              
+         <ul>
+            <li  class="active">
+            {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.TEXT_TRANSACTIONS}}</li>
+         </ul>
+ 		</div>
+            
+            
+        
+                                                                  
+           <!--  <div class="app-future-results" ng-show='rakAccounts.RAKAccountsModel.trxSearchFlag'></div> -->
+
+					<div class="nano scroll-height rakscroll-height">
+
+						<div class="nano-content">
+							<div
+								ng-show="rakAccounts.RAKAccountsModel.accountsTransaction == null || rakAccounts.RAKAccountsModel.accountsTransaction.length < 1">
+								{{appLiterals.APP.DASHBOARD.ACCOUNTS_PAGE.NO_RESULTS_MSG}}</div>
+							<div class="balance-columns-header-row" ng-show="rakAccounts.RAKAccountsModel.accountsTransaction.length > 0" ng-init="rakAccounts.RAKAccountsModel.showMore=[];">
+								
+								<!-- CHANGES DONE AS FIX OF PRCU-1513 START -->
+								  <div class="balance-heade-col rak30">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.DEAL_DATE}}</div>
+								  <!-- <div class="balance-heade-col rak20">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.DEAL_TYPE}}</div> -->
+								  <!-- <div class="balance-heade-col rak20">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.DEAL_PRICE}}</div> -->
+								  <div class="balance-heade-col rak30">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.DEAL_QTY}}</div>
+								  <div class="balance-heade-col rak30">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.DEAL_AMT}}</div>
+								  <!-- CHANGES DONE AS FIX OF PRCU-1513 END -->
+							</div>
+							<div class="trans-detail-inv"
+								ng-show="rakAccounts.RAKAccountsModel.accountsTransaction.length > 0"
+								ng-init="rakAccounts.RAKAccountsModel.showMore[$index]=false"
+								ng-repeat="transaction in rakAccounts.RAKAccountsModel.accountsTransaction">
+
+                              <!-- CHANGES DONE AS FIX OF PRCU-1923 START-->
+								<div class="trans-detail-inv rakGreyRowHeight">
+									<div class="trans-date rakPeopleNameRow1 rak30 rakPadding0505 rakFont1em rakTopPadding4em margin_top2px">
+										{{transaction.dealDate}}</div>
+								<!-- 	<div class="trans-dash-right rakPeopleNameRow1 rak20 rakPadding0505 rakFont1em">
+										{{transaction.orderType}}</div> -->
+									<!-- <div class="trans-dash-right rakPeopleNameRow1 rak20 rakPadding0505 rakFont1em">
+										{{transaction.dealPrice}}</div> -->
+									<div class="trans-dash-right rakPeopleNameRow1 rak30 rakPadding0505 rakFont1em rakTopPadding4em margin_top2px">
+										{{transaction.dealQuantity}}</div>
+									<div class="trans-dash-right rakPeopleNameRow1 rak30 rakPadding0505 rakFont1em rakTopPadding4em margin_top2px">
+										{{transaction.dealAmt}}</div>
+										
+										
+							<div class="trans-date rakPeopleNameRow1 rak10 center rakPaddingPoint8emAndZero" ng-click="rakAccounts.RAKAccountsModel.showMore[$index] = !rakAccounts.RAKAccountsModel.showMore[$index]">
+												<img alt="" ng-show="rakAccounts.RAKAccountsModel.showMore[$index]==false" class="image_2x margin_top2px" src="./images/more-dots.png">
+												<img alt="" ng-hide="rakAccounts.RAKAccountsModel.showMore[$index]==false" class="image_2x margin_rightTopNegative" src="./images/close.png">
+						    </div>		 
+							
+							<div class="trans-date rakPeopleNameRow1 rak50 rakPadding0505 rakFont1em rakPaddingLeft6 rakClearLeft" ng-hide="rakAccounts.RAKAccountsModel.showMore[$index]==false">
+												{{transaction.orderType}}<div class="boldLabel">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.DEAL_TYPE}}</div></div>
+							<div class="trans-date rakPeopleNameRow1 rak50 rakPadding0505 rakFont1em" ng-hide="rakAccounts.RAKAccountsModel.showMore[$index]==false">
+												{{transaction.dealPrice}}<div class="boldLabel">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.DEAL_PRICE}}</div></div>			
+
+							</div>
+								 <!-- CHANGES DONE AS FIX OF PRCU-1923 END-->
+							</div>
+						</div>
+					</div>
+
+		</div>			
+          <div class="col-sm-1"> </div>
+      
+
+    
+
+    
+    <div class="col-sm-1"></div>    
+  </div>
+</div>
+  
+  
+
+   
+  </div>
+    </div>
+       </div>
+
+
+    

@@ -1,0 +1,117 @@
+<div class="rak-back-header" ng-if="!rakServiceReq.TLUpload.backflag">
+
+			<i class="rak-back-img" ng-click="setEvent('onBackClick');"></i>
+		</div>
+		
+		<div class="rak-back-header" ng-if="rakServiceReq.TLUpload.backflag">
+
+			<i class="rak-back-img" ng-click="setEvent('onSettingsBackClick');"></i>
+		</div>
+		<div ng-show="rakServiceReq.TLUpload.popUpFlag">
+<div class="full-page-screen"  ></div>
+
+<div class="confirmation-content-container">
+    <div class="message-box-new rakTop25">
+        <div>
+            <p class="round-icon-new">
+            <span class="app app-alert pop-alert-icon rak-color"></span>
+            </p>
+
+        </div>
+
+        <div class="conf-txt-label rak-black-color">
+         {{appLiterals.APP.RAK_TL_UPLOAD.POPUPMSG}}
+        </div>
+		<div class="conf-btn-wrap_alert rakpaddingBottom10 ">
+
+
+
+
+
+          
+
+            <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click='rakServiceReq.TLUpload.popUpFlag=false;setEvent("onDismissClick")' >
+                &nbsp; {{appLiterals.APP.RAK_TL_UPLOAD.OK}} &nbsp;
+            </button>
+
+        </div>
+
+
+
+
+    </div>
+</div>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.TLUpload.initTLUpload(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+				
+						<div class="main-form-heading-ServiceReq"> 
+						      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.TL_UPLOAD}}
+						      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+						      </h2>		       
+				 		</div>
+
+					<div class="bg-color rak-cont-padding rak-scroll">
+						<div class="row">
+						
+
+
+						
+							<p class="rak-sum-txt " >
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_TL_UPLOAD.TXT_TLNUM}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.TLUpload.licenceNo}}</span>
+
+							</p>
+							
+							<p class="rak-sum-txt " >
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_TL_UPLOAD.TXT_TLEXP}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.TLUpload.expiryDate}}</span>
+
+							</p>
+							
+				  
+			
+							
+							<div class="label-wrap">
+							
+								  <button type="button"
+									class="btn--special-btn btn-middle rak-button-small rak-button-right"
+									ng-click="rakMyProfile.picImage();">
+									   {{appLiterals.APP.RAK_TL_UPLOAD.TXT_UPLOAD}}</button>
+							
+
+							<button type="button"
+									class="btn--special-btn btn-middle rak-button-small rak-button-right"
+									ng-click='rakMyProfile.checkImageUploaded();'>
+									{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+
+							</div>
+							
+							<div class="disclaimer">
+                              <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                              <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                              </div>
+                              
+                           		<div class="disclaimer3" ng-if="rakDisclaimerFlag ">										
+										<span ng-bind-html="appLiterals.APP.DISCLAIMER.TL_UPLOAD_INIT"></span>
+										<span ng-click="rakServiceReq.fetchDisclaimer('AcntAndDebitCardSrvcRqstsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.TL_UPLOAD_INIT_CLCIK"></span>										
+								</div>
+              				</div>					
+						
+
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+</div>

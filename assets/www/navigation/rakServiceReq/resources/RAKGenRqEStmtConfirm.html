@@ -1,0 +1,132 @@
+<div class="finacle-container ng-scope"
+	ng-init="rakServiceReq.RakGenRqEStmtModel.txnPwd = '';rakServiceReq.confirmRakGenRqEStmt(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+			<div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.GENRQ_ESTMT}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>                
+                              </h2>              
+           </div>
+			<!-- </div> -->
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="">
+					<div class="">
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_STMT}}
+								</span> <span class="rak-sum-label black"
+								ng-show="rakServiceReq.RakGenRqEStmtModel.isStmtCreditCardSelected && rakHome.userTypeIDValue!='CORPORATE'">{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_STMT_CC}}</span>
+							<span class="rak-sum-label"
+								ng-show="rakServiceReq.RakGenRqEStmtModel.isStmtCreditCardSelected && rakServiceReq.RakGenRqEStmtModel.isStmtAccountsSelected"></span>
+							<span class="rak-sum-label black"
+								ng-show="rakServiceReq.RakGenRqEStmtModel.isStmtAccountsSelected">{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_STMT_ACC}}</span>
+						</p>
+						<p class="rak-sum-txt"
+							ng-show="rakServiceReq.RakGenRqEStmtModel.isAdviceRemitSelected || rakServiceReq.RakGenRqEStmtModel.isAdviceDepositSelected">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_ADVICES}}
+								</span> <span class="rak-sum-label black"
+								ng-show="rakServiceReq.RakGenRqEStmtModel.isAdviceRemitSelected">{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_ADVICES_REMI}}</span>
+							<span class="rak-sum-label"
+								ng-show="rakServiceReq.RakGenRqEStmtModel.isAdviceRemitSelected && rakServiceReq.RakGenRqEStmtModel.isAdviceDepositSelected"></span>
+							<span class="rak-sum-label black"
+								ng-show="rakServiceReq.RakGenRqEStmtModel.isAdviceDepositSelected">{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_ADVICES_DEP}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_DELIVER_BY}}
+								</span> <span class="rak-sum-label black">{{rakServiceReq.RakGenRqEStmtModel.deliveryModeSelected}}</span>
+						</p>
+						<p class="rak-sum-txt"
+							ng-show="rakServiceReq.RakGenRqEStmtModel.deliveryModeSelected=='Email'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_PRIM_EMAIL}}
+								</span> <span class="rak-sum-label black">{{rakServiceReq.RakGenRqEStmtModel.primaryEmail}}</span>
+						</p>
+						<p class="rak-sum-txt"
+							ng-show="rakServiceReq.RakGenRqEStmtModel.deliveryModeSelected=='Email' && rakServiceReq.RakGenRqEStmtModel.secondaryEmail">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_SECON_EMAIL}}
+								</span> <span class="rak-sum-label black">{{rakServiceReq.RakGenRqEStmtModel.secondaryEmail}}</span>
+						</p>
+						<p class="rak-sum-txt"
+							ng-show="rakServiceReq.RakGenRqEStmtModel.deliveryModeSelected=='Fax'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_FAX_NO}}
+								</span> <span class="rak-sum-label black">{{rakServiceReq.RakGenRqEStmtModel.faxNo}}</span>
+						</p>
+
+					<div class="label-wrap"
+						ng-show='rakServiceReq.RakGenRqEStmtModel.authStatus'>
+
+						<fin-input type="password_text"
+							model="rakServiceReq.RakGenRqEStmtModel.txnPwd"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+							validation-flag='pageErrorArr["rakServiceReq.RakGenRqEStmtModel.txnPwd"]'
+							ng-show="rakServiceReq.RakGenRqEStmtModel.authMode==txnpwdString">
+						</fin-input>
+						<!-- <fin-input type="password_num"
+							model="rakServiceReq.RakGenRqEStmtModel.txnPwd"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP"
+							validation-flag='pageErrorArr["rakServiceReq.RakGenRqEStmtModel.txnPwd"]'
+							ng-show="rakServiceReq.RakGenRqEStmtModel.authMode==otpString">
+						</fin-input> -->
+
+							<!--  CHANGES FOR RESEND OTP START -->
+							<!-- <div
+								ng-show="rakServiceReq.RakGenRqEStmtModel.authMode==otpString">
+								<div class="rakwidth65">
+									<fin-input type="password_num"
+										model="rakServiceReq.RakGenRqEStmtModel.txnPwd"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakGenRqEStmtModel.txnPwd"]'>
+									</fin-input>
+								</div>
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+									ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');">
+									Resend OTP</button>
+							</div> -->
+							<!--  CHANGES FOR RESEND OTP END -->
+							<div ng-show="rakServiceReq.RakGenRqEStmtModel.authMode==otpString">
+								<div
+									ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+									<fin-input type="password_num" model="rakServiceReq.RakGenRqEStmtModel.txnPwd"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakGenRqEStmtModel.txnPwd"]'></fin-input>
+								</div>
+							
+							
+								<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0'
+									ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+							
+									<fin-input type="dropdown" option-array="toModeArray"
+										model="rakHome.otpModel.otpModeSelected" display-row="full"
+										placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+									<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+							
+								</div>
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+									ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}}</button>
+							
+							</div>
+														
+						</div>
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back"
+								ng-click="rakServiceReq.RakGenRqEStmtModel.isBack=true;rakServiceReq.detectBackPageFromConf();setEvent(rakServiceReq.RakGenRqEStmtModel.backPageToGoFromConfPage);">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="setEvent('onRAKGenRqEStmtSubmitClick');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}
+							</button>
+						</div>
+						<div class="col-sm-1"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

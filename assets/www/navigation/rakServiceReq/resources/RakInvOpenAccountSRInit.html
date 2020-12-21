@@ -1,0 +1,125 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="rak-back-header">
+			<i class="rak-back-img" ng-click="setEvent('onRAKInvOpenBackClick');"></i>
+		</div>
+		<div class="finacle-container"
+			ng-init="rakServiceReq.rakInvOpenAccSRInit(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+
+					<div class="">
+						<div class="main-form-heading-ServiceReq">
+							<h2 class="rakBenfHeader">
+								{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.INV_OPEN}} <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>
+							</h2>
+						</div>
+						<div class="bg-color rak-cont-padding  rak-scroll">
+							<div class="row">
+
+
+								<div
+									ng-init='oprArr = createDropDownOptionArray(rakServiceReq.RakInvOpenAccSR.accList, ["productCatDesc","-","accountId"], "accountIndex");'></div>
+								<fin-input type="dropdown"
+									model="rakServiceReq.RakInvOpenAccSR.selectedAcc"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.REF_ACC}}"
+									validation-flag='pageErrorArr["rakServiceReq.RakInvOpenAccSR.selectedAcc"]'
+									option-array="oprArr"> </fin-input>
+
+								<!-- <div class="rakRow rakRelative"> -->
+								<div class="rakRow rakRelative">
+									
+									<div
+										class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px rakRadioBottom">
+										{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.INV_AMT_CURRENCY}}</div>
+									<div class="rak90">
+										<div>
+
+											<div class="rakCstmRadioDiv rak50 rakTop2emLeft3">
+												<input type="radio"
+													value="{{rakServiceReq.RakInvOpenAccSRConstants.AEDCURRENCY}}"
+													id="radio1"
+													ng-model="rakServiceReq.RakInvOpenAccSR.invAmtCurr" /> <label
+													for="radio1"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.INV_AMT_AED}}</label>
+											</div>
+
+											<div class="rakCstmRadioDiv rak47 rakTop2emLeft3 ">
+												<input type="radio"
+													value="{{rakServiceReq.RakInvOpenAccSRConstants.USDCURRENCY}}"
+													id="radio2"
+													ng-model="rakServiceReq.RakInvOpenAccSR.invAmtCurr" /> <label
+													for="radio2"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.INV_AMT_USD}}</label>
+											</div>
+
+										</div>
+									</div>
+									<div class="rakRadioErr"
+											ng-hide='pageErrorArr["rakServiceReq.RakInvOpenAccSR.invAmtCurr"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.INV_AMT_CURRENCY}}</div>
+								</div>
+
+							</div>
+							<fin-input type="number"
+								model="rakServiceReq.RakInvOpenAccSR.invAmtNum"
+								display-row="full"
+								validation-flag='pageErrorArr["rakServiceReq.RakInvOpenAccSR.invAmtNum"]'
+								placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.INV_AMT}}">
+							</fin-input>
+
+							<div class="label-wrap">
+
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small"
+									ng-click="rakServiceReq.RakInvOpenAccSR.resetRakInvOpenAccSRExcRate();rakServiceReq.rakInvOpenAccSRContinue();setEvent('onRAKInvOpenDetails');">
+									{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.EXC_RATE}}</button>
+							</div>
+
+
+
+
+
+
+
+							<div class="fin-input-container rakTransfersexchangerate-block"
+								ng-show="rakServiceReq.RakInvOpenAccSR.isExcRate">
+
+								<p class="rakexchangevalue">{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.EXC_RATE}}&nbsp;&nbsp;
+									&nbsp;&nbsp;{{rakServiceReq.RakInvOpenAccSR.excRate}}</p>
+							</div>
+
+							<div class="rak-parent-txt"
+								ng-show="rakServiceReq.RakInvOpenAccSR.isDebRate">
+
+								<p class="rak-sum-label  ServiceReqNormalLable">{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.DEB_AMT}}</p>
+								<p class="rak-sum-label blackRight ServiceReqNormalLable">{{rakServiceReq.RakInvOpenAccSR.debAmt}}</p>
+							</div>
+
+
+
+							<div class="rakTCDivInv"
+								ng-show="rakServiceReq.RakInvOpenAccSR.isExcRate && rakServiceReq.RakInvOpenAccSR.isDebRate">
+								<input type="checkbox" class="rakTCCheckBoxStyle"
+									ng-model="rakServiceReq.RakInvOpenAccSR.acceptTermsCheck"
+									ng-true-value="'Y'" ng-false-value="'N'"> <span
+									class="rakTCCheckBoxLabel">{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.TC}}</span>
+							</div>
+
+
+							<div class="label-wrap"
+								ng-show="rakServiceReq.RakInvOpenAccSR.isExcRate && rakServiceReq.RakInvOpenAccSR.isDebRate">
+
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small"
+									ng-click="rakServiceReq.RakInvOpenAccSR.resetRakInvOpenAccSRMCQ();rakServiceReq.rakInvOpenAccSRContinue();rakServiceReq.rakInvSetEvent();">
+									{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+							</div>
+							<div class="col-sm-1"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+</div>

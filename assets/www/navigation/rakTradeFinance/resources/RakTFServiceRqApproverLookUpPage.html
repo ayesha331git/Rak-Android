@@ -1,0 +1,92 @@
+<div class="rak-back-header">
+    <i class="rak-back-img" ng-click="rakTradeFinance.approveAuthModel.userName=bank.userId;setGlobalEvent('onBackClickedTFSR');"></i>
+  </div>
+    	<div class="finacle-container" >
+	<div class="account-page">
+		<div class="col-sm-11">
+			<div class="app-title-wrapper">	
+					 
+			   <div class="form-block">
+	<div class="">
+			<div class="main-form-heading-payee rakSearchBorder"> 
+		      <h2 >{{appLiterals.APP.CORPORATE.APPROVER_LOOKUP}}
+		 	     
+		      </h2>		       
+		  </div>		 
+
+	</div>
+							    
+         <div class="fin-txt"></div>
+         <div class="bg-color rak-cont-padding" ng-init="rakCorpInit.corpModel.processRoleDetail(successResponse.responsesList);">         
+          <div class="money-block" ng-if="rakTradeFinance.approveAuthModel.userRoleDetails.length> 0">              
+						         <ul>
+						            <li  class="active rak25" >
+						            {{appLiterals.APP.CORPORATE.USERID}}</li>	
+						              <li class="active rak25">
+						           {{appLiterals.APP.CORPORATE.USERNAME}}</li>					        
+						           <li class="active rak25">
+						            {{appLiterals.APP.CORPORATE.ROLEDESC}}</li> 						         
+						         </ul> 
+						 	</div>
+          			<div class="rakScrollDivHistory rak-cont-paddingvh" ng-class="{'rakScrollDivHistorySmall':rakTxnSearch}" ng-if="rakTradeFinance.approveAuthModel.userRoleDetails.length> 0">    
+					            <div class="" >
+									<div class="trans-detail rakGreyRow" ng-repeat="bank in rakTradeFinance.approveAuthModel.userRoleDetails | filter:rakTradeFinance.approveAuthModel.userName">									
+					                  	<div class="trans-dash-right rakPeopleNameRow1 rak25  rakPaddingPoint8em pull-left">					                   		
+					                   		<div> 
+					                    <div class="trans-no rakFont1em">   
+					                   {{bank.userId}}                  
+					                    </div>
+					                    </div>
+					                                  
+					                    </div>
+					                    
+					                    <div class="trans-dash-right rakPeopleNameRow1 rak25 pull-left rakPaddingPoint8em">					                   		
+					                   		<div> 
+					                    <div class="trans-no rakFont1em">   
+					                   {{bank.userName}}                  
+					                    </div>
+					                    </div>
+					                                  
+					                    </div>
+					                    
+					                    
+					                 <div class="trans-dash-left rakPeopleNameRow1 rak25 pull-left rakPaddingPoint8em" >					                
+					                  <div> 
+					                    <div class="trans-no rakFont1em">   
+					                        {{bank.roleDesc}}             
+					                    </div>
+					               </div> 
+					                  </div> 
+					                    
+					                    
+					                  <div class="trans-dash-left rakPeopleNameRow1 rak25 pull-left rakPaddingPoint8em">					                  
+					                    <div> 
+					                    <div class="trans-no rakFont1em "> 
+					                           <div class="raknew_user" ng-click="rakTradeFinance.approveAuthModel.userName=bank.userId;setGlobalEvent('onApproverClickedTFSR');" >select</div>
+					                                
+					                    </div>
+					                  </div> 
+					                        
+					                  </div>
+					              
+					             </div>
+					              </div> 
+					              			
+			
+			</div>
+			
+	
+              
+						</div>
+						
+				</div>		
+		
+						
+			
+          </div>
+         
+     
+   </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,53 @@
+<div class="rak-back-header" >
+		<div>
+		<i class="rak-back-img" ng-click="setEvent('rakLodgeChequeBack');"></i>
+		</div>
+	</div>
+
+
+
+<div class="finacle-container"
+	ng-init='
+        rakAccounts.chequeLodgedDetails(successResponse.responsesList); 
+      '>
+
+
+	<div class="account-page">
+		<div class="col-sm-11">
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+					<div class="col-sm-1"></div>
+
+
+					<div class="rakColumnDiv">
+						<span class="rakChkColumnLabel">Cheque Number</span> <span
+							class="rakChkColumnLabel">Status</span> <span
+							class="rakChkColumnLabelLast">Amount</span>
+
+					</div>
+
+					<div
+						ng-hide="successResponse.responsesList[0].CustomLodgedChequeDetails.length == 0"
+						ng-repeat="CustomLodgedChequeDetails in successResponse.responsesList[0].CustomLodgedChequeDetails">
+
+						<div class="rakColumnDiv">
+<!-- commented for 5177 -->
+							<!-- <span class="rakColumnLabel"
+								ng-click="rakAccounts.RAKAccountsModel.tempchequeNumber=CustomLodgedChequeDetails.accountChequeNumber;setEvent('onViewChequeClick');">{{CustomLodgedChequeDetails.accountChequeNumber}}</span> -->
+								
+								<span class="rakColumnLabel">{{CustomLodgedChequeDetails.accountChequeNumber}}</span>
+							<span class="rakChkColumnLabel">{{CustomLodgedChequeDetails.accountChequeStatus}}</span>
+							<span class="rakChkColumnLabelLast">{{CustomLodgedChequeDetails.accountDrawnAmount}}</span>
+
+						</div>
+					</div>
+
+					<div class="col-sm-1"></div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,70 @@
+<!-- <div class="app app-cancel title-right" ng-click="setEvent('onRequestDebitCardPinAuthCancelClick')"></div> -->
+<div class="app app-arrow2 title-right-dash" id="requestDebitCardPinAuthBack"
+	ng-click="setEvent('onRequestDebitCardPinAuthBackClick')"></div>
+<div class="finacle-container"
+	ng-init="services.debitCardCommonData.initDebitCardConfirmData(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div class="item-title text-uppercase">
+							<span id="pageTitle"> {{appLiterals.APP.SERVICES.APP_NEW_DC_AUTH.TITLE}}
+							</span>
+						</div>
+					</div>
+					<!--  -->
+					<div class="col-sm-12">
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtAccNo">
+								{{appLiterals.APP.SERVICES.APP_NEW_DC_AUTH.TXT_ACC_NO}} </strong> <span
+								class="dash-ac-id" id="accNo">
+								{{services.debitCardCommonData.authResponceList.accountNickname}}-{{services.debitCardCommonData.authResponceList.accountNumber}}
+							</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtDebitCardNo">
+								{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD_AUTH.TXT_DEBIT_CARD_NO}}
+							</strong> <span class="dash-ac-id" id="debitCardNumber">
+								{{services.debitCardCommonData.authResponceList.debitCardNumber}}
+							</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtReason">
+								{{appLiterals.APP.SERVICES.COMMON.REASON}} </strong> <span
+								class="dash-ac-id" id="reason">
+								{{services.debitCardCommonData.authResponceList.reasonForReissue}}
+							</span>
+						</div>
+						<div
+							ng-hide="services.debitCardCommonData.authResponceList.remarks == ''"
+							class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtRemarks">
+								{{appLiterals.APP.SERVICES.COMMON.REMARKS}} </strong> <span
+								class="dash-ac-id" id="remarks">
+								{{services.debitCardCommonData.authResponceList.remarks}} </span>
+						</div>
+
+					</div>
+					<form
+						ng-submit="corpInit.corpModel.getSelectedRoleDetailsAsString();setEvent('onRequestDebitCardPinAuthSubmitClick')">
+						<div
+							ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+							<approval-input></approval-input>
+						</div>
+						<fin-Stepauth></fin-Stepauth>
+						<md-button id="requestDebitCardPinAuthPageSubmit" type="submit"
+							id="requestDebitCardPinAuthSubmit"
+							ng-if="services.debitCardCommonData.isOnline == true"
+							class="md-raised btn--primary-btn">{{appLiterals.APP.COMMON.BUTTON.SUBMIT}}</md-button>
+						<md-button id="requestDebitCardPinAuthPageSubmitToRm"
+							id="requestDebitCardPinAuthSubmitToRm" type="submit"
+							ng-if="services.debitCardCommonData.isOnline == false"
+							class="md-raised btn--primary-btn">{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD_AUTH.BTN_SUBMIT_TO_RM}}</md-button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,111 @@
+
+<div class="finacle-container"
+	ng-init="formatAmountCrn('successResponse.responsesList[0].minOpeningAmount','services.operativeAccountModel.selectedCurrency')">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+
+			<div class="dashboard-pad full-height">
+				<div class="dashboard-item-body full-height">
+                    
+					<!-- 	<div class="sucs_circle_wrap">
+						<span class="app-tickcircle sucs_circle_icon"></span>
+						<div id="closeBtn" class="title-right-succPage" ng-click="cm.stopCheques.resetModel();setEvent('onCancelClick')" role="button"
+							tabindex="0"></div>
+					</div>
+					<p class="trans_sucs_txt payementTxtColor" id="chqStopSuccHeader">{{appLiterals.APP.CHEQUE_MNGMNT.SINGLE_SUCCESS.MSG_SUCCESS}}</p>
+					<div class="trans_id_wrap">
+						<div class="id_container"> </div>
+						<div class="id_txt_wrap">
+							<div class="id_txt_pad">
+								<p class="sucs-id-txt" id="chqStopSuccResponse">{{cm.stopCheques.model.stopChequeResponse}}</p>
+							</div>
+						</div>
+					</div> -->
+					<fin-success
+						success-banner="{{appLiterals.APP.COMMON.MSG.SUCCESS}}"
+						success-message="{{successResponse.responsesList[0].operativeAccountOpeningResponse}}"
+						cross-click="services.operativeAccountModel.resetOperativeAccountModel();setEvent('onOperativeAccountDoneClick')"></fin-success>
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="OpenOprAccSuccAMT">{{appLiterals.APP.SERVICES.ONOPER_ACCSUCC.TXT_MIN_OPNAMT}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpenOprAccSuccAMTVal">{{services.operativeAccountModel.selectedCurrency.split("|")[0]}} {{successResponse.responsesList[0].minOpeningAmount}}</span>
+						</div>
+					</div>
+				<!-- 	<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="OpenOprAccSuccCurr">{{appLiterals.APP.SERVICES.ONOPER_ACCSUCC.CURR}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpenOprAccSuccCurrval">{{services.operativeAccountModel.selectedCurrency.split("|")[0]}}</span>
+						</div>
+					</div> -->
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="OpenOprAccSuccDebAcc">{{appLiterals.APP.SERVICES.ONOPER_ACCSUCC.DEB_ACC}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpenOprAccSuccDebAccVal">{{successResponse.responsesList[0].accountNumber}}</span>
+						</div>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="OpenOprAccSuccDebBrnch">{{appLiterals.APP.SERVICES.ONOPER_ACCSUCC.BRNCH}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpenOprAccSuccDebBrnchVal">{{successResponse.responsesList[0].branchName}}</span>
+						</div>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="OpenOprAccSuccDebdate">{{appLiterals.APP.SERVICES.ONOPER_ACCSUCC.DTE}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpenOprAccSuccDebdateVal"><fin-Date
+									date-value='{{successResponse.responsesList[0].processDate}}'></fin-Date></span>
+						</div>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="OpenOprAccSuccDebname">{{appLiterals.APP.SERVICES.ONOPER_ACCSUCC.TXT_NAME}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpenOprAccSuccDebnameVal">{{services.operativeAccountModel.accountHolderName}}</span>
+						</div>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="OpenOprAccSuccDebAddr">{{appLiterals.APP.SERVICES.ONOPER_ACCSUCC.ADDRSS}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpenOprAccSuccDebAddrVal">{{services.operativeAccountModel.accountOpenDateConfiemPageAddress}}</span>
+						</div>
+					</div>
+					<div class="trans_id_wrap"></div><br>
+					<div class="sucs-left-txt" ng-show="services.operativeAccountModel.isOnline == 'true' && successResponse.responsesList[0].responseStatus=='SUC'">
+
+						<div class="fin-txt" id="OpenOprAccSuccServHead">{{appLiterals.APP.SERVICES.ONOPER_ACCSUCC.TXT_YOU_CAN_AVAIL_FOLL_SERV}}</div><br>
+						<div class="col-sm-10 padding-zero">
+							<div><div class="sucs-left-color link_color" id="OpenOprAccSuccServDebCard" ng-show="(menuProfile.menuItems.menuUserAccessList | filterMultiple:{menuId:'APLYDC'}).length > 0"
+									ng-click='setEvent("onApplyNewDCClick")'>
+								{{appLiterals.APP.SERVICES.ONOPER_ACCSUCC.TXT_APP_DEBIT_CARD}}
+							</div></div>
+							<div><div class="sucs-left-color link_color" id="OpenOprAccSuccServchq" ng-show="(menuProfile.menuItems.menuUserAccessList | filterMultiple:{menuId:'CHBKRQ'}).length > 0"
+									ng-click='setEvent("onChequeCommuincationBookClick")'>
+								{{appLiterals.APP.SERVICES.ONOPER_ACCSUCC.TXT_REQ_CHEQUE_BOOK}}
+							</div></div>
+							<div><div class="sucs-left-color link_color" id="OpenOprAccSuccServStmt" ng-show="(menuProfile.menuItems.menuUserAccessList | filterMultiple:{menuId:'MBACST'}).length > 0"
+									ng-click='setEvent("onAccountStatementClick")'>
+								{{appLiterals.APP.SERVICES.ONOPER_ACCSUCC.TXT_ACC_STMT}}
+							</div></div>
+							
+							<div class="fin-txt"></div>
+						</div>
+					</div>
+
+
+
+
+
+
+
+
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+
+
+
+

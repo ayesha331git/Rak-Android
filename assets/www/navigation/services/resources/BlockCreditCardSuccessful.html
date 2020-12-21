@@ -1,0 +1,33 @@
+
+<div class="finacle-container"
+	ng-init="cm.stopCheques.parseStopChequeSuccessResponse(successResponse)">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+			<div class="dashboard-pad full-height">
+				<div class="dashboard-item-body full-height">
+
+					<fin-success
+						success-banner=""
+						success-message="{{successResponse.responsesList[0].reportLostCardResponse}}"
+						cross-click="services.blockCreditCardModel.resetBlockCreditCardModel();setEvent('onBlockCreditCardSuccessfulDoneClick')"></fin-success>
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="blockCCSucccardHead">{{appLiterals.APP.SERVICES.BLOCKCRED_SUCCESS.TXT_CREDCRD}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="blockCCSucccardVal">{{successResponse.responsesList[0].creditCardNo}}</span>
+						</div>
+					</div>
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="blockCCSuccRsnHead">{{appLiterals.APP.SERVICES.BLOCKCRED_SUCCESS.TXT_RSN}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="blockCCSuccRsnVal">{{services.blockCreditCardModel.previewResponse.remarks}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

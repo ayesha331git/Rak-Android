@@ -1,0 +1,51 @@
+  <div class="finacle-container">
+	   <div class="account-page">
+     <div class="col-sm-11">
+     
+	   <div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{successResponse.responsesList[0].successMessage}}</span>
+                        </div>
+                  </div>
+            <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DEBITCARD_REPLACEMENT}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>                 
+                              </h2>              
+</div>
+                  
+			 <div class="bg-color rak-cont-padding rak-scroll-success" >
+	  <div class="row" >
+
+
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.DEBITCARD}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.ReplacementDCData.debitcardNo}}</span></p>
+			
+			
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">
+					{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.DISPATCH_HEADER}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.BRANCH}}</span>
+			</p>
+			
+			<p class="rak-sum-txt">
+							
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.ReplacementDCData.emiSelDesc}}</span>
+						</p>
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.BRANCH}}</span>
+			<!-- <span class="rak-sum-label black">{{rakServiceReq.ReplacementDCData.branchSelected}}</span></p> -->
+			<span class="rak-sum-label black">{{rakServiceReq.ReplacementDCData.branchList[rakServiceReq.ReplacementDCData.branchName].branchDesc}}</span></p>
+
+
+
+			<div class="label-wrap">
+			<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakServiceReq.ReplacementDCData.clearReplacementDCData();setEvent('DCReplacementDoneClick')">{{appLiterals.APP.RAKCOMMONLITERALS.DONE}}</button> </div>
+</div>
+	<div class="col-sm-10"> </div>
+	</div>
+      </div>
+    </div>
+  </div>
+</div>

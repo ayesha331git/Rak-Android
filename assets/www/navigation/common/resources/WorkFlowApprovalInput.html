@@ -1,0 +1,50 @@
+
+<div ng-if="corpInit.corpModel.ruleCount>0">
+
+	<div class="fut-txt1 lh13" id="moveMoneyAAPNextApprovalHeader">{{appLiterals.APP.CORPORATE.CORPRULESHEADER}}
+	</div>
+	<!-- <div class="label-wrap">
+		<p class="label-title">{{appLiterals.APP.CORPORATE.CORPRULESHEADER}}</p>
+	</div> -->
+	<div class="account-detail-dash margin-bottom-15"
+		ng-if="corpInit.corpModel.ruleCount==1">
+		<strong id="moveMoneyTAPToField" class="trans-no">{{appLiterals.APP.CORPORATE.CORPSINGLERULELABEL}}</strong>
+		<span id="moveMoneyTAPToFieldValue" class="dash-ac-id">{{corpInit.corpModel.ruleAuthorityforSingle}}</span>
+	</div>
+
+	<!-- <div>
+		<p ng-if="corpInit.corpModel.ruleCount==1" class="left-txt">
+			<span>{{appLiterals.APP.CORPORATE.CORPSINGLERULELABEL}}&nbsp;</span>
+			<b class="right-txt-color">{{corpInit.corpModel.ruleAuthorityforSingle}}</b>
+		</p>
+	</div> -->
+	<div ng-if="corpInit.corpModel.ruleCount>1" class="margin-top-15">
+		<div ng-repeat="ruleAuthority in corpInit.corpModel.ruleAuthority">
+			<div class="avail-bal-wrap"
+				ng-init='rule = createDropDownOptionArray(ruleAuthority.rules, ["ruleValue"],"ruleId");'>
+				<fin-input type="dropdown" model="corpInit.corpModel.selectedRuleId"
+					maxlength="5"
+					on-Change="corpInit.corpModel.updateSelectedRuleDetails();corpInit.corpModel.resetRoleDetails();setEvent('onRuleSelected'); "
+					display-row="full"
+					placeholder="{{appLiterals.APP.CORPORATE.CORPRULEPLACEHOLDER}}"
+					option-array="rule"></fin-input>
+			</div>
+		</div>
+	</div>
+
+	<div ng-repeat="usrroledetails in corpInit.corpModel.userRoleDetails"
+		class="avail-bal-wrap">
+		<div
+			ng-init='userId = createDropDownOptionArray(usrroledetails.userRole, ["userId"], "userIdValue");'></div>
+		<fin-input type="dropdown" model="usrroledetails.selectedUserRole"
+			on-Change="corpInit.corpModel.updateSelectedRoleDetails($index);"
+			maxlength="5" display-row="full"
+			placeholder="{{usrroledetails.roleDetailDesc}}" option-array="userId"></fin-input>
+	</div>
+	<div class="avail-bal-wrap">
+		<fin-input type="text" model="corpInit.corpModel.remarks"
+			display-row="full"
+			placeholder="{{appLiterals.APP.CORPORATE.CORPUSERREMARKS}}">
+		</fin-input>
+	</div>
+</div>

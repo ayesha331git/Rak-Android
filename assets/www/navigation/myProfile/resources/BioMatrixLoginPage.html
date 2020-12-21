@@ -1,0 +1,56 @@
+<div id="bioMatrixLoginPage" class="app app-arrow2 title-right"
+	ng-click="setEvent('onBioMatrixLoginPageCloseClick')"></div>
+<div class="finacle-container"
+	ng-init="resetPageError();appActivation.checkForTouchIDStatusOfUser();">
+	<!-- 1829. Check registration status of current user-->
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper"></div>
+
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div id="bioMatrixTitle" class="item-title text-uppercase">{{appLiterals.APP.MYPROFILE.BIO_MATRIX_LOGIN.TITLE}}
+						</div>
+					</div>
+
+					<div class="col-sm-12">
+						<!-- 	<div class="col-xs-12 padding-zero">
+				   <div class="col-xs-9"><p class="tax-op margin-zero"> {{appLiterals.APP.MYPROFILE.BIO_MATRIX_LOGIN.TOUCH_ID_ACTI_STATUS}} </p></div>
+				   <div class="col-xs-2 touch-toggle">
+					   <div class="reg_toggle_wrap">
+						<div class="reg-toggle-button-margin toggle_container">
+						  <div class="toggle_btn_wrap" ng-click="displayTouchIDPopup = true;appActivation.toggleClick();"> 
+                                                    <div class="toggle_btn_con" ng-if="isTouchIDActivation && appActivation.isCurrentUserRegisteredForTouchId" > </div>
+                                                    <div class="toggle_btn_con_red" ng-if="!isTouchIDActivation || !appActivation.isCurrentUserRegisteredForTouchId"> </div>1829. Show toggle button based on registration status of current user
+								<div class="toggle_btn"> <span class="caret"></span> </div>
+						  </div>
+						</div>
+					  </div>
+				  </div>
+				 </div> -->
+
+						<div class="landingpage-list">
+							<div id="actiStatus" class="pull-left profile-txt">{{appLiterals.APP.MYPROFILE.BIO_MATRIX_LOGIN.TOUCH_ID_ACTI_STATUS}}</div>
+							<div class="trans-dash-right">
+								<md-switch id="toggle" ng-false-value="'No'" ng-true-value="'Yes'" ng-model="appActivation.isTouchIDActivationModel"
+									class="margin-top-zero margin-bottom-zero md-default-theme" 
+									ng-change="displayTouchIDPopup = true;appActivation.toggleClick();">
+								<!-- <div ng-transclude class="md-label">
+									<span id="touchOn"
+										ng-if="isTouchIDActivation && appActivation.isCurrentUserRegisteredForTouchId"
+										class="toggle_txt"></span> <span id="touchOff"
+										ng-if="!isTouchIDActivation || !appActivation.isCurrentUserRegisteredForTouchId"
+										class="toggle_txt"></span>
+								</div> -->
+								</md-switch>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

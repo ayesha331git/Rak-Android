@@ -1,0 +1,107 @@
+<div class="finacle-container" ng-init="rakServiceReq.rakIslamicDepositOpenNewTermSuccess(successResponse.responsesList)">
+	<div class="account-page">   
+     	<div class="col-sm-11">
+	 	
+	 	
+	 	<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.RakIslamicDepositOpenNewTermReq.successMessage}}</span>
+				</div>
+			</div>
+		<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.ISL_DEP_OPEN}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+				      </h2>		       
+		 </div>
+	 	
+			     	
+     		
+     		<div class="bg-color rak-cont-padding rak-scroll-success" >	 
+		 		<div class="row" >
+		      
+		      		
+		      			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.AC_NO}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakIslamicDepositOpenNewTermReq.fromAccountId}}</span>
+			</p>
+			
+		
+			
+			<div ng-show="rakServiceReq.RakIslamicDepositOpenNewTermReq.depPeriodSelection=='DPV'">
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.PERIOD}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakIslamicDepositOpenNewTermReq.periodList[rakServiceReq.RakIslamicDepositOpenNewTermReq.period].periodDesc}}</span>
+			</p>
+			</div>
+			<!-- CHANGES DONE AS FIX FOR PROUAT-1719 END -->
+			
+			<div ng-show="rakServiceReq.RakIslamicDepositOpenNewTermReq.depPeriodSelection=='DPD'">
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.FROM_DATE}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakIslamicDepositOpenNewTermReq.confirmFromDate}}</span>
+			</p> 
+       		
+       		<p class="rak-sum-txt" >
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.TO_DATE}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakIslamicDepositOpenNewTermReq.confirmToDate}}</span>
+			</p>
+			</div>
+			
+			<p class="rak-sum-txt" >
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.CURRENCY}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakIslamicDepositOpenNewTermReq.currency}}</span>
+			</p>
+			
+			<p class="rak-sum-txt" >
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.DEP_AMT}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakIslamicDepositOpenNewTermReq.confirmAmt}}</span>
+			</p>
+			
+			<p class="rak-sum-txt"  ng-show="rakServiceReq.RakIslamicDepositOpenNewTermReq.maturity=='OMA'">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.MATURITY}}</span>
+				<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.RADIO1}} - {{rakServiceReq.RakIslamicDepositOpenNewTermReq.matAccount}}</span>
+			</p>
+			
+			<!-- <p class="rak-sum-txt" ng-show="rakServiceReq.RakIslamicDepositOpenNewTermReq.maturity=='OMA'">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.RADIO1}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakIslamicDepositOpenNewTermReq.matAccount}}</span>
+			</p> -->
+			
+			<p class="rak-sum-txt" ng-show="rakServiceReq.RakIslamicDepositOpenNewTermReq.maturity=='OMR'">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.MATURITY}}</span>
+				<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.RADIO2}}</span>
+			</p>
+
+			
+			<p class="rak-sum-txt"  ng-show="rakServiceReq.RakIslamicDepositOpenNewTermReq.maturity=='OMR' && rakServiceReq.RakIslamicDepositOpenNewTermReq.interestHandling=='PFA'">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.PROFIT_HANDLE}}</span>
+				<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.CREDIT_PROFIT}} - {{rakServiceReq.RakIslamicDepositOpenNewTermReq.intHandlingAccount}}</span>
+			</p>
+			
+			<p class="rak-sum-txt"  ng-show="rakServiceReq.RakIslamicDepositOpenNewTermReq.maturity=='OMR' && rakServiceReq.RakIslamicDepositOpenNewTermReq.interestHandling=='IHR'">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.PROFIT_HANDLE}}</span>
+				<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.RADIO4}}</span>
+			</p>
+			
+			<!-- <p class="rak-sum-txt"  ng-show="rakServiceReq.RakIslamicDepositOpenNewTermReq.maturity=='OMR' && rakServiceReq.RakIslamicDepositOpenNewTermReq.interestHandling=='IHA'">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.RADIO3}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakIslamicDepositOpenNewTermReq.intHandlingAccount}}</span>
+			</p> -->
+		
+	
+	      			<div class="label-wrap">
+	      				<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click='setEvent("onSuccessOkClick");'> {{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}} </button>
+	      			
+ 						<!-- <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click=" setEvent('onSendAgainClick');">  {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_SUCCESSPAGE.SEND_AGAIN}}  </button>
+						<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click='rakSendMoney.sendMoney.clearSelfTransfersData(); rakSendMoney.utils.clearCommonData(); setEvent("onTransfersSuccessOkClick")'> {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_SUCCESSPAGE.HOME}} </button> -->
+					</div>
+					<div class="col-sm-10"> </div> 
+	      		
+	  
+        	
+      		</div>
+    	</div>
+    	    
+  	</div>
+	
+</div>

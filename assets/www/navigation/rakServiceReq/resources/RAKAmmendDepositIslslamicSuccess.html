@@ -1,0 +1,78 @@
+<div class="finacle-container">
+
+	      <div class="account-page">
+	      <div class="col-sm-11">
+	      
+            <div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{successResponse.responsesList[0].SuccessMsg}}</span>
+                        </div>
+                  </div>
+            
+            
+            <div class="main-form-heading-ServiceReq"> 
+                      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DEP_AMMEND_MATURITY_INST_ISLAMIC}}
+                      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}} </span>                
+                      </h2>              
+				</div>
+
+			 <div class="bg-color rak-cont-padding rak-scroll-success">
+
+			<div class="row" >
+
+          <div class="">
+
+
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.FIXED_DEPOSIT_NUMBER}}
+						</span> <span class="rak-sum-label black">{{rakServiceReq.RAKAmmendDeposit.selectedepaccountnum}}</span>
+					</p>
+									<p class="rak-sum-txt" >
+				<span class="rak-sum-label ">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.DEPOSIT_REFERENCE_NUMBER}}</span>
+				<span class="rak-sum-label black ">{{rakServiceReq.RAKAmmendDeposit.selectedepaccountnum}}</span>
+				</p>										
+					
+										<p class="rak-sum-txt" >
+					<span class="rak-sum-label ">{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.DEPOSIT_START_DATE}}</span>
+					<span class="rak-sum-label black ">{{rakServiceReq.RAKAmmendDeposit.selectedepstartDate}}</span>
+					</p>										
+					
+					<p class="rak-sum-txt">
+					<span class="rak-sum-label ">{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.DEPOSIT_MATURITY_DATE}}</span>
+					<span class="rak-sum-label black ">{{rakServiceReq.RAKAmmendDeposit.selectedepmaturityendDate}}</span>
+					</p>
+					
+					<p class="rak-sum-txt" >
+					<span class="rak-sum-label ">{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.DEPOSIT_AMOUNT}}</span>
+					<span class="rak-sum-label black ">{{rakServiceReq.RAKAmmendDeposit.selectedepamount}}</span>
+					</p>
+					
+					<p class="rak-sum-txt" >
+					<span class="rak-sum-label ">{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.MATURITY_AMOUNT}}</span>
+					<span class="rak-sum-label black ">{{rakServiceReq.RAKAmmendDeposit.selectedmaturityamount}}</span>
+					</p>
+										
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.CREDIT_PROFIT_TO_MY_ACCOUNT}}</span>
+						<span class="rak-sum-label black">{{rakServiceReq.RAKAmmendDeposit.debitopraccountList[rakServiceReq.RAKAmmendIslamicDeposit.selectedDebitOprAccNo].accountId}}</span>
+					</p>
+
+
+
+
+		<div class="label-wrap">
+				<button type="button" class="btn--special-btn btn-middle rak-button-right"
+				ng-click="rakServiceReq.clearRAKAmmendDepositData();rakServiceReq.clearRAKAmmendDepositIslamicData();setEvent('RAKAmmendDepositDoneClick')">
+				{{appLiterals.APP.RAKCOMMONLITERALS.DONE}} </button>
+			</div>
+
+         	</div>
+         	</div>
+
+          </div>
+          <div class="col-sm-1"> </div>
+        </div>
+      </div>
+    </div>
+
+

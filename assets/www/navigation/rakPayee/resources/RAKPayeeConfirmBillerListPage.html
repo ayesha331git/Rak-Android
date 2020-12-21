@@ -1,0 +1,105 @@
+<div class="rak-back-header">
+    <i ng-if="rakPayee.payeeModel.addBankBnfFlag" class="rak-back-img" ng-click="rakPayee.common.fromAuthPage=true;setEvent('onAddBeneficiaryPageCloseClick');"></i>
+     <i ng-if="rakPayee.payeeModel.addMobCashBnfFlag" class="rak-back-img" ng-click="rakPayee.common.fromAuthPage=true;rakPayee.bankbnftype=rakPayee.payeeTypes.MOBCASH;setEvent('onAddBeneficiaryPageCloseClick');"></i>
+     <i ng-if="rakPayee.selectedPayeeType==rakPayee.payeeTypes.BILLER" class="rak-back-img" ng-click="rakPayee.common.fromAuthPage=true;setEvent('onBackClick');"></i>
+      <i ng-if="rakPayee.selectedPayeeType=='CARDS'" class="rak-back-img" ng-click="rakPayee.common.fromAuthPage=true;setEvent('onCardsBenfPageCloseClick');"></i>
+       <i ng-if="rakPayee.selectedPayeeType==rakPayee.payeeTypes.MCHQ" class="rak-back-img" ng-click="rakPayee.bankbnftype=rakPayee.constants.NETWORKTYPEDDMC;rakPayee.common.fromAuthPage=true;setEvent('onAddDDMCHQBackClick');"></i>
+  </div>
+
+  <div class="finacle-container" ng-init="resetPageError();rakPayee.rakSelfConfirmationPayeeListFetch.parseRAKSlfCnfPayeeListFetchInit(successResponse.responsesList)">
+	<div class="account-page">
+	<div class="col-sm-11">
+<div class="app-title-wrapper">
+<div class="form-block">
+
+    <div class="main-form-heading-payee">
+		      <h2 >{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_CONF_PAYEE}}<span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP_BNF}} </span></h2>
+		      <!-- <div class="app app-arrow title-special-left"  ng-click="setEvent('onBackClick');"></div> -->
+		  </div>
+
+	 <div class="rakBnf rakpayeetop">
+	   <div class="raksearch-field-wrap">
+      <p class="search-field"><span class="rakGlyphicon glyphicon-search"> </span>
+        <input type="text" input-restricted-special-character placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.SEARCH_PAYEE}}" ng-model="searchText" class="raksearch-txt">
+      </p>
+       </div>
+    </div>
+
+  <div class="nano movemoney-scroll">
+
+              <!-- Content for Transactions -->
+    <div class="mm-content1 nano-content">
+   <div class="bg-color rakScrollDiv rak-cont-paddingvh">
+    <div class="row" >
+
+		  <div class="">
+		  
+		  <div ng-if="rakPayee.rakConfirmbillerList == ''||rakPayee.rakConfirmbillerList == null||rakPayee.rakConfirmbillerList.length === 0||rakPayee.rakConfirmbillerList == 'undefined'">
+			 <div class="error-details">
+				  <div>
+					 <span class="error-details-txt">
+						{{appLiterals.APP.PAYEE.LANDLIST_PAGE.NO_BILLER}}
+					 </span>
+					</div>
+			 </div>
+		</div>
+		
+	<!-- 	  <div ng-if="rakPayee.rakConfirmbillerList == ''||rakPayee.rakConfirmbillerList == null||rakPayee.rakConfirmbillerList.length === 0||rakPayee.rakConfirmbillerList == 'undefined'">
+			
+			<div class="summary-ServiceReq">
+								<div class="iconDivNorecord">
+									<span class="infoIcon"></span><span class="success">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.NO_TXNS}}</span>
+								</div>
+							</div>
+							
+		
+		</div> -->
+
+			  <div class="rakGreyRow" ng-repeat="confbiller in rakPayee.rakConfirmbillerList |filter:searchText" ng-click="rakPayee.rakSelfConfirmationPayeeListFetch.model.txnType=confbiller.beneficiaryType;rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller = confbiller;rakPayee.isBackClicked=false;">
+				<div class="people-details" ng-if="confbiller.beneficiaryType=='BIL'">
+				<!-- replaced the commnented line with below for PROUAT 303 -->
+				  <!--  <div class="rakPeopleNameRow1"> {{confbiller.flag}}</div> -->
+				  <div class="rakPeopleNameRowBenf"> {{confbiller.cpNickName}}</div>
+					<div class="rakPeopleNameRowBank">
+					 {{confbiller.serviceTypeDesc}} | {{confbiller.bnfAccountNumber}}
+					</div>
+				</div>
+
+			<div class="people-details" ng-if="confbiller.beneficiaryType!='BIL'">
+					<div ng-if="confbiller.beneficiaryType!='MCB'">
+						<div class="rakPeopleNameRowBenf"> {{confbiller.cpNickName}}</div>
+						<div class="rakPeopleNameRowBank">
+						 {{confbiller.bnfBankName}}
+						</div>
+					</div>
+					<div ng-if="confbiller.beneficiaryType=='MCB'">
+						<div class="rakPeopleNameRowBenf"> {{confbiller.beneficiaryName}}</div>
+						<div class="rakPeopleNameRowBank">
+						 {{confbiller.bnfAccountNumber}}
+						</div>
+					</div>
+
+				</div>
+
+<!-- Sindhu -->
+ <div class="rakRelative">
+   	<span class="rakPullDown" ng-click="rakHome.handlePullDown($event);"></span>
+	  <ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+	     <li><a href="" ng-click="rakHome.AuthPageData.firstAuthModeValue='';rakHome.AuthPageData.firstAuthModeValuePIN='';rak2FARegister.RegistrationModel.resolveEventFor2FA('BENF_CONFIRM');rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller = confbiller;rakPayee.isBackClicked=false;rakPayee.rakSelfConfirmationPayeeListFetch.getAction(1);rakPayee.rakSelfConfirmationPayeeListFetch.clearLabels();setEvent('onRAKPayeeConfirmPreview');">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.CONFIRM}}</a></li>
+    <li><a href="" ng-click="rakHome.AuthPageData.firstAuthModeValue='';rakHome.AuthPageData.firstAuthModeValuePIN='';rak2FARegister.RegistrationModel.resolveEventFor2FA('BENF_CONFIRM');rakPayee.rakSelfConfirmationPayeeListFetch.model.selectedConfBiller = confbiller;rakPayee.isBackClicked=false;rakPayee.rakSelfConfirmationPayeeListFetch.model.remarks='';rakPayee.rakSelfConfirmationPayeeListFetch.getAction(0);rakPayee.rakSelfConfirmationPayeeListFetch.clearLabels();setEvent('onRAKPayeeRejectPreview');">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.RAK_INITIATE.REJECT}}</a></li>
+	  </ul>
+		  </div>
+<!-- Sindhu -->
+			  </div>
+
+			 </div>
+	</div>
+	</div>
+		</div>
+	</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>

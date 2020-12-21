@@ -1,0 +1,262 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRAKInvRedeemGoldConfirmSuccess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+
+			<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.RAKInvRedeemGoldAcctModel.successMessage}}</span>
+				</div>
+			</div>
+			<div class="main-form-heading-ServiceReq">
+				<h2 class="rakBenfHeader">
+					{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.INV_REEDMGOLD}} <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>
+				</h2>
+			</div>
+
+
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+			<div class="">
+				<div class="">
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_CONF_GOLDACCNUM}}
+					</span> <span class="rak-sum-label black">{{rakServiceReq.RAKInvRedeemGoldAcctModel.selectedGoldAcct}}</span>
+				</p>
+                   <p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_CONF_EMIRATES}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKInvRedeemGoldAcctModel.emirateSeletectedDisplayName}}</span>
+						</p>
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_CONF_BRANCH}}
+					</span> <span class="rak-sum-label black">{{rakServiceReq.RAKInvRedeemGoldAcctArrays.invGoldAcctBranchList[rakServiceReq.RAKInvRedeemGoldAcctModel.selectedBranchId].branchCode}}</span>
+				</p>		
+				
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_RED_AMOUNT}}</span>
+					<span ng-if="rakServiceReq.RAKInvRedeemGoldAcctModel.redemptionAmount>1" class="rak-sum-label black">{{rakServiceReq.RAKInvRedeemGoldAcctModel.redemptionAmount}} {{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_GRAMS}}</span>
+					<span ng-if="rakServiceReq.RAKInvRedeemGoldAcctModel.redemptionAmount==1" class="rak-sum-label black">{{rakServiceReq.RAKInvRedeemGoldAcctModel.redemptionAmount}} {{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_GRAM}}</span>
+				</p>		
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_CONF_CHARGEACCNUM}}
+					</span> <span class="rak-sum-label black">{{rakServiceReq.RAKInvRedeemGoldAcctArrays.invChargeAcctList[rakServiceReq.RAKInvRedeemGoldAcctModel.selectedChargeAcct].accountId}}</span>
+				</p>
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_CONF_REMARKS}}
+					</span> <span class="rak-sum-label black">{{rakServiceReq.RAKInvRedeemGoldAcctModel.remarks}}</span>
+				</p>
+				
+				<div>
+						
+							<div class="money-block rakBottomZero">
+						         <ul>
+						            <li  class="active rak30 rakPaddingPoint8em" >
+						           {{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_WEIGHT}}</li>
+						           <li class="active rak30 ">
+						           {{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_QUANTITY}}</li>
+						            <li class="active rak30 ">
+						            {{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_TOTAL_AMT}}</li>
+						            <li class="active rak10 ">&nbsp;</li>
+						         </ul>
+						 	</div>
+						 	
+						 						
+					        <div class="">
+
+									<div class="trans-detail rakGreyRow height40" ng-if="rakServiceReq.RAKInvRedeemGoldAcctModel.total1!=0">
+
+						                  	<div class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em pull-left">
+						                   		<div>
+						                   			 <div class="trans-no rakTextCenter rakFont1em">
+						                    		{{appLiterals.APP.RAKINVESTMENTSR.GRAM1}}
+						                   			 </div>
+						                    	</div>	
+						                    </div>
+
+						                  <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em" >
+						                 		 <div>
+								                    <div class="trans-no rakTextCenter rakFont1em">
+								                    {{rakServiceReq.RAKInvRedeemGoldAcctModel.weight1}}
+								                    </div>
+						               			</div>
+						                  </div>
+
+
+					                  	<div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em">
+						                    <div>
+							                    <div class="trans-no rakTextCenter rakFont1em">
+							                   {{rakServiceReq.RAKInvRedeemGoldAcctModel.total1}}
+							                    </div>
+						                  </div>
+					                  	</div>				
+
+									</div>
+									
+									
+									<div class="trans-detail rakGreyRow height40" ng-if="rakServiceReq.RAKInvRedeemGoldAcctModel.total5!=0">
+
+						                  	<div class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em pull-left">
+						                   		<div>
+						                   			 <div class="trans-no rakTextCenter rakFont1em">
+						                    		{{appLiterals.APP.RAKINVESTMENTSR.GRAM5}}
+						                   			 </div>
+						                    	</div>	
+						                    </div>
+
+						                  <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em" >
+						                 		 <div>
+								                    <div class="trans-no rakTextCenter rakFont1em">
+								                    {{rakServiceReq.RAKInvRedeemGoldAcctModel.weight5}}
+								                    </div>
+						               			</div>
+						                  </div>
+
+
+					                  	<div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em">
+						                    <div>
+							                    <div class="trans-no rakTextCenter rakFont1em">
+							                   {{rakServiceReq.RAKInvRedeemGoldAcctModel.total5}}
+							                    </div>
+						                  </div>
+					                  	</div>				
+
+									</div>
+									
+									<div class="trans-detail rakGreyRow height40" ng-if="rakServiceReq.RAKInvRedeemGoldAcctModel.total10!=0">
+
+						                  	<div class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em pull-left">
+						                   		<div>
+						                   			 <div class="trans-no rakTextCenter rakFont1em">
+						                    		{{appLiterals.APP.RAKINVESTMENTSR.GRAM10}}
+						                   			 </div>
+						                    	</div>	
+						                    </div>
+
+						                  <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em" >
+						                 		 <div>
+								                    <div class="trans-no rakTextCenter rakFont1em">
+								                    {{rakServiceReq.RAKInvRedeemGoldAcctModel.weight10}}
+								                    </div>
+						               			</div>
+						                  </div>
+
+
+					                  	<div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em">
+						                    <div>
+							                    <div class="trans-no rakTextCenter rakFont1em">
+							                   {{rakServiceReq.RAKInvRedeemGoldAcctModel.total10}}
+							                    </div>
+						                  </div>
+					                  	</div>				
+
+									</div>
+									
+									<div class="trans-detail rakGreyRow height40" ng-if="rakServiceReq.RAKInvRedeemGoldAcctModel.total20!=0">
+
+						                  	<div class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em pull-left">
+						                   		<div>
+						                   			 <div class="trans-no rakTextCenter rakFont1em">
+						                    		{{appLiterals.APP.RAKINVESTMENTSR.GRAM20}}
+						                   			 </div>
+						                    	</div>	
+						                    </div>
+
+						                  <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em" >
+						                 		 <div>
+								                    <div class="trans-no rakTextCenter rakFont1em">
+								                    {{rakServiceReq.RAKInvRedeemGoldAcctModel.weight20}}
+								                    </div>
+						               			</div>
+						                  </div>
+
+
+					                  	<div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em">
+						                    <div>
+							                    <div class="trans-no rakTextCenter rakFont1em">
+							                   {{rakServiceReq.RAKInvRedeemGoldAcctModel.total20}}
+							                    </div>
+						                  </div>
+					                  	</div>				
+
+									</div>
+									
+									<div class="trans-detail rakGreyRow height40" ng-if="rakServiceReq.RAKInvRedeemGoldAcctModel.total50!=0">
+
+						                  	<div class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em pull-left">
+						                   		<div>
+						                   			 <div class="trans-no rakTextCenter rakFont1em">
+						                    		{{appLiterals.APP.RAKINVESTMENTSR.GRAM50}}
+						                   			 </div>
+						                    	</div>	
+						                    </div>
+
+						                  <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em" >
+						                 		 <div>
+								                    <div class="trans-no rakTextCenter rakFont1em">
+								                    {{rakServiceReq.RAKInvRedeemGoldAcctModel.weight50}}
+								                    </div>
+						               			</div>
+						                  </div>
+
+
+					                  	<div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em">
+						                    <div>
+							                    <div class="trans-no rakTextCenter rakFont1em">
+							                   {{rakServiceReq.RAKInvRedeemGoldAcctModel.total50}}
+							                    </div>
+						                  </div>
+					                  	</div>				
+
+									</div>
+									
+									<div class="trans-detail rakGreyRow height40" ng-if="rakServiceReq.RAKInvRedeemGoldAcctModel.total100!=0">
+
+						                  	<div class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em pull-left">
+						                   		<div>
+						                   			 <div class="trans-no rakTextCenter rakFont1em">
+						                    		{{appLiterals.APP.RAKINVESTMENTSR.GRAM100}}
+						                   			 </div>
+						                    	</div>	
+						                    </div>
+
+						                  <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em" >
+						                 		 <div>
+								                    <div class="trans-no rakTextCenter rakFont1em">
+								                    {{rakServiceReq.RAKInvRedeemGoldAcctModel.weight100}}
+								                    </div>
+						               			</div>
+						                  </div>
+
+
+					                  	<div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em">
+						                    <div>
+							                    <div class="trans-no rakTextCenter rakFont1em">
+							                   {{rakServiceReq.RAKInvRedeemGoldAcctModel.total100}}
+							                    </div>
+						                  </div>
+					                  	</div>				
+
+									</div>
+									
+									
+           
+          	 				</div>
+
+					</div>
+
+				<div class="label-wrap">
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-right"
+						ng-click='rakServiceReq.resetRAKInvRedeemGoldInitDetails();setEvent("onRAKInvRedeemGoldSuccessOkClick");'>
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+				</div>
+
+				<div class="col-sm-10"></div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

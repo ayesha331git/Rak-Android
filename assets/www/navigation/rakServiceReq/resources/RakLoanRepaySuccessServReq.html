@@ -1,0 +1,82 @@
+<div class="finacle-container" ng-init="rakServiceReq.loanRepaySuccess(successResponse.responsesList)">
+	<div class="account-page">
+     	<div class="col-sm-11">
+	 			
+	        	<div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakServiceReq.RAKLoanRepayAccList.successMessage}}</span>
+                        </div>
+                  </div>
+	        	
+	        	
+	        	<div class="main-form-heading-ServiceReq"> 
+					      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.LN_RPAY}}
+					      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+					      </h2>		       
+			 		</div>
+     	
+
+     		<div class="bg-color rak-cont-padding rak-scroll" >
+		 		<div class="row" >
+		      		<div class="col-sm-1"></div>
+
+	      				<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKLOANREPAY.LOAN}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RAKLoanRepayAccList.selectedLon}}</span>
+			</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKLOANREPAY.AGREEMENTNO}}</span> <span class="rak-sum-label black">{{rakServiceReq.RAKLoanRepayAccList.agreementNo}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKLOANREPAY.LOAN_AMT}}</span> <span class="rak-sum-label black">{{rakServiceReq.RAKLoanRepayAccList.sancAmt}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKLOANREPAY.LOAN_OUTST}}</span> <span class="rak-sum-label black">{{rakServiceReq.RAKLoanRepayAccList.outStdLoan}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKLOANREPAY.LOAN_OVERDUE}}</span> <span class="rak-sum-label black">{{rakServiceReq.RAKLoanRepayAccList.overDueAmt}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKLOANREPAY.LOANTYPE}}</span> <span class="rak-sum-label black">{{rakServiceReq.RAKLoanRepayAccList.loanType}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKLOANREPAY.LOANCURRENCY}}</span> <span class="rak-sum-label black">{{rakServiceReq.RAKLoanRepayAccList.currency}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKLOANREPAY.NXTINSTAMT}}</span> <span class="rak-sum-label black">{{rakServiceReq.RAKLoanRepayAccList.instAmt}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKLOANREPAY.NXTINSTDATE}}</span> <span class="rak-sum-label black">{{rakServiceReq.RAKLoanRepayAccList.instDate}}</span>
+						</p>
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKLOANREPAY.FUNDING}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RAKLoanRepayAccList.selectedOpr}}</span>
+			</p>
+
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKLOANREPAY.AMOUNT}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RAKLoanRepayAccList.amount}}</span>
+			</p>
+
+       		<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKLOANREPAY.TYPEPAY}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RAKLoanRepayAccList.payType}}</span>
+			</p>
+
+
+	      			<div class="label-wrap">
+	      				<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click='setEvent("onRAKLoanRepaySuccessOkClick");'> {{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}} </button>
+
+ 						<!-- <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click=" setEvent('onSendAgainClick');">  {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_SUCCESSPAGE.SEND_AGAIN}}  </button>
+						<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click='rakSendMoney.sendMoney.clearSelfTransfersData(); rakSendMoney.utils.clearCommonData(); setEvent("onTransfersSuccessOkClick")'> {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_SUCCESSPAGE.HOME}} </button> -->
+					</div>
+					<div class="col-sm-10"> </div>
+
+
+      		</div>
+    	</div>
+
+  	</div>
+
+</div>

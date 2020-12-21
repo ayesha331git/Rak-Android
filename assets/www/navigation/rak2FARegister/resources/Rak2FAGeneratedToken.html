@@ -1,0 +1,107 @@
+<!-- <div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onBackToPinPage');"></i>
+		</div> -->
+<div class="container-fluid padding-auto"
+	ng-init="setSingleStepRealmAuthFailure();resetPageError();">
+
+
+	
+
+		
+			<div class="container-fluid padding-zero">
+
+		<div class="row">
+
+			<div class="col-sm-1 rakDblheight"></div>
+			
+			
+			<div class="login-form">
+				
+				<div class="center rakFont10">
+					<div class="rak-logintab"
+						ng-click="setGlobalEvent('onLoginClick');">
+						<span class="rak-black-color login-label">
+							{{appLiterals.APP.RAK_LOGIN_PAGE.LOGIN}} </span>
+					</div>
+
+					<!-- <div class="rak-logintab  border-left"
+						ng-show="rak2FARegister.RegistrationModel.isRegisterClicked">
+						<span class="login-label rak-color border-bottom">
+							{{appLiterals.APP.RAK_2FA_MESSAGES.OFFLINE_TOKEN_HEAD}}</span>
+					</div> -->
+					
+					<div class="rak-logintab border-left tab-reduce-pad"
+					ng-click="resetPageError();rak2FARegister.RegistrationModel.resetRegistrationModelData();rak2FARegister.RegistrationModel.requestType='FUON';rak2FARegister.RegistrationModel.clearFlag();rak2FARegister.RegistrationModel.isRegisterClicked=true;rak2FARegister.RegistrationModel.resolveEventFor2FA('REG');rak2FARegister.EzComToken.checkTSNStatus();">
+						<span class="rak-black-color login-label tokenLabelPadding">
+							{{appLiterals.APP.RAK_2FA_MESSAGES.TOKEN_STATUS_CHECK}}</span>
+					</div>
+
+		
+			
+				
+				</div>
+					
+
+
+		<div >
+			<div class="selfReg-main-form-heading margin-top10px">
+				<div>
+					<span class="rak-black-color login-label-selfReg ">{{appLiterals.APP.RAK_2FA_MESSAGES.OFFLINE_TOKEN_HEAD}}</span>
+					<ul class="process-steps">
+						<li ></li>
+						<li class="active"></li>
+						
+					</ul>
+					</div>
+					
+					
+			</div>
+		</div>
+
+	
+</div>
+		
+
+
+		</br> </br>
+
+
+
+				
+				<div class="fin-txt"></div>
+				<div class="label-wrap">
+                    
+                    <div class="rak-selfReg-lable textcenter">
+                        <p>{{appLiterals.APP.RAK_2FA_MESSAGES.RAKTOKEN_IS}}</p>
+                    </div>
+                    
+				  <div ng-show="rak2FARegister.EzComToken.generatedToken==''" class="generated-token-wait loadingimage"></div>
+                    <div ng-show="rak2FARegister.EzComToken.generatedToken!=''"class="generated-token">{{rak2FARegister.EzComToken.generatedToken}}</div>
+                    </div>
+                    
+                     <div class="rak-selfReg-lable textcenter fontSmall">
+                        <p>{{appLiterals.APP.RAK_2FA_MESSAGES.TOKEN_VALIDITY}}</p>
+                    </div>
+              
+
+		
+				<div class="label-wrap">
+					<!--  <button type="button"
+                                        class="btn--special-btn btn-middle rak-button-small btn--back"
+                                        ng-click="setEvent('onBackToPinPage');">
+                                       {{appLiterals.APP.RAK_2FA_MESSAGES.BACK}}</button> -->
+					 <button type="button"
+						class="btn--special-btn btn-middle rak-button-full rak-back rak-btn-large-text redButton"
+						ng-click="setGlobalEvent('onLoginClick');">
+						{{appLiterals.APP.RAK_2FA_MESSAGES.EXIT}}</button> 
+					
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</div>
+

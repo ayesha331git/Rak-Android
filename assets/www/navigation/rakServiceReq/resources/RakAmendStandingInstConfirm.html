@@ -1,0 +1,153 @@
+<div class="finacle-container ng-scope"
+	ng-init="rakServiceReq.amendStandingInst.transactionPassword = '';rakServiceReq.initAmendStandingInstConfirm(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+			
+
+			<div class="main-form-heading-ServiceReq"> 
+                      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.AMEND_SI}}
+                      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>                
+                      </h2>              
+			</div>
+			
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+					<div class="">
+					
+					<div class="rakDupliSRChkMsgImg"
+							ng-show='rakServiceReq.common.message'>
+							<span class='rakAlertForDupStmt'></span> <span
+								class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+						</div>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_CREDCRDNO}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.amendStandingInst.ccSelectedContinue}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_PYMT_PER}}</span>
+							<span class="rak-sum-label black" ng-if="rakServiceReq.amendStandingInst.paymentPercentage=='P'">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_PER_CURR_BAL}}</span>
+							<span class="rak-sum-label black" ng-if="rakServiceReq.amendStandingInst.paymentPercentage=='M'">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_MIN_AMT_DUE}}</span>
+							<span class="rak-sum-label black" ng-if="rakServiceReq.amendStandingInst.paymentPercentage=='F'">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_FLAT_AMT}}</span>
+						</p>
+						
+						
+						<p class="rak-sum-txt" ng-show="rakServiceReq.amendStandingInst.paymentPercentage =='P'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.TXT_PERCENTAGE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.amendStandingInst.perentageCurrBal}} {{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.TXT_PERCENTAGE_SIGN}}</span>
+						</p>
+						<p class="rak-sum-txt" ng-show="rakServiceReq.amendStandingInst.paymentPercentage =='F'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_FLAT_AMT}}</span>
+							<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.AED_CURR}} {{rakServiceReq.amendStandingInst.flatAmount}}</span>
+						</p>
+						
+						<p class="rak-sum-txt" ng-if="rakServiceReq.amendStandingInst.changeSIDate=='N'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_CNGE_SI_DATE}}</span>
+							<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_DAYS_DATE}}</span>
+						</p>
+						
+						<p class="rak-sum-txt" ng-if="rakServiceReq.amendStandingInst.changeSIDate=='Y'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_CNGE_SI_DATE}}</span>
+							<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_PYMT_DUE_DATE}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_DEB_ACC}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.amendStandingInst.debAccNumberContinue}}</span>
+						</p>
+						
+						<p class="rak-sum-txt" ng-if="rakServiceReq.amendStandingInst.changeSIDate =='N'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_DAYS_OF_MONTH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.amendStandingInst.selectedDate}}</span>
+						</p>
+						
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.HOLD_SI}}</span>
+							<span class="rak-sum-label black" ng-if="rakServiceReq.amendStandingInst.holdSISelected == 'T'">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_TEMP}}</span>
+							<span class="rak-sum-label black" ng-if="rakServiceReq.amendStandingInst.holdSISelected == 'P'">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_PERMANENT}}</span>
+						</p>
+						
+						<div class="rak-sum-txt" ng-if="rakServiceReq.amendStandingInst.holdSISelected == 'T'">
+						<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.FROM_DATE}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.amendStandingInst.previewDateOne}}</span>
+			</p> 
+       		
+       		<p class="rak-sum-txt" >
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.TO_DATE}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.amendStandingInst.previewDateTwo}}</span>
+			</p>
+						</div>
+						
+						
+						<div class="label-wrap">
+						
+						<fin-input type="password_text"
+							model="rakServiceReq.amendStandingInst.transactionPassword"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+							min="0"
+							validation-flag='pageErrorArr["rakServiceReq.amendStandingInst.transactionPassword"]'
+							ng-show="rakServiceReq.amendStandingInst.auth==txnpwdString"></fin-input>
+
+				
+						
+						<div ng-show="rakServiceReq.amendStandingInst.auth==otpString">
+									<div
+										ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+										<fin-input type="password_num" model="rakServiceReq.amendStandingInst.transactionPassword"
+											display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}"
+											validation-flag='pageErrorArr["rakServiceReq.amendStandingInst.transactionPassword"]'></fin-input>
+									</div>
+								
+								
+									<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0'
+										ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+								
+										<fin-input type="dropdown" option-array="toModeArray"
+											model="rakHome.otpModel.otpModeSelected" display-row="full"
+											placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+										<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+								
+									</div>
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+										ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}}</button>
+								
+								</div>
+						
+						</div>
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back"
+								ng-click="rakServiceReq.amendStandingInst.isBack=true;setEvent('onAmendStandingInstConfirmBackClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="setEvent('onAmendStandingInstSubmitClick');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}
+							</button>
+
+						</div>
+						<div class="col-sm-1"></div>
+						
+				<div class="disclaimer">
+                         <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                         <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                         </div>
+
+                         <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                         <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSERREQ_CONF"></div>
+                         </div>
+                 </div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

@@ -1,0 +1,190 @@
+<div class="finacle-container"
+	ng-init="resetPageError();rakPayCards.txnHistory.initSearchPage(successResponse.responsesList);">
+	<div class="account-page">
+    
+    <div class="col-sm-11">
+    <div class="app-title-wrapper">
+       
+                        	<ng-include
+								src="'./navigation/rakPayCards/resources/RakBuySellGoldTabPage.html'">
+							</ng-include>
+							
+							
+							<div class="tab-links">
+								<ul>									
+									<li class="active"><span class="active">{{appLiterals.APP.RAKPAYCARDS.RAKBUYSELLGOLD.GOLDHISTORY.HISTORY}}</span></li>
+									<li ng-click="rakPayCards.rakInvGold.clearSearchHistory();rakPayCards.setFutureDate();setGlobalEvent('onRakBuySellGoldSchTxnTabClick');"><span>{{appLiterals.APP.RAKPAYCARDS.RAKBUYSELLGOLD.GOLDHISTORY.SCHTXNS}}</span></li>									
+									
+								</ul>
+							</div>
+   
+   							<!-- <div class="tab-links">
+								<ul>
+									<li class="" 
+									ng-click="rakPayCards.clearTab();rakPayCards.payCards=true;rakPayCards.txnHistory.setInitialDate();setGlobalEvent('onRakBuyTxnHistory');">
+									<span class="active">
+									{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.BUY}}</span></li>
+									
+									<li ng-click="rakPayCards.clearTab();rakPayCards.cardsTab=true;rakPayCards.txnHistory.setInitialDate();setGlobalEvent('onRakSellTxnHistory');">
+									<span>{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.SELL}}</span></li>
+									
+								</ul>
+							</div> -->
+							
+		
+  
+     
+        
+		  <div class="bg-color rak-cont-padding">
+			<div class="row" >
+			  <div class="col-sm-1"> </div>	
+			  
+			 <!-- CHANGES COMMENTING SEGMENT AND ADDING DROPDOWN START -->
+						<div ng-init='txnTypeArray=createDropDownOptionArray(rakPayCards.txnHistory.transactionTypeList, ["tranDesc"],"tranCode")'>
+										<fin-input type="dropdown" option-array="txnTypeArray"
+											model="rakPayCards.txnHistory.selectedTransactionType" display-row="full"
+											placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.TRANSACTION_TYPE}}" 
+											validation-flag='pageErrorArr["rakPayCards.txnHistory.selectedTransactionType"]' 
+											on-change="setGlobalEvent('onBuyGoldTransactionDropDetails');"> 
+										</fin-input>
+
+									</div>
+				<!--RAK  CHANGES COMMENTING SEGMENT AND ADDING DROPDOWN END -->
+					
+			
+					
+			  <div class="fin-txt"></div>
+					
+						
+								<div class="rakCtsmDateSrch">
+									<fin-input type="date" model="rakPayCards.txnHistory.searchFromDate" value="pastDatesOnly"
+										display-row="half1" placeholder="{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.FROM_DATE}}"
+										validation-flag='pageErrorArr["rakPayCards.txnHistory.searchFromDate"]'></fin-input>
+										
+									<fin-input type="date" model="rakPayCards.txnHistory.searchToDate" value="pastDatesOnly"
+										display-row="half2" placeholder="{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.TO_DATE}}"
+										validation-flag='pageErrorArr["rakPayCards.txnHistory.searchToDate"]'></fin-input>
+										
+										
+							<!-- 	<button type="button" class="rakResetBtn" ng-click="rakPayCards.txnHistory.setFromToDate();setGlobalEvent('onRakBuyTxnHistoryUserEntered')"></button>
+								</div> -->
+								
+								<!--CHNAGES DONE AS FIX OF PRCU-1437 START  -->
+								<span class="rakResetSpanBtn"
+									ng-click="rakPayCards.txnHistory.setFromToDate();setGlobalEvent('onRakBuyTxnHistoryUserEntered')">{{appLiterals.APP.RAK_COMMON.GO}}</span>
+								
+								</div>
+								<!--CHNAGES DONE AS FIX OF PRCU-1437 END  -->
+								
+								<!-- RAK  CHANGES GIVING SPAN OTHER THAN BUTTON FOR UI END -->	
+								
+								<div>
+										<p class="dateLabelLeft">
+											{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.FROM_DATE}}
+											
+										</p>
+									</div>
+									
+									<div>
+										<p class="dateLabelRight">
+											{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.TO_DATE}}
+											
+										</p>
+										</div>
+						
+				<div class="col-sm-1"> </div>
+				
+				<!--  CHANGES DISPLAYING DATA FOR BUY/SELL GOLD START  self.txnHistory.scheduleList-->
+				<div ng-show="rakPayCards.txnHistory.scheduleList.length == 0 ">
+										 <div class="error-details">
+											  <div>
+												 <span class="error-details-txt">
+													{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.NO_TXNS}}
+												 </span>
+												</div>
+										 </div>
+									</div>	
+				
+				<div ng-show="rakPayCards.txnHistory.scheduleList.length > 0">
+							
+							<div class="money-block rakBottomZero">
+						         <ul>
+						            <li  class="active rak30 ng-binding" >
+						            {{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.DATE}}</li>
+						           <li class="active rak30 ng-binding">
+						            {{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.TRANSACTION_TYPE}}</li>
+						            <li class="active rak30 ng-binding">
+						           {{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.WEIGHT_IN_GRAMS}}</li>
+						            <li class="active rak10 ng-binding">&nbsp;</li>
+						         </ul>
+						 	</div>
+						 
+                         	<div class="nano rakHalfScrollDiv rak-cont-paddingvh" >
+					            <div class="" >
+
+
+									<div class="trans-detail rakGreyRow" ng-repeat="transfers in rakPayCards.txnHistory.scheduleList">
+
+					                  	<div class="trans-dash-right rakPeopleNameRow1 rakTextCenter rak30  rakPaddingPoint8em pull-left">
+					                   		<div>
+					                    <div class="trans-no rakFont1em">
+					                     {{transfers.txnDate}} 
+					                     <!-- {{txnRecords.txnDate}} -->
+					                    </div>
+					                    </div>
+
+					                    </div>
+
+					                  <div class="trans-dash-right rakPeopleNameRow1 rakTextCenter  rak30 pull-left rakPaddingPoint8em" >
+					                  <div>
+					                    <div class="trans-no rakFont1em">
+					                    {{transfers.txnType}} 
+					                    <!--  {{txnRecords.txnType}} -->
+					                    </div>
+					               </div>
+					                  </div>
+
+
+					                  <div class="trans-dash-left rakPeopleNameRow1 rakTextCenter rak30 pull-left rakPaddingPoint8em">
+					                    <div>
+					                    <div class="trans-no rakFont1em">
+					                    {{transfers.txnAmount}} {{transfers.txnCurrency}}  
+					                    <!--  {{txnRecords.txnCurrency}} {{txnRecords.txnAmount}} -->
+					                    </div>
+					                  </div>
+
+					                  </div>
+					                  
+					                  
+					                     <div class="pull-right rakPaddingPoint5em rak10" style="width:8%">
+										   	<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											  <ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											    <li><a href="" ng-click="rakPayee.payCard.selectedCompltTxn = transfers;rakPayCards.txnHistory.getBuySellTransactionStatus();">
+											    {{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.VIEW_STATUS}}</a></li>
+											    <li><a href="" ng-click="rakPayee.payCard.selectedCompltTxn = transfers;
+											    rakPayCards.txnHistory.transaction=transfers;
+												rakPayCards.txnHistory.transactionIndex=transfers.index;
+											    rakPayCards.rakInvGold.clearFields();setGlobalEvent('onRakBuyHistoryTransferPageDetails');">
+											    {{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.VIEW_DETAILS}}</a></li>       
+											     <li><a href="" ng-click="rakPayCards.rakInvGold.schTxnListSubmitBtn='';
+											     rakPayCards.rakInvGold.txnClikedBtn='SENDAGAIN';rakPayee.payCard.selectedCompltTxn = transfers;;
+											     rakPayee.payCard.selectedTxn = transfers.index;rakPayCards.rakInvGold.clearFields();
+											     rakPayCards.common.fromAuthPage=false;rakPayCards.rakInvGold.exchangeFlag=true;
+											     setGlobalEvent(rakPayCards.txnHistory.getPageEvent());">
+											    {{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDINITPAGE.BUY_SELL_AGIAN}}</a></li>       
+											  </ul>
+										</div>
+					   <!--  CHANGES DISPLAYING DATA FOR BUY/SELL GOLD END -->
+				
+					
+			</div>
+		</div></div></div>
+		
+		
+		
+		</div>
+	</div>
+</div>
+</div>
+</div>
+ </div>

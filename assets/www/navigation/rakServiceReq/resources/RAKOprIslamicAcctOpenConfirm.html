@@ -1,0 +1,126 @@
+<div class="finacle-container ng-scope"
+	ng-init="rakServiceReq.RAKOprIslamicAcctOpenReq.txnPwd='';rakServiceReq.confirmRAKOprIslamicAcctOpenReq(successResponse.responsesList);">
+	<div class="account-page">
+    <div class="col-sm-11">
+
+
+      <div class="main-form-heading">
+           <h2>{{appLiterals.APP.RAK_COMMON.SUMMARY_HEADER}}<span>{{appLiterals.APP.RAK_COMMON.SUMMARY_REVIEW}}</span></h2>
+       </div>
+
+
+		<div class="bg-color rak-cont-padding rak-scroll">
+
+			<div class="row" >
+			  <div class="">
+			  
+			  <div class="rakDupliSRChkMsgImg"
+							ng-show='rakServiceReq.common.message'>
+							<span class='rakAlertForDupStmt'></span> <span
+								class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+						</div>
+
+				<p class="rak-sum-txt" ng-show="rakServiceReq.RAKOprIslamicAcctOpenLists.refAcctNoList.length > 0">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.REF_ACCT_NO}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprIslamicAcctOpenLists.refAcctNoList[rakServiceReq.RAKOprIslamicAcctOpenReq.selectedRefNo].accountNumber}}</span>
+                </p>
+
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.ACCTCRN}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprIslamicAcctOpenReq.selectedCrn}}</span>
+				</p>
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.DEBIT_CARD_RQD}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprIslamicAcctOpenReq.debitCardRqd}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="rakServiceReq.RAKOprIslamicAcctOpenLists.refAcctNoList.length == 0">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.BRANCH}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprIslamicAcctOpenReq.branchNameContinue}}</span>
+				</p>
+<div ng-if='rakServiceReq.common.EmiratesIdAvailable=="Y"'>
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.EMIRATESID}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprIslamicAcctOpenReq.EmiratesId}}</span>
+				</p>
+
+
+				<p class="rak-sum-txt">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.ID_EXPIRY_DATE}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.common.accountsOpenDisplayDate}}</span>
+				</p>
+</div>
+				<p class="rak-sum-txt" ng-show="rakServiceReq.RAKOprIslamicAcctOpenLists.refAcctNoList.length != 0 &&
+						rakServiceReq.RAKOprIslamicAcctOpenLists.refAcctNoList[rakServiceReq.RAKOprIslamicAcctOpenReq.selectedRefNo].mode=='JOINTOR'">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.OPER_MODE}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprIslamicAcctOpenReq.operationMode}}</span>
+				</p>
+
+				<fin-input type="password_text" model="rakServiceReq.RAKOprIslamicAcctOpenReq.txnPwd"
+					display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+					validation-flag='pageErrorArr["rakServiceReq.RAKOprIslamicAcctOpenReq.txnPwd"]'
+				ng-show="rakServiceReq.RAKOprIslamicAcctOpenReq.authFlag==txnpwdString">
+					</fin-input>
+				 <!-- <fin-input type="password_num" model="rakServiceReq.RAKOprIslamicAcctOpenReq.txnPwd"
+					display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+					validation-flag='pageErrorArr["rakServiceReq.RAKOprIslamicAcctOpenReq.txnPwd"]'
+					ng-show="rakServiceReq.RAKOprIslamicAcctOpenReq.authFlag==otpString">
+					</fin-input> -->
+					
+					<div
+								ng-show="rakServiceReq.RAKOprIslamicAcctOpenReq.authFlag==otpString">
+								<div
+									ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+									<fin-input type="password_num"
+										model="rakServiceReq.RAKOprIslamicAcctOpenReq.txnPwd"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKOprIslamicAcctOpenReq.txnPwd"]'></fin-input>
+								</div>
+
+
+								<div class="rakwidth28 rakModeDropdown"
+									ng-show='rakHome.otpModel.otpModesList.length>0'
+									ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+
+									<fin-input type="dropdown" option-array="toModeArray"
+										model="rakHome.otpModel.otpModeSelected" display-row="full"
+										placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+									<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+
+								</div>
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+									ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');">
+									{{appLiterals.APP.RAK_COMMON.RESEND_OTP}}</button>
+
+							</div>
+
+<!--  CHANGES FOR RESEND OTP START -->
+		<!-- <div ng-show="rakServiceReq.RAKOprIslamicAcctOpenReq.authFlag==otpString">
+            <div class="rakwidth65">
+                  <fin-input type="password_num" model="rakServiceReq.RAKOprIslamicAcctOpenReq.txnPwd"
+                    display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+                     validation-flag='pageErrorArr["rakServiceReq.RAKOprIslamicAcctOpenReq.txnPwd"]'>
+                  </fin-input>
+             </div>
+ <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> Resend OTP </button>
+          </div>-->
+<!--  CHANGES FOR RESEND OTP END -->
+
+				<div class="label-wrap">
+				 <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back"
+				 ng-click="rakServiceReq.common.fromAuthPage=true; setEvent('onRAKOprIslamicAcctOpenBackClick');">  {{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}} </button>
+				 <button type="button"  class="btn--special-btn btn-middle rak-button-small"
+				 ng-click="setEvent('onRAKOprIslamicAcctOpenReqSubmitClick');">  {{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}} </button>
+			  </div>
+
+          <div class="col-sm-1"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

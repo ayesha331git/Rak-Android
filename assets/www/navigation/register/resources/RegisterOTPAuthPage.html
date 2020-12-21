@@ -1,0 +1,71 @@
+<div class="full-height"
+	ng-init="register.onlineContinueModel.pwd = '';appActivation.authenticateOTP='';register.responseRegisterOnlineContinue(successResponse);">
+	<div class="account-page full-height">
+		<form class="dashboard-item-body full-height "
+			ng-submit="appActivation.authenticateOTP=register.onlineContinueModel.pwd;setEvent(register.setEventOnOTPSubmit());">
+			<div class="sticky-footer">
+
+				<div class="dashboard-item-title col-sm-12" layout="row"
+					layout-align="center center" layout-wrap>
+					<h2 class="item-title  md-headline text-uppercase"
+						id="registerOtpHeader" layout="row" layout-align="center center"
+						layout-wrap>{{appLiterals.APP.REGISTER.REGON_AUTH.HEADER}}</h2>
+				</div>
+				<div class="stage_wrap padding-bottom-zero">
+					<div class="stage-sucs3">
+						<p class="staging-sucs1">
+							<span class="app app-icon-check"> </span>
+						</p>
+					</div>
+					<div class="stage-line line-small"></div>
+					<div class="stage3">
+						<p class="staging" id="registerOtpTickCircle2">
+							{{appLiterals.APP.REGISTER.REG_CHAN_SEL.NO2}}</p>
+					</div>
+					<div class="stage-line line-small"></div>
+					<div class="next-stage">
+						<p class="staging" id="registerOtpTickCircle3">
+							{{appLiterals.APP.REGISTER.REG_CHAN_SEL.NO3}}</p>
+					</div>
+					<div class="stage-line line-small"></div>
+					<div class="next-stage">
+						<p class="staging" id="registerOtpTickCircle4">
+							{{appLiterals.APP.REGISTER.REG_CHAN_SEL.NO4}}</p>
+					</div>
+				</div>				
+				<div class="col-sm-12 lh13 margin-bottom-20"
+					id="registerOtpMessage">
+					<div class="col-sm-12">
+						<p class=" fut-txt1">{{register.onlineContinueModel.SMSOTPMessage}}</p>						
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="avail-bal-wrap">
+						<fin-input type="password_num"
+							model="register.onlineContinueModel.pwd" display-row="full"
+							placeholder="{{appLiterals.APP.MYPROFILE.FP_AUTH.PH_OTP}}"
+							max-length="8"
+							validation-flag='pageErrorArr["register.onlineContinueModel.pwd"]'></fin-input>
+						<div id="regenerateOtp"
+							class="balance-available new_user subscript-text"
+							ng-show='register.otpLinkenable'
+							ng-click=" register.onlineContinueModel.pwd = '';appActivation.authenticateOTP='';register.disableOTPClick();setEvent('onRegenerateOTPEnrolClick');">
+							{{appLiterals.APP.REGISTER.SET_MPIN.RE_OTP}}</div>
+						<div ng-show='!register.otpLinkenable' class="disable-text"
+							id="disableRegenerateOtp">{{appLiterals.APP.REGISTER.SET_MPIN.RE_OTP}}</div>
+					</div>
+				</div>
+			</div>
+			<section layout="row" layout-align="center center"
+				class="btn-wrap button-wrapper">
+				<md-button id="registerOtpCancel" type="button"
+					class=" md-raised btn--secondary-btn"
+					ng-click="setGlobalEvent('onLoginClick');">
+				{{appLiterals.APP.COMMON.BUTTON.CANCEL}} </md-button>
+				<md-button type="submit" id="registerOtpSubmit"
+					class=" md-raised btn--primary-btn">
+				{{appLiterals.APP.COMMON.BUTTON.PROCEED}}</md-button>
+			</section>
+		</form>
+	</div>
+</div>

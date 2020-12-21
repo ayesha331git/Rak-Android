@@ -1,0 +1,123 @@
+<!-- <div class="finacle-container" ng-init='setSingleStepRealmAuthFailure();locationFilter=getSelectedLocationDetails(1); atmBranchDetails=successResponse.invocationResult.resultSet; branchFlag=true; fields.selectedLocation=null;'> -->
+
+<div class="rak-back-header" ng-hide='isUserLoggedIn'>
+	<i class="rak-back-img" ng-click="setEvent('onLocatorSearchListBackClick');"></i>
+</div>
+
+
+<div class="rak-back-header" ng-show='isUserLoggedIn'>
+	<i class="rak-back-img" ng-click="setEvent('onLocatorSearchListBackClick');"></i>
+</div>
+<div class="finacle-container  rakLocateUsCont map-header-gradient"
+	ng-init='setSingleStepRealmAuthFailure(); rakLocateUs.mapClicked=false; mapAction = "SHOWMARKER"; setMapCenter(rakLocateUs.RAKLocateUsSearchData.data);rakLocateUs.flagChk=false'>
+	<div>
+
+
+	<div class="col-sm-11 rakLocateSearchDiv">
+			<div>		
+				<div class="label-wrap">
+					<button type="button"
+						class="btn--locatorSerachTxt-btn   rak-locatorBtn-width90-search"						
+						ng-click="rakLocateUs.resetRAKLocateUsSearchInput();setEvent('onRakLocatorSearchByEmrAreaBtnClicked');">						
+						</button>
+				</div>
+			</div>
+		</div>
+<div >
+    <div  id="map-wrapper" ng-init='rakLocateUs.resetRAKLocateUsSearchData();home.responseLocator(successResponse.responsesList);rakLocateUs.initSearchDetais(successResponse.responsesList);mapAction = "SHOWMARKER"; setMapCenter(fields.selectedLocation);'>
+        <fin-map id="map-wrapper"  location = "home.atmBranchDetails" ></fin-map>
+    </div>
+  
+      
+    </div>
+
+    	</div>
+    
+	<div>
+
+		<div class="col-sm-11">
+			<div class="bg-color ">
+				
+				<div class="loc-split">
+					<div class="loc-split">
+			<div ng-click="" class="">
+				<div class="pwd-transaction pwd-transactionGreen">
+					
+					<span class="loc-type-txt1">
+						{{appLiterals.APP.RAK_LOCATEUS.ATM}}<span class="rakLocateLine">/</span></span>
+					
+				</div>
+					<div class="pwd-transaction Green">
+					
+					<span class="loc-type-txt1">
+						{{appLiterals.APP.RAK_LOCATEUS.DM}} </span>
+				
+				</div>
+				
+				<div class="pwd-transaction Red">
+					
+					<span class="loc-type-txt">
+						{{appLiterals.APP.RAK_LOCATEUS.BRANCH}}</span>
+				
+				</div>
+				<div  class="app-fut-line app-fut-linenew"></div>
+					<div  class="app-fut-tri rak-fut-tri rakRedLine "></div>
+				</div>
+		
+				
+
+			</div>
+			
+	<div class="rakHalfScrollDiv  rak-cont-paddingvh">
+				<div class="col-sm-1"></div>
+				<div class="">
+						<div 
+							ng-if="rakLocateUs.RAKLocateUsSearchData.searchedBranchList.length == 0 && rakLocateUs.RAKLocateUsSearchData.searchedDemList.length == 0 &&  rakLocateUs.RAKLocateUsSearchData.searchedAtmList.length==0" class="no-found">
+							{{appLiterals.APP.RAK_LOCATEUS.RAK_NOATMBRANCH}}</div>
+
+						
+					 <div 
+							ng-repeat="location in rakLocateUs.RAKLocateUsSearchData.data ">
+							<div class="rakATMLocSearch" ng-init='rakATMLocSearch=false;'>
+								<div   class="rakATMLocSearch1 rakATMLocSearchIcon"
+									ng-class="{'rakATMLocSearchIconExpnd':rakATMLocSearch}"
+									ng-click="rakATMLocSearch=!rakATMLocSearch ;">	
+									<span ng-if="location.marker =='A' && location.type_id=='EDM'" class="rakDepositImage rakLocatemarginLeft10" ></span> 
+									<span ng-if="location.marker =='B' " class="rakBranchImage rakLocatemarginLeft10"></span>							
+									<span ng-if="(location.marker =='A' && location.type_id!='EDM')" class="rakATMimage rakLocatemarginLeft10" ></span> 
+									<div class="rak-sum-label black locator_fullWidth">{{location.city}}</div>				
+									<div class="rak-loc-address locator_branchFac rakPadding24">{{location.area}}, {{location.state}}</div>		
+									
+									
+																	
+								</div>
+								
+								
+							
+						</div>
+						
+								<div class="rakATMLocSearch3" ng-if="rakATMLocSearch">
+									<div ng-click='fields.bankId = CONSTANT.BANK_ID;fields.locatorMethodName="getLocationsByBankID";fields.selectedLocation=location; mapAction = "SHOWMARKER"; setMapCenter(location); setGlobalEvent("onMapDetailsClick"); rakLocateUs.flagChk=true;'>
+										<div class="">
+											<div class="rak-loc-address locator_branchFac locator_marginLeft">{{postal_address}}
+												<div class="rak-loc-address locator_branchFac locator_marginLeft">{{appLiterals.APP.RAK_LOCATEUS.SERVICES_TXT}} {{location.subtype}}
+													
+									</div>
+									<div class="rak-loc-address locator_branchFac locator_marginLeft">{{appLiterals.APP.RAK_LOCATEUS.DISTANCE}} {{location.distance}} KM
+										</div>
+										<div class="rak-loc-address locator_branchFac locator_marginLeft"> {{location.days}}{{}} {{location.timings}}
+										</div>
+										<div class="rak-loc-address locator_branchFac locator_marginLeft"> {{location.moretiming}}{{}}{{location.moretiming1}}
+										</div>
+										<div class="rak-loc-address locator_branchFac locator_marginLeft locator_underline">Check Distance
+										</div>
+								</div>
+							</div>
+						</div> 
+						</div>
+						</div>
+					
+			</div>
+		</div>		
+	</div>
+</div>

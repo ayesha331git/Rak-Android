@@ -1,0 +1,139 @@
+<div class="rak-back-header">
+    <i class="rak-back-img" ng-click="setEvent('onTxnHistoryDDSBackClick');"></i>
+  </div>
+    	<div class="finacle-container" ng-init="rakPayee.payeeModel.processDdsTransactionHistoryResponse(successResponse.responsesList);rakPayee.clearDDSTab();rakPayee.ddsTxnHistoryTab=true;">
+	<div class="account-page">
+		<div class="col-sm-11">
+			<div class="app-title-wrapper">	
+				 
+			   <div class="form-block">
+                 <ng-include  src="'./navigation/rakPayee/resources/RakDDSPayeeTabPage.html'"> </ng-include>	
+			     <div class="main-form-heading-payee"> 
+		      <h2 >{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.TXNLIST}}
+		      </h2>		       
+		  </div>		 
+			</div>		
+				<!-- Debit from-->
+         <div class="rakRow">
+						<div class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px">
+							{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.DEBIT_FROM}}</div>
+							<div class="rak90">
+								<div>
+									<div class="rakCstmRadioDiv rak50 rakTop2emLeft3">
+										<input type="radio" ng-value="rakPayee.constants.ACCOUNT" class="rakRadio" id="radio1"
+														ng-model="rakPayee.payeeModel.debitFrom" />
+										<label for="radio1"><span><span></span></span>{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.ACCOUNT}}</label>
+									</div>
+									<div class="rakCstmRadioDiv rak47 rakTop2emLeft3"> 
+										<input type="radio" ng-value="rakPayee.constants.CREDITCARD" class="rakRadio" id="radio2"
+														ng-model="rakPayee.payeeModel.debitFrom" />
+										<label for="radio2"><span><span></span></span>{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.CREDITCARD}}</label>
+									</div>
+								</div>
+							</div>
+		</div>
+		
+			  
+		<!--Account-Start-->
+		 <div  ng-show="rakPayee.payeeModel.debitFrom==rakPayee.constants.ACCOUNT" ng-init='accountArr = createDropDownOptionArray(rakPayee.payeeModel.accountList, ["productCatDesc","-","accountNumber","-","accountCurrency"], "accountIndex");'>
+		<fin-input type="dropdown" model="rakPayee.payeeModel.accountNumberdds" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.ACCOUNT}}"  validation-flag='pageErrorArr["rakPayee.payeeModel.accountNumber"]' option-array="accountArr">			
+		</fin-input></div>
+		 
+		 <!--Account-end-->
+		 
+		 <!--CCard-Start-->
+		 <div  ng-show="rakPayee.payeeModel.debitFrom==rakPayee.constants.CREDITCARD" ng-init='ccardArr = createDropDownOptionArray(rakPayee.payeeModel.creditCardList, ["prodDesc","-","creditCardNo"], "cardIndex");'>
+		<fin-input type="dropdown" model="rakPayee.payeeModel.creditCardNumberdds" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.CREDITCARD}}"  validation-flag='pageErrorArr["rakPayee.payeeModel.creditCardNumber"]' option-array="ccardArr">			
+		</fin-input></div>
+		 
+		 <!--CCard-end-->
+       <!-- Commences on -->
+		<fin-input  type="date" model="rakPayee.payeeModel.commenceDateDdsTxn" placeholder="{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.FROMDATE}}" display-row="full"  validation-flag='pageErrorArr["rakPayee.payeeModel.commenceDateDdsTxn"]'> </fin-input>
+										
+	    <!-- Expires on -->
+		<fin-input type="date" model="rakPayee.payeeModel.expiryDateDdsTxn"  value="futureDatesOnly" placeholder="{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.TODATE}}" display-row="full"  validation-flag='pageErrorArr["rakPayee.payeeModel.expiryDateDdsTxn"]'> </fin-input>
+						  	
+					
+		<div>
+        <!-- <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="rakPayee.payeeModel.ifscBankName='';rakPayee.payeeModel.ifscBankBranch='';rakPayee.payeeModel.ifscCode='';"> {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.IFSC_CLEAR}}</button> -->
+        <button type="button" class="btn--special-btn btn-middle rak-button-small rak-button-right" ng-click="rakPayee.payeeModel.getDDSDateUtil();setEvent('onGetTxnHistorySubmitClick')"> {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.IFSC_SEARCH}}</button>       
+       </div>       
+         <div class="fin-txt"></div>
+         <div class="bg-color rak-cont-padding">                  
+									        
+          <div class="money-block" ng-show="rakPayee.payeeModel.transactionHistoryList.length> 0">              
+						         <ul>
+						            <li  class="active rak20" >
+						            {{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.DDSREFNO}}</li>						        
+						           <li class="active rak20">
+						            {{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.SERVNAME}}</li>
+						            <li class="active rak20">
+						           {{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.TXNDATE}}</li>
+						            <li class="active rak20">
+						           {{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.TXNAMT}}</li>
+						            <li class="active rak20">
+						           {{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.STATUS}}</li>
+						            
+						         </ul>
+						 	</div>
+          <div class="nano scroll-height rakscroll-height" >    
+					            <div class="nano-content rakTxnSrchDivNew" >
+					       
+					               
+									<div class="trans-detail rakGreyRow" ng-repeat="txnHist in rakPayee.payeeModel.transactionHistoryList">
+					                  	<div class="trans-dash-right rakPeopleNameRow1 rak20  rakPaddingPoint8em pull-left">					                   		
+					                   		<div> 
+					                    <div class="trans-no rakFont1em">   
+					                   {{txnHist.ddsReference}}                  
+					                    </div>
+					                    </div>
+					                                  
+					                    </div>
+					                    
+					                  <div class="trans-dash-right rakPeopleNameRow1 rak20 pull-left rakPaddingPoint8em" >					                
+					                  <div> 
+					                    <div class="trans-no rakFont1em">   
+					                        {{txnHist.serviceName}}             
+					                    </div>
+					               </div> 
+					                  </div>
+					                    
+					                    
+					                  <div class="trans-dash-left rakPeopleNameRow1 rak20 pull-left rakPaddingPoint8em">					                  
+					                    <div> 
+					                    <div class="trans-no rakFont1em"> 
+					                       {{txnHist.txndate}}                   
+					                    </div>
+					                  </div> 
+					                        
+					                  </div>
+					                    
+					                  <div class="trans-dash-left rakPeopleNameRow1 rak20 pull-left rakPaddingPoint8em">					                  
+					                    <div> 
+					                    <div class="trans-no rakFont1em"> 
+					                         {{txnHist.txnAmount}}            
+					                    </div>
+					                  </div> 
+					                        
+					                  </div>
+					                  
+					                  <div class="trans-dash-left rakPeopleNameRow1 rak20 pull-left rakPaddingPoint8em">					                  
+					                    <div> 
+					                    <div class="trans-no rakFont1em"> 
+					                       {{txnHist.txnStatus}}                   
+					                    </div>
+					                  </div> 
+					                        
+					                  </div>
+					                  									      
+					             </div>
+					              </div> 
+              
+						</div>
+          </div>
+         
+    
+   </div>
+</div>
+</div>
+</div>

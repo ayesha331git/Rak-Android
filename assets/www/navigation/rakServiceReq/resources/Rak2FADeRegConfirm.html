@@ -1,0 +1,74 @@
+<div class="rak-back-header" ng-if="rak2FARegister.constants.isRakTknDeReg == 'NO'">
+	<i class="rak-back-img" ng-click="setEvent('onRak2FADeRegConfirmBackClick');"></i>
+</div>
+<div class="rak-back-header" ng-if="rak2FARegister.constants.isRakTknDeReg == 'YES'">
+	<i class="rak-back-img" ng-click="setEvent('onRak2FADeRegConfirmBackClick_PreLogin');"></i>
+</div>
+
+
+<div class="finacle-container ng-scope"
+	ng-init="rakHome.AuthPageData.firstAuthModeValue = '';rakServiceReq.confirmRak2FADeReg(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+			<div class="main-form-heading-ServiceReq"> 
+                      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.SOFTTOKENDEREG}}
+                      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>                
+                      </h2>              
+			</div>
+			<!-- </div> -->
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="">
+					<div class="">
+
+			<div class="rakDupliSRChkMsgImg" ng-show='rakServiceReq.common.message'>
+      			<span class='rakAlertForDupStmt'></span> <span class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+			</div>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.SOFTTOKENDEREG.USERNAME}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.Rak2FADeRegModel.userName}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.SOFTTOKENDEREG.MOBNO}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.Rak2FADeRegModel.mobNo}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.SOFTTOKENDEREG.REASON}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.Rak2FADeRegModel.reasonDisplay}}</span>
+						</p>
+
+					<fin-dynamicauth></fin-dynamicauth>
+
+						<div class="label-wrap">
+							<button type="button" ng-if="rak2FARegister.constants.isRakTknDeReg == 'NO'"
+								class="btn--special-btn btn-middle rak-button-small btn--back"
+								ng-click="setEvent('onRak2FADeRegConfirmBackClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+							<button type="button" ng-if="rak2FARegister.constants.isRakTknDeReg == 'YES'"
+								class="btn--special-btn btn-middle rak-button-small btn--back"
+								ng-click="setEvent('onRak2FADeRegConfirmBackClick_PreLogin');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="setEvent('onRak2FADeRegSuccessClick');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}
+							</button>
+
+						</div>
+						<div class="col-sm-1"></div>
+						
+						<div class="disclaimer">
+                         <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                              <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                         </div>
+
+                         <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                              <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSERREQ_CONF"></div>
+                         </div>
+                 </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

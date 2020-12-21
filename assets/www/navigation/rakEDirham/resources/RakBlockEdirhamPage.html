@@ -1,0 +1,70 @@
+ <div class="rak-back-header">
+	<i class="rak-back-img" ng-click="setEvent('onBackClick');"></i>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div ng-init='rakEDirham.initBlockEdirham(successResponse.responsesList[0]);' class="finacle-container">
+			<div class="account-page">
+			
+					<div class="app-title-wrapper">
+						<div class="form-block">	
+							
+							<div class="bg-color rak-cont-padding rak-scroll margn-5-5-0-5">
+							<div class="">
+					           	
+					            <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.EDIRHAM.BLOCK_UNBLOCK_EDIRHAM_TXT}}
+                                            
+                              </h2>              
+						</div>
+					                        
+					            
+					        </div>	
+								<div class="">
+									<p class="rak-sum-txt">
+										<span  class="rak-sum-label txt-align-left">{{appLiterals.APP.EDIRHAM.EDIRHAM_BLOCK_FUNSINGACCT_TXT}}</span>
+										<span class="rak-sum-label black">{{rakEDirham.eDirhamSettings.edAccountId}}</span>
+									</p>
+									<p class="rak-sum-txt">
+										<span  class="rak-sum-label txt-align-left">{{appLiterals.APP.EDIRHAM.ACCOUNT_STATUS}}</span>
+										<span class="rak-sum-label black" ng-if="rakEDirham.eDirhamSettings.isAcctBlocked=='A'">{{appLiterals.APP.EDIRHAM.ACTIVE_STATUS}}</span>
+										<span class="rak-sum-label black" ng-if="rakEDirham.eDirhamSettings.isAcctBlocked=='B'">{{appLiterals.APP.EDIRHAM.BLOCKED_STATUS}}</span>
+									</p>
+		
+								
+									<!-- <md-switch ng-disabled="true" class="eDirham-switch eDirham-switch-details" ng-if="rakEDirham.eDirhamSettings.blockEdirham" ng-model="rakEDirham.eDirhamSettings.blockEdirham">
+											   {{appLiterals.APP.EDIRHAM.UNBLOCK_EDIRHAM}}
+											  </md-switch>
+									<md-switch ng-disabled="true" class="eDirham-switch eDirham-switch-details" ng-if="!rakEDirham.eDirhamSettings.blockEdirham" ng-model="rakEDirham.eDirhamSettings.blockEdirham">
+								{{appLiterals.APP.EDIRHAM.BLOCK_E_DIRHAM}}
+									</md-switch> -->
+
+									
+									
+								</div>
+								
+								
+									
+										
+								<div class="mt-30Per">
+		    					 <button type="button" ng-if="!rakEDirham.eDirhamSettings.blockEdirham" class="btn--special-btn btn-middle block-unblock-btn"
+									ng-click="setEvent('onEdirhamBlockUnblockConfirmClick');">
+												{{appLiterals.APP.EDIRHAM.BLOCK_BTN}}
+											</button>
+								<button type="button" ng-if="rakEDirham.eDirhamSettings.blockEdirham" class="btn--special-btn btn-middle block-unblock-btn"
+									ng-click="setEvent('onEdirhamBlockUnblockConfirmClick');">
+												{{appLiterals.APP.EDIRHAM.UNBLOCK_BTN}}
+								</button>
+									
+			
+		     					</div>
+							
+							</div>
+				
+					</div>
+				</div>
+			
+		</div>
+	</div>
+	</div>
+	</div>

@@ -1,0 +1,98 @@
+
+<div class="rak-back-header" ng-show="rakPayee.schedule.freqType!='O'">
+	<i class="rak-back-img" ng-click="rakPayee.schedule.isBackclicked=true;rakPayee.schedule.stopBtnClicked=false;setEvent('onBackClick');"></i>
+</div>
+<div ng-init="resetPageError();rakPayee.schedule.txnPwd='';rakPayee.schedule.remarks='';rakPayee.schedule.initImmediateStopTransferAuth(successResponse.responsesList);">
+	<div class="account-page">
+	
+    <div class="col-sm-11">
+	  <div class="app-title-wrapper">		
+		
+					<ng-include  src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>
+   
+   							<div class="tab-links">
+								<ul>
+									<li><span>{{appLiterals.APP.RAK_PAYEE.HISTORY.PMTHISTORY}}</span></li>
+									<li class="active"><span class="active">{{appLiterals.APP.RAK_PAYEE.HISTORY.SCHPMT}}</span></li>
+									
+								</ul>
+							</div>
+		
+		
+        <div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh">
+      <div class="main-form-heading">
+                    	<h2>{{appLiterals.APP.RAK_COMMON.SUMMARY_HEADER}}<span>{{appLiterals.APP.RAK_COMMON.SUMMARY_REVIEW}}</span></h2>
+            </div>
+	
+	 
+		<div class="">      
+		 
+				<div class="">
+
+			<div class="" >
+			  <div class="">
+			  
+			  <p class="rak-sum-txt" ng-repeat="instance in rakPayee.schedule.instanceListJson" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.PAYMENTDUE}}</span>
+					<span class="rak-sum-label black">{{instance.immediatePaymentDueOn}}</span>
+				</p>
+									
+				<!-- <textarea class="text_area" placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.REMARKS}}"
+					ng-model='rakPayee.schedule.remarks' maxlength="25" ng-style='(pageErrorArr["rakPayee.schedule.remarks"] == null) ? {"border-bottom": "solid 0.1em #dbe3e7"} : {"border-bottom": "solid 0.1em red"}'></textarea> -->
+						 	
+				
+				<fin-input type="password_text" model="rakPayee.schedule.txnPwd"
+					display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+					validation-flag='pageErrorArr["rakPayee.schedule.txnPwd"]'
+				ng-show="rakPayee.schedule.authFlag==txnpwdString">
+					</fin-input>
+					
+					<!-- <div ng-show="rakPayee.schedule.authFlag==otpString">
+						<div class="rakwidth65">
+							 <fin-input type="password_num" model="rakPayee.schedule.txnPwd"
+								display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+								validation-flag='pageErrorArr["rakPayee.schedule.txnPwd"]'>
+								</fin-input>
+							</div>
+							<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>
+						</div> -->
+						
+						
+						<div ng-show="rakPayee.schedule.authFlag==otpString">
+						
+							
+							<div ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+							<fin-input type="password_num" model="rakPayee.schedule.txnPwd"
+							display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+							validation-flag='pageErrorArr["rakPayee.schedule.txnPwd"]' > </fin-input>
+							</div>
+				
+				
+							<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0' ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+				
+								<fin-input type="dropdown" option-array="toModeArray" model="rakHome.otpModel.otpModeSelected" display-row="full" placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+								<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+				
+							</div>
+											
+									<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>   
+									</div>
+						
+					</div>
+				
+				
+				
+				<div class="label-wrap">	
+				 <button type="button"  class="btn--special-btn btn-middle rak-button-small" 
+				 ng-click="rakPayee.schedule.stopBtnClicked=true;rakPayee.schedule.clearSearchData();setEvent(rakPayee.schedule.fetchSubmitEvent());">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.SUBMIT}}</button>
+			  </div>
+          <div class="col-sm-1"> </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+

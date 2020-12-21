@@ -1,0 +1,46 @@
+<div class="finacle-container ng-scope" ng-init="rakPayee.processPayeeDeleteInitResponse(successResponse.responsesList)"></div>
+
+<div class="confirmation-content-container">
+    <div class="message-box-new">
+        <div>
+            <p class="round-icon-new">
+            <span class="app app-alert pop-alert-icon"></span>
+            </p>
+
+            <div class="conf-txt-title"> {{rakPayee.payeeModel.deleteConfirmationTitle}}
+            </div>
+        </div>
+        
+        <div class="conf-txt-label">
+          {{appLiterals.APP.PAYEE.DELBENF_CONFPAGE.SENT1}} {{rakPayee.beneficiaryDetails.beneficaryNickName}}{{appLiterals.APP.PAYEE.DELBENF_CONFPAGE.SENT2}} {{ rakPayee.isDeleteBillerMode ? "billers" : "payees" }} ?
+        </div>
+		<div class="conf-btn-wrap">
+        
+        <div ng-show="(rakPayee.isDeleteBillerMode == true)">
+            <button type="button" class="btn--confpri-btn" ng-click='setEvent("onDeleteBillerConfirmationYesClick")' >
+                &nbsp; {{appLiterals.APP.PAYEE.DELBENF_CONFPAGE.BTN_YES}} &nbsp; 
+            </button>
+        </div>
+        <div ng-show="(rakPayee.isDeleteBillerMode == true)">
+            <button type="button" class="btn--confsec-btn" ng-click='setEvent("onDeleteBillerConfirmationNoClick")' >
+                 &nbsp; {{appLiterals.APP.PAYEE.DELBENF_CONFPAGE.BTN_CNL}} &nbsp;
+            </button>
+        </div>
+        </div>
+		<div class="cof-btn-wrap">
+		<div ng-show="(rakPayee.isDeleteBillerMode == false)">
+            <button type="button" class="btn--confpri-btn" ng-click='rakPayee.isDeleteBeneficiaryMode=true;setEvent("onDeletePayeeConfirmationYesClick")'>
+                 &nbsp; {{appLiterals.APP.PAYEE.DELBENF_CONFPAGE.BTN_YES}} &nbsp;
+            </button>
+        </div>
+        <div ng-show="(rakPayee.isDeleteBillerMode == false)">
+            <button type="button" class="btn--confsec-btn" ng-click='rakPayee.isDeleteBeneficiaryMode=false;setEvent("onDeletePayeeConfirmationNoClick")'>
+                 &nbsp; {{appLiterals.APP.PAYEE.DELBENF_CONFPAGE.BTN_CNL}} &nbsp;
+            </button>
+        </div>
+
+        
+        </div>
+
+    </div>
+</div>

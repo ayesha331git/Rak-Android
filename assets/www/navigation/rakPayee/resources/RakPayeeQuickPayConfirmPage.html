@@ -1,0 +1,192 @@
+ <div class="rak-back-header" ng-if="!rakPayee.quickPay.fromAgain">
+	<i class="rak-back-img" ng-click="rakPayee.common.fromAuthPage=true;rakPayee.quickPay.txnPwd='';setEvent('onquickPayAuthBackClick');rakCorpInit.corpModel.processCorpInit(successResponse.responsesList);"></i>
+</div>
+
+
+ <div class="rak-back-header" ng-if="rakPayee.quickPay.fromAgain && rakPendingApproval.pendingApprovalTab!='PIA'">
+	<i class="rak-back-img" ng-click="rakHome.AuthPageData.firstAuthModeValue='';rakPayee.common.fromAuthPage=true;rakPayee.quickPay.txnPwd='';setEvent('onquickPayBackToAgainClick');"></i>
+</div>
+
+ <div class="rak-back-header" ng-if="rakPayee.quickPay.fromAgain && rakPendingApproval.pendingApprovalTab=='PIA'">
+	<i class="rak-back-img" ng-click="rakPayee.common.fromAuthPage=true;rakPayee.quickPay.txnPwd='';setEvent('onquickPayBackToEditClick');"></i>
+</div>
+
+<div
+	ng-init="rakHome.AuthPageData.firstAuthModeValue='';rakPayee.quickPay.txnPwd='';rakPayee.quickPay.initAuthPage(successResponse.responsesList)" >
+	<div ng-show="rakPayee.payBill.balCheck== 'true'">
+		<div class="full-page-screen"></div>
+		<div class="confirmation-content-container">
+			<div class="message-box-new">
+				<div>
+					<p class="round-icon-new">
+						<span class="app app-alert pop-alert-icon rak-color"></span>
+					</p>
+					<div class="conf-txt-title rak-black-color"></div>
+				</div>
+				<div class="conf-txt-label rak-black-color">
+					{{rakPayee.payBill.poolBalMsg}}</div>
+				<div class="conf-btn-wrap rakpaddingBottom15">
+					<button type="button"class="btn--special-btn btn-middle rak-button-small btn--back"
+						ng-click='setEvent("onTransfersAuthBackClick")'>
+						{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.BTN_CNL}}
+						</button>
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-small"
+						ng-click='rakPayee.payBill.balCheck="false";setEvent("onPoolBalanceConfirmation")'>
+						
+						{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.BTN_YES}}
+						</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="finacle-container ng-scope" ng-show="rakPayee.payBill.balCheck== 'false' || rakCorpInit.corpModel.backFlag=='Y'">
+	<div class="account-page">
+    <div class="col-sm-11">
+	  <div class="app-title-wrapper">
+
+
+		 <ng-include ng-if="rakPendingApproval.pendingApprovalTab!='PIA'" src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>
+
+        <div class="rak-scroll">
+      <div class="main-form-heading">
+                    	<h2>{{appLiterals.APP.RAK_COMMON.SUMMARY_HEADER}}<span>{{appLiterals.APP.RAK_COMMON.SUMMARY_REVIEW}}</span></h2>
+            </div>
+
+
+		<div class="bg-color rak-cont-padding">
+
+			<div class="row" >
+			  <div class="">
+
+			  <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.QUICK_PAY.PLCHOLDER_TO}}</span>
+					<span class="rak-sum-label black">{{rakPayee.quickPay.billerList[rakPayee.quickPay.selectedBiller].billerName}}</span>
+				</p>
+
+			<div ng-repeat="fields in rakPayee.quickPay.consumerCodeValues">
+				<p class="rak-sum-txt" ng-hide="((rakPayee.quickPay.billerList[rakPayee.quickPay.selectedBiller].billerName == 'DEWA' ||
+				rakPayee.quickPay.billerList[rakPayee.quickPay.selectedBiller].billerName == 'SEWA' ||rakPayee.quickPay.billerList[rakPayee.quickPay.selectedBiller].billerName == 'FEWA' || rakPayee.quickPay.billerList[rakPayee.quickPay.selectedBiller].billerName == 'SALIK') && fields.label=='Service Type')
+										|| (rakPayee.quickPay.billerList[rakPayee.quickPay.selectedBiller].billerName == 'EMAAR' && fields.label=='Others' && rakPayee.quickPay.consumercode0!='OTHR')">
+					<span class="rak-sum-label">{{fields.label}}</span>
+					<span class="rak-sum-label black">{{fields.value}}</span>
+				</p>
+			</div>
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.QUICK_PAY.NICKNAME}}</span>
+					<span class="rak-sum-label black">{{rakPayee.quickPay.billerNickname}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-if="rakPayee.quickPay.saveToList == true">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.QUICK_PAY.SAVE}}</span>
+					<span class="rak-sum-label black">Yes</span>
+				</p>
+
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.QUICK_PAY.PLCHOLDER_FROM}}</span>
+					<span class="rak-sum-label black">{{rakPayee.quickPay.fromAccounts[rakPayee.quickPay.selectedFromAccount].accountNumberDisplay}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-if='rakPayee.quickPay.billerList[rakPayee.quickPay.selectedBiller].billerName!=rakPayee.constants.RAKTOLL'>
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.QUICK_PAY.AMOUNT}}</span>
+					<span class="rak-sum-label black">AED {{rakPayee.quickPay.amountDisp}}</span>
+				</p>
+				
+				<div ng-if='rakPayee.quickPay.billerList[rakPayee.quickPay.selectedBiller].billerName==rakPayee.constants.RAKTOLL'>
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.CHARGES}}</span>
+						<span class="rak-sum-label black">AED {{rakPayee.payBill.chargesRakToll}} <span ng-if="rakPayee.payBill.amountChargesRadio=='Y'">({{appLiterals.APP.PAYEE.PAY_BILL.INCLUDE_CHARGES}})</span><span ng-if="rakPayee.payBill.amountChargesRadio=='N'">({{appLiterals.APP.PAYEE.PAY_BILL.EXCLUDE_CHARGES}})</span></span>
+					</p>
+					<p class="rak-sum-txt" ng-if="rakPayee.payBill.amountChargesRadio=='Y'">
+						<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.TOPUP_AMOUNT}}</span>
+						<span class="rak-sum-label black">AED {{rakPayee.payBill.topUpAmount}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-if="rakPayee.payBill.amountChargesRadio=='Y'">
+						<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.TOTAL_AMOUNT}}</span>
+						<span class="rak-sum-label black">AED {{rakPayee.payBill.amountRakToll}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-if="rakPayee.payBill.amountChargesRadio=='N'">
+						<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.TOPUP_AMOUNT}}</span>
+						<span class="rak-sum-label black">AED {{rakPayee.quickPay.amountDisp}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-if="rakPayee.payBill.amountChargesRadio=='N'">
+						<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.TOTAL_AMOUNT}}</span>
+						<span class="rak-sum-label black">AED {{rakPayee.payBill.totalAmount}}</span>
+					</p>
+				</div>
+				
+				
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.QUICK_PAY.WHEN}}</span>
+					<span class="rak-sum-label black">{{rakPayee.quickPay.displayDate}}</span>
+				</p>
+	<div
+							ng-init="rakCorpInit.corpModel.processCorpInit(successResponse.responsesList);">
+							 <corpapproval-input></corpapproval-input>
+							
+		
+						</div>
+<!-- Dynamic Component used for authorization START -->
+				<fin-dynamicauth></fin-dynamicauth>
+
+			<!-- 	<fin-input type="password_text" model="rakPayee.quickPay.txnPwd"
+					display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+					validation-flag='pageErrorArr["rakPayee.quickPay.txnPwd"]'
+				ng-show="rakPayee.quickPay.authFlag==txnpwdString">
+					</fin-input>
+					<div ng-show="rakPayee.quickPay.authFlag==otpString">
+			<div ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+			<fin-input type="password_num" model="rakPayee.quickPay.txnPwd"
+			display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}"
+			validation-flag='pageErrorArr["rakPayee.quickPay.txnPwd"]' > </fin-input>
+			</div>
+
+
+			<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0' ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+
+				<fin-input type="dropdown" option-array="toModeArray" model="rakHome.otpModel.otpModeSelected" display-row="full" placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+				<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+
+			</div>
+
+
+		<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>
+		</div> -->
+		
+		<!-- Dynamic Component used for authorization END -->
+
+				<div class="label-wrap">
+
+				 <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-if="!rakPayee.quickPay.fromAgain"
+				 ng-click="rakPayee.common.fromAuthPage=true;rakPayee.quickPay.txnPwd='';setEvent('onquickPayAuthBackClick');">  {{appLiterals.APP.PAYEE.QUICK_PAY.BTN_BACK}} </button>
+				 <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-if="rakPayee.quickPay.fromAgain && rakPendingApproval.pendingApprovalTab!='PIA'"
+				 ng-click="rakPayee.common.fromAuthPage=true;rakPayee.quickPay.txnPwd='';setEvent('onquickPayBackToAgainClick');">  {{appLiterals.APP.PAYEE.QUICK_PAY.BTN_BACK}} </button>
+				 <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-if="rakPayee.quickPay.fromAgain && rakPendingApproval.pendingApprovalTab=='PIA'"
+				 ng-click="rakPayee.common.fromAuthPage=true;rakPayee.quickPay.txnPwd='';setEvent('onquickPayBackToEditClick');">  {{appLiterals.APP.PAYEE.QUICK_PAY.BTN_BACK}} </button>
+				 <button type="button"  class="btn--special-btn btn-middle rak-button-small" ng-if="rakPendingApproval.pendingApprovalTab!='PIA'"
+				 ng-click="rakHome.AuthPageData.fetchOtp('onquickPayNowSubmit');">  {{appLiterals.APP.PAYEE.QUICK_PAY.BTN_CONFIRM}} </button>
+				 <button type="button"  class="btn--special-btn btn-middle rak-button-small" ng-if="rakPendingApproval.pendingApprovalTab=='PIA'"
+				 ng-click="rakHome.AuthPageData.fetchOtp('onquickPayModifySubmit');">  {{appLiterals.APP.PAYEE.QUICK_PAY.BTN_CONFIRM}} </button>
+			  </div>
+          <div class="col-sm-1"> </div>
+          
+          <div class="disclaimer">
+                         <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                         <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                         </div>
+
+                         <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                         <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.PMT_AUTH"></div>
+                         </div>
+                 </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>

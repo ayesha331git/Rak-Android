@@ -1,0 +1,45 @@
+<div class="finacle-container" ng-init="payee.imps.initEditPage(successResponse.responsesList)">
+	<div class="account-page">
+    <div class="col-sm-10"> 
+      <div class="app-title-wrapper">
+  		<div class="title-center"> Edit IMPS Payee</div>
+  		<div class="app app-cancel title-right" ng-click="setGlobalEvent('onPayeeClick')"></div>
+      </div>
+      <div class="highlight-color"> </div>       
+      <div class="bg-color">
+        <div class="row" >
+          <div class="col-sm-1"> </div>
+          <div class="col-sm-10">
+          	<span class="special-txt">Payee Nick Name</span>
+          	<fin-input type="text" model="payee.imps.payeeNickname" display-row="full" placeholder="" validation-flag='pageErrorArr["payee.imps.payeeNickname"]'> </fin-input>
+			<div class="fin-txt"></div>
+			<div  ng-show="payee.imps.isIFSC">
+			<span class="special-txt">Account No</span>
+          	<fin-input type="text" model="payee.imps.accountNo" display-row="full" placeholder="" validation-flag='pageErrorArr["payee.imps.accountNo"]'> </fin-input>
+			<div class="fin-txt"></div>
+			
+			<span class="special-txt">IFSC Code</span>
+          	<fin-input type="text" model="payee.imps.ifscCode" display-row="full" placeholder="" validation-flag='pageErrorArr["payee.imps.ifscCode"]'> </fin-input>
+          	<div class="new_user">Search IFSC</div>
+			<div class="fin-txt"></div>
+			</div>
+			<div ng-show="payee.imps.isMMID || payee.imps.isMER">
+			<span class="special-txt">MMID</span>
+          	<fin-input type="number" model="payee.imps.mmid" display-row="full" placeholder="" validation-flag='pageErrorArr["payee.imps.mmid"]'> </fin-input>
+			<div class="fin-txt"></div>
+			
+			<span class="special-txt">Mobile No</span>
+          	<fin-input type="number" model="payee.imps.mobileNo" display-row="full" placeholder="" validation-flag='pageErrorArr["payee.imps.mobileNo"]'> </fin-input>
+			<div class="fin-txt"></div>
+			<div ng-show="payee.imps.isMER">
+			<span class="special-txt">Payee Reference</span>
+          	<fin-input type="text" model="payee.imps.merRefrence" display-row="full" placeholder="" validation-flag='pageErrorArr["payee.imps.merRefrence"]'> </fin-input>
+			<div class="fin-txt"></div>
+			</div>
+			</div>
+			<button type="button" class="btn--primary-btn" ng-click="payee.imps.isEditMode=true; setEvent('onIMPSConfirmClick')"> U P D A T E </button>
+          </div>
+        </div>
+       </div>
+       </div>
+ </div>

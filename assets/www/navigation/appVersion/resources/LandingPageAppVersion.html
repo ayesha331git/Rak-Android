@@ -1,0 +1,68 @@
+<div ng-if="fields.finacleUserCorporateId == ''"
+	ng-init="setSingleStepRealmAuthFailure();"></div>
+<div class="finacle-container"
+	ng-init="appVersion.getAppVersionDetails(appLiterals);">
+	<div class="account-page">
+		<div class="col-sm-12">
+
+
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div id="landingPageAppVersionHEADER" class="item-title text-uppercase">{{appLiterals.APP.APPVER_DIRUPD.LAND_PAGE.HEADER}}</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="dashboard-details">
+							<div class=" account-detail-dash margin-zero">
+								<b id="landingPageAppVersionAppName" class="dash-ac-no">{{appLiterals.APP.version.appName}}</b> <span
+									class="dash-ac-id"> </span>
+							</div>
+							<!--p class="left-txt">
+							<b>{{appLiterals.APP.version.appName}}</b>
+						</p-->
+							<div class=" account-detail-dash margin-zero">
+								<b id="landingPageAppVersionTXT_VER" class="dash-ac-no">{{appLiterals.APP.APPVER_DIRUPD.LAND_PAGE.TXT_VER}}</b>
+								<span id="landingPageAppVersion_AppVersion" class="dash-ac-id">{{appLiterals.APP.version.appVersion}}
+								</span>
+							</div>
+
+							<!--p class="left-txt">{{appLiterals.APP.APPVER_DIRUPD.LAND_PAGE.TXT_VER}}
+							{{appLiterals.APP.version.appVersion}}</p-->
+
+
+							<div class=" account-detail-dash margin-zero">
+								<b id="landingPageAppVersion_LST_UPD" class="dash-ac-no">{{appLiterals.APP.APPVER_DIRUPD.LAND_PAGE.LST_UPD}}</b>
+								<span id="landingPageAppVersion_ReleaseDate" class="dash-ac-id">{{appLiterals.APP.version.releaseDate}}
+								</span>
+							</div>
+							<!--p class="left-txt">
+							{{appLiterals.APP.APPVER_DIRUPD.LAND_PAGE.LST_UPD}}
+							<fin-Date date-value='{{appLiterals.APP.version.releaseDate}}'></fin-Date>
+						</p-->
+							<div id="landingPageAppVersion_releaseDetails{{$index}}" class=" account-detail-dash margin-zero"
+								ng-repeat="row in appVersion.releaseDetails">
+								<b id="landingPageAppVersion_ReleaseDetail{{$index}}" class="dash-ac-no">{{row}}</b> <span class="dash-ac-id">
+								</span>
+							</div>
+							<!--p class="left-txt" ng-repeat="row in appVersion.releaseDetails">{{row}}</p-->
+							<div class=" account-detail-dash margin-zero">
+								<b id="landingPageAppVersionFeaturesAvailableText" class="dash-ac-no">{{appVersion.featuresAvailableText}}</b> <br>
+								<br> <span id="landingPageAppVersionFeaturesAvailable{{$index}}" class="dash-ac-id"
+									ng-repeat="row in appVersion.featuresAvailable"> {{row}}</span>
+							</div>
+							<!--p class="left-txt">{{appVersion.featuresAvailableText}}</p>
+						<p class="left-txt"
+							ng-repeat="row in appVersion.featuresAvailable">{{row}}</p-->
+						</div>
+						<md-button id="landingPageAppVerBtnOK" type="button"
+							class=" md-raised btn--primary-btn"
+							ng-click="setEvent(appVersion.getAppVersionCloseEventName(isUserLoggedIn))">
+						{{appLiterals.APP.APPVER_DIRUPD.LAND_PAGE.BTN_OK}}</md-button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

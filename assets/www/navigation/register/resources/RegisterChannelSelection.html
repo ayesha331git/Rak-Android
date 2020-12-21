@@ -1,0 +1,127 @@
+<div class="full-height"
+	ng-init="register.responseRegisterOnlineChannelSelection(successResponse);">
+	<div class="account-page full-height">
+		<div class="full-height">
+			<div class="full-height">
+				<div class="dashboard-item-body full-height">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20"
+						layout="row" layout-align="center center" layout-wrap>
+						<div class="item-title md-headline  margin-top-20"
+							id="registerChannelSelectionHeader" layout="row"
+							layout-align="center center" layout-wrap>{{appLiterals.APP.REGISTER.REG_CHAN_SEL.HEADER}}</div>
+						<div class="item-title fut-txt1" layout="row"
+							layout-align="center center" layout-wrap>{{appLiterals.APP.REGISTER.REG_CHAN_SEL.SENT1_WEL}}
+							{{register.UserId}}</div>
+					</div>
+					<div ng-if="!isUserLoggedIn" class="stage_wrap">
+						<div class="stage-sucs3">
+							<p class="staging-sucs1">
+								<span class="app app-icon-check"> </span>
+							</p>
+						</div>
+						<div class="stage-line line-small"></div>
+						<div class="next-stage">
+							<p class="staging" id="registerChannelSelectionTickCircle2">
+								{{appLiterals.APP.REGISTER.REG_CHAN_PASS.NO2}}</p>
+						</div>
+					</div>
+					<p class="col-sm-12 fut-txt1 lh13" ng-if="!isUserLoggedIn"
+						id="registerChannelSelectionMsg1">
+						{{appLiterals.APP.REGISTER.REG_CHAN_SEL.SENT2}}</p>
+					<p class="col-sm-12 fut-txt1 lh13" ng-if="isUserLoggedIn"
+						id="registerChannelSelectionMsg2">
+						{{appLiterals.APP.REGISTER.REG_CHAN_SEL.REGISTER_CHANNELS_MESSAGE}}
+					</p>
+					<div class="col-sm-12">
+						<div ng-if="!isUserLoggedIn"
+							class="md-whiteframe-1dp margin-bottom-15"
+							ng-repeat="channel in register.channelArray">
+							<div class="sucs-left-txt">
+								<span class="sucs-left-color"
+									id="registerChannelNamePreLogin{{$index}}">{{channel.channelName}}</span>
+								<span class="sucs-right-color"> <!-- <span
+									ng-if='channel.selectionStatus!="1" && channel.channelCode!="G"'
+									class="glyphicon glyphicon-ok unselect"
+									ng-class="{'select':channel.isChecked}"
+									id="registerChannelCheckedPreLogin{{$index}}"
+									ng-click='channel.isChecked=!channel.isChecked;register.updateChannel(channel.channelCode,channel.isChecked);register.ShowNote(channel.channelCode,channel.isChecked)'>
+								</span> <span
+									ng-if='channel.selectionStatus=="1" || channel.channelCode=="G"'
+									class="glyphicon glyphicon-ok select"
+									ng-init='register.selectedChannelArray.push(channel.channalCode);register.ShowNote(channel.channelCode,channel.isChecked)'>
+								</span> --> 
+								<md-checkbox
+										id="registerChannelCheckedPreLogin{{channel.channelCode}}"
+										class="rem-txt" aria-label=""
+										ng-checked="channel.selectionStatus=='1' || channel.channelCode=='G' || channel.isChecked"
+										ng-click='channel.isChecked=!channel.isChecked;channel.channelCode=="G" ? "" :register.updateChannel(channel.channelCode,channel.isChecked);register.ShowNote(channel.channelCode,channel.isChecked)'
+										ng-init='register.selectedChannelArray.push(channel.channalCode);register.ShowNote(channel.channelCode,channel.isChecked)'>
+									</md-checkbox>
+								</span>
+							</div>
+						</div>
+						<div ng-if="isUserLoggedIn" class="col-sm-12 channel-select"
+							ng-repeat="channel in register.selectedChannelArray">
+							<div class="landingpage-list2">
+								<div class="pull-left profile-txt"
+									id="registerChannelNamePostLogin{{$index}}">{{channel.channelName}}</div>
+								<div class="pull-right set-arrow">
+									<span ng-if='channel.selectionStatus=="1"'
+										ng-init='channel.isChecked=true;'> </span> <span
+										class="glyphicon glyphicon-ok unselect"
+										ng-class="{'select':channel.isChecked}"
+										id="registerChannelCheckedPostLogin{{$index}}"
+										ng-click='channel.isChecked=!channel.isChecked;register.checkChanneldeSelection();register.updateChannel(channel.channelCode,channel.isChecked)'>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clear-all col-sm-12" ng-if="!isUserLoggedIn">
+						<p class="col-sm-12 fut-txt1 lh13"
+							ng-show="register.isNoteRequired && appVersionDetails.appConfigParams[1].BUILDTYPE == 'MPIN'"
+							id="registerMpinNote">{{appLiterals.APP.ERROR_MESSAGE.SELF_ENROLLMENT_MPIN_NOTE}}</p>
+						<p class="col-sm-12 fut-txt1 lh13"
+							ng-show="register.isNoteRequired && appVersionDetails.appConfigParams[1].BUILDTYPE == 'PWD'"
+							id="registerPwdNote">{{appLiterals.APP.ERROR_MESSAGE.SELF_ENROLLMENT_PWD_NOTE}}</p>
+					</div>
+					<section layout="row" layout-align="center center"
+						ng-if="!isUserLoggedIn"
+						class="clear-all button-wrapper padding-top-10 col-sm-12 sticky-footer-block">
+						<md-button id="registerChannelCancel" type="button"
+							class=" md-raised btn--secondary-btn  md-raised btn--primary-three-btn"
+							ng-click="setGlobalEvent('onLoginClick')">
+						{{appLiterals.APP.COMMON.BUTTON.LOGIN}}</md-button>
+						<md-button id="registerExistingEbChannelSelectionSkip"
+							type="button" ng-if="register.isEbUser" ng-show="false"
+							class=" md-raised btn--primary-btn  md-raised btn--primary-three-btn"
+							ng-click="register.selectedChannelStr='G';setEvent('isEBUserChannelSkipClick');">
+						{{appLiterals.APP.REGISTER.REG_CHAN_SEL.BTN_SKP}} </md-button>
+						<md-button id="registerChannelSelectionSkip" type="button"
+							ng-show="false" ng-if="!register.isEbUser"
+							class=" md-raised btn--primary-btn  md-raised btn--primary-three-btn"
+							ng-click="register.skipChannel();setEvent('onChannelSkipClick');">
+						{{appLiterals.APP.REGISTER.REG_CHAN_SEL.BTN_SKP}}</md-button>
+						<md-button id="registerChannelSelectionSubmit" ng-if="register.showProceed"
+							class=" md-raised btn--primary-btn  md-raised btn--primary-three-btn"
+							type="button"
+							ng-click="register.setPasswordRules(successResponse);setEvent(register.setRegisterChannelEvent());">
+						{{appLiterals.APP.REGISTER.REG_CHAN_SEL.BTN_PRCD}}</md-button>
+					</section>
+					<section class="clear-all button-wrapper" layout="row"
+						layout-align="center center" layout-wrap ng-if="isUserLoggedIn"
+						class="button-wrapper padding-top-10 col-sm-12 sticky-footer-block">
+						<md-button id="registerForOtherChannelCancel" type="button"
+							class=" md-raised btn--secondary-btn"
+							ng-click="setGlobalEvent('onMyProfileClick')">
+						{{appLiterals.APP.COMMON.BUTTON.CANCEL}} </md-button>
+						<md-button id="registerForOtherChannelProceed"
+							class=" md-raised btn--primary-btn" type="button"
+							ng-click="register.setPasswordRules(successResponse);setEvent('confirmationPage');">
+						{{appLiterals.APP.REGISTER.REG_CHAN_SEL.BTN_PRCD}}</md-button>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

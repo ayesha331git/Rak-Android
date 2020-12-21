@@ -1,0 +1,165 @@
+		<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onCancelClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.initRAKChangeReportCapture(successResponse.responsesList);">
+			<div class="account-page ">
+				<div class="col-sm-11">
+					<div class="">
+						<div class="">
+						<div class="main-form-heading-ServiceReq"> 
+				                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.REPORT_CAPTURE_CARDS}}
+				                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+				                 </h2>              
+						</div>
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="row">
+
+
+									<div
+										ng-init='ccArr = createDropDownOptionArray(rakServiceReq.RAKChangeReportCapture.cardNoList, ["cardDesc","-", "cardId"], "ccIndex");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RAKChangeReportCaptureModel.selectedCCNo"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKREPORTCAPTURECARD.TXT_CARDNO}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKChangeReportCaptureModel.selectedCCNo"]'
+										option-array="ccArr"> </fin-input>
+
+
+									<div
+										ng-init='captureList = createDropDownOptionArray(rakServiceReq.RAKChangeReportCapture.captureList, ["description"], "code");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RAKChangeReportCaptureModel.selectedCapture"
+										on-change="rakServiceReq.checkingCaptureDetails();"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKREPORTCAPTURECARD.CAPTURE_DETAILS}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKChangeReportCaptureModel.selectedCapture"]'
+										option-array="captureList"> </fin-input>
+
+
+									<fin-input type="text"
+										model="rakServiceReq.RAKChangeReportCaptureModel.bankName"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKREPORTCAPTURECARD.BANK_NAME}}"
+										ng-show="rakServiceReq.RAKChangeReportCaptureModel.captureFlag"
+										validation-flag='pageErrorArr["rakServiceReq.RAKChangeReportCaptureModel.bankName"]'>
+									</fin-input>
+
+
+									<fin-input type="text"
+										model="rakServiceReq.RAKChangeReportCaptureModel.atmBranchName"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKREPORTCAPTURECARD.ATM_BRANCH_NAME}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKChangeReportCaptureModel.atmBranchName"]'>
+									</fin-input>
+
+
+
+									<div class="rakRow rakRelative">
+										<div class="radio-biller rak30Radio rakMarginTop5 ">
+											{{appLiterals.APP.RAK_SERVICES.RAKREPORTCAPTURECARD.TXT_DELCHANNEL}}</div>
+										<div class="rak80 rakWidth70">
+
+
+											<div class="rakCstmRadioDiv rak50 rakTop2em">
+												<input type="radio" value="Branch" class="" value="Branch"
+													id="radio1"
+													ng-model="rakServiceReq.RAKChangeReportCaptureModel.delieveryMode" />
+												<label for="radio1"><span><span></span></span>
+													{{appLiterals.APP.RAK_SERVICES.RAKREPORTCAPTURECARD.TXT_BRANCH}}</label>
+
+											</div>
+
+											<div class="rakCstmRadioDiv rak40 rakTop2em">
+												<input type="radio" value="Courier" class="" value="Courier"
+													id="radio2"
+													ng-model="rakServiceReq.RAKChangeReportCaptureModel.delieveryMode" />
+												<label for="radio2"><span><span></span></span>
+													{{appLiterals.APP.RAK_SERVICES.RAKREPORTCAPTURECARD.TXT_COURIER}}</label>
+
+											</div>
+
+										</div>
+									</div>
+
+
+
+									<div
+										ng-init='cardArr = createDropDownOptionArray(rakServiceReq.RAKChangeReportCapture.emirateList, ["codeDesc"], "code");'
+										ng-show="rakServiceReq.RAKChangeReportCaptureModel.delieveryMode=='Branch'">
+										<fin-input type="dropdown"
+											model="rakServiceReq.RAKChangeReportCapture.emirateSeletected"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}"
+											on-change="rakServiceReq.rakChangeReportCaptureChange();"
+											validation-flag='pageErrorArr["rakServiceReq.RAKChangeReportCapture.emirateSeletected"]'
+											option-array="cardArr"> </fin-input>
+									</div>
+
+									<div class="fin-input-container"
+										ng-show="rakServiceReq.RAKChangeReportCaptureModel.delieveryMode=='Branch' && rakServiceReq.RAKChangeReportCapture.isEmiSelected">
+										<div
+											ng-class="{'left-line': !pageErrorArr['rakServiceReq.RAKChangeReportCaptureModel.selectedBranch'], 'left-line-error':pageErrorArr['rakServiceReq.RAKChangeReportCaptureModel.selectedBranch']}"
+											class="left-line"></div>
+										<div class="input-body">
+											<div class="input-body2 input-body2-dropdown">
+												<select dropdownpicker title="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}" class="fin-input fin-select"
+													ng-model="rakServiceReq.RAKChangeReportCaptureModel.selectedBranch"
+													ng-style="{{rakServiceReq.RAKChangeReportCaptureModel.selectedBranch}} == '' ? {'font-size': '14px'} : {'color': 'initial'}">
+													<option class="place-holder-select" value=""
+														ng-selected="rakServiceReq.RAKChangeReportCaptureModel.selectedBranch== null"
+														ng-show="rakServiceReq.RAKChangeReportCaptureModel.selectedBranch== null">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}</option>
+													<option
+														ng-repeat="option in rakServiceReq.RAKChangeReportCapture.emiCategorizedBranchList"
+														ng-selected="option.value=={{rakServiceReq.RAKChangeReportCaptureModel.selectedBranch}}"
+														value="{{option.branchIndex}}">{{option.branchName}}</option>
+												</select>
+											</div>
+											<div
+												ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.RAKChangeReportCaptureModel.selectedBranch'], 'bottom-line-error':pageErrorArr['rakServiceReq.RAKChangeReportCaptureModel.selectedBranch']}"
+												class="bottom-line"></div>
+											<div
+												ng-hide='pageErrorArr["rakServiceReq.RAKChangeReportCaptureModel.selectedBranch"]==null'
+												class="rakErrorMsg">
+												{{pageErrorArr['rakServiceReq.RAKChangeReportCaptureModel.selectedBranch']}}</div>
+
+										</div>
+									</div>
+
+									<p class="rak-parent-txt"
+										ng-show="rakServiceReq.RAKChangeReportCaptureModel.delieveryMode=='Courier'">
+										<span class="rak-sum-label-left-aligned">{{appLiterals.APP.RAK_SERVICES.RAKREPORTCAPTURECARD.REGISTER_ADD}}</span> <span class="rak-sum-label-left-aligned black">{{rakServiceReq.RAKChangeReportCapture.registeredAddress}}</span>
+									</p>
+
+
+
+
+
+
+
+										<div class="label-wrap">
+
+											<button type="button"
+												class="btn--special-btn btn-middle rak-button-small rak-button-right"
+												ng-click="rakServiceReq.captureContinue();setEvent('onRAKCreditCardReportCaptureConfirmClick');">
+												{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-1"></div>
+			</div>
+			<div class="scroll-space"></div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,38 @@
+<div id="myPreferenceLandingPage" class="app app-arrow2 title-right"
+	ng-click="setEvent('onMyPreferenceCloseClick')"></div>
+<div class="finacle-container" ng-init="resetPageError();">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height-98">
+			<div class="dashboard-pad padding-bottom-zero full-height">
+				<div class="dashboard-item-body full-height">
+
+					<div class="dashboard-item-title col-sm-12">
+						<div id="myPrefTitle" class="item-title text-uppercase">{{appLiterals.APP.MYPROFILE.MY_PREFERENCE.HEADER}}</div>
+					</div>
+
+					<div class="col-sm-12">
+						<div id="primaryAccountClick" class="landingpage-list"
+							ng-click="setEvent('onPrimaryAccountClick')">
+							<div id="primAcc" class="profile-txt">{{appLiterals.APP.MYPROFILE.MY_PREFERENCE.UPDATE_PRIM_ACC}}</div>
+						</div>
+						<div class="service-hr"></div>
+						<div id="manageAlertClick" class="landingpage-list2"
+							ng-click="setEvent('onManageAlertClick')">
+							<div id="alerts" class="profile-txt">{{appLiterals.APP.MYPROFILE.MY_PREFERENCE.MANAGE_ALERTS}}</div>
+						</div>
+						<div class="service-hr"></div>
+						<div id="dndSettingsClick" class="landingpage-list2"
+							ng-click="setEvent('onDNDSettingsClick')">
+							<div id="dnd" class="profile-txt">{{appLiterals.APP.MYPROFILE.MY_PREFERENCE.DONT_DISTURB}}</div>
+						</div>
+						<br>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+

@@ -1,0 +1,16 @@
+<div class="finacle-container"
+	ng-init="myProfile.initUpdateContactSuccesspage(successResponse.responsesList);">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+
+			<div class="dashboard-pad full-height">
+				<div class="dashboard-item-body full-height">
+					<fin-success
+						success-banner="{{appLiterals.APP.MYPROFILE.UPDATEUSERID.SUCCESS}}"
+						success-message="{{myProfile.updateContactModel.responseText}}"
+						cross-click="myProfile.updateContactModel.isBack=false;setEvent('onSuccessClick')"> </fin-success>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,74 @@
+<div class="rak-back-header" ng-hide="rakPayee.isDeleteBeneficiaryMode||rakPayee.isEditBeneficiaryMode">
+				<i class="rak-back-img"
+					ng-click="rakPayee.isUserNavigatingBack=true;setEvent(rakPayee.payeeModel.getEditBackEvent());"></i>
+	</div>
+	<div class="finacle-container ng-scope" ng-init="rakSendMoney.benfTab=true;rakPayee.processPayeeAuthResponse(successResponse.responsesList);rakHome.AuthPageData.firstAuthModeValue='';rak2FARegister.RegistrationModel.resendAuthMode(successResponse.responsesList);rakPayee.authMode.firstAuthModeValue = '';rakPayee.authMode.secAuthModeValue = '';">
+    <div class="account-page">
+		   <div class="col-sm-11">
+
+			<div class="app-title-wrapper">
+			<ng-include  src="'./navigation/rakPayee/resources/RakPayCardsTabPage.html'"> </ng-include>
+		<div class="rak-scroll">
+			 <div class="main-form-heading-payee">
+				<h2 ng-hide="rakPayee.isDeleteBeneficiaryMode"> {{rakPayee.isEditBeneficiaryMode ? "Edit ": "Create Prepaid "}}{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_CARD}}				    
+				    <span>{{rakPayee.isEditBeneficiaryMode ? appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2 : appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP3}} :{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2_TXT1}} </span> </h2>
+				<h2 ng-show="rakPayee.isDeleteBeneficiaryMode">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_DELCC_BNF}}<span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2}} :{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2_TXT}} </span> </h2>
+				</div>
+
+		  <div class="bg-color rak-cont-padding">
+			<div class="" >
+			  <div class="">
+
+
+			<p class="rak-sum-txt" >
+			    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NICKNAME}}&nbsp;</span>
+				<span class="rak-sum-label black">{{rakPayee.payeeModel.nickName}}</span>
+			</p>
+
+
+			<p class="rak-sum-txt">
+			   <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.PRE_PAID_CARD}}</span>
+			   <span class="rak-sum-label black">{{rakPayee.payeeModel.creditCardNumber}}</span>
+			 </p>
+
+		  <fin-dynamicbenfauthresend></fin-dynamicbenfauthresend>
+
+		  	<div class="label-wrap" ng-show="rakPayee.isDeleteBeneficiaryMode||rakPayee.isEditBeneficiaryMode">
+
+			 <button type="button"  class="btn--special-btn btn-middle rak-button-small rak40 center btn--back rakFloatNoneImp"
+			        ng-click="rakPayee.isUserNavigatingBack=true;setEvent(rakPayee.payeeModel.getEditBackEvent());">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_BACK}}</button>
+
+			<button type="button" class="btn--special-btn btn-middle rak-button-small rak40 center rakFloatNoneImp"
+			        ng-click="rakHome.AuthPageData.fetchOtp(rakPayee.getAddPayeeAuthConfirmEventDetails());">{{appLiterals.APP.PAYEE.ADDBENF_AUTHPAGE.BTN_CNFRM}}</button>
+            </div>
+
+               <div class="label-wrap" ng-hide="rakPayee.isDeleteBeneficiaryMode||rakPayee.isEditBeneficiaryMode">
+			<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rak40 center" ng-click="rakPayee.isBackClicked=false;rakPayee.payeeModel.getRAKConfirmFlag(0);
+                    						setEvent(rakPayee.getAddPayeeAuthConfirmEventDetails())" >{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_RAKCLATER}}</button>
+
+            <button type="button" class="btn--special-btn btn-middle rak40 center rak-button-small" ng-click="rakPayee.isBackClicked=false;rakPayee.payeeModel.getRAKConfirmFlag(1);
+                    				rakHome.AuthPageData.fetchOtp(rakPayee.getAddPayeeAuthConfirmEventDetails())" >{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_RAKCNOW}}</button>
+
+		  </div>
+
+              <div class="col-sm-1"> </div>
+              
+              <div class="disclaimer" ng-hide="rakPayee.isEditBeneficiaryMode || rakPayee.isDeleteBeneficiaryMode">
+				<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+					<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+				</div>
+
+				<div class="disclaimer3" ng-show="rakDisclaimerFlag">
+					<span ng-bind-html="appLiterals.APP.DISCLAIMER.ADDBENF_AUTH"></span>					
+				</div>
+
+			</div>
+              </div>
+		  </div>
+	  </div>
+	</div>
+	</div>
+</div>
+</div>
+</div>
+

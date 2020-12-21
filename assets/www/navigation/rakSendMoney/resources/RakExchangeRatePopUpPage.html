@@ -1,0 +1,32 @@
+
+<div>
+<div class="full-page-screen"  ></div>
+
+<div class="confirmation-content-container">
+    <div class="message-box-new">
+        <div>
+            <p class="round-icon-new">
+            <span class="app app-alert pop-alert-icon rak-color"></span>
+            </p>
+
+            <div class="conf-txt-title rak-black-color">
+            </div>
+        </div>
+
+        <div class="conf-txt-label rak-black-color">
+          {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.EXCHANGERATE}}  {{rakSendMoney.sendMoney.exchangeRate}}
+        </div>
+        
+        <div class="conf-txt-label rak-black-color">
+          {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.CONVERTEDAMT}} {{rakSendMoney.common.convertedAmt}}
+        </div>
+		<div class="conf-btn-wrap center rakpaddingBottom10">
+              <button type="button" class="btn--special-btn btn-middle rak-button-right noFloat" ng-click='rakSendMoney.common.exchangePopUp=false' >
+                &nbsp; {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.OK}} &nbsp;
+            </button>
+
+        </div>
+
+    </div>
+</div>
+</div>

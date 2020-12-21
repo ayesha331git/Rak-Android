@@ -1,0 +1,48 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRAKConnectSuccess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+			<!-- Heading fix-start -->
+                   <div class="dashboard-item-title">
+					  <div class="rak-item-title"> 
+					  {{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.RAKCONNECT}}</div>
+					  
+					</div>
+					<!-- Heading fix-end -->
+			
+			<div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakServiceReq.RAKConnectModel.successMessage}}</span>
+                        </div>
+                  </div>
+            <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>                 
+                              </h2>              
+</div>
+			
+		<!-- 	<div class="main-form-heading">
+				<h2 class="success">
+					{{appLiterals.APP.RAKCOMMONLITERALS.REQSTATUS}} <span>{{rakServiceReq.RAKConnectModel.successMessage}}</span>
+				</h2>
+			</div> -->
+
+		<div class="bg-color rak-cont-padding rak-scroll">
+			<div class="">
+				<div class="">
+
+				<div class="label-wrap">
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-right"
+						ng-click='setEvent("onRAKConnectSuccessHomeClick");'>
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+				</div>
+
+				<div class="col-sm-10"></div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,167 @@
+<div class="rak-back-header">
+			<i class="rak-back-img"
+				ng-click="setEvent('onInvestmentEvaluationBackBtnClicked');"></i> 
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		
+
+		<div class="finacle-container"
+			ng-init="rakAccounts.rakInvestmentEvaluationInit(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="main-form-heading">
+						<h2 class="noFloat center">Portfolio Valuation</h2>
+					</div>
+
+					<div class="rakScrollDiv rak-cont-padding" ng-focus="addMMIDFlag?addMMIDFlag=false:''">
+						<!-- <div class="col-sm-11"> -->
+						<div class="bg-color">
+							<div class="row">
+								<!-- <div class="col-sm-1"></div> -->
+								<div class="rakStmtDetWidth75"
+									ng-init='invtAccountArrayList=createDropDownOptionArray(rakAccounts.RAKAccountsModel.invtAccounts, ["subAccountTypeDesc", "accountId","-","currency"],"accountIndex");'>
+									<fin-input type="dropdown" option-array="invtAccountArrayList"
+										model="rakAccounts.RAKAccountsModel.selectedAccount"
+										display-row="full" select-req="false"
+										placeholder="{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.SELECT_ACCOUNT}}"
+										on-change="rakAccounts.RakInvestmentEvaluation.resetRakInvestmentEvaluation();setEvent('onRakInvestmentEvaluation')">
+									</fin-input>
+								</div>
+                                
+                                <!-- CHANGES DONE AS FIX OF PRCU-1923 START -->
+								<div class="rakStmtdetCustomer-wrapperForInvestmentPortfolio rakHalfScrollDiv"> 
+									<div class="rakStmtdetDetailFrame1forPortfolio">
+									<!-- 	<div class="rakStmtdetAccounts-details">
+											<span>Standard Investment</span>
+										</div> -->
+										
+										<div class="rakStmtdetAccounts-details1">
+											<div class="rakStmtDetRowLabel">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVEST_EVALUATION.NAME}}</div><div class="rakStmtDetRow1InvestmentValuation">{{rakAccounts.RakInvestmentEvaluation.acctHolderName}}</div>
+										</div>
+								 <!-- CHANGES DONE AS FIX OF PRCU-1923 END -->
+		
+										
+										<div class="rakStmtdetAccounts-details1">
+											<div class="rakStmtDetRowLabel">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVEST_EVALUATION.AC_ID}} </div><div class="rakStmtDetRow1InvestmentValuation">{{rakAccounts.RakInvestmentEvaluation.accountId}}</div>
+										</div>
+								
+
+										
+										<div class="rakStmtdetAccounts-details1">
+											<!-- <div class="rakStmtDetRowLabel">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVEST_EVALUATION.RM_NAME}}</div> -->
+											<div class="rakStmtDetRowLabel">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVEST_EVALUATION.NEW_RM_NAME}}</div><div class="rakStmtDetRow1InvestmentValuation">{{rakAccounts.RakInvestmentEvaluation.rmName}}</div>
+										</div>								
+										
+
+										<div class="rakStmtdetAccounts-details1">
+											<div class="rakStmtDetRowLabel">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVEST_EVALUATION.EV_DATE}} </div>
+											<div class="rakStmtDetRow1InvestmentValuation">{{rakAccounts.RakInvestmentEvaluation.evalDate}}</div>
+										</div>
+										
+									</div>
+								</div>
+
+								
+								
+						<!-- 		<div class="rakStmtDetBorderBottom"></div> -->
+								
+								<!--CHANGES DONE AS FIX OF PRCU-1513 START -->
+								<div class="disclaimer-bottom">
+								<div class="rakStmtDetGreyRowPortfolio" ng-repeat="trans in rakAccounts.RakInvestmentEvaluation.invTxnDetailsList">
+									<div class="">
+										<div class="disclaimer1Portfolio rakSupplCardIco rakStmtDet-block" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">{{trans.productName}}</div>
+										<div ng-if="trans.productName!='Total'" ng-show="rakDisclaimerFlag">
+											<div class="">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVEST_EVALUATION.PURCHASE_DATE}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.dateOfPurchase}}</div>
+											</div>
+											<div class="">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVEST_EVALUATION.CURMARKETVAL}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.currentMarketValue}}</div>
+	
+											</div>
+											<div class="">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVEST_EVALUATION.TOTAMTINVT}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.totalAmtInvested}}</div>
+											</div>
+											<div class="">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVEST_EVALUATION.PURCHASE_PRICE}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.purchasePrice == ""? " " : trans.purchasePrice }}</div>
+											</div>
+											
+											<div class="">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVEST_EVALUATION.CURMARKETPRICE}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.currentMarketPrice}}</div>
+											</div>
+											<div class="">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVEST_EVALUATION.EV_DATE}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.valuationDate}}</div>
+											</div>
+											<div class="">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVEST_EVALUATION.NOOFUNITS}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.quantity}}</div>
+											</div>
+											
+											
+														<div class="">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVEST_EVALUATION.TOTAL_COUPON}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.totalCouponReceived == ""? "0.00" : trans.totalCouponReceived }}</div>
+											</div>
+											<div class="">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVEST_EVALUATION.PROFLOSS}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.profitLoss == ""? " " : trans.profitLoss}}</div>
+											</div>
+										
+											<div class="">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVEST_EVALUATION.RETURN}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.returnPercent == ""? " " : trans.returnPercent}}</div>
+											</div>
+											
+										</div>
+										<div ng-if="trans.productName=='Total'" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+											<div class="" ng-show="rakDisclaimerFlag">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVEST_EVALUATION.TOTAMTINVT}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.totalAmtInvested}}</div>
+											</div>
+											<div class="" ng-show="rakDisclaimerFlag">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVEST_EVALUATION.CURMARKETVAL}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.currentMarketValue}}</div>
+											</div>
+											<div class="" ng-show="rakDisclaimerFlag">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVEST_EVALUATION.PROFLOSS}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.profitLoss == ""? " " : trans.profitLoss }}</div>
+											</div>
+											
+											<div class="" ng-show="rakDisclaimerFlag">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVEST_EVALUATION.RETURN}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.returnPercent}}</div>
+											</div>
+											
+											<div class="" ng-show="rakDisclaimerFlag">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVEST_EVALUATION.TOTAL_COUPON}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.totalCouponReceived == ""? "0.00" : trans.totalCouponReceived }}</div>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+							
+							</div>
+                              <!--CHANGES DONE AS FIX OF PRCU-1513 END -->
+
+							<!-- 	<div class="label-wrap">
+									<button type="button"
+										class="btn--special-btn btn-middle rakStmtDet-button-small"
+										ng-click="setEvent('onInvestmentEvaluationBackBtnClicked');">
+										Back</button>
+								</div>  -->
+								<div class="col-sm-1"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

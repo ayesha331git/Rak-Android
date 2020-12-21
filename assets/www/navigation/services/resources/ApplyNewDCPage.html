@@ -1,0 +1,90 @@
+<div id="applyNewDCPageBack" class="app app-arrow2 title-right"
+	ng-click="setEvent('onCancelClick')"></div>
+<div class="finacle-container"
+	ng-init="services.initApplyNewDCPage(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper">
+				<div class="title-left"></div>
+				<div id="SERVICES.APP_NEW_DC.TITLE1" class="title-center">{{appLiterals.APP.SERVICES.APP_NEW_DC.TITLE}}</div>
+			</div>
+			<div class="ipad-container">
+
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div id="SERVICES.APP_NEW_DC.TITLE"
+							class="item-title text-uppercase">{{appLiterals.APP.SERVICES.APP_NEW_DC.TITLE}}</div>
+					</div>
+					<form
+						ng-submit="corpInit.corpModel.resetCorpInitDetails();services.indexOfCardType();setEvent('onDCConfirmClick')">
+						<div class="">
+							<div
+								ng-init='accountListed = createDropDownOptionAccountArray(services.applyNewDCResponse.accountDetailList,["accountNickName", "-", "accountNumber"],"accountIndex");'>
+								<fin-input type="dropdown"
+									model="services.applyNewDCModel.accountNumber"
+									display-row="full"
+									placeholder="{{appLiterals.APP.SERVICES.APP_NEW_DC.PH_ACC_NO}}"
+									validation-flag='pageErrorArr["services.applyNewDCModel.accountNumber"]'
+									option-array="accountListed"></fin-input>
+							</div>
+							<fin-input type="text"
+								model="services.applyNewDCModel.nameOnCard" max-length="32"
+								ng-keypress="validateMaxLength($event,services.applyNewDCModel.nameOnCard,32);"
+								display-row="full"
+								validation-flag='pageErrorArr["services.applyNewDCModel.nameOnCard"]'
+								placeholder="{{appLiterals.APP.SERVICES.APP_NEW_DC.PH_NAME_ON_CARD}}"></fin-input>
+							<div>&nbsp;</div>
+						</div>
+						<div class="col-sm-12">
+							<span id="SERVICES.APP_NEW_DC.TXT_CHOOSE_YOUR_DC"
+								class="fut-txt1">{{appLiterals.APP.SERVICES.APP_NEW_DC.TXT_CHOOSE_YOUR_DC}}</span>
+							<div class="fin-txt"></div>
+							<div class="service-money">
+								<md-radio-group
+									ng-model="services.applyNewDCModel.cardSelected"
+									ng-change="services.checkCardPreference(services.applyNewDCModel.cardSelected);">
+								<div id="services.applyNewDCResponse.cardTypeList{{$index}}"
+									class="blueWrapSmall"
+									ng-repeat="cardTypeList in services.applyNewDCResponse.cardTypeList">
+
+									<div class="trans-detail">
+										<div class="trans-dash-left choose-debit-card-bck">
+											<md-radio-button flex class="trans-no" value="{{cardTypeList.cardTypeIndex}}"
+												 class="">
+											{{cardTypeList.cardType}} </md-radio-button>
+											<!-- <input type="checkbox" id="{{$index}}" class="unchecked"
+												ng-model="services.applyNewDCModel.cardcheck[$index]"
+												ng-model="services.applyNewDCModel.cardSelected"
+												ng-click="services.checkCardPreference($index,cardTypeList.cardType);">
+											<label for="{{$index}}"></label> &nbsp<label class="amt-rs"
+												for="{{$index}}">{{cardTypeList.cardType}}</label> -->
+
+										</div>
+										<!-- <input type="checkbox" ng-model="services.applyNewDCModel.cardcheck[$index]" ng-click="services.checkCardPreference($index,cardTypeList.cardType);"> -->
+										<!-- <div class="col-xs-10 padding-zero">
+										<label class="special-txt margin-zero" for="{{$index}}">{{cardTypeList.cardType}}</label>
+									</div> -->
+										<div class="trans-dash-right"
+											ng-click="services.clickDetails(cardTypeList.cardType);setEvent('onCardDetails');">
+											<span id="SERVICES.APP_NEW_DC.TXT_DETAILS"
+												class="amt-rs click-details"
+												ng-click="services.applyNewDCModel.cardSelected=cardTypeList.cardTypeIndex">{{appLiterals.APP.SERVICES.APP_NEW_DC.TXT_DETAILS}}
+											</span>
+										</div>
+									</div>
+								</div>
+								</md-radio-group>
+							</div>
+							<div ng-show='pageErrorArr["services.applyNewDCModel.cardType"]'
+								class="errorTextShow"></div>
+							<md-button id="onDCConfirmClick" type="submit"
+								class=" md-raised btn--primary-btn"> <!-- ng-click="corpInit.corpModel.resetCorpInitDetails();services.indexOfCardType();setEvent('onDCConfirmClick')"> -->
+							{{appLiterals.APP.COMMON.BUTTON.CONTINUE}}</md-button>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

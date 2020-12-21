@@ -1,0 +1,89 @@
+<div class="rak-back-header">
+			<i class="rak-back-img"	ng-click="setEvent('onCancelClick');"></i>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+<div class="finacle-container" ng-init="rakServiceReq.AdvanceSalaryData.initAdvanceSalaryData(successResponse.responsesList);">
+  <div class="account-page">
+    <div class="col-sm-11">
+
+			<div class="main-form-heading-ServiceReq"> 
+							      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.ADVSALARY}}
+							      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+							      </h2>		       
+					</div>
+  		
+
+      <div class="bg-color rak-cont-padding rak-scroll">
+        <div class="row" >
+        <div class="">
+           
+				<div ng-init='accountlistArr = createDropDownOptionArray(rakServiceReq.AdvanceSalaryData.accountNumberList,["accountName","-","accountNumber","-","currencyCode"],"index");'>
+					<fin-input type="dropdown" model="rakServiceReq.AdvanceSalaryData.accountNumber"
+					display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_ADVANCE_SALARY.ACCOUNTNUMBER}} "
+					validation-flag='pageErrorArr["rakServiceReq.AdvanceSalaryData.accountNumber"]'
+					 option-array="accountlistArr"
+					 on-change="setEvent('onAccountClick');">
+					 </fin-input>
+				</div>
+
+
+
+			<!--  CHANGES FOR ADVANCED AND ELIGIBLE AMOUNT START -->
+			<div ng-show="rakServiceReq.AdvanceSalaryData.flag">
+					<!-- <p class="balance-availablelabel" >
+				  {{appLiterals.APP.RAK_SERVICES.RAK_ADVANCE_SALARY.ELIGIBLE}}:
+				   <span class="rs-color"><b>{{(rakServiceReq.AdvanceSalaryData.eligibleAmountDisplay)}}</b></span> -->
+				   
+				   <p class="rak-parent-txt">
+						<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAK_ADVANCE_SALARY.ELIGIBLE}}</span>
+						 <span	class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.AdvanceSalaryData.eligibleAmountDisplay}}</span>
+					</p>
+
+
+				     
+                         
+                         <!--  
+                          <div class="">
+                          	<span class="invRed-curr-label" ng-show="rakServiceReq.AdvanceSalaryData.flag"> 
+							{{rakServiceReq.AdvanceSalaryData.currencycode}}</span>
+                          </div> -->
+                          
+                         
+                          <fin-input  type="money" model="rakServiceReq.AdvanceSalaryData.advanceSalary" display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_ADVANCE_SALARY.AMOUNT}}" validation-flag='pageErrorArr["rakServiceReq.AdvanceSalaryData.advanceSalary"]'> </fin-input>
+                        
+                          
+                          
+                          <span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_ADVANCE_SALARY.AMOUNT}}</span>
+				
+				
+				
+
+					</div>
+			<!--  CHANGES FOR ADVANCED AND ELIGIBLE AMOUNT END -->
+
+				  <div class="label-wrap">  		
+		          	   <button type="button" class="btn--special-btn btn-middle rak-button-small"
+		          	   ng-click="setEvent('onSalaryConfirmClick')"> {{appLiterals.APP.RAK_SERVICES.RAK_ADVANCE_SALARY.CONTINUE}} </button>
+					</div>
+		 </div>
+          <div class="col-sm-1"> </div>
+        </div>
+        
+        <div class="disclaimer" >
+                <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                </div>
+                                             
+                      <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+							<span ng-click="rakServiceReq.fetchDisclaimer('AccountServiceRequestsCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKADVSAL_INITPAGE"></span>																						
+						</div>
+             </div>
+        
+      </div>
+    </div>
+    </div>
+
+  </div>
+</div>

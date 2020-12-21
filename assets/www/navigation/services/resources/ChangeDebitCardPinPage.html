@@ -1,0 +1,162 @@
+<div class="app app-arrow2 title-right-dash" id="changeDebitCardPinBack"
+	ng-click="setEvent('onChangeDebitCardPinCancelClick')"></div>
+<div class="finacle-container"
+	ng-init="services.ChangeDebitCardPinPageData.initchangeCreditCardPinData(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase">
+							<span id="pageTitle">
+								{{appLiterals.APP.SERVICES.COMMON.CHNG_DEBIT_CARD_PIN}} </span>
+						</div>
+					</div>
+					<!-- End of title -->
+					<form
+						ng-submit="corpInit.corpModel.resetCorpInitDetails();services.ChangeDebitCardPinPageData.changeDebitCardPinClick();services.ChangeDebitCardPinPageData.matchPin();">
+						<div class="avail-bal-wrap"
+							ng-init='accountsListArray = createDropDownOptionAccountArray(services.ChangeDebitCardPinPageData.accountsList,["accountNickName", " - ", "accountNumber"], "accountIndex");'>
+							<fin-input type="dropdown"
+								model="services.ChangeDebitCardPinPageData.accountNumber"
+								on-change="setEvent('onChangePinAccountNumberSelect');"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.CHNG_DC_PIN.PH_ACC_NO}}"
+								validation-flag='pageErrorArr["services.ChangeDebitCardPinPageData.accountNumber"]'
+								option-array="accountsListArray"></fin-input>
+						</div>
+						<div class="avail-bal-wrap"
+							ng-init='debitCardNumberArray = createDropDownOptionArray(services.ChangeDebitCardPinPageData.debitCardList,["debitCardNumber"], "debitCardIndex");'>
+							<fin-input type="dropdown" ng-show="debitCardNumberArray.length>0"
+								model="services.ChangeDebitCardPinPageData.debitCardNumber"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.CHNG_DC_PIN.PH_DC_NO}}"
+								validation-flag='pageErrorArr["services.ChangeDebitCardPinPageData.debitCardNumber"]'
+								option-array="debitCardNumberArray"></fin-input>
+						</div>
+						<div ng-show="debitCardNumberArray.length>0">
+						<div class="col-sm-12">
+							<div class="ques-cb pull-left margin-zero">
+								<input type="checkbox" id="dcpin" class="unchecked"
+									ng-true-value="true"  ng-false-value="false"
+									ng-model="services.ChangeDebitCardPinPageData.doNotRemember"
+									dir="ltr"
+									ng-change="services.ChangeDebitCardPinPageData.onBackBtnClick()">
+								<label for="dcpin"></label>
+							</div>
+							<label class="special-txt" for="dcpin"> <span id="TXT_I_DO_NOT_REM_PIN">
+									&nbsp;{{appLiterals.APP.SERVICES.CHNG_DC_PIN.TXT_I_DO_NOT_REM_PIN}}
+							</span>
+							</label>
+						</div>
+						<div class="clear-all "
+							ng-show="!services.ChangeDebitCardPinPageData.doNotRemember">
+
+							<p class="special-txt" id="TXT_EXISTING_PIN">{{appLiterals.APP.SERVICES.CHNG_DC_PIN.TXT_EXISTING_PIN}}</p>
+							<div class="avail-bal-wrap">
+								<div class="col-sm-3 card_no">
+									<fin-input type="password_num"
+										model="services.ChangeDebitCardPinPageData.existingPinFirstDigit"
+										display-row="full" placeholder=""
+										validation-flag='pageErrorArr["services.ChangeDebitCardPinPageData.existingPinFirstDigit"]'
+										max-length="1"></fin-input>
+								</div>
+								<div class="col-sm-3 card_no">
+									<fin-input type="password_num"
+										model="services.ChangeDebitCardPinPageData.existingPinSecondDigit"
+										display-row="full" placeholder=""
+										validation-flag='pageErrorArr["services.ChangeDebitCardPinPageData.existingPinSecondDigit"]'
+										max-length="1"></fin-input>
+								</div>
+								<div class="col-sm-3 card_no">
+									<fin-input type="password_num"
+										model="services.ChangeDebitCardPinPageData.existingPinThirdDigit"
+										display-row="full" placeholder=""
+										validation-flag='pageErrorArr["services.ChangeDebitCardPinPageData.existingPinThirdDigit"]'
+										max-length="1"></fin-input>
+								</div>
+								<div class="col-sm-3 card_no">
+									<fin-input type="password_num"
+										model="services.ChangeDebitCardPinPageData.existingPinFourthDigit"
+										display-row="full" placeholder=""
+										validation-flag='pageErrorArr["services.ChangeDebitCardPinPageData.existingPinFourthDigit"]'
+										max-length="1"></fin-input>
+								</div>
+							</div>
+						</div>
+						<div class="clear-all">
+
+							<p class="special-txt" id="TXT_NEW_PIN">{{appLiterals.APP.SERVICES.CHNG_DC_PIN.TXT_NEW_PIN}}</p>
+
+							<div class="col-sm-3 card_no">
+								<fin-input type="password_num"
+									model="services.ChangeDebitCardPinPageData.newPinFirstDigit"
+									display-row="full" placeholder=""
+									validation-flag='pageErrorArr["services.ChangeDebitCardPinPageData.newPinFirstDigit"]'
+									max-length="1"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="password_num"
+									model="services.ChangeDebitCardPinPageData.newPinSecondDigit"
+									display-row="full" placeholder=""
+									validation-flag='pageErrorArr["services.ChangeDebitCardPinPageData.newPinSecondDigit"]'
+									max-length="1"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="password_num"
+									model="services.ChangeDebitCardPinPageData.newPinThirdDigit"
+									display-row="full" placeholder=""
+									validation-flag='pageErrorArr["services.ChangeDebitCardPinPageData.newPinThirdDigit"]'
+									max-length="1"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="password_num"
+									model="services.ChangeDebitCardPinPageData.newPinFourthDigit"
+									display-row="full" placeholder=""
+									validation-flag='pageErrorArr["services.ChangeDebitCardPinPageData.newPinFourthDigit"]'
+									max-length="1"></fin-input>
+
+							</div>
+						</div>
+						<p class="grey-txt" id="TXT_PIN_LIMIT">{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD_AUTH.TXT_PIN_LIMIT}}</p>
+						<div class="clear-all">
+							<p class="special-txt" id="CONFIRM_PIN">{{appLiterals.APP.COMMON.TEXT.CONFIRM_PIN}}</p>
+
+							<div class="col-sm-3 card_no">
+								<fin-input type="password_num"
+									model="services.ChangeDebitCardPinPageData.confirmPinFirstDigit"
+									display-row="full" placeholder=""
+									validation-flag='pageErrorArr["services.ChangeDebitCardPinPageData.confirmPinFirstDigit"]'
+									max-length="1"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="password_num"
+									model="services.ChangeDebitCardPinPageData.confirmPinSecondDigit"
+									display-row="full" placeholder=""
+									validation-flag='pageErrorArr["services.ChangeDebitCardPinPageData.confirmPinSecondDigit"]'
+									max-length="1"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="password_num"
+									model="services.ChangeDebitCardPinPageData.confirmPinThirdDigit"
+									display-row="full" placeholder=""
+									validation-flag='pageErrorArr["services.ChangeDebitCardPinPageData.confirmPinThirdDigit"]'
+									max-length="1"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="password_num"
+									model="services.ChangeDebitCardPinPageData.confirmPinFourthDigit"
+									display-row="full" placeholder=""
+									validation-flag='pageErrorArr["services.ChangeDebitCardPinPageData.confirmPinFourthDigit"]'
+									max-length="1"></fin-input>
+							</div>
+						</div>
+						</div>
+						<md-button type="submit" id="changeDebitCardPinSubmit"
+							class="md-raised btn--primary-btn">{{appLiterals.APP.COMMON.BUTTON.CONTINUE}}</md-button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

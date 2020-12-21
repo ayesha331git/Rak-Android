@@ -1,0 +1,29 @@
+<div id="forgotMPINBackAction"
+	class="title-right app app-arrow2"
+	ng-click="myProfile.resetPwdFields();setEvent('onForgotMPINCloseClick');"></div>
+<div class="display-heading finacle-container"
+	ng-init="setSingleStepRealmAuthFailure();">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body ">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase" id="forgotMPINHeader">{{appLiterals.APP.REGISTER.REG_CUSTID.FT_MPIN}}</div>
+					</div>
+					<form ng-submit="appActivation.checkUserMPINExistance();">
+						<fin-input type="text" model="appActivation.userId"
+							display-row="full"
+							placeholder="{{appLiterals.APP.REGISTER.REG_CUSTID.PH_UID}}"
+							validation-flag='pageErrorArr["appActivation.userId"]'></fin-input>
+						<section class="button-wrapper" layout="row"
+							layout-align="center center" layout-wrap>
+							<md-button id="forgotMpinSubmit" type="submit"
+								class=" md-raised btn--primary-btn">
+							{{appLiterals.APP.REGISTER.REG_CUSTID.BTN_PROCEED}} </md-button>
+						</section>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,27 @@
+<div id="editDeviceBackAction" class="app app-arrow2 title-right"
+	ng-click='setEvent("onBackClick")'></div>
+<div class="finacle-container" ng-init="resetPageError();">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper"></div>
+			<div class="dashboard-item-body padding-zero full-height">
+				<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+					<div class="item-title text-uppercase" id="editDeviceHeader">{{appLiterals.APP.MYPROFILE.MANAGE_AC_DEVICES.EDIT_TITLE}}</div>
+				</div>
+				<form ng-submit="setEvent('onEditConfirmClick')">
+					<fin-input type="text_noSpace" model="appActivation.deviceName"
+						display-row="full"
+						placeholder="{{appLiterals.APP.MYPROFILE.MANAGE_AC_DEVICES.PH_DEVICE_NAME}}"
+						validation-flag='pageErrorArr["appActivation.deviceName"]'
+						max-length="15"></fin-input>
+					<section class="button-wrapper" layout="row"
+						layout-align="center center" layout-wrap>
+						<md-button type="submit" id="editDeviceNameSubmit"
+							class=" md-raised btn--primary-btn">
+						{{appLiterals.APP.COMMON.BUTTON.OK}} </md-button>
+					</section>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

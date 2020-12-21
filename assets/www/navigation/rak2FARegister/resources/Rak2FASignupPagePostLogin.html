@@ -1,0 +1,87 @@
+<div class="rak-back-header">
+
+			<i class="rak-back-img" ng-click='rak2FARegister.RegistrationModel.navigateToPreviousFlow();'></i>
+		</div>
+		
+		<div class="nano menu-scroll">
+	<div class="nano-content">
+
+<div class="finacle-container" ng-init="rak2FARegister.common.flag=false;rak2FARegister.RegistrationModel.showSetPinPage=='true';rakHome.getDeviceID();rak2FARegister.RegistrationModel.chkOtpValidation(successResponse.responsesList)">
+    <div class='fin-txt'></div>
+    <div class="account-page">
+ <div class="col-sm-11">
+ <div class="bg-color rak-cont-padding rak-scroll">
+	  <div class="signupHeight">
+		
+		
+		<div class="label-wrap">
+		 <div class="label-wrap ">
+		  <div class="raktokenPopUpSecHeader">
+		  
+		  <div class="">
+					<span class="rakTokenIcon"></span><span class="raktokenSignupPageSecHeaderText">{{appLiterals.APP.RAK_2FA_MESSAGES.SIGNUP_HEADER}}</span>
+				</div>
+			
+		  </div>
+		  
+		  </div>
+		  
+		  </div>
+          
+          
+		 <!--  <p class="rakTouch_sucs_circle_wrap"> <span class="app-tickcircle sucs_circle_icon"></span> </p> -->
+          
+		  
+	  </div>
+	
+	 <div class="raktouchIdLayout">
+	 
+	 
+<!-- Added and commented as a part of Cooling Period CR and RakToken removal CR START -->
+
+
+ <!-- <div class="raktouchIdMsgLabel" ng-show='isUserLoggedIn'>
+    {{appLiterals.APP.RAK_2FA_MESSAGES.SIGNUP_MSG1}}
+</div>
+
+<div class="raktouchIdMsgLabel" ng-show='!isUserLoggedIn'>
+    {{appLiterals.APP.RAK_2FA_MESSAGES.SIGNUP_MSG1_NEW_SME}}
+</div> -->
+
+<!--  <div class="raktouchIdMsgLabel">
+ {{appLiterals.APP.RAK_2FA_MESSAGES.SIGNUP_MSG2}}
+ </div>-->
+            <!-- <div class="raktouchIdMsgLabel" ng-show="!isUserLoggedIn">
+                {{appLiterals.APP.RAK_2FA_MESSAGES.SIGNUP_MSG4}}
+            </div>
+
+            <div class="raktouchIdMsgLabel" ng-show="isUserLoggedIn">
+                {{appLiterals.APP.RAK_2FA_MESSAGES.SIGNUP_MSG4_BENF}}
+            </div>
+	  	  
+	  	   <div class="raktouchIdMsgLabel">
+	  	  	    {{appLiterals.APP.RAK_2FA_MESSAGES.SIGNUP_MSG5}}
+	  	  </div> -->
+
+
+
+		
+	 	<!-- <button class="raktouchIdOverviewButtonEnable registerButton" ng-click="rak2FARegister.EzComToken.isFromNonLoginFlow=false;rak2FARegister.common.registerOrErrorPopupFlag='undefined';rak2FARegister.RegistrationModel.showSetPinPage=true;rak2FARegister.initiateTxnRegistrationForAuth('onsetupClick');" > {{appLiterals.APP.RAK_2FA_MESSAGES.PROCEED_TOKEN_SIGNUP}}</button> -->
+        <button class="raktouchIdOverviewButtonEnable registerButton" ng-click='setGlobalEvent("onDashboardClick");'> {{appLiterals.APP.PAYEE.LANDLIST_PAGE.HOME}}</button>
+        <!-- Added and commented as a part of Cooling Period CR and RakToken removal CR END -->
+                
+        <button class="cancebutton" ng-click='rak2FARegister.RegistrationModel.navigateToPreviousFlow();'> {{appLiterals.APP.RAK_2FA_MESSAGES.CANCEL_BTN}}</button>
+
+<div class='fin-txt'></div>
+
+	 </div>
+	 </div>
+	 
+	 </div>
+	 </div>
+</div>
+</div>
+</div>
+
+
+

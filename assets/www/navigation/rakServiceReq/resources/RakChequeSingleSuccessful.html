@@ -1,0 +1,23 @@
+<div class="finacle-container" ng-init="rakServiceReq.stopCheques.parseStopChequeSuccessResponse(successResponse)">
+	  <p class="sucs_circle_wrap"> <span class="app-tickcircle sucs_circle_icon"></span> </p>     
+      <p class="trans_sucs_txt">  {{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_SUCCESS.MSG_SUCCESS}} </p>
+	  <div class="trans_id_wrap">
+		  <div class="id_container">
+		  </div>
+		  <div class="id_txt_wrap">
+			<div class="id_txt_pad">
+			<p class="sucs-id-txt">{{rakServiceReq.stopCheques.model.stopChequeResponse}}</p>
+			</div>   
+		  </div>
+	  </div>
+	 
+			<p class="sucs-left-txt">{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_SUCCESS.ACC_NO}} &nbsp;<span class="sucs-right-color">{{rakServiceReq.stopCheques.model.authPageInput.accountNumber}}</span></p>
+		<p class="sucs-left-txt" ng-show="rakServiceReq.stopCheques.model.isSingleChequeFlow">{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_SUCCESS.CHEQ_NO}}&nbsp;<span class="sucs-right-color">{{rakServiceReq.stopCheques.model.pageUserInputs.singleChequeNumber}}</span></p>
+			<p class="sucs-left-txt" ng-hide="rakServiceReq.stopCheques.model.isSingleChequeFlow">{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_SUCCESS.TXT_FRMCHEQ}}&nbsp;<span class="sucs-right-color">{{rakServiceReq.stopCheques.model.pageUserInputs.fromChequeNumber}}</span></p>
+			<p class="sucs-left-txt" ng-hide="rakServiceReq.stopCheques.model.isSingleChequeFlow">{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_SUCCESS.TXT_TOCHEQ}} &nbsp;<span class="sucs-right-color">{{rakServiceReq.stopCheques.model.pageUserInputs.toChequeNumber}}</span></p>
+			<p class="sucs-left-txt">{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_SUCCESS.TXT_RSN}} &nbsp;<span class="sucs-right-color">{{rakServiceReq.stopCheques.model.authPageInput.reasonCode}}</span></p>
+			<div class="col-sm-10">
+			  <button type="button" class="btn--special-btn1" ng-click="rakServiceReq.stopCheques.resetModel();setEvent('onCancelClick')">{{appLiterals.APP.RAKCOMMONLITERALS.DONE}}</span>
+			  </button>
+</div>
+</div>

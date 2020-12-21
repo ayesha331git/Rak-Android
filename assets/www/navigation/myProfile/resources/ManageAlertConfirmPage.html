@@ -1,0 +1,162 @@
+<div id="manageAlertConfirmPage" class="app app-arrow2 title-right"
+	ng-click="setEvent('onManageAlertConfirmPageBackClick')"></div>
+<div class="finacle-container"
+	ng-init="myProfile.manageAlert.transactionPassword='';formatAmountCrn('myProfile.manageAlert.amount','myProfile.manageAlert.currencyValue')">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper">
+			</div>
+
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div id="alertTitle" class="item-title text-uppercase">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.TITLE}}</div>
+					</div>
+					<div class="col-sm-12">
+
+						<div class="account-detail-dash margin-zero">
+							<b id="alertdesc" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_CONFIRM.TXT_ALERT_DESCRIPTION}}
+							</b> <span id="alertDescValue" class="dash-ac-id">{{myProfile.manageAlert.alertCategoryDescription}}</span>
+						</div>
+
+						<div class="account-detail-dash margin-zero">
+							<b id="category" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_CONFIRM.TXT_ALERT_CATEGORY}}
+							</b> <span id="alertCategory" class="dash-ac-id">{{myProfile.manageAlert.alertCategory}}</span>
+						</div>
+
+
+						<div class="account-detail-dash margin-zero"
+							ng-if="myProfile.manageAlert.showAccountAlert && myProfile.manageAlert.accountNumber !=''">
+							<b id="accNo" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_CONFIRM.TXT_ACCOUNT_NO}}
+							</b> <span 
+								ng-if="myProfile.manageAlert.showAccountAlert && myProfile.manageAlert.accountNumber !=''" 
+								id="accNoValue" class="dash-ac-id">{{myProfile.manageAlert.dispAccountNumber}}</span>
+						</div>
+
+						<div class="account-detail-dash margin-zero"
+							ng-if="myProfile.manageAlert.showAmountAlert && myProfile.manageAlert.displayAmtConfirm">
+							<b id="amt" class="dash-ac-no">{{appLiterals.APP.COMMON.TEXT.AMOUNT}}
+							</b> <span id="amtValue" class="dash-ac-id"
+								ng-if="myProfile.manageAlert.showAmountAlert && myProfile.manageAlert.displayAmtConfirm">
+								{{myProfile.manageAlert.currencyValue}}&nbsp;{{myProfile.manageAlert.amount}}</span>
+						</div>
+
+						<div class="account-detail-dash margin-zero">
+							<b id="status" class="dash-ac-no">{{appLiterals.APP.COMMON.TEXT.STATUS}}
+							</b> <span id="statusValue" class="dash-ac-id">
+								{{myProfile.manageAlert.selectedAlertStatus}}</span>
+						</div>
+
+						<!-- <div ng-if="myProfile.manageAlert.frequencyAlert != ''"> -->
+						<div class="account-detail-dash margin-zero"
+							ng-if="myProfile.manageAlert.frequencyAlert != ''">
+							<b id="freq" class="dash-ac-no">{{appLiterals.APP.COMMON.TEXT.FREQUENCY}}
+							</b> <span id="freqValue" class="dash-ac-id">
+								{{myProfile.manageAlert.frequencyAlert}}</span>
+						</div>
+
+						<div
+							ng-if="myProfile.manageAlert.frequencyAlert != '' && myProfile.manageAlert.frequencyAlert == 'Weekly'"
+							class="account-detail-dash margin-zero">
+
+							<b id="weekly" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_CONFIRM.TXT_WEEKLY}}
+							</b> <span id="firstDay" class="dash-ac-id">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_FIRST_DAY}}
+								{{days[(myProfile.manageAlert.weeklyFirstDate-1)]}} <i
+								ng-if="myProfile.manageAlert.weeklyFirstDate != '' && myProfile.manageAlert.weeklySecondDate != ''">,
+							</i> {{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_SECOND_DAY}}
+								{{days[(myProfile.manageAlert.weeklySecondDate-1)]}}
+							</span>
+							<!--  <span
+									ng-if="myProfile.manageAlert.weeklyFirstDate != '' && myProfile.manageAlert.weeklySecondDate != ''">,</span> -->
+							<!-- <span>,</span> <span class="dash-ac-id">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_SECOND_DAY}}
+									{{days[(myProfile.manageAlert.weeklySecondDate-1)]}}</span> -->
+						</div>
+
+						<div class="account-detail-dash margin-zero"
+							ng-if="myProfile.manageAlert.frequencyAlert != '' && myProfile.manageAlert.frequencyAlert == 'Monthly'">
+							<b id="month" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_CONFIRM.TXT_MONTH}}
+							</b> <span id="firstDate"
+								ng-if="myProfile.manageAlert.monthlyFirstDate != ''"
+								class="dash-ac-id">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_FIRST_DATE}}
+								{{myProfile.manageAlert.monthlyFirstDate}}{{utils.getDayNumberSuffix(myProfile.manageAlert.monthlyFirstDate)}}</span>
+							<!-- <span
+										ng-if="myProfile.manageAlert.monthlyFirstDate != '' && myProfile.manageAlert.monthlySecondDate != ''"><br /></span> -->
+
+							<br
+								ng-if="myProfile.manageAlert.monthlyFirstDate != '' && myProfile.manageAlert.monthlySecondDate != ''"></br>
+							<span id="secondDate"
+								ng-if="myProfile.manageAlert.monthlySecondDate != ''"
+								class="dash-ac-id">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_SECOND_DATE}}
+								{{myProfile.manageAlert.monthlySecondDate}}{{utils.getDayNumberSuffix(myProfile.manageAlert.monthlySecondDate)}}</span>
+
+						</div>
+						<div class="account-detail-dash margin-zero"
+							ng-if="myProfile.manageAlert.frequencyAlert != '' && myProfile.manageAlert.frequencyAlert == 'Yearly'">
+							<b id="year" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_CONFIRM.TXT_YEAR}}
+							</b> <span id="first"
+								ng-if="myProfile.manageAlert.frequencyAlert == 'Yearly'"
+								class="dash-ac-id">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_FIRST_DATE}}
+								{{monthList[myProfile.manageAlert.yearMonth1-1].substr(0,3)}},&nbsp;{{myProfile.manageAlert.yearDate1}}<br />
+							</span> <span id="second"
+								ng-if="myProfile.manageAlert.days>=1 && myProfile.manageAlert.yearMonth2 != ''"
+								class="dash-ac-id">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_SECOND_DATE}}
+								{{monthList[myProfile.manageAlert.yearMonth2-1].substr(0,3)}},&nbsp;{{myProfile.manageAlert.yearDate2}}<br />
+							</span> <span id="third"
+								ng-if="myProfile.manageAlert.days>=2 && myProfile.manageAlert.yearMonth3 != ''"
+								class="dash-ac-id">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_THIRD_DATE}}
+								{{monthList[myProfile.manageAlert.yearMonth3-1].substr(0,3)}},&nbsp;{{myProfile.manageAlert.yearDate3}}<br />
+							</span> <span id="four"
+								ng-if="myProfile.manageAlert.days>=3 && myProfile.manageAlert.yearMonth4 != ''"
+								class="dash-ac-id">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_FOURTH_DATE}}
+								{{monthList[myProfile.manageAlert.yearMonth4-1].substr(0,3)}},&nbsp;{{myProfile.manageAlert.yearDate4}}<br />
+							</span> <span id="five"
+								ng-if="myProfile.manageAlert.days>=4 && myProfile.manageAlert.yearMonth5 != ''"
+								class="dash-ac-id">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_FIFTH_DATE}}
+								{{monthList[myProfile.manageAlert.yearMonth5-1].substr(0,3)}},&nbsp;{{myProfile.manageAlert.yearDate5}}<br />
+							</span> <span id="six"
+								ng-if="myProfile.manageAlert.days>=5 && myProfile.manageAlert.yearMonth6 != ''"
+								class="dash-ac-id">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.PH_SIXTH_DATE}}
+								{{monthList[myProfile.manageAlert.yearMonth6-1].substr(0,3)}},&nbsp;{{myProfile.manageAlert.yearDate6}}</span>
+
+						</div>
+						<!-- </div> -->
+
+						<div class="account-detail-dash margin-zero"
+							ng-if="myProfile.manageAlert.showNumberOfDays && myProfile.manageAlert.numberOfDays > 0 ">
+							<b class="dash-ac-no">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_CONFIRM.TXT_EXPIRY_DAYS}}
+							</b> <span
+								ng-if="myProfile.manageAlert.showNumberOfDays && myProfile.manageAlert.numberOfDays > 0"
+								class="dash-ac-id">
+								{{myProfile.manageAlert.numberOfDays}}&nbsp;
+								{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_CONFIRM.TXT_DAYS}}</span>
+						</div>
+
+						<div class="account-detail-dash margin-zero"
+							ng-if="myProfile.manageAlert.selectedAlertDeliveryChannels.length">
+							<b class="dash-ac-no">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_CONFIRM.TXT_DELIVERY_MODES}}
+							</b> <span
+								ng-if="myProfile.manageAlert.selectedAlertDeliveryChannels.length"
+								class="dash-ac-id">
+								{{myProfile.manageAlert.selectedAlertDeliveryChannels.toString()}}</span>
+						</div>
+					</div>
+					<form
+						ng-submit="myProfile.manageAlert.unFormatNumbers();setEvent(myProfile.manageAlert.selectEventName())">
+						<fin-Stepauth></fin-Stepauth>
+
+						<section class="button-wrapper" layout="row"
+							layout-align="center center" layout-wrap>
+							<md-button id="manageAlertConfirm" type="submit"
+								class=" md-raised btn--primary-btn">
+							{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_CONFIRM.BTN_CONFIRM}}</md-button>
+						</section>
+					</form>
+					<!--  <button type="button" ng-if="myProfile.manageAlert.selectedAlertStatus == 'OFF' && !myProfile.manageAlert.pageUpdateStatus" class="btn--primary-btn" ng-click="setEvent('onManageAlertDetailsUnsubscribedClick')">  C O N F I R M  </button>
+			  <button type="button" ng-if="myProfile.manageAlert.selectedAlertStatus == 'ON' && !myProfile.manageAlert.pageUpdateStatus" class="btn--primary-btn" ng-click="setEvent('onManageAlertDetailsSubscribedClick')">  C O N F I R M  </button>
+			  <button type="button" ng-if="myProfile.manageAlert.pageUpdateStatus" class="btn--primary-btn" ng-click="setEvent('onManageAlertDetailsSubmitClick')">  C O N F I R M  </button> -->
+					<!-- </div> -->
+
+				</div>
+			</div>
+		</div>
+	</div>

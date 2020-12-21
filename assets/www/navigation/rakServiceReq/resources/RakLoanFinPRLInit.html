@@ -1,0 +1,149 @@
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onRakLoanFinPRLInitBackClick');"></i>
+	</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.fetchRakLoanFinPRLInitData(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="">
+						<div class="">
+						
+							<div class="main-form-heading-ServiceReq"> 
+								      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.PERM_REL_LETTER}}
+								      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+								      </h2>		       
+						 		</div>
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="">
+									
+<!-- CHANGES DONE AS FIX OF PROUAT-3060 START -->
+									<div
+										ng-init='LonAcctArr = createDropDownOptionArray(rakServiceReq.RakLoanFinPRLModel.LonAcctList, ["acctTypeDesc","-","accountId"], "accountIndex");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RakLoanFinPRLModel.selectedLonAcct"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAKLNFINPRL.PRL_SELECT_LON_ACCOUNTS}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakLoanFinPRLModel.selectedLonAcct"]'
+										option-array="LonAcctArr"> </fin-input>
+<!-- CHANGES DONE AS FIX OF PROUAT-3060 END -->
+
+										<div class="rakRow">
+											<div class="radio-biller rak20"
+												ng-init="rakServiceReq.RakLoanFinPRLModel.duplicateRequestSelected='Yes'">
+												{{appLiterals.APP.RAKLNFINPRL.PRL_REQ_FOR_DUP}}</div>
+											<div class="rak80">
+												<div>
+													<div class="rak33 rakRelative">
+														<input type="radio" value="{{appLiterals.APP.RAKLNFINPRL.PRL_DUP_YES}}" class="rakRadio"
+															ng-model="rakServiceReq.RakLoanFinPRLModel.duplicateRequestSelected" />
+														<span class="rakRadioLabel-SR">{{appLiterals.APP.RAKLNFINPRL.PRL_DUP_YES}}</span>
+													</div>
+													<div class="rak33 rakRelative">
+														<input type="radio" value="{{appLiterals.APP.RAKLNFINPRL.PRL_DUP_NO}}" class="rakRadio"
+															ng-model="rakServiceReq.RakLoanFinPRLModel.duplicateRequestSelected" />
+														<span class="rakRadioLabel-SR">{{appLiterals.APP.RAKLNFINPRL.PRL_DUP_NO}}</span>
+													</div>
+												</div>
+											</div>
+										</div>
+<!--CHANGES DONE AS FIX OF PROUAT-3060 START -->
+									<div
+										ng-init='DrAcctArr = createDropDownOptionArray(rakServiceReq.RakLoanFinPRLModel.DrAcctList, ["acctTypeDesc","-","accountId"], "accountIndex");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RakLoanFinPRLModel.selectedDrAcct"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAKLNFINPRL.PRL_DEBIT_ACC}}"
+										ng-show="rakServiceReq.RakLoanFinPRLModel.duplicateRequestSelected=='{{appLiterals.APP.RAKLNFINPRL.PRL_DUP_YES}}'"
+										validation-flag='pageErrorArr["rakServiceReq.RakLoanFinPRLModel.selectedDrAcct"]'
+										option-array="DrAcctArr"> </fin-input>
+<!--CHANGES DONE AS FIX OF PROUAT-3060 END -->
+
+
+						<!-- Emirates Addition -->
+
+							<div ng-init='cardArrEmi = createDropDownOptionArray(rakServiceReq.RakLoanFinPRLModel.emirateList, ["codeDesc"], "code");' >
+							<fin-input type="dropdown"
+								model="rakServiceReq.RakLoanFinPRLModel.emirateSeletected"
+								display-row="full"
+								placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}"
+								on-change="rakServiceReq.RakLoanFinPRLOptionChange();"
+								validation-flag='pageErrorArr["rakServiceReq.RakLoanFinPRLModel.emirateSeletected"]'
+								option-array="cardArrEmi"> </fin-input>
+							</div>
+							
+							
+									<div class="fin-input-container"
+								ng-show="rakServiceReq.RakLoanFinPRLModel.isEmiSelected">
+								<div
+									ng-class="{'left-line': !pageErrorArr['rakServiceReq.RakLoanFinPRLModel.selectedBranch'], 'left-line-error':pageErrorArr['rakServiceReq.RakLoanFinPRLModel.selectedBranch']}"
+									class="left-line"></div>
+								<div class="input-body">
+									<div class="input-body2 input-body2-dropdown">
+										<select dropdownpicker title="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}" class="fin-input fin-select"
+											ng-model="rakServiceReq.RakLoanFinPRLModel.selectedBranch"
+											ng-style="{{rakServiceReq.RakLoanFinPRLModel.selectedBranch}} == '' ? {'font-size': '14px'} : {'color': 'initial'}">
+											<option class="place-holder-select" value=""
+												ng-selected="rakServiceReq.RakLoanFinPRLModel.selectedBranch== null"
+												ng-show="rakServiceReq.RakLoanFinPRLModel.selectedBranch== null">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}</option>
+											<option
+												ng-repeat="option in rakServiceReq.RakLoanFinPRLModel.emiCategorizedBranchList"
+												ng-selected="option.value=={{rakServiceReq.RakLoanFinPRLModel.selectedBranch}}"
+												value="{{option.branchId}}">{{option.branchCode}}</option>
+										</select>
+									</div>
+									<div
+										ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.RakLoanFinPRLModel.selectedBranch'],
+										'bottom-line-error':pageErrorArr['rakServiceReq.RakLoanFinPRLModel.selectedBranch']}"
+										class="bottom-line"></div>
+									<div
+										ng-hide='pageErrorArr["rakServiceReq.RakLoanFinPRLModel.selectedBranch"]==null'
+										class="rakErrorMsg">
+										{{pageErrorArr['rakServiceReq.RakLoanFinPRLModel.selectedBranch']}}</div>
+
+								</div>
+							</div>
+							
+							
+							
+							
+							<!-- Emirates End -->
+
+
+
+									<!-- <div
+										ng-init='branchArr = createDropDownOptionArray(rakServiceReq.RakLoanFinPRLModel.branchList, ["branchCode"], "branchIndex");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RakLoanFinPRLModel.selectedBranchId"
+										display-row="full" placeholder="{{appLiterals.APP.RAKLNFINPRL.PRL_BRANCHES}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakLoanFinPRLModel.selectedBranchId"]'
+										option-array="branchArr"> </fin-input> -->
+
+										<fin-input type="number_card"
+										model="rakServiceReq.RakLoanFinPRLModel.MobileNo"
+										max-length="15"
+										display-row="full" placeholder="{{appLiterals.APP.RAKLNFINPRL.PRL_MOBILENO}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakLoanFinPRLModel.MobileNo"]'></fin-input>
+
+									<fin-input type="text"
+										model="rakServiceReq.RakLoanFinPRLModel.notes"
+										display-row="full" placeholder="{{appLiterals.APP.RAKLNFINPRL.PRL_NOTES}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakLoanFinPRLModel.notes"]'></fin-input>
+
+									<div class="label-wrap">
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-right"
+											ng-click="rakServiceReq.drAcctValidationRqdCheck();rakServiceReq.setLoanPreClouserBranchIndex();
+											setEvent('onRakLoanFinPRLContinueClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

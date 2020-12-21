@@ -1,0 +1,91 @@
+<div id="backArrow" class="app app-arrow2 title-right-dash"
+	ng-click="setEvent('onPrevServiceClick')"></div>
+
+<div class="finacle-container"
+	ng-init="services.creditCardLimitChange.continueInit(successResponse.responsesList[0]);formatAmountCrn('services.creditCardLimitChange.newLimitContinue','services.homeCurrency')">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class=" dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div class="item-title text-uppercase" id="ChngCCLHeader">{{appLiterals.APP.SERVICES.CHNG_CNFRMPAGE.HEADER}}</div>
+					</div>
+
+					<div class="col-sm-12">
+
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="ChngCCLConTXTFR">
+								{{appLiterals.APP.SERVICES.CHNG_CNFRMPAGE.CHNGE_CRDLIM}}
+								{{appLiterals.APP.SERVICES.CHNG_CNFRMPAGE.TXT_FR}}</strong> <span
+								class="dash-ac-id" id="ChngCCLConTXTFRVal">
+								{{services.creditCardLimitChange.cardNoContinue}}</span>
+						</div>
+
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="ChngCCLConLimHead">
+								{{appLiterals.APP.SERVICES.CHNG_CNFRMPAGE.TXT_NEWLIM}}</strong> <span
+								class="dash-ac-id" id="ChngCCLConLimVal">
+								{{services.creditCardLimitChange.newLimitContinue}}</span>
+						</div>
+
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="ChngCCLConNoteHead">
+								{{appLiterals.APP.SERVICES.CREDIT_CARD.NOTE}}</strong> <span
+								class="dash-ac-id" id="ChngCCLConNoteVal">
+								{{services.creditCardLimitChange.remarksContinue}}</span>
+						</div>
+					</div>
+					<form
+						ng-submit="corpInit.corpModel.getSelectedRoleDetailsAsString();services.changeDCLimitModel.unFormatNumbers();setEvent('onNoAuthSuccessClick')"
+						ng-if="services.creditCardLimitChange.authTypeContinue.length==0">
+						<div
+							ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+							<approval-input></approval-input>
+						</div>
+
+						<fin-Stepauth></fin-Stepauth>
+
+
+						<md-button id="ChngCCLConfSubmit" type="submit"
+							class="md-raised  btn--primary-btn"
+							ng-show="services.creditCardLimitChange.authTypeContinue.length!=0">
+						{{appLiterals.APP.SERVICES.CHNG_CNFRMPAGE.BTN_SUBTORM}} </md-button>
+						<md-button id="ChngCCLConfSubmit2" type="submit"
+							class="md-raised btn--primary-btn"
+							ng-show="services.creditCardLimitChange.authTypeContinue.length==0">
+						{{appLiterals.APP.SERVICES.CHNG_CNFRMPAGE.BTN_SUBTORM}} </md-button>
+
+					</form>
+
+
+
+
+
+					<form
+						ng-submit="corpInit.corpModel.getSelectedRoleDetailsAsString();services.changeDCLimitModel.unFormatNumbers();setEvent('onSuccessClick')"
+						ng-if="services.creditCardLimitChange.authTypeContinue.length!=0">
+						<div
+							ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+							<approval-input></approval-input>
+						</div>
+
+						<fin-Stepauth></fin-Stepauth>
+
+						<md-button id="ChngCCLConfSubmit3" type="submit"
+							class="md-raised  btn--primary-btn"
+							ng-show="services.creditCardLimitChange.authTypeContinue.length!=0">
+						{{appLiterals.APP.SERVICES.CHNG_CNFRMPAGE.BTN_SUBTORM}} </md-button>
+						<md-button id="ChngCCLConfSubmit4" type="submit"
+							class="md-raised btn--primary-btn"
+							ng-show="services.creditCardLimitChange.authTypeContinue.length==0">
+						{{appLiterals.APP.SERVICES.CHNG_CNFRMPAGE.BTN_SUBTORM}} </md-button>
+
+
+					</form>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

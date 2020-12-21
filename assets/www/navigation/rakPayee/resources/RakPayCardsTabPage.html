@@ -1,0 +1,8 @@
+ <div class="money-block">
+         <ul>
+            <li ng-class="{'active headerSelectedMargin':rakPayCards.payCards,'':!rakPayCards.payCards}" ng-click="rakPayee.isUserNavigatingBack=false;rakPayCards.common.fromAuthPage=false;rakPayCards.clearTab();rakPayee.clearTab();rakPayCards.utils.clearCommonData();rakPayCards.payCards=true;rakPayee.fromBenfList=false;rakPayCards.schedule.clearSchedulePayCardsData();rakPayCards.ownCards.clearOwnCardsData();setGlobalEvent('onRakPayCardsClick')">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDSTABPAGE.PAYCARDS}}</li>
+            <li ng-class="{'active headerSelectedMargin':rakPayCards.cardsTab,'':!rakPayCards.cardsTab}" ng-click="rakPayee.isUserNavigatingBack=false;rakPayCards.common.fromAuthPage=false;rakPayCards.clearTab();rakPayee.isUserNavigatingBack=false;rakPayee.clearTab();rakPayCards.utils.clearCommonData();rakPayCards.cardsTab=true;rakPayCards.bankbnftype='';setGlobalEvent('onPayCardsClick')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_CARD}}</li>
+            <li ng-class="{'active headerSelectedMargin':rakPayCards.cardHistoryTab,'':!rakPayCards.cardHistoryTab}" ng-click="rakPayee.isUserNavigatingBack=false;rakPayee.isBeneficiaryHistoryMode=false;rakPayCards.common.fromAuthPage=false;rakPayCards.clearTab();rakPayee.clearTab();rakPayCards.utils.clearCommonData();rakPayCards.cardHistoryTab=true;rakPayee.payCard.clearSearchHistory();rakPayCards.schedule.clearSchedulePayCardsData();rakPayCards.ownCards.clearOwnCardsData();
+			rakPayee.payCard.setInitialFromToDate();rakPayee.payCard.selectedCardType='';setGlobalEvent('onRakPayeeHistoryTabClick')">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_HISTORY}}</li>
+          </ul>
+        </div>

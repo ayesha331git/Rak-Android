@@ -1,0 +1,98 @@
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onRAKCCDCPinReissueInitBackClick');"></i>
+	</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container"
+			ng-init="rakServiceReq.setDataForCCorDC();rakServiceReq.fetchRAKCCDCPinReissueData(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="">
+						<div class="">
+						
+						<div ng-if="rakServiceReq.serviceRequestStatusModel.cardFlag=='Credit'" class="main-form-heading-ServiceReq"> 
+			                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CC_PIN_REISSUE}}
+			                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+			                 </h2>              
+						</div>
+						
+						
+						<div ng-if="rakServiceReq.serviceRequestStatusModel.cardFlag=='Debit'" class="main-form-heading-ServiceReq"> 
+			                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DC_PIN_REISSUE}}
+			                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+			                 </h2>              
+						</div>
+						
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="">
+							
+							<div class="summary-ServiceReq" ng-if="rakServiceReq.RAKCCDCPinReissueModel.isOneCCorDCSelectedFromDropDown"> 
+									<div class="iconDiv">
+										<span class="infoIcon"></span><span class="success">{{appLiterals.APP.RAK_CC_DC_PIN_REISSUE.OTP_MESSAGE}}</span>
+									</div>
+								</div>
+									
+
+									<div
+										ng-init='CrDrCardArr = createDropDownOptionArray(rakServiceReq.RAKCCDCPinReissueModel.CCDCCardList, ["prodDesc","-","creditDebitcardNumber"], "CreditDebitcardIndex");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RAKCCDCPinReissueModel.selectedCCDCCard"
+										display-row="full"
+										on-change="setEvent('onRakCCDCPinReissueFetchOTPClick');"
+										placeholder="{{rakServiceReq.RAKCCDCPinReissueModel.CardDropDownPlaceHolderText}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKCCDCPinReissueModel.selectedCCDCCard"]'
+										option-array="CrDrCardArr"> </fin-input>
+
+									<div class="bg-color rak-cont-padding" ng-if="rakServiceReq.RAKCCDCPinReissueModel.isOneCCorDCSelectedFromDropDown">
+									<fin-input type="password_num"
+										model="rakServiceReq.RAKCCDCPinReissueModel.enteredOTP"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_CC_DC_PIN_REISSUE.OTP}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKCCDCPinReissueModel.enteredOTP"]'></fin-input>
+
+									<fin-input type="password_num"
+										model="rakServiceReq.RAKCCDCPinReissueModel.enteredCVV"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_CC_DC_PIN_REISSUE.CVV}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKCCDCPinReissueModel.enteredCVV"]'></fin-input>
+
+									<div>
+										<fin-input type="date"
+											model="rakServiceReq.RAKCCDCPinReissueModel.dateOfBirth"
+											validation-flag='pageErrorArr["rakServiceReq.RAKCCDCPinReissueModel.dateOfBirth"]'
+											placeholder="{{appLiterals.APP.RAK_CC_DC_PIN_REISSUE.DOB}}"
+											display-row="full"> </fin-input>
+									</div>
+									<div>
+										<p class="dateLabelLeft">{{appLiterals.APP.RAK_CC_DC_PIN_REISSUE.DOB}}</p>
+									</div>
+
+									<div class="label-wrap">
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-small btn--back"
+											ng-click="setEvent('onRAKCCDCPinReissueInitBackClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-right"
+											ng-click="rakServiceReq.setRAKCCDCPinReissueDate();setEvent('onRAKCCDCPinReissueContinueClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+									</div>
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
+								
+								<!-- <div class="disclaimer" ng-if="rakServiceReq.RAKCCDCPinReissueModel.isOneCCorDCSelectedFromDropDown">
+                                           <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                           <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                           </div>
+           
+                                           
+                                           <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+												<span ng-bind-html="appLiterals.APP.DISCLAIMER.NOTE"></span>
+												<span ng-click="rakServiceReq.fetchDisclaimer('Credit_Card_Service_Request.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKREISSUEPIN_INITPAGE"></span>									
+											</div>
+                                    </div> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

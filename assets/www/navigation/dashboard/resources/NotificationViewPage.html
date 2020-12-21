@@ -1,0 +1,77 @@
+<div class="finacle-container" ng-init='notifications.displayNotification()'>
+  <div class="rak-back-header" >
+				<i class="rak-back-img" ng-click="setGlobalEvent('openNotificationInbox');"></i>
+		</div>
+  <div class="account-page">
+    <div class="col-sm-11">
+     <!--  <div class="app-title-wrapper">
+		<div class="title-left"></div>
+  		<div class="title-center"></div>
+  		<div class="app app-cancel title-right" ng-click="setGlobalEvent('onNotifClick');"></div>
+      </div>
+      <div class="highlight-color"> </div>    -->
+
+           	<div class="selfReg-main-form-heading">
+						<div>
+							<span class="rak-black-color upd-label ">{{appLiterals.APP.RAKNOTIFICAIONS.HEADERINBOX}}</span>
+
+						</div>
+					</div>
+
+      <div class="bg-color">
+        <div class="row">
+
+			<div class="col-sm-11 fotorama" data-width="700" data-ratio="700/467" data-max-width="100%">
+			  <div class="col-sm-12 padding-zero">
+			            <div class="notif-list">
+			                  <p class="bnk_nm center margin-zero">{{notifications.selNotifications.json.content.content}}</p>
+			                  <div class="fin-txt"></div>
+			                  <!-- <p class="special-txt center"><b>{{notifications.selNotifications.json.messege}}</b></p>
+			                  <div class="fin-txt"></div>-->
+			                  <p class="notif-date center" id='notiContainer'></p>
+			                  <div class="fin-txt"></div>
+			                </div>
+
+			<div class="label-wrap">
+			  <button type="button" class="btn--special-btn btn-middle rak-button-full rak-button-right rakbackgroundRed" ng-click="setGlobalEvent('openNotificationInbox')">{{appLiterals.APP.COMMON.BUTTON.OK}} </button>
+			  </div>
+
+
+			              </div>
+			              <!--<div class="col-sm-12 padding-zero">
+			            <div class="notif-list">
+			                  <p class="bnk_nm center margin-zero">Statement Check</p>
+			                  <div class="fin-txt"></div>
+			                  <p class="special-txt center"><b>Bill Amount: Rs 650</b></p>
+			                  <div class="fin-txt"></div>
+			                  <p class="notif-date center">Please pay us your full needs to reach us <br>by 10th April, 2015</p>
+			                  <div class="fin-txt"></div>
+			                </div>
+
+			                <button type="button" class="btn--primary-btn" ng-click="setEvent('onDCConfirmClick')"> PAY </button>
+			              </div>
+			              <div class="col-sm-12 padding-zero">
+			            <div class="notif-list">
+			                  <p class="bnk_nm center margin-zero">Statement Check</p>
+			                  <div class="fin-txt"></div>
+			                  <p class="special-txt center"><b>Bill Amount: Rs 650</b></p>
+			                  <div class="fin-txt"></div>
+			                  <p class="notif-date center">Please pay us your full needs to reach us <br>by 11th April, 2015</p>
+			                  <div class="fin-txt"></div>
+			                </div>
+
+			                <button type="button" class="btn--primary-btn" ng-click="setEvent('onDCConfirmClick')"> PAY </button>
+			              </div>-->
+			</div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+</div>
+<script>
+/*$(function () {
+  $('.fotorama').fotorama();
+});*/
+</script>

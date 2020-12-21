@@ -1,0 +1,48 @@
+<div id="backArrow" class="app app-arrow2 title-right-dash"
+	ng-click="services.blockCreditCardModel.isBack=true;setEvent('onBlockCreditCardConfirmBackClick');"></div>
+
+<div class="finacle-container"
+	ng-init="services.blockCreditCardModel.transactionPassword = '';services.initBlockCreditCardConfirm(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class=" dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div class="item-title text-uppercase" id="BlockCCHeader">{{appLiterals.APP.SERVICES.CREDIT_CARD.BLOCK_CC_HEADER}}</div>
+					</div>
+
+
+					<form
+						ng-submit="corpInit.corpModel.getSelectedRoleDetailsAsString();setEvent('onBlockCreditCardConfirmSubmitToRMClick');">
+						<div class="col-sm-12">
+							<div class="account-detail-dash margin-zero">
+								<strong class="trans-no" id="BlocCCcardHeader">
+									{{appLiterals.APP.SERVICES.BLOCKCRED_CNFRM.TXT_CREDCRD}} </strong> <span
+									class="dash-ac-id" id="BlocCCcardval">
+									{{services.blockCreditCardModel.previewResponse.creditCardNo}}
+								</span>
+							</div>
+
+							<div class="account-detail-dash margin-zero">
+								<strong class="trans-no" id="BlocCCreasonHeader">
+									{{appLiterals.APP.SERVICES.BLOCKCRED_CNFRM.TXT_RSN}}</strong> <span
+									class="dash-ac-id" id="BlocCCreasonval">
+									{{services.blockCreditCardModel.previewResponse.remarks}}</span>
+							</div>
+							<div
+								ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+								<approval-input></approval-input>
+							</div>
+							<fin-Stepauth></fin-Stepauth>
+
+							<md-button id="stopCCConfirmBtn" type="submit"
+								class="md-raised btn--primary-btn">{{appLiterals.APP.SERVICES.BLOCKCRED_CNFRM.BTN_SUBTORM}}
+							</md-button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

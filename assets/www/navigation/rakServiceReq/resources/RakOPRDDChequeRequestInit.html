@@ -1,0 +1,311 @@
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onRakOPRDDChequeRequestBackClick');"></i>
+	</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.fetchAccList(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="">
+						<div class="">
+						
+				<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DD_MCHQ_INIT}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+				      </h2>		       
+		 		</div>
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="">
+									
+
+									<div
+										ng-init='OprAcctArr = createDropDownOptionArray(rakServiceReq.RakOperativeDDCheque.OprAcctList, ["acctTypeDesc","-","accountId"," ","currencyCode"], "accountIndex");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RakOperativeDDCheque.selectedOprAcct"
+										display-row="full" on-change="rakServiceReq.common.updateBal('onAccountSelectionBalCall');"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRDD_SELECT_FROM_ACCOUNTS}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakOperativeDDCheque.selectedOprAcct"]'
+										option-array="OprAcctArr"> </fin-input>
+										
+										
+										<div ng-show='rakServiceReq.RakOperativeDDCheque.selectedOprAcct'>
+											<p class="balance-available2"
+												ng-show="rakServiceReq.RakOperativeDDCheque.selectedOprAcct.length > 0">
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_BALANCE}}
+												<span class="rs-color">
+													{{rakServiceReq.common.availBal}}</span>
+											</p>
+										</div>
+									<div
+										ng-init='OprReqArr = createDropDownOptionArray(rakServiceReq.RakOperativeDDCheque.requestList, ["codeDesc"], "codeIndex");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RakOperativeDDCheque.selectedReq"
+										display-row="full" 
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPR_REQ}}"
+										on-change="rakServiceReq.RakOperativeDDCheque.filterBenfArray();"
+										validation-flag='pageErrorArr["rakServiceReq.RakOperativeDDCheque.selectedReq"]'
+										option-array="OprReqArr"> </fin-input>
+									
+										
+										<div class="fin-input-container fin-input-container">
+										<div ng-class="{'left-line': !pageErrorArr['rakServiceReq.RakOperativeDDCheque.selectedBnf'], 'left-line-error':pageErrorArr['rakServiceReq.RakOperativeDDCheque.selectedBnf']}" class="left-line">
+               </div>
+    									<div class="input-body">
+   										<div class="input-body2 input-body2-dropdown">
+												<select dropdownpicker title="{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_NAME}}" class="fin-input fin-select" ng-model="rakServiceReq.RakOperativeDDCheque.selectedBnf"  
+												ng-change="rakServiceReq.RakOperativeDDCheque.selectedFlag='Y';rakServiceReq.RakOperativeDDCheque.currBenfArray();">
+			   									<option class="place-holder-select" value="" ng-selected="rakServiceReq.RakOperativeDDCheque.selectedBnf== ''" 
+			   									ng-show="rakServiceReq.RakOperativeDDCheque.selectedBnf== ''">
+			   									{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_NAME}}</option>
+			   									<option ng-repeat="option in rakServiceReq.RakOperativeDDCheque.txnbenfTypeNewArr" 
+			   								 	ng-selected="{{$index}}==={{rakServiceReq.RakOperativeDDCheque.selectedBnf}}" value="{{$index}}" >{{option.beneficiaryName}}</option>
+												</select>
+										</div>
+										<div ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.RakOperativeDDCheque.selectedBnf'], 'bottom-line-error':pageErrorArr['rakServiceReq.RakOperativeDDCheque.selectedBnf']}" class="bottom-line">
+        </div>
+										</div>
+										</div> 
+										
+										
+										
+										<div ng-show="rakServiceReq.RakOperativeDDCheque.selectedBnf !=''">
+										
+										<div ng-show="rakServiceReq.RakOperativeDDCheque.selectedBnf!='' && rakServiceReq.RakOperativeDDCheque.isDetailSelected==true">
+										
+										<p  class="rak-parent-txt margin-zero">   
+										<span class="rak30 rakPadding05">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_BANK_NAME}}</span>
+										<!-- <span class="rak30  padding-five ">{{rakServiceReq.RakOperativeDDCheque.txnbenfTypeNewArr[rakServiceReq.RakOperativeDDCheque.selectedBnf].beneficiaryBankName}}</span> -->
+										 <span class="rak30  padding-five ">{{rakServiceReq.RakOperativeDDCheque.txnbenfTypeNewArr[rakServiceReq.RakOperativeDDCheque.selectedBnf].beneficiaryBankName}}</span>
+										</p>
+										
+										<p  class="rak-parent-txt margin-zero">
+										<span class="rak30 rakPadding05">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_COUNTRY}}</span>
+										<span class="rak30  padding-five ">{{rakServiceReq.RakOperativeDDCheque.txnbenfTypeNewArr[rakServiceReq.RakOperativeDDCheque.selectedBnf].bnfBankCountryDesc}}</span>
+										</p>
+										<p class="rak-parent-txt margin-zero" >
+										<span class="rak30 rakPadding05">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_ACC_NUMBER}}</span>
+										<span class="rak30  padding-five">{{rakServiceReq.RakOperativeDDCheque.txnbenfTypeNewArr[rakServiceReq.RakOperativeDDCheque.selectedBnf].beneficiaryAccountNumber}}</span>
+										</p>
+										<p class="rak-parent-txt margin-zero">
+										<span class="rak30 rakPadding05">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_CURRENCY}}</span>
+										<span class="rak30  padding-five">{{rakServiceReq.RakOperativeDDCheque.selBeneficiaryAccountCurrency}}</span>
+										</p>
+										</div>
+										
+										<div ng-if="rakServiceReq.RakOperativeDDCheque.txnbenfTypeNewArr[rakServiceReq.RakOperativeDDCheque.selectedBnf].bnfBankCountry =='IN' 
+										&& rakServiceReq.RakOperativeDDCheque.requestList[rakServiceReq.RakOperativeDDCheque.selectedReq].code == 'DD' ">
+											<div
+										ng-init='OprCorrBankArr = createDropDownOptionArray(rakServiceReq.RakOperativeDDCheque.correspondingBankList, ["bankDesc"], "bankIndex");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RakOperativeDDCheque.selectedCorrsBank"
+										display-row="full" 
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.CORS_BANK}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakOperativeDDCheque.selectedCorrsBank"]'
+										option-array="OprCorrBankArr"> </fin-input>
+										
+										
+											<div
+										ng-init='OprCityArr = createDropDownOptionArray(rakServiceReq.RakOperativeDDCheque.cityList, ["cityDesc"], "cityIndex");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RakOperativeDDCheque.selectedCity"
+										display-row="full" 
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.CITY}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakOperativeDDCheque.selectedCity"]'
+										option-array="OprCityArr"> </fin-input>
+										
+										</div>
+										
+						</div>
+						
+						<div class="rakWidth100Percent">
+						<div  ng-class="{'rak66':rakServiceReq.RakOperativeDDCheque.selectedOprAcct!=''
+								 && rakServiceReq.RakOperativeDDCheque.selectedReq!='' && rakServiceReq.RakOperativeDDCheque.selectedBnf!='' }">
+									<fin-input type="money"
+										model="rakServiceReq.RakOperativeDDCheque.amount"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_AMOUNT}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakOperativeDDCheque.amount"]'></fin-input>
+										
+								</div>							
+					<div class="fetchButton" ng-if="rakServiceReq.RakOperativeDDCheque.selectedOprAcct!=''
+								 && rakServiceReq.RakOperativeDDCheque.selectedReq!='' && rakServiceReq.RakOperativeDDCheque.selectedBnf!=''">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small rakFetchButton"
+								ng-click="rakServiceReq.RakOperativeDDCheque.fetchExFlag='Y';setEvent('onFetchExchangeclick');">
+								{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.FETCH_EXRATE}}</button>
+						</div>		
+						</div>
+								
+								<div class="fin-input-container rakTransfersexchangerate-block"
+											ng-hide="rakServiceReq.RakOperativeDDCheque.exchangeRate==null || rakServiceReq.RakOperativeDDCheque.exchangeRate ==''">
+
+									
+											<p class="rakexchangevalue">{{rakServiceReq.RakOperativeDDCheque.exchangeRate}}</p>
+											
+										</div>
+
+						</div>
+										
+										<div
+										ng-init='OprPurposeArr = createDropDownOptionArray(rakServiceReq.RakOperativeDDCheque.purposeList, ["purDesc"], "purIndex");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RakOperativeDDCheque.selectedPurpose"
+										display-row="full" 
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_PURPOSE}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakOperativeDDCheque.selectedPurpose"]'
+										option-array="OprPurposeArr"> </fin-input>
+										
+										<!-- <div
+										ng-init='OprBranchArr = createDropDownOptionArray(rakServiceReq.RakOperativeDDCheque.branchList, ["branchDesc"], "branchIndex");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RakOperativeDDCheque.selectedBranch"
+										display-row="full" 
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_BRANCH}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakOperativeDDCheque.selectedBranch"]'
+										option-array="OprBranchArr"> </fin-input> -->
+										
+										<!-- Added Radio button to enabled courier option by Kamesh: START -->
+									<p class="rak-parent-txt" ng-if="!rakServiceReq.RakOperativeDDCheque.isDelModeBranchVisible">
+											<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.REG_ADD}}</span>
+											 <span	class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RakOperativeDDCheque.registeredAddress}}</span>
+										</p>
+									<!-- Added Radio button to enabled courier option by Kamesh: END -->
+										
+	<!-- YADESH : Customization : Start -->
+							<div
+								ng-init='cardArr = createDropDownOptionArray(rakServiceReq.RakOperativeDDCheque.emirateList, ["codeDesc"], "code");'
+								
+								>
+							<fin-input type="dropdown"
+								ng-if="rakServiceReq.RakOperativeDDCheque.isDelModeBranchVisible"
+								model="rakServiceReq.RakOperativeDDCheque.emirateSeletected"
+								display-row="full"
+								
+								placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}"
+								on-change="rakServiceReq.RakOperativeDDChequeOptionChange();"
+								validation-flag='pageErrorArr["rakServiceReq.RakOperativeDDCheque.emirateSeletected"]'
+								option-array="cardArr"> </fin-input>
+							</div>
+							
+							
+							<div class="fin-input-container"
+								ng-if="rakServiceReq.RakOperativeDDCheque.isDelModeBranchVisible && rakServiceReq.RakOperativeDDCheque.isEmiSelected">
+								<div
+									ng-class="{'left-line': !pageErrorArr['rakServiceReq.RakOperativeDDCheque.selectedBranch'], 'left-line-error':pageErrorArr['rakServiceReq.RakOperativeDDCheque.selectedBranch']}"
+									class="left-line"></div>
+								<div class="input-body">
+									<div class="input-body2 input-body2-dropdown">
+										<select dropdownpicker title="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}" class="fin-input fin-select"
+											ng-model="rakServiceReq.RakOperativeDDCheque.selectedBranch"
+											ng-style="{{rakServiceReq.RakOperativeDDCheque.selectedBranch}} == '' ? {'font-size': '14px'} : {'color': 'initial'}">
+											<option class="place-holder-select" value=""
+												ng-selected="rakServiceReq.RakOperativeDDCheque.selectedBranch== null"
+												ng-show="rakServiceReq.RakOperativeDDCheque.selectedBranch== null">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}</option>
+											<option
+												ng-repeat="option in rakServiceReq.RakOperativeDDCheque.emiCategorizedBranchList"
+												ng-selected="option.value=={{rakServiceReq.RakOperativeDDCheque.selectedBranch}}"
+												value="{{option.branchIndex}}">{{option.branchDesc}}</option>
+										</select>
+									</div>
+									<div
+										ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.RakOperativeDDCheque.selectedBranch'], 'bottom-line-error':pageErrorArr['rakServiceReq.RakOperativeDDCheque.selectedBranch']}"
+										class="bottom-line"></div>
+									<div
+										ng-hide='pageErrorArr["rakServiceReq.RakOperativeDDCheque.selectedBranch"]==null'
+										class="rakErrorMsg">
+										{{pageErrorArr['rakServiceReq.RakOperativeDDCheque.selectedBranch']}}</div>
+
+								</div>
+							</div>
+
+
+					<!-- YADESH : Customization : End -->
+														
+						
+									<div class="rakChkBoxLabelDiv">
+									<input type="checkbox" id="checkbox"  ng-model='rakServiceReq.RakOperativeDDCheque.authorize' ng-click="rakServiceReq.authorizeFields();"/>
+									<span>{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.AUTHORIZE}}</span>
+								  </div>
+								  
+								  
+								<!--   	<div class="rakChkBoxLabelDiv">
+									<input type="checkbox" id="checkbox"  ng-model='rakServiceReq.RakOperativeDDCheque.selfAuth'
+									ng-checked="rakServiceReq.RakOperativeDDCheque.resetAuthorizeValue();"/>
+									<span>{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.SELF}}</span>
+								  </div> -->
+										
+								<div ng-hide="rakServiceReq.RakOperativeDDCheque.authorize == false">
+								
+										<fin-input type="text"
+										model="rakServiceReq.RakOperativeDDCheque.name"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.NAME_AUTH}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakOperativeDDCheque.name"]'></fin-input>
+										
+										
+										<fin-input type="number_card"
+										model="rakServiceReq.RakOperativeDDCheque.contact"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.CONTACT}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakOperativeDDCheque.contact"]'></fin-input>
+										
+										<!-- <fin-input type="number" 
+										model="tmpLastNTxn" max-length="2" ng-keyup="onLastNTxnChange($event);"  
+										display-row="qtr1" placeholder="{{appLiterals.APP.RAK_ACCOUNTS.TRANSACTION_SEARCH_PAGE.PH_NO}}" > </fin-input> -->
+                           
+										
+										
+										
+										<div
+										ng-init='validIdArr = createDropDownOptionArray(rakServiceReq.RakOperativeDDCheque.validIdList, ["validDesc"], "validIndex");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RakOperativeDDCheque.selectedValidId"
+										display-row="full" 
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.VALID_ID}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakOperativeDDCheque.selectedValidId"]'
+										option-array="validIdArr"> </fin-input>
+										
+											<fin-input type="text"
+										model="rakServiceReq.RakOperativeDDCheque.idNumber"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.ID_NUM}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakOperativeDDCheque.idNumber"]'></fin-input>
+										</div>
+						
+						
+						
+						
+						
+							<div class="label-wrap">
+					
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakServiceReq.authorizeFields();rakServiceReq.confirmValues();setEvent('onRakOprDDclick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+
+						</div>
+
+									<div class="col-sm-1"></div>
+									
+							<div class="disclaimer" ng-init="rakDisclaimerFlag=false;">
+								<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+									<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+								</div>
+								
+								<div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+								
+									<span ng-click="rakServiceReq.fetchDisclaimer('FundsTransferCutOffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+									<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKDDMCHQ_INITPAGE"></span>
+									<span ng-click="rakServiceReq.fetchDisclaimer('AccountServiceRequestsCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+									<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKDDMCHQ_INITPAGECONT"></span>
+								</div>
+							</div>	
+									
+									
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		

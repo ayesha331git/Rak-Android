@@ -1,0 +1,86 @@
+<div class="full-height"
+	ng-init='register.responseRegisterOnlineAccountSelection(successResponse)'>
+	<div class="account-page full-height"
+		ng-show="register.accounts.length==0">
+		<div class="full-height">
+			<div class="full-height">
+				<div class=" dashboard-item-body full-height">
+					<fin-success
+						success-banner=""
+						success-message="{{response.responsesList[0].message}}"
+						cross-click="isUserLoggedIn ?  setEvent('onRegisterChannelSuccessOkClick') : setGlobalEvent('onLoginClick')"></fin-success>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="account-page full-height"
+		ng-show="register.accounts.length!=0">
+		<div class="full-height">
+			<div class="full-height">
+				<div class="dashboard-item-body full-height">
+					<div class="dashboard-item-title margin-bottom-20" layout="row"
+						layout-align="center center" layout-wrap>
+						<h2 class="md-headline item-title"
+							id="registerOnlineAccountHeader" layout="row"
+							layout-align="center center" layout-wrap>{{appLiterals.APP.REGISTER.REGON_ACCSEL.HEADER}}</h2>
+					</div>
+					<div class="stage_wrap">
+						<div class="stage-sucs3">
+							<p class="staging-sucs1">
+								<span class="app app-tickcircle"> </span>
+							</p>
+						</div>
+						<div class="stage-line line-small"></div>
+						<div class="stage">
+							<p class="staging" id="registerOnlineAccountTickCircle">{{appLiterals.APP.REGISTER.REG_CHAN_SEL.NO2}}</p>
+						</div>
+					</div>
+					<div class="col-sm-12 lh13" id="registerOnlineAccountTxt1">
+						<div class="col-sm-12">
+							<p class="fut-txt1">{{appLiterals.APP.REGISTER.REGON_ACCSEL.SENT1}}</p>
+						</div>
+					</div>
+					<div ng-if='register.accounts.length==0'>
+						<div class="col-sm-12 lh13">
+							<div class="col-sm-12">
+								<p class="fut-txt1" id="registerOnlineAccountTxt2">
+									{{appLiterals.APP.REGISTER.REGON_ACCSEL.TXT_NOACC_MAP}}</p>
+							</div>
+						</div>
+
+					</div>
+					<div class="clear-all col-sm-12 avail-bal-wrap">
+						<div ng-repeat='ac in register.accounts' class="channel-select">
+							<div class="col-sm-12 pull-left profile-txt"
+								id="registerOnlineAccountData{{$index}}">{{ac.accountNumber
+								+' '+ac.accountType+' '+ac.accountStatus}}</div>
+							<div class="pull-right set-arrow">
+								<span class="glyphicon glyphicon-ok unselect"
+									id="registerAccountChecked{{$index}}"
+									ng-class="{'select':ac.isChecked}"
+									ng-click='ac.isChecked=!ac.isChecked;register.updateAccountList(ac.accountIndex,ac.isChecked)'></span>
+							</div>
+						</div>
+					</div>
+					<div class="clear-all"></div>
+					<section layout="row" layout-align="center center"
+						class="sticky-footer-block button-wrapper">
+						<md-button type="button" id="registerAccountSelectionCancel"
+							class=" md-raised btn--secondary-btn  md-raised btn--primary-three-btn"
+							ng-click="setGlobalEvent('onLoginClick');">
+						{{appLiterals.APP.COMMON.BUTTON.CANCEL}} </md-button>
+						<md-button type="button" id="registerAccountSelectionSkip"
+							class=" md-raised btn--primary-btn  md-raised btn--primary-three-btn"
+							ng-click="setEvent('onAccountSkipClick');">{{appLiterals.APP.REGISTER.REGON_ACCSEL.BTN_SKIP}}
+						</md-button>
+						<md-button id="registerAccountSelectionSubmit"
+							class=" md-raised btn--primary-btn  md-raised btn--primary-three-btn"
+							type="button"
+							ng-click="setEvent(register.setEventDuringOnlineAccountSelection());">{{appLiterals.APP.REGISTER.REGON_ACCSEL.BTN_PROCD}}
+						</md-button>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

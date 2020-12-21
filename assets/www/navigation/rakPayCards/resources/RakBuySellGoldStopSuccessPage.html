@@ -1,0 +1,86 @@
+<div class="finacle-container" ng-init="rakSendMoney.common.successMessage='';rakSendMoney.schedule.initSuccessPage(successResponse.responsesList)">
+	<div class="account-page">
+     <div class="col-sm-11">
+	 <div class="app-title-wrapper">
+			<ng-include
+								src="'./navigation/rakPayCards/resources/RakBuySellGoldTabPage.html'">
+							</ng-include>
+
+							<div class="tab-links">
+								<ul>
+																	<li ng-click="rakPayCards.rakInvGold.clearTab();rakPayCards.txnHistory.setInitialDate();rakPayCards.rakInvGold.History=true;
+																	rakPayCards.txnHistory.setInitialDate();setGlobalEvent('onrakBuySellGoldHistoryClick')"><span>{{appLiterals.APP.RAKPAYCARDS.RAKBUYSELLGOLD.GOLDHISTORY.HISTORY}}</span></li>
+																	<li class="active"><span class="active">{{appLiterals.APP.RAKPAYCARDS.RAKBUYSELLGOLD.GOLDHISTORY.SCHTXNS}}</span></li>
+								</ul>
+							</div>
+
+		<div class="rak-scroll">
+         <div class="main-form-heading">
+                    	<h2 class="success">{{appLiterals.APP.RAK_SERVICES.RAK_GENERAL.SENT_MSG}}<span>{{rakSendMoney.common.successMessage}}</span></h2>
+            </div>
+
+
+	 <div class="bg-color rak-cont-padding" >
+
+	    <div class="row" >
+	      <div class="">
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.REFID}}
+									</span> <span class="rak-sum-label black">{{rakPayCards.rakInvGold.selectedTxn.txnReferenceId}}</span>
+								</p>
+								<p class="rak-sum-txt" ng-show="rakPayCards.rakInvGold.selectedTxn.txnType=='GBU'">
+									<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.TRANSACTION_TYPE}}
+									</span> <span class="rak-sum-label black">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.GBU}}</span>
+								</p>
+								<p class="rak-sum-txt" ng-show="rakPayCards.rakInvGold.selectedTxn.txnType=='GSE'">
+									<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.TRANSACTION_TYPE}}
+									</span> <span class="rak-sum-label black">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.GSE}}</span>
+								</p>
+
+
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.FROM}}
+									</span> <span class="rak-sum-label black">{{rakPayCards.rakInvGold.selectedTxn.fromAccount}}</span>
+								</p>
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.BENFNAME}}
+									</span> <span class="rak-sum-label black">{{rakPayCards.rakInvGold.selectedTxn.toAccount}}</span>
+								</p>
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.AMOUNT}}
+									</span> <span class="rak-sum-label black">{{rakPayCards.rakInvGold.selectedTxn.txnCurrency}} {{rakPayCards.rakInvGold.selectedTxn.txnAmount}}</span>
+								</p>
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.DATE}}
+									</span> <span class="rak-sum-label black">{{rakPayCards.rakInvGold.selectedTxn.txnDate}}</span>
+								</p>
+								<p class="rak-sum-txt" ng-show="rakPayCards.rakInvGold.selectedTxn.txnFrequency=='O'">
+									<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.FREQ}}
+									</span> <span class="rak-sum-label black">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.ONCE}}</span>
+								</p>
+								<p class="rak-sum-txt" ng-show="rakPayCards.rakInvGold.selectedTxn.txnFrequency!='O'">
+									<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.FREQ}}
+									</span> <span class="rak-sum-label black">{{rakPayCards.rakInvGold.recFreq}}</span>
+								</p>
+								<p class="rak-sum-txt" ng-show="rakPayCards.rakInvGold.selectedTxn.txnFrequency!='O'">
+									<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.INSTALLMENTS}}
+									</span> <span class="rak-sum-label black">{{rakPayCards.rakInvGold.noOfTransfers}}</span>
+								</p>
+									<p class="rak-sum-txt" ng-show="rakPayCards.rakInvGold.noOfInstanceLeft">
+									<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.NOOFTRANSFERLEFT}}
+									</span> <span class="rak-sum-label black">{{rakPayCards.rakInvGold.noOfInstanceLeft}}</span>
+								</p>
+
+
+
+				<div class="label-wrap">
+
+					<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click='rakPayCards.schedule.clearSchedulePayCardsData();rakPayCards.ownCards.clearOwnCardsData();setEvent("onTransfersSuccessOkClick")'> {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_SUCCESSPAGE.HOME}} </button>
+				</div>
+	<div class="col-sm-10"> </div>
+	</div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,124 @@
+<div class="rak-back-header" >
+        <i class="rak-back-img" ng-click="setGlobalEvent('onDashboardClick');"></i>
+</div>
+<div class="finacle-container ng-scope"
+	ng-init="rakMails.isDeleteClicked ? rakMails.inbox.initAfterDelete(successResponse.responsesList) : rakMails.inbox.initInboxPage(successResponse.responsesList)">
+
+	<div class="account-page">
+		<div class="col-sm-11">
+
+
+			<div class="">
+				<div class="row">
+						<div
+							ng-init='mailTypeArray=createDropDownOptionArray(rakMails.mailOptions, ["mailOption"],"mailValue")'>	</div>
+							<fin-input type="dropdown" option-array="mailTypeArray"
+								model="rakMails.selectedMailType"
+								display-row="full"
+								placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_SELCT}}"
+								on-change="resetPageError();setGlobalEvent(rakMails.getMailEvent());"
+								validation-flag='pageErrorArr["rakMails.selectedMailType"]'>
+							</fin-input>
+					
+					<div class="col-sm-1"></div>
+
+						
+
+				<!-- <div>
+					<span class="rakIBHeading">
+						<h2>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.TXT_INBOX}}</h2></span>
+
+					<div class="app  rakapp-ellipses-icon rakmailellipseSearch"
+						ng-click="rakMails.handlePullDown($event);">
+						<span class="">
+						<span class="rakellipse"></span>
+						<span  class="rakellipse"></span>
+						<span  class="rakellipse"></span>
+						</span>
+						<ul class="rakPullDownMenu rakAbsolute">
+							<li><a 
+								ng-click="rakMails.compose.clear();rakMails.fromInbox=false;rakMails.inboxComposeFlag=true;setGlobalEvent('onRakComposeClick')">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.BTN_COMP}}</a></li>
+							<li><a
+								ng-click="rakMails.sent.clear();setGlobalEvent('onRakSentMailsClick')">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.TXT_SENTMAIL}}</a></li>
+							<li><a 
+								ng-click="rakMails.draft.clear();setGlobalEvent('onRakDraftClick')">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.DRAFT}}</a></li>
+							<li><a 
+								ng-click="rakMails.trash.clear();setGlobalEvent('onRakTrashClick')">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.TXT_TRASH}}</a></li>
+							<li><a 
+								ng-click="rakMails.personal.clear();setGlobalEvent('onRakPersonalClick')">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.PERSONAL}}</a></li>
+						</ul>
+					</div>
+				</div> -->
+
+<!--CHANGES DONE TO FILTER TEXT ON WRITING START-->
+<div class="rakmail-field-wrap">
+      <p class="search-field">
+      <a >
+        <span class="rakGlyphicon glyphicon-search"> </span></a>
+        <input type="text" input-restricted-special-character placeholder="{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.SEARCH_MAILS}}" ng-model="searchText"  class="raksearch-txt">
+      </p>
+</div>
+<div class="rakMargin5px">
+<a  class="advanceSearch" ng-click="rakMails.RakSearchMails.fromInboxFlag=true;rakMails.RakSearchMails.criteriaFlag=false;rakMails.RakSearchMails.rakSearchMailReset();rakMails.RakSearchMails.rakMailFolderIdInbox();setEvent('onMailSearchClick');">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.ADVANCESEARCH}}</a>
+</div>
+<!--CHANGES DONE TO FILTER TEXT ON WRITING END-->
+
+<!--  CHANGES FOR INBOX BODY SCROLLING ONLY NOT HEADER START -->
+				 	<div class="bg-color rak-cont-padding rak-scroll rakHeight60">
+						<div class="row">
+						
+							<div class="ng-hide" ng-if='rakMails.isMailDeleted'
+								ng-init="(rakMails.isStatusError) ? showErrorPopup(rakMails.successMessage) : showAlert(rakMails.successMessage); rakMails.isMailDeleted=false; rakMails.isDeleteClicked=false; setEvent('onDeleteOKClick')">
+							</div>
+							
+							<div class="ng-show" ng-if='rakMails.isInboxEmpty'>
+							<span class="bnk_nm toggle_btn">{{rakMails.successMessage}}</span>
+							</div>  
+
+<!-- CHANGES SENDING INBOX TAB FLAG TRUE TO DISPLAY INBOX TAB AND UNREAD MAILS COLOR SELECTED START  -->
+							<div class="landingpage-list read"
+								ng-class="{'unread':mail.mailStatus=='U'}" >
+                                      <div class="i-mailInbox" ng-repeat="mail in filteredList = (rakMails.inbox.inboxList | filter:searchText)">
+                                     
+                                      			<div class="unreadIcon" ng-if="mail.mailStatus=='U'"></div>
+							                    <div class="readIcon" ng-if="mail.mailStatus=='R'"></div>							                    
+							                    
+									          <div class="inbox-rsplit-inbox"  ng-class="{'unread':mail.mailStatus=='U'}"
+									          ng-click="rakMails.mailTextNew='';rakMails.selectedMailId=mail.mBoxId;rakMails.detailType='Inbox';rakMails.selectedMail=mail;
+									          rakMails.clearTab();rakMails.inboxTab=true;rakMails.fromBroadcast=false;rakMails.fromInbox=true;
+									          setEvent('onRakInboxMailClick')">
+									          	<div ng-if="mail.folderIDS=='AL'">
+										            <span class="bnk_nm" ng-if="mail.mailStatus=='U'">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.BROADCAST}}</span>
+										            <span class="bnk_nm" ng-if="mail.mailStatus=='R'">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.BROADCAST}}</span>
+										         </div>
+										         <div ng-if="mail.folderIDS!='AL'">
+										            <span class="bnk_nm" ng-if="mail.mailStatus=='U'">{{mail.mailSubject}}</span>
+										            <span class="bnk_nm" ng-if="mail.mailStatus=='R'">{{mail.mailSubject}}</span>
+										         </div>
+						                       </div>
+							                 
+
+							                    <div class="inbox-csplit-new" ng-if="mail.mailStatus=='U'">{{mail.mailDate}}</div>
+							                    <div class="inbox-csplit-new" ng-if="mail.mailStatus=='R'">{{mail.mailDate}}</div>
+							                  
+                                        </div>
+                                   
+                                      <span ng-show="filteredList.length=='0'">No mails found</span>
+            
+							</div>
+							
+					
+					
+
+						</div>
+					</div>
+					<div class="col-sm-1"></div>
+					
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

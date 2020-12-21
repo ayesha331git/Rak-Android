@@ -1,0 +1,97 @@
+<div class="rak-back-header">
+			<i class="rak-back-img" ng-click="setEvent('onViewSchTxnBackClick');"></i>
+		</div>
+
+<div class="finacle-container ng-scope"
+	ng-init="rakPayee.RakCCStandingInstModel.isDetailsFetchedForAmendSI=true;rakPayee.amendStandingInst.initAmendStandingInst(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+			
+
+			<div class="main-form-heading-ServiceReq"> 
+                      <h2 class="rakBenfHeader">
+                      <span>Transaction Details</span>                
+                      </h2>              
+			</div>
+			
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+					<div class="">
+					
+				
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_CREDCRDNO}}</span>
+							<span class="rak-sum-label black">{{rakPayCards.schedule.selectedTxnIndex}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_PYMT_PER}}</span>
+							<span class="rak-sum-label black" ng-if="rakPayee.amendStandingInst.paymentPercentage=='P'">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_PER_CURR_BAL}}</span>
+							<span class="rak-sum-label black" ng-if="rakPayee.amendStandingInst.paymentPercentage=='M'">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_MIN_AMT_DUE}}</span>
+							<span class="rak-sum-label black" ng-if="rakPayee.amendStandingInst.paymentPercentage=='F'">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_FLAT_AMT}}</span>
+						</p>
+						
+						
+						<p class="rak-sum-txt" ng-show="rakPayee.amendStandingInst.paymentPercentage =='P'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.TXT_PERCENTAGE}}</span>
+							<span class="rak-sum-label black">{{rakPayee.amendStandingInst.perentageCurrBal}} {{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.TXT_PERCENTAGE_SIGN}}</span>
+						</p>
+						<p class="rak-sum-txt" ng-show="rakPayee.amendStandingInst.paymentPercentage =='F'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_FLAT_AMT}}</span>
+							<span class="rak-sum-label black">{{rakPayee.amendStandingInst.flatAmount}}</span>
+						</p>
+						
+						<p class="rak-sum-txt" ng-if="rakPayee.amendStandingInst.changeSIDate=='N'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_CNGE_SI_DATE}}</span>
+							<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_DAYS_DATE}}</span>
+						</p>
+						
+						<p class="rak-sum-txt" ng-if="rakPayee.amendStandingInst.changeSIDate=='Y'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_CNGE_SI_DATE}}</span>
+							<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_PYMT_DUE_DATE}}</span>
+						</p>
+						
+						
+						
+						<p class="rak-sum-txt" ng-if="rakPayee.amendStandingInst.changeSIDate =='N'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_DAYS_OF_MONTH}}</span>
+							<span class="rak-sum-label black">{{rakPayee.amendStandingInst.selectedDate}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_DEB_ACC}}</span>
+							<span class="rak-sum-label black">{{rakPayee.amendStandingInst.debitAccSelected}}</span>
+						</p>
+						
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_TEMP_HOLD}}</span>
+							<span class="rak-sum-label black" ng-if="rakPayee.amendStandingInst.tempHold == 'Y'">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_YES}}</span>
+							<span class="rak-sum-label black" ng-if="rakPayee.amendStandingInst.tempHold == 'N'">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_NO}}</span>
+						</p>
+						
+						<p class="rak-sum-txt" ng-if="rakPayee.amendStandingInst.tempHold == 'Y'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_NUM_MONTH}}</span>
+							<span class="rak-sum-label black">{{rakPayee.amendStandingInst.noOfMonths}}</span>
+						</p>
+						
+				
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back"
+								ng-click="setEvent('onViewSchTxnBackClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+						
+
+						</div>
+						<div class="col-sm-1"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

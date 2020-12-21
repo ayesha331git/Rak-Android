@@ -1,0 +1,123 @@
+<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onCancelClick');"></i>
+	</div>
+<div class="finacle-container" ng-init="rakServiceReq.initRAKAmmendDeposit(successResponse.responsesList);">
+
+
+  <div class="account-page" >
+    <div class="col-sm-11">
+
+		<div class="main-form-heading-ServiceReq"> 
+                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DEP_AMMEND_MATURITY_INST_ISLAMIC}}
+                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+                 </h2>              
+			</div>
+      <div class="bg-color rak-cont-padding rak-scroll">
+        <div class="row" >
+          
+
+
+
+<div ng-init='depAccountArray = createDropDownOptionArray(rakServiceReq.RAKAmmendDeposit.depaccountList,
+["productCatDesc","-","accountId","-","currency"], "accountIndex");'></div>
+                          <fin-input type="dropdown"
+                                          display-row="full"
+                                          model="rakServiceReq.RAKAmmendIslamicDeposit.selectedDepAccNo"
+                                          on-change="rakServiceReq.RAKAmmendDeposit.flag=true;setEvent('onRAKAmmendFetchingDepAcc');"
+                                          placeholder="{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.FIXED_DEPOSIT_NUMBER}}"
+                                          validation-flag='pageErrorArr["rakServiceReq.RAKAmmendIslamicDeposit.selectedDepAccNo"]'
+                                          option-array="depAccountArray">
+                          </fin-input>
+
+<div  ng-show="rakServiceReq.RAKAmmendDeposit.flag">
+                                        
+ <p class="rak-parent-txt" >
+<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.FIXED_DEPOSIT_NUMBER}}</span>
+<span class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RAKAmmendDeposit.selectedepaccountnum}}</span>
+</p>					
+	
+<p class="rak-parent-txt" >
+<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.DEPOSIT_REFERENCE_NUMBER}}</span>
+<span class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RAKAmmendDeposit.selectedepaccountnum}}</span>
+</p>										
+	
+<p class="rak-parent-txt" >
+<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.DEPOSIT_START_DATE}}</span>
+<span class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RAKAmmendDeposit.selectedepstartDate}}</span>
+</p>										
+
+<p class="rak-parent-txt">
+<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.DEPOSIT_MATURITY_DATE}}</span>
+<span class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RAKAmmendDeposit.selectedepmaturityendDate}}</span>
+</p>
+
+<p class="rak-parent-txt" >
+<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.DEPOSIT_AMOUNT}}</span>
+<span class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RAKAmmendDeposit.selectedepamount}}</span>
+</p>
+
+<p class="rak-parent-txt" >
+<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.MATURITY_AMOUNT}}</span>
+<span class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RAKAmmendDeposit.selectedmaturityamount}}</span>
+</p>	
+
+</div>
+
+	<div  ng-show="rakServiceReq.RAKAmmendDeposit.flag" class="radio-biller rak100 rakWidth100  rakRadioBottom">
+							{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.INSTRUCTION}}</div>
+												<div class="rakCstmRadioDiv rak100 rakTop2emLeft3">
+													<input type="radio" value="C" id="radio1" ng-show="rakServiceReq.RAKAmmendDeposit.flag"
+														ng-model="rakServiceReq.RAKAmmendIslamicDeposit.instructions"  validation-flag='pageErrorArr["rakServiceReq.RAKAmmendIslamicDeposit.instructions"]'/>
+													
+													<label for="radio1" ng-show="rakServiceReq.RAKAmmendDeposit.flag"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.CREDIT_PROFIT_TO_MY_ACCOUNT}}</label>
+												</div>
+												<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.RAKAmmendIslamicDeposit.instructions"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.INSTRUCTION}}</div>
+
+
+
+
+					<div ng-init='debitoprAccountArray = createDropDownOptionArray(rakServiceReq.RAKAmmendDeposit.debitopraccountList,
+                       ["productCatDesc","-","accountId","-","currency"], "accountIndex");'></div>
+                        <fin-input type="dropdown" model="rakServiceReq.RAKAmmendIslamicDeposit.selectedDebitOprAccNo"
+                      validation-flag='pageErrorArr["rakServiceReq.RAKAmmendIslamicDeposit.selectedDebitOprAccNo"]'
+                      display-row="full"
+                      ng-show="rakServiceReq.RAKAmmendDeposit.flag && rakServiceReq.RAKAmmendIslamicDeposit.instructions == 'C'"
+                      placeholder="{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.ACTIVE_OPERATIVE_ACCOUNT}}"  option-array="debitoprAccountArray">
+					  </fin-input>
+
+
+
+
+
+
+
+	<div class="label-wrap">
+		<button type="button" class="btn--special-btn btn-middle rak-button-right"
+		ng-show="rakServiceReq.RAKAmmendDeposit.flag"
+		ng-click="rakServiceReq.checkHiddenFieldForAmmendDepIslamicValue();
+		rakServiceReq.GenericAuthorizationVariable.transactionPassword = '';
+		setEvent('onAmmendContinueClick');"> {{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.CONTINUE}} </button>
+
+   </div>
+   
+   			<div class="disclaimer">
+                        <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                        <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                        </div>
+                        
+                     <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+				
+						<span ng-bind-html="appLiterals.APP.DISCLAIMER.AMEND_DEP_INIT"></span>
+						<span ng-click="rakServiceReq.fetchDisclaimer('IslamicDepositServiceRequestsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RENEW_DEP_INIT_CLCIK"></span>
+						<span ng-click="rakServiceReq.fetchDisclaimer('TermsAndConditionsAmalProducts.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RENEW_DEP_INIT_TERMS"></span>
+				</div>
+        </div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+

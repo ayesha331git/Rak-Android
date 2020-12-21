@@ -1,0 +1,62 @@
+<div class="rak-back-header">
+    <i class="rak-back-img" ng-click="setEvent('onBackClick');"></i>
+  </div>
+ 
+ <div class="finacle-container" ng-init="rakPayee.resetBillerModule();rakPayee.billerController.parseRegisteredBillerDetails(successResponse.responsesList)">
+	<div class="account-page">
+<div class="col-sm-11">
+<div class="app-title-wrapper">
+<div class="form-block">
+<ng-include  src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>	 
+ 
+    <div class="main-form-heading-payee"> 
+		      <h2 >{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.CREATE_PAYEE}}<span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1}} : {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP_BIL}} </span></h2>		       
+		  </div>			  
+ <div class="fin-txt"></div>
+
+    <div class="rakBnf">
+    <div class="raksearch-field-wrap rakSeachBoxMarginZero">
+      <p class="search-field"><span class="rakGlyphicon glyphicon-search"> </span>
+        <input type="text" input-restricted-special-character placeholder="Search Biller" ng-model="searchText" class="raksearch-txt">
+      </p>
+    </div>
+   </div>
+   <div class="fin-txt"></div>
+    <div class="nano movemoney-scroll">
+	    <div class="mm-content1 nano-content">
+    <!-- <div class="nano benif-scroll">-->        
+    <!-- <div class="mm-content nano-content">-->
+     <div class="bg-color rakSubScrollDiv rak-cont-paddingvh">
+       <div class="row" >
+			  <div class="col-sm-1"> </div>
+			  
+		  <div class="rakcustomer-wrapper rak60ScrollDiv">
+			  <div class="rakGreyRow" ng-repeat="biller in rakPayee.billerController.billerList |filter:searchText" ng-click="rakPayee.isBackClicked=false;rakPayee.resetBillerModule();rakPayee.billerController.selectedBiller = biller;rakDisclaimerFlag=false;rakPayee.getDisclaimerText();setEvent('onPayeeNewBillerAddClick');">		
+		  
+				<div class="people-details-new rakBillerImage" ng-class="biller.billerName">
+				  <div class="rakPeopleNameRow1"> {{biller.billerName}}</div>
+				  <div class="rakListArrow marginTop5less"><img src="images/arrow-right1.png"
+															alt=""></div>
+					<div class="rakPeopleNameRow2"> 
+					 {{biller.billerDesc}}
+					</div>
+				<!-- 	<div class="dot"> </div> -->
+				
+				</div>
+
+
+			  </div>
+			 </div>
+			 
+			 
+			 </div>
+			 </div>
+</div>
+</div>
+<div class="col-sm-1"> </div>
+
+</div>
+</div>
+</div>
+</div>
+</div>

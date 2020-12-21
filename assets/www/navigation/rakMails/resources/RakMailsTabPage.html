@@ -1,0 +1,10 @@
+ <div class="money-block">
+          <ul>
+           <li ng-class="{'active':rakMails.inboxTab,'':!rakMails.inboxTab}" ng-click="rakMails.clearTab();rakMails.inboxTab=true;setGlobalEvent('onRakMailClick')">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.TXT_INBOX}}</li> 
+           <li ng-class="{'active':rakMails.sentMailsTab,'':!rakMails.sentMailsTab}" ng-click="rakMails.clearTab();rakMails.sentMailsTab=true;setGlobalEvent('onRakSentMailsClick')">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.TXT_SENTMAIL}}</li>
+           <li ng-class="{'active':rakMails.draftsTab,'':!rakMails.draftsTab}" ng-click="rakMails.clearTab();rakMails.draft.clear();rakMails.draftsTab=true;setGlobalEvent('onRakDraftClick')">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.DRAFT}}</li>
+           <li ng-class="{'active':rakMails.trashTab,'':!rakMails.trashTab}" ng-click="rakMails.clearTab();rakMails.trashTab=true;setGlobalEvent('onRakTrashClick')">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.TXT_TRASH}}</li>
+          </ul>
+        </div>
+<!-- <li ng-class="{'active':rakMails.inbox,'':!rakMails.inbox}" ng-click="rakMails.clearTab();rakMails.inbox=true;setEvent('onRakInboxDetailMailClick')">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.TXT_INBOX}}</li>-->
+ <!-- <li ng-class="{'active':rakMails.inbox,'':!rakMails.inbox}" ng-click="rakMails.clearTab();rakMails.inbox=true;setGlobalEvent('onRakMailClick')">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.TXT_INBOX}}</li> -->       

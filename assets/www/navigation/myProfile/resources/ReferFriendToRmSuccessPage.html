@@ -1,0 +1,24 @@
+<div class="finacle-container finacle-container-successPage col-sm-12"
+	ng-init="myProfile.referAndShare.clearContactData();
+myProfile.referAndShare.initSuccesspage(successResponse.responsesList[0]);">
+
+
+	<div class=" dashboard-item-body">
+	<fin-success success-banner="" success-message="{{myProfile.referAndShare.successMessage}}" cross-click="setEvent('onDoneButtonClick');"></fin-success>
+	<!-- 	<div class="sucs_circle_wrap">
+			<span class="app-tickcircle sucs_circle_icon"></span> 
+			<div id="ReferFriendToRmSuccessPage" class="title-right-succPage"
+				ng-click="setEvent('onDoneButtonClick');"></div>
+		</div> -->
+	<!--	<p class="trans_sucs_txt">
+			{{appLiterals.APP.MYPROFILE.REFER_FRND_SUCC.MSG_SUCC}}</p>
+		<div class="trans_id_wrap">
+			<div class="id_txt_wrap">
+				<div class="id_txt_pad">
+					<!--  <p> <span class="id_color">Transaction Id:</span> 430361346</p>-->
+				<!-- 	<p class="sucs-id-txt ng-binding">{{myProfile.referAndShare.successMessage}}</p>
+				</div>
+			</div>
+		</div> -->
+	</div>
+</div>

@@ -1,0 +1,41 @@
+<div id="updateNicknameAuthPage" class="app app-arrow2 title-right"
+	ng-click="setEvent('onUpdateNicknamePrevClick')"></div>
+<div class="finacle-container"
+	ng-init="myProfile.updateNickname.transactionPassword='';myProfile.updateNickname.submitNicknameResponseDetails(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper">
+			</div>
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div id="confirmAuth" class="item-title text-uppercase">{{appLiterals.APP.MYPROFILE.UPDATENICKNAME.CONFIRM_INFO_TXT}}</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="dashboard-details"
+							ng-repeat="accountDetails in myProfile.updateNickname.submitNicknameDetails">
+							<div class=" account-detail-dash margin-zero">
+								<b id="accNum" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.UPDATENICKNAME.ACCOUNT_NO}}</b>
+								<span id="accTypeDesc" class="dash-ac-id">{{accountDetails.accountNumber}}({{accountDetails.subAccountTypeDesc}})</span>
+							</div>
+
+							<div class=" account-detail-dash margin-zero">
+								<b id="nickNameLabel" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.UPDATENICKNAME.ACCOUNT_NICKNAME}}</b>
+								<span id="nickNameValue" class="dash-ac-id">{{accountDetails.accountNickName}}</span>
+							</div>
+						</div>
+						<form
+						ng-submit="setEvent('onUpdateNicknameConfirmClick')">
+						<fin-Stepauth></fin-Stepauth>
+						<section class="button-wrapper" layout="row"
+							layout-align="center center" layout-wrap>
+							<md-button id ="updateNickNameAuth" type="submit" class=" md-raised btn--primary-btn">
+							{{appLiterals.APP.MYPROFILE.UPDATENICKNAME.CNFRM_BUTTON}}</md-button>
+						</section>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

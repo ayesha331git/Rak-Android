@@ -1,0 +1,190 @@
+<div class="finacle-container ng-scope"
+	ng-init="rakServiceReq.lcOrNlc.transactionPassword = '';rakServiceReq.confirmLcOrNlc(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+
+			 <div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.LC_NLC}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>		     
+				      </h2>		       
+		 		</div>
+			
+		
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+					<div class="">
+
+                         <div class="rakDupliSRChkMsgImg" ng-show='rakServiceReq.common.message'>
+							<span class='rakAlertForDupStmt'></span> <span class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+			             </div>
+					<!-- 	<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.REQ_LC_OR_NLC}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.isRequested}}</span>
+						</p>  -->
+
+						<p class="rak-sum-txt" >
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_CERT_REQUIRED}}</span>							
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.acctountNumber}}</span>
+						</p>
+						
+<!--CHANGES DONE AS FIX OF PROUAT-2781 START  -->		
+						<p class="rak-sum-txt"
+							ng-hide="rakServiceReq.lcOrNlc.isSelectAccount!='LAA' || rakServiceReq.lcOrNlc.isRequestFor!='LC'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.LOAN_OR_FIN_ACC}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.loanFinAccList[rakServiceReq.lcOrNlc.loanFinAcc].loanFinAcc}}</span>
+						</p>
+
+
+						<p class="rak-sum-txt"
+							ng-hide="rakServiceReq.lcOrNlc.isSelectAccount!='CCD' || rakServiceReq.lcOrNlc.isRequestFor!='LC'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CREDIT_CARD_ACC}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.creditCardList[rakServiceReq.lcOrNlc.creditCardNumber].creditCardNumber}}</span>
+						</p>
+<!--CHANGES DONE AS FIX OF PROUAT-2781 END  -->
+
+					 <p class="rak-sum-txt">
+							
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_COMP_NAME}}</span>
+								<span class="rak-sum-label black">
+									{{rakServiceReq.lcOrNlc.compName}}</span>
+					</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.LANG_ENG_OR_ARB}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.isLangSelected}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.ADDRESSED_TO}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.addressedTo}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_DISPATCH_MODE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.isDispatchMode}}</span>
+						</p>
+						
+						<p class="rak-sum-txt"
+						ng-show="rakServiceReq.lcOrNlc.isDispatchMode=='{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_COLLECT_BRANCH}}'"	>
+							<span class="rak-sum-label">{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_CONF_BRANCH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.OprAcctBranchList[rakServiceReq.lcOrNlc.selectedBranchId].branchCode}}</span>
+						</p>
+						
+						<p class="rak-sum-txt"
+						ng-show="rakServiceReq.lcOrNlc.isDispatchMode=='{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.CUSTOM_DELIVER_ADDRESS}}'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_ADDREG}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.registeredAddress}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.MOBILENUMBER}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.mobileNumber}}</span>
+						</p>
+
+
+<!--CHANGES DONE AS FIX OF PROUAT-2485 START-->	
+						<!-- <p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.BRANCH_NAME}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.confirmedBranch}}</span>
+						</p> -->
+					<!-- 	<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.emiSelDesc}}</span>
+						</p> -->
+
+						
+<!--CHANGES DONE AS FIX OF PROUAT-2485 END-->	
+
+					
+	
+						
+
+<!--CHANGES DONE AS FIX OF PROUAT-2485 START-->	
+						<p class="rak-sum-txt" ng-hide="rakServiceReq.lcOrNlc.notes==''">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.NOTES}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.notes}}</span>
+						</p>
+<!--CHANGES DONE AS FIX OF PROUAT-2485 END-->
+
+
+<!--CHANGES DONE AS FIX OF PROUAT-2781 START  -->
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.DEBIT_ACCOUNT}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.lcOrNlc.debitOprAccList[rakServiceReq.lcOrNlc.debitOprAcc].debitOprAcc}}</span>
+						</p>
+<!--CHANGES DONE AS FIX OF PROUAT-2781 END  -->	
+
+
+							<!-- Transaction password and OTP are chosen from Temporary Release Letter --- START -->
+
+						<fin-input type="password_text"
+							model="rakServiceReq.lcOrNlc.transactionPassword"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+							min="0"
+							validation-flag='pageErrorArr["rakServiceReq.lcOrNlc.transactionPassword"]'
+							ng-show="rakServiceReq.lcOrNlc.auth==txnpwdString"></fin-input>
+
+						<!-- <fin-input type="password_number"
+							model="rakServiceReq.lcOrNlc.transactionPassword"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_LC_NLC.PH_OTP}}"
+							min="0"
+							validation-flag='pageErrorArr["rakServiceReq.lcOrNlc.transactionPassword"]'
+							ng-show="rakServiceReq.lcOrNlc.auth==otpString"></fin-input> -->
+
+
+<!--  CHANGES FOR RESEND OTP START -->
+<div ng-show="rakServiceReq.lcOrNlc.auth==otpString">
+ <div ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+<fin-input type="password_num" model="rakServiceReq.lcOrNlc.transactionPassword"
+display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+validation-flag='pageErrorArr["rakServiceReq.lcOrNlc.transactionPassword"]'>
+</fin-input>
+</div>
+<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0' ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+			
+				<fin-input type="dropdown" option-array="toModeArray" model="rakHome.otpModel.otpModeSelected" display-row="full" placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+				<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+			
+			</div>
+<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');">{{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>
+</div>
+<!--  CHANGES FOR RESEND OTP END -->
+
+							<!-- Transaction password and OTP are chosen from Block Credit Card Confirm --- END -->
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back"
+								ng-click="rakServiceReq.lcOrNlc.isBack=true;setEvent('onLcOrNlcConfirmBackClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="setEvent('onLcOrNlcConfirmSubmitClick');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}
+							</button>
+
+						</div>
+						<div class="col-sm-1"></div>
+					</div>
+				</div>
+				<div class="disclaimer">
+					<div class="disclaimer1 rakSupplCardIco"
+						ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"
+						ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+						<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+					</div>
+
+					<div class="disclaimer3" ng-show="rakDisclaimerFlag">
+						<div class="disclaimer3"
+							ng-bind-html="appLiterals.APP.DISCLAIMER.RAKNOLIABILITYCERTIFICATE_CONFIRMATIONPAGE"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

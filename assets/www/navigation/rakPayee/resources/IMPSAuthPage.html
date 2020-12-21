@@ -1,0 +1,68 @@
+<div class="container-fluid finacle-container"
+	ng-init="payee.imps.isConfirmClicked ? payee.imps.initAfterAuthSent(successResponse.responsesList) : payee.imps.initAuthPage(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-10">
+			<div class="app-title-wrapper">
+				<div class="app-arrow title-left" ng-click="successResponse.responsesList=[{}];payee.imps.authValue='';setEvent(payee.imps.getAuthBackEvent())"></div>
+				<div class="title-center">Confirm & Authorise</div>
+				<div class="spp app-cancel title-right"
+					ng-click="setGlobalEvent('onPayeeClick')"></div>
+			</div>
+
+			<div class="ng-hide" ng-if="payee.isShowAlert"
+				ng-init="(payee.isAlertAnError == true) ? showErrorPopup(payee.imps.statusMessage) : showAlert(payee.imps.statusMessage); 
+				payee.isShowAlert=false; payee.isAlertAnError = false; 
+				setGlobalEvent('onPayeeClick')"></div>
+
+			<div class="highlight-color"></div>
+			<div class="bg-color">
+				<div class="row">
+					<div class="col-sm-10" >
+						<p class="left-txt1" ng-hide="payee.imps.isMER">
+							<b>Add IMPS Payee</b><br> <b>{{payee.imps.payeeNickname}}</b>
+						</p>
+						
+						<p class="left-txt1" ng-show="payee.imps.isMER"> 
+						<b>Add IMPS Merchant</b><br><b>{{payee.imps.payeeNickname}}</b>
+						
+						</p>
+						<p class="left-txt" ng-show="payee.imps.isIFSC || payee.imps.isEditMode || payee.imps.isDeleteMode">
+							Account No.: &nbsp;<span class="right-txt-color ng-binding">{{payee.imps.accountNo}}
+							</span>
+						</p>
+						<p class="left-txt" ng-show="payee.imps.isIFSC || payee.imps.isEditMode || payee.imps.isDeleteMode">
+							IFSC Code: &nbsp;<span class="right-txt-color ng-binding">{{payee.imps.ifscCode}}</span>
+						</p>
+						<p class="left-txt" ng-show="payee.imps.isMMID || payee.imps.isEditMode || payee.imps.isDeleteMode">
+							MMID: &nbsp;<span class="right-txt-color ng-binding">{{payee.imps.mmid}}</span>
+						</p>
+						<p class="left-txt" ng-show="payee.imps.isMMID || payee.imps.isEditMode || payee.imps.isDeleteMode">
+							Mobile no: &nbsp;<span class="right-txt-color ng-binding">{{payee.imps.mobileNo}}</span>
+						</p>
+						<p class="left-txt" ng-show=" payee.imps.isMER && payee.imps.isEditMode==false && payee.imps.isDeleteMode==false ">
+							MMID: &nbsp;<span class="right-txt-color ng-binding">{{payee.imps.merMMID}}</span>
+						</p>
+						<p class="left-txt" ng-show=" payee.imps.isMER && payee.imps.isEditMode==false && payee.imps.isDeleteMode==false">
+							Mobile no: &nbsp;<span class="right-txt-color ng-binding">{{payee.imps.merMobileNo}}</span>
+						</p>
+						<p class="left-txt" ng-show="payee.imps.isMER">
+						Merchant's Reference: &nbsp;<span class="right-txt-color ng-binding"> {{payee.imps.merRefrence}} </span>
+						</p>
+						<div class="label-wrap">
+							<p class="label-title">Authorise</p>
+							<p class="label-txt">Confirm the payment using your
+								transaction password</p>
+						</div>
+						<fin-input type="password_text" model="payee.imps.authValue"
+							display-row="full" placeholder="Transaction Password" min="0"
+							validation-flag='pageErrorArr["payee.imps.authValue"]'></fin-input>
+						<button type="button" class="btn--primary-btn"
+							ng-click="payee.imps.isConfirmClicked=true; setEvent(payee.imps.getAuthEvent());">C O N F I R M</button>
+					</div>
+					<div class="col-sm-1"></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-1"></div>
+	</div>
+</div>

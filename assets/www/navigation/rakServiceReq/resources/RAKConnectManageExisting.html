@@ -1,0 +1,133 @@
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onRAKConnectManageExistingBackClick');"></i>
+	</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container"
+			ng-init="rakServiceReq.fetchRAKConnectInitData(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+					<!-- Heading fix-start -->
+                   <div class="dashboard-item-title">
+					  <div class="rak-item-title"> 
+					    {{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.RAKCONNECT}}</div>
+					  
+					</div>
+					 <div class="summary-ServiceReq" ng-show="rakServiceReq.RAKConnectModel.successMsg && rakServiceReq.RAKConnectModel.connectInitFlag==true">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakServiceReq.RAKConnectModel.successMsg}}</span>
+                        </div>
+                    </div>
+					<!-- Heading fix-end -->
+						<div class="form-block rak-scroll">
+						 <div class="money-block">
+					          <ul>
+					            <li ng-class="{'active':rakServiceReq.RAKConnectModel.rakConnSetupNewAlert,'':!rakServiceReq.RAKConnectModel.rakConnSetupNewAlert}" ng-click="rakServiceReq.RAKConnectModel.manageExistFlag=false;rakServiceReq.activateSetupNewAlertsTab();setEvent('onRAKConnectSetupNewAlertsClick');">{{appLiterals.APP.RAKCONNECT.SETUP_NEW_ALERT}}</li>
+					            <li ng-class="{'active':rakServiceReq.RAKConnectModel.rakConnManageExisting,'':!rakServiceReq.RAKConnectModel.rakConnManageExisting}" ng-click="">{{appLiterals.APP.RAKCONNECT.MANAGE_EXISTING}}</li>
+					          </ul>
+				        </div>
+							<div class="bg-color rak-cont-padding">
+							<div class="">
+								<div class="col-sm-1"></div>
+ 				<div ng-if="rakServiceReq.RAKConnectModel.customAlertDataArray.length == 0 ">
+				 <div class="error-details">
+					  <div>
+						 <span class="error-details-txt">
+							{{appLiterals.APP.RAKCONNECT.NO_EXISTING_ALERT_PRESENT}}
+						 </span>
+						</div>
+				 </div>
+				</div>   				 
+				<div ng-if="rakServiceReq.RAKConnectModel.customAlertDataArray.length > 0">
+     				<div class="money-block rakBottomZero">
+				         <ul>
+				            <li  class="active rak40 ng-binding" >
+				            {{appLiterals.APP.RAKCONNECT.ALERT_TYPE}}</li>						        
+				           <li class="active rak40 ng-binding">
+				            {{appLiterals.APP.RAKCONNECT.ACC_OR_CC}}</li>
+				            <li class="active rak20 ng-binding">&nbsp;</li>
+				         </ul>
+					</div>						 	
+				 	<div class="nano rakHalfScrollDiv rak-cont-padding" >
+			            <div class="" >
+							<div class="trans-detail rakGreyRow" ng-repeat="x in rakServiceReq.RAKConnectModel.customAlertDataArray">							
+			                  <div class="trans-dash-right rakPeopleNameRow1 rak40  rakPaddingPoint8em">
+			                   	<div> 
+			                    <div class="trans-no rakFont1em">
+			                   {{x.subAlertIDDesccription}}
+			                    </div>
+			                    </div>
+			                  </div>
+			                  <div class="trans-dash-right rakPeopleNameRow1 rak40 rakPaddingPoint8em" >					                
+			                  <div>
+			                    <div class="trans-no rakFont1em">
+			                    {{rakServiceReq.RAKConnectModel.customAlertList[x.subAccountID].subAccountID}}
+			                    </div>
+			               		</div> 
+			                  </div>
+			                    
+			                  <div class="trans-dash-right rakPeopleNameRow1 rak20 rakPaddingPoint8em" ng-if="x.subRemove=='Y'">
+			                    <div>
+			                    	<div class="trans-no rakFont1em rakRed">
+			                    	Deleted
+			                    </div>
+			                  </div>					                        
+			                  </div>
+			                  <div class="trans-dash-right rakPeopleNameRow1 rak20 rakPaddingPoint8em" ng-if="x.subRemove!='Y'">
+			                    <div>
+			                    	<div class="trans-no rakFont1em"
+			                    	ng-click="rakServiceReq.RAKConnectModel.editableCustomAlertIndex = {{rakServiceReq.RAKConnectModel.customAlertDataArray.indexOf(x)}};
+			                  rakServiceReq.loadCustomAlertEditPageData();
+			                  rakServiceReq.detectCustomFreqCodeSelected();
+			                  rakServiceReq.detectFreqDescSelected(rakServiceReq.RAKConnectModel.selectedSubAlertFreq);
+			                  rakServiceReq.RAKConnectModel.connectInitFlag=false;
+			                  setEvent('onRAKConnectCustomAlertEditClick');"><img src="images/edit-img.png" alt="">
+			                    </div>
+			                  </div>					                        
+			                  </div>
+			                </div>
+			                
+			              </div>
+							<div class="label-wrap">
+								<button type="button" class="btn--special-btn btn-middle"
+								display-row="full"
+								ng-click="rakServiceReq.RAKConnectModel.manageExistFlag=true;rakServiceReq.RAKConnectModel.connectInitFlag=false;rakServiceReq.activateSetupNewAlertsTab();rakServiceReq.calcEverythingForFinalSubmit();setEvent('onRAKConnectAlertsSubmitClick');">{{appLiterals.APP.RAKCONNECT.PROCEED}}</button>
+							</div>
+							</div>
+						</div>
+									</div>
+									<div class="col-sm-1"></div>
+									
+									 <div class="disclaimer"  ng-init='rakDisclaimerFlag=false;' ng-if="rakHome.userTypeIDValue=='CORPORATE'">
+											<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+												<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+											</div>
+							
+										 <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                                  <span ng-click="rakServiceReq.fetchDisclaimer('AcntAndDebitCardSrvcRqstsCutoffTime_CORP.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                                                  <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCONNECTREGISTERCUTOFFTIMES"></span>
+                                                  <span ng-click="rakServiceReq.fetchDisclaimer('AccountServiceRequestsCharges_CORP.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCONNECTREGISTERCHARGES"></span>  
+                                         </div>
+							
+										</div>
+										
+										 <div class="disclaimer"  ng-init='rakDisclaimerFlag=false;' ng-if="rakHome.userTypeIDValue!='CORPORATE'">
+											<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+												<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+											</div>
+							
+										 <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                                  <span ng-click="rakServiceReq.fetchDisclaimer('AcntAndDebitCardSrvcRqstsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                                                  <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCONNECTREGISTERCUTOFFTIMES"></span>
+                                                  <span ng-click="rakServiceReq.fetchDisclaimer('AccountServiceRequestsCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCONNECTREGISTERCHARGES"></span>  
+                                         </div>
+							
+										</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

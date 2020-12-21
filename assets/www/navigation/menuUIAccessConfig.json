@@ -1,0 +1,3322 @@
+{
+	"menuItems": {
+
+	
+		
+		"DSRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.OPR_ACC_DUPLICATESTMT",
+		"menuId": "DSRQKL",
+		"parentMenuId": "RAKSROPRACC",
+		"menuAccessString": ["DSRQKL"],
+		"menuSeqNumber":1,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRakOprAccDupStmtInitDetails();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakOprAccDupStmtInitClick"
+		}
+	},
+	"AASQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.ADVSALARY",
+		"menuId": "AASQKL",
+		"parentMenuId": "RAKSROPRACC",
+		"menuAccessString": ["AASQKL"],
+		"menuSeqNumber":2,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.AdvanceSalaryData.clearAdvanceSalaryData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onAdvanceClick"
+		}
+	},
+	"EVBQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.EVANTAGE_BALANCE",
+		"menuId": "EVBQKL",
+		"parentMenuId": "RAKSROPRACC",
+		"menuAccessString": ["EVBQKL"],
+		"menuSeqNumber":3,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.clearCommonData();rakServiceReq.EvantageData.clearEvantageData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onEvantageClick"
+		}
+	},
+	"BCRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.BALCONFLINK",
+		"menuId": "BCRQKL",
+		"parentMenuId": "RAKSROPRACC",
+		"menuAccessString": ["BCRQKL"],
+		"menuSeqNumber":4,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKOprAcctBalConfReqData();rakServiceReq.setCurrentDate();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKOprAcctBalConfLinkClick"
+		}
+	},
+	
+	
+	
+	
+	"DDMQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.RAK_OPR_DD_CHQ",
+		"menuId": "DDMQKL",
+		"parentMenuId": "RAKSROPRACC",
+		"menuAccessString": ["DDMQKL"],
+		"menuSeqNumber":10,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKOprDDData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKOprDDChequeRequestClick"
+		}
+	},
+	"CHKQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.REQ_NEWCHEQBK",
+		"menuId": "CHKQKL",
+		"parentMenuId": "RAKSROPRACC",
+		"menuAccessString": ["CHKQKL"],
+		"menuSeqNumber":11,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.checkBookRequest.resetModel();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onChequeCommuincationBookClick"
+		}
+	},
+	"MCRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.OPR_EV_MAILCHQ",
+		"menuId": "MCRQKL",
+		"parentMenuId": "RAKSROPRACC",
+		"menuAccessString": ["MCRQKL"],
+		"menuSeqNumber":12,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RakOprEvantageMailChqReq.resetRakOprEvantageMailChqHome();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKOprEvantageMailCheckSRInitClick"
+		}
+	},
+	
+	
+	
+	"TLCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.TXN_LIMIT_CHANGE",
+		"menuId": "TLCQKL",
+		"parentMenuId": "RAKSROPRACC",
+		"menuAccessString": ["TLCQKL"],
+		"menuSeqNumber":14,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.transactionLimitChangeRq.resetTransactionLimitChangeModel();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakTransactionLimitChangeRqClick"
+		}
+	},
+	"2SRACDD":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.ACD_LIMIT_CHANGE_MENU",
+		"menuId": "SRACDD",
+		"parentMenuId": "RAKUSER2SROPRACC",
+		"menuAccessString": ["SRACDD"],
+		"menuSeqNumber":16,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.transactionLimitChangeRq.resetACDLimitChangeModel();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "rakATMCashDepositeLimitChange"
+		}
+	},
+	"IIRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.INVESTMENT_REDEMPTION",
+		"menuId": "IIRQKL",
+		"parentMenuId": "RAKSRINVESTMENT",
+		"menuAccessString": ["IIRQKL"],
+		"menuSeqNumber":15,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.investmentRedemptionRq.resetInvestmentRedemptionRqModel();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakInvestmentRedemptionRqClick"
+		}
+	},
+	
+	
+	"TSCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.TXT_CTD",
+		"menuId": "TSCQKL",
+		"parentMenuId": "RAKSRDEPACC",
+		"menuAccessString": ["TSCQKL"],
+		"menuSeqNumber":5,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RakClosureTermDepositModel.resetRakClosureTermDepositModel();rakServiceReq.RakClosureTermDepositModel.closureType='TDC';rakServiceReq.RakClosureTermDepositModel.depositAccount='';"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onClosureTDConvClick"
+		}
+	},
+	"TDCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.TXT_ICT",
+		"menuId": "TDCQKL",
+		"parentMenuId": "RAKSRDEPACC",
+		"menuAccessString": ["TDCQKL"],
+		"menuSeqNumber":2,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RakClosureTermDepositModel.resetRakClosureTermDepositModel();rakServiceReq.RakClosureTermDepositModel.closureType='TSC';rakServiceReq.RakClosureTermDepositModel.depositAccount='';"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onClosureTDConvClick"
+		}
+	},
+	"TDRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.RENEWAL_FXDEP",
+		"menuId": "TDRQKL",
+		"parentMenuId": "RAKSRDEPACC",
+		"menuAccessString": ["TDRQKL"],
+		"menuSeqNumber":6,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.clearRAKRenewalTermDepositData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRenewFDClick"
+		}
+	},
+	"TSRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.RENEWAL_FXDEP_ISLAMIC",
+		"menuId": "TSRQKL",
+		"parentMenuId": "RAKSRDEPACC",
+		"menuAccessString": ["TSRQKL"],
+		"menuSeqNumber":1,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.clearRAKRenewalTermDepositData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRenewFDIslamicClick"
+		}
+	},
+	
+	
+	"AMIQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.DEP_AMMEND_MATURITY_INST",
+		"menuId": "AMIQKL",
+		"parentMenuId": "RAKSRDEPACC",
+		"menuAccessString": ["AMIQKL"],
+		"menuSeqNumber":3,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.clearRAKAmmendDepositData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onAmmendFDClick"
+		}
+	},
+	"TSAQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.DEP_AMMEND_MATURITY_INST_ISLAMIC",
+		"menuId": "TSAQKL",
+		"parentMenuId": "RAKSRDEPACC",
+		"menuAccessString": ["TSAQKL"],
+		"menuSeqNumber":7,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.clearRAKAmmendDepositData();rakServiceReq.clearRAKAmmendDepositIslamicData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onAmmendFDIslamicClick"
+		}
+	},
+	"ADCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.DEBITCARD_APPLY",
+		"menuId": "ADCQKL",
+		"parentMenuId": "RAKSRDEBITCARDS",
+		"menuAccessString": ["ADCQKL"],
+		"menuSeqNumber":0,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRakDCApplyInitDetails();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakDCApplyInitClick"
+		}
+	},
+	"RCRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.DEBIT_REPORT_CAPTURE_CARDS",
+		"menuId": "RCRQKL",
+		"parentMenuId": "RAKSRDEBITCARDS",
+		"menuAccessString": ["RCRQKL"],
+		"menuSeqNumber":1,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRakDebitReportCapture();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onDebitReportCaptureClick"
+		}
+	},
+		"SRRCR":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.DEBITCARD_REPLACEMENT",
+		"menuId": "SRRCR",
+		"parentMenuId": "RAKSRDEBITCARDS",
+		"menuAccessString": ["SRRCR"],
+		"menuSeqNumber":2,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.ReplacementDCData.clearReplacementDCData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onReplacementDCClick"
+		}
+	},
+	"RLCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.TXT_LOST_DEB_CARD",
+		"menuId": "RLCQKL",
+		"parentMenuId": "RAKSRDEBITCARDS",
+		"menuAccessString": ["RLCQKL"],
+		"menuSeqNumber":3,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.blockCreditCardModel.resetBlockCreditCardModel();rakServiceReq.blockCreditCardModel.setDebCardType();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onBlockDebitCardClick"
+		}
+	},
+	"TBDQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAKTEMPDEBBLOCK.BLOCK",
+		"menuId": "TBDQKL",
+		"parentMenuId": "RAKSRDEBITCARDS",
+		"menuAccessString": ["TBDQKL"],
+		"menuSeqNumber":4,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetTempDebitCardBlockHome();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKTempBlockDebitCardClick"
+		}
+	},
+		"UDCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAKTEMPDEBBLOCK.UNBLOCK",
+		"menuId": "UDCQKL",
+		"parentMenuId": "RAKSRDEBITCARDS",
+		"menuAccessString": ["UDCQKL"],
+		"menuSeqNumber":5,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetUnblockDebitCardBlockHome();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKUnblockDebitCardClick"
+		}
+	},
+	"DECQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.DC_ECR",
+		"menuId": "DECQKL",
+		"parentMenuId": "RAKSRDEBITCARDS",
+		"menuAccessString": ["DECQKL"],
+		"menuSeqNumber":6,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RakEarlDebitCardRenewal.isDetailsFetched='N';rakServiceReq.RakEarlDebitCardRenewal.resetRakEarlDebitCardRenewal();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakEarlDebitCardRenewalClick"
+		}
+	},
+	"DCBQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.DC_CASH_BACK_REDEM",
+		"menuId": "DCBQKL",
+		"parentMenuId": "RAKSRDEBITCARDS",
+		"menuAccessString": ["DCBQKL"],
+		"menuSeqNumber":7,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKDCCashBkRedemDetails();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakDCCashBkRedemInitClick"
+		}
+	},
+	"PRRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.DC_PIN_REISSUE",
+		"menuId": "PRRQKL",
+		"parentMenuId": "RAKSRDEBITCARDS",
+		"menuAccessString": ["PRRQKL"],
+		"menuSeqNumber":8,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKCCDCPinReissueDetails();rakServiceReq.RAKCCDCPinReissueModel.CCorDCPinReissue='DC_PINREISSUE';rakServiceReq.detectCCDCPinReissueCardFetchEvent();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakDCPinReissueCardsListFetchClick"
+		}
+	},
+
+	"DCRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.CREDITCARD_REPLACEMENT",
+		"menuId": "DCRQKL",
+		"parentMenuId": "RAKSRCREDITCARDS",
+		"menuAccessString": ["DCRQKL"],
+		"menuSeqNumber":1,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.ReplacementCCData.clearReplacementCCData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onReplacementCCClick"
+		}
+	},
+	"BCCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.TEMP_BLOCKED_CREDITCARD",
+		"menuId": "BCCQKL",
+		"parentMenuId": "RAKSRCREDITCARDS",
+		"menuAccessString": ["BCCQKL"],
+		"menuSeqNumber":2,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.BlockedCreditCardData.clearBlockedCreditCard();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onTempBlockCCClick"
+		}
+	},
+	"LCRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.TXT_LOST_CRED_CARD",
+		"menuId": "LCRQKL",
+		"parentMenuId": "RAKSRCREDITCARDS",
+		"menuAccessString": ["LCRQKL"],
+		"menuSeqNumber":3,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.blockCreditCardModel.resetBlockCreditCardModel();rakServiceReq.blockCreditCardModel.setCredCardType();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onBlockCreditCardClick"
+		}
+	},
+	"CCRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.ECR",
+		"menuId": "CCRQKL",
+		"parentMenuId": "RAKSRCREDITCARDS",
+		"menuAccessString": ["CCRQKL"],
+		"menuSeqNumber":4,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKEarlyCardRenewal();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKEarlyCardRenewalInitClick"
+		}
+	},
+	"UBCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.UNBLOCK_CC",
+		"menuId": "UBCQKL",
+		"parentMenuId": "RAKSRCREDITCARDS",
+		"menuAccessString": ["UBCQKL"],
+		"menuSeqNumber":5,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RakUnblockCreditCardBlock.resetUnblockCreditCardBlockHome();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKUnblockCreditCardInitClick"
+		}
+	},
+	"CCLQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.CHNG_CRDLIM",
+		"menuId": "CCLQKL",
+		"parentMenuId": "RAKSRCREDITCARDS",
+		"menuAccessString": ["CCLQKL"],
+		"menuSeqNumber":6,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.creditCardLimitChange.resetCreditCardLimitChangeModel();rakServiceReq.creditCardLimitChange.ccSelected = '';"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onChangeCCClick"
+		}
+	},
+	"ASIQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.AMEND_SI",
+		"menuId": "ASIQKL",
+		"parentMenuId": "RAKSRCREDITCARDS",
+		"menuAccessString": ["ASIQKL"],
+		"menuSeqNumber":7,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.amendStandingInst.resetAmendStandingInst();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onAmendStandingInstClick"
+		}
+	},
+	"CBLQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.CHANGE_BILLING_DATE",
+		"menuId": "CBLQKL",
+		"parentMenuId": "RAKSRCREDITCARDS",
+		"menuAccessString": ["CBLQKL"],
+		"menuSeqNumber":8,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RAKChangeBillDateData.clearBlockedCreditCard();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onChangeBillDateCCClick"
+		}
+	},
+	"RCCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.REPORT_CAPTURE_CARDS",
+		"menuId": "RCCQKL",
+		"parentMenuId": "RAKSRCREDITCARDS",
+		"menuAccessString": ["RCCQKL"],
+		"menuSeqNumber":9,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKChangeReportCapture();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onChangeReportCaptureCCClick"
+		}
+	},
+	"RCSQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.RAK_CC_PHY_STMT_REQ",
+		"menuId": "RCSQKL",
+		"parentMenuId": "RAKSRCREDITCARDS",
+		"menuAccessString": ["RCSQKL"],
+		"menuSeqNumber":10,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.CCardStmtReq.resetRakCSRData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakCSRInitClick"
+		}
+	},
+	"CBTQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.CC_BAL",
+		"menuId": "CBTQKL",
+		"parentMenuId": "RAKSRCREDITCARDS",
+		"menuAccessString": ["CBTQKL"],
+		"menuSeqNumber":11,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RakCreditCardBalanceTransfer.resetRakCCBalanceTransferHome();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakCCBalnceTransferInit"
+		}
+	},
+	"CSIQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.CC_STANDING_INST",
+		"menuId": "CSIQKL",
+		"parentMenuId": "RAKSRCREDITCARDS",
+		"menuAccessString": ["CSIQKL"],
+		"menuSeqNumber":12,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRakCCStandingInstData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKCCStandingInstInitClick"
+		}
+	},
+	
+	"CCCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_CC_CHEQ_REQ.CC_CHEQ",
+		"menuId": "CCCQKL",
+		"parentMenuId": "RAKSRCREDITCARDS",
+		"menuAccessString": ["CCCQKL"],
+		"menuSeqNumber":14,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RakCCChequeRequestSR.resetCCChequeRequestHome();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakCCChequeReqInitClick"
+		}
+	},
+	"CPRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.CC_PIN_REISSUE",
+		"menuId": "CPRQKL",
+		"parentMenuId": "RAKSRCREDITCARDS",
+		"menuAccessString": ["CPRQKL"],
+		"menuSeqNumber":15,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKCCDCPinReissueDetails();rakServiceReq.RAKCCDCPinReissueModel.CCorDCPinReissue='CC_PINREISSUE';rakServiceReq.detectCCDCPinReissueCardFetchEvent();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakCCPinReissueCardsListFetchClick"
+		}
+	},
+	"CAEQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.CONVERT_EMI",
+		"menuId": "CAEQKL",
+		"parentMenuId": "RAKSRCREDITCARDS",
+		"menuAccessString": ["CAEQKL"],
+		"menuSeqNumber":16,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.CCConvertionEmi.resetCCConvertionEmi();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKCCConvertionEmiPreClick"
+		}
+	},
+	"RRPQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.CC_CASH_BACK_REDEM",
+		"menuId": "RRPQKL",
+		"parentMenuId": "RAKSRCREDITCARDS",
+		"menuAccessString": ["RRPQKL"],
+		"menuSeqNumber":17,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKCCCashBkRedemDetails();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakCCCashBkRedemInitClick"
+		}
+	},
+	"CPSQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_CC_PIN_SET.PS_REQ",
+		"menuId": "CPSQKL",
+		"parentMenuId": "RAKSRCREDITCARDS",
+		"menuAccessString": ["CPSQKL"],
+		"menuSeqNumber":18,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RakCCPinSetSR.resetRakCCPinSetSRHome();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakCCPinSetInitClick"
+		}
+	},
+	"SRCSC":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.CC_SMART_CASH",
+		"menuId": "SRCSC",
+		"parentMenuId": "RAKSRCREDITCARDS",
+		"menuAccessString": ["SRCSC"],
+		"menuSeqNumber":19,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.ccSmartCashRq.resetCcSmartCashRqModel();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onCcSmartCashRqClick"
+		}
+	},
+		"PBRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.RAKDIRREG",
+		"menuId": "PBRQKL",
+		"parentMenuId": "RAKSRGENREQ",
+		"menuAccessString": ["PBRQKL"],
+		"menuSeqNumber":1,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKDirRegReqModel();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKDirRegClick"
+		}
+	},
+	"APRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.RAK_APR",
+		"menuId": "APRQKL",
+		"parentMenuId": "RAKSRGENREQ",
+		"menuAccessString": ["APRQKL"],
+		"menuSeqNumber":2,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKAlertPref();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKAlertPrefLinkClick"
+		}
+	},
+	
+	"ESTQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.GENRQ_ESTMT",
+		"menuId": "ESTQKL",
+		"parentMenuId": "RAKSRGENREQ",
+		"menuAccessString": ["ESTQKL"],
+		"menuSeqNumber":4,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRakGenRqEStmtDetails();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakGenRqEStmtInitClick"
+		}
+	},
+	
+	"TLUQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.TL_UPLOAD",
+		"menuId": "TLUQKL",
+		"parentMenuId": "RAKSRGENREQ",
+		"menuAccessString": ["TLUQKL"],
+		"menuSeqNumber":4,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.TLUpload.resetTLUpload();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onTLUploadInit"
+		}
+	},
+	"RACDDM":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.DD_MCHQ",
+		"menuId": "RACDDM",
+		"parentMenuId": "RAKSRGENREQ",
+		"menuAccessString": ["RACDDM"],
+		"menuSeqNumber":11,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakPayee.DDMCQ.navigationType='DDMCQServiceRequest';rakPayee.bankbnftype=rakPayee.constants.NETWORKTYPEDDMC;"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onPayDDMCHClick"
+		}
+	},	
+	"SRKYC":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.KYC_REN",
+		"menuId": "SRKYC",
+		"parentMenuId": "RAKSRGENREQ",
+		"menuAccessString": ["SRKYC"],
+		"menuSeqNumber":6,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRakKYCRenDetails();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakKYCRenInitClick"
+		}
+	},
+	"SBRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.RAKCONNECT",
+		"menuId": "SBRQKL",
+		"parentMenuId": "RAKSRGENREQ",
+		"menuAccessString": ["SBRQKL"],
+		"menuSeqNumber":7,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKConnectDetails();rakServiceReq.activateSetupNewAlertsTab();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKConnectInitClick"
+		}
+	},
+	
+	"SAGERG":	{
+		"menutext": "APP.RAKBURGER.REGISTER_FOR_SAGE",
+		"menuId": "SAGERG",
+		"parentMenuId": "RAKUSER2SRGENREQ",
+		"menuAccessString": ["SAGERG"],
+		"menuSeqNumber":12,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.sage.sageFlag = false"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRegisterSageClick"
+		}
+	},
+	
+	"UPDQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.UPDATE_PP_DETAILS",
+		"menuId": "UPDQKL",
+		"parentMenuId": "RAKSRGENREQ",
+		"menuAccessString": ["UPDQKL"],
+		"menuSeqNumber":7,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakMyProfile.fromSettingsMenu=false;rakMyProfile.updatePersonalProfile.resetUpdatePersonalProfileModel();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakUpdatePersonalProfileClick"
+		}
+	},
+	"PCLQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.PRECLOSURELOAN",
+		"menuId": "PCLQKL",
+		"parentMenuId": "RAKSRLOANFIN",
+		"menuAccessString": ["PCLQKL"],
+		"menuSeqNumber":1,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKLoanPreClosureData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKLoanPreClosureInitClick"
+		}
+	},
+	"LRRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.LN_RPAY",
+		"menuId": "LRRQKL",
+		"parentMenuId": "RAKSRLOANFIN",
+		"menuAccessString": ["LRRQKL"],
+		"menuSeqNumber":2,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RAKLoanRepayAccList.resetLoanRepayHome();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onLoanRepayInitClick"
+		}
+	},
+	"LPRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.PERM_REL_LETTER",
+		"menuId": "LPRQKL",
+		"parentMenuId": "RAKSRLOANFIN",
+		"menuAccessString": ["LPRQKL"],
+		"menuSeqNumber":3,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRakLoanFinPRLInitDetails();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakLoanFinPRLInitClick"
+		}
+	},
+	"LTRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.TEMP_REL_LETTER",
+		"menuId": "LTRQKL",
+		"parentMenuId": "RAKSRLOANFIN",
+		"menuAccessString": ["LTRQKL"],
+		"menuSeqNumber":4,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.temporaryReleaseLetter.resetTemporaryReleaseLetter();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onTempReleaseLetterClick"
+		}
+	},
+	"LIPQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.INSTALL_POSTPONE",
+		"menuId": "LIPQKL",
+		"parentMenuId": "RAKSRLOANFIN",
+		"menuAccessString": ["LIPQKL"],
+		"menuSeqNumber":5,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.installmentPostponement.resetInstallmentPostponement();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onInstallmentPostponementClick"
+		}
+	},
+	"LBCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.LC_NLC",
+		"menuId": "LBCQKL",
+		"parentMenuId": "RAKSRLOANFIN",
+		"menuAccessString": ["LBCQKL"],
+		"menuSeqNumber":6,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.lcOrNlc.resetLcOrNlc();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onLcOrNlcClick"
+		}
+	},
+	"GRRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.INV_REEDMGOLD",
+		"menuId": "GRRQKL",
+		"parentMenuId": "RAKSRINVESTMENT",
+		"menuAccessString": ["GRRQKL"],
+		"menuSeqNumber":0,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKInvRedeemGoldInitDetails();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKInvRedeemGoldInitClick"
+		}
+	},
+	"SIPQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.INVEST_SUBS",
+		"menuId": "SIPQKL",
+		"parentMenuId": "RAKSRINVESTMENT",
+		"menuAccessString": ["SIPQKL"],
+		"menuSeqNumber":2,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.investmentSubscription.resetInvestmentSubscription();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onInvestmentSubscriptionClick"
+		}
+	},
+	"SRIAO":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.INV_OPEN",
+		"menuId": "SRIAO",
+		"parentMenuId": "RAKSRINVESTMENT",
+		"menuAccessString": ["SRIAO"],
+		"menuSeqNumber":3,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RakInvOpenAccSR.resetRakInvOpenAccSRHome();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKOpenInvAccClick"
+		}
+	},
+	
+	"LMTDET": {
+			"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.TF_LIMIT_DETAILS",
+			"menuId": "LMTDET",
+			"parentMenuId": "RAKSRGENREQ",
+			"menuAccessString": ["LMTDET"],
+			"menuSeqNumber": 9,
+			"menuAccessibility": "LGN",
+			"Properties": {
+				"menuStyle": "",
+				"imgName": "",
+				"imgStyle": "",
+				"menuTextStyle": "",
+				"extraAction": "rakServiceReq.RakTFLimitDetails.resetTFLimitDetailsData();"
+			},
+			"platformSpecificDetails": {
+				"deviceSupport": ["IOS",
+				"ANDROID",
+				"WINDOWS",
+				"BROWSER",
+				"ANDROIDIOSTAB"]
+			},
+			"event": {
+				"eventname": "onRakTFLimitDetailsLinkClick"
+			}
+		},
+	"CTFIN":	{
+		"menutext": "APP.RAKBURGER.MYPRODUCTS_TRADE_FINANCE",
+		"menuId": "CTFN",
+		"parentMenuId": "RAKTRADEFINANCE",
+		"menuAccessString": ["CTFN"],
+		"menuSeqNumber":0,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakHome.closeMenu();rakTradeFinance.rakTradeFinanceInquiry.resetTradeFinanceDashboard();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onTradeFinanceClick"
+		}
+	},
+	"TXAPQ111":	{
+		"menutext": "APP.DASHBOARD.RETAIL_USER_DASHBOARD_PAGE.MAIN_HEADER",
+		"menuId": "TXAPQ111",
+		"parentMenuId": "RAKTRADEFINANCE11",
+		"menuAccessString": ["TXAPQ11"],
+		"menuSeqNumber":1,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakHome.closeMenu();rakPendingApproval.pendingApprovalTab='PMA';"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onPendingApprovalsCountClick"
+		}
+	},
+	"CSRAPD":	{
+		"menutext": "APP.RAKBURGER.MYPRODUCTS_TF_APPROVAL",
+		"menuId": "CSRAPD",
+		"parentMenuId": "RAKTRADEFINANCE",
+		"menuAccessString": ["CSRAPD"],
+		"menuSeqNumber":0,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakHome.closeMenu();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onTFApprovalClick"
+		}
+	},
+	
+		"TOKDRG": {
+			"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.SOFTTOKENDEREG",
+			"menuId": "TOKDRG",
+			"parentMenuId": "RAKSRGENREQ",
+			"menuAccessString": ["TOKDRG"],
+			"menuSeqNumber": 10,
+			"menuAccessibility": "LGN",
+			"Properties": {
+				"menuStyle": "",
+				"imgName": "",
+				"imgStyle": "",
+				"menuTextStyle": "",
+				"extraAction": "rakServiceReq.resetRak2FADeRegData();"
+			},
+			"platformSpecificDetails": {
+				"deviceSupport": ["IOS",
+				"ANDROID",
+				"WINDOWS",
+				"BROWSER",
+				"ANDROIDIOSTAB"]
+			},
+			"event": {
+				"eventname": "onRak2FADeRegInitClick"
+			}
+		},
+		
+		"2TOKDRG": {
+			"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.SOFTTOKENDEREG",
+			"menuId": "TOKDRG",
+			"parentMenuId": "RAKUSER2SRGENREQ",
+			"menuAccessString": ["TOKDRG"],
+			"menuSeqNumber": 10,
+			"menuAccessibility": "LGN",
+			"Properties": {
+				"menuStyle": "",
+				"imgName": "",
+				"imgStyle": "",
+				"menuTextStyle": "",
+				"extraAction": "rakServiceReq.resetRak2FADeRegData();"
+			},
+			"platformSpecificDetails": {
+				"deviceSupport": ["IOS",
+				"ANDROID",
+				"WINDOWS",
+				"BROWSER",
+				"ANDROIDIOSTAB"]
+			},
+			"event": {
+				"eventname": "onRak2FADeRegInitClick"
+			}
+		},
+		"2DACQKL": {
+			"menutext": "APP.RAK_SERVICES.RAKDACBLOCK.DAC",
+			"menuId": "DACQKL",
+			"parentMenuId": "RAKUSER2SRGENREQ",
+			"menuAccessString": ["DACQKL"],
+			"menuSeqNumber": 3,
+			"menuAccessibility": "LGN",
+			"Properties": {
+				"menuStyle": "",
+				"imgName": "",
+				"imgStyle": "",
+				"menuTextStyle": "",
+				"extraAction": "rakServiceReq.rakDigitalAccessCardBlock.resetDACList();"
+			},
+			"platformSpecificDetails": {
+				"deviceSupport": ["IOS",
+				"ANDROID",
+				"WINDOWS",
+				"BROWSER",
+				"ANDROIDIOSTAB"]
+			},
+			"event": {
+				"eventname": "onRakDigitalAccessCard"
+			}
+		},
+		"2DSRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.OPR_ACC_DUPLICATESTMT",
+		"menuId": "DSRQKL",
+		"parentMenuId": "RAKUSER2SROPRACC",
+		"menuAccessString": ["DSRQKL"],
+		"menuSeqNumber":5,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRakOprAccDupStmtInitDetails();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakOprAccDupStmtInitClick"
+		}
+	},
+	
+	"2BRLQKL":	{
+			"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.BANKREFLETTER",
+			"menuId": "BRLQKL",
+			"parentMenuId": "RAKUSER2SROPRACC",
+			"menuAccessString": ["BRLQKL"],
+			"menuSeqNumber":7,
+			"menuAccessibility":"LGN",
+			"Properties": {
+				"menuStyle": "",
+				"imgName": "",
+				"imgStyle": "",
+				"menuTextStyle": "",
+				"extraAction": "rakServiceReq.rakBankRefLetter.resetBankRefLetterData();rakServiceReq.setCurrentDate();"
+			},
+			"platformSpecificDetails": {
+				"deviceSupport": ["IOS",
+				"ANDROID",
+				"WINDOWS",
+				"BROWSER",
+				"ANDROIDIOSTAB"]
+			},
+			"event": {
+				"eventname": "onRAKBankRefLetterInitClick"
+			}
+	},
+	
+	"2AASQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.ADVSALARY",
+		"menuId": "AASQKL",
+		"parentMenuId": "RAKUSER2SROPRACC",
+		"menuAccessString": ["AASQKL"],
+		"menuSeqNumber":7,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.AdvanceSalaryData.clearAdvanceSalaryData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onAdvanceClick"
+		}
+	},
+	"2EVBQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.EVANTAGE_BALANCE",
+		"menuId": "EVBQKL",
+		"parentMenuId": "RAKUSER2SROPRACC",
+		"menuAccessString": ["EVBQKL"],
+		"menuSeqNumber":8,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.clearCommonData();rakServiceReq.EvantageData.clearEvantageData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onEvantageClick"
+		}
+	},
+	"2BCRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.BALCONFLINK",
+		"menuId": "BCRQKL",
+		"parentMenuId": "RAKUSER2SROPRACC",
+		"menuAccessString": ["BCRQKL"],
+		"menuSeqNumber":3,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKOprAcctBalConfReqData();rakServiceReq.setCurrentDate();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKOprAcctBalConfLinkClick"
+		}
+	},
+	
+	
+	
+	
+	"2DDMQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.RAK_OPR_DD_CHQ",
+		"menuId": "DDMQKL",
+		"parentMenuId": "RAKUSER2SROPRACC",
+		"menuAccessString": ["DDMQKL"],
+		"menuSeqNumber":6,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKOprDDData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKOprDDChequeRequestClick"
+		}
+	},
+	"2CHKQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.REQ_NEWCHEQBK",
+		"menuId": "CHKQKL",
+		"parentMenuId": "RAKUSER2SROPRACC",
+		"menuAccessString": ["CHKQKL"],
+		"menuSeqNumber":4,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.checkBookRequest.resetModel();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onChequeCommuincationBookClick"
+		}
+	},
+	"2MCRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.OPR_EV_MAILCHQ",
+		"menuId": "MCRQKL",
+		"parentMenuId": "RAKUSER2SROPRACC",
+		"menuAccessString": ["MCRQKL"],
+		"menuSeqNumber":12,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RakOprEvantageMailChqReq.resetRakOprEvantageMailChqHome();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKOprEvantageMailCheckSRInitClick"
+		}
+	},
+	
+	"2GRRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.INV_REEDMGOLD",
+		"menuId": "GRRQKL",
+		"parentMenuId": "RAKUSER2SROPRACC",
+		"menuAccessString": ["GRRQKL"],
+		"menuSeqNumber":13,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKInvRedeemGoldInitDetails();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKInvRedeemGoldInitClick"
+		}
+	},
+	
+	"2TLCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.TXN_LIMIT_CHANGE",
+		"menuId": "TLCQKL",
+		"parentMenuId": "RAKUSER2SROPRACC",
+		"menuAccessString": ["TLCQKL"],
+		"menuSeqNumber":2,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.transactionLimitChangeRq.resetTransactionLimitChangeModel();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakTransactionLimitChangeRqClick"
+		}
+	},
+	"2IIRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.INVESTMENT_REDEMPTION",
+		"menuId": "IIRQKL",
+		"parentMenuId": "RAKUSER2SRINVESTMENT",
+		"menuAccessString": ["IIRQKL"],
+		"menuSeqNumber":15,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.investmentRedemptionRq.resetInvestmentRedemptionRqModel();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakInvestmentRedemptionRqClick"
+		}
+	},
+	
+	
+	"2TSCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.TXT_CTD",
+		"menuId": "TSCQKL",
+		"parentMenuId": "RAKUSER2SRDEPACC",
+		"menuAccessString": ["TSCQKL"],
+		"menuSeqNumber":5,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RakClosureTermDepositModel.resetRakClosureTermDepositModel();rakServiceReq.RakClosureTermDepositModel.closureType='TDC';rakServiceReq.RakClosureTermDepositModel.depositAccount='';"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onClosureTDConvClick"
+		}
+	},
+	"2TDCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.TXT_ICT",
+		"menuId": "TDCQKL",
+		"parentMenuId": "RAKUSER2SRDEPACC",
+		"menuAccessString": ["TDCQKL"],
+		"menuSeqNumber":2,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RakClosureTermDepositModel.resetRakClosureTermDepositModel();rakServiceReq.RakClosureTermDepositModel.closureType='TSC';rakServiceReq.RakClosureTermDepositModel.depositAccount='';"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onClosureTDConvClick"
+		}
+	},
+	"2TDRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.RENEWAL_FXDEP",
+		"menuId": "TDRQKL",
+		"parentMenuId": "RAKUSER2SRDEPACC",
+		"menuAccessString": ["TDRQKL"],
+		"menuSeqNumber":6,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.clearRAKRenewalTermDepositData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRenewFDClick"
+		}
+	},
+	"2TSRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.RENEWAL_FXDEP_ISLAMIC",
+		"menuId": "TSRQKL",
+		"parentMenuId": "RAKUSER2SRDEPACC",
+		"menuAccessString": ["TSRQKL"],
+		"menuSeqNumber":1,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.clearRAKRenewalTermDepositData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRenewFDIslamicClick"
+		}
+	},
+	
+	
+	"2AMIQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.DEP_AMMEND_MATURITY_INST",
+		"menuId": "AMIQKL",
+		"parentMenuId": "RAKUSER2SRDEPACC",
+		"menuAccessString": ["AMIQKL"],
+		"menuSeqNumber":3,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.clearRAKAmmendDepositData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onAmmendFDClick"
+		}
+	},
+	"2TSAQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.DEP_AMMEND_MATURITY_INST_ISLAMIC",
+		"menuId": "TSAQKL",
+		"parentMenuId": "RAKUSER2SRDEPACC",
+		"menuAccessString": ["TSAQKL"],
+		"menuSeqNumber":4,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.clearRAKAmmendDepositData();rakServiceReq.clearRAKAmmendDepositIslamicData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onAmmendFDIslamicClick"
+		}
+	},
+	"2ADCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.DEBITCARD_APPLY",
+		"menuId": "ADCQKL",
+		"parentMenuId": "RAKUER2SRDEBITCARDS",
+		"menuAccessString": ["ADCQKL"],
+		"menuSeqNumber":1,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRakDCApplyInitDetails();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakDCApplyInitClick"
+		}
+	},
+	"2RCRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.DEBIT_REPORT_CAPTURE_CARDS",
+		"menuId": "RCRQKL",
+		"parentMenuId": "RAKUER2SRDEBITCARDS",
+		"menuAccessString": ["RCRQKL"],
+		"menuSeqNumber":2,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRakDebitReportCapture();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onDebitReportCaptureClick"
+		}
+	},
+		"2SRRCR":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.DEBITCARD_REPLACEMENT",
+		"menuId": "SRRCR",
+		"parentMenuId": "RAKUER2SRDEBITCARDS",
+		"menuAccessString": ["SRRCR"],
+		"menuSeqNumber":3,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.ReplacementDCData.clearReplacementDCData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onReplacementDCClick"
+		}
+	},
+	"2RLCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.TXT_LOST_DEB_CARD",
+		"menuId": "RLCQKL",
+		"parentMenuId": "RAKUER2SRDEBITCARDS",
+		"menuAccessString": ["RLCQKL"],
+		"menuSeqNumber":4,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.blockCreditCardModel.resetBlockCreditCardModel();rakServiceReq.blockCreditCardModel.setDebCardType();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onBlockDebitCardClick"
+		}
+	},
+	"2TBDQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAKTEMPDEBBLOCK.BLOCK",
+		"menuId": "TBDQKL",
+		"parentMenuId": "RAKUER2SRDEBITCARDS",
+		"menuAccessString": ["TBDQKL"],
+		"menuSeqNumber":5,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetTempDebitCardBlockHome();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKTempBlockDebitCardClick"
+		}
+	},
+		"2UDCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAKTEMPDEBBLOCK.UNBLOCK",
+		"menuId": "UDCQKL",
+		"parentMenuId": "RAKUER2SRDEBITCARDS",
+		"menuAccessString": ["UDCQKL"],
+		"menuSeqNumber":6,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetUnblockDebitCardBlockHome();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKUnblockDebitCardClick"
+		}
+	},
+	"2DECQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.DC_ECR",
+		"menuId": "DECQKL",
+		"parentMenuId": "RAKUER2SRDEBITCARDS",
+		"menuAccessString": ["DECQKL"],
+		"menuSeqNumber":7,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RakEarlDebitCardRenewal.isDetailsFetched='N';rakServiceReq.RakEarlDebitCardRenewal.resetRakEarlDebitCardRenewal();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakEarlDebitCardRenewalClick"
+		}
+	},
+	"2DCBQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.DC_CASH_BACK_REDEM",
+		"menuId": "DCBQKL",
+		"parentMenuId": "RAKUER2SRDEBITCARDS",
+		"menuAccessString": ["DCBQKL"],
+		"menuSeqNumber":8,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKDCCashBkRedemDetails();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakDCCashBkRedemInitClick"
+		}
+	},
+	"2PRRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.DC_PIN_REISSUE",
+		"menuId": "PRRQKL",
+		"parentMenuId": "RAKUER2SRDEBITCARDS",
+		"menuAccessString": ["PRRQKL"],
+		"menuSeqNumber":9,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKCCDCPinReissueDetails();rakServiceReq.RAKCCDCPinReissueModel.CCorDCPinReissue='DC_PINREISSUE';rakServiceReq.detectCCDCPinReissueCardFetchEvent();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakDCPinReissueCardsListFetchClick"
+		}
+	},
+
+	"2DCRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.CREDITCARD_REPLACEMENT",
+		"menuId": "DCRQKL",
+		"parentMenuId": "RAKUSER2SRCREDITCARDS",
+		"menuAccessString": ["DCRQKL"],
+		"menuSeqNumber":1,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.ReplacementCCData.clearReplacementCCData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onReplacementCCClick"
+		}
+	},
+	"2BCCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.TEMP_BLOCKED_CREDITCARD",
+		"menuId": "BCCQKL",
+		"parentMenuId": "RAKUSER2SRCREDITCARDS",
+		"menuAccessString": ["BCCQKL"],
+		"menuSeqNumber":2,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.BlockedCreditCardData.clearBlockedCreditCard();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onTempBlockCCClick"
+		}
+	},
+	"2LCRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.TXT_LOST_CRED_CARD",
+		"menuId": "LCRQKL",
+		"parentMenuId": "RAKUSER2SRCREDITCARDS",
+		"menuAccessString": ["LCRQKL"],
+		"menuSeqNumber":3,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.blockCreditCardModel.resetBlockCreditCardModel();rakServiceReq.blockCreditCardModel.setCredCardType();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onBlockCreditCardClick"
+		}
+	},
+	"2CCRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.ECR",
+		"menuId": "CCRQKL",
+		"parentMenuId": "RAKUSER2SRCREDITCARDS",
+		"menuAccessString": ["CCRQKL"],
+		"menuSeqNumber":4,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKEarlyCardRenewal();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKEarlyCardRenewalInitClick"
+		}
+	},
+	"2UBCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.UNBLOCK_CC",
+		"menuId": "UBCQKL",
+		"parentMenuId": "RAKUSER2SRCREDITCARDS",
+		"menuAccessString": ["UBCQKL"],
+		"menuSeqNumber":5,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RakUnblockCreditCardBlock.resetUnblockCreditCardBlockHome();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKUnblockCreditCardInitClick"
+		}
+	},
+	"2CCLQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.CHNG_CRDLIM",
+		"menuId": "CCLQKL",
+		"parentMenuId": "RAKUSER2SRCREDITCARDS",
+		"menuAccessString": ["CCLQKL"],
+		"menuSeqNumber":6,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.creditCardLimitChange.resetCreditCardLimitChangeModel();rakServiceReq.creditCardLimitChange.ccSelected = '';"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onChangeCCClick"
+		}
+	},
+	"2ASIQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.AMEND_SI",
+		"menuId": "ASIQKL",
+		"parentMenuId": "RAKUSER2SRCREDITCARDS",
+		"menuAccessString": ["ASIQKL"],
+		"menuSeqNumber":7,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.amendStandingInst.resetAmendStandingInst();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onAmendStandingInstClick"
+		}
+	},
+	"2CBLQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.CHANGE_BILLING_DATE",
+		"menuId": "CBLQKL",
+		"parentMenuId": "RAKUSER2SRCREDITCARDS",
+		"menuAccessString": ["CBLQKL"],
+		"menuSeqNumber":8,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RAKChangeBillDateData.clearBlockedCreditCard();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onChangeBillDateCCClick"
+		}
+	},
+	"2RCCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.REPORT_CAPTURE_CARDS",
+		"menuId": "RCCQKL",
+		"parentMenuId": "RAKUSER2SRCREDITCARDS",
+		"menuAccessString": ["RCCQKL"],
+		"menuSeqNumber":9,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKChangeReportCapture();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onChangeReportCaptureCCClick"
+		}
+	},
+	"2RCSQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.RAK_CC_PHY_STMT_REQ",
+		"menuId": "RCSQKL",
+		"parentMenuId": "RAKUSER2SRCREDITCARDS",
+		"menuAccessString": ["RCSQKL"],
+		"menuSeqNumber":10,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.CCardStmtReq.resetRakCSRData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakCSRInitClick"
+		}
+	},
+	"2CBTQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.CC_BAL",
+		"menuId": "CBTQKL",
+		"parentMenuId": "RAKUSER2SRCREDITCARDS",
+		"menuAccessString": ["CBTQKL"],
+		"menuSeqNumber":11,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RakCreditCardBalanceTransfer.resetRakCCBalanceTransferHome();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakCCBalnceTransferInit"
+		}
+	},
+	"2CSIQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.CC_STANDING_INST",
+		"menuId": "CSIQKL",
+		"parentMenuId": "RAKUSER2SRCREDITCARDS",
+		"menuAccessString": ["CSIQKL"],
+		"menuSeqNumber":12,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRakCCStandingInstData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKCCStandingInstInitClick"
+		}
+	},
+	
+	"2CCCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_CC_CHEQ_REQ.CC_CHEQ",
+		"menuId": "CCCQKL",
+		"parentMenuId": "RAKUSER2SRCREDITCARDS",
+		"menuAccessString": ["CCCQKL"],
+		"menuSeqNumber":14,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RakCCChequeRequestSR.resetCCChequeRequestHome();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakCCChequeReqInitClick"
+		}
+	},
+	"2CPRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.CC_PIN_REISSUE",
+		"menuId": "CPRQKL",
+		"parentMenuId": "RAKUSER2SRCREDITCARDS",
+		"menuAccessString": ["CPRQKL"],
+		"menuSeqNumber":15,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKCCDCPinReissueDetails();rakServiceReq.RAKCCDCPinReissueModel.CCorDCPinReissue='CC_PINREISSUE';rakServiceReq.detectCCDCPinReissueCardFetchEvent();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakCCPinReissueCardsListFetchClick"
+		}
+	},
+	"2CAEQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.CONVERT_EMI",
+		"menuId": "CAEQKL",
+		"parentMenuId": "RAKUSER2SRCREDITCARDS",
+		"menuAccessString": ["CAEQKL"],
+		"menuSeqNumber":16,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.CCConvertionEmi.resetCCConvertionEmi();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKCCConvertionEmiPreClick"
+		}
+	},
+	"2RRPQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.CC_CASH_BACK_REDEM",
+		"menuId": "RRPQKL",
+		"parentMenuId": "RAKUSER2SRCREDITCARDS",
+		"menuAccessString": ["RRPQKL"],
+		"menuSeqNumber":17,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKCCCashBkRedemDetails();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakCCCashBkRedemInitClick"
+		}
+	},
+	"2CPSQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_CC_PIN_SET.PS_REQ",
+		"menuId": "CPSQKL",
+		"parentMenuId": "RAKUSER2SRCREDITCARDS",
+		"menuAccessString": ["CPSQKL"],
+		"menuSeqNumber":18,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RakCCPinSetSR.resetRakCCPinSetSRHome();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakCCPinSetInitClick"
+		}
+	},
+	"2SRCSC":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.CC_SMART_CASH",
+		"menuId": "SRCSC",
+		"parentMenuId": "RAKUSER2SRCREDITCARDS",
+		"menuAccessString": ["SRCSC"],
+		"menuSeqNumber":19,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.ccSmartCashRq.resetCcSmartCashRqModel();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onCcSmartCashRqClick"
+		}
+	},
+		"2PBRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.RAKDIRREG",
+		"menuId": "PBRQKL",
+		"parentMenuId": "RAKSUSER2RGENREQ",
+		"menuAccessString": ["PBRQKL"],
+		"menuSeqNumber":1,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKDirRegReqModel();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKDirRegClick"
+		}
+	},
+	"2APRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.RAK_APR",
+		"menuId": "APRQKL",
+		"parentMenuId": "RAKUSER2SRGENREQ",
+		"menuAccessString": ["APRQKL"],
+		"menuSeqNumber":5,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKAlertPref();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKAlertPrefLinkClick"
+		}
+	},
+	
+	"2ESTQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.GENRQ_ESTMT",
+		"menuId": "ESTQKL",
+		"parentMenuId": "RAKUSER2SRGENREQ",
+		"menuAccessString": ["ESTQKL"],
+		"menuSeqNumber":4,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRakGenRqEStmtDetails();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakGenRqEStmtInitClick"
+		}
+	},
+	
+	"2TLUQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.TL_UPLOAD",
+		"menuId": "TLUQKL",
+		"parentMenuId": "RAKUSER2SROPRACC",
+		"menuAccessString": ["TLUQKL"],
+		"menuSeqNumber":1,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.TLUpload.resetTLUpload();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onTLUploadInit"
+		}
+	},
+	"2RACDDM":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.DD_MCHQ",
+		"menuId": "RACDDM",
+		"parentMenuId": "RAKUSER2SRGENREQ",
+		"menuAccessString": ["RACDDM"],
+		"menuSeqNumber":11,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakPayee.DDMCQ.navigationType='DDMCQServiceRequest';rakPayee.bankbnftype=rakPayee.constants.NETWORKTYPEDDMC;"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onPayDDMCHClick"
+		}
+	},	
+	"2SRKYC":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.KYC_REN",
+		"menuId": "SRKYC",
+		"parentMenuId": "RAKUSER2SRGENREQ",
+		"menuAccessString": ["SRKYC"],
+		"menuSeqNumber":6,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRakKYCRenDetails();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakKYCRenInitClick"
+		}
+	},
+	"2SBRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.RAKCONNECT",
+		"menuId": "SBRQKL",
+		"parentMenuId": "RAKUSER2SRGENREQ",
+		"menuAccessString": ["SBRQKL"],
+		"menuSeqNumber":6,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKConnectDetails();rakServiceReq.activateSetupNewAlertsTab();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKConnectInitClick"
+		}
+	},
+	"2UPDQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.UPDATE_PP_DETAILS",
+		"menuId": "UPDQKL",
+		"parentMenuId": "RAKUSER2SRGENREQ",
+		"menuAccessString": ["UPDQKL"],
+		"menuSeqNumber":7,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakMyProfile.fromSettingsMenu=false;rakMyProfile.updatePersonalProfile.resetUpdatePersonalProfileModel();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakUpdatePersonalProfileClick"
+		}
+	},
+	"2PCLQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.PRECLOSURELOAN",
+		"menuId": "PCLQKL",
+		"parentMenuId": "RAKSRUSER2LOANFIN",
+		"menuAccessString": ["PCLQKL"],
+		"menuSeqNumber":1,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRAKLoanPreClosureData();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKLoanPreClosureInitClick"
+		}
+	},
+	"2LRRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.LN_RPAY",
+		"menuId": "LRRQKL",
+		"parentMenuId": "RAKSRUSER2LOANFIN",
+		"menuAccessString": ["LRRQKL"],
+		"menuSeqNumber":2,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RAKLoanRepayAccList.resetLoanRepayHome();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onLoanRepayInitClick"
+		}
+	},
+	"2LPRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.PERM_REL_LETTER",
+		"menuId": "LPRQKL",
+		"parentMenuId": "RAKSRUSER2LOANFIN",
+		"menuAccessString": ["LPRQKL"],
+		"menuSeqNumber":3,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.resetRakLoanFinPRLInitDetails();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakLoanFinPRLInitClick"
+		}
+	},
+	"2LTRQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.TEMP_REL_LETTER",
+		"menuId": "LTRQKL",
+		"parentMenuId": "RAKSRUSER2LOANFIN",
+		"menuAccessString": ["LTRQKL"],
+		"menuSeqNumber":4,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.temporaryReleaseLetter.resetTemporaryReleaseLetter();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onTempReleaseLetterClick"
+		}
+	},
+	"2LIPQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.INSTALL_POSTPONE",
+		"menuId": "LIPQKL",
+		"parentMenuId": "RAKSRUSER2LOANFIN",
+		"menuAccessString": ["LIPQKL"],
+		"menuSeqNumber":5,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.installmentPostponement.resetInstallmentPostponement();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onInstallmentPostponementClick"
+		}
+	},
+	"2LBCQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.LC_NLC",
+		"menuId": "LBCQKL",
+		"parentMenuId": "RAKSRUSER2LOANFIN",
+		"menuAccessString": ["LBCQKL"],
+		"menuSeqNumber":6,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.lcOrNlc.resetLcOrNlc();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onLcOrNlcClick"
+		}
+	},
+	
+	"2SIPQKL":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.INVEST_SUBS",
+		"menuId": "SIPQKL",
+		"parentMenuId": "RAKUSER2SRINVESTMENT",
+		"menuAccessString": ["SIPQKL"],
+		"menuSeqNumber":2,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.investmentSubscription.resetInvestmentSubscription();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onInvestmentSubscriptionClick"
+		}
+	},
+	"2SRIAO":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.INV_OPEN",
+		"menuId": "SRIAO",
+		"parentMenuId": "RAKUSER2SRINVESTMENT",
+		"menuAccessString": ["SRIAO"],
+		"menuSeqNumber":3,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RakInvOpenAccSR.resetRakInvOpenAccSRHome();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRAKOpenInvAccClick"
+		}
+	},
+	
+	"2LMTDET": {
+			"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.TF_LIMIT_DETAILS",
+			"menuId": "LMTDET",
+			"parentMenuId": "RAKSRUSER2GENREQ",
+			"menuAccessString": ["LMTDET"],
+			"menuSeqNumber": 9,
+			"menuAccessibility": "LGN",
+			"Properties": {
+				"menuStyle": "",
+				"imgName": "",
+				"imgStyle": "",
+				"menuTextStyle": "",
+				"extraAction": "rakServiceReq.RakTFLimitDetails.resetTFLimitDetailsData();"
+			},
+			"platformSpecificDetails": {
+				"deviceSupport": ["IOS",
+				"ANDROID",
+				"WINDOWS",
+				"BROWSER",
+				"ANDROIDIOSTAB"]
+			},
+			"event": {
+				"eventname": "onRakTFLimitDetailsLinkClick"
+			}
+		},
+		"SBE":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.SME_BUSINESS_ELITE_SUB",
+		"menuId": "SBE",
+		"parentMenuId": "RAKUSER2SRGENREQ",
+		"menuAccessString": ["SBE"],
+		"menuSeqNumber":12,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RakBusinessEliteSubscribe.resetRakEliteSubcribeDetails();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakBusinessEliteSubscribeContentClick"
+		}
+		
+
+},
+"UBE":	{
+		"menutext": "APP.RAK_SERVICES.RAK_SERV_LANDPG.SME_BUSINESS_ELITE_UNSUB",
+		"menuId": "UBE",
+		"parentMenuId": "RAKUSER2SRGENREQ",
+		"menuAccessString": ["UBE"],
+		"menuSeqNumber":13,
+		"menuAccessibility":"LGN",
+		"Properties": {
+			"menuStyle": "",
+			"imgName": "",
+			"imgStyle": "",
+			"menuTextStyle": "",
+			"extraAction": "rakServiceReq.RakBusinessEliteSubscribe.resetRakEliteSubcribeDetails();"
+		},
+		"platformSpecificDetails": {
+			"deviceSupport": ["IOS",
+			"ANDROID",
+			"WINDOWS",
+			"BROWSER",
+			"ANDROIDIOSTAB"]
+		},
+		"event": {
+			"eventname": "onRakBusinessEliteUnSubscribeInitClick"
+		}
+	}
+}		
+}

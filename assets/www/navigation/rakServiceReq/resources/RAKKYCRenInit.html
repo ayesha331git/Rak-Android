@@ -1,0 +1,76 @@
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onRakKYCRenInitBackClick');"></i>
+	</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.fetchRakKYCRenData(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="">
+									<div class="col-sm-1"></div>
+									
+								<div class="fin-input-container rakTransfersexchangerate-block">
+									<p class="rakexchangevalue">{{appLiterals.APP.KYC_REN.KYC_REN_TOT_MONTHLY_CR}}</p>
+								</div>
+
+									<fin-input type="number"
+										model="rakServiceReq.RakKYCRenModel.totMonthlyCrCash"
+										display-row="full" placeholder="{{appLiterals.APP.KYC_REN.KYC_REN_TOT_MONTHLY_CR_CASH}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakKYCRenModel.totMonthlyCrCash"]'></fin-input>
+									
+									<fin-input type="number"
+										model="rakServiceReq.RakKYCRenModel.totMonthlyCrNonCash"
+										display-row="full" placeholder="{{appLiterals.APP.KYC_REN.KYC_REN_TOT_MONTHLY_CR_NONCASH}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakKYCRenModel.totMonthlyCrNonCash"]'></fin-input>
+										
+									<div class="label-wrap">
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-right"
+											ng-click="rakServiceReq.calcRakKYCTotMonthlyCr();">
+											{{appLiterals.APP.KYC_REN.KYC_REN_CALC_TOT_MONTHLY_CR}}</button>
+									</div>
+									
+									<fin-input type="number"
+										model="rakServiceReq.RakKYCRenModel.totMonthlyCr"
+										display-row="full" placeholder="{{rakServiceReq.RakKYCRenModel.totMonthlyCr}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakKYCRenModel.totMonthlyCr"]'
+										readonly="true"></fin-input>
+									<div>
+										<p class="dateLabelLeft">{{appLiterals.APP.KYC_REN.KYC_REN_TOT_MONTHLY_CR_CASH_NONCASH}}</p>
+									</div>										
+								<div class="fin-input-container rakTransfersexchangerate-block">
+									<p class="rakexchangevalue">{{appLiterals.APP.KYC_REN.KYC_REN_MAX_AMT_EXPECTED}}</p>
+								</div>
+									<fin-input type="number"
+										model="rakServiceReq.RakKYCRenModel.maxAmtExpctdCash"
+										display-row="full" placeholder="{{appLiterals.APP.KYC_REN.KYC_REN_MAX_AMT_EXPECTED_CASH}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakKYCRenModel.maxAmtExpctdCash"]'></fin-input>
+									
+									<fin-input type="number"
+										model="rakServiceReq.RakKYCRenModel.maxAmtExpctdNonCash"
+										display-row="full" placeholder="{{appLiterals.APP.KYC_REN.KYC_REN_MAX_AMT_EXPECTED_NONCASH}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakKYCRenModel.maxAmtExpctdNonCash"]'></fin-input>
+
+									<div class="label-wrap">
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-small btn--back"
+											ng-click="setEvent('onRakKYCRenInitBackClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-right"
+											ng-click="rakServiceReq.calcKYCAmtPercentage();setEvent('onRakKYCRenConfirmClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

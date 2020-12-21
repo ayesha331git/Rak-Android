@@ -1,0 +1,62 @@
+<div class="rak-back-header">
+
+			<i class="rak-back-img"
+				ng-click="setEvent('onCancelClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakMyProfile.initUpdateIdPage(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+				
+				<div class="selfReg-main-form-heading">
+						<div>
+							<span class="rak-black-color upd-label">{{appLiterals.APP.RAK_UPDATE_ID.USER_ID_HEADER}}</span>
+								
+						</div>
+					</div>
+					
+					<div class="bg-color rak-cont-padding rak-scroll rakClearBothImp">
+						<div class="row">
+						
+
+							
+							<div class="rak-oddeven wrapperList"
+								ng-repeat="channel in rakMyProfile.updateIdInitResponse.channelList"
+								ng-init='rakMyProfile.updateIdModel.Userid[$index]=channel.userId'>
+								<div>
+						
+										<fin-input type="text" model="channel.userId" display-row="full"
+											placeholder=""
+											validation-flag='pageErrorArr["rakMyProfile.updateIdModel.Userid[" + {{$index}} +"]"]'
+											ng-keyUp="rakMyProfile.updateList($index);"
+											on-change="rakMyProfile.changeValue($index)"></fin-input>
+											<span class="smallLabel">{{appLiterals.APP.RAK_UPDATE_ID.USER_ID}}</span>
+								
+								</div>
+							</div>
+
+							<div class="label-wrap">
+								<!-- <button type="button"
+									class="btn--special-btn btn-middle rak-button-small"
+									ng-click="setEvent('onCancelClick')">
+									{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CANCEL}}</button> -->
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small rak-button-right"
+									ng-click="rakMyProfile.convertToString();">
+									{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+
+							</div>
+
+
+						
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

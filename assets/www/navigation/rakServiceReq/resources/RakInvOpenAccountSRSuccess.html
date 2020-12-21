@@ -1,0 +1,61 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.rakInvOpenAccSRSuccess(successResponse.responsesList)">
+	<div class="account-page ">
+		<div class="col-sm-11">
+			
+			<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.RakInvOpenAccSR.successMessage}}</span>
+				</div>
+			</div>
+		<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.INV_OPEN}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+				      </h2>		       
+		 </div>
+		
+			
+			<div class="bg-color rak-cont-padding  rak-scroll-success">
+				<div class="row">
+					<div class=""></div>
+
+
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.REF_ACC}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RakInvOpenAccSR.accList[rakServiceReq.RakInvOpenAccSR.selectedAcc].accountId}}</span>
+					</p>
+
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.INV_AMT_CURRENCY}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RakInvOpenAccSR.invAmtCurr}}</span>
+					</p>
+
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.INV_AMT}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RakInvOpenAccSR.invAmtFormat}}</span>
+					</p>
+
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.EXC_RATE}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RakInvOpenAccSR.excRate}}</span>
+					</p>
+
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.DEB_AMT}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RakInvOpenAccSR.debAmt}}</span>
+					</p>
+
+					<div class="label-wrap">
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small"
+							ng-click='setEvent("onRAKInvOpenBackClick");'>
+							{{appLiterals.APP.RAKCOMMONLITERALS.DONE}}</button>
+					</div>
+
+					<div class="col-sm-10"></div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

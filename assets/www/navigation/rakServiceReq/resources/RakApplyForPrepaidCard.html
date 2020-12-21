@@ -1,0 +1,95 @@
+<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="rakServiceReq.applyForPrepaidCard.setRakPPCInitBackBtnClicked();"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+
+<div class="finacle-container"
+	ng-init="rakServiceReq.applyForPrepaidCard.boolAccount=false;rakServiceReq.applyForPrepaidCard.boolCredit=false;rakServiceReq.applyForPrepaidCard.preApplyForPrepaidCard(successResponse.responsesList);">
+
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+		<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.APPLYPREPAIDCARD}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+				      </h2>		       
+		 		</div>
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+					<div class="col-sm-1"></div>
+					
+						<div class="rakRow">
+								<div class="radio-biller rak100 rakWidth100 raktext-align  rakRadioBottom">
+							
+								<div class="rak100">
+									<div  class="">
+									 	<div class="rakCstmRadioDiv rak100 ">
+											<input type="radio" value="OPR" id="radio1"
+												ng-click="rakServiceReq.applyForPrepaidCardAccountHideFields();"	
+												ng-show="rakServiceReq.applyForPrepaidCard.accountNumberList.length!=0"
+												ng-model="rakServiceReq.applyForPrepaidCard.acctFlag" />
+											<label for="radio1"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.ACC_NUMBER}}</label>
+											
+										</div> 
+										<div ng-show="rakServiceReq.applyForPrepaidCard.creditCardList.length!=0" class="rakCstmRadioDiv rak100 rakRadioBottom marginTopTen">
+											<input type="radio" value="CCD" id="radio2"
+												ng-click="rakServiceReq.applyForPrepaidCardCreditHideFields();"	
+												ng-model="rakServiceReq.applyForPrepaidCard.acctFlag" />
+												<label for="radio2"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.MASKED_CREDIT_NUMBER}}</label>
+										
+										</div>
+									</div>
+									<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.chequeBookRequest.isDispatchModeSet"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}} </div>
+								</div>
+							</div>
+
+					<div ng-show="rakServiceReq.applyForPrepaidCard.accountNumberList.length!=0 && rakServiceReq.applyForPrepaidCard.acctFlag=='OPR' "
+						ng-init='accountnumberlist = createDropDownOptionArray(rakServiceReq.applyForPrepaidCard.accountNumberList,["productDescription","-","accountNumber"],"index");'
+						 >
+																												
+						<fin-input type="dropdown"
+							model="rakServiceReq.applyForPrepaidCard.accountIndex"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.ACC_NUMBER}}"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.accountIndex"]'
+							option-array="accountnumberlist" ></fin-input>
+					</div>
+
+
+					<div ng-show="rakServiceReq.applyForPrepaidCard.creditCardList.length!=0  && rakServiceReq.applyForPrepaidCard.acctFlag=='CCD' "
+						ng-init='creditcardlist = createDropDownOptionArray(rakServiceReq.applyForPrepaidCard.creditCardList,["productDescription","-","creditCardNumber"],"index");'
+						 >
+						<fin-input type="dropdown"
+							model="rakServiceReq.applyForPrepaidCard.creditIndex"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.MASKED_CREDIT_NUMBER}}"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.creditIndex"]'
+							option-array="creditcardlist" ></fin-input>
+					</div>
+
+						<div class="label-wrap">
+
+							<button type="button"
+							class="btn--special-btn btn-middle rak-button-small rak-button-right"
+							ng-click="rakServiceReq.applyForPrepaidCardCreditContinue();setEvent('onSubmitOfDetailsForPrepaid');">
+							{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.SUBMIT_TO_APPLY_PREPAID}}</button>
+
+						</div>
+
+
+
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+</div>

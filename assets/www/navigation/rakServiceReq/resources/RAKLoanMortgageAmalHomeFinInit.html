@@ -1,0 +1,257 @@
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onRAKLoanMortgageAmalHomeFinInitBackClick');"></i>
+	</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.fetchRAKLoanMortgageAmalHomeFinDetails(successResponse.responsesList);">
+			<div class="nano menu-scroll dash-tiles rak-dash">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="">
+						<div class="">
+						
+							<div class="main-form-heading-ServiceReq"> 
+								      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.LN_APPL_MORTGAGE_AMALHOMEFIN}}
+								      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+								      </h2>		       
+						 		</div>
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="">
+									<div class="col-sm-1"></div>
+										<div class="nano scroll-height rakscroll-height" >
+										<div class="rakRow">
+											<!-- <div class="radio-biller rak20"
+												ng-init="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.isMortgageLoanSelected='Mortgage Loan'">
+												{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_APPLY_FOR}}</div>
+											<div class="rak80">
+												<div>
+													<div class="rak33 rakRelative">
+														<input type="radio" value="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_MORTGAGE_LOAN}}" class="rakRadio"
+															ng-model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.isMortgageLoanSelected" />
+														<span class="rakRadioLabel-SR">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_MORTGAGE_LOAN}}</span>
+													</div>
+													<div class="rak33 rakRelative">
+														<input type="radio" value="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_AMAL_HOME_FIN}}" class="rakRadio"
+															ng-model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.isMortgageLoanSelected" />
+														<span class="rakRadioLabel-SR">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_AMAL_HOME_FIN}}</span>
+													</div>
+												</div>
+											</div> -->
+											
+											<div class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px" 
+												ng-init="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.isMortgageLoanSelected='Mortgage Loan'">
+												{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_APPLY_FOR}}</div>
+												<div class="rak90">
+													<div>
+				
+														<div class="rakCstmRadioDiv rak50 rakTop2emLeft3">
+															<input type="radio" value="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_MORTGAGE_LOAN}}" id="radio1"
+																ng-model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.isMortgageLoanSelected" />
+															<label for="radio1"><span><span></span></span>{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_MORTGAGE_LOAN}}</label>
+														</div>
+				
+														<div class="rakCstmRadioDiv rak47 rakTop2emLeft3 ">
+															<input type="radio" value="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_AMAL_HOME_FIN}}}" id="radio2"
+																ng-model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.isMortgageLoanSelected" />
+															<label for="radio2"><span><span></span></span>{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_AMAL_HOME_FIN}}}</label>
+														</div>
+				
+													</div>
+												</div>											
+											</div>								
+											
+										</div>
+										
+										
+									<fin-input type="text"
+										model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.ApplicantName"
+										display-row="full" placeholder="{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.ApplicantName}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKLoanMortgageAmalHomeFinModel.ApplicantName"]'></fin-input>
+										<p class="rak-parent-txt">
+											<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_DOB}}</span>
+											<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.DOB}}</span>
+										</p>
+										<div
+										ng-init='MaritalStatList = createDropDownOptionArray(rakServiceReq.RAKLoanMortgageAmalHomeFinModel.MaritalStatList, ["marStat"], "marStat");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedMaritalStat"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_MARITALSTAT}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedMaritalStat"]'
+										option-array="MaritalStatList"> </fin-input>
+										<div>
+										<p class="rak-parent-txt">
+											<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_NATIONALITY}}</span>
+											<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.Nationality}}</span>
+										</p>
+										</div>
+										<div class="rakRow">
+											<!-- <div class="radio-biller rak20"
+												ng-init="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.isUAEResident='Yes'">
+												{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_UAERES}}</div>
+											<div class="rak80">
+												<div>
+													<div class="rak33 rakRelative">
+														<input type="radio" value="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_ISUAERESYES}}" class="rakRadio"
+															ng-model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.isUAEResident" />
+														<span class="rakRadioLabel-SR">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_ISUAERESYES}}</span>
+													</div>
+													<div class="rak33 rakRelative">
+														<input type="radio" value="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_ISUAERESNO}}" class="rakRadio"
+															ng-model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.isUAEResident" />
+														<span class="rakRadioLabel-SR">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_ISUAERESNO}}</span>
+													</div>
+												</div>
+											</div> -->
+											
+											<div class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px" 
+												ng-init="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.isUAEResident='Yes'">
+												{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_UAERES}}</div>
+												<div class="rak90">
+													<div>
+				
+														<div class="rakCstmRadioDiv rak50 rakTop2emLeft3">
+															<input type="radio" value="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_ISUAERESYES}}" id="radio1"
+																ng-model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.isUAEResident" />
+															<label for="radio1"><span><span></span></span>{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_ISUAERESYES}}</label>
+														</div>
+				
+														<div class="rakCstmRadioDiv rak47 rakTop2emLeft3 ">
+															<input type="radio" value="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_ISUAERESNO}}}" id="radio2"
+																ng-model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.isUAEResident" />
+															<label for="radio2"><span><span></span></span>{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_ISUAERESNO}}}</label>
+														</div>
+				
+													</div>
+												</div>											
+											</div>								
+											
+										</div>
+										</div>
+								<div class="fin-input-container rakTransfersexchangerate-block">
+									<p class="rakexchangevalue">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_CONTACT_INFO}}</p>
+								</div>
+										<fin-input type="number"
+										model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.LengthOfStayinUAE"
+										display-row="full" placeholder="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_LENGTHOFSTAY}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKLoanMortgageAmalHomeFinModel.LengthOfStayinUAE"]'></fin-input>
+										<fin-input type="number"
+										model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.POBox"
+										display-row="full" placeholder="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_POBOX}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKLoanMortgageAmalHomeFinModel.POBox"]'></fin-input>
+										<div
+										ng-init='EmiratesList = createDropDownOptionArray(rakServiceReq.RAKLoanMortgageAmalHomeFinModel.EmiratesList, ["emirateName"], "emirateName");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedEmirate"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_SEL_EMR}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedEmirate"]'
+										option-array="EmiratesList"> </fin-input>
+										<p class="rak-parent-txt">
+											<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_TELENOOFF}}</span>
+											<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.TeleNoOff}}</span>
+										</p>
+										<p class="rak-parent-txt">
+											<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_TELENORES}}</span>
+											<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.TeleNoRes}}</span>
+										</p>
+										<p class="rak-parent-txt">
+											<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_FAX}}</span>
+											<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.FaxNo}}</span>
+										</p>
+										<p class="rak-parent-txt">
+											<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_MOB}}</span>
+											<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.MobileNo}}</span>
+										</p>
+										<p class="rak-parent-txt">
+											<span class="rak-sum-label">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_EMAIL}}</span>
+											<span class="rak-sum-label black">{{rakServiceReq.RAKLoanMortgageAmalHomeFinModel.EmailNo}}</span>
+										</p>
+
+										<div class="fin-input-container rakTransfersexchangerate-block">
+									<p class="rakexchangevalue">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_PERSONAL_INFO}}</p>
+								</div>
+
+										<div
+										ng-init='EmploymentTypeList = createDropDownOptionArray(rakServiceReq.RAKLoanMortgageAmalHomeFinModel.EmploymentTypeList, ["empType"], "empType");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedEmpType"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_EMP_TYPE}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedEmpType"]'
+										option-array="EmploymentTypeList"> </fin-input>
+										<fin-input type="number"
+										model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.GrossFixedSalMonth"
+										display-row="full" placeholder="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_GROSSFIXSAL_MONTH}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKLoanMortgageAmalHomeFinModel.GrossFixedSalMonth"]'></fin-input>
+										<fin-input type="number"
+										model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.AgeOfBusiMonth"
+										display-row="full" placeholder="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_AOB_MONTH}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKLoanMortgageAmalHomeFinModel.AgeOfBusiMonth"]'></fin-input>
+										<fin-input type="number"
+										model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.ProfShareLastYr"
+										display-row="full" placeholder="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_PROFSHARE_LASTYR}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKLoanMortgageAmalHomeFinModel.ProfShareLastYr"]'></fin-input>
+
+								<div class="fin-input-container rakTransfersexchangerate-block">
+									<p class="rakexchangevalue">{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_PROPERTY_INFO}}</p>
+								</div>
+									<fin-input type="text"
+										model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.NameOfProp"
+										display-row="full" placeholder="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_NAME_PROP}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKLoanMortgageAmalHomeFinModel.NameOfProp"]'></fin-input>
+										<div
+										ng-init='LocOfPropList = createDropDownOptionArray(rakServiceReq.RAKLoanMortgageAmalHomeFinModel.LocOfPropList, ["locPropName"], "locPropName");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedLocOfProp"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_LOC_PROP}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedLocOfProp"]'
+										option-array="LocOfPropList"> </fin-input>
+										<div
+										ng-init='NameOfDevList = createDropDownOptionArray(rakServiceReq.RAKLoanMortgageAmalHomeFinModel.NameOfDevList, ["devName"], "devName");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedDev"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_NAME_DEV}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedDev"]'
+										option-array="NameOfDevList"> </fin-input>
+										<fin-input type="number"
+										model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.TotLnFinRqd"
+										display-row="full" placeholder="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_TOT_LNFINRQD}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKLoanMortgageAmalHomeFinModel.TotLnFinRqd"]'></fin-input>
+										<fin-input type="number_card"
+										model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.PerOfLnFinYr"
+										display-row="full" placeholder="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_PER_OF_LNFIN}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKLoanMortgageAmalHomeFinModel.PerOfLnFinYr"]'></fin-input>
+										<div
+										ng-init='OthBankLnFinList = createDropDownOptionArray(rakServiceReq.RAKLoanMortgageAmalHomeFinModel.OthBankLnFinList, ["othBankLnFin"], "othBankLnFin");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedOthBankLnFin"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAKLOANFINSR.MORTGAGEAMALHOME_OTH_BANK_LNFIN}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedOthBankLnFin"]'
+										option-array="OthBankLnFinList"> </fin-input>
+										<div class="label-wrap">
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-right"
+											ng-click="setEvent('onRAKLoanMortgageAmalHomeFinConfirmClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+										</div>
+										</div>
+									<div class="col-sm-1"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<div class="scroll-space"></div>
+		<div class="fin-txt"></div>
+		<div class="fin-txt"></div>
+				</div>
+			</div>
+		</div>
+		</div>
+</div>

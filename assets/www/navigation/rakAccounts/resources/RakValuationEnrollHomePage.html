@@ -1,0 +1,137 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="rak-back-header">
+			<i class="rak-back-img" ng-click="setGlobalEvent('onRakValuationHomeClick');"></i>
+		</div>
+		<div class="finacle-container"
+			ng-init="rakAccounts.RakValuationEnroll.accountType='';rakAccounts.rakValuationEnrollInit(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+
+
+						 <div class="money-block">
+         <ul>
+            <li  class="active">
+            {{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.ENROLL}}</li>
+           <li ng-click="rakAccounts.resetRakValuationUpgradeValuationHome();setEvent('onRakValuationUpgradeValHomeClick');" >
+            {{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.UPGRADE}}</li>
+
+          </ul>
+ </div>
+ 				<!-- Heading fix-start -->
+ 					<div class="main-form-heading-ServiceReq"> 
+			                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAKBURGER.RAK_VALUE_COLLECTION}}
+			                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+			                 </h2>
+					</div>
+ 				<!-- Heading fix-end -->
+
+							<!-- Section displayed when no eligible accounts present  START -->
+							<div class="bg-color rak-cont-padding rak-scroll" ng-show="rakAccounts.RakValuationEnroll.isEligibleToEnroll==false">
+
+
+
+								<!-- <div class="rak-sum-txt rakBoxShadow">
+									<p class="label-txt">
+										{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.NULL_ENROLL}}</p>
+								</div> -->
+								
+							<div class="main-form-heading-ServiceReq"> 
+					                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.NULL_ENROLL}}
+					                 </h2>
+							</div>
+								
+								<div class="label-wrap">
+
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small"
+										ng-click="setEvent('onDashboardClick')">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+
+								</div>
+								
+
+							</div>
+
+
+							<!-- Section displayed when no eligible accounts present  END -->
+
+							<div class="bg-color rak-cont-padding rak-scroll" ng-show="rakAccounts.RakValuationEnroll.isEligibleToEnroll==true">
+								
+								<div class="row">
+									<div class="col-sm-1"></div>
+									
+															
+									
+
+								<div class="" ng-show="rakAccounts.RakValuationEnroll.isBothType==true">
+										<div class="radio-biller rak20 topPaddZero">
+											{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.TYPE}}</div>
+										<div class="rak80">
+											<div>
+												<div class="rakCstmRadioDiv rak40 rakRelative">
+													<input type="radio"
+														value="ODA"  id="radio1"
+														
+														ng-model="rakAccounts.RakValuationEnroll.accountType" ng-click="rakAccounts.RakValuationEnroll.resetRakValuationEnrollAccountId();rakAccounts.RakValuationEnroll.clicked=true"/>
+														<label for="radio1"><span><span></span></span>{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.ACCOUNT}}</label>
+													
+
+												</div>
+												<div class="rakCstmRadioDiv rak50 rakRelative">
+													<input type="radio"
+														value="CCD"  id="radio2"
+														
+														ng-model="rakAccounts.RakValuationEnroll.accountType" ng-click="rakAccounts.RakValuationEnroll.resetRakValuationEnrollAccountId();rakAccounts.RakValuationEnroll.clicked=true"/> 
+															<label for="radio2"><span><span></span></span>{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CCD}}</label>
+													
+
+												</div>
+
+											</div>
+											<div class="rakRadioErr" ng-hide='pageErrorArr["rakAccounts.RakValuationEnroll.accountType"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.TYPE}}</div>
+										</div>
+									</div>
+
+
+									<div
+										ng-init='oprArr = createDropDownOptionArray(rakAccounts.RakValuationEnroll.oprList, ["productCatDesc","-","accountId","-","currency"], "accountIndex");'></div>
+									<fin-input type="dropdown" ng-show="rakAccounts.RakValuationEnroll.isACOpr||rakAccounts.RakValuationEnroll.accountType=='ODA'"
+										model="rakAccounts.RakValuationEnroll.accountId"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.ACCOUNT}}"
+										validation-flag='pageErrorArr["rakAccounts.RakValuationEnroll.accountId"]'
+										option-array="oprArr"> </fin-input>
+
+									<div
+										ng-init='ccdArr = createDropDownOptionArray(rakAccounts.RakValuationEnroll.ccdList, ["creditCardDesc","-","creditCardNumber"], "creditIndex");'></div>
+									<fin-input type="dropdown"
+										model="rakAccounts.RakValuationEnroll.accountId"
+										display-row="full" ng-show="rakAccounts.RakValuationEnroll.isACCcd||rakAccounts.RakValuationEnroll.accountType=='CCD'"
+										placeholder="{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CCD}}"
+										validation-flag='pageErrorArr["rakAccounts.RakValuationEnroll.accountId"]'
+										option-array="ccdArr"> </fin-input>
+
+
+
+
+
+									<div class="label-wrap">
+
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-small"
+											ng-click="rakAccounts.RakValuationEnroll.checkForRadioBtnClicked();rakAccounts.RakValuationEnroll.resetRakValuationEnrollContinue();">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

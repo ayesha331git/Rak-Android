@@ -1,0 +1,752 @@
+$label-size: 2em;							         		 // Login Label Size
+$input-icon-size: 2.3em;							         // Login Input Icon Size
+$login-error-txt-size: 2em;							         // Login Error txt Size
+$login-input-style-size: 2em;							     // Login Input Style Size
+$user-name-size: $content-heading-font-size;										 // App User Name Font Size
+$first-char-size: 1.2em;									 // App User First Char
+$user-login-size: 1.3em;									 // App User Last Login Font Size
+$item-arrow-size: $dashboard-title-arrow-size;									 // App Dashboard Item Title Arrow Size
+$item-title-size: $dashboard-title-font-size;									 // App Dashboard Item Title Size
+$ac-num-size: $content-heading-font-size;										 // App Account Detail Number Font size
+$bal-avail-size: 1.3em; 										 // App Available Balance Font Size
+$app-fut-txt: $content-heading-font-size;										 // App Future Txt Font Size
+$fut-result-size: 1.2em;									 // App Future Result Txt Font Size
+$result-close-size: 2em;									 // App Future Result Close Font Size
+$info-no-size: 1.6em;										 // App Transaction Account No Font Size
+$info-date-size: 1.3em;										 // App Transaction Account Date Font Size
+$loader-icon-size: 6.2em;									 // App Loader Icon Font Size
+$pop-icon1-size: 0.8em;										 // App Logout Confirm icon size
+$pop-icon-size: 4.5em;										 // App Popup Icon size
+$desc-text1-size: 1.5em;									 // App Popup Secondary Label Font Size
+$desc-txt-primary-size: 2em;								 // App Popup Primary Label Font Size
+$pop-sucs-size: 0.5em; 										 // App Popup Message Success Icon Size
+$date-overflow-list-size: 1.4em;							 // App Dashboard Account Search Date Overflow Text Size
+$sucs-circle-icon-size: 5em;								 // App Success Page tickcircle Font Size
+$trans-sucs-txt-size: $feature-success-icon-font-size; 									 // App Success Text Font Size
+$mob-user-size: 1.4em;										 // App Mobile User Icon Font Size
+$sucs-id-txt-size: $feature-success-message-font-size;										 // App Success Page Ref ID Font Size
+$download-txt-size: 1.4em;									 // App Download Text Font Size
+$download-arrow-size: 2.4em;								 // App Download Arrow Font Size
+$chec-search-icon: 2em;										 // App Cheque Deposit Search Icon Size
+$cheq-left-txt: $content-heading-font-size;										 // App Cheque Deposit Detail Left Text Font Size
+$cheq-right-txt: 1.5em;										 // App Cheque Deposit Detail right Text Font Size
+$camera-icon-size: 2.4em;									 // App Camera Icon Size
+$service-txt-size: 1.7em;									 // App Service Text Font Size
+$special-txt-size: 1.5em;									 // App Landing Page Menu List Font Size
+$set-arrow-size: 2.5em;										 // App Landing Page Arrow Size
+$user-left-txt-size: 1.1em;									 // App User Left Text Font Size
+$valid-no-txt-size: 1em;									 // App Register Valid Text Size
+$staging-size: 1.5em;										 // App Staging Text Size
+$stagin-sucs-size: 3em;										 // App Success Staging Size
+$select-txt-size: 1.5em;									 // App Select Txt Size
+$select-icon-size: 0.7em;									 // Ok icon size
+$earphone-size: 1.5em;										 // EarPhone Icon Size
+$payee-label-size: 1.4em;									 // Payee Label Font Size
+$field-txt-size: 1.2em;										 // App Payee Search Field Text Size
+$type-name-size: 1.4em;										 // App Beneficiary Detail Text(Type Name)
+$type-no-size: 2em;											 // App Beneficiary Detail Text(Type No)
+$payee-note-size: 1.5em;									 // App Payee Notification Text Size
+
+
+// Common Style Here
+$width: 100%;												 // App Full Width
+$center:center;												 // App Float Center
+$display-block: block;										 // Common Display block function
+$display-none: none;										 // Common Display none function
+$relative: relative;								 		 // Common Position relative
+$absolute: absolute;								 		 // Common Position absolute
+$fixed: fixed;												 // Common Position fixed
+$app-width: 100%;
+$error-color: $error-highlight;
+$margin: 0;							        		         // common Margin 0
+$common-margin: 0 auto;						                 // common Margin 0 auto
+$common-padding: 0 .8em;                                    // Common Padding
+$padding: 0;                                    			 // Padding 0
+$item-arrow-style: 4em;										 // App Dashboard Item Arrow width,height and line-height
+$clear: both;
+$common-line-color: solid 1px $divider-color;				     // App Account Detail and app-future border line
+$background-color: transparent;								 // App Background Transparent
+$spinner-style: 6.2em;		 								 // App Popup Spinner width,height and line-height
+$spinner-animation-name: spin;								 // App Popup Spinner Animation Name
+$spinner-animation-duration: 2500ms;						 // App Popup Spinner Animation Duration
+$spinner-animation-iteration-count: infinite;				 // App Popup Spinner Animation Iteration Count
+$spinner-animation-timing: linear;							 // App Popup Spinner Animation Timing Function
+$padding1: 1em;												 // App Common Padding Size
+$half-width: 50%; 											 // App Dashboard Account Detail Half Width
+$none: none;
+$block: block;
+$sucs-color: #83ca13;										 // App Success Color
+
+
+$navbar-header-margin: 0 0 0 -1.5em;					     // App Navbar margin (Bootstrap Var)
+$fms-content-margin:0 0 0 -28em;                             // Fms Content Margin
+$fms-view-margin: 0 0 0 28em;								 // App Body Margin
+$label-margin: $margin;							        	 // Login Label Margin
+$login-input-margin: 0.5em auto;							 // Login input Margin
+$login-error-txt-margin: -1.35em 0 0;						 // Login Error txt Margin
+$text-box-margin: -5em 0 0 0em;							 // Text Box Margin
+$login-input-style-margin: 0.6em 0 0;						 // Login Input Style Margin
+$row-margin: 0 -1.5em;							             // Bootstrap Row Margin
+$user-char-margin: -4.5em 0 0;							     // App User Character Margin
+$user-detail-margin: 1.2em 0 0 1.5em;							 // App User Detail margin
+$ac-detail-margin: -1.3em 0 0 -3em;							 // App Dashboard Account Detail Margin
+$ac-line-margin: 0 0 0 -0.3em;								 // App Account Detail Line Margin
+$balance-detail-margin: 0 0 0 -2em;							 // App Balance Detail Wrapper margin
+$app-ellipses-margin: 0.3em;								 // App Ellipses Margin
+$app-future-margin: 0 2em;									 // App Future Margin
+$fut-line-mar: -0.2em 0 0;									 // App Future Active Bottom Line Margin
+$fut-tri-margin: -0.8em auto 0;								 // App Future Active Bottom Triangle Margin
+$future-result-margin: 1.5em 1.5em 0;						 // App Future Result Wrapper Margin
+$result-close-margin: -0.1em 0 0 0;							 // App Future Result Close Margin
+$trans-info-margin: 2em 0 0;							 // App Account Transaction info Margin
+$spinner-margin: 20% auto auto;								 // App Popup Spinner Margin
+$round-icon-margin: -0.5em 0 0;							 	 // App Popup Round icon
+$ac-popup-margin: -0.3em 0 0;							 	 // App Account Popup icon
+$app-hr1-margin: 4.5em;  									 // App Hr1 Margin
+$nn-hr-margin: 5em;  										 // App Account Nick Name LandingPage Hr Margin
+$pop-icon1-margin: 0 0 0 0.17em;							 // App Logout Confirm Icon Margin
+$desc-text1-margin: 3em 0em 0;								 // App Popup Secondary Label(desc text1 margin)
+$desc-txt-primary-margin: -0.5em 0 0 6em;					 // App Popup Primary Label
+$round-icon2-margin: -0.5em 0 0 1.5em;						 // App Popup Load Error Page Round Icon Margin
+$pop-unsucs-margin: 0 0.1em 0 0.15em;							 // App Popup Load Error Page Unsuccess Icon Margin
+$pop-sucs-margin: 0.5em 0.5em 0 0;							 // App Popup Load Error Page Unsuccess Icon Margin
+$des-mar: 2em 0 0;											 // App Dashboard Account Page Description Text Margin
+$page-ref-margin: 0 0 0 13em;								 // App Dashboard Account Popup Page(Refresh Image Margin)
+$detail-mar: 1em 0 0;										 // App Dashboard Account Details Margin
+$date-overflow-margin: -0.3em 0 0;							 // App Dashboard Account Search Date Overflow Screen Margin
+$date-overflow-lists-margin: 0 0 1em 5em;					 // App Dashboard Account Search Date Overflow Lists wrap Margin
+$date-overflow-cancel-mar: 0.5em 0 0;						 // App Dashboard Account Search Date Overflow cancel Margin
+$trans-sucs-txt-margin: 0 0 1em;						     // App Success Text Margin Bottom
+$id-txt-margin: -5.5em 0 0;									 // App Success Page(ID Text Margin)
+$mob-user-margin: 1em 2.5em 0 0em;							 // App Mobile User Icon Margin
+$download-arrow-margin: 0 0.5em 0 0;						 // App Download Arrow Margin
+$chec-det-wrap-mar: 1em 0 3.5em;							 // App Cheque Deposit Detail Wrapper Margin
+$cheq-list-wrap-mar: 0 0 1.4em;								 // App Cheque Deposit Detail List Page Wrapper Margin
+$cheq-list-det-mar: 0.8em 0 0;								 // App Cheque Deposit Detail List Page Detail Margin
+$chec-amt-wrap-mar: 0 0 3.5em;								 // App Cheque Deposit Amount Wrapper Margin
+$add-icon-mar: -0.1em 0 0 -1.2em;							 // App Cheque Deposit Add Icon Margin
+$camera-icon-margin: 0.25em 1em 0 0;						 // App Camera Icon Margin
+$service-item-body-margin: 1.5em 0 0;						 // App Service Item Body Margin
+$service-item1-body-margin: 0.2em 0 0;						 // App Service Item1 Body Margin
+$service-item-title-margin: 0 0 1em;						 // App Service Title Wrapper Margin
+$service-hr-margin: 1em 0 1em 1.2em;					 // App Service hr line Margin(0.8em 0 0.8em 1.2em)
+$special-txt-margin: 0 0 0 .8em;						 		 // App Landing Page Menu List Text Margin
+$landingpage-list-margin: -2.3em 0 0;						 // App Landing Page Menu List Margin
+$progress-margin: 0.5em 1.5em 0 0;							 // App Progress Bar Margin
+$hr-margin: 1em auto auto;									 // App HR Line Margin
+$app-pwd-margin: -0.3em 0 0 1.5em;							 // App Login Password Margin
+$trans-txt-margin: -0.3em 0 0;								 // App Transaction Password Text Margin
+$pwd-line-mar: 0.7em 0 0;									 // App Password Active Line
+$pwd-line1-mar: 0.65em 0 0;									 // App Password Active Line
+$pwd-line2-mar: 0.4em 0 0;									 // App Password Active Line(IMPS)
+$pwd-sucs-margin: 5em 0 0;									 // App Password Success Page Margin
+$stage2-margin: 5em;
+$stage3-margin: 0 0 0 0.8em;								 // App Stage3 Margin
+$set-arrow-margin: -0.5em 0.3em 0.2em 0;					 // App Set Arrow Margin
+$stageline-margin: 1.35em;									 // App Staging between line margin
+$next-stage-margin: 0.85em;									 // App Next Staging Margin
+$select-icon-margin: 0.5em;									 // Ok icon margin
+$staging-sucs-mar: 0 0 0.4em;								 // App Sucs Staging Margin
+$app-hr2-margin: 6.2em auto auto;							 // App My Payee HR Line Margin
+$bank-hr-margin: -0.2em 0 0;								 // App Select Bank HR Line
+$loc-contact-mar: 3em 0 0;									 // Contact Location Margin
+$earphone-margin: 0 0 0 -4.5em;								 // Contact Earphone Margin
+$payee-prev-icon: -0.8em 0 0 0.4em;							 // Payee Page Prev Icon Margin
+$payee-label-margin: 1em auto;								 // Payee Label Text Wrapper Margin
+$search-field-margin: 0.5em auto;							 // App Payee Page Search Field Margin
+$ben-wrap-mleft: 1.5em;									     // App Beneficiary Wrapper Margin Left
+$ben1-wrap-mtop: -13.7em;									     // App Beneficiary Wrapper Margin Top
+$ben2-wrap-mtop: -16em;									     // App Beneficiary Wrapper Margin Top
+$help-arrow-margin: 1em 0 0 1.5em;							 // App Help Page Arrow Wrapper Margin
+
+
+$label-padding: 1em 0 1.5em;							         // Login Label Padding
+$login-input-style-padding: 0 0 0 0.5em;					 // Login Input Style Padding
+$last-login-padding: 0.5em 0 0 0;							 // Last Login Label Padding
+$dashboard-body-padding: 1.5em 0 0;							 // Dashboard Body Padding
+$ac-detail-padding: 0 0 0 1.4em;							 // App Dashboard Account Detail Padding
+$ac-line-padding: 0.2em;									 // App Account Detail Line Padding
+$balance-detail-padding: 4% 0 0 0; 						 // App Balance Detail Wrapper Padding
+$balance1-detail-padding: 0 0 4em 0; 						 // App Balance Detail Wrapper Padding
+$bal-avail-padding: 0.2em 0 0em 2em;						 // App Available balance Label Padding
+$ac-num-padding: 1em 0 1em 1.2em;							 // App Account Number Padding
+$future-result-padding: 0.3em 0 0.5em 0.6em;				 // App Future Result Wrapper Padding
+$fut-result-padding: 0.2em 0 0;				     			 // App Future Result Txt Padding
+$trans-detail-padding: 0 0 1.3em;							 // App Transaction Info Div Padding
+$popup-info-padding: 1.2em 0.5em;							 // App Popup Info Padding
+$db-popup-txt-tpadding: 0.6em;								 // App Dashboard Account Popup Cheque and Description Text Padding Top
+$db-popup-txt-bpadding: 0.3em;								 // App Dashboard Account Popup Cheque and Description Text Padding Bottom
+$detail-pad: 0 0 1.7em;										 // App Dashboard Account Detail Padding
+$sucs-left-txtpad2: 0.8em;									 // App Success Page Padding Left
+$sucs-circle-wrap-pad: 2em 0;								 // App Success Icon Wrapper Padding
+$id-txt-pad: 0;										 // App Success Page(ID Padding)
+$download-txt-padding: 1em 0 1em 1em;						 // App Download Detail Text Padding
+$download-arrow-padding: 0.4em 0 0;							 // App Download Arrow Padding
+$chec-search-icon-pad: 0.75em 0 0;							 // App Cheque Deposit Search Icon Padding
+$chec-amt-det-pad: 7em 0 0;									 // App Cheque Deposit Detail Amount wrapper Padding
+$cheq-left-pad: 0 0 0 1.2em;								 // App Cheque Deposit Left Text Padding
+$cheq-right-pad: 0 0 0 0.5em;								 // App Cheque Deposit right Text Padding
+$service-body-padding: 0.5em 0 0;							 // App Service Body Padding
+$service-txt-pad: 0 0 0 1em;								 // App Service Text Padding
+$profile-txt-pad: 1.5em 0 0 1em;							 // App Profile List Text Padding
+$set-arrow-pad: 1.2em 0.5em 0 0;							 // App Profile List Page Arrow
+$user-left-txt-pad: 0.5em 1.5em 0 0;						 // App User Text Left Padding
+$valid-no-txt-padding: 0em 0 0 1.3em;						 // App Register Valid Text Padding
+$stage-wrap-pad: 1.9em 0;									 // App Stage Wrapper Padding
+$select-txt-padding: 1.5em 0;								 // App Select Txt Padding
+$field-txt-pad: 0.75em 0 0;									 // App Payee Search Field Text Padding
+$field1-txt-pad: 0.5em 0 0 1em;								 // App Payee Search Field Text Padding(Contact Us Page)
+$ben-det-txt-pad: 1.5em 0 0;								 // App Beneficiary Page Detail Text Wrapper Padding
+$ifsc-use-txt-pad: 0 1.2em 0 0;								 // App IFSC Search Use Text Padding
+
+$app-icon-width: 1.5em;										 // App Menu Icon Width
+$fms-view-width: $app-width;								 // App Body width
+$login-input-width: 100%;							         // Login input Width
+$login-box-width: 6.5em;							         // Login Box Width
+$app-pop-screen-width: $app-width;							 // App Popup Screen Width
+$ac-width: 92%;										 		 // App Account Detail Line Width
+$ac-no-width: 86%;											 // App Account No Width
+$app-fut-width: 45%;										 // App Future Div Width
+$fut-tri-width: 0;											 // App Future Active Bottom Triangle Width
+$app-search-width: 2.7em;									 // App Search Icon Div Width
+$fut-result-txt: 90%;										 // App Future Result Txt Width
+$info-no-width: 103%;										 // App Transaction Account No Width
+$info-right-width: 45%;										 // App Transaction Account right Width
+$info-left-width: 55%;										 // App Transaction Account left Width
+$info-left1-width: 65%;										 // App Transaction Account left Width(NickName LandingPage)
+$popup-ac-width: 90%;										 // App Popup Account info left Width
+$app-split-width: 33%;										 // App Split Title Wrapper width
+$date-overflow-list-width: $width;							 // App Dashboard Account Search List Width
+$cheque-detail-half: 44%;									 // App Cheque Deposit Detail Half Width
+$cheque-img-width: 100%;									 // App Cheque Image width
+$service-hr-width: 90%;										 // App Service hr line Width
+$progress-strong-width: 100%;							 	 // App Progress strong width
+$progress-good-width: 80%;								 	 // App Progress good width
+$progress-fair-width: 60%;								 	 // App Progress fair width
+$progress-weak-width: 40%;								 	 // App Progress weak width
+$progress-short-width: 20%;								 	 // App Progress short width
+$hr-width: 90%;												 // App HR Line Width
+$round-icon2-bg: #444;										 // App Round Icon2 Background Color
+$app-trans-width: 50%;										 // App Transaction Password Width
+$app-pwd-width: 30%;										 // App Login Password Width
+$next-stage: 2.7em;											 // App next Stage width and height
+$stage-width: 2.7em;										 // App Stage Width
+$payee-label-width: 80%;									 // Payee Label Width
+$search-field-width: 90%;									 // App Payee Page Search Field Width
+$search-txt-width: 89%;										 // App Contact Us Search Page Search Text Width
+
+$index: 0;
+$index-right: $index;
+$index-left: $index;
+$index-bottom: $index;
+$index-top: $index;
+$login-txt-error-right: 1em;                                 // Login err txt right
+$app-pop-screen-top: $index;								 // App Popup Screen top
+$app-pop-screen-index1: 2000;								 // App Popup Index-x
+$app-pop-screen-index2: 3000;								 // App Popup Index-x
+$ac-line-bottom: $index; 									 // App Account Detail Line bottom
+$ac-num-bottom: 0.25em;										 // App Account Detail Number bottom
+$fixed-top: 56;											 // App Navbar Fixed Top
+$ac-inside-elt: nowrap;										 // Account no txt handled inside
+$ac-overflow: hidden;										 // Account no div overflow hidden
+$no-txt-overflow: ellipsis;									 // Account no txt overflow hidden
+$trans-cd-left: 60%;										 // Transaction Account Debit and credit icon left
+$trans-cd1-left: 50%;										 // Transaction Account Debit and credit icon left
+$msg-top: 29%;												 // App Popup Message Top
+$ac-popup-top: 0.3em;									     // App Account popup top
+$ac-popup-bottom: -1.8em;									 // App Account Popup Bottom
+$msg-wrap-index: 3em;										 // App Popup Message Wrapper right and left
+$msg-wrap-top: 35%;										 	 // App Popup Message Wrapper top
+$round-icon1-left: 0.5em;									 // App Logout Confirm icon left
+$app-pop-screen1-index: 1.5em;								 // App Dashboard Popup Full Screen right and left Index
+$app-pop-screen1-bindex: -0.2em;							 // App Dashboard Popup Full Screen bottom Index
+$fn-icon-index-right: -0.2em;								 // App Fin-Input Icon Right Index
+$fn-icon-index-top: 0.1em;								 	 // App Fin-Input Icon Top Index
+$date-overflow-lists-index: 2.5em;							 // App Dashboard Account Search Date Overflow Lists wrap right index
+
+$fms-view-position: $absolute;								 // App Body Position
+$login-box-position: $absolute;								 // Login Box Position
+$app-pop-screen-position: $fixed;							 // App Popup Screen position
+
+$app-theme-color: #fff;										 // App Common Color White
+$header-bg-color: $primary-background-color;							 // App Header Title Background Color
+$label-color: #000;							     // Login Label Color
+$error-bg: $error-highlight;						        	 // Error Color
+$input-icon-color: $app-theme-color;					     // Input Icon Color
+$login-box-bg: $app-theme-color;					         // Login Box Background Color
+$login-error-txt-color: #efefef;					         // Login err txt Color
+$login-input-style-color: #efefef;					         // Login Input Style Color
+$login-input-style-bg: transparent;					         // Login Input Style Background Color
+$login-input-style-border: none;					         // Login Input Style Color
+
+$user-img-border: solid 0.1em #efefef;						 // App User Image Border
+$account-bg-color: $feature-background-color;						 // App Account Background Color
+$item-arrow-color: $dashboard-title-arrow-color;									 // App Dashboard Item Title Arrow Color
+$item-title-color: $dashboard-title-color;									 // App Dashboard Item Title Color
+$bal-avail-color: #232020;									 // App Available Balance Label Color
+$app-txt-color: #fff;										 // App text color
+$app-icon-color1: #9a9a9a;									 // App Icon another one color(Account Page search, Ellipses color)
+$txt-active-color: $orange-color;									 // App Active text color
+$txt-normal-color: #424040;									 // App Active text color
+$result-bg: #d3d3d3;										 // App Background LightGray Color(Future Result)
+$info-date-color: #000;									 // App Transaction Account Date Color
+$credit-icon-color: #83ca13;								 // Credit icon color
+$debit-icon-color: #e21619;								 	 // debit icon color
+$app-loader-color: $app-theme-color;      					 // App Loader Color
+$user-border-radius: 2.3em;						 			 // App User Image Border Radius
+$desc-txt-color: $app-theme-color;							 // App Desc Text Color
+$popup-info-bg: #eee;										 // App Popup Info Background Color
+$des-title-bg: #f8f8f8;										 // Description Title Background Color
+$left-txt-color: #9e9e9e;									 // App Left Question Text
+$sucs-left-color: #b7c7cd;									 // App Success Left Question Text
+$pop-icon-color: #e21619; 									 // App Logout Confirm Icon Color
+$message-box-bg-color: #dae4e7;								 // App Message Box Background Color
+$pop-sucs-color: #83ca13;									 // App Popup Message Success Icon Color
+$app-pop-screen1-bg: #dbdbdb;								 // App Dashboard Full Screen1 Background Color
+$app-future-search-border: 0.1em solid $txt-active-color;	 // App Active Search Border
+$date-overflow-bg: #000; 									 // App Dashboard Account Search Date Overflow Background Color
+$date-overflow-list-bg: #d3d3d3;							 // App Dashboard Account Search Date Overflow Lists Background Color
+$date-overflow-list-color: #888;							 // App Dashboard Account Search Date Overflow Lists Font Color
+$date-overflow-cancel: #1584ed;								 // App Dashboard Account Search Date Overflow Cancel Color
+$sucs-circle-icon-color: $feature-success-icon-text-color;							 // App Success Page tickcircle Color
+$id-container-bg: #000;										 // App Success ID Container Background Color
+$mob-user-border: 0.1em solid #444;							 // App Mobile User Icon Border
+$mob-user-bg: #444;											 // App Mobile User Icon Background
+$mob-user-color: #fff;										 // App Mobile User Icon color
+$download-arrow-color: #dbdbdb;								 // App Download Arrow Color
+$camera-icon-color: #9a9a9a;								 // App Camera Icon Color
+$special-txt-color: $app-font-color;						 // App Landing Page Menu List Text Color
+$set-arrow-color: #ddd;										 // App Profile Landing Arrow Color
+$hr-bg: #dbe3e7;											 // App HR Line Background Color
+$progress-strong-color: #76d602;							 // App Progress strong color
+$progress-good-color: #01adff;								 // App Progress good color
+$progress-fair-color: #ffea01;								 // App Progress fair color
+$progress-weak-color: #ff8202;								 // App Progress weak color
+$progress-short-color: #e21619;								 // App Progress short color
+$pwd-normal-color: #424040;									 // App Password Normal Color
+$pwd-active-color: $primary-color;									 // App Password active Color
+$valid-no-txt-color: $error-highlight;							 // App Register Valid Text Color
+$stage-border: solid 0.2em gray;							 // App stage Border
+$staging-color: gray;										 // App Staging Text Color
+$stageline-height: 0.1em;									 // App staging between line height
+$next-stage-border: 0.1em solid gray;						 // App Next Stage Border
+$user-img-shadow: 0 0 1em #000;
+$stage-shadow:  0 0 0.7em gray;								 // App Stage shadow
+$bank-hr-bg: #7d8086;										 // App Select Bank HR Background Color
+$payee-label-color: #fff;									 // Payee Label Text Color
+$psearch-wrap-color: #c2caca;								 // App Payee Page Search Div Wrapper BG
+$search-field-bg: #fff;										 // App Payee Page Search Field BG
+$search-field-border: 0.1em solid #c2caca;					 // App Payee Page Search Field Border
+$field-txt-color: #5f6161;									 // App Payee Search Field Text Color
+$ben-screen-bg: #000;										 // App Beneficiary Detail Background Color
+$type-name-color: #c3c7c9;									 // App Beneficiary Detail Text color(Type Name)
+$type-no-color: #fff;										 // App Beneficiary Detail Text color(Type No)
+$payee-note-color: #fff;									 // App Payee Notification Text Color
+$user-char-color: #000;										 // App Dashboard User First Latter Color
+
+$login-box-opacity: 0.6;									 // Login Box opacity
+$login-box1-opacity: 0.4; 									 // Login Box1 opacity
+$app-pop-screen-opacity: 0.9;								 // App Popup Screen Opacity
+$profile-opacity: 0.5;										 // App Profile Opacity
+$msg-opacity: 1;											 // App Message opacity
+$date-overflow-opacity: 0.8;								 // App Dashboard Account Search Date Overflow Opacity
+$id-container-opacity: 0.3;									 // App Success ID Container Opacity
+$ben-screen-opacity: 0.3;									 // App Beneficiary Detail Background Color Opacity
+
+$login-input-height: 6.5em;							         // Login input Height
+$login-box-height: 100%;							         // Login Box Height
+$sm-height: 1em;								     		 // Bootstrap SM Height
+$app-pop-screen-height: 100%;								 // App Popup Screen Height
+$app-profile-height: 5.7em;									 // App Profile Height
+$app-user-height: 0.6em 1.5em 0 2em;						 // App User Profile Height
+$user-img-height: 4.5em;									 // App User Profile Image Height
+$dashboard-title-height: 4em;								 // App Dashboard Item Title Height
+$ac-detail-height: 5.9em;									 // App Dashboard Account Detail Height
+$app-future-height: 3.7em;									 // App Future Height
+$fut-line-height: 3px;									 // App Future Active Bottom Line
+$app-scroll-height: 20.5em !important;						 // App Scrolling Height
+$page-ref-height: 5em;										 // App Dashboard Account Popup Page(Refresh Image Height)
+$date-overflow-height: 28.5em;								 // App Dashboard Account Search Overflow Height
+$date-overflow-list-height: 3em;							 // App Dashboard Account Search Overflow List Height
+$id-container-height: 5.5em;								 // App Success Page ID Container Height
+$trans-msg-wrap: 6.5em;										 // App Success Page Message Wrapper
+$download-detail-height: 5em; 								 // App Download Detail Wrapper Height
+$cheque-img-height: 13.5em;									 // App Cheque Image Height
+$service-title-height: 4.8em;								 // App Service Title Wrapper Height
+$service-item-title-height: 6em;							 // App Service Item Title Height
+$landingpage-list-height: 5em;								 // App LandingPage List Height
+$progress-height: 0.2em;									 // App Progress Bar Height
+$hr-height: 0.1em;											 // App HR Line Height
+$stage-height: 2.7em;										 // App Stage height
+$psearch-wrap-height: 4.5em;								 // App Payee Page Search Div Wrapper
+$search-field-height: 3.5em;								 // App Payee Page Search Field Height
+$ben-screen-height1: 13.7em;									 // App Beneficiary Detail height1
+$ben-screen-height2: 17em;									 // App Beneficiary Detail height
+
+$label-align: $center;							             // Login Label Align
+
+$user-char: 4.5em;											 // App user character width,height and line-height
+$round-icon1-wh: 1em;										 // App Logout Confirm Icon Width and Height
+
+$login-box-float: $left;
+
+$input-icon-line-height: 2.9em;								// App Login Input Icon Line Height
+$item-arrow-lheight: 1.5em;									// App Dashboard Item Title Arrow Line-height
+$item-title-lheight: 2.3em; 									// App Dashboard Item Title Line-height
+$app-fut-lheight: 2.7em;									// App Future Txt Line-height
+$cc-fut-lheight: 2.5em;									// App Future Txt Line-height
+$app-split-lheight: 1;										// App Split Title Line-height
+$pop-icon-lheight: 1.3em;									// App Logout Confirm Icon Line-height
+$trans-txt-lheight: 1.2em;									// App Transaction Password Text Line-Height
+$stage-lheight: 2.7em;										// App Stage Line-Height
+
+$error-box: -6.5em;
+$round-icon1-radius: 3em;								    // App Logout Confirm Icon Radius
+$mob-user-radius: 0.3em;									// App Mobile User Icon Radius
+$progress-radius: 0.3em;									// App Progress Radius
+$stage-radius: 3.35em;										// App Stage radius
+$next-stage-radius: 2.5em;									// App Next Stage Radius
+$search-field-radius: 0.3em;								// App Payee Page Search Field Border Radius
+$common-ls: 0.2em;
+$imp: !important;
+// LOGO AND BACKGROUND HERE
+//Logo
+$logo: $app-header-logo;        // App Logo Image
+$logo_margin: 0 0 0 9em;                                   // App Logo Margin
+$logo_padding: 4.5em 1.5em 1.5em;                            // App Logo Padding
+$logo_width: 40%;                                            // App Logo Width
+
+//Background
+$app-body-bg-image: $app-body-background;  	 // App Body Background Image
+$app-body-font-size: 0.62em;								 // App Body Font Size
+$app-body-margin: 1em 0em 0;							     // App Body Margin
+$app-body-position: 6.4em;									 // App Body Background Position
+
+//ICON STYLE HERE
+$app-login-icon: 4em;										 // App Login Icon
+$icon-color: $header-icon-color;											 // App Icon Color
+//Burger Icon
+$icon_wrap_padding: 5px 0 0 4%;                                     // Burger Icon Wrap Padding
+$icon_wrap_margin: 0 0 0.2em -2em;                       // Burger Icon Wrap Margin
+$burger_size: 4em;                                         // Burger Icon Size
+
+//Power Icon
+$icon_power_margin: 0;			                             // Logout Icon Margin
+$icon_power_size: 4em;                                     // Logout Icon size
+$icon_power_right: $index;                                   // Logout Icon right
+$icon_power_color: $primary-color;                                 // Logout Icon Color
+$icon-power-padding: 1.2em;								 	// Logout Icon Padding Top
+$icon-power-mar: 0.5em;									// Logout Icon Margin
+
+//Help Icon
+$help-icon-wrap-margin: 1.8em 4em 0 0;					// App Help Icon Wrapper Margin
+$help-icon-padding: $padding;								// App Help Icon Wrapper padding
+$help-icon-size:2.4em;										// App Help Icon Size
+$help-icon-margin:0.15em 0.25em 0 0;						// App Help Icon margin
+$help-icon-color: $primary-color;									// App Help Icon color
+
+//MENU BAR STYLE HERE
+$menu-scroll-height: 55em !important;						 // App Menu Scroll Height
+$menu-wrap-height:100%;										 // App Menu height
+$menu-wrap-width: 28em;										 // App Menu Width
+$menu-wrap-position: $fixed; 								 // App Menu position
+//Menu list height
+$menu-bar-height: 4.8em;									 // App Menu separate list height
+$menu-opacity: 0.5; 										 // App Menu Body background opacity
+$menu-list-padding: 0 0 0 2em;								 // App Menu List Padding
+$menu-list-margin: 1em 0 0 0;								 // App Menu List Padding
+$menu-list-height: 5.8em;									 // App Menu List Height
+//Icon
+$menu-icon-size: 1.6em; 									 // App Menu list Icon Size
+$menu-icon-margin: -0.4em 0 0; 								 // App Menu list Icon Margin
+$menu-icon-padding: 1em; 									 // App Menu list Icon Padding
+$menu-icon-position: $relative;								 // App Menu list Icon Position
+
+//Text
+$menu-font-size: 1.4em;										 // App Menu list Text Size
+$menu-font-color: #efefef;							 // App Menu list Text color
+
+
+//BUTTON STYLE START HERE
+
+// Common Btn Style Here
+$btn_size: 1.6em;								     		 // App Btn Size
+$btn_margin: 1em 0em 0 3%;								 // App Btn Margin
+$btn_width: 90%;								     		 // App Btn Width
+$btn_height: 2.6em;								     		 // App Btn Height
+$btn_align: $center;								     	 // App Btn Align
+
+// Primary Btn Style Here
+$primary-btn-color: $primary-color;								 // App Primary Btn Background Color
+$primary-btn-border: 0.1em solid $primary-color;		 // App Primary Btn Border Color
+
+// Primary Small Btn Style Here(Ex.Btn: Register now or later)
+$primary-small-btn-margin: 0 0 0.3em 0.3em;					 // App Primary Small Btn Margin
+$primary-small-btn-width: 47%;								 // App Primary Small Btn Width
+$reg-btn-margin: 20em;										 // App Register online offline margin
+$reg-small-btn-mar: 10em;								 	 // App Register Small Btn
+
+//Help Btn Style Here
+$prihelp-btn-width: $width;									 // App Help Btn width
+$prihelp-btn-margin: 0 0 1em 0;								 // App Help Btn Margin
+$help-btn-margin: 0 0 0 1em;								 // App Help Small Btn
+
+//Secondary Btn Style Here
+$secondary-btn-color: $secondary-color;								     // App Secondary Btn Background Color
+
+//Special Btn Style Here
+$special-btn-margin: 3.2em 0 0;								 // App Special Btn Margin
+$special-btn-width: $app-width;								 // App Special Btn Width
+$special-btn-color: $secondary-color;						     // App Special Btn Background Color
+$special-btn-border: 0.2em solid $primary-color;			 // App Special Btn Border Color
+$special-color: $app-theme-color;							 // App Special Btn Font Color
+$special-btn1-margin: 1em 0 1.3em;								 // App Done btn margin(Register Btn)
+$special-btn-border1: 0.1em solid $primary-color;			 // App Delete and Edit Btn
+
+//Popup Btn Style Here
+$popup-btn-bg: $background-color;							 // App Popup Cancel Btn Background Color
+$popup-btn-color: $app-theme-color;						     // App Popup Btn Text Color
+
+$popup-btn-bg1: $app-theme-color;							 // App Popup Ok Btn Background Color
+$popup-btn-color1: #000;									 // App Popup Ok Btn Text color
+
+// Dashboard Popup Btn Style Here
+$dashboard-popup-btn-size: 1em;								 // App Dashboard Popup Btn Font Size
+$dashboard-popup-btn-margin: 1.5em 0 1em;					 // App Dashboard Account Page Popup Btn Margin
+$dashboard-popup-btn-width: 50%;							 // App Dashboard Account Popup Btn Width
+$dashboard-popup-btn-border: solid 1px #dbdbdb;				 // App Dashboard Account Btn Border Color
+$dashboard-popup-btn-bg: #dbdbdb;							 // App Dashboard Account Btn Background Color
+$dashboard-popup-btn-height: 3em;							 // App Dashboard Account Popup Btn Height
+
+// Level 1 Btn Style Here(ex: SKIP Btn)
+$level-btn-color: $primary-btn-color;
+
+// Double Btn Wrapper
+$double-btn-bg: $app-theme-color;							// App Double Btn Wrapper Background Color
+$double-btn-height: 2.5em;									// App Double Btn Wrapper Height
+$double-btn-size: 1.3em;									// App Double Btn Wrapper Size
+$double-btn-color: #3e738c;									// App Double Btn Wrapper color
+$double-btn-width: 40%;										// App Double Btn Wrapper Width
+$double-btn-margin: 0 0 1.5em 1.5em;						// App Double Btn Wrapper Width
+
+//My Payees Bank Cancel Btn
+$bank-btn-bg: #50545e;										// App Bank Cancel Btn background
+$bank-btn-border: 0.1em solid #50545e;						// App Bank Cancel Btn Border Color
+$bank-btn-color: #fff;										// App Bank Cancel Btn Color
+$bank-btn-size: $content-heading-font-size;										// App Bank Cancel Btn Font Size
+
+//AMOUNT STYLE HERE
+$amount-padding: 1em 0 0 2em;									 // App Amount Wrapper Padding
+$amount-color: $currency-color;										 // App Amount Color
+$amount1-padding: 1.5em;									 // App Amount Padding Left(authentication and success  Page)
+
+//TITLE STYLE HERE
+$app-title-height: 5.8em;									 // App Title Wrapper Height
+$app-title1-height: 4.8em;									 // App Title1 Wrapper Height
+$service-title-border: 0.4em solid #f8f8f8;					 // App Service Landing Page(Title Wrap Height)
+$app-service-title-color: #0b1a68;							 // App Service Title Color
+$service-item-title-color: #f8f8f8; 						 // App Service Title Wrapper Background Color
+$title-icon-size: $feature-header-close-font-size;									 // App Title Icon Font Size
+$title-txt-size: $feature-header-label-font-size;									 	 // App Title Text Font Size
+$title2-large-size: 1.6em;									 	 // App Title Text Font Size
+$title-icon-padding: 0.3em 0 0;								 // App Title Icon Padding
+$title-txt-padding: 0.8em 0 0;							   	 // App Title Text Padding
+$title2-txt-padding: 1em 0 0;							   	 // App Title Text Padding
+$title-icon-width: 10%;										 // App Title Icon Width
+$title-txt-width: 80%;										 // App Title Text Width
+$title-lc-width: 83%;										 // App Title Text Width
+$title-large-size: 1.8em;									 // App Header Title length Large(Font Size)
+$title-large2-size: 1.7em;									 // App Header Title Length Large2
+$title-large-icon-size: $feature-header-back-font-size;								 // App Header Title length Large(Font Size)
+$special-title-color: $txt-active-color;					 // App Special Title Color
+
+// HIGHLIGHT BORDER STYLE HERE
+$highlight-color: transparent;									 // App Highlight color
+$highlight-color2: transparent;									 // App Highlight Success Color
+$highlight-color3: transparent;									 // App Highlight Service Color
+$highlight-color-height: 0em; 							 // App Height Light Color Height
+
+//LABEL STYLE HERE
+//Title
+$left-txt-size: $content-heading-font-size;										 // App Authentication Account Detail Title
+$label-txt-pad: 0 0 0 1.2em;								 // App Label Left Text Padding
+$label2-txt-padding: 0.5em 0 0;								 // App Label2 Text Padding
+
+//Left Site Title
+$label-title-left-pad: 0 0 0 0.8em;							 // App Label Title Left Padding
+$label-only-padding: 0 !important;							 // App Label only Padding
+$label-txt-padding: 1.5em 0 0;								 // App Label Text Padding
+
+//Text
+$left-txt-padding: 0.8em;									 // App Left Question Text Padding Top
+$left-txt1-padding: 1.3em;									 // App Left Question Text Padding Top
+$left-txt2-padding: 1em;									 // App Left Question Text Padding Top
+
+
+//FIN-INPUT START HERE
+
+$fn-container-mar: 0 0 1em 1.5em;								// App Fin-Input Container Margin
+$fn-half-mar: 0 0 0 1em;									// App Fin-Input Container Half Margin
+$fn-line-mar: $width;										// App Fin-Input Right Line Margin
+$fn-input-body-mar: 0.1em;									// App Fin-Input Input Body Margin
+$fn-date-adjust-mar: 0 0 0 -0.5em;							// App Fin-Input Date Adjust Margin
+$fn-date-place-holder-mar: -0.55em 0 0;						// App Fin-Input Date Placeholder
+$fn-input-select: 0 0 0 -0.3em;								// App Fin-Input Select Margin
+$fn-warning-margin: 1em 0.2em 0 0;							// App Fin-Input Warning Date Margin
+$fn-warning-txt-margin: 0 0.4em 0 1em;						// App Fin-Input Warning Text Margin
+$fn-dropdown-margin: 2.5em 0 0;								// App Fin-Input Dropdown Margin
+
+$fn-container-height: 4.5em;							    // App Fin-Input Container Height
+$fn-left-line-height: 0.5em;								// App Fin-Input Left Line Height
+$fn-height: 2em;											// App Fin-Input Text Wrapper Height
+
+$fn-container-width: 89%;								    // App Fin-Input Container Width
+$fn-half-width: 43%;										// App Fin-Input Half Container Width
+$fn-qtr1-width: 20%;										// App Fin-Input Qtr1 Container Width
+$fn-left-line-width: 0.1em;									// App Fin-Input Left Line Width
+$fn-input-dropdown: 92%;									// App Fin-Input Dropdown Width
+$fn-width: $width;											// App Fin-Input Width
+$fn-date-width: 105%;										// App Fin-Input Date Width
+
+$fn-bg: $background-color;									// App Fin-Input Background Color
+$fn-border: $background-color;								// App Fin-Input Border Color
+$fn-left-line-bg: $input-right-left-border;		// App Fin-Input Left Line Background Color
+$fn-icon-color: $input-calander-icon-color;		// App Fin-Input Icon Color
+
+$fn-icon-size: 3.5em;										// App Fin-Input Icon Font Size
+$fn-size: $input-text-size;											// App Fin-Input Text Font Size
+$fn-warning-size: $content-heading-font-size;									// App Fin-Input Warning Text Font Size
+
+$fn-input-body-bottom: 0.2em;								// App Fin-Input Input Body Bottom
+$fn-input-body-left: 0.3em;									// App Fin-Input Index Body Left
+$fn-index: 2;												// App Fin-Input Index
+$fn-dropdown-index: -0.1em;									// App Fin-Input Dropdown Right Index
+
+$fn-holder-padding: 2px;									// App Fin-Input Placeholder Padding
+
+$bottom-line: $input-bottom-border-color;								// App Fin-Input Border Bottom Color
+
+//PAYEE CIRCLE PEOPLE DETAIL STYLE HERE
+// Common Wrapper
+$cus-det-wrap-pad: 0.5em 0 0;								 // App White And Black Background Wrapper Padding
+$cus-det-wrap-bg1: #444;									 // App Black Background Color
+$cus-det-wrap-bg2: #fff;									 // App White Background Color
+$payee-prev-icon: -0.8em 0 0 0.4em;							 // Payee Page Prev Icon Margin
+$payee-label-margin: 1em auto;								 // Payee Label Text Wrapper Margin
+
+
+//Circle Wrapper
+$circle-wrap-margin: 0 0 0.5em;								 // App People Image Circle Wrapper Margin
+$circle-pic-height: 5.6em;									 // App Circle Picture Height
+$circle-pic-height: 5.6em;									 // App Circle Picture Height
+$circle-pic-radius: 2.8em;									 // App Circle Picture Border Radius
+$circle-pic-margin: 0 0 0 1.3em;							 // App Circle Picture Margin
+$circle-pic-border: 1px solid #dbdbdb;						 // App Circle Picture Border
+$circle-txt-margin: -5.6em 0 0 1.3em;						 // App Circle Inside Text Margin
+$first-char-size: 1.5em;									 // App Circle Inside Text Size
+$first-char-color: #fff;									 // App Circle Inside Text Color
+$people-det-margin: 0.5em 0 0 1.3em;						 // App Circle Outside Text Wrapper Margin
+$people-name-padding: 0.5em 0 0;							 // App Circle Outside Text Padding(BG:Black)
+$people-name-size: 2em;										 // App Circle Outside Text Size(BG:Black)
+$people-name-color: #fff;									 // App Circle Outside Text Color(BG:Black)
+$people-name-color1: #232222;								 // App Circle Outside Text Color(BG:White)
+$people-name2-size: $content-heading-font-size;									 // App Circle Outside Text Color(BG:White)
+$app-txt-size: 1.3em;										 // App Circle Outside Text Size(BG:Black)
+$app-list-color: #5d5c5c;									 // App Circle Outside Text Size(BG:White)
+$addon-popover-bg: #3e4149;									 // App Payee Addon Popover Background Color
+$dot: 0.3em;												 // App list Dot Width and Height
+$dot-margin: 0.7em 0.4em 0 0.4em;							 // App list Dot Margin
+$dot-bg: lightgrey;											 // App list Dot Background Color
+$dot-radius: 0.2em;											 // App list Dot Background Radius
+$addon-popover-shadow: 0 -10px 20px grey;					 // App Payee Addon Popover Shadow
+$addon-txt-size: 1.8em;										 // Addon Bank Text Size
+$addon-txt-color1: #fff;									 // Addon Bank Text color(bank)
+$addon-txt-color: #7d8086;									 // Addon Bank Text color(add new)
+
+//BENEFICIARY SUCCESS PAGE STYLE HERE
+$view-det-wrap-mar: 2em 0 0;								 // App Beneficiary Success Page Wrapper Margin
+$pcircle-img-height: 12em;									 // App Beneficiary Success Page Image Height
+$pcircle-img-radius: 6em;									 // App Beneficiary Success Page Image Radius
+$pcircle-img-border: solid 0.1em #efefef;					 // App Beneficiary Success Page Image Border
+$pcircle-img-shadow: 0 0 1em black;							 // App Beneficiary Success Page Image Shadow
+$pcircle-img-margin: 0 0 0.5em;								 // App Beneficiary Success Page Image Margin
+$pcircle-txt: 4.5em;										 // App Beneficiary Success Page Inner Text Width and Height
+$pcircle-txt-color: #fff;									 // App Beneficiary Success Page Inner Text color
+$pcircle-txt-margin: -9em auto auto;						 // App Beneficiary Success Page Inner Text Margin
+$pcircle-txt-lheight: 5em;									 // App Beneficiary Success Page Inner Text Line-Height
+$pfirst-name-txt-size: 4em;									 // App Beneficiary Success Page Inner Text Size(First Character)
+$psecond-name-color: #fff;									 // App Beneficiary Success Page Outer Text Color(NickName)
+$psecond-name-size: 2em;									 // App Beneficiary Success Page Outer Text Size(NickName)
+$psecond-name-margin: 2em 0 0;								 // App Beneficiary Success Page Outer Text Margin(NickName)
+$pfirst-name-color: #ccc;									 // App Beneficiary Success Page Outer Text Color(Name)
+$pfirst-name-size: 1.5em;									 // App Beneficiary Success Page Outer Text Size(Name)
+$pfirst-name-margin: 0 0 1em 0;								 // App Beneficiary Success Page Outer Text Margin(Name)
+
+//SOCIAL ICON
+$social-icon-margin: 1em 1em 0 0;							 // App Social Icon Margin
+$social-icon: 3em;											 // App Social Icon width and height
+$social-wrap-height: 5em;									 // App Social Icon Wrapper Height
+$social-wrap-pad: 0 0 0 4em;								 // App Social Icon Wrapper Padding
+
+$refer-item-margin: $margin;								// App Refer&Share Friend Contact Alpha Letter Wrapper Margin
+$refer-item-title-padding: 0 0 0 1em;						// App Refer&Share Friend Contact Alpha Letter Padding
+$ref-people-detail-mar: 2em 0 0 2em;					    // App Refer&Share Friend Contact People Name
+$refer-view-mar: 0 0 1em;									// App Refer People View Wrapper Margin
+$refer-black-screen-height: 26em;							// App Refer People Input Wrapper Black Screen Height
+$ref-view-margin: -25.5em 0 0;								// App Refer People Input Wrapper Black Screen Margin
+$refer-black-screen1-height: 31em;							// App Refer People Input Wrapper Black Screen Height
+$ref-view-margin1: -31.5em 0 0;								// App Refer People Input Wrapper Black Screen Margin
+
+//Make Text
+$make-txt-size: 1.5em;
+$make-txt-color: #13a9d1;
+$make-txt-margin: 0em 1.5em 0 0;
+$make-txt-width: 19%;
+
+//MOVE MONEY STYLE
+//pending circle wrap
+$pending-warp-radius: 50%;									// App Pending Bill Wrapper Radius
+$pending-warp: 0.6em;										// App Pending Bill Wrapper Width and Height
+$pending-warp-bg: #e21619;									// App Pending Bill Wrapper Background Color
+$pending-warp-font: 3em Arial, sans-serif;					// App Pending Bill Wrapper Fonts
+$pending-warp-margin: 0 .2em 0 .2em;						// App Pending Bill Wrapper Margin
+
+$pending-bill-size: 0.3em;									// App Pending Bill Font Size
+$pending-bill-color: #fff;									// App Pending Bill Font Color
+$pending-bill-margin: -0.8em 0 0 -0.3em;					// App Pending Bill Margin
+$pending-bill-lheight: 3em;									// App Pending Bill Line-Height
+
+$mm-det-margin: 1.4em 0 2em;									// App Move Money customer Name wrapper Margin
+$mm-det-height: 6.9em;										// App Move Money Customer Name Wrapper Height
+
+$mm-btn-margin: 2.8em;										// App Move Money Special Btn Margin(ex: View More Less Btn)
+$mm-btn-width: 65%; 										// App Move Money Special Btn Width
+
+//Right Side Text(ex: forgot pwd and new user)
+//common elt
+$txt-right-size: 1.3em;										// App Right Side Text Size
+$txt-right-margin: 0.5em;									// App Right Side Text Margin
+$txt-right-color: #efefef;									// App forgot Password Text Color
+$txt-new-margin: 1.2em;										// App New User Margin
+$imps-wrap-width: 33%;										// App IMPS Wrapper Width
+
+//sprint 10
+$scroll-height1: 46em;
+$trans-det1-pad: 1.5em 2em;
+$info-left2-pad: 6em;
+$approval-icon-size: 3.5em;
+$trans-det1-mar: 3.5em;
+
+/*==== Added by KOlkata UI team ====*/
+$successPageTop:1.250em;
+$successPageLeft:1.000em;
+$accountPageMargin:2em;
+$myactivityItemPadding:1.3em;
+$generalHeight:$feature-success-message-font-size;
+$third_btn_height: 4em; 
+$width_hr: 94%;
+$margin_hr: 0 1em;
+$trans-detail_top: 1.5em;
+$trans-detail_bottom: 1.5em;
+/*====================================*/
+

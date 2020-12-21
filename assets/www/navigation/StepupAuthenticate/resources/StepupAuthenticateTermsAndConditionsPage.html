@@ -1,0 +1,56 @@
+
+<div class="rakTermsOverlay"
+	ng-init=setSingleStepRealmAuthFailure();StepupAuthenticate.setupFlag=false;>
+
+
+
+	<div  class="">
+
+		<div class="">
+			<div class="">
+
+				<div class="">
+					<div class="special-txt rakColorWhite rakMarginRight">
+						<div class="rak-scroll" id="termsConditions"
+							ng-init="stepupAuthentication.TERMS_AND_CONDITIONS.setTermsConditionsHTMLContent();">
+						</div>
+
+					</div>
+					<div class="fin-txt rakRedbottomBorder"></div>
+
+
+					<div class="check-boxs rakPositionStatic">
+						<input id="01" value="01" class="checkbox-custom checkbox1"
+							type="checkbox"
+							ng-model="StepupAuthenticate.acceptTermscondition"
+							ng-true-value="'Y'" ng-false-value="'N'"> <label for="01"
+							class="checkbox-custom-label rakChkBox ">{{appLiterals.APP.TERMS_CONDITION.AGREMENT}}</label>
+					</div>
+				</div>
+
+				<div class="label-wrap">					
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-small btn--back"
+						ng-click="stepupAuthentication.isErrorPage=true;stepupAuthentication.isCompleted=false;setGlobalEvent('onLogoutClickOK')">
+						{{appLiterals.APP.RAK_SERVICES.RAK_CREDIT_REPLACEMENT.BACK}}</button>
+
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-right"
+						ng-click="StepupAuthenticate.checkTermsAndConditionFlg();">{{appLiterals.APP.TERMS_CONDITION.CONTINUE}}
+					</button>
+
+				</div>
+				<div class="col-sm-1"></div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="finacle-container ng-scope">
+		<div class="account-page">
+			<div class="col-sm-11"></div>
+		</div>
+	</div>
+</div>
+
+

@@ -1,0 +1,103 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+<div class="finacle-container"
+	ng-init="rakServiceReq.RakFFDepositCloseNewTermReq.txnPwd='';rakServiceReq.rakFFDepositCloseNewTermConfirm(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+			<div class="main-form-heading-ServiceReq"> 
+                      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CLOSE_FIXED_FLEXI_DEP}}
+                      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>                
+                      </h2>              
+			</div>
+		
+		<div class="bg-color rak-cont-padding rak-scroll">
+			<div class="row">
+				
+				
+				<div class="rakDupliSRChkMsgImg" ng-show='rakServiceReq.common.message'>
+							<span class='rakAlertForDupStmt'></span> <span class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+						</div>    
+       		
+       		<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_CLOSE_NEW.ACC}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakFFDepositCloseNewTermReq.fromAccountId}}</span>
+			</p>
+       		
+       		<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_CLOSE_NEW.BALANCE_AMOUNT}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakFFDepositCloseNewTermReq.balanceAmount}}</span>
+			</p>
+					
+		<!-- 	<p class="rak-sum-txt" >
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_OPEN_NEW.LIMIT}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakFFDepositOpenNewTermReq.thresholdAmt}}</span>
+			</p>
+			
+		
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_OPEN_NEW.INT_RATE}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakFFDepositOpenNewTermReq.interestRate}} %</span>
+			</p> -->
+		
+			
+			
+			<div class="label-wrap" ng-show='rakServiceReq.RakFFDepositCloseNewTermReq.authStatus'>				
+				
+				<fin-input type="password_text" model="rakServiceReq.RakFFDepositCloseNewTermReq.txnPwd"
+					display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+					model="rakServiceReq.RakFFDepositCloseNewTermReq.txnPwd" 
+				ng-show="rakServiceReq.RakFFDepositCloseNewTermReq.authMode==txnpwdString">
+				</fin-input>
+								<div
+									ng-show="rakServiceReq.RakFFDepositCloseNewTermReq.authMode==otpString">
+									<div ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+										<fin-input type="password_num"
+											model="rakServiceReq.RakFFDepositCloseNewTermReq.txnPwd"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OTP}}"
+											validation-flag='pageErrorArr["rakServiceReq.RakFFDepositCloseNewTermReq.txnPwd"]'>
+										</fin-input>
+									</div>
+									<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0' ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+			
+				<fin-input type="dropdown" option-array="toModeArray" model="rakHome.otpModel.otpModeSelected" display-row="full" placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+				<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+			
+			</div>
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+										ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');">
+										{{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>
+								</div>
+
+							</div>
+			
+			
+						
+			<div class="label-wrap">
+				 <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="rakServiceReq.common.fromAuthPage=true;setEvent('onRAKCloseFFDepositCloseTermConfirmBackClick');">  {{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}} </button>
+				 <button type="button"  class="btn--special-btn btn-middle rak-button-small" ng-click="setEvent('onRAKCloseFFDepositNewTermSubmitClick');">  {{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}} </button>
+			</div>
+			<div class="col-sm-1"></div>
+			
+			</div>
+			
+			<div class="disclaimer">
+                         <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                         <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                         </div>
+
+                         <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                         <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSERREQ_CONF"></div>
+                         </div>
+                 </div>
+				</div>
+				
+				
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,43 @@
+<div class="finacle-container" ng-init='resetPageError();'>
+	<div class="account-page">
+    <div class="col-sm-10">
+	<div class="app-title-wrapper">
+		<div class="title-left" ></div>
+		<div class="title-center">  {{appLiterals.APP.CHEQUE_MNGMNT.LAND_PAGE.HEADER}} </div>
+	</div>
+	<div class="highlight-color"> </div>       
+		  <div class="bg-color">
+			<div class="row" >
+			  <div class="col-sm-1"> </div>
+			  <div class="col-sm-10">
+			<div class="landingpage-list" ng-click="cm.statusInquiry.resetModel();setEvent('onChequeStatusClick');">
+				<div class="pull-left profile-txt">{{appLiterals.APP.CHEQUE_MNGMNT.LAND_PAGE.CHEQ_STAT}}</div>
+				<div class="pull-right set-arrow"><span class="app app-arrow3"></span></div>
+			</div>
+			<div class="service-hr"></div>
+			<div class="landingpage-list2" ng-click="cm.stopCheques.resetModel();setEvent('onChequeStopClick')">
+				<div class="pull-left profile-txt">{{appLiterals.APP.CHEQUE_MNGMNT.LAND_PAGE.STP_CHEQ}}</div>
+				<div class="pull-right set-arrow"><span class="app app-arrow3"></span></div>
+			</div>
+			<div class="service-hr"></div>
+			<div class="landingpage-list2" ng-click="cm.checkBookRequest.resetModel();setEvent('onChequeCommuincationBookClick')">
+				<div class="pull-left profile-txt">{{appLiterals.APP.CHEQUE_MNGMNT.LAND_PAGE.REQ_CHEQ}}</div>
+				<div class="pull-right set-arrow"><span class="app app-arrow3"></span></div>
+			</div>
+			<div class="service-hr"></div> 
+			<div class="landingpage-list2" ng-click="cm.viewCheque.resetModel();setEvent('onChequeViewClick')" ng-show="true">
+				<div class="pull-left profile-txt">{{appLiterals.APP.CHEQUE_MNGMNT.LAND_PAGE.VIEW_CHEQ}}</div>
+				<div class="pull-right set-arrow"><span class="app app-arrow3"></span></div>
+			</div>
+			<div class="service-hr"></div>
+			<div class="landingpage-list2" ng-click="setEvent('onChequeRemoteClick')">
+				<div class="pull-left profile-txt">{{appLiterals.APP.CHEQUE_MNGMNT.LAND_PAGE.REMT_DEPCHEQ}}</div>
+				<div class="pull-right set-arrow"><span class="app app-arrow3"></span></div>
+			</div>
+			<div class="service-hr"></div>
+		</div>
+	  </div>
+	 </div>
+	</div>
+</div>
+</div>

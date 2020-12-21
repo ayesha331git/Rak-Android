@@ -1,0 +1,58 @@
+
+  <div class="rak-back-header">
+    <i class="rak-back-img" ng-click="rakPayee.bankbnftype='';setEvent('onRakChooseCCBnfTypeBackClick');"></i>
+  </div>
+
+
+  <div class="nano menu-scroll">
+	<div class="nano-content">
+	<div class="finacle-container" ng-init="rakPayee.selectedPayee = successResponse.responsesList || rakPayee.selectedPayee;rakPayee.getPayeeInitForBankType(rakPayee.selectedPayee);rakSendMoney.clearTab();rakSendMoney.benfTab=true;">
+	 <div class="account-page">
+		<div class="col-sm-11">
+		  <div class="app-title-wrapper">
+
+		  <div class="form-block">
+		   <ng-include  src="'./navigation/rakPayee/resources/RakPayCardsTabPage.html'"> </ng-include>
+		    <!-- <div class="main-form-heading-payee"> 
+		      <h2 >{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAKCHOOSEBNF}}</h2>		
+		  </div> -->
+		  <div class="main-form-heading-payee">                    	
+                   <h2>{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_CARDBENF}}
+		      <span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1}}: {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAKCHOOSEPAYEE}} </span>		      
+		      </h2>		       
+            </div>		  
+			
+
+	    
+  <div class="rakScrollNewDiv">
+          <div class="rakBnfBlocks rakSrchVisible" ng-repeat="ccbnf in rakPayee.rakBnfCCTypeList | filter:searchText" ng-click="rakPayee.selectedPayeeType=ccbnf.value;rakPayee.isBackClicked=false;rakPayee.payeeModel.resetPayeeModel();setEvent('onRakChooseCCBnfTypeClick');">	
+	  
+			<div  ng-if="ccbnf.imageFlag" ng-class="ccbnf.imageFlag">
+			
+			  <!-- <div class="rakPeopleNameRowBenf">{{bnf.type}} </div>			 
+				<div class="rakPeopleNameRowBank"> 
+				  {{bnf.value}} 
+				</div>	 -->	
+			  <div class="addBenfLink" ng-show="ccbnf.value=='RCC'">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RCC}} </div>	
+			  <div class="addBenfLink" ng-show="ccbnf.value=='UCC'">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.UCC}} </div>
+			  <div class="addBenfLink" ng-show="ccbnf.value=='PPC'">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.PPC}} </div>
+			  <div class="addBenfLink" ng-show="ccbnf.value=='OCC'">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.OCC}} </div>		 
+
+						
+			
+			</div>	
+			</div>
+			
+			</div>
+
+		
+		  </div>
+
+          </div>
+       </div>
+       </div>
+       </div>
+    </div>
+		</div>
+</div>
+</div>

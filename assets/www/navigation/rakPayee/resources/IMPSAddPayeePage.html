@@ -1,0 +1,48 @@
+<div class="finacle-container">
+	
+	<div class="account-page">
+    <div class="col-sm-10"> 
+      <div class="app-title-wrapper">
+  		<div class="title-center" ng-hide="payee.imps.isMER">Add New IMPS Payee</div>
+  		<div class="title-center" ng-show="payee.imps.isMER">Add New IMPS Merchant</div>
+  		<div class="app app-cancel title-right" ng-click="setGlobalEvent('onPayeeClick')"></div>
+      </div>
+      <div class="highlight-color"> </div>       
+      <div class="bg-color">
+        <div class="row" >
+          <div class="col-sm-1"> </div>
+          <div class="col-sm-10" ng-hide="payee.imps.isMER">
+				<fin-input type="text" model="payee.imps.payeeNickname" display-row="full" placeholder="Payee's NickName" validation-flag='pageErrorArr["payee.imps.payeeNickname"]'> </fin-input>
+				<div class="fin-txt"></div>
+				<div>
+					<p class="special-txt"><input type="checkbox" ng-model="payee.imps.isIFSC" >&nbsp;Add Using IFSC Code</p>
+					<fin-input type="text" model="payee.imps.accountNo" display-row="full" placeholder="Payee's Account No." validation-flag='pageErrorArr["payee.imps.accountNo"]' ng-show="payee.imps.isIFSC"> </fin-input>
+					<fin-input type="text" model="payee.imps.ifscCode" display-row="full" placeholder="IFSC Code" validation-flag='pageErrorArr["payee.imps.ifscCode"]' ng-show="payee.imps.isIFSC"> </fin-input>
+					<div class="new_user" ng-show="payee.imps.isIFSC">Search IFSC</div>
+				</div>
+				<div class="fin-txt"></div>
+				<div>
+					<p class="special-txt"><input type="checkbox" ng-model="payee.imps.isMMID" >&nbsp;Add Using MMID Code</p>
+					<fin-input type="text" model="payee.imps.mmid" display-row="full" placeholder="Merchant MMID" validation-flag='pageErrorArr["payee.imps.mmid"]' ng-show="payee.imps.isMMID"> </fin-input>
+					<fin-input type="text" model="payee.imps.mobileNo" display-row="full" placeholder="Merchant's 10 digit number" validation-flag='pageErrorArr["payee.imps.mobileNo"]' ng-show="payee.imps.isMMID"> </fin-input>
+				</div>
+			  <button ng-if="payee.imps.isIFSC || payee.imps.isMMID" type="button" class="btn--primary-btn" ng-click="payee.imps.isAddMode=true; setEvent('onAddClick');"> A D D </button>
+			  <button ng-if="!(payee.imps.isIFSC || payee.imps.isMMID)" type="button" class="btn--primary-btn-disabled"> A D D </button>				
+		  </div>
+		 
+		  <div class="col-sm-10" ng-show="payee.imps.isMER">
+				<fin-input type="text" model="payee.imps.payeeNickname" display-row="full" placeholder="Merchant NickName" validation-flag='pageErrorArr["payee.imps.payeeNickname"]'> </fin-input>
+					<fin-input type="text" model="payee.imps.merMMID" display-row="full" placeholder="Merchant MMID" validation-flag='pageErrorArr["payee.imps.merMMID"]'> </fin-input>
+					<fin-input type="number" model="payee.imps.merMobileNo" display-row="full" placeholder="Merchant's 10 Digit No" validation-flag='pageErrorArr["payee.imps.merMobileNo"]'> </fin-input>
+					<fin-input type="number" model="payee.imps.merReference" display-row="full" placeholder="Merchant's Reference" validation-flag='pageErrorArr["payee.imps.merReference"]' ng-hide="payee2"> </fin-input>
+				
+			  <button type="button" class="btn--primary-btn" ng-click=" payee.imps.merRefrence=payee.imps.merReference;
+			  payee.imps.merMobileNo=payee.imps.merMobileNo.toString();
+			  payee.imps.isAddMode=true;setEvent('onMerchantAddClick');"> A D D </button>				
+		  </div>
+		  
+		  <div class="col-sm-1"> </div>
+		</div>
+	  </div>
+	</div>
+</div>

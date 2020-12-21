@@ -1,0 +1,57 @@
+<!-- <div id="registerOtherChannelsAuthBackButton"
+	class="app app-arrow2 title-right-dash"
+	ng-click="register.backButtonClick=true;setEvent('onRegisterChannelAuthenticationBackClick')">
+</div> -->
+<div class="full-height"
+	ng-init="register.setRegisterChannelEventPostLogin();register.transactionPassword='';register.invokedOnce==true?register.initSelectedChannelList(successResponse):'';">
+	<div class="account-page full-height">
+		<div class="full-height">
+			<div class="full-height">
+				<div class="dashboard-item-body full-height">
+					<div class="dashboard-item-title col-sm-12" layout="row"
+						layout-align="center center" layout-wrap>
+						<h2 class="md-headline item-title" layout="row"
+							layout-align="center center" layout-wrap
+							id="registerOtherChannelsHeader">{{appLiterals.APP.COMMON.TITLE.CONF_AUTH}}</h2>
+					</div>
+					<form
+						ng-submit="setEvent('onRegisterChannelAuthenticationConfirmClick');">
+						<div class="col-sm-12">
+							<div class="avail-bal-wrap">
+								<div ng-repeat="enabledChannel in register.enabledChannelList">
+									<p class="left-txt1 padding-zero ng-binding">
+										<span id="enabledChannelName{{$index}}">{{enabledChannel.channelName}}</span>
+										<span id="channelEnabled{{$index}}" class="pull-right">{{appLiterals.APP.REGISTER.REG_CHAN_PASS.ENABLE}}</span>
+									</p>
+								</div>
+
+								<div ng-repeat="disabledChannel in register.disabledChannelList">
+									<p class="left-txt1 padding-zero ng-binding">
+										<span id="disabledChannelName{{$index}}">{{disabledChannel.channelName}}</span>
+										<span id="channelDisabled{{$index}}" class="pull-right">{{appLiterals.APP.REGISTER.REG_CHAN_PASS.DISABLED}}</span>
+									</p>
+								</div>
+							</div>
+							<fin-Stepauth></fin-Stepauth>
+							<!-- <div class="label-wrap" ng-show="register.authMode">
+							<p class="label-title ng-binding">{{appLiterals.APP.COMMON.TITLE.AUTH}}</p>
+							<p class="label-txt ng-binding">
+								{{appLiterals.APP.COMMON.TITLE.AUTH_TEXT}}</p>
+						</div>
+						<fin-input type="password_text" ng-show="register.authMode"
+							model="register.transactionPassword" display-row="full"
+							placeholder="{{register.authType}}"
+							validation-flag='pageErrorArr["register.authType"]'></fin-input> -->
+							<section layout="row" layout-align="center center"
+								class="sticky-footer-block button-wrapper">
+								<md-button id="registerOtherChannelsAuthSubmit"
+									class=" md-raised btn--primary-btn" type="submit">
+								{{appLiterals.APP.COMMON.BUTTON.CONFIRM}}</md-button>
+							</section>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

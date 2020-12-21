@@ -1,0 +1,50 @@
+<div class="finacle-container" ng-init="rakPayee.billerModel.processDeleteSuccessResponse(successResponse.responsesList)">
+<div class="account-page">   
+     <div class="col-sm-11">
+     
+     <div class="app-title-wrapper">
+     <ng-include  src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>	
+      <div class="rak-scroll">  	
+      
+      <div class="summary-BenfReq main-form-heading-ServiceReq">
+				<div class="iconDivBenf">
+					<span class="infoIconBenf"></span><span class="success">{{rakPayee.deleteSuccess}}</span>
+				</div>
+			</div>
+      <!--  <div class="main-form-heading">
+                    	<h2 class="success">{{appLiterals.APP.RAK_PAYEE.SUCCESSFUL.DELETE_SUCC}}<span>{{rakPayee.deleteSuccess}}</span></h2>
+        </div>  -->   
+          
+		
+	  <div class="bg-color rak-cont-padding" >
+        <div class="row" >
+	      <div class="">   
+	      <p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BIL_NAME}}&nbsp;</span>
+				<span class="rak-sum-label black">{{rakPayee.billerAuthDetails.billerName}}</span>
+			</p>
+			
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BIL_NICKNAME}}&nbsp;</span>
+				<span class="rak-sum-label black">{{rakPayee.billerAuthDetails.billerNickName}}</span>
+			</p>
+			
+			 <div ng-repeat="fields in rakPayee.billerModel.labels">
+				<p class="rak-sum-txt" ng-if="fields.value!=''">
+					<span class="rak-sum-label">{{fields.label}}</span>
+					<span class="rak-sum-label black">{{fields.value}}</span>
+				</p> 
+			</div>
+			<div class="label-wrap">
+			  <button type="button" class="btn--special-btn btn-middle rak-button-full rak-button-right" ng-click="rakPayee.billsTab=true;setGlobalEvent('onPayBillsClick');rakPayee.resetBillerModule();">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.SUCCESSFUL.RAK_BTN_DONE}} </button>
+			  </div>
+		<div class="col-sm-10" ></div>
+	      </div>
+	      </div>
+	      </div>
+	      		
+</div>
+</div>		
+</div>
+</div>
+</div>

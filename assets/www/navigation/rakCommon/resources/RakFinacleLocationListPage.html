@@ -1,0 +1,188 @@
+<!-- <div class="finacle-container" ng-init='setSingleStepRealmAuthFailure();locationFilter=getSelectedLocationDetails(0); atmBranchDetails=successResponse.invocationResult.resultSet; branchFlag=true; fields.selectedLocation=null;'> -->
+
+<div ng-show='isGPS'>
+<div>
+<div class="full-page-screen"  ></div>
+
+<div class="confirmation-content-container">
+    <div class="message-box-new">
+          <div class=""> </div>
+        <div>
+             <div class="conf-txt-title rak-black-color">
+           </div>
+        </div>
+
+            <div class="conf-txt-label rak-black-color">
+          {{appLiterals.APP.RAK_COMMON.RAKLOC_SETTING_ON}} 
+        </div>
+		<div class="conf-btn-wrap center rakpaddingBottom10">
+              <button type="button" class="btn--special-btn btn-middle rak-button-right noFloat" ng-click='isGPS=false;setGlobalEvent("onLoginClick");' >
+                &nbsp; {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.OK}} &nbsp;
+            </button>
+             
+
+        </div>
+
+    </div>
+</div>
+</div>
+</div>
+
+ 		<div class="rak-home-header" ng-hide='isUserLoggedIn && rakLocateUs.flagChk'
+            ng-click='hideMarkerInfo();fields.isMapPage=true; fields.locationSearchText="";fields.isSearchInProgress=false; rakMyProfile.reLoadLoginPage();'>
+            <i class="homeCorner"></i>
+        </div>
+        
+        <div class="rak-back-header" ng-show='isUserLoggedIn && rakLocateUs.flagChk'
+            ng-click='hideMarkerInfo();fields.isMapPage=true; fields.locationSearchText="";fields.isSearchInProgress=false; setGlobalEvent("onDashboardClick");'>
+            <i class="rak-back-img"></i>
+        </div>
+
+<div class="finacle-container  rakLocateUsCont map-header-gradient"
+	ng-init='setSingleStepRealmAuthFailure();locationFilter=getSelectedLocationDetails(1); branchFlag=false; rakLocateUs.flagChk=false;mapAction = "SHOWMARKER"; setMapCenter(rakLocateUs.RAKLocateUsSearchData.data);'>
+	<div>
+
+
+	<div class="col-sm-11 rakLocateSearchDiv">
+			<div>		
+				<div class="label-wrap">
+					<button type="button"
+						class="btn--locatorSerachTxt-btn btn-middle rak-locatorBtn-width90-search"						
+						ng-click="rakLocateUs.resetRAKLocateUsSearchInput();setEvent('onRakLocatorSearchByEmrAreaBtnClicked');rakLocateUs.RAKLocateUsSearchData.searchFlag='A';">						
+						</button>
+				</div>
+			</div>
+		</div>
+		
+		<div >
+    <div id="map-wrapper" ng-init='rakLocateUs.resetRAKLocateUsSearchData();home.responseLocator(successResponse.responsesList);rakLocateUs.initRAKLocateUsSearchData(successResponse.responsesList);mapAction = "SHOWMARKER"; setMapCenter(fields.selectedLocation);'>
+        <fin-map id="map-wrapper"  location = "home.atmBranchDetails" ></fin-map>
+    </div>
+     
+        
+      
+    </div>
+	
+
+
+
+	<div class="col-sm-11">		
+			<div class="col-sm-1"></div>
+			<div class="col-sm-1"></div>
+			<div class="bg-color">
+			
+			<div class="loc-split">
+			<div ng-click="branchFlag=false; locationFilter=getSelectedLocationDetails(1);" class="rakWidth60">
+				<div class="pwd-transaction pwd-transactionGreen">
+					
+					<span class="loc-type-txt1">
+						{{appLiterals.APP.RAK_LOCATEUS.ATM}}<span class="rakLocateLine">/</span> </span>
+					
+				</div>
+				
+					<div class="pwd-transaction pwd-transactionGrey">
+					
+					<span class="loc-type-txt1">
+						{{appLiterals.APP.RAK_LOCATEUS.DM}} </span>
+				
+				</div>
+				<div ng-hide="branchFlag" class="app-fut-line app-fut-linenew"></div>
+					<div ng-hide="branchFlag" class="app-fut-tri app-fut-trinew"></div>
+				</div>
+				<div class="pwd-transaction pwd-transactionRed"
+					ng-click="branchFlag=true; locationFilter = getSelectedLocationDetails(0);">
+					<span class="loc-type-txt">
+						{{appLiterals.APP.RAK_LOCATEUS.BRANCH}} </span>
+					<div ng-show="branchFlag" class="app-fut-line"></div>
+					<div ng-show="branchFlag" class="app-fut-tri"></div>
+				</div>
+
+			</div>
+
+			<div class="rakHalfScrollDiv rakClearBothImp rak-cont-paddingvh">
+				<div class="col-sm-1"></div>
+				<div class="">
+				<!-- 	<div
+						ng-if="rakLocateUs.RAKLocateUsSearchData.data.length == 0"
+						class="no-found">
+						{{appLiterals.APP.COMMON.FINLOC_LISTPAGE.SENT_NOBRNCH}}</div>-->
+
+					<div ng-if="rakLocateUs.RAKLocateUsSearchData.searchedBranchList.length == 0 && branchFlag==true" class="no-found">
+						{{appLiterals.APP.RAK_LOCATEUS.RAK_NOBRNCH}}</div>
+
+					<div
+						ng-if="rakLocateUs.RAKLocateUsSearchData.searchedAtmDemList.length == 0 && branchFlag==false"
+						class="no-found">{{appLiterals.APP.RAK_LOCATEUS.RAK_NOATM}}</div>
+
+					<div ng-if='currentLocation.position.coords'>
+						<div ng-show="branchFlag" 
+							ng-repeat="location in rakLocateUs.RAKLocateUsSearchData.data | filter:locationFilter ">
+						 <div ng-init="fields.selectedLocation=location;"
+								ng-click='fields.bankId = CONSTANT.BANK_ID;fields.locatorMethodName="getLocationsByBankID";fields.selectedLocation=location;rakLocateUs.markerFlag=true;  mapAction = "SHOWMARKER"; setMapCenter(location); setGlobalEvent("onLocatorDetailsClick"); '> 
+								<div class="col-sm-12">
+									<p class="rak-sum-txt-Locator">
+								
+									 
+									<span class="rak-sum-label1-Locator ">{{location.type_id}}</span> 
+									<span class="rak-sum-label-Locator">{{location.city}}</span>
+									<span class="rak-sum-label2-Locator ">{{location.distance}}	KM</span>
+								</p>
+								</div>
+							</div>							
+						</div>
+						
+						<div ng-hide="branchFlag"
+							ng-repeat="location in rakLocateUs.RAKLocateUsSearchData.data |  filter:locationFilter ">
+							 <div ng-init="fields.selectedLocation=location;"
+								ng-click='fields.bankId = CONSTANT.BANK_ID;fields.locatorMethodName="getLocationsByBankID"; rakLocateUs.markerFlag=true;fields.selectedLocation=location; mapAction = "SHOWMARKER"; setMapCenter(location); setGlobalEvent("onLocatorDetailsClick"); '> 
+								<div class="col-sm-12">
+									<p class="rak-sum-txt-Locator">
+									
+									
+									<span class="rak-sum-label1-Locator " >{{location.type_id}}</span> 
+									<span class="rak-sum-label-Locator">{{location.city}}</span>
+									<span class="rak-sum-label2-Locator ">{{location.distance}}	KM</span>
+								</p>
+								</div>
+							</div>						
+						</div>
+					
+					
+					</div>
+					<div ng-if='!currentLocation.position.coords'>
+						<div ng-show="branchFlag"
+							ng-repeat="location in rakLocateUs.RAKLocateUsSearchData.data | filter:locationFilter |orderBy :'distance'">
+							 <div  ng-init="fields.selectedLocation=location;"
+								ng-click='fields.bankId = CONSTANT.BANK_ID;fields.locatorMethodName="getLocationsByBankID";fields.selectedLocation=location;rakLocateUs.markerFlag=true; mapAction = "SHOWMARKER"; setMapCenter(location); setGlobalEvent("onLocatorDetailsClick"); '> 
+								
+								<div class="col-sm-12">
+									<p class="rak-sum-txt-Locator">
+									<span class="rak-sum-label1-Locator ">{{location.type_id}}</span> 
+									<span class="rak-sum-label-Locator">{{location.city}}</span>
+								
+								</p>
+								</div>
+							</div>							
+						</div>
+						
+						<div ng-hide="branchFlag"
+							ng-repeat="location in rakLocateUs.RAKLocateUsSearchData.data | filter:locationFilter |orderBy :'distance'">
+							<div ng-init="fields.selectedLocation=location;"
+								ng-click='fields.bankId = CONSTANT.BANK_ID;fields.locatorMethodName="getLocationsByBankID";rakLocateUs.markerFlag=true; fields.selectedLocation=location; mapAction = "SHOWMARKER"; setMapCenter(location); setGlobalEvent("onLocatorDetailsClick"); '>
+								
+							
+								<div class="col-sm-12">
+									<p class="rak-sum-txt-Locator">
+									<span class="rak-sum-label1-Locator ">{{location.type_id}}</span> 
+									<span class="rak-sum-label-Locator">{{location.city}}</span>
+									
+								</p>
+								</div>
+							</div>						
+						</div>
+					</div>
+
+				
+			</div>			
+		</div>
+	</div>	

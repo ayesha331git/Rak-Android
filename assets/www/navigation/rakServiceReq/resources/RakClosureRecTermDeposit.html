@@ -1,0 +1,183 @@
+		<div class="rak-back-header">
+
+			<i class="rak-back-img"
+				ng-click="setEvent('onCancelClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.initRakClosureRecTermDeposit(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+				
+									
+					<div class="main-form-heading-ServiceReq"> 
+		                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CLOSE_FIXED_REC}}
+		                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+		                 </h2>              
+					</div>
+
+					<div class="bg-color rak-cont-padding rak-scroll">
+						<div class="row">
+							
+
+							<div
+								ng-init='recDepositAcc = createDropDownOptionArray(rakServiceReq.RakClosureRecTermDepositModel.recDepositAccountsList,["productDesc","-","accountId"],"index");'>
+								<fin-input type="dropdown"
+									model="rakServiceReq.RakClosureRecTermDepositModel.depositAccount"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_RD_NUM}}"
+									validation-flag='pageErrorArr["rakServiceReq.RakClosureRecTermDepositModel.depositAccount"]'
+									option-array="recDepositAcc"
+									on-change="rakServiceReq.RakRecClosureHideOtherfields();rakServiceReq.RakClosureRecTermDepositModel.resetRakClosureRecTermDepositModel();setEvent('RAKonFetchDetailClick');"></fin-input>
+							</div>
+
+								
+
+							
+                                <div ng-show="rakServiceReq.RakClosureRecTermDepositModel.isDetailsFetched =='Y'">
+								
+								<p class="rak-parent-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.PH_RD_ACC_NUM}}</span>
+									<span class="rak-sum-label black">{{rakServiceReq.RakClosureRecTermDepositModel.FDAccNumber}}</span>
+										
+								</p>
+								
+								<p class="rak-parent-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.INST_START_DATE}}</span>
+									<span class="rak-sum-label black">{{rakServiceReq.RakClosureRecTermDepositModel.instStartDate}}</span>
+										
+								</p>
+								
+								<p class="rak-parent-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.INST_AMOUNT}}</span>
+									<span class="rak-sum-label black">{{rakServiceReq.RakClosureRecTermDepositModel.depositAmount}}</span>
+								</p>
+								
+								
+								
+								<p class="rak-parent-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.PH_DEP_MAT_DATE}}</span>
+									<span class="rak-sum-label black">{{rakServiceReq.RakClosureRecTermDepositModel.FDmaturityDate}}</span>
+										
+								</p>
+								
+								
+								<p class="rak-parent-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.CURR_AMOUNT}}</span>
+									<span class="rak-sum-label black">{{rakServiceReq.RakClosureRecTermDepositModel.currentAmount}}</span>
+										
+								</p>			
+						
+							 	<p class="rak-parent-txt" >
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.PH_DEP_INT_RATE}}</span>
+									<span class="rak-sum-label black">{{rakServiceReq.RakClosureRecTermDepositModel.intRate}}%</span>
+										
+								</p>
+								
+								<p class="rak-parent-txt" >
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.PH_DEP_INTEREST}}</span>
+									<span class="rak-sum-label black">{{rakServiceReq.RakClosureRecTermDepositModel.intTillDate}}</span>
+										
+								</p>
+			
+												
+								<p class="rak-parent-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.RD_CURRENCY}}</span>
+									<span class="rak-sum-label black">{{rakServiceReq.RakClosureRecTermDepositModel.currencyCode}}</span>
+										
+								</p>
+								
+								
+								<div class="rakRow">
+									<div class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px rakRadioBottom"
+										>
+										{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_PRE_MAT_INTS_REC}}</div>
+									<div class="rak100">
+										<div>
+											<div class="rakCstmRadioDiv rak100 rakTop2emLeft3">
+												<input type="radio"  id="radio1" value="I" 
+													ng-model="rakServiceReq.RakClosureRecTermDepositModel.upliftmentInstructions" />
+												
+												<label for="radio1"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_PRE_MAT_INT_RADIO}}</label>
+											</div>
+
+										</div>
+										<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.RakClosureRecTermDepositModel.upliftmentInstructions"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_PRE_MAT_INTS}}</div>
+									</div>
+									
+								</div>
+
+								<div
+									ng-show="rakServiceReq.RakClosureRecTermDepositModel.upliftmentInstructions=='I'">
+									<div
+										ng-init='updatedArr = createDropDownOptionArray(rakServiceReq.RakClosureRecTermDepositModel.creditAccList,["productDesc","-","accountId"], "index");'>
+										<fin-input type="dropdown"
+											model="rakServiceReq.RakClosureRecTermDepositModel.selectedCreditAccount"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_PRE_MAT_INT_RADIO}}"
+											validation-flag='pageErrorArr["rakServiceReq.RakClosureRecTermDepositModel.selectedCreditAccount"]'
+											option-array="updatedArr"> </fin-input>
+									</div>
+								</div>
+
+
+								<div>
+									<fin-input type="date"
+										model="rakServiceReq.RakClosureRecTermDepositModel.actionDate"
+										display-row="full" value="futureDatesOnly"
+										validation-flag='pageErrorArr["rakServiceReq.RakClosureRecTermDepositModel.actionDate"]'
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_ACTION_DATE}}"></fin-input>
+										
+
+								</div>
+
+
+								<fin-input type="text"
+									model="rakServiceReq.RakClosureRecTermDepositModel.remarks"
+									display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.REMARKS}}"
+									validation-flag='pageErrorArr["rakServiceReq.RakClosureRecTermDepositModel.remarks"]'></fin-input>
+
+
+
+								<div class="label-wrap">
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small rak-button-right"
+										ng-click="rakServiceReq.setRakClosureRecDepositDate();setEvent('onConfirmClick');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+
+								</div>
+								
+								
+							<div class="disclaimer">
+                              <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                              <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                              </div>
+                              
+                           		<div class="disclaimer3" ng-if="rakDisclaimerFlag">
+										<span ng-bind-html="appLiterals.APP.DISCLAIMER.PLEASE"></span>
+										<span ng-click="rakServiceReq.fetchDisclaimer('RDPreClosureRates.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+										<span ng-bind-html="appLiterals.APP.DISCLAIMER.CLOSE_REC_DEP_INIT_CLCIK"></span>										
+										<span ng-bind-html="appLiterals.APP.DISCLAIMER.PLEASE"></span>
+										<span ng-click="rakServiceReq.fetchDisclaimer('DepositServiceRequestsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+										<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_DIRREG_INITCONT1"></span>										
+								</div>
+								
+								
+              				</div>
+								
+													
+
+							</div>
+						</div>
+
+					</div>
+					<div class="col-sm-1"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

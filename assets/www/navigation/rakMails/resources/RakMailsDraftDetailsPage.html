@@ -1,0 +1,112 @@
+<div class="finacle-container"
+	ng-init="rakMails.draft.isSendClicked ? rakMails.draft.initAfterSend(successResponse.responsesList):rakMails.initDetailsPage(successResponse.responsesList)">
+	
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="rakMails.clearMailData();setEvent('onCancelClick');"></i>
+	</div>
+			
+	  <div class="account-page " >
+    <div class="col-sm-11 "> 
+       <div class="bg-color rak-cont-padding rak-scroll">
+        <div class="row" >
+         
+          
+          <div
+					ng-init='mailTypeArray=createDropDownOptionArray(rakMails.mailOptions, ["mailOption"],"mailValue")'>
+					<fin-input type="dropdown" option-array="mailTypeArray"
+						model="rakMails.selectedMailType"
+						display-row="full"
+						placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_SELCT}}"
+						on-change="resetPageError();setGlobalEvent(rakMails.getMailEvent());"
+						validation-flag='pageErrorArr["rakMails.selectedMailType"]'>
+					</fin-input>
+				</div>
+          
+          <div class="ng-hide" ng-if='rakMails.draft.isMailSent'
+				ng-init="(rakMails.isStatusError==true) ? showErrorPopup(rakMails.successMessage) : showAlert(rakMails.successMessage); rakMails.draft.isSendClicked=false; rakMails.draft.isMailSent=false; setEvent(rakMails.draft.getSendOKEvent())">
+			</div> 	
+			
+					
+		  	    
+		  	        <div class="rakRow">
+		  	        
+		  	        
+		  	        
+		  	      <div >
+							 <div ng-init='subjectArray = createDropDownOptionArray(rakMails.subjectList, 
+                                 ["description"], "description");'></div>
+                             <fin-input type="dropdown" model="rakMails.mailSubjectSelected"
+                                      ng-if="rakMails.detailType == 'Draft';"  
+                                       display-row="full"
+                                          placeholder="Subject"  
+                                          validation-flag='pageErrorArr["rakMails.mailSubjectSelected"]'
+                                          option-array="subjectArray">
+                          </fin-input> 
+                      </div>
+                 </div>    
+							<!-- changes making dropdown prepopulated with mail subject end  -->
+						
+						
+						<div class="fin-txt"></div>
+						<div class="fin-txt"></div>
+						<div class="full-mail open">
+							<div class="center"></div>
+							<div class="full-mail-top">
+							
+							<div class="rakMailDet"><div ng-if="rakMails.detailType == 'Draft'">
+							      <span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.FROM}}:</span>
+							      <span>{{rakMails.mailFromId}}</span>
+							    </div>
+							
+							   
+							    <div>
+							      <span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.DATE}}:</span>
+							      <span>{{rakMails.mailDate}}</span>
+							    </div>
+							  </div>
+							
+							</div>
+							
+							<!-- <pre class="rakWordWrap">{{rakMails.mailBody}}</pre> -->
+							
+							
+							<!-- <div class="rakSentTxtArea rakmailBgColor">
+						
+						<textarea  disabled placeholder="" ng-model="rakMails.mailBody" class="ng-pristine ng-untouched ng-valid"
+						ng-bind-html=rakMails.mailBody></textarea>
+							
+						</div> -->
+						
+						<div class="full-mail-bottom"> 
+							<pre class="rakWordWrap" ng-bind-html=rakMails.mailBody></pre>
+							</div>
+						
+						</div>
+					
+				
+						
+						
+						
+						
+						
+						<div class="fin-txt"></div>
+						<div class="label-wrap">
+							
+							
+							 <button type="button" 
+							    class="btn--special-btn btn-middle rak-button-right" 
+								ng-click="rakMails.compose.onClickSend();
+								setEvent(rakMails.draft.getSendEvent())";
+								ng-show='rakMails.detailType=="Draft"'>{{appLiterals.APP.RAK_MAILS.RAKDRAFT_PAGE.SEND}}
+							</button>
+							
+				
+							
+						</div>
+						<div class="col-sm-1"></div>
+
+					</div>
+				</div>
+			</div>
+</div>
+</div>

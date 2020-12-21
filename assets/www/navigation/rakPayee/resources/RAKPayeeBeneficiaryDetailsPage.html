@@ -1,0 +1,57 @@
+<!-- partial code start here-->
+<div class="nano menu-scroll">
+    <div class="nano-content">
+        <div class="finacle-container" ng-init="rakPayee.getPayeeInitForBeneficiaryDetails(successResponse.responsesList)">
+            <div class="view-detail-wrap">
+                <div class="app app-arrow payee-left" ng-click="rakPayee.bankbnftype='';setGlobalEvent('onPayeeClick')"> </div>
+                <img src="images/face_default.png" class="payee-circle-img">
+                    <p class="payee-circle-txt1">
+                    <span class="payee-first-txt">{{rakPayee.beneficiaryDetails.beneficaryNickName.charAt(0).toUpperCase()}}{{rakPayee.beneficiaryDetails.beneficaryNickName.split(" ").length > 1 ? rakPayee.beneficiaryDetails.beneficaryNickName.split(" ")[rakPayee.beneficiaryDetails.beneficaryNickName.split(" ").length-1].charAt(0).toUpperCase() : ""}}</span>
+                    </p>
+                    <p class="second-name"> {{rakPayee.beneficiaryDetails.beneficaryNickName}}</p>
+                    <p class="first-name"> {{rakPayee.beneficiaryDetails.beneficaryName}} </p>
+                    
+                    </div>
+            
+            <div class="beneficiary-black-screen2">
+            </div>
+            
+            <div class="beneficiary-wrap2">
+                <div class="my-ac-type">
+                    <p class="type-name">{{rakPayee.beneficiaryDetails.beneficaryBankName}}</p>
+                    <p class="trans-no1">{{rakPayee.beneficiaryDetails.beneficaryAccountNo}}</p>
+                </div>
+                
+                <div class="my-ac-type">
+                    <p class="type-name"> {{appLiterals.APP.PAYEE.BENF_DETPAGE.TXT_CURR}}</p>
+                    <p class="trans-no1"> {{rakPayee.beneficiaryDetails.beneficaryAccountCurrency}} </p>
+                </div>
+            </div>
+            <div class="fin-txt"></div>
+            
+            <div class="beneficiary-black-screen2">
+            </div>
+            
+            <div class="beneficiary-wrap1">
+                <div class="rakPayee-note">{{appLiterals.APP.PAYEE.BENF_DETPAGE.TXT_PAYNOTIF}}</div>
+                <div class="fin-txt"></div>
+                <div class="my-ac-type1">
+                    <p class="type-name"> {{rakPayee.beneficiaryDetails.notificationChannel1}}</p>
+                    <p class="trans-no1"> {{rakPayee.beneficiaryDetails.notificationAddress1}} </p>
+                </div>
+                <div class="my-ac-type">
+                    <p class="type-name"> {{rakPayee.beneficiaryDetails.notificationChannel2 ==  null || rakPayee.beneficiaryDetails.notificationChannel2 == "" ? "Channel 2" : rakPayee.beneficiaryDetails.notificationChannel2}}</p>
+                    <p class="trans-no1">{{rakPayee.beneficiaryDetails.notificationAddress2 == null || rakPayee.beneficiaryDetails.notificationAddress2 == "" ? "-" : rakPayee.beneficiaryDetails.notificationAddress2}}</p>
+                </div>
+            </div>
+            <div class="col-sm-10">
+                <button type="button" class="btn--init-btn" ng-click="moveMoney.currentSubFeature=moveMoney.subFeature.Payee; setEvent('onInitiateTransferFromPayee')"> {{appLiterals.APP.PAYEE.BENF_DETPAGE.BTN_INITRANSF}} </button>
+                <button type="button" class="btn--edit-btn"  ng-click="rakPayee.isEditBeneficiaryMode=true;setEvent('onEditBeneficiaryClick')"> {{appLiterals.APP.PAYEE.BENF_DETPAGE.BTN_EDT_DET}} </button>
+                <button type="button" class="btn--delete-btn" ng-click="rakPayee.isDeleteBeneficiaryMode=true;setEvent('onDeleteBeneficiaryClick')">  {{appLiterals.APP.PAYEE.BENF_DETPAGE.BTN_DELPAYE}}  </button>
+            </div>
+            <div class="ben-ss"></div>
+            
+        </div>
+    </div>
+</div>
+<!--partial code end here-->

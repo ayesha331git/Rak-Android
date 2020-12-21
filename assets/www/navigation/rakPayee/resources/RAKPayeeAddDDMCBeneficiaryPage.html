@@ -1,0 +1,132 @@
+ <div class="rak-back-header"  ng-hide="rakPayee.payeeModel.successClickFlag">
+    <i class="rak-back-img" ng-click="rakPayee.common.fromAuthPage=true;rakPayee.bankbnftype=rakPayee.constants.NETWORKTYPEDDMC;setEvent('onAddBeneficiaryPageCloseClick');"></i>
+  </div> 
+  
+  <div class="rak-back-header" ng-show="rakPayee.payeeModel.successClickFlag">
+    <i class="rak-back-img" ng-click="rakPayee.common.fromAuthPage=false;rakPayee.bankbnftype=rakPayee.constants.NETWORKTYPEDDMC;setEvent('onAddBeneficiaryPageCloseClick');"></i>
+  </div> 
+  <div class="nano menu-scroll">
+	<div class="nano-content">
+	<div class="finacle-container" ng-init="rakPayee.ddmcBenfTab=true;rakPayee.selectedPayee = successResponse.responsesList || rakPayee.selectedPayee;rakPayee.getPayeeInitForBankType(rakPayee.selectedPayee);">
+	 <div class="account-page">
+		<div class="col-sm-11"> 
+		  <div class="app-title-wrapper">
+		     <div class="form-block">
+		
+             <div class="">  	
+			<div class="main-form-heading-payee">                    	
+                   <h2 ng-show="rakPayee.selectedPayeeType==rakPayee.payeeTypes.DD ">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_TXT_DDBNF}}
+		      <span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1}}:{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1_TXTBNF}} </span>		      
+		      </h2>	
+		       <h2 ng-show="rakPayee.selectedPayeeType==rakPayee.payeeTypes.MCHQ ">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_TXT_MCHQBNF}}
+		      <span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1}}:{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1_TXTBNF}} </span>		      
+		      </h2>	
+		        <h2 ng-show="rakPayee.selectedPayeeType==rakPayee.rakSelfConfirmationPayeeListFetch.CONSTANTS.RAKCONFIRMPAYEE_DDBENF">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_TXT_DDBNF}}
+		      <span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1}}:{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1_TXTBNF}} </span>		      
+		      </h2>	
+		       <h2 ng-show="rakPayee.selectedPayeeType==rakPayee.rakSelfConfirmationPayeeListFetch.CONSTANTS.RAKCONFIRMPAYEE_MCHQBENF">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_TXT_MCHQBNF}}
+		      <span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1}}:{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1_TXTBNF}} </span>		      
+		      </h2>	 
+		      	       
+            </div>          				  		 
+ 	  		  
+		    <div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh">  
+			<div class="" >
+				  				          
+		   
+            
+            <fin-input type="text" ng-hide="rakPayee.selectedPayeeType==null||rakPayee.selectedPayeeType==''" model="rakPayee.payeeModel.nickName" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NICKNAME}}" validation-flag='pageErrorArr["rakPayee.payeeModel.nickName"]'> </fin-input>
+         
+             
+             <!-- Name -->           
+            <fin-input ng-hide="rakPayee.selectedPayeeType==null||rakPayee.selectedPayeeType==''" type="text" model="rakPayee.payeeModel.name" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NAME}}" validation-flag='pageErrorArr["rakPayee.payeeModel.name"]'> </fin-input>
+            
+            
+          
+            <div class="rakRow ">
+						<div class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px">
+							<span>{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.TYPE}}</span></div>
+							<div class="rak90">
+							
+									
+									<div class="rakCstmRadioDiv rak100 rakTop2emLeft3">
+										<input type="radio" ng-value="rakPayee.payeeTypes.MCHQ" class="" ng-click="rakPayee.payeeModel.getDDMCCountryManager(rakPayee.selectedPayeeType);"
+											id="radio1"	ng-model="rakPayee.selectedPayeeType" />
+										<label for="radio1"><span><span></span></span>
+															{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_MCHQ_BNF}}</label>
+										<!-- <span class="rakRadioLabel-SR-100">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_MCHQ_BNF}}</span> -->
+									</div>
+									
+									<div class="rakCstmRadioDiv rak100 rakTop2emLeft3 rakTop1em">
+										<input type="radio" ng-value="rakPayee.payeeTypes.DD" class="" ng-click="rakPayee.payeeModel.getDDMCCountryManager(rakPayee.selectedPayeeType);"
+													id="radio2"	ng-model="rakPayee.selectedPayeeType" />
+										<label for="radio2"><span><span></span></span>
+															{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_DD_BNF}}</label>
+										<!-- <span class="rakRadioLabel-SR-100">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_DD_BNF}}</span> -->
+									</div>
+								
+							</div>
+		  </div>
+		
+		  
+            <!-- Payee Bank Name -->
+		    <fin-input type="text" model="rakPayee.payeeModel.selectedBank" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BANK_NAME}}" validation-flag='pageErrorArr["rakPayee.payeeModel.selectedBank"]'> </fin-input>
+	
+	<!-- Amol : Model name country dropdown changed to rakPayee.payeeModel.rakBnfCountryDD from  rakBnfCountry-->	           
+    <div ng-if="rakPayee.DDMCQ.navigationType!='DDMCQServiceRequest'">
+         <!-- Country-start -->
+		<div ng-show="rakPayee.selectedPayeeType==rakPayee.payeeTypes.DD " ng-init='countryArr = createDropDownOptionArray(rakPayee.rakCountryList, ["countryDesc"], "countryCode");'><!-- countryCode -->
+		<fin-input type="dropdown" model="rakPayee.payeeModel.rakBnfCountryDD" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_COUNTRY}}"  validation-flag='pageErrorArr["rakPayee.payeeModel.rakBnfCountry"]' option-array="countryArr">			
+		</fin-input></div>
+		
+		<fin-input ng-show="rakPayee.selectedPayeeType==rakPayee.payeeTypes.MCHQ" type="text" model="rakPayee.payeeModel.rakBnfCountryDisplayName" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_COUNTRY}}" validation-flag='pageErrorArr["rakPayee.payeeModel.rakBnfCountryDisplayName"]' readonly> </fin-input>
+		<!-- Country-end -->
+	</div>
+		
+	<div ng-if="rakPayee.DDMCQ.navigationType=='DDMCQServiceRequest'">
+		 <!-- Country-start -->
+		<div ng-show="rakPayee.selectedPayeeType==rakPayee.payeeTypes.DD " ng-init='countryArray = createDropDownOptionArray(rakPayee.DDMCQCountryList, ["countryDesc"], "countryCode");'><!-- countryCode -->
+		<fin-input type="dropdown" model="rakPayee.payeeModel.rakBnfCountryDD" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_COUNTRY}}"  validation-flag='pageErrorArr["rakPayee.payeeModel.rakBnfCountry"]' option-array="countryArray">			
+		</fin-input></div>
+		
+		<fin-input ng-show="rakPayee.selectedPayeeType==rakPayee.payeeTypes.MCHQ" type="text" model="rakPayee.payeeModel.rakBnfCountryDisplayName" display-row="full" placeholder="{{rakPayee.constants.UAE}}" validation-flag='pageErrorArr["rakPayee.payeeModel.rakBnfCountry"]' readonly> </fin-input>
+		<!-- Country-end -->
+	</div>
+		  <!-- Account number  -->                
+            <fin-input  type="number_card" model="rakPayee.payeeModel.accountNumber"  max-length="34" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_ACCNO_RADIO}}" validation-flag='pageErrorArr["rakPayee.payeeModel.accountNumber"]'> </fin-input>
+      
+      
+  
+           <div class="label-wrap">
+            <button type="button" class="btn--special-btn btn-middle rak-button-small" 
+            ng-click="rakPayee.payeeModel.getDDMCCountryManager(rakPayee.selectedPayeeType);rakPayee.checkCountry(rakPayee.payeeModel.rakBnfCountry);setEvent(rakPayee.getAddPayeeEventDetails());"> 
+            {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.CONTINUE}} </button>
+           </div>
+  
+          
+          <div class="col-sm-1"> </div>
+          
+           <div class="disclaimer" >
+				<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+					<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+				</div>
+		
+				<div class="disclaimer3" ng-show="rakDisclaimerFlag">
+					<div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.DDMCHQ"></div>
+				</div>
+			</div>
+			
+			</div>
+       </div>
+         
+          </div>
+          
+         </div>
+       </div>
+       </div>
+    </div>
+		</div>
+	</div>
+
+	</div>
+</div> 

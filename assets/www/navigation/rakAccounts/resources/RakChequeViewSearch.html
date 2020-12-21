@@ -1,0 +1,94 @@
+<div class="finacle-container ng-scope"
+	ng-init="showCheck=false; cm.viewCheque.parseViewChequeImageResponse(successResponse)">
+	<div class="account-page">
+		<div class="col-sm-11">
+
+			<div class="main-form-heading">
+				<h2>
+					Cheque Details<span></span>
+				</h2>
+			</div>
+
+			<!-- <div class="title-left">
+				<span class="app app-arrow"
+					ng-hide="cm.viewCheque.model.fromDashboard || cm.statusInquiry.model.isViewChequeFlow"
+					ng-click="setEvent('onViewChequeBackClick')"></span>
+			</div>
+			<div class="title-center">{{appLiterals.APP.CHEQUE_MNGMNT.VIEW_SEARCH.TXT_VIEWCHEQ}}</div>
+			<div class="app app-cancel title-right"
+				ng-click="setEvent(cm.viewCheque.getChequeViewBackEvent())"></div>
+ -->
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+					<div class="">
+						<div ng-click="showCheck=true;">
+							<img src="{{cm.viewCheque.model.chequeFrontImageURL}}"
+								class="img-responsive cheque-view-img" />
+						</div>
+						<p class="label-title"
+							ng-hide="cm.viewCheque.model.chequeFrontImageURL.length > 1">{{appLiterals.APP.COMMON.BUTTON.NO_IMG_FOUND}}</p>
+
+						<div class="fin-txt"></div>
+						<!-- <p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.CHEQUE_MNGMNT.BOOK_LISTS.ACNTNO}}</span>
+							<span class="rak-sum-label black">{{cm.viewCheque.model.viewChequeImageResponse.accountId}}</span>
+						</p> -->
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.CHEQUE_MNGMNT.VIEW_PAGE.PH_CHEQNO}}</span>
+							<span class="rak-sum-label black">{{cm.viewCheque.model.viewChequeImageResponse.chequeNumber}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.CHEQUE_MNGMNT.LIST.CHEQUE_STATUS}}&nbsp;</span>
+							<span class="rak-sum-label black">{{cm.viewCheque.model.viewChequeImageResponse.chequeStatus}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">Deposit Date</span> <span
+								class="rak-sum-label black">{{cm.viewCheque.model.viewChequeImageResponse.chequeNumber}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">Bank Name</span> <span
+								class="rak-sum-label black">{{cm.viewCheque.model.viewChequeImageResponse.chequeStatus}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">Branch Name</span> <span
+								class="rak-sum-label black">{{cm.viewCheque.model.viewChequeImageResponse.chequeStatus}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">Drawn Amount</span> <span
+								class="rak-sum-label black">{{cm.viewCheque.model.viewChequeImageResponse.chequeNumber}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">Drawn Currency</span> <span
+								class="rak-sum-label black">{{cm.viewCheque.model.viewChequeImageResponse.chequeStatus}}</span>
+						</p>
+
+
+						<div class="fin-txt"></div>
+						<!--<button type="button" class="btn--init-btn" ng-click='setEvent("onChequeViewClick");'> {{appLiterals.APP.CHEQUE_MNGMNT.VIEW_SEARCH.BTN_SRCH}} </button>-->
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div ng-show="showCheck">
+	<div class="full-page-screen user-select ng-scope"></div>
+	<div class="confirmation-content-container">
+		<div class="app app-arrow pop-cheque-arrow" ng-click="showCheck=false"></div>
+		<div class="app app-cancel pop-cheque-cancel"
+			ng-hide="cm.viewCheque.model.fromDashboard==true"
+			ng-click="setEvent(cm.viewCheque.getChequeViewBackEvent())"></div>
+		<img src="{{cm.viewCheque.model.chequeFrontImageURL}}"
+			class="pop-cheque-img" />
+
+	</div>
+</div>

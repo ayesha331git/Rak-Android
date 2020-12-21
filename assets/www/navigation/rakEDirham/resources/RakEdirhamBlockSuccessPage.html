@@ -1,0 +1,64 @@
+
+<div class="finacle-container" ng-init="rakEDirham.initRAKDirhamBlockSuccess(successResponse.responsesList);">
+<div class="account-page">
+<div class="app-title-wrapper">
+<div class="form-block">
+
+		
+		   <div class="">		   		
+			
+		                
+		   <div class="bg-color eDirham-scroll margn-5-5-0-5">  	     
+		   	<div class="paybils-block-top w-100">
+		   	<div class="summary-ServiceReq mb-2em">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakEDirham.common.sucMsg}}</span>
+				</div>
+			</div>
+					            <div ng-if="!rakEDirham.eDirhamSettings.blockEdirham" class="main-form-heading">
+					              <h2 class="rakBenfHeader">{{appLiterals.APP.EDIRHAM.BLOCK_E_DIRHAM}} - {{appLiterals.APP.EDIRHAM.EDIRHAM_SUCCESS_HEADER_SUB_HEADER}}
+					               <!-- <span>{{appLiterals.APP.EDIRHAM.EDIRHAM_SUCCESS_HEADER_SUB_HEADER}} </span> -->
+					              </h2>
+					              
+					            </div>	
+					            <div ng-if="rakEDirham.eDirhamSettings.blockEdirham" class="main-form-heading-ServiceReq success-pb">
+					              <h2 class="rakBenfHeader">{{appLiterals.APP.EDIRHAM.UNBLOCK_EDIRHAM}} - {{appLiterals.APP.EDIRHAM.EDIRHAM_SUCCESS_HEADER_SUB_HEADER}}
+					            <!--    <span>{{appLiterals.APP.EDIRHAM.EDIRHAM_SUCCESS_HEADER_SUB_HEADER}} </span> -->
+					              </h2>
+					              
+					            </div>
+					           
+					            <div>
+					           	 
+									<p class="rak-sum-txt">
+										<span  class="rak-sum-label txt-align-left">{{appLiterals.APP.EDIRHAM.EDIRHAM_BLOCK_FUNSINGACCT_TXT}}</span>
+										<span class="rak-sum-label black">{{rakEDirham.eDirhamSettings.edAccountId}}</span>
+									</p>
+									<p class="rak-sum-txt">
+										<span  class="rak-sum-label txt-align-left">{{appLiterals.APP.EDIRHAM.ACCOUNT_STATUS}}</span>
+										
+										<span class="rak-sum-label black" ng-if="rakEDirham.eDirhamSettings.isAcctBlocked=='A'">{{appLiterals.APP.EDIRHAM.ACTIVE_STATUS}}</span>
+										<span class="rak-sum-label black" ng-if="rakEDirham.eDirhamSettings.isAcctBlocked=='B'">{{appLiterals.APP.EDIRHAM.BLOCKED_STATUS}}</span>
+									</p>
+					            
+			</div>
+	         <div class="margin-top-thirtypx">
+		     <button type="button" class="btn--special-btn btn-middle block-unblock-btn"
+									ng-click="setEvent('onEdirhamOverviewClick');rakEDirham.clearTab();">{{appLiterals.APP.EDIRHAM.EDIRHAM_TXNAPPRV_SUC_BTN}}
+									</button>
+									
+			
+		     </div>
+            
+			</div>
+    
+		   
+		     
+    
+	
+
+</div>
+</div>
+</div>
+</div>
+</div>

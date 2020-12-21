@@ -1,0 +1,91 @@
+
+ <div class="rak-back-header">
+	<i class="rak-back-img" ng-click="setEvent('onBackClick');"></i>
+</div> 
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div ng-init="rakEDirham.getEdToken(successResponse.responsesList);" class="finacle-container">
+			<div class="account-page">
+			
+					<div class="app-title-wrapper">
+					
+						<div class="form-block">						 
+							
+							<div class="bg-color eDirham-scroll">
+								        
+							<div class="paybils-block-top w-100">
+					            	
+					            <div>
+					           <img class="timer-eDirham-icon" src="images/EDirham.PNG">	
+					            </div>	            
+					            
+					        </div>
+					        <div class="col-sm-11">
+					        		<div class="main-form-heading-eDirham">
+             <h2 class="rakBenfHeader">{{appLiterals.APP.EDIRHAM.EDITHAM_TOKEN_MSG}}
+              
+				      </h2>
+       	</div>
+			
+       	</div>
+				
+								<div class="">
+									
+										
+									<div ng-if="rakEDirham.eDirhamTokenGeneration.isTimer" class="eDirham-token"
+										ng-init=''>
+											{{rakEDirham.eDirhamTokenGeneration.token}}
+
+									</div>	
+									
+									<!-- <div ng-if="!rakEDirham.eDirhamTokenGeneration.isTimer" class="eDirham-token">
+
+											
+										<button type="button"
+												class="btn--special-btn btn-middle generate-token-btn"
+												ng-click="setEvent('onEdirhamGenerateTokenClick');rakEDirham.onTokenGenerateClick();rakEDirham.getEdToken(successResponse.responsesList);">
+												{{appLiterals.APP.EDIRHAM.GENERATE_TOKEN_BTN}}
+											</button>
+
+										</div> -->
+									
+									<div ng-if="rakEDirham.eDirhamTokenGeneration.isTimer" class="eDirham-timer-expire-txt">
+											{{appLiterals.APP.EDIRHAM.TOKEN_EXP_TXT}}
+
+									</div>
+									<div ng-if="!rakEDirham.eDirhamTokenGeneration.isTimer" class="eDirham-timer-expire-txt token-opacity">
+											{{appLiterals.APP.EDIRHAM.TOKEN_EXP_TXT}}
+
+									</div>
+									
+									<!-- <div ng-if="rakEDirham.eDirhamTokenGeneration.isTimer" class="eDirham-timer-expire-txt margin-top-thirtypx">
+											<timer countdown="rakEDirham.eDirhamTokenGeneration.expiry" max-time-unit="'minute'" interval="1000" finish-callback="rakEDirham.timerFinished()"><span class="timer-min">min</span><span class="font-24 font-bold-family"> {{mminutes}} : {{sseconds}}  </span><span class="timer-sec">sec</span></timer>
+
+									</div> -->
+									<!-- <div ng-if="rakEDirham.eDirhamTokenGeneration.isTimer" class="eDirham-timer-expire-txt margin-top-thirtypx">
+										<span class="timer-min">min</span><span class="font-24 font-bold-family">	{{rakEDirham.eDirhamTokenGeneration.expiry  | counter | date:'mm:ss'}}</span></span><span class="timer-sec">sec</span>
+
+									</div> -->
+									<div ng-if="rakEDirham.eDirhamTokenGeneration.isTimer" class="eDirham-timer-expire-txt margin-top-thirtypx">
+										<span class="timer-min">min</span><span class="font-24 font-bold-family">	{{rakEDirham.eDirhamTokenGeneration.countdown  | counter | date:'mm:ss'}}</span><span class="timer-sec">sec</span>
+
+									</div>
+									
+									<div ng-if="!rakEDirham.eDirhamTokenGeneration.isTimer" class="eDirham-timer-expire-txt margin-top-thirtypx token-opacity">
+											<span class="timer-min">{{appLiterals.APP.EDIRHAM.MIN_TXT}}</span> <span class="font-24 font-bold-family">{{rakEDirham.eDirhamTokenGeneration.timer}}</span> <span class="timer-sec">{{appLiterals.APP.EDIRHAM.SEC_TXT}}</span>
+											
+
+									</div>
+																		
+										
+									
+								</div>
+										
+							</div>
+					</div>
+				</div>
+			
+		</div>
+	</div>
+	</div>
+	</div>

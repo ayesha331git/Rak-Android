@@ -1,0 +1,147 @@
+<div class="rak-back-header">
+			<i class="rak-back-img"
+				ng-click="rakServiceReq.setRakRecDepositOpenNewTermInitBackBtnClicked()"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.rakRecDepositOpenNewTermInit(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+				
+					<div class="form-block">
+						 <div class="main-form-heading-ServiceReq"> 
+			                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.OPEN_REC_FD}}
+			                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+			                 </h2>              
+						</div>
+						<div class="bg-color rak-cont-padding rak-scroll">
+							<div class="row">
+								
+								<div
+									ng-init='oprArr = createDropDownOptionArray(rakServiceReq.RakRecDepositOpenNewTermReq.oprList, ["productCatDesc","-","accountId","-","currency"], "accountIndex");'></div>
+								<fin-input type="dropdown"
+									model="rakServiceReq.RakRecDepositOpenNewTermReq.accNo"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_OPEN_NEW.FUND_ACC}}"									
+									validation-flag='pageErrorArr["rakServiceReq.RakRecDepositOpenNewTermReq.accNo"]'
+									option-array="oprArr"> </fin-input>
+
+
+			<div class="rakRow" >
+				<div class="radio-biller rak100 rakWidth100">
+					{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_OPEN_NEW.TENOR}}</div>
+				<div class="rak100 marginTop20less" >
+					<div>
+							<div class="">
+																					
+															
+								<div class="fin-input-container fin-input-container">
+								               <div ng-class="{'left-line': !pageErrorArr['rakServiceReq.RakRecDepositOpenNewTermReq.year'], 'left-line-error':pageErrorArr['rakServiceReq.RakRecDepositOpenNewTermReq.year']}" class="left-line">
+								               </div>
+										  <div class="input-body">
+										    <div class="input-body2 input-body2-dropdown">
+												<select dropdownpicker title="{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_OPEN_NEW.YEARS}}" class="fin-input fin-select" ng-model="rakServiceReq.RakRecDepositOpenNewTermReq.year"  ng-style="{{rakServiceReq.RakRecDepositOpenNewTermReq.year}}== null || {{rakServiceReq.RakRecDepositOpenNewTermReq.year}} == '' ? {'font-size': '14px'} : {'color': 'initial'}"  >													  
+													   	<option ng-repeat="option in rakServiceReq.RakRecDepositOpenNewTermReq.yearList" ng-selected="'{{option.yearIndex}}'==='{{rakServiceReq.RakRecDepositOpenNewTermReq.year}}'" value="{{option.yearIndex}}" >{{option.yearDesc}}</option>
+												</select>
+											</div>
+												<div ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.RakRecDepositOpenNewTermReq.year], 'bottom-line-error':pageErrorArr['rakServiceReq.RakRecDepositOpenNewTermReq.year']}" class="bottom-line">
+										        </div><div ng-hide='pageErrorArr["rakServiceReq.RakRecDepositOpenNewTermReq.year"]==null' class="rakErrorMsg"> {{pageErrorArr['rakServiceReq.RakRecDepositOpenNewTermReq.year']}}</div>
+										</div>
+								</div>
+					
+							</div>
+	
+							<!-- <div class="rak47FloatRight">
+																		
+															
+															
+										<div class="fin-input-container fin-input-container">
+								               <div ng-class="{'left-line': !pageErrorArr['rakServiceReq.RakRecDepositOpenNewTermReq.month'], 'left-line-error':pageErrorArr['rakServiceReq.RakRecDepositOpenNewTermReq.month']}" class="left-line">
+								               </div>
+										  <div class="input-body">
+										    <div class="input-body2 input-body2-dropdown">
+												<select dropdownpicker title="{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_OPEN_NEW.MONTHS}}" class="fin-input fin-select" ng-model="rakServiceReq.RakRecDepositOpenNewTermReq.month"  ng-style="{{rakServiceReq.RakRecDepositOpenNewTermReq.month}}== null || {{rakServiceReq.RakRecDepositOpenNewTermReq.month}} == '' ? {'font-size': '14px'} : {'color': 'initial'}"  >													  
+													   	<option ng-repeat="option in rakServiceReq.RakRecDepositOpenNewTermReq.monthList" ng-selected="'{{option.monthIndex}}'==='{{rakServiceReq.RakRecDepositOpenNewTermReq.month}}'" value="{{option.monthIndex}}" >{{option.monthDesc}}</option>
+												</select>
+											</div>
+												<div ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.RakRecDepositOpenNewTermReq.month], 'bottom-line-error':pageErrorArr['rakServiceReq.RakRecDepositOpenNewTermReq.month']}" class="bottom-line">
+										        </div><div ng-hide='pageErrorArr["rakServiceReq.RakRecDepositOpenNewTermReq.month"]==null' class="rakErrorMsg"> {{pageErrorArr['rakServiceReq.RakRecDepositOpenNewTermReq.month']}}</div>
+										</div>
+									</div>					
+							</div> -->
+
+						</div>
+					</div>
+				</div>
+						
+								<fin-input type="number_card"
+									model="rakServiceReq.RakRecDepositOpenNewTermReq.amount"
+									display-row="full"
+									validation-flag='pageErrorArr["rakServiceReq.RakRecDepositOpenNewTermReq.amount"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_OPEN_NEW.DEP_AMT}}">
+								</fin-input>
+								
+								<span  class="interstRate"
+									ng-click="rakServiceReq.fetchDisclaimer('RDInterestRates.html');">
+									{{appLiterals.APP.DISCLAIMER.VIEW_INT_RATES}}</span>
+
+									
+									
+								<div ng-init='dateArr = createDropDownOptionArray(rakServiceReq.RakRecDepositOpenNewTermReq.debitDateList, ["dateDesc"], "dateIndex");'>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RakRecDepositOpenNewTermReq.debitDate"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_OPEN_NEW.DEB_ACC_ON}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakRecDepositOpenNewTermReq.debitDate"]'
+										option-array="dateArr"> </fin-input></div>
+										
+										
+									<div class="fin-txt"></div>
+									<div class="fin-txt"></div>
+										
+							<div>
+								<span ng-click="rakServiceReq.fetchTermsUrl('RDTermsAndConditions.pdf');" class="hyperLinkBlue">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                              	<span ng-bind-html="appLiterals.APP.DISCLAIMER.RECDEPOSITOPEN_TERMSLINK"></span>									
+							</div>			
+							<div>							
+									<div class="check-boxsLeft">
+					                    <input id="termsFlag"  class="checkbox-custom-new"  type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" ng-model='rakServiceReq.RakRecDepositOpenNewTermReq.acceptTermscondition' >
+					                    <label for="termsFlag" class="checkbox-custom-label termsCheck smallCheck marginLeft0" ng-bind-html="appLiterals.APP.DISCLAIMER.RAKRDTERMS"></label>
+					                </div>										
+							</div>
+
+
+								<div class="label-wrap">								
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small"
+										ng-click="setEvent('onRAKOpenRecDepositNewTermConfirmClick');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+								</div>
+								<div class="col-sm-1"></div>
+								
+								
+						<div class="disclaimer">
+                              <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                              <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                              </div>
+                              
+                              <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+                              			<span ng-click='rakServiceReq.fetchPdf("https://rakbank.ae/wps/portal/retail-banking/accounts/deposit/recurring-deposit");' class="hyperLinkBlue">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+										<span ng-bind-html="appLiterals.APP.DISCLAIMER.RECDEPOSITPRODUCT_FEATURESLINK"></span>
+                              			<span ng-bind-html="appLiterals.APP.DISCLAIMER.RECDEPOSITOPEN_INITPAGE_CONT"></span>
+										<span ng-bind-html="appLiterals.APP.DISCLAIMER.RECDEPOSITOPEN_INITPAGE"></span>										
+									</div>
+              			</div>
+								
+						
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

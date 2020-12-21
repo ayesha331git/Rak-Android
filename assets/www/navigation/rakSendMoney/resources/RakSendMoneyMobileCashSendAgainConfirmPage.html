@@ -1,0 +1,126 @@
+<div class="finacle-container ng-scope"
+	ng-init="rakSendMoney.mobileCash.txnPwd='';rakSendMoney.mobileCash.initAuthPage(successResponse.responsesList)" >
+
+	<div ng-show="rakSendMoney.common.balCheck==true">
+<div class="full-page-screen"  ></div>
+
+<div class="confirmation-content-container">
+    <div class="message-box-new">
+        <div>
+            <p class="round-icon-new">
+            <span class="app app-alert pop-alert-icon rak-color"></span>
+            </p>
+
+            <div class="conf-txt-title rak-black-color">
+            </div>
+        </div>
+
+        <div class="conf-txt-label rak-black-color">
+          {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.POOL_BAL_MSG}}
+        </div>
+		<div class="conf-btn-wrap">
+	            <button type="button" class="btn--confsec-btn rak-grey-color" ng-click='setEvent("onTransfersAuthBackClick")' >
+	                 &nbsp; {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.BTN_CNL}} &nbsp;
+	            </button>
+
+	            <button type="button" class="btn--confpri-btn btn--back rak-black-color" ng-click='rakSendMoney.common.balCheck=false;setEvent("onPoolBalanceConfirmation")' >
+	                &nbsp; {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.BTN_YES}} &nbsp;
+	            </button>
+        	</div>
+    	</div>
+	</div>
+</div>
+
+<div ng-show="rakSendMoney.common.balCheck!=true">
+	<div class="account-page">
+    <div class="col-sm-11">
+	  <div class="app-title-wrapper">
+
+		 <ng-include  src="'./navigation/rakSendMoney/resources/RakSendMoneyTabPage.html'"> </ng-include>
+
+		 <div class="tab-links">
+         <ul>
+            <li  ng-click="rakSendMoney.clearTab();rakSendMoney.sendMoney.bankTransferTab=true;setGlobalEvent('onRakMoveMoneyClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_BNKTRANSFER}}</span></li>
+            <li  ng-show="dashboard.userType=='1'"  ng-click="rakSendMoney.clearTab();rakSendMoney.sendMoney.rakMoneyTab=true;setGlobalEvent('onRakMoneyPayTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_RAKMNY}}</span></li>
+            <li  class="active"><span class="active">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_MBLCASH}}</span></li>
+          </ul>
+        </div>
+	<div class="noHeaderBottom"></div>
+        <div class="rak-scroll">
+     <!--  <div class="main-form-heading">
+                    	<h2>{{appLiterals.APP.RAK_COMMON.SUMMARY_HEADER}}<span>{{appLiterals.APP.RAK_COMMON.SUMMARY_REVIEW}}</span></h2>
+            </div> -->
+
+
+		<div class="bg-color rak-cont-padding">
+
+			<div class="row" >
+			  <div class="">
+
+				<p class="rak-sum-txt" ng-show="rakSendMoney.mobileCash.selectedBenfType=='Benf' && rakSendMoney.mobileCash.fromBenfScreen">
+				<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.PAY_TO}}</span>
+				<span class="rak-sum-label black">{{rakSendMoney.mobileCash.Beneficiary.beneficiaryName}} - {{rakSendMoney.mobileCash.Beneficiary.beneficiaryAccountNumber}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="rakSendMoney.mobileCash.selectedBenfType=='Benf' && !rakSendMoney.mobileCash.fromBenfScreen">
+				<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.PAY_TO}}</span>
+				<span class="rak-sum-label black">{{rakSendMoney.mobileCash.benfList[rakSendMoney.mobileCash.selectedBenf].beneficiaryName}} - {{rakSendMoney.mobileCash.benfList[rakSendMoney.mobileCash.selectedBenf].beneficiaryAccountNumber}}</span>
+				</p>
+
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.TXT_FROM}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCash.fromAccounts[rakSendMoney.mobileCash.selectedFromAccount].accountNumber}}</span>
+				</p>
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_AMT}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCash.amountDisp}} {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.AED}}</span>
+				</p>
+
+
+
+
+				<fin-input type="password_text" model="rakSendMoney.mobileCash.txnPwd"
+					display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+					validation-flag='pageErrorArr["rakSendMoney.mobileCash.txnPwd"]'
+				ng-show="rakSendMoney.mobileCash.authFlag==txnpwdString">
+					</fin-input>
+
+
+						<div ng-show="rakSendMoney.mobileCash.authFlag==otpString">
+				<div ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+			        <fin-input type="password_num" model="rakSendMoney.mobileCash.txnPwd"
+			           display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+			                validation-flag='pageErrorArr["rakSendMoney.mobileCash.txnPwd"]' > </fin-input>
+			       </div>
+
+
+			<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0' ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+
+				<fin-input type="dropdown" option-array="toModeArray" model="rakHome.otpModel.otpModeSelected" display-row="full" placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+				<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+
+			</div>
+									
+				<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>
+          </div>
+          </div>
+
+
+				<div class="label-wrap">
+
+				 <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-if="rakSendMoney.mobileCash.selectedBenfType=='Benf'"
+				 ng-click="rakSendMoney.common.fromAuthPage=true;setEvent('onMobileCashTransferAuthBackClick');">  Back </button>
+				 <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-if="rakSendMoney.mobileCash.selectedBenfType=='Self'"
+				 ng-click="rakSendMoney.common.fromAuthPage=true;setEvent('onMobileCashTransferAuthBackSelfClick');">  Back </button>
+				 <button type="button"  class="btn--special-btn btn-middle rak-button-small"
+				 ng-click="setEvent('onMobileCashBenfTransferSubmit');">  {{appLiterals.APP.PAYEE.PAY_BILL.BTN_CONFIRM}} </button>
+			  </div>
+          <div class="col-sm-1"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+</div>

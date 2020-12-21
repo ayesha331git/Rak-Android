@@ -1,0 +1,333 @@
+<div class="rak-back-header">
+	
+	<i class="rak-back-img" ng-click="rakELMSApproval.pendingApprovalTab='PMA';setGlobalEvent('onELMSPendingApprovalsCountClick');"></i>
+	
+</div>
+
+<div class="finacle-container"
+	ng-init="resetPageError();rakELMSApproval.approvalReasonDesc='';rakCorpInit.corpModel.resetCorpInitDetails();rakELMSApproval.approvalCount(successResponse.responsesList);rakELMSApproval.responsePendingApproval(successResponse.responsesList);">
+	<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+		                <ng-include  src="'./navigation/rakELMSApproval/resources/RakELMSPendingApprovalsHeaderTabPage.html'">
+		                </ng-include>
+		
+			
+
+<div class="bg-color rak-cont-padding">
+<!-- commented search functionality for now -->
+			<!-- 	<div class="rakTxnSearch" ng-init='rakELMSApproval.pendingList.length == 0? rakTxnSearch=true : rakTxnSearch=false;'>
+								<div class="rakTxnSearch1 rakTxnSearchIcon" ng-class="{'rakTxnSearchIconExpnd':rakTxnSearch}"
+									ng-click="rakTxnSearch=!rakTxnSearch">
+									<h3 class="rakTxnSearch2">{{appLiterals.APP.RAK_COMMON.SEARCH}}</h3>
+								</div>								
+								<div class="rakTxnSearch3" ng-show="rakTxnSearch">
+									
+									<div
+										ng-init='txnTypeArray=createDropDownOptionArray(rakELMSApproval.txnTypeList, ["txnTypeDesc"],"txnTypeCode")'>
+										<fin-input type="dropdown" option-array="txnTypeArray"
+											model="rakELMSApproval.selectedTxnType" display-row="full"
+											placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.TRANSACTION_TYPE}}" validation-flag='pageErrorArr["rakELMSApproval.selectedTxnType"]' > </fin-input>
+									</div>
+									
+									<div
+										ng-init='OprAcctArr = createDropDownOptionArray(rakELMSApproval.accIdList, ["acctTypeDesc","-","accountId"," ","currencyCode"], "accountIndex");'></div>
+										<fin-input type="dropdown"
+										model="rakELMSApproval.selectedAccId"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.ACCOUNT_ID}}"
+										validation-flag='pageErrorArr["rakELMSApproval.selectedAccId"]'
+										option-array="OprAcctArr"> </fin-input>
+								
+									
+									
+									<fin-input type="date" model="rakELMSApproval.searchFromDate"
+										display-row="half1" placeholder="{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.FROM_DATE}}"
+										validation-flag='pageErrorArr["rakELMSApproval.searchFromDate"]'></fin-input>
+
+									<fin-input type="date" model="rakELMSApproval.searchToDate"
+										display-row="half2" placeholder="{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.TO_DATE}}"
+										validation-flag='pageErrorArr["rakELMSApproval.searchToDate"]'></fin-input>
+
+						
+							 <div class=""> 
+								<span class="fieldLabelLeft" >{{appLiterals.APP.rakELMSApproval.OTHERS.FROM_DATE}}</span> 
+								<span class="fieldLabelRight rak42" >{{appLiterals.APP.rakELMSApproval.OTHERS.TO_DATE}}</span> 
+							</div> 
+							
+							<div ng-if="rakELMSApproval.pendingApprovalTab!='PIA'">
+							<button type="button" class="btn--special-btn btn-middle rak-button-full-black"
+									ng-click="rakELMSApproval.setFromToDate();rakELMSApproval.backClickFlag='N';rakELMSApproval.fromSearch=true;setEvent('onApprUnapprSearchClick')">{{appLiterals.APP.RAK_COMMON.SEARCH}}
+							</button>
+							</div>
+							
+							</div>
+					</div>  -->
+							
+
+
+ <div class="rakTxnSearch" ng-init='rakELMSApproval.pendingList.length == 0? rakTxnSearch=true : rakTxnSearch=false;'>
+								<div class="rakTxnSearch1 rakTxnSearchIcon" ng-class="{'rakTxnSearchIconExpnd':rakTxnSearch}"
+									ng-click="rakTxnSearch=!rakTxnSearch">
+									<h3 class="rakTxnSearch2">{{appLiterals.APP.RAK_COMMON.SEARCH}}</h3>
+								</div>								
+								<div class="rakTxnSearch3" ng-show="rakTxnSearch">
+									
+									<div
+										ng-init='structureTypeArray=createDropDownOptionArray(rakELMSApproval.StructureTypeList, ["Structure_Type_ListDesc"],"Structure_Type_ListCode")'>
+										<fin-input type="dropdown" option-array="structureTypeArray"
+											model="rakELMSApproval.selectedStructureType" display-row="full"
+											placeholder=" {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.ITEMTEXTS.STRUCTURE_TYPE}}"
+											validation-flag='pageErrorArr["rakELMSApproval.selectedStructureType"]' > </fin-input>
+									</div>
+									
+									<fin-input type="text" 
+											model="rakELMSApproval.StructureName"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.ITEMTEXTS.STRUCTURE_NAME}}"
+											validation-flag='pageErrorArr["rakELMSApproval.StructureName"]'>
+									</fin-input>
+									
+									
+									<fin-input type="date" model="rakELMSApproval.searchFromDate"
+										display-row="half1" placeholder="{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.FROM_DATE}}"
+										validation-flag='pageErrorArr["rakELMSApproval.searchFromDate"]'></fin-input>
+
+									<fin-input type="date" model="rakELMSApproval.searchToDate"
+										display-row="half2" placeholder="{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.TO_DATE}}"
+										validation-flag='pageErrorArr["rakELMSApproval.searchToDate"]'></fin-input>
+
+										
+										
+						
+							         <div class=""> 
+								        <span class="fieldLabelLeft" >{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.OTHERS.FROM_DATE}}</span> 
+								        <span class="fieldLabelRight rak42" >{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.OTHERS.TO_DATE}}</span> 
+							       </div> 
+								   
+								   <!--  <div
+										ng-init='MyRoleArray=createDropDownOptionArray(rakELMSApproval.MyRoleList, ["MYROLE_ListDesc"],"MYROLE_ListCode")'>
+										<fin-input type="dropdown" option-array="MyRoleArray"
+											model="rakELMSApproval.selectedRoleType" display-row="full"
+											placeholder="My Role"
+											validation-flag='pageErrorArr["rakELMSApproval.selectedRoleType"]' > </fin-input>
+									</div> -->
+								   
+									<!-- <div ng-show="rakELMSApproval.pendingApprovalTab=='PMA'">
+							        <fin-input type="text" 
+											model="rakELMSApproval.RefrenceID"
+											display-row="full"
+											placeholder="Refrence ID"
+											validation-flag='pageErrorArr["rakELMSApproval.RefrenceID"]'>
+									</fin-input>
+									</div> -->
+							
+							<div>
+							<button type="button" class="btn--special-btn btn-middle rak-button-full-black"
+									ng-click="rakELMSApproval.setFromToDate();rakELMSApproval.backClickFlag='N';rakELMSApproval.fromSearch=true;setEvent('onELMSApprUnapprSearchClick')">{{appLiterals.APP.RAK_COMMON.SEARCH}}
+							</button>
+							</div>
+							
+							</div>
+</div>   
+
+
+<div class="rakScrollDivHistory rak-cont-paddingvh" ng-class="{'pendingApproval':rakTxnSearch, 'pendingApprovalIncomplete':rakELMSApproval.pendingApprovalTab=='PIA' && rakTxnSearch}"
+ng-init="rakELMSApproval.isFromLandingPage=true;rakELMSApproval.approvalListToggleELMS(20000);">
+	<div ng-if="rakELMSApproval.pendingListELMS.length > 0 ">
+
+								
+			
+	                                        
+	                                        
+	        <div ng-if="rakELMSApproval.pendingListELMS.length > 0">
+	        
+			<!-- <div class="main-form-heading-Approval">
+                <h2 class="rakBenfHeader rakRed">{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.SUBHEADERS.ELMS}}
+                </h2>
+			</div> -->
+			
+				<div class="">
+					<div class=""
+							
+							id="moveMoneyELMSListClick{{$index}}" ng-click="rakELMSApproval.approvalListToggleELMS($index);">
+					<div >
+                    	
+                    	
+				    
+					<div class="money-block rakBottomZero">
+				         <ul>
+				          <li  class="active rak30 rakPaddingPoint8em" >{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.ITEMTEXTS.STRUCTURE_NAME}}
+				            </li>
+				      
+				           <li class="active rak30 " ng-show="rakELMSApproval.pendingApprovalTab!='PIA'">
+				            {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.ITEMTEXTS.STRUCTURE_TYPE}}</li>
+				             
+				            <li class="active rak30 ">
+				            {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.ITEMTEXTS.REQUEST_DATE}}</li>
+				            <li class="active rak10 ">&nbsp;</li>
+				         </ul>
+					</div>
+						 
+						 
+				<div >
+					          
+
+                          <div class="trans-detail rakGreyRow" ng-repeat='item in rakELMSApproval.pendingListELMS'>
+
+					                
+					            <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em pull-left">
+					                    <div>
+					                    <div class="trans-no rakTextCenter rakFont1em ">
+					                    {{item.structureName}}
+					                    </div> 
+					                  
+					                  </div>
+
+					             </div>
+					                  
+					                 
+					            <div  ng-show="rakELMSApproval.pendingApprovalTab!='PIA'" class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em ">
+					                   		<div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                   {{item.structureType}}
+					                    </div>
+					                    </div>
+
+					            </div>
+					                    
+					            <div  ng-if="rakELMSApproval.pendingApprovalTab!=='PIA'" class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em ">
+					                   		<div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                   {{item.reqDateFrom}}
+					                    </div>
+					                    </div>
+
+					            </div>
+					                  
+									  
+							   <div class="pull-right rakPaddingPoint5em" style="width:10%">
+							      <span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+									  <ul ng-if="rakELMSApproval.pendingApprovalTab=='PMA'" class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+									  
+											     <li  ng-if="item.txnType=='LSC'"><a href=""  ng-click="rakELMSApproval.pageName='VIEWDETAILS';rakELMSApproval.ELMSsrDetItem=item;rakELMSApproval.isBack=false;rakELMSApproval.isELMSsrApprRejClicked='N';
+											     rakELMSApproval.setVals();setEvent('onRakELMSRequestSweepDetailsFetch');">
+											  	                                             {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.VIEW}}</a></li>
+											  	  <li  ng-if="item.txnType=='LPC'" ><a href=""  ng-click="rakELMSApproval.pageName='VIEWDETAILS';rakELMSApproval.ELMSsrDetItem=item;rakELMSApproval.isBack=false;rakELMSApproval.isELMSsrApprRejClicked='N';
+											     rakELMSApproval.setVals();setEvent('onRakELMSRequestPoolDetailsFetch');">
+											  	                                             {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.VIEW}}</a></li>  
+											  	  <li  ng-if="item.txnType=='LSM'"><a href=""  ng-click="rakELMSApproval.pageName='VIEWDETAILS';rakELMSApproval.ELMSsrDetItem=item;rakELMSApproval.isBack=false;rakELMSApproval.isELMSsrApprRejClicked='N';
+											     rakELMSApproval.setVals();setEvent('onRakELMSRequestSweepDetailsModifyFetch');">
+											  	                                             {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.VIEW}}</a></li> 
+											  	  <li  ng-if="item.txnType=='LPM'"><a href=""  ng-click="rakELMSApproval.pageName='VIEWDETAILS';rakELMSApproval.ELMSsrDetItem=item;rakELMSApproval.isBack=false;rakELMSApproval.isELMSsrApprRejClicked='N';
+											     rakELMSApproval.setVals();setEvent('onRakELMSRequestPoolDetailsModifyFetch');">
+											  	                                             {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.VIEW}}</a></li>                                              
+											  	                                                                               
+											  	                                                                                       
+											    <li  ng-if="item.txnType=='LSC'"><a href=""  ng-click="rakELMSApproval.pageName='APPROVE';rakELMSApproval.approvalReasonDesc=item.approvalReasonDesc;rakELMSApproval.isELMSsrApprRejClicked='Y';rakELMSApproval.ELMSsrApprRejClicked='A';rakELMSApproval.approveAuthModel.backFlag='N'; rakELMSApproval.isBack=false;rakELMSApproval.resetPendingModel();rakELMSApproval.ELMSsrDetItem=item;rakELMSApproval.setVals();setEvent('onRakELMSRequestSweepDetailsValidate');">
+											  											    {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.APPROVE}}</a></li>
+											    <li  ng-if="item.txnType=='LPC'"><a href=""  ng-click="rakELMSApproval.pageName='APPROVE';rakELMSApproval.approvalReasonDesc=item.approvalReasonDesc;rakELMSApproval.isELMSsrApprRejClicked='Y';rakELMSApproval.ELMSsrApprRejClicked='A';rakELMSApproval.approveAuthModel.backFlag='N'; rakELMSApproval.isBack=false;rakELMSApproval.resetPendingModel();rakELMSApproval.ELMSsrDetItem=item;rakELMSApproval.setVals();setEvent('onRakELMSRequestPoolDetailsValidate');">
+											  											    {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.APPROVE}}</a></li> 
+											  	<li  ng-if="item.txnType=='LSM'"><a href=""  ng-click="rakELMSApproval.pageName='APPROVE';rakELMSApproval.approvalReasonDesc=item.approvalReasonDesc;rakELMSApproval.isELMSsrApprRejClicked='Y';rakELMSApproval.ELMSsrApprRejClicked='A';rakELMSApproval.approveAuthModel.backFlag='N'; rakELMSApproval.isBack=false;rakELMSApproval.resetPendingModel();rakELMSApproval.ELMSsrDetItem=item;rakELMSApproval.setVals();setEvent('onRakELMSRequestSweepDetailsModifyValidate');">
+											  											    {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.APPROVE}}</a></li>
+											  	<li  ng-if="item.txnType=='LPM'"><a href=""  ng-click="rakELMSApproval.pageName='APPROVE';rakELMSApproval.approvalReasonDesc=item.approvalReasonDesc;rakELMSApproval.isELMSsrApprRejClicked='Y';rakELMSApproval.ELMSsrApprRejClicked='A';rakELMSApproval.approveAuthModel.backFlag='N'; rakELMSApproval.isBack=false;rakELMSApproval.resetPendingModel();rakELMSApproval.ELMSsrDetItem=item;rakELMSApproval.setVals();setEvent('onRakELMSRequestPoolDetailsModifyValidate');">
+											  											    {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.APPROVE}}</a></li>
+											  											    
+											  											    											    
+											    <li  ng-if="item.txnType=='LSC'"><a href=""   ng-click="rakELMSApproval.pageName='REJECT';rakELMSApproval.approvalReasonDesc=item.approvalReasonDesc;rakELMSApproval.isELMSsrApprRejClicked='Y';rakELMSApproval.ELMSsrApprRejClicked='R';rakELMSApproval.approveAuthModel.backFlag='N';rakELMSApproval.ELMSsrDetItem=item;rakELMSApproval.isBack=false;rakELMSApproval.resetPendingModel();rakELMSApproval.setVals();setEvent('onRakELMSRequestRejectSweepDetailsFetch');">
+											  											    {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.REJECT}}</a></li>
+											  	<li  ng-if="item.txnType=='LSM'"><a href=""   ng-click="rakELMSApproval.pageName='REJECT';rakELMSApproval.approvalReasonDesc=item.approvalReasonDesc;rakELMSApproval.isELMSsrApprRejClicked='Y';rakELMSApproval.ELMSsrApprRejClicked='R';rakELMSApproval.approveAuthModel.backFlag='N';rakELMSApproval.ELMSsrDetItem=item;rakELMSApproval.isBack=false;rakELMSApproval.resetPendingModel();rakELMSApproval.setVals();setEvent('onRakELMSRequestRejectSweepDetailsModifyFetch');">
+											  											    {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.REJECT}}</a></li>
+											    <li  ng-if="item.txnType=='LPC'"><a href=""  ng-click="rakELMSApproval.pageName='REJECT';rakELMSApproval.approvalReasonDesc=item.approvalReasonDesc;rakELMSApproval.isELMSsrApprRejClicked='Y';rakELMSApproval.ELMSsrApprRejClicked='R';rakELMSApproval.approveAuthModel.backFlag='N';rakELMSApproval.ELMSsrDetItem=item;rakELMSApproval.isBack=false;rakELMSApproval.resetPendingModel();rakELMSApproval.setVals();setEvent('onRakELMSRequestRejectPoolDetailsFetch');">
+											  											    {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.REJECT}}</a></li>
+											  	<li  ng-if="item.txnType=='LPM'"><a href=""  ng-click="rakELMSApproval.pageName='REJECT';rakELMSApproval.approvalReasonDesc=item.approvalReasonDesc;rakELMSApproval.isELMSsrApprRejClicked='Y';rakELMSApproval.ELMSsrApprRejClicked='R';rakELMSApproval.approveAuthModel.backFlag='N';rakELMSApproval.ELMSsrDetItem=item;rakELMSApproval.isBack=false;rakELMSApproval.resetPendingModel();rakELMSApproval.setVals();setEvent('onRakELMSRequestRejectPoolDetailsModifyFetch');">
+											  											    {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.REJECT}}</a></li>
+											  											    
+											  											    
+											  	<li  ng-if="item.txnType=='LSC'"><a href=""   ng-click="rakELMSApproval.pageName='REPAIR';rakELMSApproval.approvalReasonDesc=item.approvalReasonDesc;rakELMSApproval.isELMSsrApprRejClicked='Y';rakELMSApproval.ELMSsrApprRejClicked='R';rakELMSApproval.approveAuthModel.backFlag='N';rakELMSApproval.ELMSsrDetItem=item;rakELMSApproval.isBack=false;rakELMSApproval.resetPendingModel();rakELMSApproval.setVals();setEvent('onRakELMSRequestRepairSweepDetailsFetch');">
+											  											    {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.SEND_REPAIR}}</a></li>
+											  	<li  ng-if="item.txnType=='LSM'"><a href=""   ng-click="rakELMSApproval.pageName='REPAIR';rakELMSApproval.approvalReasonDesc=item.approvalReasonDesc;rakELMSApproval.isELMSsrApprRejClicked='Y';rakELMSApproval.ELMSsrApprRejClicked='R';rakELMSApproval.approveAuthModel.backFlag='N';rakELMSApproval.ELMSsrDetItem=item;rakELMSApproval.isBack=false;rakELMSApproval.resetPendingModel();rakELMSApproval.setVals();setEvent('onRakELMSRequestRepairSweepDetailsModifyFetch');">
+											  											    {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.SEND_REPAIR}}</a></li>										    
+											    <li  ng-if="item.txnType=='LPC'"><a href=""  ng-click="rakELMSApproval.pageName='REPAIR';rakELMSApproval.approvalReasonDesc=item.approvalReasonDesc;rakELMSApproval.isELMSsrApprRejClicked='Y';rakELMSApproval.ELMSsrApprRejClicked='R';rakELMSApproval.approveAuthModel.backFlag='N';rakELMSApproval.ELMSsrDetItem=item;rakELMSApproval.isBack=false;rakELMSApproval.resetPendingModel();rakELMSApproval.setVals();setEvent('onRakELMSRequestRepairPoolDetailsFetch');">
+											  											    {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.SEND_REPAIR}}</a></li>
+											  	<li  ng-if="item.txnType=='LPM'"><a href=""  ng-click="rakELMSApproval.pageName='REPAIR';rakELMSApproval.approvalReasonDesc=item.approvalReasonDesc;rakELMSApproval.isELMSsrApprRejClicked='Y';rakELMSApproval.ELMSsrApprRejClicked='R';rakELMSApproval.approveAuthModel.backFlag='N';rakELMSApproval.ELMSsrDetItem=item;rakELMSApproval.isBack=false;rakELMSApproval.resetPendingModel();rakELMSApproval.setVals();setEvent('onRakELMSRequestRepairPoolDetailsModifyFetch');">
+											  											    {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.SEND_REPAIR}}</a></li>											  										    											    
+											  											   
+											  											  
+											  											   
+
+									    </ul>
+											  
+									    <ul ng-if="rakELMSApproval.pendingApprovalTab=='PCA'" class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											   
+											     <li  ng-if="item.txnType=='LSC'"><a href=""  ng-click="rakELMSApproval.pageName='VIEWDETAILS';rakELMSApproval.ELMSsrDetItem=item; rakELMSApproval.isBack=false;rakELMSApproval.setVals();setEvent('onRakELMSRequestSweepDetailsFetch');">
+											  											     {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.VIEW}}</a></li>
+											  											     
+											  	<li  ng-if="item.txnType=='LSM'"><a href=""  ng-click="rakELMSApproval.pageName='VIEWDETAILS';rakELMSApproval.ELMSsrDetItem=item; rakELMSApproval.isBack=false;rakELMSApproval.setVals();setEvent('onRakELMSRequestSweepDetailsModifyFetch');">
+											  											     {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.VIEW}}</a></li>
+											     <li  ng-if="item.txnType=='LPC'"><a href=""  ng-click="rakELMSApproval.pageName='VIEWDETAILS';rakELMSApproval.ELMSsrDetItem=item; rakELMSApproval.isBack=false;rakELMSApproval.setVals();setEvent('onRakELMSRequestPoolDetailsFetch');">
+											  											     {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.VIEW}}</a></li>	
+											  											     
+											  	<li  ng-if="item.txnType=='LPM'"><a href=""  ng-click="rakELMSApproval.pageName='VIEWDETAILS';rakELMSApproval.ELMSsrDetItem=item; rakELMSApproval.isBack=false;rakELMSApproval.setVals();setEvent('onRakELMSRequestPoolDetailsModifyFetch');">
+											  											     {{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.VIEW}}</a></li>										     										   
+											  											  
+										<li  ng-if="item.txnType=='LSC'"><a href=""  ng-click="rakELMSApproval.pageName='RECALL';rakELMSApproval.ELMSsrDetItem=item;rakELMSApproval.isBack=false;rakELMSApproval.setVals();setEvent('onRakELMSRequestSweepDetailsRecallValidate');">
+											  	{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.RECALL}}</a></li>
+										<li  ng-if="item.txnType=='LSM'"><a href=""  ng-click="rakELMSApproval.pageName='RECALL';rakELMSApproval.ELMSsrDetItem=item;rakELMSApproval.isBack=false;rakELMSApproval.setVals();setEvent('onRakELMSRequestSweepModifyRecallValidate');">
+											  	{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.RECALL}}</a></li>
+									    <li  ng-if="item.txnType=='LPC'"><a href=""  ng-click="rakELMSApproval.pageName='RECALL';rakELMSApproval.ELMSsrDetItem=item;rakELMSApproval.isBack=false;rakELMSApproval.setVals();setEvent('onRakELMSRequestPoolDetailsRecallValidate');">
+											  	{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.RECALL}}</a></li>
+										<li  ng-if="item.txnType=='LPM'"><a href=""  ng-click="rakELMSApproval.pageName='RECALL';rakELMSApproval.ELMSsrDetItem=item;rakELMSApproval.isBack=false;rakELMSApproval.setVals();setEvent('onRakELMSRequestPoolModifyRecallValidate');">
+											  	{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.BUTTON.RECALL}}</a></li>
+											  											  
+											  											  
+									   </ul>
+											  
+											  	  
+										</div>
+					                </div>
+					              </div>
+						 
+						 </div>
+				</div>
+			</div>
+		
+	</div>
+		
+	
+	</div>
+					<div ng-if="rakELMSApproval.pendingListELMS.length == 0 ">
+					 <div class="">
+						  <div ng-if="rakELMSApproval.pendingApprovalTab=='PMA'">
+							 	<div class="summary-ServiceReq">
+								<div class="iconDivNorecord">
+									<span class="infoIcon"></span><span class="success">{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.OTHERS.NO_RECORDS}}</span>
+								</div>
+							</div>
+						  </div>
+						  <div ng-if="rakELMSApproval.pendingApprovalTab=='PCA'">
+							 	<div class="summary-ServiceReq">
+								<div class="iconDivNorecord">
+									<span class="infoIcon"></span><span class="success">{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.OTHERS.NO_RECORDS}}</span>
+								</div>
+							</div>
+						  </div>
+						  <div ng-if="rakELMSApproval.pendingApprovalTab=='PIA'">
+								<div class="summary-ServiceReq">
+								<div class="iconDivNorecord">
+									<span class="infoIcon"></span><span class="success">{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.OTHERS.NO_RECORDS}}</span>
+								</div>
+							</div>
+						  </div>
+					 </div>
+					</div>
+					<div class="col-sm-1"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

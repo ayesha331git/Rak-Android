@@ -1,0 +1,148 @@
+		<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onInstallmentPostponementFetchBackClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+<div class="finacle-container"
+	ng-init="rakServiceReq.installmentPostponement.fetchInstallmentPostponement(successResponse.responsesList);">
+	
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+			<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.INSTALL_POSTPONE}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+				      </h2>		       
+		 		</div>
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				
+				<div class="row">
+					
+					
+					
+						<div
+						ng-init='loanaccountnumberlist = createDropDownOptionArray(rakServiceReq.installmentPostponement.loanAccountNumberList,["accountName","-","accountNumber"],"accountNumber");'
+						 >
+																													<!-- ["accountName","-","accountNumber"],"index") -->
+						<fin-input type="dropdown"
+							model="rakServiceReq.installmentPostponement.accountNumber"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.LOAN_ACC_NUMBER}}"
+                            on-change="setEvent('onSubmitOfDetailsToFetch');"
+							validation-flag='pageErrorArr["rakServiceReq.installmentPostponement.accountNumber"]'
+							option-array="loanaccountnumberlist" ></fin-input>
+					</div>
+						
+						<!-- CHANGES DISPLAYING CODE DESCRIPTION INSTEAD OF CODE START -->
+						<p class="rak-sum-txt" ng-show="rakServiceReq.installmentPostponement.loanProductName">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.LOAN_PRDT_NAME}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.installmentPostponement.loanProductName}}</span>
+						</p>			
+						
+						<p class="rak-sum-txt" ng-show="rakServiceReq.installmentPostponement.currency">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.CURRENCY}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.installmentPostponement.currency}}</span>
+						</p>			
+						
+						<p class="rak-sum-txt" ng-show="rakServiceReq.installmentPostponement.loanAmount">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.LOAN_AMOUNT}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.installmentPostponement.loanAmount}}</span>
+						</p>			
+						
+						<p class="rak-sum-txt" ng-show="rakServiceReq.installmentPostponement.loanOutstanding">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.LOAN_OUTSTANDING}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.installmentPostponement.loanOutstanding}}</span>
+						</p>			
+						
+						<p class="rak-sum-txt" ng-show="rakServiceReq.installmentPostponement.nextInstallmentAmount">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.NEXT_INSTALLMENT_AMOUNT}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.installmentPostponement.nextInstallmentAmount}}</span>
+						</p>			
+						
+						<p class="rak-sum-txt" ng-show="rakServiceReq.installmentPostponement.nextInstallmentDate">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.NEXT_INSTALLMENT_DATE}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.installmentPostponement.nextInstallmentDate}}</span>
+						</p>			
+						
+						<p class="rak-sum-txt" ng-show="rakServiceReq.installmentPostponement.loanOverdueAmount">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.LOAN_OVERDUE_AMOUNT}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.installmentPostponement.loanOverdueAmount}}</span>
+						</p>	
+						
+						<div
+						ng-init='noofpostponereq = createDropDownOptionArray(rakServiceReq.installmentPostponement.noOfPostponeList,["postponeDesc"],"postponeCode");'
+						 >
+																													<!-- ["accountName","-","accountNumber"],"index") -->
+						<fin-input type="dropdown"
+							model="rakServiceReq.installmentPostponement.postponeCode"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.POSTPONE_NUMBER}}"
+							
+							validation-flag='pageErrorArr["rakServiceReq.installmentPostponement.postponeCode"]'
+							option-array="noofpostponereq" ></fin-input>
+						</div>		
+						
+					<!-- Mobile Number - Start -->
+					
+					<fin-input type="number_card"
+							model="rakServiceReq.installmentPostponement.mobileNumber"
+							display-row="full"
+							
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.MOBILENUMBER}}"
+							validation-flag='pageErrorArr["rakServiceReq.installmentPostponement.mobileNumber"]'>
+					</fin-input>
+					
+					<!-- Mobile Number - End -->
+					
+					
+					<!-- Notes  - Start -->
+					<fin-input type="text"
+							model="rakServiceReq.installmentPostponement.notes"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.NOTES}}"
+							validation-flag='pageErrorArr["rakServiceReq.installmentPostponement.notes"]' ></fin-input>
+							
+					<!-- Notes  - End -->
+								
+			 	<!-- Button for submit after checking - Start -->
+				 	<div class="label-wrap">
+						<!-- <button type="button"
+							class="btn--special-btn btn-middle rak-button-small btn--back"
+							ng-click="rakServiceReq.installmentPostponement.isBack=true;setEvent('onInstallmentPostponementFetchBackClick');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button> -->
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small rak-button-right"
+							ng-click="rakServiceReq.installmentPostponement.continueClick();setEvent('onSubmitOfDetailsOfPostponeAfterDetailsFetch');">
+							{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.SUBMIT_TO_CONFIRM_PAGE}}</button>
+
+					</div>
+					<!-- Button for submit after checking - End -->
+					<!-- <div class="fin-txt"></div>
+					<div class="fin-txt"></div>
+					<div class="fin-txt"></div>
+					<div class="fin-txt"></div>
+					<div class="fin-txt"></div> -->
+				</div>
+				
+				<div class="disclaimer" >
+                            <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                            <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                            </div>
+
+                            <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+								<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKINSTALLMENTPOSTPONEDATE_INITPAGE"></span>
+								<span ng-click="rakServiceReq.fetchDisclaimer('LoanServiceRequestsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKINSTALLMENTPOSTPONEDATE_INITPAGECONT"></span>
+								<span ng-click="rakServiceReq.fetchDisclaimer('LoanServiceCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKINSTALLMENTPOSTPONEDATE_INITPAGECONT1"></span>									
+							</div>
+                    </div>
+			</div>
+		</div>
+
+	</div>
+</div>
+</div>
+</div>

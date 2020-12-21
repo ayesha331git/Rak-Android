@@ -1,0 +1,75 @@
+<div class="app app-arrow2 title-right-dash"
+	id="accountStatementRequestAuthBack"
+	ng-click="setEvent('onPrevServiceClick')"></div>
+<div class="finacle-container"
+	ng-init="services.initACCStatementConfirm(successResponse.responsesList);services.common.transactionPassword=''">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 ">
+						<div class="item-title text-uppercase">
+							<span id="pageTitle">
+								{{appLiterals.APP.COMMON.TITLE.CONF_AUTH}} </span>
+						</div>
+					</div>
+					<!-- end of title -->
+					<div class="col-sm-12">
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id=txtAccountNumber>
+								{{appLiterals.APP.SERVICES.ACC_STM.HEADER}}
+								{{appLiterals.APP.SERVICES.ACC_STM.FOR}} </strong> <span
+								class="dash-ac-id" id="accountNumber">
+								{{services.accountStatement.confirmResponse.accountNumber}} </span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id=txtSelectedFreq>
+								{{appLiterals.APP.SERVICES.ACC_STM.FREQUENCY}} </strong> <span
+								class="dash-ac-id" id="selectedFreq">
+								{{services.accountStatement.confirmResponse.selectedFreq}} </span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id=txtUserEnteredDate}}>
+								{{appLiterals.APP.SERVICES.ACC_STM.STM_DATE}} </strong> <span
+								class="dash-ac-id" id="userEnteredDate}}"> <fin-Date
+									date-value='{{services.accountStatement.confirmResponse.userEnteredDate}}'></fin-Date>
+							</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id=txtDepatchMode>
+								{{appLiterals.APP.SERVICES.ACC_STM.DIS_MODE}} </strong> <span
+								class="dash-ac-id" id="depositAccount">
+								{{services.accountStatement.confirmResponse.depatchMode}} </span>
+						</div>
+						<div class="account-detail-dash margin-zero"
+							ng-show="services.accountStatement.emailValidationRequired">
+							<strong class="trans-no" id=txtemail>
+								{{appLiterals.APP.SERVICES.ACC_STM.EMAIL}} </strong> <span
+								class="dash-ac-id" id="email">
+								{{services.accountStatement.confirmResponse.email}} </span>
+						</div>
+						<div class="account-detail-dash margin-zero"
+							ng-show="services.accountStatement.confirmResponse.depatchMode != 'Email'">
+							<strong class="trans-no" id=txtaddress>
+								{{appLiterals.APP.SERVICES.COMMON.ADDRESS}}</strong> <span
+								class="dash-ac-id" id="address">
+								{{services.accountStatement.address}} </span>
+						</div>
+					</div>
+					<form
+						ng-submit="corpInit.corpModel.getSelectedRoleDetailsAsString();setEvent('onAccountStatementSuccessClick')">
+						<div
+							ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+							<approval-input></approval-input>
+						</div>
+						<fin-Stepauth></fin-Stepauth>
+						<md-button type="submit" class="md-raised btn--primary-btn">
+						{{appLiterals.APP.COMMON.BUTTON.SUBMIT}} 
+						{{appLiterals.APP.COMMON.BUTTON.TO}} 
+						{{appLiterals.APP.COMMON.BUTTON.RM}}</md-button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

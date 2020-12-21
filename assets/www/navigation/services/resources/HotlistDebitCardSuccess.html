@@ -1,0 +1,38 @@
+<div class="finacle-container full-height">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+			<div class="dashboard-pad full-height">
+				<div class="dashboard-item-body full-height">
+
+					<fin-success
+						success-banner=""
+						success-message="{{successResponse.responsesList[0].blockDebitCardSuccessMessage}}"
+						cross-click="setEvent('onHotlistDebitCardSuccessButtonClick')"></fin-success>
+
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="HLDCSAccountNoLabel">{{appLiterals.APP.SERVICES.APP_NEW_DC_AUTH.TXT_ACC_NO}}</span>
+						<span class="sucs-right-color" id="HLDCSAccountNoValue">{{successResponse.responsesList[0].accountNickname}}-{{successResponse.responsesList[0].accountNumber}}</span>
+					</div>
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="HLDCSDebitCardNoLabel">{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD_AUTH.TXT_DEBIT_CARD_NO}}</span>
+						<span class="sucs-right-color" id="HLDCSDebitCardNoValue">{{successResponse.responsesList[0].debitCardNumber}}</span>
+					</div>
+
+					<div class="sucs-left-txt"
+						ng-hide="successResponse.responsesList[0].status==''">
+						<span class="sucs-left-color" id="HLDCSStatusLabel">{{appLiterals.APP.COMMON.TEXT.STATUS}}</span>
+						<span class="sucs-right-color" id="HLDCSStatusValue">{{successResponse.responsesList[0].status}}</span>
+					</div>
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="HLDCSReasonLabel">{{appLiterals.APP.SERVICES.COMMON.REASON}}</span>
+						<span class="sucs-right-color" id="HLDCSReasonValue">{{successResponse.responsesList[0].reason}}</span>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

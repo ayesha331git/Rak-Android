@@ -1,0 +1,198 @@
+<div id="retailUsrTransSearchPagePrev"
+	class="app app-arrow2 title-right-dash"
+	ng-click='dashboard.initTransactionHistoryClearData();dashboard.transactionHistoryReset();setEvent("onDashboardClick");'></div>
+<div
+	class="main-container main-container-2 retial-user-search-page finacle-container">
+	<div class="search-container">
+		<div ng-init='dashboard.initTransactionHistory(successResponse)'>
+			<div class="account-page">
+				<div class="col-sm-12">
+					<div class="dashboard-pad">
+						<div class="ipad-container">
+							<form id="retailUsrTransSearchPageForm1"
+								ng-submit='dashboard.transactionHistorySubmit();'>
+								<div class="dashboard-item-body ">
+									<div class="dashboard-item-title col-sm-12">
+										<div id="retailUserTransSearchPageAccountBlockTitle"
+											class="item-title text-uppercase">{{fields.accountBlockTitle}}</div>
+										<md-menu-bar class="title-right"> <md-menu>
+										<md-button id="retailUserTransSearchPageMoreOptions"
+											class="md-icon-button more-details"
+											ng-click='$mdOpenMenu($event)' aria-label="More">
+										<md-icon class="app app-ellipses"></md-icon> </md-button> <md-menu-content
+											class="fin-menu-content" width="4"> <md-menu-item>
+										<md-button id="retailUserTransSearchPageOnAccountClick"
+											ng-click='dashboard.transactionHistoryReset();fields.accountDetailSource = "ACC_OTHER_PAGE";fields.trxSearchFlag = false; setEvent("onAccountClick")'>
+										{{appLiterals.APP.DASHBOARD.TRANSACTION_SEARCH_PAGE.TEXT_TRANSACTIONS}}
+										</md-button> </md-menu-item> <md-menu-divider class="partial-divider"></md-menu-divider>
+										<md-menu-item> <md-button
+											id="retailUserTransSearchPageOnAccountDetailsClick"
+											ng-click='dashboard.transactionHistoryReset();setEvent("onAccountDetailsClick")'>
+										{{appLiterals.APP.DASHBOARD.TRANSACTION_SEARCH_PAGE.TEXT_DETAILS}}
+										</md-button> </md-menu-item> </md-menu-content> </md-menu> </md-menu-bar>
+									</div>
+									<div class=" col-sm-12 padding-zero">
+										<div class="left-right-arrows">
+											<div id="retailUserTransSearchPageLeftArrows{{$index}}"
+												class="item-arrow-left"
+												ng-hide="fields.selectAcccountMax <= 1 || fields.browseAccountIndexInt === 0"
+												ng-click='dashboard.transactionHistoryOnLeftArrowClick();'>
+												<span class="app app-arrow2 item-arrow"></span>
+											</div>
+
+											<div class="item-arrow-right"
+												id="retailUserTransSearchPageRightArrows{{$index}}"
+												ng-hide="fields.selectAcccountMax <= 1 || fields.browseAccountIndexInt === fields.selectAcccountMax - 1"
+												ng-click='dashboard.transactionHistoryOnRightArrowClick();'>
+												<span class="app app-arrow3 item-arrow"></span>
+											</div>
+
+										</div>
+
+										<div class="col-sm-12">
+
+											<div class="account-detail-wrap">
+												<p class="dash-ac-num">
+													<span id="retailUserTransSearchPageAccountNickName"
+														class="dash-ac-no">{{fields.currAccountDetails.accountNickName}}
+														{{fields.currAccountDetails.accountNickName.length > 0 ?
+														"-": ""}}</span> <span id="retailUserTransSearchPageAccountId"
+														class="dash-ac-no">{{fields.currAccountDetails.accountId}}
+													</span>
+												</p>
+
+												<div class="balance-detail"
+													ng-init="currAccBal=parseMoney(fields.currAccountDetails.balance)">
+													<fin-balance id="retailUserTransSearchPageCurrAccBal"
+														amount="{{currAccBal}}" amount-class="amount-rs"
+														currency-class="amount-rs" />
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="dashboard-pad">
+									<div class="dashboard-item-body">
+										<div
+											class="dashboard-item-title col-sm-12 sub-menu-title margin-bottom-20">
+											<div id="retailUserTxnSearchPageOnTxnSearchClickSEARCH"
+												class="item-title text-uppercase width-auto"
+												ng-click='setEvent("onTransactionSearchClick")'>
+												{{appLiterals.APP.COMMON.TEXT.SEARCH}}</div>
+											<div id="retailUserTxnSearchPageOnAccountClick"
+												class="title-right-succPage"
+												ng-click='dashboard.transactionHistoryReset();fields.accountDetailSource = "ACC_OTHER_PAGE";fields.trxSearchFlag = false;setEvent("onAccountClick")'></div>
+										</div>
+										<div class="search-input-place">
+											<!-- By Date -->
+											<div ng-if="dashboard.tmpLastNTxn.length!=0"
+												ng-init='dateArray = createDropDownOptionAccountArray(dashboard.dateOptions,["label"],"value");'>
+												<fin-input type="dropdown"
+													model="fields.trxnSearchByDateOption" display-row="full"
+													placeholder="{{appLiterals.APP.DASHBOARD.TRANSACTION_SEARCH_PAGE.PH_BYDTE}}"
+													option-array="dateArray" readonly></fin-input>
+											</div>
+
+											<div ng-if="dashboard.tmpLastNTxn.length==0"
+												ng-init='dateArray = createDropDownOptionAccountArray(dashboard.dateOptions,["label"],"value");'>
+												<fin-input type="dropdown" on-change="dashboard.onchangeClearDateFields()"
+													model="fields.trxnSearchByDateOption" display-row="full"
+													placeholder="{{appLiterals.APP.DASHBOARD.TRANSACTION_SEARCH_PAGE.PH_BYDTE}}"
+													option-array="dateArray"></fin-input>
+											</div>
+											<!-- By Specific Date -->
+											<fin-input ng-show='(fields.trxnSearchByDateOption == 4)'
+												type="date" model="fields.trxnSearchByDate1"
+												display-row="full"
+												placeholder="{{appLiterals.APP.DASHBOARD.TRANSACTION_SEARCH_PAGE.PH_DTE}}"
+												validation-flag='pageErrorArr["fields.trxnSearchByDate1"]'>
+											</fin-input>
+
+											<!-- By Date Range -->
+											<div class="two-input-wrapper"
+												ng-show='(fields.trxnSearchByDateOption == 5)'>
+												<fin-input type="date" model="fields.trxnSearchByDate1"
+													display-row="half1"
+													placeholder="{{appLiterals.APP.DASHBOARD.TRANSACTION_SEARCH_PAGE.PH_FRMDTE}}"
+													validation-flag='pageErrorArr["fields.trxnSearchByDate1"]'>
+												</fin-input>
+
+												<fin-input type="date" model="fields.trxnSearchByDate2"
+													display-row="half2"
+													placeholder="{{appLiterals.APP.DASHBOARD.TRANSACTION_SEARCH_PAGE.PH_TODTE}}"
+													validation-flag='pageErrorArr["fields.trxnSearchByDate2"]'>
+												</fin-input>
+											</div>
+
+											<!-- By Amount range -->
+											<div class="col-sm-12">
+												<fin-input type="money"
+													related-field="fields.currAccountDetails.currency"
+													model="fields.txnSrcMinAmt" display-row="half1"
+													placeholder="{{appLiterals.APP.DASHBOARD.TRANSACTION_SEARCH_PAGE.PH_FRMAMT}}"
+													validation-flag='pageErrorArr["fields.txnSrcMinAmt"]'>
+												</fin-input>
+
+												<fin-input type="money"
+													related-field="fields.currAccountDetails.currency"
+													model="fields.txnSrcMaxAmt" display-row="half2"
+													placeholder="{{appLiterals.APP.DASHBOARD.TRANSACTION_SEARCH_PAGE.PH_TOAMT}}"
+													validation-flag='pageErrorArr["fields.txnSrcMaxAmt"]'>
+												</fin-input>
+											</div>
+
+											<div
+												ng-init='transactionTypeArray = createDropDownOptionAccountArray(dashboard.transactionType,["label"],"value");'>
+												<fin-input type="dropdown" model="fields.TxnType"
+													display-row="full"
+													placeholder="{{appLiterals.APP.DASHBOARD.TRANSACTION_SEARCH_PAGE.PH_BYTRANSTYPE}}"
+													option-array="transactionTypeArray"></fin-input>
+											</div>
+
+											<!-- Last N Transaction -->
+											<div class="ntrans-wrap">
+												<div id="retailUserTxnSearchPageTEXT_LAST" class="last-txt">
+													{{appLiterals.APP.DASHBOARD.TRANSACTION_SEARCH_PAGE.TEXT_LAST}}
+												</div>
+												<div class="fin-qtr"
+													ng-if="fields.trxnSearchByDateOption==0">
+													<fin-input type="number" max-length="2"
+														model="dashboard.tmpLastNTxn" display-row="qtr1"
+														placeholder=""> </fin-input>
+												</div>
+												<div class="fin-qtr"
+													ng-if="fields.trxnSearchByDateOption!=0">
+													<fin-input type="number" max-length="2"
+														model="dashboard.tmpLastNTxn" display-row="qtr1"
+														placeholder="" readonly>
+													</fin-input>
+												</div>
+												<div id="retailUserTxnSearchPageTEXT_TRANSACTION"
+													class="ntrans-txt">
+													{{appLiterals.APP.DASHBOARD.TRANSACTION_SEARCH_PAGE.TEXT_TRANSACTION}}
+												</div>
+											</div>
+											<div class="padding-top-10 touch-press clear-all">
+												<section class="button-wrapper" layout="row"
+													layout-align="center center" layout-wrap>
+													<md-button id="retailUsrTransSearchPageBUTTON_RESET"
+														class=" md-raised btn--secondary-btn"
+														ng-click='dashboard.transactionHistoryReset();'>
+													{{appLiterals.APP.DASHBOARD.TRANSACTION_SEARCH_PAGE.BUTTON_RESET}}
+													</md-button>
+													<md-button id="retailUsrTransSearchPageBUTTON_SEARCH"
+														class=" md-raised btn--primary-btn" type="submit">{{appLiterals.APP.DASHBOARD.TRANSACTION_SEARCH_PAGE.BUTTON_SEARCH}}
+													</md-button>
+												</section>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

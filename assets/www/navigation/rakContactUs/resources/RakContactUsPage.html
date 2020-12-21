@@ -1,0 +1,86 @@
+ <div class="rak-home-header" ng-show='isUserLoggedIn'>
+					<i class="homeCorner" ng-click="setGlobalEvent('onDashboardClick');"></i>
+		</div>
+		
+		<div class="rak-home-header" ng-hide='isUserLoggedIn' ng-click='setEvent("onBackClick");'>
+            <i class="homeCorner"></i>
+        </div>
+
+
+<div class="nano menu-scroll">
+	<div class="nano-content">
+<div class="finacle-container"
+	ng-init="setSingleStepRealmAuthFailure();rakContactUs.initContactUs(successResponse.responsesList);">
+	<div class="account-page">
+	<div class="col-sm-11">
+	<div class="app-title-wrapper">
+	<div class="form-block">
+
+     
+
+      <div class="money-block">
+         <ul>
+            <li  class="active">
+            {{appLiterals.APP.RAK_CONTACTUS.CALLUS}}</li>
+           <li ng-if="rakContactUs.contact.isPremium=='Y' || rakContactUs.contact.isPremium=='B' || rakContactUs.contact.corpSubSegment=='SME' || rakContactUs.contact.corpSubSegment=='PSL'" ng-click="setEvent('onRakRmTabClick');" ng-show='isUserLoggedIn'>
+            {{appLiterals.APP.RAK_CONTACTUS.RM_BUDDY}}</li>           
+             <li ng-click="setEvent('onWriteUsClick');" ng-hide='isUserLoggedIn'>
+            {{appLiterals.APP.RAK_CONTACTUS.WRITE}}</li>
+           <!--  <li ng-click="setEvent('onRakSocialTabClick');" >
+          {{appLiterals.APP.RAK_CONTACTUS.SOC_LINK}}</li> -->
+          </ul>
+ </div>
+<!-- CHANGES DONE SCROLLING START  -->
+        <div class="bg-color rak-cont-padding rak-scroll">
+			<div class="row" >
+			
+
+			<p ng-if="rakContactUs.contact.phone1" class="rak-sum-txt rakBoxShadow">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_CONTACTUS.CONTACT1}} </span>
+				<span class="rak-sum-label black"><a ng-href="tel:{{rakContactUs.contact.phone1}}" class="callIco callTxt">{{rakContactUs.contact.phone1}}</a></span>
+
+			</p>
+			
+			<p ng-if="rakContactUs.contact.phone3" class="rak-sum-txt rakBoxShadow">
+				
+				<span class="rak-sum-label black rakFloatRight"><a ng-href="tel:{{rakContactUs.contact.phone3}}" class="callIco callTxt">{{rakContactUs.contact.phone3}}</a></span>
+
+			</p>
+
+			<p ng-if="rakContactUs.contact.phone2" class="rak-sum-txt rakBoxShadow">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_CONTACTUS.CONTACT2}} </span>
+				<span class="rak-sum-label black"><a ng-href="tel:{{rakContactUs.contact.phone2}}" class="callIco callTxt">{{rakContactUs.contact.phone2}}</a></span>
+			</p>
+
+
+			<!--<p class="rak-sum-txt rakBoxShadow">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_CONTACTUS.RAK_DIR}}</span>
+				<span class="rak-sum-label black"><a ng-href="tel:{{rakContactUs.contact.rakDirect}}" class="callIco callTxt">{{rakContactUs.contact.rakDirect}}</a></span>
+			</p>-->
+
+       		<p ng-if="rakContactUs.contact.amalDirect" class="rak-sum-txt rakBoxShadow">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_CONTACTUS.AM_DIR}}</span>
+				<span class="rak-sum-label black"><a ng-href="tel:{{rakContactUs.contact.amalDirect}}" class="callIco callTxt">{{rakContactUs.contact.amalDirect}}</a></span>
+					</p>
+			<p ng-if="rakContactUs.contact.phoneRm" class="rak-sum-txt rakBoxShadow">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_CONTACTUS.RM_CONTACT}}</span>
+				<span class="rak-sum-label black"><a ng-href="tel:{{rakContactUs.contact.phoneRm}}" class="callIco callTxt">{{rakContactUs.contact.phoneRm}}</a></span>
+			</p>
+			<p ng-if="rakContactUs.contact.mailRm" class="rak-sum-txt rakBoxShadow">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_CONTACTUS.RM_EMAILID}}</span>
+				<span class="rak-sum-label black"><a ng-href="{{rakContactUs.contact.mailRm}}" class="emailIco callTxt">{{rakContactUs.contact.mailRm}}</a></span>
+			</p>
+			
+
+
+
+				</div>
+				</div>
+		 </div>
+          <div class="col-sm-1"> </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>

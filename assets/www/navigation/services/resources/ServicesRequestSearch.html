@@ -1,0 +1,53 @@
+<div class="app app-arrow2 title-right-dash" id="serviceRequestSearchback"
+					ng-click="setEvent('onServicesRequestSearchCancelClick')"></div>
+<div class="finacle-container"
+	ng-init="services.serviceRequestStatusModel.initForm(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase">
+							<span id="pageTitle">
+								{{appLiterals.APP.COMMON.TEXT.SEARCH}} </span>
+						</div>
+					</div>
+					<!--  end of title -->
+					<form
+						ng-submit="services.serviceRequestStatusModel.searchClick();setEvent('onServicesRequestStatusSearchClick')">
+						<div class="avail-bal-wrap"
+							ng-init='requestTypeArr = createDropDownOptionArray(services.serviceRequestStatusModel.requestTypeResponse, ["content"], "value");'>
+							<fin-input type="dropdown"
+								model="services.serviceRequestStatusModel.requestType"
+								class="dropdowm-adj" display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.SERVICE_REQ_SEARCH.PH_REQ_STATUS}}"
+								on-change="services.serviceRequestStatusModel.selelctedItem((services.serviceRequestStatusModel.requestTypeResponse|filter:{value:services.serviceRequestStatusModel.requestType})[0].content);"
+								validation-flag='pageErrorArr["services.serviceRequestStatusModel.requestType"]'
+								option-array="requestTypeArr"></fin-input>
+							<fin-input type="text"
+								model="services.serviceRequestStatusModel.referenceID"
+								display-row="full"
+								ng-keypress="validateAlphanumericWithMaxLength($event,services.serviceRequestStatusModel.referenceID,10);"
+								placeholder="{{appLiterals.APP.SERVICES.SERVICE_REQ_SEARCH.PH_REF_ID}}"
+								validation-flag='pageErrorArr["services.serviceRequestStatusModel.referenceID"]'></fin-input>
+						</div>
+						<div class="two-input-wrapper">
+							<fin-input type="date"
+								model="services.serviceRequestStatusModel.fromDate"
+								display-row="half1"
+								validation-flag='pageErrorArr["services.serviceRequestStatusModel.fromDate"]'
+								placeholder="{{appLiterals.APP.SERVICES.SERVICE_REQ_SEARCH.PH_FRM_DATE}}"></fin-input>
+							<fin-input type="date"
+								model="services.serviceRequestStatusModel.toDate"
+								display-row="half2"
+								validation-flag='pageErrorArr["services.serviceRequestStatusModel.toDate"]'
+								placeholder="{{appLiterals.APP.SERVICES.SERVICE_REQ_SEARCH.PH_TO_DATE}}"></fin-input>
+						</div>
+						<md-button type="submit" id="submit" class="md-raised btn--primary-btn">
+						{{appLiterals.APP.COMMON.BUTTON.SEARCH}}</md-button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

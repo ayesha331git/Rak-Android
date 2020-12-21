@@ -1,0 +1,123 @@
+<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="rak2FARegister.registerSuccess();"></i>
+		</div>
+<div class="container-fluid padding-auto"
+	ng-init="rakHome.AuthPageData.firstAuthModeValue='';
+	 rak2FARegister.EzComToken.generatedToken='';rak2FARegister.RegistrationModel.ezComAccountPin=''; 
+	resetPageError();rak2FARegister.SoftTokenOnLoad(successResponse.responsesList[0]);rak2FARegister.SoftTokenLoginScenario();rakHome.AuthPageData.corp2FAauthMode(successResponse.responsesList[0])">
+
+
+	<div class="container-fluid padding-zero">
+
+		<div class="row">
+<div class="col-sm-1"></div>
+	<div class="">
+				
+				<div class="center rakFont10">
+				<!-- 	<div class="rak-logintab tab-reduce-pad"
+						ng-click="rak2FARegister.registerSuccess();">
+						<span class="rak-black-color login-label tokenLabelPadding">
+							{{appLiterals.APP.RAK_LOGIN_PAGE.LOGIN}} </span>
+					</div>
+ -->
+				
+					
+			<!-- 		<div class="rak-logintab tab-reduce-pad"
+					ng-click="resetPageError();rak2FARegister.RegistrationModel.resetRegistrationModelData();rak2FARegister.RegistrationModel.requestType='FUON';rak2FARegister.RegistrationModel.clearFlag();rak2FARegister.RegistrationModel.isRegisterClicked=true;rak2FARegister.RegistrationModel.resolveEventFor2FA('REG');rak2FARegister.EzComToken.checkTSNStatus();">
+						<span class="rak-black-color login-label tokenLabelPadding">
+							{{appLiterals.APP.RAK_2FA_MESSAGES.TOKEN_STATUS_CHECK}}</span>
+					</div> -->
+			
+				
+				</div>
+					
+
+
+		<div >
+			<div class="selfReg-main-form-heading ">
+				<div>
+					<span class="rak-black-color login-label-selfReg ">{{rakHome.AuthPageData.authType==rakHome.AuthPageData.SoftToken && appLiterals.APP.RAK_2FA_MESSAGES.LOGIN_TOKEN_HEAD || appLiterals.APP.RAK_2FA_MESSAGES.LOGIN_OFFLINE_TOKEN_HEAD}}</span>
+					<!-- <ul class="process-steps">
+						<li class="active"></li>
+						<li ></li>
+						
+					</ul> -->
+					</div>
+					
+					
+			</div>
+		</div>
+
+	
+</div>
+		
+
+
+		</br> 
+
+
+				<div class="fin-txt"></div>
+
+				<div class="rak-selfReg-lable">
+					<p>{{rakHome.AuthPageData.authType==rakHome.AuthPageData.SoftToken && appLiterals.APP.RAK_2FA_MESSAGES.LOGIN_TOKEN_MSG1 || appLiterals.APP.RAK_2FA_MESSAGES.LOGIN_OFFLINE_TOKEN_MSG1}}</p>
+				</div>
+                
+              
+<div class="label-wrap" ng-show='rakHome.AuthPageData.authStatus'>
+		<div ng-show='rakHome.AuthPageData.isFirstAuthMode'>
+		
+			
+
+		<fin-input type="password_num" model="rakHome.AuthPageData.firstAuthModeValue"
+			display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_HARDTOKEN}}"
+			validation-flag='pageErrorArr["rakHome.AuthPageData.firstAuthModeValue"]'
+			ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.HardToken">
+			 </fin-input>
+			
+			<fin-input type="password_num"
+				model="rakHome.AuthPageData.firstAuthModeValue" display-row="full"
+				placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SOFTTOKEN}}"
+				validation-flag='pageErrorArr["rakHome.AuthPageData.firstAuthModeValue"]'
+				max-length="{{rak2FARegister.constants.PINLENGTH}}"
+				ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.SoftToken">
+			</fin-input>
+			<span  class="forgotRAKTokenPIN" ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.SoftToken" ng-click="rakServiceReq.fetchDisclaimer('ForgotRAKTokenPIN.html');">{{appLiterals.APP.RAKCOMMONLITERALS.TOKEN_FORGOT_PIN}}</span> 
+			
+
+			
+			<fin-input type="password_num"
+				model="rakHome.AuthPageData.firstAuthModeValue" display-row="full"
+				placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OFFLINEOTP}}"
+				validation-flag='pageErrorArr["rakHome.AuthPageData.firstAuthModeValue"]'
+				max-length="16"
+				ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.OfflineOtp">
+			</fin-input>
+			<span  class="forgotRAKTokenPIN" ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.OfflineOtp" ng-click="rakServiceReq.fetchDisclaimer('TwoFactorAuthenticationFAQ.html');">{{appLiterals.APP.RAKCOMMONLITERALS.TOKEN_DEADLOCK}}</span>
+		
+		</div>
+
+		
+	</div>
+
+
+
+</div>
+				<div class="label-wrap">
+						<div class="fin-txt"></div>
+						<div class="fin-txt"></div>
+						<div class="fin-txt"></div>
+			
+					<button type="button"
+						class="login-btn rakLoginBtn-middle"
+						ng-click="rakHome.AuthPageData.CorpfetchOtp('onRakCorpGeneratedPin');">
+						{{appLiterals.APP.RAK_2FA_MESSAGES.CORP_LOGIN_BTN}}</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</div>
+

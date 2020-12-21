@@ -1,0 +1,107 @@
+<div class="rak-back-header">
+			<i class="rak-back-img" ng-click="rakPayCards.rakInvGold.stopBtnClicked==false;setEvent('onViewSchTxnBackClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+
+		<div class="finacle-container"
+			ng-init="rakPayCards.rakInvGold.initScheduleTransferListPage(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+
+							<ng-include
+								src="'./navigation/rakPayCards/resources/RakBuySellGoldTabPage.html'">
+							</ng-include>
+
+							<div class="tab-links">
+								<ul>
+									<li ng-click="rakPayCards.rakInvGold.clearTab();rakPayCards.txnHistory.setInitialDate();rakPayCards.rakInvGold.History=true;
+									rakPayCards.txnHistory.setInitialDate();setGlobalEvent('onrakBuySellGoldHistoryClick')"><span>{{appLiterals.APP.RAKPAYCARDS.RAKBUYSELLGOLD.GOLDHISTORY.HISTORY}}</span></li>
+									<li class="active"><span class="active">{{appLiterals.APP.RAKPAYCARDS.RAKBUYSELLGOLD.GOLDHISTORY.SCHTXNS}}</span></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="bg-color">
+							<!-- CHANGES FOR UI START  -->
+							<div class="money-block rakBottomZero">
+						         <ul>
+						            <!-- <li  class="active rak15 ng-binding">
+						            {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.REFID}}</li> -->
+						           <li class="active rak30 ">
+						            {{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.DATE}}</li>
+						            <li class="active rak30 ">
+						            {{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.BENEFICIARY}}</li>
+						           <li class="active rak30 ">
+						           {{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.QTY}}</li>
+						          <li class="active rak10 ">&nbsp;</li>
+						         </ul>
+						 	</div>
+						 	<!-- CHANGES FOR UI END  -->
+
+
+						 	<div class="nano rakListScrollDiv rak-cont-paddingvh" >
+					            <div class="" >
+
+
+									<div class="trans-detail rakGreyRow" ng-repeat="transfers in rakPayCards.rakInvGold.scheduleList">
+
+					                  	   <div class="trans-dash-left rakPeopleNameRow1   rak25 pull-left rakPaddingPoint8em">
+					                    <div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                    {{transfers.txnDate}}
+					                    </div>
+					                  </div>
+
+					                  </div>
+
+					                  <div class="trans-dash-right rakPeopleNameRow1   rak25 pull-left rakPaddingPoint8em" >
+					                  <div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                    {{transfers.toAccount}}
+					                    </div>
+					               </div>
+					                  </div>
+
+
+					                  <div class="trans-dash-left rakPeopleNameRow1  rak25 pull-left rakPaddingPoint8em">
+					                    <div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                    {{transfers.txnCurrency}} {{transfers.txnAmount}}
+					                    </div>
+					                  </div>
+
+					                  </div>
+
+					               
+
+					                  <div class="pull-right rakPaddingPoint5em" style="width:8%">
+										   	<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											  <ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											    <li><a href="" ng-click="rakPayCards.rakInvGold.schTxnListSubmitBtn='VIEW';rakPayCards.rakInvGold.selectedTxnIndex = transfers.index;rakPayCards.rakInvGold.selectedTxn = transfers;setEvent('onSchTxnSelectClick')">
+											    {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW}}</a></li>
+											    <li><a href="" ng-click="rakPayCards.rakInvGold.schTxnListSubmitBtn='MODIFY';rakPayCards.rakInvGold.selectedTxn = transfers;rakPayCards.rakInvGold.selectedTxnIndex = transfers.index;rakSendMoney.common.fromAuthPage=false;setEvent('onRakBuySellGoldEditClick')">
+											    {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.MODIFY}}</a></li>  
+											    <li><a href="" ng-show="transfers.txnFrequency!='O'" ng-click="rakPayCards.rakInvGold.schTxnListSubmitBtn='STOP';rakPayCards.rakInvGoldstopBtnClicked=false;rakPayCards.common.fromAuthPage=false;rakPayCards.rakInvGold.selectedTxnIndex = transfers.index;rakPayCards.rakInvGold.selectedTxn = transfers;setEvent('onSchTxnSelectClick')">
+											    {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.STOP}}</a></li>  
+											    <li><a href="" ng-show="transfers.txnFrequency=='O'" ng-click="rakPayCards.rakInvGold.schTxnListSubmitBtn='STOP';rakPayCards.rakInvGoldstopBtnClicked=false;rakPayCards.common.fromAuthPage=false;rakPayCards.rakInvGold.freqType='O';rakPayCards.rakInvGold.selectedTxn = transfers;setEvent('onSchTxnListStopBtnClick')">
+											    {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.STOP}}</a></li>
+
+											  </ul>
+										</div>
+
+
+					                </div>
+					              </div>
+
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

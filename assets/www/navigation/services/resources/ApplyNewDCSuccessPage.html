@@ -1,0 +1,48 @@
+
+<!-- partial code start here-->
+<div class="finacle-container finacle-container-successPage col-sm-12"
+	ng-init="services.initApplyNewDCSuccess(successResponse.responsesList);">
+	<div class=" dashboard-item-body">
+		<!--<div class="sucs_circle_wrap">
+		 <span class="app-tickcircle sucs_circle_icon"></span>
+			<div class="title-right-succPage"
+				ng-click="setEvent('onCancelClick')"></div>
+		</div>
+		<p class="trans_sucs_txt">Successful !</p>
+		{{appLiterals.APP.SERVICES.BLOCKCRED_SUCCESS.MSG_SUCCESFUL}}</p>
+	<div class="trans_id_wrap">
+		<div class="id_container"></div>
+		<div class="id_txt_wrap">
+			<div class="id_txt_pad">
+				 <p> <span class="id_color">Transaction Id:</span> 430361346</p>
+				<p class="sucs-id-txt">{{services.applyNewDCModel.successResponse.successMessage}}</p>
+			</div>
+		</div>
+	</div> -->
+	
+	
+	<fin-success success-banner=""
+			success-message="{{services.applyNewDCModel.successResponse.successMessage}}"
+			cross-click="setEvent('onCancelClick')"></fin-success>
+			
+	<div class="sucs-left-txt">
+		<span id="SERVICES.APP_NEW_DC_AUTH.TXT_ACC_NO" class="sucs-left-color">
+		{{appLiterals.APP.SERVICES.APP_NEW_DC_AUTH.TXT_ACC_NO}}</span>
+		<span id="applyNewDCModel.successResponse.accountNickName" 
+			class="sucs-right-color">{{services.applyNewDCModel.successResponse.accountNumber}}
+		</span>
+	</div>
+	<div class="sucs-left-txt">
+		<span id="SERVICES.APP_NEW_DC_AUTH.TXT_NAME_ON_CARD" class="sucs-left-color">{{appLiterals.APP.SERVICES.APP_NEW_DC_AUTH.TXT_NAME_ON_CARD}}</span>
+		<span id="applyNewDCModel.successResponse.nameOnCard" 
+			class="sucs-right-color">{{services.applyNewDCModel.successResponse.nameOnCard}}</span>
+	</div>
+	<div class="sucs-left-txt">
+		<span id="SERVICES.APP_NEW_DC_AUTH.TXT_CARD_TYPE" class="sucs-left-color">{{appLiterals.APP.SERVICES.APP_NEW_DC_AUTH.TXT_CARD_TYPE}}</span> <span id="services.applyNewDCModel.successResponse.cardType"
+				class="sucs-right-color">{{services.applyNewDCModel.successResponse.cardType}}</span>
+		</div>
+
+
+</div>
+</div>
+<!-- partial code end here-->

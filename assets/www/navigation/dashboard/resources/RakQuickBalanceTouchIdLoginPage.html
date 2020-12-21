@@ -1,0 +1,49 @@
+<div class="" ng-init="quickBalValue='N';rakTouchIdActivation.touchIdReg.touchIdRegFlowForRak=false;">
+
+
+	  <div class="id_txt_pad">
+			<p class="raktouchActivationPageSecHeaderText">{{appLiterals.APP.TOUCH_ID["LOGIN_VIEW_QUICK_BAL"+biometricType]}}</p>
+		  </div>
+		
+      
+
+<div ng-show='!isTouchIDActivation'  ng-swipe-right='setGlobalEvent("onLoginClick")'>
+	
+    
+    <div class="trans_id_wrap">
+		  <div class="id_container">
+		  </div>
+		  
+	
+		  <p class="sucs_circle_wrap"> <span class="app-tickcircle sucs_circle_icon"></span> </p>
+		  <div class="raktouchActivationPageSecHeader">
+			
+		  </div>
+	  </div>
+	 
+	 <div class="col-sm-11 raktouchIdLayout">
+
+	  <div class="raktouchIdMsgLabel">
+	  {{appLiterals.APP.TOUCH_ID["RAK_TOUCHID_OFFER"+biometricType]}}
+	  </div>
+
+	   <div class="raktouchIdMsgLabel">
+	  	  {{appLiterals.APP.TOUCH_ID["TOUCH_SETTING"+biometricType]}}
+	  </div>
+	  
+	<button class="raktouchIdOverviewButtonEnable" ng-click="setEvent('onLoginPageForTouchIdReg')" >{{appLiterals.APP.TOUCH_ID["TOUCH_SETUP"+biometricType]}}</button>
+
+
+	 </div>
+	 </div>
+
+	 
+	 <div ng-if='isTouchIDActivation && isTouchIDLogin'>
+	   <div ng-init='appActivation.touchId();'></div>
+       <button type="button" class="btn--special-btn" ng-hide="true"  id="PWDLogin" ng-click="rakTouchIdActivation.touchIdReg.fireTouchLogin();"></button><!-- Added for Touch id- password flow-->
+	 </div>
+	
+	 </div>
+
+
+

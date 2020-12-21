@@ -1,0 +1,187 @@
+  <div class="rak-home-header" ng-show="!rakPayee.isBeneficiaryHistoryMode">
+    <i class="homeCorner" ng-click="setGlobalEvent('onDashboardClick');"></i>
+  </div>
+  <div class="rak-back-header" ng-show="rakPayee.isBeneficiaryHistoryMode==true;">
+    <i class="rak-back-img" ng-click="rakPayee.common.fromAuthPage=true;setEvent('backToBenfList');"></i>
+  </div>
+  <div class="finacle-container"
+			ng-init="resetPageError();rakCorpInit.corpModel.resetCorpInitDetails();rakSendMoney.clearTab();rakSendMoney.history=true; rakSendMoney.txnHistory.initSearchPage(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+
+
+							<ng-include
+								src="'./navigation/rakSendMoney/resources/RakSendMoneyTabPage.html'">
+							</ng-include>
+
+							<div class="tab-links">
+								<ul>
+								    <li class="active"><span class="active">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_HISTORY}}</span></li>
+									<li ng-click="rakSendMoney.clearTab();rakSendMoney.common.clearSearchData();rakSendMoney.schedule.clearScheduleTransferData();rakSendMoney.txnHistory.setFutureDate();rakSendMoney.history=true;setGlobalEvent('onRakHistoryTabClick')"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_SCHEDULE}}</span></li>
+									<li  ng-hide="rakHome.userTypeIDValue=='CORPORATE'" ng-click="rakSendMoney.mobileCashHistory.clearSearchHistory();rakSendMoney.mobileCashHistory.setInitialDate();rakSendMoney.mobileCashHistory.setInitialDate();setGlobalEvent('onRakSendMoneyMobileCashHistoryTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_MOBILECASH_HISTORY}}</span></li>
+								</ul>
+							</div>
+
+
+
+
+
+					<div class="bg-color rak-cont-padding ">
+
+						<!-- <div ng-hide="rakPayee.isBeneficiaryHistoryMode==true"> -->
+
+							<div  ng-hide="rakPayee.isBeneficiaryHistoryMode==true" class="rakTxnSearch" ng-init='rakSendMoney.txnHistory.scheduleList.length == 0? rakTxnSearch=true : rakTxnSearch=false;'>
+								<div class="rakTxnSearch1 rakTxnSearchIcon" ng-class="{'rakTxnSearchIconExpnd':rakTxnSearch}"
+									ng-click="rakTxnSearch=!rakTxnSearch">
+									<h3 class="rakTxnSearch2">{{appLiterals.APP.RAK_COMMON.SEARCH}}</h3>
+								</div>
+
+								<div class="rakTxnSearch3" ng-show="rakTxnSearch">
+
+									<div
+										ng-init='txnTypeArray=createDropDownOptionArray(rakSendMoney.txnHistory.txnTypeList, ["txnTypeDesc"],"txnTypeCode")'>
+										<fin-input type="dropdown" option-array="txnTypeArray"
+											model="rakSendMoney.txnHistory.selectedTxnType" display-row="full"
+											placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.TRANSACTION_TYPE}}" validation-flag='pageErrorArr["rakSendMoney.txnHistory.selectedTxnType"]' > </fin-input>
+
+									</div>
+
+
+
+									<fin-input type="date" model="rakSendMoney.txnHistory.searchFromDate" value="pastDatesOnly"
+										display-row="half1" placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.FROM_DATE}}"
+										validation-flag='pageErrorArr["rakSendMoney.txnHistory.searchFromDate"]'></fin-input>
+
+									<fin-input type="date" model="rakSendMoney.txnHistory.searchToDate" value="pastDatesOnly"
+										display-row="half2" placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.TO_DATE}}"
+										validation-flag='pageErrorArr["rakSendMoney.txnHistory.searchToDate"]'></fin-input>
+
+
+							 <div class="">
+								<span class="fieldLabelLeft" >{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.FROM_DATE}}</span>
+								<span class="fieldLabelRight rak42" >{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.TO_DATE}}</span>
+							</div>
+
+
+							<button type="button" class="btn--special-btn btn-middle rak-button-full-black"
+									ng-click="rakSendMoney.txnHistory.fromSearchResult=true;rakSendMoney.common.fromAuthPage=false;rakSendMoney.txnHistory.setFromToDate();setEvent('onCompleteSearchClick')">{{appLiterals.APP.RAK_COMMON.GO}}
+									</button>
+
+									<button type="button" class="btn--special-btn btn-middle rak-button-full-grey"
+									ng-click="rakSendMoney.schedule.schTxnListSubmitBtn='AGAIN';
+
+											  											    rakSendMoney.common.fromAuthPage=false;rakFundTfr.remitSummary.resetRemitSummCancel();
+											  											    setGlobalEvent('onRemitSummCancelClick');">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.REMIT_BUTTON}}
+									</button>
+							</div>
+					</div>
+
+				<!-- </div> -->
+
+						<div ng-if="rakSendMoney.txnHistory.scheduleList.length == 0 ">
+
+							<div class="summary-ServiceReq">
+								<div class="iconDivNorecord">
+									<span class="infoIcon"></span><span class="success">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.NO_TXNS}}</span>
+								</div>
+							</div>
+						</div>
+
+
+
+
+						<div ng-show="rakSendMoney.txnHistory.scheduleList.length > 0">
+							<!-- CHANGES FOR UI START  -->
+							<div class="money-block rakBottomZero">
+						         <ul>
+						            <li  class="active rak30 rakPaddingPoint8em" >
+						            {{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.DATE}}</li>
+						           <li class="active rak30 ">
+						           {{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.BENEFICIARY}}</li>
+						            <li class="active rak30 ">
+						            {{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.AMOUNT}}</li>
+						            <li class="active rak10 ">&nbsp;</li>
+						         </ul>
+						 	</div>
+
+
+
+						 	<div class="rakScrollDivHistory rak-cont-paddingvh"  ng-class="{'rak-history-paddingvh':rakTxnSearch}">
+
+
+
+									<div class="trans-detail rakGreyRow" ng-repeat="transfers in rakSendMoney.txnHistory.scheduleList">
+
+					                  	<div class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em pull-left">
+					                   		<div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                    {{transfers.txnDate}}
+					                    </div>
+					                    </div>
+
+					                    </div>
+
+					                  <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em" >
+					                  <div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                    {{transfers.toAccount}}
+					                    </div>
+					               </div>
+					                  </div>
+
+
+					                  <div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em">
+					                    <div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                    {{transfers.txnCurrency}} {{transfers.txnAmount}}
+					                    </div>
+					                  </div>
+
+					                  </div>
+
+					                  <div class="pull-right rakPaddingPoint5em" style="width:10%">
+										   	<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											  <ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											  											    <li><a href="" ng-click="rakSendMoney.txnHistory.searchFrom ='Schedule';rakSendMoney.txnHistory.selectedTxn = transfers;
+											  											    rakSendMoney.txnHistory.selectedTxnIndex = transfers.index;rakSendMoney.txnHistory.selectedCompltTxn = transfers;rakSendMoney.schedule.selectedTxn = transfers;
+											  											    rakSendMoney.txnHistory.tempTxnId=rakSendMoney.txnHistory.scheduleList[transfers.index].hostrefno;
+											  											    setEvent('onCompltTxnSelectClick')">
+											  											    {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW}}</a></li>
+											  											    <li><a href="" ng-if="transfers.txnType != 'RMT' && transfers.isFileUploadTxn != 'Y'" ng-click="rakSendMoney.schedule.schTxnListSubmitBtn='AGAIN';rakSendMoney.schedule.selectedTxn = transfers;rakSendMoney.txnHistory.txnType = transfers.txnType;rakSendMoney.schedule.selectedTxnIndex = transfers.index;rakSendMoney.schedule.setBenType();rakSendMoney.common.fromAuthPage=false;setEvent('onRakSendMoneySendAgainClick')">
+											  											    {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.PAYAGAIN}}</a></li>
+											  											    <li><a href="" ng-if="transfers.txnType == 'RMT'" ng-click="rakSendMoney.schedule.schTxnListSubmitBtn='AGAIN';rakSendMoney.schedule.selectedTxn = transfers;rakSendMoney.txnHistory.txnType = transfers.txnType;rakSendMoney.schedule.selectedTxnIndex = transfers.index;rakSendMoney.schedule.setBenType();rakSendMoney.common.fromAuthPage=false;setEvent('onRakMoneySendAgainClick')">
+											  											    {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.PAYAGAIN}}</a></li>
+
+											  											     <li><a ng-show="transfers.txnStatus=='Under Processing' && transfers.txnType != 'RMT'" href="" ng-click="rakSendMoney.txnHistory.selectedCompltTxn = transfers;
+											  											     rakSendMoney.txnHistory.txnType = transfers.txnType;
+											  											     rakSendMoney.txnHistory.selectedCompltTxnIndex = transfers.index;rakCorpInit.corpModel.eventName='CANCELTRANSFER';rakCorpInit.corpModel.backFlag='N';
+											  											     setEvent('onCancelTransactionClick')">
+											  											    {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.CANCELTRANSFER}}</a></li>
+
+											  											    <li><a href="" ng-if="((transfers.txnType != 'OWN' || transfers.txnType != 'WRB') && transfers.txnStatus=='Under Processing' && transfers.txnType != 'RMT') " ng-click="rakSendMoney.schedule.schTxnListSubmitBtn='AGAIN';
+											  											    rakSendMoney.schedule.selectedTxn = transfers;rakSendMoney.txnHistory.txnType = transfers.txnType;
+											  											    rakSendMoney.schedule.selectedTxnIndex = transfers.index;rakSendMoney.schedule.setBenType();
+											  											    rakSendMoney.common.fromAuthPage=false;rakFundTfr.remitSummary.resetRemitSummCancel();
+											  											    setGlobalEvent('onRemitSummCancelClick');">
+											  											    {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.MULTIPLE_CANCELLATION}}</a></li>
+
+
+
+											  											     <li><a ng-show="transfers.txnStatus=='Under Processing'" href="" ng-click="rakSendMoney.txnHistory.selectedCompltTxn = transfers;rakSendMoney.txnHistory.selectedCompltTxnIndex = transfers.index;rakSendMoney.txnHistory.txnType = transfers.txnType;setEvent('onStatusTransactionClick')">
+											  											    {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.STATUSREQ}}</a></li>
+
+											  </ul>
+										</div>
+					                </div>
+					              </div>
+
+						</div>
+						</div>
+
+		</div>
+	</div>
+
+</div>
+</div>

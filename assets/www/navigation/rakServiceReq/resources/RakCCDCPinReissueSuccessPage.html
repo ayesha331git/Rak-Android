@@ -1,0 +1,66 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRAKCCDCPinReissueSuccess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+			
+		
+			<div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakServiceReq.RAKCCDCPinReissueModel.successMessage}}</span>
+                        </div>
+                  </div>
+ <!--            <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CC_PIN_REISSUE}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>                 
+                              </h2>              
+</div> -->
+			<div ng-if="rakServiceReq.serviceRequestStatusModel.cardFlag=='Credit'" class="main-form-heading-ServiceReq"> 
+			                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CC_PIN_REISSUE}}
+			                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>                
+			                 </h2>              
+						</div>
+						
+						
+						<div ng-if="rakServiceReq.serviceRequestStatusModel.cardFlag=='Debit'" class="main-form-heading-ServiceReq"> 
+			                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DC_PIN_REISSUE}}
+			                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>                
+			                 </h2>              
+						</div>
+
+		<div class="bg-color rak-cont-padding rak-scroll-success">
+			<div class="">
+				<div class="">
+						<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{rakServiceReq.RAKCCDCPinReissueModel.CardConfirmPageText}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKCCDCPinReissueModel.CCDCCardList[rakServiceReq.RAKCCDCPinReissueModel.selectedCCDCCard].creditDebitcardNumber}}</span>
+						</p>
+						
+						<!--CHANGES DONE AS FIX OF PROUAT-3893 START-->
+						<p class="rak-sum-txt " ng-hide="rakServiceReq.RAKCCDCPinReissueModel.status=='Fail'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_CC_DC_PIN_REISSUE.NEW_PIN}}</span>
+							<!-- <span class="rak-sum-label black">{{rakServiceReq.RAKCCDCPinReissueModel.newpin}}</span> -->
+							<img class="rakDecodedImageStyle" src="data:image/jpg;base64,{{rakServiceReq.RAKCCDCPinReissueModel.newpin}}"/>
+						</p>
+                       <!--CHANGES DONE AS FIX OF PROUAT-3893 END-->
+                       
+                       
+						<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_CC_DC_PIN_REISSUE.DOB}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKCCDCPinReissueModel.dateOfBirthDisp}}</span>
+						</p>
+
+				<div class="label-wrap">
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-right"
+						ng-click='rakServiceReq.resetRAKCCDCPinReissueDetails();setEvent("onRAKCCDCPinReissueSuccessOkClick");'>
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+				</div>
+
+				<div class="col-sm-10"></div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

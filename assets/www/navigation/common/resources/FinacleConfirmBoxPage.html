@@ -1,0 +1,15 @@
+ <div class="full-page-screen"></div>
+ <div class="confirmation-content-container">
+  <div class="message-box-new">
+         <div>
+             <p class="round-icon-new">
+             <span class="app app-alert pop-alert-icon rak-color" ng-class="{'app-tickcircle':alertOverlayObj.cancelText=='' && alertOverlayObj.noSuccessIcon}"></span>
+             </p>
+             <div class="otp-txt-label rak-black-color"> {{alertOverlayObj.message}}</div>
+         </div>
+         <div class="otp-btn-wrap">
+             <button type="button" class="btn--otppri-btn rak-grey-color" ng-click='callInProgress=false; hideConfirmBox(true)'> &nbsp; {{alertOverlayObj.okText}}&nbsp; </button>
+             <button type="button" class="btn--confsec-btn rak-black-color" ng-click='callInProgress=false;hideConfirmBox(false);'>&nbsp;  {{alertOverlayObj.cancelText}}  &nbsp; </button>
+         </div>
+     </div>
+ </div>

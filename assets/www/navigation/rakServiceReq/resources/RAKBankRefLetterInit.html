@@ -1,0 +1,289 @@
+		<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onRAKOprAcctBalConfReqBackClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.rakBankRefLetter.initRAKOprAcctBalConfReqData(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="">
+						<div class="">
+
+						<div class="main-form-heading-ServiceReq">
+							      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.BANKREFLETTER}}
+							      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>
+							      </h2>
+					 		</div>
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="row">
+
+
+								<!-- 	<fin-input type="date" model="rakServiceReq.common.initDate"
+										display-row="full"
+										validation-flag='pageErrorArr["rakServiceReq.common.initDate"]'
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SERVICES.RAKBANKREFLETTER.BAL_CONF_DATE}}">
+									</fin-input> -->
+
+							<p class="rak-parent-txt">
+									<span class="rak-sum-label labelServiceReqTemp rak30">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.BAL_CONF_DATE}}</span>
+									<span	class="rak-sum-label black labelServiceReqTemp rak70">{{rakServiceReq.common.initDate}}</span>
+							</p>
+
+
+
+
+		                       <p class="rak-parent-txt">
+									<span class="rak-sum-label labelServiceReqTemp rak30">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.APPLICANTNAME}}</span> <span
+										class="rak-sum-label black labelServiceReqTemp rak70">{{rakServiceReq.rakBankRefLetter.applicantName}}</span>
+								</p>
+
+
+<!-- CHANGES SHOWING FILED NAME END  -->
+
+									<div
+										ng-init='forAcctArr = createDropDownOptionArray(rakServiceReq.rakBankRefLetter.forAccounts, ["accountDisplay"], "accountId");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.rakBankRefLetter.selectedForAcc"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.FORACC}}"
+										validation-flag='pageErrorArr["rakServiceReq.rakBankRefLetter.selectedForAcc"]'
+										option-array="forAcctArr"> </fin-input>
+
+
+									<div class="rakRow">
+										<div class="radio-biller rak100 rakWidth100 raktext-align">
+											{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.LANG}}</div>
+										<div class="rak90">
+											<div>
+												<div class="rakCstmRadioDiv rak50">
+													<input type="radio" value="E"  id="radio1"
+														ng-model="rakServiceReq.rakBankRefLetter.selectedLang" />
+													<label for="radio1"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.ENGLISH}}</label>
+												</div>
+												<div class="rakCstmRadioDiv rak47">
+													<input type="radio" value="A"  id="radio2"
+														ng-model="rakServiceReq.rakBankRefLetter.selectedLang" />
+													<label for="radio2"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.ARABIC}}</label>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+
+									<fin-input type="text"
+										model="rakServiceReq.rakBankRefLetter.addressdTo"
+										display-row="full"
+										validation-flag='pageErrorArr["rakServiceReq.rakBankRefLetter.addressdTo"]'
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.ADDRESSEDTO}}">
+									</fin-input>
+
+								<!-- 	<textarea class="text_area"
+										ng-model="rakServiceReq.RAKOprAcctBalConfReq.address"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.ADDRESS}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKOprAcctBalConfReq.address"]'></textarea> -->
+
+
+									<textarea class="text_area" input-restricted-special-character
+										ng-model="rakServiceReq.rakBankRefLetter.address"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.ADDRESS}}"
+										ng-style='(pageErrorArr["rakServiceReq.rakBankRefLetter.address"] == null) ? {"border": "solid 0.1em #8d8d8d"} : {"border": "solid 0.1em red"}'
+										></textarea>
+										<div ng-class="{&quot;bottom-line&quot;: !pageErrorArr[&quot;rakServiceReq.rakBankRefLetter.address&quot;],
+										 &quot;:pageErrorArr[&quot;rakServiceReq.rakBankRefLetter.address&quot;]}" >
+										 </div>
+										 <!-- class="bottom-line-error"> -->
+										<div ng-hide="pageErrorArr[&quot;rakServiceReq.rakBankRefLetter.address&quot;]==null" class="rakErrorMsg">
+										{{pageErrorArr['rakServiceReq.rakBankRefLetter.address']}}</div>
+
+									<div
+										ng-init='acctArr = createDropDownOptionArray(rakServiceReq.rakBankRefLetter.accountList, ["acctTypeDesc","-","accountNumber"], "accountId");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.rakBankRefLetter.selectedAcctNo"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.DEBTACCT}}"
+										validation-flag='pageErrorArr["rakServiceReq.rakBankRefLetter.selectedAcctNo"]'
+										option-array="acctArr"> </fin-input>
+
+
+
+
+								  <div class="rakChkBoxLabelDiv">
+
+								   <p class="balance-available2">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.REQDETAILS}}</p>
+
+									<input type="checkbox" id="checkbox"  ng-model='rakServiceReq.rakBankRefLetter.reqdDetailsBank' />
+									<span>{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.BANKADD}}</span>
+								  </div>
+
+								  <div class="rakChkBoxLabelDiv">
+									<input type="checkbox" id="checkbox"  ng-model='rakServiceReq.rakBankRefLetter.reqdDetailsIBAN' />
+									<span>{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.IBAN}}</span>
+								  </div>
+
+								  <div class="rakChkBoxLabelDiv">
+									<input type="checkbox" id="checkbox"  ng-model='rakServiceReq.rakBankRefLetter.reqdDetailsSwift' />
+									<span>{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.SWIFT}}</span>
+								  </div>
+
+								  <div class="rakChkBoxLabelDiv">
+									<input type="checkbox" id="checkbox"  ng-model='rakServiceReq.rakBankRefLetter.reqdDetailsCurrency'/>
+									<span>{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.ACCOUNTCURRENCY}}</span>
+								  </div>
+
+
+
+
+                                	<fin-input type="text"
+										model="rakServiceReq.rakBankRefLetter.notes"
+										display-row="full"
+										validation-flag='pageErrorArr["rakServiceReq.rakBankRefLetter.notes"]'
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.ADDITIONALDETAILS}}">
+									</fin-input>
+
+
+									<div class="rakRow">
+										<div class="radio-biller rak100">
+											{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.DISPATCHMODE}}</div>
+										<div class="rak100">
+											<div>
+												<div class="rakCstmRadioDiv rak100 ">
+													<input type="radio" id="radio3"
+														value="{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.DELMYADD}}"
+														 id="radio3"
+														ng-model="rakServiceReq.rakBankRefLetter.selectedDelMode" />
+														<label for="radio3"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.DELMYADD}}</label>
+												</div>
+
+												<div class="rakCstmRadioDiv rak100 marginTopTen" ng-if="!rakServiceReq.branchDelOptHideSrList.includes('BRL') || rakServiceReq.hideBranchDelOpt!='Y'">
+													<input type="radio" id="radio5"
+														value="{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.COLLECTBRANCH}}"
+
+														ng-model="rakServiceReq.rakBankRefLetter.selectedDelMode" />
+														<label for="radio5"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.COLLECTBRANCH}}</label>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+
+
+								<p class="rak-parent-txt" ng-show="rakServiceReq.rakBankRefLetter.selectedDelMode=='{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.DELMYADD}}'">
+											<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.REG_ADD}}</span>
+											 <span	class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.rakBankRefLetter.registeredAddress}}</span>
+										</p>
+
+
+
+									<div
+										ng-init='cardArr = createDropDownOptionArray(rakServiceReq.rakBankRefLetter.emirateList, ["codeDesc"], "code");'>
+									<fin-input type="dropdown"
+										ng-show="rakServiceReq.rakBankRefLetter.selectedDelMode=='{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.COLLECTBRANCH}}'"
+										model="rakServiceReq.rakBankRefLetter.emirateSeletected"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}"
+										on-change="rakServiceReq.rakBankRefLetter.rakOprAcctBalConfBranchOptionChange();"
+										validation-flag='pageErrorArr["rakServiceReq.rakBankRefLetter.emirateSeletected"]'
+										option-array="cardArr"> </fin-input>
+									</div>
+
+
+									<div class="fin-input-container"
+										ng-show="rakServiceReq.rakBankRefLetter.selectedDelMode=='{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.COLLECTBRANCH}}' && rakServiceReq.rakBankRefLetter.isEmiSelected">
+										<div
+											ng-class="{'left-line': !pageErrorArr['rakServiceReq.rakBankRefLetter.selectedbranch'], 'left-line-error':pageErrorArr['rakServiceReq.rakBankRefLetter.selectedbranch']}"
+											class="left-line"></div>
+										<div class="input-body">
+											<div class="input-body2 input-body2-dropdown">
+												<select dropdownpicker class="fin-input fin-select" title="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}"
+													ng-model="rakServiceReq.rakBankRefLetter.selectedbranch"
+													ng-style="{{rakServiceReq.rakBankRefLetter.selectedbranch}} == '' ? {'font-size': '14px'} : {'color': 'initial'}">
+													<option class="place-holder-select" value=""
+														ng-selected="rakServiceReq.rakBankRefLetter.selectedbranch== null"
+														ng-show="rakServiceReq.rakBankRefLetter.selectedbranch== null">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}</option>
+													<option
+														ng-repeat="option in rakServiceReq.rakBankRefLetter.emiCategorizedBranchList"
+														ng-selected="option.value=={{rakServiceReq.rakBankRefLetter.selectedbranch}}"
+														value="{{option.branchIndex}}">{{option.branchName}}</option>
+												</select>
+											</div>
+											<div
+												ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.rakBankRefLetter.selectedbranch'], 'bottom-line-error':pageErrorArr['rakServiceReq.rakBankRefLetter.selectedbranch']}"
+												class="bottom-line"></div>
+											<div
+												ng-hide='pageErrorArr["rakServiceReq.rakBankRefLetter.selectedbranch"]==null'
+												class="rakErrorMsg">
+												{{pageErrorArr['rakServiceReq.rakBankRefLetter.selectedbranch']}}</div>
+
+										</div>
+									</div>
+
+
+
+									<div class="fin-txt"></div>
+									<div class="fin-txt"></div>
+
+
+					<div class="disclaimer3" >
+						<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKBANKREFLETTER"></span>
+
+								<div class="check-boxsLeft">
+				                    <input id="termsFlag"  class="checkbox-custom-new"  type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" ng-model='rakServiceReq.acceptTermscondition' >
+				                    <label for="termsFlag" class="checkbox-custom-label termsCheck smallCheck" ng-bind-html="appLiterals.APP.DISCLAIMER.RAKBANKREFLETTERAGREE"></label>
+				                </div>
+					           </div>
+
+
+									<div class="label-wrap">
+
+
+									<!-- CHANGES SENDING DATE AS DAY,MONTH AND YEAR START -->
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-small rak-button-right"
+											ng-click="rakServiceReq.rakBankRefLetter.setRAKOprAcctBalConfReqDate();rakServiceReq.rakBankRefLetter.checkForDelModeBranch();rakServiceReq.rakBankRefLetter.handleReqdDetails();">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+									</div>
+
+
+							<div class="disclaimer" ng-init='rakDisclaimerFlag=false;' >
+								<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+									<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+								</div>
+
+
+								<div class="disclaimer3" ng-if="rakDisclaimerFlag">
+								    <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKBANKLETTERDISCMSG"></span>
+
+									<span ng-if="rakHome.userTypeIDValue=='CORPORATE'" ng-click="rakServiceReq.fetchDisclaimer('CorpAccountServiceRequestsCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-if="rakHome.userTypeIDValue=='CORPORATE'" ng-bind-html="appLiterals.APP.DISCLAIMER.RAKBANKLETTERCHARGES"></span>
+									 <span ng-if="rakHome.userTypeIDValue=='CORPORATE'" ng-click="rakSendMoney.fetchDisclaimer('CorpAcntAndDebitCardSrvcRqstsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-if="rakHome.userTypeIDValue=='CORPORATE'" ng-bind-html="appLiterals.APP.DISCLAIMER.RAKBANKLETTERCUTOFFTIMES"></span>
+									 <span ng-if="rakHome.userTypeIDValue!='CORPORATE'" ng-click="rakServiceReq.fetchDisclaimer('AccountServiceRequestsCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-if="rakHome.userTypeIDValue!='CORPORATE'" ng-bind-html="appLiterals.APP.DISCLAIMER.RAKBANKLETTERCHARGES"></span>
+									 <span ng-if="rakHome.userTypeIDValue!='CORPORATE'" ng-click="rakSendMoney.fetchDisclaimer('AcntAndDebitCardSrvcRqstsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-if="rakHome.userTypeIDValue!='CORPORATE'" ng-bind-html="appLiterals.APP.DISCLAIMER.RAKBANKLETTERCUTOFFTIMES"></span>
+								</div>
+
+
+							</div>
+
+
+
+								</div>
+
+
+
+
+							</div>
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,195 @@
+
+<div class="finacle-container ng-scope"
+	ng-init="rakServiceReq.applyForPrepaidCard.transactionPassword = '';rakServiceReq.initApplyForPrepaidCardConfirm(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+						
+			<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.APPLYPREPAIDCARD}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>		     
+				      </h2>		       
+		 		</div>
+			
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+					<div class="">
+						<div class="rakDupliSRChkMsgImg"
+							ng-show='rakServiceReq.common.message'>
+							<span class='rakAlertForDupStmt'></span> <span
+								class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+						</div>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.FULL_TITLE_NAME}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.fullTitleName}}</span>
+						</p>
+
+						<p class="rak-sum-txt"
+							ng-hide="rakServiceReq.applyForPrepaidCard.creditIndex">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.ACCOUNT_NUM}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.accountNumber}}</span>
+						</p>
+						<p class="rak-sum-txt"
+							ng-hide="rakServiceReq.applyForPrepaidCard.accountIndex">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.CREDIT_NUM}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.creditCardNumber}}</span>
+						</p>
+						<!-- {{rakServiceReq.temporaryReleaseLetter.loanAgreementNumber}} in place of 11002021456 -->
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.MAILING_ADDRESS}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.mailingAddress}}</span>
+						</p>
+		
+	<!--CHANGES DONE AS FIX OF PROUAT-2176 START-->
+	<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.POBOX}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.pobox}}</span>
+	</p>
+	
+	 <p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.EMIRATE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.emirateDesc}}</span>
+	</p>
+
+<!--CHANGES DONE AS FIX OF PROUAT-2112 START-->
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.PHONE_NUMBER}}&nbsp;</span>
+							<!-- <span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.fullMobNum}}</span> -->
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.countryCode}}{{rakServiceReq.applyForPrepaidCard.mobileNumber}}</span>
+						</p>
+<!--CHANGES DONE AS FIX OF PROUAT-2112 END-->
+	
+	
+	<p class="rak-sum-txt" ng-show='rakServiceReq.applyForPrepaidCard.officeNumber'>
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.OFFICENUMBER}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.countryCode}}{{rakServiceReq.applyForPrepaidCard.officeNumber}}</span>
+	</p>
+	
+	
+	<p class="rak-sum-txt" ng-show='rakServiceReq.applyForPrepaidCard.residentialNumber'>
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.RESNUMBER}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.countryCode}}{{rakServiceReq.applyForPrepaidCard.residentialNumber}}</span>
+	</p>
+	
+	
+	<p class="rak-sum-txt" ng-show='rakServiceReq.applyForPrepaidCard.faxNumber'>
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.FAXNUMBER}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.countryCode}}{{rakServiceReq.applyForPrepaidCard.faxNumber}}</span>
+	</p>
+	<!--CHANGES DONE AS FIX OF PROUAT-2176 END-->					
+						
+                       <p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.EMAIL_ADDRESS}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.emailAddress}}</span>
+						</p> 
+
+<!-- CHANGES DONE AS FIX OF PROUAT-2177 START -->
+                        <p class="rak-sum-txt" ng-hide="rakServiceReq.applyForPrepaidCard.isEmiSelected">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.MODE_OF_DISPATCH}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.dispatchedMode}}</span>
+						</p>
+						
+						<p class="rak-sum-txt" ng-show="rakServiceReq.applyForPrepaidCard.isEmiSelected">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.MODE_OF_DISPATCH}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.dispatchedMode}}{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.SEPERATOR}}{{rakServiceReq.applyForPrepaidCard.emiCategorizedBranchList[rakServiceReq.applyForPrepaidCard.selectedBranchId].branchCode}}</span>
+						</p>
+<!-- CHANGES DONE AS FIX OF PROUAT-2177 END -->						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.TYPE_OF_CARD}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.selectedCard}}</span>
+						</p>
+
+						
+							<!-- Transaction password and OTP are chosen from Temporary Release Letter --- START -->
+							
+						<fin-input type="password_text"
+							model="rakServiceReq.applyForPrepaidCard.transactionPassword"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+							min="0"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.transactionPassword"]'
+							ng-show="rakServiceReq.applyForPrepaidCard.auth==txnpwdString"></fin-input>
+
+						<!-- <fin-input type="password_num"
+							model="rakServiceReq.applyForPrepaidCard.transactionPassword"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OTP}}"
+							min="0"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.transactionPassword"]'
+							ng-show="rakServiceReq.applyForPrepaidCard.auth==otpString"></fin-input> -->
+
+
+						<!--  CHANGES FOR RESEND OTP START -->
+						<!-- Commented by Amol 	New OTP customization -->
+						<!-- <div ng-show="rakServiceReq.applyForPrepaidCard.auth==otpString">
+							<div class="rakwidth65">
+								<fin-input type="password_num"
+									model="rakServiceReq.applyForPrepaidCard.transactionPassword"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OTP}}"
+									validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.transactionPassword"]'>
+								</fin-input>
+							</div>
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+								ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');">
+								Resend OTP</button>
+						</div> -->
+						<!--  CHANGES FOR RESEND OTP END -->
+						
+						<div ng-show="rakServiceReq.applyForPrepaidCard.auth==otpString">
+								<div
+									ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+									<fin-input type="password_num" model="rakServiceReq.applyForPrepaidCard.transactionPassword"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}"
+										validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.transactionPassword"]'></fin-input>
+								</div>							
+							
+								<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0'
+									ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">							
+									<fin-input type="dropdown" option-array="toModeArray"
+										model="rakHome.otpModel.otpModeSelected" display-row="full"
+										placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+									<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>							
+								</div>
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+									ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}}</button>							
+							</div>
+						
+						
+
+						<!-- Transaction password and OTP are chosen from Block Credit Card Confirm --- END -->
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back"
+								ng-click="rakServiceReq.applyforprepaidcard.isBack=true;setEvent('onApplyForPrepaidCardConfirmBackClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakServiceReq.applyForPrepaidCard.confirmContinueClick();setEvent('onApplyForPrepaidCardConfirmSubmitClick');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}
+							</button>
+
+						</div>
+						<div class="col-sm-1"></div>
+					</div>
+				</div>
+				
+						<div class="disclaimer">
+                                                                <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                                                <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                                                </div>
+                                
+                                                                <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                                                                <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKPREPAIDCARDREQUEST_CONFIRMATIONPAGE"></div>
+                                                                </div>
+                                                </div>
+				
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+

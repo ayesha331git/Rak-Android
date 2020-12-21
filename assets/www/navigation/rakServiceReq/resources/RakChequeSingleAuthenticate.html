@@ -1,0 +1,81 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.stopCheques.parseStopChequeAuthResponse(successResponse)">
+	<div class="account-page">
+		<div class="col-sm-11">
+			
+	
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+					<div class="">
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_AUTH.ACC_NO}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.stopCheques.model.authPageInput.accountNumber}}</span>
+						</p>
+
+						<p class="rak-sum-txt" ng-show="rakServiceReq.stopCheques.model.isSingleChequeFlow">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_AUTH.TXT_CHEQNO}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.stopCheques.model.pageUserInputs.singleChequeNumber}}</span>
+						</p>
+
+						<p class="rak-sum-txt" ng-hide="rakServiceReq.stopCheques.model.isSingleChequeFlow"> 
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_AUTH.TXT_FRMCHEQ}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.stopCheques.model.pageUserInputs.fromChequeNumber}}</span>
+						</p>
+						
+						<p class="rak-sum-txt" ng-hide="rakServiceReq.stopCheques.model.isSingleChequeFlow">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_AUTH.TXT_TOCHEQ}} &nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.stopCheques.model.pageUserInputs.singleChequeNumber}}</span>
+						</p>
+
+						<p class="rak-sum-txt" ng-hide="rakServiceReq.stopCheques.model.isSingleChequeFlow"> 
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_AUTH.TXT_RSN}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.stopCheques.model.authPageInput.reasonCode}}</span>
+						</p>
+						
+						<!-- CHANGES GIVING ng show condition START -->
+						<fin-input type="password_text" 
+						model="rakServiceReq.stopCheques.model.authenticationPassword" display-row="full" 
+						placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_AUTH.PH_TRANSPASS}}" 
+						min="0" 
+						ng-show="rakServiceReq.GenericAuthorizationVariable.authMode==txnpwdString"
+						validation-flag='pageErrorArr["rakServiceReq.stopCheques.model.authenticationPassword"]'>
+						</fin-input>
+						<!-- CHANGES GIVING ng show condition END -->
+						
+<!--  CHANGES FOR RESEND OTP START -->
+<div ng-show="rakServiceReq.GenericAuthorizationVariable.authMode==otpString">
+<div class="rakwidth65">
+<fin-input type="password_num" model="rakServiceReq.stopCheques.model.authenticationPassword"
+display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SINGLE_AUTH.PH_TRANSPASS}}"
+validation-flag='pageErrorArr["rakServiceReq.stopCheques.model.authenticationPassword"]'>
+</fin-input>
+</div>   
+<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> Resend OTP </button>   
+</div>
+<!--  CHANGES FOR RESEND OTP END -->
+						
+						
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back"
+								ng-click="rakServiceReq.stopCheques.model.isBack=true;setEvent('onChequePrevClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="setEvent('onSuccessClick');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}
+							</button>
+
+						</div>
+						
+					</div>
+				</div>
+			</div>
+
+		
+		</div>
+	</div>
+</div>
+</div>
+</div>

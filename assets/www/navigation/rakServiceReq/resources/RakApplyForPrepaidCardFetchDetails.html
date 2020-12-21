@@ -1,0 +1,456 @@
+		<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onApplyForPrepaidCardFetchBackClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+
+<div class="finacle-container"
+	ng-init="rakServiceReq.applyForPrepaidCard.initApplyForPrepaidCard(successResponse.responsesList);">
+	
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+		<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.APPLYPREPAIDCARD}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+				      </h2>		       
+		 		</div>
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				
+				<div class="row">
+					<div class="col-sm-1"></div>
+					
+					<!-- Title Mr Mrs - Start -->
+					<div
+					ng-init='titlelist = createDropDownOptionArray(rakServiceReq.applyForPrepaidCard.titleList,["salutationDesc"],"salutationCode");'>
+						<fin-input type="dropdown"
+							model="rakServiceReq.applyForPrepaidCard.salutationCode"
+							display-row="full" 
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.TITLE}}"
+							on-change="rakServiceReq.applyForPrepaidCardTitleDrop();"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.salutationCode"]'
+							option-array="titlelist"></fin-input>
+					
+					</div>	
+					
+					
+					
+					<!-- Title Mr Mrs - End -->	
+					
+<!-- Full name  - Start -->
+					<fin-input type="text"
+							model="rakServiceReq.applyForPrepaidCard.fullName"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.FULLNAME}}"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.fullName"]' readonly></fin-input>
+							<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.FULLNAME}}</span>
+							
+
+<!-- Full name  - End -->
+					
+					<!-- Mailing Address - Start -->
+					
+					<!--CHANGES DONE AS FIX OF PROUAT-2119 and PROUAT-4373 START  -->
+				 	<fin-input type="text"
+							model="rakServiceReq.applyForPrepaidCard.address1"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.ADDRESS1}}"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.address1"]'></fin-input>
+					<!--CHANGES DONE AS FIX OF PROUAT-2119 END  -->
+					<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.ADDRESS1}}</span>
+							
+
+						
+					<!--CHANGES DONE AS FIX OF PROUAT-2119 and PROUAT-4373 START  -->	
+					<fin-input type="text"
+							model="rakServiceReq.applyForPrepaidCard.address2"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.ADDRESS2}}"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.address2"]'></fin-input>
+					<!--CHANGES DONE AS FIX OF PROUAT-2119 END  -->		
+						<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.ADDRESS2}}</span>
+							
+				
+					<!--CHANGES DONE AS FIX OF PROUAT-2119 and PROUAT-4373 START  -->		
+					<fin-input type="text"
+							model="rakServiceReq.applyForPrepaidCard.address3"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.ADDRESS3}}"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.address3"]'></fin-input>
+					<!--CHANGES DONE AS FIX OF PROUAT-2119 END  -->	
+					<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.ADDRESS3}}</span>		
+						
+						
+					
+					<!-- Mailing Address - End -->
+					
+<!-- P O box - Start -->
+                      <fin-input type="text"
+							model="rakServiceReq.applyForPrepaidCard.pobox"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.POBOX}}"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.pobox"]' readonly></fin-input>
+					<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.POBOX}}</span>		
+							
+
+<!-- P O box - End -->
+					
+					<!-- Emirate - Start -->
+					<div
+						ng-init='emiratelist = createDropDownOptionArray(rakServiceReq.applyForPrepaidCard.emirateList,["emirateDesc"],"emirateCode");'
+						 >
+						
+						<fin-input type="dropdown"
+							model="rakServiceReq.applyForPrepaidCard.emirateCode"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.EMIRATE}}"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.emirateCode"]'
+							option-array="emiratelist" ></fin-input>
+					</div>
+					<!-- Emirate - End -->
+					
+					<!-- Country - Start -->
+					<fin-input type="text"
+							model="rakServiceReq.applyForPrepaidCard.country"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.COUNTRY}}"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.country"]' readonly></fin-input>
+							<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.COUNTRY}}</span>
+							
+
+
+					<!-- Country - End -->
+					
+					<!-- Mobile Number - Start -->
+					<fin-input type="text"
+							model="rakServiceReq.applyForPrepaidCard.countryCode"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.COUNTRYCODE}}"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.countryCode"]' readonly></fin-input>
+								<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.COUNTRYCODE}}</span>
+	
+				
+					<fin-input type="number"
+							model="rakServiceReq.applyForPrepaidCard.mobileNumber"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.MOBILENUMBER}}"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.mobileNumber"]'></fin-input>
+							<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.MOBILENUMBER}}</span>
+							
+					<!-- Mobile Number - End -->
+					
+					<!-- Telephone Number (Office) - Start -->
+					<fin-input type="text"
+							model="rakServiceReq.applyForPrepaidCard.countryCode"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.COUNTRYCODE}}"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.countryCode"]' readonly></fin-input>
+							<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.COUNTRYCODE}}</span>
+
+
+			
+					
+					<fin-input type="number"
+							model="rakServiceReq.applyForPrepaidCard.officeNumber"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.OFFICENUMBER}}"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.officeNumber"]'></fin-input>
+							<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.OFFICENUMBER}}</span>
+							
+							
+					<!-- Telephone Number (Office) - End -->
+					
+					<!-- Telephone Number (Residence) - Start -->
+					<fin-input type="text"
+							model="rakServiceReq.applyForPrepaidCard.countryCode"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.COUNTRYCODE}}"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.countryCode"]' readonly></fin-input>
+							
+								<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.COUNTRYCODE}}</span>
+							
+					
+					<fin-input type="number"
+							model="rakServiceReq.applyForPrepaidCard.residentialNumber"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.RESNUMBER}}"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.residentialNumber"]'></fin-input>
+							
+							<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.RESNUMBER}}</span>
+
+							
+					<!-- Telephone Number (Residence) - End -->
+					
+					<!-- Fax Number  - Start -->
+					<fin-input type="text"
+							model="rakServiceReq.applyForPrepaidCard.countryCode"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.COUNTRYCODE}}"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.countryCode"]' readonly></fin-input>
+							
+							<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.COUNTRYCODE}}</span>
+							
+			
+							
+					<fin-input type="number"
+							model="rakServiceReq.applyForPrepaidCard.faxNumber"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.FAXNUMBER}}"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.faxNumber"]'></fin-input>
+							
+							<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.FAXNUMBER}}</span>
+							
+
+					<!-- Fax Number  - End -->
+					
+					
+					<!-- Email Address - Start -->
+					<fin-input type="mail_Id"
+							model="rakServiceReq.applyForPrepaidCard.emailAddress"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.EMAILADDRESS}}"
+							validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.emailAddress"]'></fin-input>
+							
+					<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.EMAILADDRESS}}</span>
+							
+							
+					<!-- Email Address - End -->
+					
+					<!--  Radio Btn style changes START -->
+					<!-- Dispatch Mode Using Radio button - Start -->
+											
+									<!-- <div class="rakRow">
+										<div class="radio-biller rak20">
+											{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.MODE_OF_DISPATCH}}</div>
+										<div class="rak80">
+											<div>
+												<div class="rak33 rakRelative">
+													<input type="radio" value="CR" class="rakRadio"
+														ng-model="rakServiceReq.applyForPrepaidCard.isDispatchModeSet" />
+													<span class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.COURIER_DELIVERY}}</span>
+												</div>
+												<div class="rak33 rakRelative">
+													<input type="radio" value="BR" class="rakRadio"
+														ng-model="rakServiceReq.applyForPrepaidCard.isDispatchModeSet" />
+													<span class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.BRANCH_PICKUP}}</span>
+												</div>
+											</div>
+											<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.applyForPrepaidCard.isDispatchModeSet"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.MODE_OF_DISPATCH}}</div>
+										</div>
+									</div> -->
+
+							<div class="rakRow">
+								<div class="radio-biller rak100 rakWidth100 raktext-align">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.MODE_OF_DISPATCH}}</div>
+								<div class="rak90">
+									<div>
+
+										<div class="rakCstmRadioDiv rak50 rakTop2emLeft3">
+											<input type="radio" value="CR" id="radio1"
+												ng-model="rakServiceReq.applyForPrepaidCard.isDispatchModeSet" ng-click="rakServiceReq.clearBranchDetails();"/>
+											<label for="radio1"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.COURIER_DELIVERY}}</label>
+										</div>
+
+										<div class="rakCstmRadioDiv rak47 rakTop2emLeft3 ">
+											<input type="radio" value="BR" id="radio2"
+												ng-model="rakServiceReq.applyForPrepaidCard.isDispatchModeSet" />
+											<label for="radio2"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.BRANCH_PICKUP}}</label>
+										</div>
+
+									</div>
+								</div>
+								<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.applyForPrepaidCard.isDispatchModeSet"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.MODE_OF_DISPATCH}}</div>
+							</div>
+
+							<!-- Amol: Radio Btn style changes END -->
+							
+							
+							<!--CHANGES DONE AS FIX OF PROUAT-2177 START-->	
+					<div
+									ng-init='cardArr = createDropDownOptionArray(rakServiceReq.applyForPrepaidCard.emiratesList, ["codeDesc"], "code");'></div>
+								<fin-input type="dropdown"
+								ng-show="rakServiceReq.applyForPrepaidCard.isDispatchModeSet=='BR'"
+										
+									model="rakServiceReq.applyForPrepaidCard.emirateSeletected"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}"
+								on-change="rakServiceReq.rakapplyForPrepaidCardBranchOptionChange();" 	validation-flag='pageErrorArr["rakServiceReq.applyForPrepaidCard.emirateSeletected"]'
+									option-array="cardArr"> </fin-input>
+									
+									
+									
+						<div class="fin-input-container"
+										ng-show="rakServiceReq.applyForPrepaidCard.isDispatchModeSet=='BR' && rakServiceReq.applyForPrepaidCard.isEmiSelected">
+										<div
+											ng-class="{'left-line': !pageErrorArr['rakServiceReq.applyForPrepaidCard.selectedBranchId'], 'left-line-error':pageErrorArr['rakServiceReq.applyForPrepaidCard.selectedBranchId']}"
+											class="left-line"></div>
+										<div class="input-body">
+											<div class="input-body2 input-body2-dropdown">
+												<select dropdownpicker title="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}" class="fin-input fin-select"
+													ng-model="rakServiceReq.applyForPrepaidCard.selectedBranchId"
+													ng-style="{{rakServiceReq.applyForPrepaidCard.selectedBranchId}} == '' ? {'font-size': '14px'} : {'color': 'initial'}">
+													<option class="place-holder-select" value=""
+														ng-selected="rakServiceReq.applyForPrepaidCard.selectedBranchId== null"
+														ng-show="rakServiceReq.applyForPrepaidCard.selectedBranchId== null">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}</option>
+													<option
+														ng-repeat="option in rakServiceReq.applyForPrepaidCard.OprAcctBranchList"
+														ng-selected="option.value=={{rakServiceReq.applyForPrepaidCard.selectedBranchId}}"
+														value="{{option.branchIndex}}">{{option.branchCode}}</option>
+												</select>
+											</div>
+											<div
+												ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.applyForPrepaidCard.selectedBranchId'], 'bottom-line-error':pageErrorArr['rakServiceReq.applyForPrepaidCard.selectedBranchId']}"
+												class="bottom-line"></div>
+											<div
+												ng-hide='pageErrorArr["rakServiceReq.applyForPrepaidCard.selectedBranchId"]==null'
+												class="rakErrorMsg">
+												{{pageErrorArr['rakServiceReq.applyForPrepaidCard.selectedBranchId']}}</div>
+
+										</div>
+									</div>			
+									
+									
+				<!--CHANGES DONE AS FIX OF PROUAT-2177 END-->			
+					
+					<!-- Dispatch Mode Using Radio button - End -->
+					
+					
+					<!-- Type of Card Using Radio button - Start -->
+							<!-- Amol: Radio Btn style changes START -->
+								<!-- <div class="rakRow">
+										<div class="radio-biller rak20"
+											>
+											{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.TYPE_OF_CARD}}</div>
+										<div class="rak80">
+											<div>
+												<div class="rak33 rakRelative">
+													<input type="radio" value="MWC" class="rakRadio"
+														ng-model="rakServiceReq.applyForPrepaidCard.isSelectYourCardSet" />
+													<span class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.TYPE_BAYANI}}</span>
+												</div>
+												<div class="rak33 rakRelative">
+													<input type="radio" value="BC" class="rakRadio"
+														ng-model="rakServiceReq.applyForPrepaidCard.isSelectYourCardSet" />
+													<span class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.TYPE_BLING}}</span>
+												</div>
+												<div class="rak33 rakRelative">
+													<input type="radio" value="LC" class="rakRadio"
+														ng-model="rakServiceReq.applyForPrepaidCard.isSelectYourCardSet" />
+													<span class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.TYPE_LOADED}}</span>
+												</div>
+											</div>
+											<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.applyForPrepaidCard.isSelectYourCardSet"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.TYPE_OF_CARD}}</div>
+										</div>
+									</div> -->
+						
+						
+								<!-- <div class="rakRow">
+									<div class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px ">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.TYPE_OF_CARD}}</div>
+									<div class="rak100">
+										<div>								
+											
+											<div class="rakCstmRadioDiv rak35 rakTop2emLeft3 rakFont11">
+												<input type="radio" value="MWC"  id="radio3"
+													ng-model="rakServiceReq.applyForPrepaidCard.isSelectYourCardSet" />
+													<label for="radio3"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.TYPE_BAYANI}}</label>	
+											</div>
+											
+											<div class="rakCstmRadioDiv rak25 rakTop2emLeft3 rakFont11">
+												<input type="radio" value="BC"  id="radio4"
+													ng-model="rakServiceReq.applyForPrepaidCard.isSelectYourCardSet" />
+												<label for="radio4"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.TYPE_BLING}}</label>
+											
+											</div>
+											<div class="rakCstmRadioDiv rak35 rakTop2emLeft3 rakFont11">
+												<input type="radio" value="LC"   id="radio5"
+													ng-model="rakServiceReq.applyForPrepaidCard.isSelectYourCardSet" />
+													<label for="radio5"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.TYPE_LOADED}}</label>
+											</div>
+											
+										</div>
+									</div>
+									<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.applyForPrepaidCard.isSelectYourCardSet"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.TYPE_OF_CARD}}</div>
+								</div> -->
+								
+							<div class="rakRow">
+										<div class="radio-biller rak100">
+											{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.TYPE_OF_CARD}}</div>
+										<div class="rak100">
+											<div>
+												<div class="rakCstmRadioDiv rak100 ">
+													<input type="radio" id="radio3"														
+														 id="radio3" value="MWC"
+														ng-model="rakServiceReq.applyForPrepaidCard.isSelectYourCardSet" />
+														<label for="radio3"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.TYPE_BAYANI}}</label>
+												</div>
+												<div class="rakCstmRadioDiv rak100 marginTopTen">
+													<input type="radio" id="radio4" value="BC"
+														ng-model="rakServiceReq.applyForPrepaidCard.isSelectYourCardSet" />							
+														<label for="radio4"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.TYPE_BLING}}</label>
+												</div>
+												<div class="rakCstmRadioDiv rak100 marginTopTen">
+													<input type="radio" id="radio5"
+														value="LC"
+														ng-model="rakServiceReq.applyForPrepaidCard.isSelectYourCardSet" />
+														<label for="radio5"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.TYPE_LOADED}}</label>
+												</div>
+											</div>
+										</div>
+										<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.applyForPrepaidCard.isSelectYourCardSet"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.TYPE_OF_CARD}}</div>
+									</div>
+					
+					
+					
+					<div class="fin-txt"></div>
+					<div class="fin-txt"></div>
+
+
+					<div class="disclaimer3" >
+						<span ng-bind-html="appLiterals.APP.DISCLAIMER.NOTE"></span>
+						<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKPREPAIDCARDREQUEST_INITPAGEPAGE2"></span>
+						<span ng-click='rakServiceReq.fetchPdf("https://rakbankonline.ae/wps/wcm/connect/20e8f667-203d-4aa1-883d-ac3090e6fee3/Prepaid%2BEng%2BS%26P.pdf?MOD=AJPERES");' class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKPREPAIDCARDREQUEST_INITPAGEPAGE2CONT"></span>
+						<span ng-click='rakServiceReq.fetchPdf("https://rakbankonline.ae/wps/wcm/connect/a9683072-9986-4427-bbf1-a4ae47905cf5/%28A%29+J00563-Prepaid+Card+-+T%26C+-+New+Brand+Guidelines-EN.PDF?MOD=AJPERES");' class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKPREPAIDCARDREQUEST_INITPAGEPAGE2CONT1"></span>
+								
+					
+										
+								<div class="check-boxsLeft">
+				                    <input id="termsFlag"  class="checkbox-custom-new"  type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" ng-model='rakServiceReq.acceptTermscondition' >
+				                    <label for="termsFlag" class="checkbox-custom-label termsCheck smallCheck" ng-bind-html="appLiterals.APP.DISCLAIMER.RAKAPPLYPPCONTTERMS"></label>
+				                </div>										
+					</div>
+					
+					
+				 	<!-- Button for submit after checking - Start -->
+				 	<div class="label-wrap">
+						<!-- CHANGES DONE AS FIX OF PRCU-1481 START -->
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small btn--back"
+							ng-click="rakServiceReq.applyForPrepaidCard.transactionPassword = '';
+							setEvent('onApplyForPrepaidCardFetchBackClick');">
+							{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.BACK}}</button>
+						<!-- CHANGES DONE AS FIX OF PRCU-1481 END -->
+						
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small rak-button-right"
+							ng-click="rakServiceReq.applyForPrepaidCard.continueClick();setEvent('onSubmitOfDetailsForPrepaidAfterDetailsFetch');">
+							{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.SUBMIT_TO_APPLY_PREPAID}}</button>
+
+					</div>
+					<!-- Button for submit after checking - End -->
+				
+				</div>
+				
+							
+				
+				
+			</div>
+		</div>
+
+	</div>
+</div>
+
+</div>
+</div>

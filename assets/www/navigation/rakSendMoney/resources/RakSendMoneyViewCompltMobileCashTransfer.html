@@ -1,0 +1,166 @@
+<div class="rak-home-header">
+    <i class="homeCorner" ng-click="setGlobalEvent('onDashboardClick');"></i>
+  </div>
+<div class="finacle-container"
+	ng-init="resetPageError();rakSendMoney.clearTab();rakSendMoney.history=true; rakSendMoney.mobileCashHistory.initCompltTransferListPage(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+			<div class="app-title-wrapper">
+				<div class="form-block">
+
+					<ng-include
+						src="'./navigation/rakSendMoney/resources/RakSendMoneyTabPage.html'">
+					</ng-include>
+
+					<!--CHANGES DONE AS FIX OF PRCU 1273 START-->
+					<div class="tab-links">
+						<ul>
+							<li	ng-click="rakSendMoney.txnHistory.clearSearchHistory();rakSendMoney.txnHistory.setInitialDate();rakPayee.isBeneficiaryHistoryMode=false;rakSendMoney.common.fromAuthPage=false;setGlobalEvent('onRakSendMoneyHistoryTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_HISTORY}}</span></li>
+							<li	ng-click="rakSendMoney.clearTab();rakSendMoney.common.clearSearchData();rakSendMoney.schedule.clearScheduleTransferData();rakSendMoney.history=true;rakSendMoney.txnHistory.setFutureDate();setGlobalEvent('onRakHistoryTabClick')"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_SCHEDULE}}</span></li>							
+							<li class="active"><span class="active">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_MOBILECASH_HISTORY}}</span></li>
+						</ul>
+					</div>
+					<!--CHANGES DONE AS FIX OF PRCU 1273 END-->
+
+
+					<div class="bg-color ">
+						<div class="">
+							
+							<div class="rakTxnSearch" ng-init='rakSendMoney.mobileCashHistory.scheduleList.length == 0 ? rakTxnSearch=true : rakTxnSearch=false;'>
+								<div class="rakTxnSearch1 rakTxnSearchIcon" ng-class="{'rakTxnSearchIconExpnd':rakTxnSearch}"
+									ng-click="rakTxnSearch=!rakTxnSearch">
+									<h3 class="rakTxnSearch2">{{appLiterals.APP.RAK_COMMON.SEARCH}}</h3>
+								</div>
+								
+								<div class="rakTxnSearch3" ng-show="rakTxnSearch">
+
+									
+										<fin-input type="date"
+											model="rakSendMoney.mobileCashHistory.searchFromDate"
+											display-row="half1" value="pastDatesOnly"
+											placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.FROM_DATE}}"
+											validation-flag='pageErrorArr["rakSendMoney.mobileCashHistory.searchFromDate"]'></fin-input>
+
+										<fin-input type="date"
+											model="rakSendMoney.mobileCashHistory.searchToDate"
+											display-row="half2" value="pastDatesOnly"
+											placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.TO_DATE}}"
+											validation-flag='pageErrorArr["rakSendMoney.mobileCashHistory.searchToDate"]'></fin-input>
+											
+											 <div class=""> 
+												<span class="fieldLabelLeft" >{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.FROM_DATE}}</span> 
+												<span class="fieldLabelRight rak42" >{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.TO_DATE}}</span> 
+											</div> 
+
+
+										<button type="button" class="btn--special-btn btn-middle rak-button-full-black"
+									ng-click="rakSendMoney.mobileCashHistory.fromSearchResult=true;rakSendMoney.mobileCashHistory.setFromToDate();setEvent('onCompleteSearchClick')">{{appLiterals.APP.RAK_COMMON.GO}}
+									</button>
+
+																			
+								</div>
+							</div>
+							
+							
+							
+						</div>
+					</div>
+					
+					<div class="fin-txt"></div>
+
+					<div ng-if="rakSendMoney.mobileCashHistory.scheduleList.length == 0 " >
+								<div class="summary-ServiceReq">
+									<div class="iconDivNorecord">
+										<span class="infoIcon"></span><span class="success">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.NO_TXNS}}</span>
+									</div>
+								</div>
+					</div>
+							
+							
+					<div
+						ng-show="rakSendMoney.mobileCashHistory.scheduleList.length > 0">
+						<div class="money-block rakBottomZero">
+							<ul>
+
+								<li class="active rak30 rakPaddingPoint8em">
+									{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.DATE}}</li>
+								<li class="active rak30 ">
+									{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.BENEFICIARY}}</li>
+								<li class="active rak30 ">
+									{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.AMOUNT}}</li>
+								<!-- <li class="active rak15 ng-binding">
+						            {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.STAT}}</li> -->
+								<li class="active rak10 ">&nbsp;</li>
+							</ul>
+						</div>
+						<!-- CHANGES FOR UI END  -->
+
+
+						<div class="nano rakHalfScrollDiv rak-cont-padding">
+							<div class="">
+
+
+								<div class="trans-detail rakGreyRow"
+									ng-repeat="transfers in rakSendMoney.mobileCashHistory.scheduleList">
+
+
+
+									<div
+										class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em pull-left">
+										<div>
+											<div class="trans-no rakTextCenter rakFont1em">
+												{{transfers.txnDate}}</div>
+										</div>
+
+									</div>
+
+									<div
+										class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em">
+										<div>
+											<div class="trans-no rakTextCenter rakFont1em">
+												{{transfers.benfName}}</div>
+										</div>
+									</div>
+
+
+									<div
+										class="trans-dash-left rakPeopleNameRow1   rak30 pull-left rakPaddingPoint8em">
+										<div>
+											<div class="trans-no rakTextCenter rakFont1em">
+												{{transfers.txnAmount}}</div>
+										</div>
+
+									</div>
+
+
+
+									<div class="pull-right rakPaddingPoint5em rak10"
+										style="width: 8%">
+										<span class="rakPullDownNew"
+											ng-click="rakHome.handlePullDown($event);"></span>
+										<ul
+											class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+											<li><a href=""
+												ng-click="rakSendMoney.mobileCashHistory.searchFrom ='Schedule';rakSendMoney.mobileCashHistory.selectedCompltTxn = transfers;rakSendMoney.mobileCashHistory.selectedIndex=transfers.index;setEvent('onCompltTxnSelectClick')">
+													{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW}}</a></li>
+											<!--  <li><a href="" ng-click="rakSendMoney.mobileCashHistory.searchFrom ='Schedule';rakSendMoney.mobileCashHistory.selectedCompltTxn = transfers;setEvent(rakSendMoney.mobileCashHistory.getSendAgainEvent());">
+											    {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.PAYAGAIN}}</a></li> -->
+											<li><a href="" ng-show="transfers.txnStatus=='Pending'"
+												ng-click="rakSendMoney.mobileCashHistory.searchFrom ='Schedule';rakSendMoney.mobileCashHistory.selectedCompltTxn = transfers;rakSendMoney.mobileCashHistory.selectedCompltTxnIndex = transfers.index;rakCorpInit.corpModel.backFlag='N';rakCorpInit.corpModel.eventName='MOBILECASHCANCELTRANSFER';setEvent('onMobileCashTxnCancel')">
+													{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.CANCEL}}</a></li>
+
+										</ul>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

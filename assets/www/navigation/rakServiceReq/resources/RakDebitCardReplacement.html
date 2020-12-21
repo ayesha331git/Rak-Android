@@ -1,0 +1,197 @@
+<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onCancelClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+<div class="finacle-container" ng-init="rakServiceReq.ReplacementDCData.initReplacementDCData(successResponse.responsesList);">
+  <div class="account-page" >
+    <div class="col-sm-11"> 
+    <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DEBITCARD_REPLACEMENT}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+                              </h2>              
+</div>
+           
+      <div class="bg-color rak-cont-padding rak-scroll">
+        <div class="row" >
+          
+    
+      
+          		<div ng-init='debitcardListed = createDropDownOptionArray(rakServiceReq.ReplacementDCData.debitCardList,["prodDesc","-","debitCardNumber"],"debitIndex");'>
+					<fin-input type="dropdown" model="rakServiceReq.ReplacementDCData.debitcardNumber" display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.DEBITCARD}}" validation-flag='pageErrorArr["rakServiceReq.ReplacementDCData.debitcardNumber"]' option-array="debitcardListed"></fin-input>
+				</div>
+				
+			
+		        <!-- <fin-input type="number_card" model="rakServiceReq.ReplacementDCData.mobileNo" max-Length="15" min="0" display-row="full" validation-flag='pageErrorArr["rakServiceReq.ReplacementDCData.mobileNo"]' placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.TXT_MOBILE_NUMBER}}" ></fin-input> -->
+			
+			
+			
+			<div class="rakRow">
+			<div class="radio-biller rak100 rakWidth100">
+             {{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.DISPATCH_HEADER}}
+             </div>
+              <div class="rak100">
+	          <div>
+	             <div class="rakCstmRadioDiv rak50 ">
+            		<input type="radio" id="radio1" ng-value="false" ng-model="rakServiceReq.ReplacementDCData.isDispatchModeSet" />
+            		<label  for="radio1" ><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.COURIER}}</label>
+            		</div>
+            		<div class="rakCstmRadioDiv rak47 ">
+            		<input type="radio" id="radio2" ng-value="true" ng-model="rakServiceReq.ReplacementDCData.isDispatchModeSet"/>
+            		<label  for="radio2" ><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.BRANCH}}</label>
+       				</div>
+       				</div>
+	            </div>                	
+        	 </div>
+         
+         
+          <!--  If Branch is selected: Populate Branch -->
+        <!--  <div ng-init='branchArr = createDropDownOptionArray(rakServiceReq.ReplacementDCData.branchList, ["branchName"], "branchId");' ng-show="rakServiceReq.ReplacementDCData.isDispatchModeSet">
+			<fin-input type="dropdown" model="rakServiceReq.ReplacementDCData.branchName" display-row="full" placeholder="Selected Branch" option-array="branchArr" validation-flag='pageErrorArr["rakServiceReq.ReplacementDCData.branchName"]'></fin-input>
+		</div> -->
+		
+		<!-- YADESH : Customization : Start -->
+							<div
+								ng-init='cardArrEmi = createDropDownOptionArray(rakServiceReq.ReplacementDCData.emirateList, ["codeDesc"], "code");'
+								
+								>
+							<fin-input type="dropdown"
+								model="rakServiceReq.ReplacementDCData.emirateSeletected"
+								display-row="full"
+								ng-show="rakServiceReq.ReplacementDCData.isDispatchModeSet"
+								placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}"
+								on-change="rakServiceReq.ReplacementDCDataOptionChange();"
+								validation-flag='pageErrorArr["rakServiceReq.ReplacementDCData.emirateSeletected"]'
+								option-array="cardArrEmi"> </fin-input>
+							</div>
+							
+							
+							<div class="fin-input-container"
+								ng-show="rakServiceReq.ReplacementDCData.isDispatchModeSet && rakServiceReq.ReplacementDCData.isEmiSelected">
+								<div
+									ng-class="{'left-line': !pageErrorArr['rakServiceReq.ReplacementDCData.branchName'], 'left-line-error':pageErrorArr['rakServiceReq.ReplacementDCData.branchName']}"
+									class="left-line"></div>
+								<div class="input-body">
+									<div class="input-body2 input-body2-dropdown">
+										<select dropdownpicker title="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}" class="fin-input fin-select"
+											ng-model="rakServiceReq.ReplacementDCData.branchName"
+											ng-style="{{rakServiceReq.ReplacementDCData.branchName}} == '' ? {'font-size': '14px'} : {'color': 'initial'}">
+											<option class="place-holder-select" value=""
+												ng-selected="rakServiceReq.ReplacementDCData.branchName== null"
+												ng-show="rakServiceReq.ReplacementDCData.branchName== null">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}</option>
+											<option
+												ng-repeat="option in rakServiceReq.ReplacementDCData.emiCategorizedBranchList"
+												ng-selected="option.value=={{rakServiceReq.ReplacementDCData.branchName}}"
+												value="{{option.branchIndex}}">{{option.branchDesc}}</option>
+										</select>
+									</div>
+									<div
+										ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.ReplacementDCData.branchName'], 'bottom-line-error':pageErrorArr['rakServiceReq.ReplacementDCData.branchName']}"
+										class="bottom-line"></div>
+									<div
+										ng-hide='pageErrorArr["rakServiceReq.ReplacementDCData.branchName"]==null'
+										class="rakErrorMsg">
+										{{pageErrorArr['rakServiceReq.ReplacementDCData.branchName']}}</div>
+
+								</div>
+							</div>
+
+
+					<!-- YADESH : Customization : End -->
+		
+		
+	    <div ng-hide="rakServiceReq.ReplacementDCData.isDispatchModeSet">
+     	    <div  class="rakRow">
+		<div class="radio-biller rak100 rakWidth100" >
+      {{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.DELIVERADD}}
+       </div>
+        <div class="rak100">
+		    	<div class="rakCstmRadioDiv rak100 ">      
+            		<input type="radio" id="radio3" ng-value="true" ng-model="rakServiceReq.ReplacementDCData.isDeliveryAddSet" /> <label for="radio3"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.REGADD}}</label>
+            		</div>
+		    	<div class="rakCstmRadioDiv rak100 marginTopTen">
+            		<input type="radio" id="radio4" ng-value="false" ng-model="rakServiceReq.ReplacementDCData.isDeliveryAddSet" /><label for="radio4"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.OTHERADD}}</label>
+         </div>       	
+		    </div>
+    </div>
+    
+    			
+		  <p class="rak-parent-txt"  ng-show="rakServiceReq.ReplacementDCData.isDeliveryAddSet">
+						<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.REGADD}}</span> 
+						<span class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.ReplacementDCData.registeredAddress}}</span>
+		</p>
+		
+		<div  ng-show="!rakServiceReq.ReplacementDCData.isDeliveryAddSet" class="rakRow">
+			
+			  <textarea input-restricted-special-character ng-class='{"text_area":pageErrorArr["rakServiceReq.ReplacementDCData.otherAddress"] ==null , "text_area rakredBorderForError":pageErrorArr["rakServiceReq.ReplacementDCData.otherAddress"] !=null}'  ng-model="rakServiceReq.ReplacementDCData.otherAddress"   display-row="full" validation-flag='pageErrorArr["rakServiceReq.ReplacementDCData.otherAddress"]' placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.OTHERADD}}"  ></textarea>
+			  <div ng-hide='pageErrorArr["rakServiceReq.ReplacementDCData.otherAddress"] == null' class="rakErrorMsg">{{appLiterals.APP.RAKERRORMSG.VALIDATORTYPEMSG.required}}</div>
+			  </div>
+		
+     <div class="fin-txt"></div>
+     
+     	<div  ng-show="!rakServiceReq.ReplacementDCData.isDispatchModeSet" class="rakRow">
+             
+            <div class="radio-biller rak100 rakWidth100 " >
+            
+           {{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.AUTHPREC}}
+            </div>
+             <div class="rak100">
+		    	<div class="rakCstmRadioDiv rak40 ">
+            		<input type="radio"  id="radio5" ng-value="false"  name="recepient"  ng-model="rakServiceReq.ReplacementDCData.AuthrizedPerson" /> <label for="radio5"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.SELF}}</label>
+                	</div>
+                <div class="rakCstmRadioDiv rak60 ">
+            		<input type="radio"  id="radio6" ng-value="true" name="recepient" ng-model="rakServiceReq.ReplacementDCData.AuthrizedPerson" /> <label for="radio6"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.AUTHPERSON}}</label>
+               </div>
+    
+     </div>       	
+		    </div>
+    	<div  ng-show="rakServiceReq.ReplacementDCData.AuthrizedPerson">
+             
+            		 <fin-input type="text" model="rakServiceReq.ReplacementDCData.authorizedRecipient"   display-row="full" validation-flag='pageErrorArr["rakServiceReq.ReplacementDCData.authorizedRecipient"]' placeholder="Authorized Recipient Name "  >
+            		 </fin-input>
+            		 <fin-input type="number" model="rakServiceReq.ReplacementDCData.authContactNumber" max-Length="15" min="0" display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.CONTACTNUMBER}}" validation-flag='pageErrorArr["rakServiceReq.ReplacementDCData.authContactNumber"]'  ></fin-input>
+            		 
+            		 </div> 
+        
+                	
+
+    
+    
+     <p class="rak-parent-txt"  ng-show="!rakServiceReq.ReplacementDCData.AuthrizedPerson">
+						<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.CONTACTNUMBER}}</span> 
+						<span class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.ReplacementDCData.contactNumber}}</span>
+		</p>
+    </div>
+  	</div>
+					<div class="label-wrap">
+					<!--  <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="rakSendMoney.common.fromAuthPage=true; setEvent('onCancelClick');"> {{appLiterals.APP.RAK_SERVICES.RAK_CREDIT_REPLACEMENT.BACK}}</button> -->
+				  <button ng-if="rakServiceReq.ReplacementDCData.isDispatchModeSet" type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="setEvent('onReplacementBranchConfirmClick');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+			  <button ng-if="!(rakServiceReq.ReplacementDCData.isDispatchModeSet)" type="button" ng-click="setEvent('onReplacementCourierConfirmClick');" class="btn--special-btn btn-middle rak-button-small">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>				
+		 </div>
+		 
+		 					<div class="disclaimer">
+                                                 <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                                 <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                                 </div>                                                 
+                                                 
+                                                 <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+													<span ng-click="rakServiceReq.fetchDisclaimer('AcntAndDebitCardSrvcRqstsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKDCREPLACE_INITPAGE"></span>
+													<span ng-click="rakServiceReq.fetchDisclaimer('DebitCardServiceCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKDCREPLACE_INITPAGECONT"></span>
+													 <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKDCREPLACE_INIT"></div>
+												</div>
+                                                 
+                                 </div>
+		 
+          
+         	</div>
+			</div>
+		 </div>
+          <div class="col-sm-1"> 
+          </div>
+        </div> 
+      </div>
+      </div> 
+      </div>

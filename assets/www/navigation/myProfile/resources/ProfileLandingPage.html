@@ -1,0 +1,125 @@
+<div class="finacle-container" ng-init="resetPageError();">
+	<div class="account-page">
+		<div class="col-sm-12">
+		<!--	<div class="app-title-wrapper">
+				<div class="title-left"></div>
+				<div class="title-center">
+					{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.HEADER_MYPROFILE}}</div>
+			</div> -->
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div id="profileLandingPageHEADER_MYPROFILE" class="item-title">{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.HEADER_MYPROFILE}}</div>
+					</div>
+					<div class="col-sm-12">
+						<!-- <div id="profileLandingPageCHNG_PASS" class="landingpage-list"
+							ng-click="myProfile.password.changeLoginPassword=false;myProfile.password.changeTransactionPassword=true;setEvent('onTxnPwdClick')">
+							<div id="profileLandingPageCHNG_PASS" class="profile-txt">{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.CHNG_PASS}}</div>
+						
+						</div> -->
+						<div
+							ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'PWD'">
+							<div id="profileLandingPageCHNG_PASS" class="landingpage-list"
+								ng-click="myProfile.password.changeLoginPassword=true;myProfile.password.changeTransactionPassword=flase;resetPageError();setEvent('onLoginPwdClick')">
+								<div id="profileLandingPageCHNG_PASS" class="profile-txt">{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.CHNG_PASS}}</div>
+
+							</div>
+						</div>
+						<div
+							ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'MPIN'">
+							<div id="profileLandingPageTXT_CHANGE_MPIN"
+								class="landingpage-list2"
+								ng-click="setEvent('onChangeMPINClick')">
+								<div id="profileLandingPageTXT_CHANGE_MPIN" class="profile-txt">{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.TXT_CHANGE_MPIN}}</div>
+
+							</div>
+						</div>
+						<div class="service-hr"></div>
+						<div id="profileLandingPageMYACT" class="landingpage-list2"
+							ng-click="myProfile.activityModel.isDays='Y';myProfile.activityModel.isSearch=false;myProfile.activityModel.channel=''; setEvent('onActivityClick')">
+							<div id="profileLandingPage_PROFLANDPAGE_MYACT" class="profile-txt">{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.MYACT}}</div>
+							
+						</div>
+						<div class="service-hr"></div>
+						<div id="profileLandingPageREFER_FRND" class="landingpage-list2"
+							ng-click="setEvent('onReferFrndClick')">
+							<div id="profileLandingPage_REFER_FRND" class="profile-txt">{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.REFER_FRND}}</div>
+							
+						</div>
+						<!-- <div class="service-hr"></div>
+				
+				<div class="landingpage-list2">
+					<div class="profile-txt">{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.PINCHNGE}}</div>
+					<div class="pull-right set-arrow"><span class="app app-arrow3"></span></div>
+				</div>-->
+						<div class="service-hr"></div>
+						<div id="profileLandingPageREGFROTHER_CHAN" class="landingpage-list2"
+							ng-click="register.resetData();setEvent('onSelectChannnelClick')">
+							<div id="profileLandingPage_REGFROTHER_CHAN" class="profile-txt">{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.REGFROTHER_CHAN}}</div>
+							
+						</div>
+						<div class="service-hr"></div>
+						<div id="profileLandingPageNOTIF" class="landingpage-list2"
+							ng-click="setGlobalEvent('onSecurityQuestions')">
+							<div id="profileLandingPage_SET_SEQ_QUES" class="profile-txt">{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.SET_SEQ_QUES}}</div>
+						
+						</div>
+						<div class="service-hr"></div>
+						<div class="landingpage-list2">
+							<div id="profileLandingPageNOTIF" class="profile-txt" 
+								ng-click="setEvent('onNotificationClick')">{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.NOTIF}}</div>
+							
+						</div>
+						<div class="service-hr"></div>
+						<div class="landingpage-list2">
+							<div id="profileLandingPageOnUpdateNicknameClick" class="profile-txt" id="profileLandingPageUPDATE_NICKNAME"
+								ng-click="setEvent('onUpdateNicknameClick')">{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.UPDATE_NICKNAME}}</div>
+						
+						</div>
+						<div
+							ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'MPIN'">
+							<div class="service-hr"></div>
+							<div id="profileLandingPageOnMngAcClick" class="landingpage-list2"
+								ng-click="setEvent('onMngAcClick');myProfile.manageDevice.selDeviceName= undefined;">
+								<div id="profileLandingPage_MANAGE_AC_DEVICES" class="profile-txt">{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.MANAGE_AC_DEVICES}}</div>
+								
+							</div>
+						</div>
+						<div class="service-hr"></div>
+						<div id="profileLandingPageOnUserIDClick" class="landingpage-list2" 
+							ng-click="setEvent('onUserIDClick');myProfile.updateIdModel.resetUpdateIDModel();">
+							<div id="profileLandingPage_UPDATE_USER_ID" class="profile-txt">{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.UPDATE_USER_ID}}</div>
+							
+						</div>
+						<div class="service-hr"></div>
+						<div id="profileLandingPageOnContactDetailClick" class="landingpage-list2" 
+							ng-click="setEvent('onContactDetailClick');myProfile.updateContactModel.resetupdateContactModel();">
+							<div id="profileLandingPage_UPDATE_CONTACT_DETAILS" class="profile-txt">{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.UPDATE_CONTACT_DETAILS}}</div>
+							
+						</div>
+						<div class="service-hr"></div>
+						<div id="profileLandingPageAddressIntializedFalse" class="landingpage-list2"
+							ng-click="myProfile.addressIntialized=false;setEvent('onChangeAddressClick');myProfile.updateAddressModel.resetupdateAddressModel();">
+							<div id="profileLandingPage_UPDATE_ADDRESS" class="profile-txt">{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.UPDATE_ADDRESS}}</div>
+							
+						</div>
+						<div class="service-hr"></div>
+
+						<div id="profileLandingPageOnMyPreferenceClick" class="landingpage-list2"
+							ng-click="setEvent('onMyPreferenceClick')">
+							<div id="profileLandingPage_MY_PREFERENCES" class="profile-txt">{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.MY_PREFERENCES}}</div>
+							
+						</div>
+						<div class="service-hr" ng-if="appActivation.touchIdEnable"></div>
+						<div id="profileLandingPageOnBioMatrixLoginClick" class="landingpage-list2" 
+							ng-if="appActivation.touchIdEnable"
+							ng-click="setEvent('onBioMatrixLoginClick')">
+							<!-- <div class="landingpage-list2" ng-if="appActivation.touchIdEnable && touchIDLoginUser" ng-click="setEvent('onBioMatrixLoginClick')"> -->
+							<div id="profileLandingPage_TXT_MANAGE_BIOMETRIC_LOGIN" class="profile-txt">{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.TXT_MANAGE_BIOMETRIC_LOGIN}}</div>
+							
+						</div>
+					<!--	<div class="service-hr"></div>-->
+					</div>
+				</div>
+	</div>
+</div>

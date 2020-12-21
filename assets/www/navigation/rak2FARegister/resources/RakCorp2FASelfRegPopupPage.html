@@ -1,0 +1,110 @@
+
+<div ng-init="rak2FARegister.RegistrationModel.fromHardTokenRegPage='';rak2FARegister.common.flag=false;rak2FARegister.RegistrationModel.showSetPinPage=='true';rak2FARegister.chkSoftTokenValidation(HardTokenModel);rak2FARegister.SoftTokenOnLoad(HardTokenModel);rak2FARegister.SoftTokenLoginScenario();" >
+<div ng-show="rak2FARegister.common.registerOrErrorPopupFlag==false">
+<div class="full-page-screen"  ></div>
+
+<div class="confirmation-content-container">
+    <div class="message-box-new rakTop25">
+          <div class="label-wrap bottom-border-conf-box">
+		  <div class="raktokenPopUpSecHeader">
+		  
+		  <div class="">
+					<span class=""></span><span class="raktokenPopupSecHeaderText">{{appLiterals.APP.RAK_2FA_MESSAGES.SIGNUP_HEADER}}</span>
+				</div>
+			
+		  </div>
+		  
+		  </div>
+
+      
+        
+        <div ng-show="!rak2FARegister.RegistrationModel.forceTokenYes" class="conf-txt-label rak-black-color popupPageText">
+         {{appLiterals.APP.RAK_2FA_MESSAGES.CORP_REGISTER}}
+        </div>
+        
+        
+          <div ng-show="rak2FARegister.RegistrationModel.forceTokenYes" class="conf-txt-label rak-black-color popupPageText">
+         {{appLiterals.APP.RAK_2FA_MESSAGES.CORP_HARDTOKEN_EXPREGISTER}}
+        </div>
+        <div class="conf-btn-wrap_alert rakpaddingBottom10 btn-popup-pad">
+
+
+
+
+
+            <button ng-show="!rak2FARegister.RegistrationModel.forceTokenYes && buildType=='SME'" type="button" class="btn--special-btn btn-middle rak-button-small btn--back rak-button-half-red-left" ng-click='setGlobalEvent("onLogoutClickOK");'>
+                 &nbsp; {{appLiterals.APP.COMMON.BUTTON.OK}} &nbsp;
+            </button>
+            
+            <button ng-show="!rak2FARegister.RegistrationModel.forceTokenYes && buildType!='SME'" type="button" class="btn--special-btn btn-middle rak-button-small btn--back rak-button-half-red-left" ng-click='setGlobalEvent("onLogoutClickOK");'>
+                 &nbsp; {{appLiterals.APP.RAK_2FA_MESSAGES.NO}} &nbsp;
+            </button>
+            
+             <button ng-show="rak2FARegister.RegistrationModel.forceTokenYes" type="button" class="btn--special-btn btn-middle rak-button-small btn--back rak-button-half-red-left" ng-click='setGlobalEvent("onLogoutClickOK");'>
+                 &nbsp; {{appLiterals.APP.RAK_2FA_MESSAGES.CANCEL}} &nbsp;
+            </button>
+           
+
+            <button ng-show="!rak2FARegister.RegistrationModel.forceTokenYes && buildType!='SME'" type="button" class="btn--special-btn btn-middle rak-button-small rak-button-half-red-right" ng-click="rak2FARegister.common.registerOrErrorPopupFlag='undefined';setEvent('onRakCorpSignUpPageInit');" >
+                &nbsp; {{appLiterals.APP.RAK_2FA_MESSAGES.YES}} &nbsp;
+            </button>
+            
+              <button ng-show="rak2FARegister.RegistrationModel.forceTokenYes" type="button" class="btn--special-btn btn-middle rak-button-small rak-button-half-red-right" ng-click="rak2FARegister.common.registerOrErrorPopupFlag='undefined';setEvent('onHardTokenToSoftTokenClick');" >
+                &nbsp; {{appLiterals.APP.RAK_2FA_MESSAGES.PROCEED_HTKN}} &nbsp;
+            </button>
+
+        </div>
+        
+       
+
+
+
+
+    </div>
+</div>
+</div>
+</div>
+
+
+<div ng-init="rak2FARegister.common.flag=false;rak2FARegister.chkSoftTokenValidation(HardTokenModel);" >
+<div ng-show="rak2FARegister.common.registerOrErrorPopupFlag==true">
+<div class="full-page-screen"  ></div>
+
+<div class="confirmation-content-container">
+    <div class="message-box-new rakTop25">
+        <div>
+            <p class="round-icon-new">
+            <span class="app app-alert pop-alert-icon rak-color"></span>
+            </p>
+
+        </div>
+
+        <div class="conf-txt-label rak-black-color">
+          {{appLiterals.APP.RAK_2FA_MESSAGES.REGISTER_NOT_ALLOWED}}
+        </div>
+		<div class="conf-btn-wrap_alert rakpaddingBottom10 ">
+
+
+
+
+
+            <button ng-show="!rak2FARegister.RegistrationModel.forceTokenYes" type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click='setEvent("onCorpSoftTokenOKClick");' >
+                 &nbsp; {{appLiterals.APP.COMMON.BUTTON.OK}} &nbsp;
+            </button>
+            
+             <button ng-show="rak2FARegister.RegistrationModel.forceTokenYes"  type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click='rak2FARegister.RegistrationModel.fromHardTokenRegPage="YES";setEvent("onHardTokenToSoftTokenClick");' >
+                 &nbsp; {{appLiterals.APP.COMMON.BUTTON.OK}} &nbsp;
+            </button>
+
+
+
+        </div>
+
+
+
+
+    </div>
+</div>
+</div>
+</div>
+	

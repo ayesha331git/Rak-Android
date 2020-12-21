@@ -1,0 +1,353 @@
+<div id="retailUsrAccDetPagePrev"
+	class="app app-arrow2 title-right-dash"
+	ng-click='fields.entryAccountsFlag = null; fields.successResponsePrev = null; fields.transSearchResultData = null; setEvent("onDashboardClick")'></div>
+<div class="finacle-container retail-user-details-page">
+	<div class="account-page">
+		<div class="col-sm-12">
+
+
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div id="retailUsrAccDetPageAccountBlockTitle" class="item-title">{{fields.accountBlockTitle}}</div>
+						<md-menu class="title-right"> <md-button
+							id="retailUsrAccDetPageMoreOptions"
+							class="md-icon-button more-details"
+							ng-click='$mdOpenMenu($event)' aria-label="More"> <md-icon
+							class="app app-ellipses"></md-icon> </md-button> <md-menu-content
+							class="fin-menu-content" width="4"> <md-menu-item>
+						<md-button id="retailUsrAccDetPageTEXT_TRANSACTIONS"
+							ng-click='fields.accountDetailSource = "ACC_OTHER_PAGE";fields.trxSearchFlag = false;setEvent("onAccountClick")'>
+
+						{{appLiterals.APP.DASHBOARD.ACCOUNTS_DETAILS_PAGE.TEXT_TRANSACTIONS}}
+						</md-button> </md-menu-item> </md-menu-content> </md-menu>
+					</div>
+					<div class=" col-sm-12 padding-zero">
+						<div class="left-right-arrows">
+							<div id="retailUsrAccDetPageArrow{{$index}}"
+								ng-hide="fields.selectAcccountMax <= 1 || fields.browseAccountIndexInt === 0"
+								class="item-arrow-left"
+								ng-click='
+              fields.browseAccountIndexInt = (fields.browseAccountIndexInt == 0 ? (fields.selectAcccountMax-1) : fields.browseAccountIndexInt-1);
+              fields.accountDetailSource = "ACC_ITEM"; 
+              fields.browseAccountIndex = "" + fields.browseAccountIndexInt + ""; 
+              fields.currAccountDetails = fields.dashboardResponseList[fields.browseAccountIndexInt];              
+              setEvent(fields.acccountEventName);
+              '>
+								<span class="app app-arrow2 item-arrow"></span>
+							</div>
+
+							<div id="retailUsrAccDetPageArrow{{$index}}"
+								ng-hide="fields.selectAcccountMax <= 1 || fields.browseAccountIndexInt === fields.selectAcccountMax - 1"
+								class="item-arrow-right"
+								ng-click='
+              fields.browseAccountIndexInt = (fields.browseAccountIndexInt == (fields.selectAcccountMax-1) ? 0 : (fields.browseAccountIndexInt+1));            
+              fields.accountDetailSource = "ACC_ITEM"; 
+              fields.browseAccountIndex = "" + fields.browseAccountIndexInt + ""; 
+              fields.currAccountDetails = fields.dashboardResponseList[fields.browseAccountIndexInt];              
+              setEvent(fields.acccountEventName);
+              '>
+								<span class="app app-arrow3 item-arrow"></span>
+							</div>
+
+						</div>
+
+						<div class="col-sm-12">
+							<div class="col-sm-10">
+								<div class="account-detail-wrap">
+									<p class="dash-ac-num">
+									<!--Handled in account formatting-->
+										<!-- 	<span id="retailUsrAccDetAccountNickName" class="dash-ac-no">{{fields.currAccountDetails.accountNickName}}
+											{{fields.currAccountDetails.accountNickName.length > 0 ? "-":
+											""}}</span>  -->
+										<span id="retailUsrAccDetAccountId" class="dash-ac-no">{{fields.currAccountDetails.accountId}}
+										</span> <br> <span id="retailUsrAccDetAccountType"
+											class="due-date">{{dashboard.currSuccessResponse.responsesList[1].accountType}}</span>
+									</p>
+
+									<div class="balance-detail"
+										ng-init="formattedAccBal=parseMoney(fields.currAccountDetails.balance)">
+										<!--	<p class="balance-available-dash dash-ac-no">
+											{{fields.accountAmountLabel}}</p> -->
+
+										<fin-balance id="retailUsrAccDePageBalanceAvailable"
+											amount="{{formattedAccBal}}" amount-class="amt-rs"
+											currency-class="amt-cur" />
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--<div class="app-future dash-future">
+									<div class="future-wrap">
+										<div class="future-cont"
+											ng-click='fields.accountDetailSource = "ACC_OTHER_PAGE";fields.trxSearchFlag = false;setEvent("onAccountClick")'>
+											<div class="fut-txt">
+												{{appLiterals.APP.DASHBOARD.ACCOUNTS_DETAILS_PAGE.TEXT_TRANSACTIONS}}-->
+					</div>
+				</div>
+				<div class="dashboard-pad">
+					<div class=" dashboard-item-body">
+						<div class="dashboard-item-title col-sm-12 sub-menu-title">
+
+							<div id="retailUsrAccDetTEXT_DETAILS"
+								class="item-title text-uppercase">
+								{{appLiterals.APP.DASHBOARD.ACCOUNTS_DETAILS_PAGE.TEXT_DETAILS}}
+
+							</div>
+							<!--	<div class="future-cont"
+											ng-click='setEvent("onTransactionSearchClick")'>
+											<span class="fut-txt">
+												{{appLiterals.APP.COMMON.TEXT.SEARCH}} </span>
+										</div> -->
+						</div>
+
+						<div class="col-sm-12">
+
+
+							<!-- data begin -->
+							<div class="detail-pad"
+								ng-show='fields.currAccountDetails.mainAccountType == "OPR"'>
+								<div class="dashboard-details">
+
+									<div class="account-detail-dash margin-zero">
+										<b id="retailUsrAccDetTEXT_STATUS" class="dash-ac-no">
+											{{appLiterals.APP.COMMON.TEXT.STATUS}} </b> <span
+											class="dash-ac-id" id="retailUsrAccDetAccountStatus">
+											{{dashboard.currSuccessResponse.responsesList[1].accountStatus
+											== null ? "-" :
+											dashboard.currSuccessResponse.responsesList[1].accountStatus}}
+										</span>
+									</div>
+									<div
+										ng-init="currAccBal=parseMoney(fields.currAccountDetails.balance)"
+										class="account-detail-dash margin-zero">
+										<b id="retailUsrAccDetTEXT_LEDGER_BALANCE" class="dash-ac-no">
+											{{appLiterals.APP.DASHBOARD.ACCOUNTS_DETAILS_PAGE.TEXT_LEDGER_BALANCE}}
+										</b>
+										<fin-balance id="retailUsrAccDetCurrAccBal"
+											amount="{{currAccBal}}" amount-class="amt-rs"
+											currency-class="amt-cur" />
+
+									</div>
+								</div>
+
+
+
+							</div>
+							<!-- data end -->
+
+
+							<!-- data begin -->
+							<div class="detail-pad"
+								ng-show='fields.currAccountDetails.mainAccountType == "DEP"'>
+								<div class="dashboard-details">
+
+									<div class="account-detail-dash margin-zero">
+										<b id="retailUsrAccDetTEXT1_STATUS" class="dash-ac-no">
+											{{appLiterals.APP.DASHBOARD.ACCOUNTS_DETAILS_PAGE.TEXT1_STATUS}}
+										</b> <span id="retailUsrAccDetAccount_Status" class="dash-ac-id ">
+											{{dashboard.currSuccessResponse.responsesList[1].accountStatus}}
+										</span>
+
+									</div>
+
+									<div class=" account-detail-dash margin-zero">
+										<b id="retailUsrAccDetTEXT_TENURE_PERIOD" class="dash-ac-no">
+											{{appLiterals.APP.DASHBOARD.ACCOUNTS_DETAILS_PAGE.TEXT_TENURE_PERIOD}}
+										</b> <span id="retailUsrAccDetTXT_MONTHS_TXT_DAYS"
+											class="dash-ac-id">
+											{{dashboard.currSuccessResponse.responsesList[1].tenurePeriodMonths}}
+											{{appLiterals.APP.DASHBOARD.RETAIL_USER_ACC_DETAILS_PAGE.TXT_MONTHS}},
+											{{dashboard.currSuccessResponse.responsesList[1].tenurePeriodDays}}
+											{{appLiterals.APP.DASHBOARD.RETAIL_USER_ACC_DETAILS_PAGE.TXT_DAYS}}
+										</span>
+
+
+									</div>
+
+									<div class="account-detail-dash margin-zero">
+										<b id="retailUsrAccDetTEXT_MATURITY_DATE" class="dash-ac-no">
+											{{appLiterals.APP.DASHBOARD.ACCOUNTS_DETAILS_PAGE.TEXT_MATURITY_DATE}}
+										</b> <span id="retailUsrAccDetMaturityDate" class="dash-ac-id">
+											<fin-Date
+												date-value='{{dashboard.currSuccessResponse.responsesList[1].maturityDate}}'></fin-Date>
+										</span>
+
+									</div>
+
+
+									<div class="account-detail-dash margin-zero">
+										<b id="retailUsrAccDetTEXT_AUTO_RENEWAL" class="dash-ac-no">
+											{{appLiterals.APP.DASHBOARD.ACCOUNTS_DETAILS_PAGE.TEXT_AUTO_RENEWAL}}
+										</b> <span id="retailUsrAccDetAutoRenewal" class="dash-ac-id">
+											{{dashboard.currSuccessResponse.responsesList[1].autoRenewal}}
+										</span>
+
+									</div>
+
+
+
+									<div
+										ng-init="accLedgerBal=parseMoney(dashboard.currSuccessResponse.responsesList[1].accountLedgerBalance)"
+										class="account-detail-dash margin-zero">
+										<b id="retailUsrAccDet_TEXT_LEDGER_BALANCE" class="dash-ac-no">
+											{{appLiterals.APP.DASHBOARD.ACCOUNTS_DETAILS_PAGE.TEXT_LEDGER_BALANCE}}
+										</b>
+										<fin-balance id="retailUsrAccDetAccLedgerBal"
+											amount="{{accLedgerBal}}" amount-class="amt-rs"
+											currency-class="amt-cur" />
+
+									</div>
+									<div
+										ng-init="maturityAmt=parseMoney(dashboard.currSuccessResponse.responsesList[1].maturityAmount)"
+										class="account-detail-dash margin-zero">
+										<b id="retailUsrAccDetTEXT_MATURITY_AMOUNT"
+											class="dash-ac-no ">
+											{{appLiterals.APP.DASHBOARD.ACCOUNTS_DETAILS_PAGE.TEXT_MATURITY_AMOUNT}}
+										</b>
+										<fin-balance id="retailUsrAccDetMaturityAmt"
+											amount="{{maturityAmt}}" amount-class="amt-rs"
+											currency-class="amt-cur" />
+
+									</div>
+									<div class="account-detail-dash margin-zero">
+										<b id="retailUsrAccDetTEXT_INTEREST_RATE" class="dash-ac-no">
+											{{appLiterals.APP.DASHBOARD.ACCOUNTS_DETAILS_PAGE.TEXT_INTEREST_RATE}}
+										</b> <span id="retailUsrAccDetInterestRate" class="dash-ac-id">
+											{{dashboard.currSuccessResponse.responsesList[1].interestRate
+											== "" ? "-" :
+											dashboard.currSuccessResponse.responsesList[1].interestRate}}
+										</span>
+									</div>
+								</div>
+
+							</div>
+							<!-- data end -->
+
+							<!-- data begin -->
+							<div class="detail-pad"
+								ng-show='fields.currAccountDetails.mainAccountType == "LON"'>
+
+
+								<div class="account-detail-dash margin-zero">
+									<b id="retailUsrAccDet_LOAN_TEXT_STATUS" class="dash-ac-no">
+										{{appLiterals.APP.DASHBOARD.ACCOUNTS_DETAILS_PAGE.TEXT_STATUS}}
+									</b> <span id="retailUsrAccDet_LOAN_AccountStatus"
+										class="dash-ac-id">
+										{{dashboard.currSuccessResponse.responsesList[1].accountStatus}}
+									</span>
+
+								</div>
+
+								<div class="account-detail-dash margin-zero">
+									<b id="retailUsrAccDet_LOAN_TEXT_LOAN_PERIOD"
+										class="dash-ac-no">
+										{{appLiterals.APP.DASHBOARD.ACCOUNTS_DETAILS_PAGE.TEXT_LOAN_PERIOD}}
+									</b> <span id="retailUsrAccDet_LOAN_TXT_MONTHS_TXT_DAYS"
+										class="dash-ac-id">
+										{{dashboard.currSuccessResponse.responsesList[1].loanPeriodMonths}}
+										{{appLiterals.APP.DASHBOARD.RETAIL_USER_ACC_DETAILS_PAGE.TXT_MONTHS}},
+										{{dashboard.currSuccessResponse.responsesList[1].loanPeriodDays}}
+										{{appLiterals.APP.DASHBOARD.RETAIL_USER_ACC_DETAILS_PAGE.TXT_DAYS}}
+									</span>
+
+
+								</div>
+
+								<div
+									ng-init="sanctionAmt=parseMoney(dashboard.currSuccessResponse.responsesList[1].sanctionAmount)"
+									class="account-detail-dash margin-zero">
+									<b id="retailUsrAccDet_LOAN_TEXT_SANCTIONED_AMOUNT"
+										class="dash-ac-no">
+										{{appLiterals.APP.DASHBOARD.ACCOUNTS_DETAILS_PAGE.TEXT_SANCTIONED_AMOUNT}}
+									</b>
+									<fin-balance id="retailUsrAccDetSanctionAmt"
+										amount="{{sanctionAmt}}" amount-class="amt-rs"
+										currency-class="amt-cur" />
+
+								</div>
+
+
+								<div class="account-detail-dash margin-zero">
+									<b id="retailUsrAccDet_LOAN_TEXT_INTEREST_RATE"
+										class="dash-ac-no">
+										{{appLiterals.APP.DASHBOARD.ACCOUNTS_DETAILS_PAGE.TEXT_INTEREST_RATE}}
+									</b> <span id="retailUsrAccDet_LOAN_InterestRate"
+										class="dash-ac-id">
+										{{dashboard.currSuccessResponse.responsesList[1].interestRate
+										== "" ? "-" :
+										dashboard.currSuccessResponse.responsesList[1].interestRate}}
+									</span>
+
+								</div>
+
+
+								<div
+									ng-init="overDueAmt=parseMoney(dashboard.currSuccessResponse.responsesList[1].overDueAmount)"
+									class="account-detail-dash margin-zero">
+									<b class="dash-ac-no">
+										{{appLiterals.APP.DASHBOARD.ACCOUNTS_DETAILS_PAGE.TEXT_OVERDUE_AMOUNT}}
+									</b>
+									<fin-balance id="retailUsrAccDetOverDueAmt"
+										amount="{{overDueAmt}}" amount-class="amt-rs"
+										currency-class="amt-cur" />
+
+								</div>
+
+
+
+								<div class="account-detail-dash  margin-zero">
+									<b id="retailUsrAccDetTEXT_SANCTIONED_DATE" class="dash-ac-no">
+										{{appLiterals.APP.DASHBOARD.ACCOUNTS_DETAILS_PAGE.TEXT_SANCTIONED_DATE}}
+									</b> <span class="dash-ac-id"> <fin-Date
+											id="retailUsrAccDetLoanSanctionDate"
+											date-value='{{dashboard.currSuccessResponse.responsesList[1].loanSanctionDate}}'></fin-Date>
+									</span>
+								</div>
+								<div
+									ng-init="emiAmt=parseMoney(dashboard.currSuccessResponse.responsesList[1].emiAmount)"
+									class="account-detail-dash margin-zero">
+									<b id="retailUsrAccDetTEXT_EMI_AMOUNT" class="dash-ac-no">
+										{{appLiterals.APP.DASHBOARD.ACCOUNTS_DETAILS_PAGE.TEXT_EMI_AMOUNT}}
+									</b>
+									<fin-balance id="retailUsrAccDetOperativeAccountBalance"
+										amount="{{emiAmt}}" amount-class="amt-rs"
+										currency-class="amt-cur" />
+
+								</div>
+								<div
+									ng-init="disbursedAmt=parseMoney(dashboard.currSuccessResponse.responsesList[1].disbursedAmount)"
+									class="account-detail-dash margin-zero">
+									<b id="retailUsrAccDetTEXT_DISBURSED_AMOUNT" class="dash-ac-no">
+										{{appLiterals.APP.DASHBOARD.ACCOUNTS_DETAILS_PAGE.TEXT_DISBURSED_AMOUNT}}
+									</b>
+									<fin-balance id="retailUsrAccDetDisbursedAmt"
+										amount="{{disbursedAmt}}" amount-class="amt-rs"
+										currency-class="amt-cur" />
+
+
+								</div>
+								<div class="account-detail-dash margin-zero">
+									<b id="retailUsrAccDetTEXT_NEXT_EMI_DATE" class="dash-ac-no">
+										{{appLiterals.APP.DASHBOARD.ACCOUNTS_DETAILS_PAGE.TEXT_NEXT_EMI_DATE}}
+									</b> <span class="dash-ac-id"> <fin-Date
+											id="retailUsrAccDetNextEMIDate"
+											date-value='{{dashboard.currSuccessResponse.responsesList[1].nextEMIDate}}'></fin-Date>
+									</span>
+								</div>
+
+
+
+							</div>
+							<!-- data end -->
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+</div>

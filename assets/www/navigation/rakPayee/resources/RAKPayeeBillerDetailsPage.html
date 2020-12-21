@@ -1,0 +1,43 @@
+<!-- partial code start here-->
+<div class="finacle-container" ng-init="rakPayee.resetBillerModule(); rakPayee.getPayeeInitForBillerDetails(successResponse.responsesList)">
+    <div class="view-detail-wrap">
+        <div class="app app-arrow payee-left" ng-click="setGlobalEvent('onPayBillsClick')"> </div>
+        <img src="images/face_default.png" class="payee-circle-img">
+            <p class="payee-circle-txt">
+            <span class="payee-first-txt">{{rakPayee.billerDetailsModel.billerNickName.charAt(0).toUpperCase()}}{{rakPayee.billerDetailsModel.billerNickName.split(" ").length > 1 ? rakPayee.billerDetailsModel.billerNickName.split(" ")[rakPayee.billerDetailsModel.billerNickName.split(" ").length-1].charAt(0).toUpperCase() : ""}}</span>
+            </p>
+            <p class="second-name"> {{rakPayee.billerDetailsModel.billerNickName}}</p>
+            <p class="first-name"> {{rakPayee.billerDetailsModel.billerName}} </p>
+            
+            </div>
+    <div class="benf-black-scr-min">
+    </div>
+    
+    <div class="beneficiary-wrap3">
+        <!-- <div class="my-ac-type">
+            <p class="type-name"> {{appLiterals.APP.PAYEE.BILLDET_PAGE.TXT_BILTYPE}}</p>
+            <p class="trans-no1">{{rakPayee.billerDetailsModel.billerType}}</p>
+        </div>
+        
+        <div class="my-ac-type">
+            <p class="type-name"> {{appLiterals.APP.PAYEE.BILLDET_PAGE.TXT_SUBDTE}}</p>
+            <p class="trans-no1"> {{rakPayee.billerDetailsModel.billerSubscriptionDate}} </p>
+        </div>-->
+        
+        <div class="my-ac-type">
+            <p class="type-name"> {{appLiterals.APP.PAYEE.BILLDET_PAGE.TXT_CONSCODE}}</p>
+            <p class="trans-no1"> {{rakPayee.billerDetailsModel.billerConsumerCode}} </p>
+        </div>
+        
+    </div>
+    <div class="col-sm-10">
+        <button type="button" class="btn--init-btn" ng-click="moveMoney.currentSubFeature=moveMoney.subFeature.Payee; setEvent('onPaymentInitiateTransferClick')"> {{appLiterals.APP.PAYEE.BILLDET_PAGE.BTN_INITTRANF}} </button>
+<!--RAK:Sindhu-Start-->
+	   <button type="button" class="btn--init-btn" ng-click="setEvent('onRAKViewTxnHistoryClick');"> {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_INITIATE.BTN_TXNHIST}} </button>
+<!--RAK:Sindhu-End-->
+        <button type="button" class="btn--edit-btn" ng-click="rakPayee.isEditBillerMode=true;setEvent('onEditBillerClick')"> {{appLiterals.APP.PAYEE.BILLDET_PAGE.BTN_EDTDET}} </button>
+        <button type="button" class="btn--delete-btn" ng-click="rakPayee.isDeleteBillerMode=true;setEvent('onDeleteBillerClick')">  {{appLiterals.APP.PAYEE.BILLDET_PAGE.BTN_DELBIL}}  </button>
+    </div>
+    
+</div>
+<!--partial code end here-->

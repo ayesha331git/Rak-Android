@@ -1,0 +1,44 @@
+<nav class="navbar navbar-default" role="navigation">
+	<div class="navbar-header">
+		<img class="banner" width=64px height=64px>
+		<p class="navbar-text">{{appLiterals.APP.REGISTRATION.USRDET_PAGE.HEADER}}</p>
+	</div>
+</nav>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="centering text-center">
+			<h2>{{appLiterals.APP.REGISTRATION.USRDET_PAGE.TXT_REG}}</h2>
+			<br>
+			<p>{{appLiterals.APP.REGISTRATION.USRDET_PAGE.SLF_ENRLDET}}</p>
+			<form id="retUsrIndepLgnRegUsrDetPageForm" ng-submit="setEvent('onRegisterUserDetailsClicked')">
+				<div class="form-group">
+					<input type="text" class="form-control" id="firstName"
+						placeholder="{{appLiterals.APP.REGISTRATION.USRDET_PAGE.PH_FRSTNAM}}">
+					<input type="text" class="form-control" id="middleName"
+						placeholder="{{appLiterals.APP.REGISTRATION.USRDET_PAGE.PH_MIDLNAM}}">
+					<input type="text" class="form-control" id="lastName"
+						placeholder="{{appLiterals.APP.REGISTRATION.USRDET_PAGE.PH_LSTNAM}}">
+					<input type="text" class="form-control" id="customerId"
+						placeholder="{{appLiterals.APP.REGISTRATION.USRDET_PAGE.PH_CUSTID}}">
+					<input type="text" class="form-control" id="accountNo"
+						placeholder="{{appLiterals.APP.REGISTRATION.USRDET_PAGE.PH_ACNO}}">
+					<input type="text" class="form-control" id="gender"
+						placeholder="{{appLiterals.APP.REGISTRATION.USRDET_PAGE.PH_GENDER}}">
+					<!-- input type="text" class="form-control" id="dateOfBirth" placeholder="DoB">
+			    <input type="text" class="form-control" id="mobileNo" placeholder="Mobile No">
+			    <input type="text" class="form-control" id="email ID" placeholder="Email ID" -->
+				</div>
+				<div class="form-group">
+					<md-button id="retUsrIndepLgnRegUsrDetPageBtnProceed"
+						type="submit" class="btn md-raised btn-success">{{appLiterals.APP.REGISTRATION.USRDET_PAGE.BTN_PROC}}</md-button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<footer class="navbar-default navbar-fixed-bottom">
+	<ul class="pager">
+		<li class="previous"><a href="#"><span aria-hidden="true">&larr;</span>{{appLiterals.APP.REGISTRATION.USRDET_PAGE.TXT_BACK}}</a></li>
+	</ul>
+</footer>

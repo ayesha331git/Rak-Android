@@ -1,0 +1,78 @@
+  <div class="rak-back-header">
+    <i class="rak-back-img" ng-click="rakPayee.common.fromAuthPage=true;rakPayee.ddmcBenfTab=true;rakPayee.bankbnftype=rakPayee.constants.NETWORKTYPEDDMC;setEvent('onPayeeBeneficiaryEditBackClick');"></i>
+  </div>
+  <div class="nano menu-scroll">
+	<div class="nano-content">
+ <div class="finacle-container" ng-init="rakPayee.selectedPayee = successResponse.responsesList || rakPayee.selectedPayee;rakPayee.payeeModel.editDDMCBeneficiaryDetails(rakPayee.selectedPayee);">
+	 <div class="account-page">
+		<div class="col-sm-11">
+		
+		 	<div class="main-form-heading-payee"> 
+					      <h2 >{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_EDIT_BNF}}		      
+					      <span ng-show="rakPayee.isEditBeneficiaryMode">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1}} : {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1_TXT_EDITBNF}} </span>
+					      </h2>	
+					      
+					      		           
+					  </div>
+	
+				
+		
+		   <div class="bg-color fin-txt rak-cont-padding rak-scroll">
+		   
+			<div class="" >
+		
+			 
+               	 <!--  Name -->
+			  <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NAME}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payeeModel.name}}</span>
+				</p> 
+			  
+			 <!--   Not Readonly -->
+			  <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NICKNAME}}</span>
+					<span class="rak-sum-label black rak38Edit" ng-if="!rakPayee.payBill.editIconFlag">{{rakPayee.payeeModel.nickName}}</span>
+					<span class="rakEditBenfImg" ng-if="!rakPayee.payBill.editIconFlag" ng-click="rakPayee.payBill.editIconFlag=true;"></span>
+					<span class="rak-sum-label black" ng-if="rakPayee.payBill.editIconFlag"><fin-input  type="text" model="rakPayee.payeeModel.nickName" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NICKNAME}}" validation-flag='pageErrorArr["rakPayee.payeeModel.nickName"]'> </fin-input> </span>
+			  </p>                    
+             
+             
+              <!-- Payee Country -->
+              <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_COUNTRY}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payeeModel.rakBnfCountry}}</span>
+				</p> 
+				
+		
+		    <!-- Payee Bank Name -->
+              <p class="rak-sum-txt"  >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BANK_NAME}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payeeModel.selectedBank}}</span>
+				</p> 
+				
+		 <!-- Account number  -->     
+              <p class="rak-sum-txt"  >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_ACCNO_RADIO}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payeeModel.accountNumber}}</span>
+				</p> 
+             
+  	
+		
+			<div class="fin-txt"></div>	       
+                                                                      				 
+				 <div class="label-wrap">            
+              <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakPayee.checkCountry(rakPayee.payeeModel.rakBnfCountry);rakPayee.validateBenfNickName();rakPayee.payeeModel.editBnfFlag=true;"> {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_EDIT_DELETE_CONT}} </button>
+              </div>
+               <div class="col-sm-1"> </div>
+              </div>
+             
+          </div>
+         
+         
+         
+       </div>             
+       </div>
+    </div>
+		</div>
+</div>
+</div>

@@ -1,0 +1,14 @@
+ <div class="money-block">
+          <ul>
+           <!--  CHANGES FOR BUY/SELL PAY AGAIN START -->
+               <li ng-class="{'active headerSelectedMargin':rakPayCards.rakInvGold.Buy,'':!rakPayCards.rakInvGold.Buy}" ng-click="rakPayCards.rakInvGold.clearTab();rakPayCards.rakInvGold.clearSelfTransfersData();rakPayCards.utils.clearCommonData();rakPayCards.rakInvGold.txnType=rakPayCards.BuySellGoldTypeConstant.BUY;rakPayCards.rakInvGold.Buy=true;rakPayCards.rakInvGold.clearFields();rakPayCards.txnHistory.fromInitPage=true;rakPayCards.rakInvGold.stopBtnClicked=false;setGlobalEvent('onBuyGoldClick')">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDTABLBL.BUYGOLD}}</li>
+            <!--  CHANGES FOR BUY/SELL PAY AGAIN END -->
+           
+            <li ng-class="{'active headerSelectedMargin':rakPayCards.rakInvGold.Sell,'':!rakPayCards.rakInvGold.Sell}" ng-click="rakPayCards.rakInvGold.clearTab();rakPayCards.rakInvGold.clearSelfTransfersData();rakPayCards.utils.clearCommonData();rakPayCards.rakInvGold.Sell=true;rakPayCards.rakInvGold.txnType=rakPayCards.BuySellGoldTypeConstant.SELL;rakPayCards.txnHistory.fromInitPage=true;rakPayCards.rakInvGold.stopBtnClicked=false;setGlobalEvent('onSellGoldClick')">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDTABLBL.SELLGOLD}}</li>
+            
+            <!--  CHANGES FOR BUY/SELL PAY AGAIN START -->
+            <li ng-class="{'active headerSelectedMargin':rakPayCards.rakInvGold.History,'':!rakPayCards.rakInvGold.History}" ng-click="rakPayCards.txnHistory.selectedTransactionType='';rakPayCards.rakInvGold.clearTab();rakPayCards.rakInvGold.History=true;rakPayCards.txnHistory.clearSearchHistory();rakPayCards.txnHistory.setInitialDate();rakPayCards.rakInvGold.stopBtnClicked=false;setGlobalEvent('onrakBuySellGoldHistoryClick')">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDTABLBL.HISTORY}}</li>                 
+           <!--  CHANGES FOR BUY/SELL PAY AGAIN END -->
+         
+          </ul>
+        </div>

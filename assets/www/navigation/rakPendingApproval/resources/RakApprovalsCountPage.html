@@ -1,0 +1,49 @@
+<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setGlobalEvent('onDashboardClick');"></i>
+</div>
+<div class="nano menu-scroll">
+<div class="nano-content">
+<div class="finacle-container ng-scope" ng-init='rakPendingApproval.fetchPenApprCount(successResponse.responsesList);'>
+	<div class="account-page">
+		<div class="col-sm-11">	
+		
+		
+		<div class="selfReg-main-form-heading">
+						<div>
+							<span class="rak-black-color upd-label ">{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.MAIN_HEADER}}</span>
+								
+						</div>
+					</div>
+		</div>
+		<div class="bg-color rak-cont-padding">
+	<div class="rakServiceReqList marginProfileLanding">
+		<ul class="rak-accordianUL blockWidth">
+
+
+
+			<li class="rak-accordianList" >
+				<ul class="reqSubMenu blockDisplay profilelanding approvallanding" id="srId">
+					<li ng-click='rakPendingApproval.pendingApprovalTab="PMA";rakPendingApproval.fromLandingPage=true;rakPendingApproval.fromLandingPage=true;rakPendingApproval.fromSearch=false;rakPendingApproval.resetSearchVals();rakPendingApproval.setInitialFromToDate();rakPendingApproval.setFromToDate();rakPendingApproval.fromCountPage();rakPendingApproval.setInitialData();setGlobalEvent("onPendingApprovalClick");'><span class="aprSpan1">{{appLiterals.APP.RAKPENDINGAPPROVAL.TABHEADERS.VIEW_APPROVAL_Q}}</span> <span class="aprSpan2"> : {{rakPendingApproval.rakPMACount}}</span></li>
+					
+					<li ng-click='rakPendingApproval.pendingApprovalTab="PCA";rakPendingApproval.fromLandingPage=true;rakPendingApproval.fromLandingPage=true;rakPendingApproval.fromSearch=false;rakPendingApproval.resetSearchVals();rakPendingApproval.setInitialFromToDate();rakPendingApproval.setFromToDate();rakPendingApproval.fromCountPage();rakPendingApproval.setInitialData();setGlobalEvent("onPendingApprovalClick");'><span class="aprSpan1">{{appLiterals.APP.RAKPENDINGAPPROVAL.TABHEADERS.VIEW_UNAPPROVED_TXNS}}</span> <span class="aprSpan2"> : {{rakPendingApproval.rakPCACount}}</span></li>
+					
+					<li ng-click='rakPendingApproval.pendingApprovalTab="PIA";rakPendingApproval.fromLandingPage=true;rakPendingApproval.fromSearch=false;rakPendingApproval.fromLandingPage=true;rakPendingApproval.resetSearchVals();rakPendingApproval.setInitialFromToDate();rakPendingApproval.setFromToDate();rakPendingApproval.fromCountPage();rakPendingApproval.setInitialData();setGlobalEvent("onPendingIncompleteTxnsClick");'><span class="aprSpan1">{{appLiterals.APP.RAKPENDINGAPPROVAL.TABHEADERS.VIEW_INCOMPLETE_TXNS}}</span> <span class="aprSpan2"> : {{rakPendingApproval.rakPIACount}}</span></li>
+					
+				
+					
+				</ul>
+			</li>
+
+
+
+		</ul>
+	</div>
+		
+		
+
+		
+	</div>
+</div>
+</div>
+</div>
+</div>

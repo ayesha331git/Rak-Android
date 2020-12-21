@@ -1,0 +1,105 @@
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="rakServiceReq.resetRAKInvOpenGoldAccDetails();rakServiceReq.setRakGoldApplyInitBackBtnClicked();"></i>
+	</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.fetchRAKInvOpenGoldAccData(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+				<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.INV_OPENGOLDACC}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+				      </h2>		       
+		 		</div>
+				
+					<div class="app-title-wrapper">
+						<div class="form-block">
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="">
+									
+									<div
+										ng-init='OprAcctArr = createDropDownOptionArray(rakServiceReq.RakInvOpenGoldAccModel.OprAcctList, ["acctTypeDesc"," ","accountId"," ","currencyCode"], "accountIndex");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RakInvOpenGoldAccModel.selectedOprAcct"
+										display-row="full"
+										on-change="rakServiceReq.isSelectedAccSingleOrJoint();rakServiceReq.RakInvOpenGoldAccModel.updateBal('onAccountSelectionBalCall');rakServiceReq.RakInvOpenGoldAccModel.quantity='';rakServiceReq.RakInvOpenGoldAccModel.buyRate='';"
+										placeholder="{{appLiterals.APP.RAKGLDACCOPEN.GAO_SELECT_OPR_ACCOUNTS}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakInvOpenGoldAccModel.selectedOprAcct"]'
+										option-array="OprAcctArr"> </fin-input>
+
+										<div ng-show='rakServiceReq.RakInvOpenGoldAccModel.selectedOprAcct'>
+											<p class="balance-available2">
+												{{appLiterals.APP.RAKGLDACCOPEN.TXT_BALANCE}}
+												<span class="rs-color">
+													{{rakServiceReq.RakInvOpenGoldAccModel.availBal}}</span>
+											</p>
+										</div>
+												<div>
+											<fin-input type="number_card" model="rakServiceReq.RakInvOpenGoldAccModel.quantity"
+												display-row="full" ng-maxlength="9" on-change="rakServiceReq.RakInvOpenGoldAccModel.getKeyUp();"
+												placeholder="{{appLiterals.APP.RAKGLDACCOPEN.PLCHOLDER_QUANTITY}}"
+												validation-flag='pageErrorArr["rakServiceReq.RakInvOpenGoldAccModel.quantity"]' max-length="9">
+											</fin-input>
+												</div>
+										 <div class="fin-input-container rakTransfersexchangerate-withNoColorblock"
+											ng-if="rakServiceReq.RakInvOpenGoldAccModel.quantity && rakServiceReq.RakInvOpenGoldAccModel.buyRate">
+
+											<p class="rakexchangevalue rakGoldDisplayOne" ng-if="rakServiceReq.RakInvOpenGoldAccModel.buyRate">{{appLiterals.APP.RAKGLDACCOPEN.BUY_RATE}} : {{rakServiceReq.RakInvOpenGoldAccModel.buyRate}}</p>
+											<p class="rakexchangevalue rakGoldDisplayTwo" ng-if="rakServiceReq.RakInvOpenGoldAccModel.eqtAmt && rakServiceReq.RakInvOpenGoldAccModel.eqtXau"><span ng-bind-html=appLiterals.APP.RAKGLDACCOPEN.EQT_VALUES_NEW></span><span> {{rakServiceReq.RakInvOpenGoldAccModel.eqtAmt}} or XAU {{rakServiceReq.RakInvOpenGoldAccModel.eqtXau}}</span></p>
+										</div>
+										<fin-input type="text_restrictedSpecialCharacter" model="rakServiceReq.RakInvOpenGoldAccModel.remarks"
+																			display-row="full" max-length="34"
+																			placeholder="{{appLiterals.APP.RAKGLDACCOPEN.PLCHOLDER_REMARKS}}"
+																			validation-flag='pageErrorArr["rakServiceReq.RakInvOpenGoldAccModel.remarks"]'>
+																		</fin-input>
+										
+										
+										<div class="fin-txt"></div>
+									<div class="fin-txt"></div>
+
+
+					<div class="disclaimer3" >
+						<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKGLDOPEN"></span>
+						<div class="fin-txt"></div>
+<span ng-click="rakServiceReq.fetchPdf('https://rakbank.ae/wps/portal/retail-banking/accounts/personal/gold-account?WT.svl=4&WT.ac=GoldAccount_RetailPersonal');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+						<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKGLDOPENCONT"></span>
+					
+										
+								<div class="check-boxsLeft">
+				                    <input id="termsFlag"  class="checkbox-custom-new"  type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" ng-model='rakServiceReq.RakInvOpenGoldAccModel.isTnCAccepted' >
+				                    <label for="termsFlag" class="checkbox-custom-label smallCheck margin-zero" ></label>
+				                    <span ng-bind-html="appLiterals.APP.RAKGLDACCOPEN.GAO_TNC1"></span>				                    
+				                    <span ng-click="rakServiceReq.fetchTermsUrl('TermAndConditions_GoldAcctOp.pdf');" class="hyperLinkRed">{{appLiterals.APP.RAKGLDACCOPEN.GAO_TNC2}}</span>
+				                    <span ng-bind-html="appLiterals.APP.RAKGLDACCOPEN.GAO_TNC3"></span>
+				                </div>	
+				                
+				               							
+					</div>
+
+									<div class="label-wrap">
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-right"
+											ng-click="rakServiceReq.setRAKInvGoldAccOpenData();">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+									</div>
+									<div class="col-sm-1"></div>
+									<div class="disclaimer" ng-init='rakDisclaimerFlag=false;'>
+								<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+									<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+								</div>
+								<div class="disclaimer3" ng-if="rakDisclaimerFlag">	
+									<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKGLDXAU"></span>								
+									<span ng-click="rakServiceReq.fetchDisclaimer('InvestmentCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+									<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKBUYGOLD_INITPAGE"></span>
+									 <span ng-click="rakSendMoney.fetchDisclaimer('DailyTransactionLimits.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>														
+								</div>
+							</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

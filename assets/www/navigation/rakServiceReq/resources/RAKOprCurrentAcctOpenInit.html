@@ -1,0 +1,315 @@
+	<div class="rak-back-header">
+				<i class="rak-back-img"
+					ng-click="rakServiceReq.setRakOpenCuurAcctInitBackBtnClicked();"></i>
+		</div>
+<div class="finacle-container"
+	ng-init="rakServiceReq.initOprCurrentAcctOpen(successResponse.responsesList);">
+
+
+	<div class="account-page">
+		<div class="col-sm-11">
+
+			<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CURRENT_ACCOUNT}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+				      </h2>		       
+		 		</div>
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+					
+					<div ng-show="rakServiceReq.RAKOprCurrentAcctOpenLists.refAcctNoList.length > 0"
+						ng-init='refAcctNo = createDropDownOptionArray(rakServiceReq.RAKOprCurrentAcctOpenLists.refAcctNoList,["accountName","-","accountNumber"],"accountIndex");'>
+						<fin-input type="dropdown"
+							model="rakServiceReq.RAKOprCurrentAcctOpenReq.selectedRefNo"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.REF_ACCT_NO}}"
+							validation-flag='pageErrorArr["rakServiceReq.RAKOprCurrentAcctOpenReq.selectedRefNo"]'
+							option-array="refAcctNo"></fin-input>
+					</div>
+
+
+					<div class="rakRow">
+										<div class="radio-biller rak100 rakWidth100">
+											{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.ACCTCRN}}</div>
+										<div class="rak100">
+											<div>
+												<div class="rakCstmRadioDiv rak23 rakTop2emLeft3">
+													<input type="radio" id="radio1"
+														value="{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.AED}}"
+														
+														ng-model="rakServiceReq.RAKOprCurrentAcctOpenReq.selectedCrn" /><label
+														for="radio1"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.AED}}</label>
+												</div>
+												<div class="rakCstmRadioDiv rak23 rakTop2emLeft3">
+													<input type="radio" id="radio2"
+														value="{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.USD}}"
+														
+														ng-model="rakServiceReq.RAKOprCurrentAcctOpenReq.selectedCrn"
+														validation-flag='pageErrorArr["rakServiceReq.RAKOprCurrentAcctOpenReq.selectedCrn"]'
+														/>
+													<label for="radio2"><span><span></span></span>
+														{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.USD}}</label>
+												</div>
+												<div class="rakCstmRadioDiv rak23 rakTop2emLeft3">
+													<input type="radio" id="radio3"
+														value="{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.GBP}}"
+														
+														ng-model="rakServiceReq.RAKOprCurrentAcctOpenReq.selectedCrn"
+														validation-flag='pageErrorArr["rakServiceReq.RAKOprCurrentAcctOpenReq.selectedCrn"]'
+														/>
+													<label for="radio3"><span><span></span></span>
+														{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.GBP}}</label>
+												</div>
+												<div class="rakCstmRadioDiv rak23 rakTop2emLeft3">
+													<input type="radio" id="radio4"
+														value="{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.EUR}}"
+														
+														ng-model="rakServiceReq.RAKOprCurrentAcctOpenReq.selectedCrn"
+														validation-flag='pageErrorArr["rakServiceReq.RAKOprCurrentAcctOpenReq.selectedCrn"]'
+														/>
+													<label for="radio4"><span><span></span></span>
+														{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.EUR}}</label>
+												</div>
+											</div>
+											<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.RAKOprCurrentAcctOpenReq.selectedCrn"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.ACCTCRN}}</div>
+										</div>
+									</div>
+
+
+						<div 
+										ng-init="rakServiceReq.RAKOprCurrentAcctOpenReq.debitCardRqd='Yes'">
+						</div>
+						
+						<p class="rak-parent-txt" ng-if="rakServiceReq.RAKOprCurrentAcctOpenReq.selectedCrn=='AED'">
+									<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.DEBITCARDRQD}}</span> <span
+										class="rak-sum-label black labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.DEBIT_ACC_YES}}</span>
+				</p>
+
+								<!-- 	<div class="rakRow" ng-show="rakServiceReq.RAKOprCurrentAcctOpenReq.selectedCrn=='AED'" ng-if="rakServiceReq.RAKOprCurrentAcctOpenReq.selectedCrn=='AED'">
+										<div class="radio-biller rak20"
+										ng-init="rakServiceReq.RAKOprCurrentAcctOpenReq.debitCardRqd='Yes'">
+											{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.DEBITCARDRQD}}</div>
+										<div class="rak80">
+											<div>
+												<div class="rak33 rakRelative">
+													<input type="radio"
+														value="Yes"
+														
+														ng-model="rakServiceReq.RAKOprCurrentAcctOpenReq.debitCardRqd"
+														validation-flag='pageErrorArr["rakServiceReq.RAKOprCurrentAcctOpenReq.debitCardRqd"]'
+														/>
+														<span class="rakRadioLabel-SR">
+														{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.DEBIT_ACC_YES}}</span>
+												</div>
+
+											</div>
+											<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.RAKOprCurrentAcctOpenReq.debitCardRqd"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.DEBITCARDRQD}}</div>
+										</div>
+									</div> -->
+<!-- 
+									<fin-input type="number_card"
+							model="rakServiceReq.RAKOprCurrentAcctOpenReq.EmiratesId"
+							display-row="full" max-length="15"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.EMIRATESID}}"
+							validation-flag='pageErrorArr["rakServiceReq.RAKOprCurrentAcctOpenReq.EmiratesId"]'></fin-input> -->
+							
+			<div ng-if='rakServiceReq.common.EmiratesIdAvailable=="Y"'> 
+				<p class="rak-parent-txt" >
+									<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.EMIRATESID}}</span> <span
+										class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RAKOprCurrentAcctOpenReq.EmiratesId}}</span>
+				</p>
+				
+				<p class="rak-parent-txt" >
+									<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKOPRSAVACCOPEN.ID_EXPIRY_DATE}}</span> <span
+										class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.common.accountsOpenDisplayDate}}</span>
+				</p>
+
+						
+						
+					<!-- 	<fin-input type="date"
+						model="rakServiceReq.RAKOprCurrentAcctOpenReq.selectedDate"
+						display-row="full" value="futureDatesOnly"
+						placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.ID_EXPIRY_DATE}}"
+						validation-flag='pageErrorArr["rakServiceReq.RAKOprCurrentAcctOpenReq.selectedDate"]'></fin-input>
+				
+					 	<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAKOPRSAVACCOPEN.ID_EXPIRY_DATE}}</span> -->
+              
+             </div>           
+					<div class="rakRow" ng-show="rakServiceReq.RAKOprCurrentAcctOpenLists.refAcctNoList.length > 0">
+										<div class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px"	>
+											{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.UAERESIDENT}}</div>
+										<div class="rak100">
+											<div>
+												<div class="rakCstmRadioDiv rak50 rakTop2emLeft3">
+													<input type="radio" id="radio6"
+														value="Yes"
+														
+														ng-model="rakServiceReq.RAKOprCurrentAcctOpenReq.uaeResident"
+														validation-flag='pageErrorArr["rakServiceReq.RAKOprCurrentAcctOpenReq.uaeResident"]'
+														/>
+														<label for="radio6"><span><span></span></span>
+														{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.UAERESIDENT_Y}}</label>
+												</div>
+												<div class="rakCstmRadioDiv rak47 rakTop2emLeft3">
+													<input type="radio" id="radio7"
+														value="No"
+														
+														ng-model="rakServiceReq.RAKOprCurrentAcctOpenReq.uaeResident"
+														validation-flag='pageErrorArr["rakServiceReq.RAKOprCurrentAcctOpenReq.uaeResident"]'
+														/>
+														<label for="radio7"><span><span></span></span>
+														{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.UAERESIDENT_N}}</label>
+
+												</div>
+											</div>
+											<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.RAKOprCurrentAcctOpenReq.uaeResident"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.UAERESIDENT}}</div>
+										</div>
+									</div>
+
+			
+						
+						<fin-input type="date" ng-show="rakServiceReq.RAKOprCurrentAcctOpenReq.uaeResident == 'Yes' && rakServiceReq.RAKOprCurrentAcctOpenLists.refAcctNoList.length > 0"
+						model="rakServiceReq.RAKOprCurrentAcctOpenReq.visaExpiryDate"
+						display-row="full" value="futureDatesOnly"
+						placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.VISA_EXPIRY_DATE}}"
+						validation-flag='pageErrorArr["rakServiceReq.RAKOprCurrentAcctOpenReq.visaExpiryDate"]'></fin-input>
+						
+						<p class="" ng-show="rakServiceReq.RAKOprCurrentAcctOpenReq.uaeResident == 'Yes' && rakServiceReq.RAKOprCurrentAcctOpenLists.refAcctNoList.length > 0">
+												{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.VISA_EXPIRY_DATE}}
+						</p>
+
+
+						<div
+						ng-init='branchForKIT = createDropDownOptionArray(rakServiceReq.RAKOprCurrentAcctOpenLists.branchForKITList,["branchName"],"branchIndex");'>
+						<fin-input type="dropdown"
+							model="rakServiceReq.RAKOprCurrentAcctOpenReq.selectedBranch"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.BRANCH_FOR_KIT}}"
+							validation-flag='pageErrorArr["rakServiceReq.RAKOprCurrentAcctOpenReq.selectedBranch"]'
+							option-array="branchForKIT"></fin-input>
+					</div>
+
+
+					<div class="rakRow" ng-if="rakServiceReq.RAKOprCurrentAcctOpenReq.selectedCrn=='AED' && rakServiceReq.RAKOprCurrentAcctOpenLists.refAcctNoList.length > 0">
+										<div class="radio-biller rak100 rakWidth100">
+											{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.CHKBOOKRQD}}</div>
+										<div class="rak100">
+											<div>
+												<div class="rakCstmRadioDiv rak50 rakTop2emLeft3">
+													<input type="radio" id="radio8"
+														value="Yes"
+														
+														ng-model="rakServiceReq.RAKOprCurrentAcctOpenReq.chkBookRqd"
+														validation-flag='pageErrorArr["rakServiceReq.RAKOprCurrentAcctOpenReq.chkBookRqd"]'
+														/>
+														<label for="radio8"><span><span></span></span>
+														{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.CHKBOOKRQD_Y}}</label>
+												</div>
+												<div class="rakCstmRadioDiv rak47 rakTop2emLeft3">
+													<input type="radio" id="radio9"
+														value="No"
+														
+														ng-model="rakServiceReq.RAKOprCurrentAcctOpenReq.chkBookRqd"
+														validation-flag='pageErrorArr["rakServiceReq.RAKOprCurrentAcctOpenReq.chkBookRqd"]'
+														/>
+														<label for="radio9"><span><span></span></span>
+														{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.CHKBOOKRQD_N}}</label>
+												</div>
+
+
+											</div>
+											<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.RAKOprCurrentAcctOpenReq.chkBookRqd"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.CHKBOOKRQD}}</div>
+										</div>
+									</div>
+
+
+									<div class="rakRow" ng-if="rakServiceReq.RAKOprCurrentAcctOpenReq.selectedCrn=='AED' && rakServiceReq.RAKOprCurrentAcctOpenLists.refAcctNoList.length > 0">
+										<div class="radio-biller rak100 rakWidth100 ">
+											{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.INTRSTRAKVALUE}}</div>
+										<div class="rak100">
+											<div>
+												<div class="rakCstmRadioDiv rak50 rakTop2emLeft3">
+													<input type="radio" id="radio10"
+														value="Yes"
+														
+														ng-model="rakServiceReq.RAKOprCurrentAcctOpenReq.intrstRAKValue"
+														validation-flag='pageErrorArr["rakServiceReq.RAKOprCurrentAcctOpenReq.intrstRAKValue"]'
+														/>
+														<label for="radio10"><span><span></span></span>
+														{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.INTRSTRAKVALUE_Y}}</label>
+												</div>
+												<div class="rakCstmRadioDiv rak47 rakTop2emLeft3">
+													<input type="radio" id="radio11"
+														value="No"
+														
+														ng-model="rakServiceReq.RAKOprCurrentAcctOpenReq.intrstRAKValue"
+														validation-flag='pageErrorArr["rakServiceReq.RAKOprCurrentAcctOpenReq.intrstRAKValue"]'
+														/>
+														<label for="radio11"><span><span></span></span>
+														{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.INTRSTRAKVALUE_N}}</label>
+												</div>
+
+
+											</div>
+											<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.RAKOprCurrentAcctOpenReq.intrstRAKValue"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAKOPRCURRACCOPEN.INTRSTRAKVALUE}}</div>
+										</div>
+									</div>
+
+					<div class="fin-txt"></div>
+					<div class="fin-txt"></div>
+
+
+					<div class="disclaimer3" >
+						<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCURRAOPEN"></span>						
+						<span ng-click='rakServiceReq.fetchPdf("https://rakbank.ae/wps/wcm/connect/021eabaa-9e43-4e4e-970d-ca13a37e9e9f/%28A%29+J00781+RAK++Debit+Card+-+Personal+Account+A4-T%26C-New+Guide-EN%26AR%28withe+out+cashback%29.pdf?MOD=AJPERES");' class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+						<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCURROPENCONT"></span>
+					
+										
+								<div class="check-boxsLeft">
+				                    <input id="termsFlag"  class="checkbox-custom-new"  type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" ng-model='rakServiceReq.acceptTermscondition' >
+				                    <label for="termsFlag" class="checkbox-custom-label termsCheck smallCheck" ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCURROPENCONTTERMS"></label>
+				                </div>										
+					</div>
+
+
+
+
+
+
+						<div class="label-wrap">
+							<!-- <button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="setEvent('onRAKOprCurrentAcctOpenBackClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CANCEL}}</button> -->
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakServiceReq.setRAKOprCurrentAcctOpenReqDate();setEvent('onRAKOprCurrentAcctOpenConfirmClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+
+						</div>
+
+					</div>
+				
+                        
+                        <div class="disclaimer">
+                            <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                        <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                               </div>                                                 
+                                           
+                           <div class="disclaimer3" ng-if="rakDisclaimerFlag"> 
+                           		<span ng-bind-html="appLiterals.APP.DISCLAIMER.NOTE"></span>
+                           		<span ng-click="rakServiceReq.fetchTermsUrl('RVC_Account_Features.pdf');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>                         		
+								<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCURRENTACCOUNT_INITPAGE"></span>													
+							</div>
+                                           
+                      </div>  
+                      
+                      
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

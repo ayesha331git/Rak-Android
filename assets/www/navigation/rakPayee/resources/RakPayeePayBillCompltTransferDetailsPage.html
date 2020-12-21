@@ -1,0 +1,142 @@
+<div class="rak-back-header">
+				<i class="rak-back-img" ng-click="setEvent('onBackClick');"></i>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+<div class="finacle-container" ng-init="rakPayee.payCard.initScheduleTransferDetailsPage(successResponse.responsesList)">
+  <div class="account-page">
+    <div class="col-sm-11">
+     <div class="app-title-wrapper">
+       
+		  
+		  <ng-include  src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>
+		  
+		  <div class="rak-scroll">
+      <div class="main-form-heading-ServiceReq">
+                    	<h2 class="rakBenfHeader">{{appLiterals.APP.RAK_PAYEE.HISTORY.PAYMENTDETAILS}}</h2>
+            </div>
+	
+	 
+		<div class="bg-color rak-cont-padding">      
+		 
+			<div class="row" >
+			  <div class="">
+			  
+			  <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.REFID}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payBill.selectedCompltTxn.txnReferenceId}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakPayee.payBill.selectedCompltTxn.hostRefNo">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.BILLREFNO}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payBill.selectedCompltTxn.hostRefNo}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FROMACC}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.displayAccount}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.PAYEE}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payBill.selectedCompltTxn.toAccount}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.CONSUMERNO}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.cardNumber}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.SERVICE}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.serviceType}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.DATE}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payBill.selectedCompltTxn.txnDate}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-if='rakPayee.payCard.serviceType!=rakPayee.constants.RAKTOLLTOPUP'>
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.TXN_AMOUNT}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payBill.selectedCompltTxn.txnCurrency}} {{rakPayee.payBill.selectedCompltTxn.txnAmount}}</span>
+				</p>
+				
+				<div ng-if='rakPayee.payCard.serviceType==rakPayee.constants.RAKTOLLTOPUP'>
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.CHARGES}}</span>
+						<span class="rak-sum-label black">AED {{rakPayee.payBill.chargesRakToll}} <span ng-if="rakPayee.payBill.amountChargesRadio=='Y'">({{appLiterals.APP.PAYEE.PAY_BILL.INCLUDE_CHARGES}})</span><span ng-if="rakPayee.payBill.amountChargesRadio=='N'">({{appLiterals.APP.PAYEE.PAY_BILL.EXCLUDE_CHARGES}})</span></span>
+					</p>
+					<p class="rak-sum-txt" ng-if="rakPayee.payBill.amountChargesRadio=='Y'">
+						<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.TOPUP_AMOUNT}}</span>
+						<span class="rak-sum-label black">AED {{rakPayee.payBill.selectedCompltTxn.txnAmount}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-if="rakPayee.payBill.amountChargesRadio=='Y'">
+						<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.TOTAL_AMOUNT}}</span>
+						<span class="rak-sum-label black">AED {{rakPayee.payBill.totalAmount}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-if="rakPayee.payBill.amountChargesRadio=='N'">
+						<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.TOPUP_AMOUNT}}</span>
+						<span class="rak-sum-label black">AED {{rakPayee.payBill.selectedCompltTxn.txnAmount}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-if="rakPayee.payBill.amountChargesRadio=='N'">
+						<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.TOTAL_AMOUNT}}</span>
+						<span class="rak-sum-label black">AED {{rakPayee.payBill.totalAmount}}</span>
+					</p>
+				</div>
+				
+				<!-- <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.DEBITAMOUNT}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.debitAmt}}</span>
+				</p> -->
+				
+				<p class="rak-sum-txt" ng-show="rakPayee.payBill.selectedCompltTxn.freqType == 'O'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FREQ}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAK_PAYEE.HISTORY.ONCE}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakPayee.payBill.selectedCompltTxn.freqType != 'O'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FREQ}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAK_PAYEE.HISTORY.REC}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.STATUS}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payBill.selectedCompltTxn.txnStatus}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakPayee.payCard.failReason" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.REASON_FAILURE}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.failReason}}</span>
+				</p>
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.CHANNELNAME}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.channelId}}</span>
+				</p>
+				
+							  
+				<p class="rak-sum-txt" ng-show="rakPayee.payCard.requestedBy && rakPayee.payCard.txnStatus!='REJ'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.REQUESTED_BY}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.requestedBy}}</span>
+				</p>
+			
+					<p class="rak-sum-txt" ng-show='rakPayee.payCard.approvedBy'>
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.APPROVED_BY}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.approvedBy}}</span>
+				</p>
+				
+					<p class="rak-sum-txt" ng-show='rakPayee.payCard.userRemarks'>
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.USER_REMARKS}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.userRemarks}}</span>
+				</p>
+				
+				
+      </div>
+    </div>
+  </div>
+		  </div>
+		</div>
+	</div>
+<div class="scroll-space"></div>
+		</div>
+<!-- partial code end here-->

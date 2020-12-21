@@ -1,0 +1,44 @@
+<div class="full-height"
+	ng-init='register.loginModel.password="";register.responseExistingUser(successResponse);setSingleStepRealmAuthFailure();'>
+	<div class="account-page full-height">
+		<form class="dashboard-item-body full-height "
+			ng-submit="setEvent('onProceedClick');">
+			<div class="sticky-footer">
+
+				<div class="dashboard-item-title col-sm-12 margin-bottom-20"
+					layout="row" layout-align="center center" layout-wrap>
+					<h2 class="item-title md-headline text-uppercase" layout="row"
+						layout-align="center center" layout-wrap
+						id="registerExistingUserHeader">{{appLiterals.APP.REGISTER.REG_EXT_USER.HEADER}}</h2>
+				</div>
+				<div class="col-sm-12 lh13 margin-bottom-20" id="registerEnquiryTxt">
+					<div class="col-sm-12">
+						<p class=" fut-txt1" id="registerExistingUserTxt">{{appLiterals.APP.REGISTER.REG_EXT_USER.SENT_ENTRUID}}</p>
+					</div>
+				</div>
+
+				<div class="col-sm-12">
+					<fin-input type="text" model="register.loginModel.userId"
+						display-row="full"
+						placeholder="{{appLiterals.APP.REGISTER.REG_EXT_USER.PH_UID}}"
+						validation-flag='pageErrorArr["register.loginModel.userId"]'
+						readonly></fin-input>
+					<fin-input type="password_text"
+						model="register.loginModel.password" display-row="full"
+						placeholder="{{appLiterals.APP.REGISTER.REG_EXT_USER.PH_PASS}}"
+						validation-flag='pageErrorArr["register.loginModel.password"]'></fin-input>
+				</div>
+			</div>
+			<section class="button-wrapper sticky-footer-block" layout="row"
+				layout-align="center center" layout-wrap>
+				<md-button id="regExistUserBtnCancel" type="button"
+					class=" md-raised btn--secondary-btn"
+					ng-click="register.loginModel.password= '';setGlobalEvent('onLoginClick')">
+				{{appLiterals.APP.COMMON.BUTTON.CANCEL}} </md-button>
+				<md-button id="regExistUserBtnProceed" type="submit"
+					class=" md-raised btn--primary-btn ">
+				{{appLiterals.APP.REGISTER.REG_EXT_USER.BTN_PCD}} </md-button>
+			</section>
+		</form>
+	</div>
+</div>

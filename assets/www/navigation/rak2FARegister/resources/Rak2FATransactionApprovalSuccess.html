@@ -1,0 +1,167 @@
+
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="setSingleStepRealmAuthFailure();rak2FARegister.transactionApproval.successPage(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+
+
+					<div class="summary-ServiceReq">
+                        <div class="iconDiv" ng-if="rak2FARegister.transactionApproval.txnStatus=='1'">
+                            <span class="infoIcon" ></span><span class="success">{{appLiterals.APP.RAK_2FA_TRANSACTION_APPROVAL.TRANACTION_APPROVE_SUCCESS}}</span>
+
+                        </div>
+                        <div class="iconDiv" ng-if="rak2FARegister.transactionApproval.txnStatus=='2'">
+
+                           <span class="infoIcon" > </span><span class="success">Your transaction was declined.{{rak2FARegister.transactionApproval.successMessage}}</span>
+                        </div>
+                  </div>
+
+					<div class="main-form-heading-ServiceReq">
+							      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_2FA_TRANSACTION_APPROVAL.TRANACTION_APPROVE}}
+							      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>
+							      </h2>
+					 		</div>
+
+					 		{{rak2FARegister.transactionApproval.successMessage}}
+
+					<div class="bg-color rak-cont-padding rak-scroll">
+						<div class="row">
+
+
+					<div  ng-show="rak2FARegister.transactionApproval.pushTypeOfTransaction && rak2FARegister.transactionApproval.pushTypeOfTransaction=='NFTXN'">
+					
+						<div  ng-show="rak2FARegister.transactionApproval.isFileUpload && rak2FARegister.transactionApproval.isFileUpload=='Y'">
+							
+							<p class="rak-sum-txt" >
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_2FA_TRANSACTION_APPROVAL.FILE_TYPE}}</span>
+								<span class="rak-sum-label black">{{rak2FARegister.transactionApproval.serviceTypeDescription}}</span>
+							</p>
+							
+							<p class="rak-sum-txt" >
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_2FA_TRANSACTION_APPROVAL.FILE_NAME}}</span>
+								<span class="rak-sum-label black">{{rak2FARegister.transactionApproval.fileName}}</span>
+							</p>
+							
+						</div>
+						
+						<div  ng-show="rak2FARegister.transactionApproval.isFileUpload && rak2FARegister.transactionApproval.isFileUpload=='N'">
+							
+							<p class="rak-sum-txt" >
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_2FA_TRANSACTION_APPROVAL.BENF_NAME}}</span>
+								<span class="rak-sum-label black">{{rak2FARegister.transactionApproval.benfName}}</span>
+							</p>
+							
+							<p class="rak-sum-txt" >
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_2FA_TRANSACTION_APPROVAL.BENF_TYPE}}</span>
+								<span class="rak-sum-label black">{{rak2FARegister.transactionApproval.benfType}}</span>
+							</p>
+							
+						</div>
+					
+					</div>
+
+
+					<div  ng-show="!(rak2FARegister.transactionApproval.pushTypeOfTransaction && rak2FARegister.transactionApproval.pushTypeOfTransaction=='NFTXN')">
+							
+							<div  ng-show="rak2FARegister.transactionApproval.isFileUpload && rak2FARegister.transactionApproval.isFileUpload=='Y'">
+							
+								<p class="rak-sum-txt" >
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_2FA_TRANSACTION_APPROVAL.FILE_TYPE}}</span>
+									<span class="rak-sum-label black">{{rak2FARegister.transactionApproval.serviceTypeDescription}}</span>
+								</p>
+				
+					  
+	                    
+	                  		   <p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_2FA_TRANSACTION_APPROVAL.TXN_AMT}}</span>
+									<span class="rak-sum-label black">{{rak2FARegister.transactionApproval.TxnAmountDisplay}}</span>
+								</p>
+						
+				
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_2FA_TRANSACTION_APPROVAL.TXN_DATE}}</span>
+									<span class="rak-sum-label black">{{rak2FARegister.transactionApproval.TxnDateDisplay}}</span>
+								</p>
+								
+								<p class="rak-sum-txt" >
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_2FA_TRANSACTION_APPROVAL.FILE_NAME}}</span>
+									<span class="rak-sum-label black">{{rak2FARegister.transactionApproval.fileName}}</span>
+								</p>
+								
+							
+							</div>
+							
+							
+							<div  ng-show="rak2FARegister.transactionApproval.isFileUpload && rak2FARegister.transactionApproval.isFileUpload=='N'">
+							
+								<p class="rak-sum-txt" >
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_2FA_TRANSACTION_APPROVAL.FROM_ACCOUNT}}</span>
+									<span class="rak-sum-label black">{{rak2FARegister.transactionApproval.fromAccDisplay}}</span>
+								</p>
+				
+				
+								<p class="rak-sum-txt" >
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_2FA_TRANSACTION_APPROVAL.TO_ACCOUNT}}</span>
+									<span class="rak-sum-label black">{{rak2FARegister.transactionApproval.toAccDisplay}}</span>
+								</p>
+	                            
+	                    
+	                  		  <p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_2FA_TRANSACTION_APPROVAL.TXN_AMT}}</span>
+									<span class="rak-sum-label black">{{rak2FARegister.transactionApproval.TxnAmountDisplay}}</span>
+								</p>
+						
+				
+								<p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_2FA_TRANSACTION_APPROVAL.TXN_DATE}}</span>
+									<span class="rak-sum-label black">{{rak2FARegister.transactionApproval.TxnDateDisplay}}</span>
+								</p>
+							
+							</div>
+							
+							
+
+
+					</div>
+
+								<div class="label-wrap">
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-small"
+											ng-click="rak2FARegister.registerSuccess();">{{appLiterals.APP.RAK_2FA_TRANSACTION_APPROVAL.DONE}}</button>
+
+
+								</div>
+
+                <div class="disclaimer">
+			   				<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+			   					<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+			   				</div>
+
+			   				<div class="disclaimer3" ng-show="rakDisclaimerFlag && !(rak2FARegister.transactionApproval.pushTypeOfTransaction && rak2FARegister.transactionApproval.pushTypeOfTransaction=='NFTXN')">
+			   					<div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKTRANSACTIONAPPROVAL_MSG"></div>
+			   				</div>
+                          
+                            
+                            <div class="disclaimer3" ng-show="rakDisclaimerFlag && (rak2FARegister.transactionApproval.pushTypeOfTransaction && rak2FARegister.transactionApproval.pushTypeOfTransaction=='NFTXN')" >
+                                <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKTRANSACTIONAPPROVAL_MSG_BENF"></div>
+                            </div>
+                            
+                            
+			</div>
+
+
+						</div>
+					</div>
+
+
+
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

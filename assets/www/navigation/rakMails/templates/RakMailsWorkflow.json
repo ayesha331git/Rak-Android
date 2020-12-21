@@ -1,0 +1,1387 @@
+{
+    "pageNavigation": [
+        {
+            "RakMailsInboxPage": [
+                {
+                    "eventName": "onRakInboxMailClick",
+                    "action": "RakMailsInboxDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsDetailsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                {
+                    "eventName": "onDeleteClick",
+                    "action": "RakMailsDeleteService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId",
+                        "FOLDER_ID": "rakMails.selectedFolderId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                {
+                    "eventName": "onCheckClick",
+                    "action": "MailsCheckService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId",
+                        "FOLDER_ID": "rakMails.selectedFolderId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+              
+                {
+                    "eventName": "onInboxEmptyOkClick",
+                    "action": "RakMailsCountService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                {
+                    "eventName": "onDeleteOKClick",
+                    "action": "RakMailsInboxListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                {
+                    "eventName": "onRakReadUnreadMailClick",
+                    "action": "RakReadUnreadMailService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId",
+                        "FOLDER_ID": "rakMails.selectedFolderId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                {
+                    "eventName": "onMailSearchClick",
+                    "action": "RakSearchMailInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                 
+                    },
+                    "successPage": {
+                        "pageName": "RakMailSearchPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                }
+            ],
+           
+            "RakMailsDetailsPage":[
+            	{
+                    "eventName": "onDetailsBackClick",
+                    "action": "RakMailsInboxListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                {
+                    "eventName": "onRakReplyClick",
+                    "action": "RakMailsInboxReplyService",
+                    "actionType": "service",
+                    "validation": "false",
+                     "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsComposePage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                 {
+                    "eventName": "onRakReplySentClick",
+                    "action": "RakMailsInboxReplyService",
+                    "actionType": "service",
+                    "validation": "false",
+                     "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsSentComposePage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                   
+                {
+                    "eventName": "InboxMailDelete",
+                    "action": "RakMailsDeleteService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId",
+                        "FOLDER_ID": "rakMails.selectedFolderId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsDetailsPage"
+                    }
+                },
+                {
+                    "eventName": "SentMailDelete",
+                    "action": "RakMailsDeleteService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId",
+                        "FOLDER_ID": "rakMails.selectedFolderId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsSentListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsDetailsPage"
+                    }
+                },
+                {
+                    "eventName": "onRakFromSentTrashMailDelete",
+                    "action": "RakSentMailsDeleteService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId",
+                        "FOLDER_ID": "rakMails.selectedFolderId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsSentListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsSentListPage"
+                    }
+                },
+                {
+                    "eventName": "onRakFromTrashTrashMailDelete",
+                    "action": "RakTrashMailsDeleteService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId",
+                        "FOLDER_ID": "rakMails.selectedFolderId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsTrashListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsTrashListPage"
+                    }
+                },
+                {
+                    "eventName": "onRakFromInboxTrashMailDelete",
+                    "action": "RakInBoxMailsDeleteService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId",
+                        "FOLDER_ID": "rakMails.selectedFolderId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                
+                
+                {
+                  "eventName": "PersonalMailDelete",
+                    "action": "RakMailsDeleteService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId",
+                        "FOLDER_ID": "rakMails.selectedFolderId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsPersonalPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsDetailsPage"
+                    }
+                },
+                {
+                    "eventName": "MailsSentList",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "pageName": "RakMailsSentListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsDetailsPage"
+                    }
+                },
+                {
+                    "eventName": "MailsTrashList",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "pageName": "RakMailsTrashListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsDetailsPage"
+                    }
+                },
+                {
+                    "eventName": "MailsBroadcastList",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "pageName": "RakMailsBroadcastListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsDetailsPage"
+                    }
+                },
+                {
+                    "eventName": "onDetailsBackToSentClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsSentListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsDetailsPage"
+                    }
+                },
+                {
+                    "eventName": "onDetailsBackToTrashClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsTrashListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsDetailsPage"
+                    }
+                }
+            ],
+            
+            "RakMailsSentComposePage": [
+                {
+                    "eventName": "onRakSendClick",
+                    "action": "RakMailsComposeSubmitService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                    	"rakMails.compose.subject"
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TO_ID": "rakMails.compose.detailsFrom",
+                        "SUBJECT": "rakMails.compose.subject",
+                        "COMPOSEFLAG": "rakMails.inboxCompose",
+                        "MAIL_BODY": "rakMails.compose.mailText"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsSentComposePage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsSentComposePage"
+                    }
+                },
+                {
+                    "eventName": "onSubjectEmptySendClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "true",
+                    "validationParams": [
+                    		"rakMails.compose.toId",
+                    		"rakMails.compose.subject"
+                    ],
+                    "successPage": {
+                        "pageName": "RakMailsConfirmationPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsSentComposePage"
+                    }
+                },
+                {
+                	"eventName":"onRakReplySendClick",
+                	"action": "RakMailsInboxReplySubmitService",
+                    "actionType": "service",
+                    "validation": "false",
+                     "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TO_ID": "rakMails.compose.toId",
+                        "SUBJECT": "rakMails.compose.subject",
+                        "MAIL_BODY": "rakMails.compose.mailText"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsSentComposePage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsSentComposePage"
+                    }
+                },
+                {
+                    "eventName": "onRakSendOKClick",
+                    "action": "RakMailsInboxListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                {
+                    "eventName": "onErrorClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "pageName": "RakMailsSentComposePage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsSentComposePage"
+                    }
+                },
+                {
+                    "eventName": "onRakCancelSentClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsSentListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsSentComposePage"
+                    }
+                },
+                {
+                    "eventName": "onRakCancelTrashClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsTrashListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsSentComposePage"
+                    }
+                },
+                {
+                    "eventName": "onRakCancelInboxClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsSentComposePage"
+                    }
+                },
+                 {
+                    "eventName": "onRakFromSentTrashMailDelete",
+                    "action": "RakSentMailsDeleteService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId",
+                        "FOLDER_ID": "rakMails.selectedFolderId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsSentListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsSentListPage"
+                    }
+                }
+            ],
+            "RakMailsComposePage": [
+                {
+                    "eventName": "onRakSendClick",
+                    "action": "RakMailsComposeSubmitService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                    		
+                    		"rakMails.compose.subject"
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TO_ID":"rakMails.compose.subject",
+                        "SUBJECT": "rakMails.compose.subject",
+                        "COMPOSEFLAG": "rakMails.inboxCompose",
+                        "MAIL_BODY": "rakMails.compose.mailText"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsComposePage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsComposePage"
+                    }
+                },
+                {
+                    "eventName": "onRakSubjectEmptySendClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "true",
+                    "validationParams": [
+                    		"rakMails.compose.toId",
+                    		"rakMails.compose.subject"
+                    ],
+                    "successPage": {
+                        "pageName": "RakMailsConfirmationPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsComposePage"
+                    }
+                },
+                {
+                	"eventName":"onRakReplySendClick",
+                	"action": "RakMailsInboxReplySubmitService",
+                    "actionType": "service",
+                    "validation": "false",
+                     "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TO_ID": "rakMails.compose.toId",
+                        "SUBJECT": "rakMails.compose.subject",
+                        "MAIL_BODY": "rakMails.compose.mailText"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsComposePage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsComposePage"
+                    }
+                },
+                {
+                    "eventName": "onRakSendOKClick",
+                    "action": "RakMailsInboxListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsComposePage"
+                    }
+                },
+                {
+                    "eventName": "onRakErrorClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "pageName": "RakMailsComposePage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsComposePage"
+                    }
+                },
+                {
+                    "eventName": "onRakCancelClick",
+                    "action": "RakMailsInboxListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                }
+            ],
+            
+          
+            
+              
+             "MailsDraftDetailsPage":[
+            	{
+                    "eventName": "onDetailsCloseClick",
+                    "action": "MailsDraftListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsDraftPreviewPage"
+                    },
+                    "errorPage": {
+                        "pageName": "MailsDraftDetailsPage"
+                    }
+                },
+                
+                 {
+                    "eventName": "onDraftSaveClick",
+                    "action": "MailsDraftSaveService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                    		
+                    		"rakMails.draft.subject"
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TO_ID": "rakMails.compose.toId",
+                        "SUBJECT": "rakMails.draft.subject",
+                        "MAIL_BODY": "rakMails.draft.mailText"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsDraftPreviewPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsDraftPreviewPage"
+                    }
+                },
+                 {
+                    "eventName": "onSendDraftClick",
+                    "action": "MailsDraftSubmitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TO_ID": "rakMails.mailToId",
+                         
+                        "SUBJECT": "rakMails.mailSubject",
+                        "MAIL_BODY": "rakMails.mailBody"
+                    },
+                    "successPage": {
+                        "pageName": "MailsDraftDetailsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "MailsDraftDetailsPage"
+                    }
+                },
+                
+                {
+                "eventName":"onReplyDraftSendClick",
+                	"action": "MailsDraftReplySubmitService",
+                    "actionType": "service",
+                   
+                      "validation": "true",
+                    "validationParams": [
+                    		"rakMails.mailToId",
+                    		"rakMails.mailSubject"
+                    ],
+                     "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TO_ID": "rakMails.mailToId",
+                        "SUBJECT": "rakMails.mailSubject",
+                        "MAIL_BODY": "rakMails.mailBody"
+                    },
+                    "successPage": {
+                        "pageName": "MailsDraftDetailsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "MailsDraftDetailsPage"
+                    }
+                
+                },
+                 {
+                    "eventName": "onSendDraftOKClick",
+                    "action": "RakMailsInboxListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                {
+                  "eventName": "onDraftErrorClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "pageName": "RakMailsDraftPreviewPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsDraftPreviewPage"
+                    }
+                }
+               
+            ],
+           
+            "RakMailsSentListPage": [
+            
+            
+              {
+                    "eventName": "onRakCancelClick",
+                    "action": "RakMailsInboxListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                {
+                    "eventName": "onMessageClick",
+                    "action": "RakMailsSentDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsDetailsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                {
+                    "eventName": "onSentEmptyOkClick",
+                    "action": "RakMailsInboxListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                    "action": "RakMailsInboxListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                {
+                    "eventName": "onDeleteClick",
+                    "action": "RakMailsDeleteService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId",
+                        "FOLDER_ID": "rakMails.selectedFolderId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsSentListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsSentListPage"
+                    }
+                },
+                {
+                    "eventName": "onDeleteOKClick",
+                    "action": "RakMailsSentListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsSentListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsSentListPage"
+                    }
+                },
+                {
+                    "eventName": "onMailSearchClick",
+                    "action": "RakSearchMailInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                 
+                    },
+                    "successPage": {
+                        "pageName": "RakMailSearchPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsSentListPage"
+                    }
+                }
+            ],
+            "RakMailsTrashListPage": [
+            
+             {
+                    "eventName": "onRakCancelClick",
+                    "action": "RakMailsInboxListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+				
+                {
+                    "eventName": "onMessageClick",
+                    "action": "MailsTrashDetailService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsDetailsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                    "action": "RakMailsInboxListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                {
+                    "eventName": "onTrashEmptyOkClick",
+                    "action": "MailsTrashListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakUpdatedMailsTrashListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakUpdatedMailsTrashListPage"
+                    }
+                },
+                {
+                    "eventName": "onDeleteClick",
+                    "action": "MailsTrashDeleteService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsTrashListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsTrashListPage"
+                    }
+                },
+                {
+                    "eventName": "onDeleteAllClick",
+                    "action": "RakMailsEmptyTrashService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsTrashListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsTrashListPage"
+                    }
+                },
+                {
+                    "eventName": "onDeleteOKClick",
+                    "action": "MailsTrashListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsTrashListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsTrashListPage"
+                    }
+                },
+                {
+                    "eventName": "TrashMailDelete",
+                    "action": "RakMailsDeleteService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId",
+                        "FOLDER_ID": "rakMails.selectedFolderId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsTrashListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsDetailsPage"
+                    }
+                },
+                {
+                    "eventName": "onMailSearchClick",
+                    "action": "RakSearchMailInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                 
+                    },
+                    "successPage": {
+                        "pageName": "RakMailSearchPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsTrashListPage"
+                    }
+                }
+            ],
+            "RakMailsPersonalPage": [
+                {
+                    "eventName": "onRakPersonlFolderClick",
+                    "action": "RakMailsPersonalDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "PFM_FOLDER_ID": "rakMails.selectedMailId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsPersonalListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsPersonalPage"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                    "action": "RakMailsInboxListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                }
+            ],
+            
+            "RakMailsPersonalListPage": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "pageName": "RakMailsPersonalPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsPersonalPage"
+                    }
+                },
+                 
+                
+                
+                {
+                    "eventName": "onRakPersonalFolderMailClick",
+                    "action": "RakMailsInboxDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId"
+                    },
+                    "successPage": {
+                        "pageName": "RakPersonalMailsDetailsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsPersonalListPage"
+                    }
+                },
+                {
+                    "eventName": "onMailSearchClick",
+                    "action": "RakSearchMailInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                 
+                    },
+                    "successPage": {
+                        "pageName": "RakMailSearchPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsPersonalListPage"
+                    }
+                },
+                
+                {
+                    "eventName": "onPersonalEmptyOkClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsPersonalListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsPersonalListPage"
+                    }
+                }
+            ],
+            
+            
+            "RakPersonalMailsDetailsPage": [
+               
+                {
+                    "eventName": "onRakPersonalFolderMailBack",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "pageName": "RakMailsPersonalListPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsPersonalListPage"
+                    }
+                }
+            
+            ],
+            
+            "RakMailsDraftPreviewPage": [
+                {
+                    "eventName": "onDraftMailClick",
+                    "action": "RakMailsDraftDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsDraftDetailsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsDraftPreviewPage"
+                    }
+                },
+                
+                {
+                    "eventName": "onDraftEmptyOkClick",
+                    "action": "RakMailsCountService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                    "action": "RakMailsInboxListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                {
+                    "eventName": "onMailSearchClick",
+                    "action": "RakSearchMailInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                 
+                    },
+                    "successPage": {
+                        "pageName": "RakMailSearchPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsDraftPreviewPage"
+                    }
+                }
+            
+            ],
+            "RakMailsDraftDetailsPage": [
+                   {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsDraftPreviewPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsDraftPreviewPage"
+                    }
+                },
+                {
+                    "eventName": "onRakSendDraftClick",
+                    "action": "RakMailsDraftSubmitService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                    		
+                    		"rakMails.mailSubjectSelected"
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TO_ID":"rakMails.mailSubjectSelected",
+                        "SUBJECT": "rakMails.mailSubjectSelected",
+                        "MAIL_BODY": "rakMails.mailBody"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsDraftDetailsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsDraftDetailsPage"
+                    }
+                },
+                {
+                    "eventName": "onRakSendDraftOKClick",
+                    "action": "RakMailsInboxListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsInboxPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                }
+                
+            
+            ],
+              "RakMailSearchPage": [
+                  {
+                    "eventName": "onRakMailSearchClick",
+                    "action": "RakMailSearchService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                    	"rakMails.RakSearchMails.fromDate",
+                    	"rakMails.RakSearchMails.toDate"
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "FOLDER_ID":"rakMails.RakSearchMails.folderId",
+                        "SUBJECT":"rakMails.RakSearchMails.selectedSubject",
+                        "searchFromDate_year":"rakMails.RakSearchMails.searchFromDate_year",
+                        "searchFromDate_month":"rakMails.RakSearchMails.searchFromDate_month",
+                        "searchFromDate_day":"rakMails.RakSearchMails.searchFromDate_day",
+                        "searchToDate_year":"rakMails.RakSearchMails.searchToDate_year",
+                        "searchToDate_month":"rakMails.RakSearchMails.searchToDate_month",
+                        "searchToDate_day":"rakMails.RakSearchMails.searchToDate_day",
+                        "ATTACHMENT":"rakMails.RakSearchMails.attachment",
+                        "PFM_FOLDER_ID":"rakMails.RakSearchMails.pfmFolderId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailSearchPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailSearchPage"
+                    }
+                },
+                {
+                    "eventName": "onRakInboxMailClick",
+                    "action": "RakMailsInboxDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsDetailsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                 {
+                    "eventName": "onDraftMailClick",
+                    "action": "RakMailsDraftDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsDraftDetailsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsDraftPreviewPage"
+                    }
+                },
+                 {
+                    "eventName": "onSentMessageClick",
+                    "action": "RakMailsSentDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsDetailsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },
+                {
+                    "eventName": "onTrashMessageClick",
+                    "action": "MailsTrashDetailService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId"
+                    },
+                    "successPage": {
+                        "pageName": "RakMailsDetailsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsInboxPage"
+                    }
+                },{
+                    "eventName": "onRakPersonalFolderMailClick",
+                    "action": "RakMailsInboxDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MBOX_ID": "rakMails.selectedMailId"
+                    },
+                    "successPage": {
+                        "pageName": "RakPersonalMailsDetailsPage"
+                    },
+                    "errorPage": {
+                        "pageName": "RakMailsPersonalListPage"
+                    }
+                }
+            
+            ]
+        }
+    ],
+    "subFeatureName": "rakMails",
+    "startPage": "RakMailsInboxPage"
+}

@@ -1,0 +1,83 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRAKOprEvantageAcctOpenReqSucess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+
+			<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.RAKOprEvantageAcctOpenReq.successMessage}}</span>
+				</div>
+			</div>
+			<div class="main-form-heading-ServiceReq">
+				<h2 class="rakBenfHeader">
+					{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.EVANTAGE_ACCOUNT}}<span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>
+				</h2>
+			</div>
+
+
+
+
+			<div class="bg-color rak-cont-padding rak-scroll rak-scroll-account-open">
+			<div class="row">
+
+				<p class="rak-sum-txt" ng-show="rakServiceReq.RAKOprEvantageAcctOpenLists.refAcctNoList.length > 0">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPREVANACCOPEN.REF_ACCT_NO}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprEvantageAcctOpenLists.refAcctNoList[rakServiceReq.RAKOprEvantageAcctOpenReq.selectedRefNo].accountNumber}}</span>
+                </p>
+
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPREVANACCOPEN.ACCTCRN}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprEvantageAcctOpenReq.selectedCrn}}</span>
+				</p>
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPREVANACCOPEN.DEBIT_CARD_RQD}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprEvantageAcctOpenReq.debitCardRqd}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="rakServiceReq.RAKOprEvantageAcctOpenLists.refAcctNoList.length == 0">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPREVANACCOPEN.BRANCH}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprEvantageAcctOpenReq.branchNameContinue}}</span>
+				</p>
+
+	<div ng-if='rakServiceReq.common.EmiratesIdAvailable=="Y"'> 
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPREVANACCOPEN.EMIRATESID}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprEvantageAcctOpenReq.EmiratesId}}</span>
+				</p>
+
+
+				<p class="rak-sum-txt">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPREVANACCOPEN.ID_EXPIRY_DATE}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.common.accountsOpenDisplayDate}}</span>
+				</p>
+</div>
+				<p class="rak-sum-txt" ng-show="rakServiceReq.RAKOprEvantageAcctOpenLists.refAcctNoList.length != 0 &&
+						rakServiceReq.RAKOprEvantageAcctOpenLists.refAcctNoList[rakServiceReq.RAKOprEvantageAcctOpenReq.selectedRefNo].mode=='JOINTOR'">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPREVANACCOPEN.OPER_MODE}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RAKOprEvantageAcctOpenReq.operationMode}}</span>
+				</p>
+
+				<p class="rak-sum-txt">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPREVANACCOPEN.INTEREST_BEARING}}</span>
+					<span ng-show="rakServiceReq.RAKOprEvantageAcctOpenReq.interestBearing == 'Yes'" class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAKOPREVANACCOPEN.INTEREST_YES}}</span>
+					<span ng-show="rakServiceReq.RAKOprEvantageAcctOpenReq.interestBearing == 'No'" class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAKOPREVANACCOPEN.INTEREST_NO}}</span>
+				</p>
+
+
+				<div class="label-wrap">
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-small"
+						ng-click='rakServiceReq.setRAKOprEvantageAcctSuccessHomeBtnClicked();'>
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+				</div>
+
+				<div class="col-sm-1"></div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>

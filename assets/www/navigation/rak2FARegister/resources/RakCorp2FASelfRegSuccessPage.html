@@ -1,0 +1,119 @@
+
+<div class="account-page">
+	<div class="col-sm-11">
+
+		<div class="finacle-container"
+			ng-init="rak2FARegister.RegistrationModel.initSuccessPageMsg(successResponse.responsesList);">
+			<div >
+			<div class="row">
+				<div class="col-sm-1 rakDblheight"></div>
+				<div class="login-form">
+
+
+					<div class="center rakFont10" ng-show="!isUserLoggedIn">
+						<div class="rak-logintab"
+							ng-click="rak2FARegister.registerSuccess();">
+							<span class="rak-black-color login-label">
+								{{appLiterals.APP.RAK_LOGIN_PAGE.LOGIN}} </span>
+						</div>
+
+					
+					<div class="rak-logintab  border-left">
+						<span class="login-label rak-color border-bottom">
+							{{appLiterals.APP.RAK_LOGIN_PAGE.CORP_2FA_INIT}}</span>
+					</div>
+
+				
+		
+				
+				</div>
+
+					<div class="selfReg-main-form-heading margin-top10px" ng-show="!isUserLoggedIn">
+						<div>
+						<span class="rak-black-color login-label-selfReg">{{appLiterals.APP.RAK_2FA_MESSAGES.NEWREG_TXT}}</span>
+
+
+							<ul class="process-steps">
+								<li></li>
+								<li></li>
+								
+								
+								<li ></li>
+								<li class="active"></li>
+							</ul>
+
+						</div>
+					</div>
+					
+					
+					<div class="selfReg-main-form-heading margin-top10px" ng-show="isUserLoggedIn">
+						<div>
+							<span class="rak-black-color login-label-selfReg">{{appLiterals.APP.RAK_2FA_MESSAGES.NEWREG_TXT}}</span>
+
+							<ul class="process-steps">
+							
+								<li ></li>
+								<li class="active"></li>
+							</ul>
+
+						</div>
+					</div>
+					
+
+
+					<div class="rakWidth100Percent rakNicknameScroll rak-cont-paddingvh">
+						<div class="">
+
+						
+							
+							<div class="rak-selfReg-lable">
+								<p>{{appLiterals.APP.RAK_2FA_MESSAGES.REGISTER_SUCCESS_MSG1}}</p>
+							</div>
+							
+							<div class="rak-selfReg-lable">
+								<p>{{appLiterals.APP.RAK_2FA_MESSAGES.REGISTER_SUCCESS_MSG_CORP}}</p>
+							</div>
+							
+							<div class="rak-selfReg-lable">
+								<p>{{appLiterals.APP.RAK_2FA_MESSAGES.REGISTER_SUCCESS_PIN_LENGTH_MSG1}} {{rak2FARegister.constants.PINLENGTH}}{{appLiterals.APP.RAK_2FA_MESSAGES.REGISTER_SUCCESS_PIN_LENGTH_MSG2}}</p>
+							</div>
+						<!-- 	<div class="rak-selfReg-lable">
+								<p>{{appLiterals.APP.RAK_2FA_MESSAGES.REGISTER_SUCCESS_MSG2}}</p>
+							</div>
+							
+							<div class="rak-selfReg-lable">
+								<p>{{appLiterals.APP.RAK_2FA_MESSAGES.REGISTER_SUCCESS_PIN_LENGTH_MSG1}} {{rak2FARegister.constants.PINLENGTH}} {{appLiterals.APP.RAK_2FA_MESSAGES.REGISTER_SUCCESS_PIN_LENGTH_MSG2}}</p>
+							</div>
+					 -->
+
+							<div>
+
+
+
+</div>
+
+
+
+						<div class="label-wrap">
+						
+						<div class="fin-txt"></div>
+						<div class="fin-txt"></div>
+								<button type="button"
+						class="login-btn rakLoginBtn-middle"
+								ng-click='rak2FARegister.portFrom2faToRegularFlow();successResponse.responsesList=rak2FARegister.tempSuccessResponse;rak2FARegister.RegistrationModel.navigateToNextFlow();'>
+						{{isUserLoggedIn && appLiterals.APP.RAK_2FA_MESSAGES.PROCEED_LOGIN || appLiterals.APP.RAK_2FA_MESSAGES.PROCEED_POST_LOGIN}}</button>
+						
+							
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+	</div>
+
+
+
+

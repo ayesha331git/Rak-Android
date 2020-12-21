@@ -1,0 +1,643 @@
+<div ng-show='rakSendMoney.common.exchangePopUp==true'>
+<div>
+<div class="full-page-screen"  ></div>
+
+<div class="confirmation-content-container">
+    <div class="message-box-new">
+     <div class="rakexchangeratePopOverHeading rak-black-color">{{appLiterals.APP.RAK_COMMON.PAYMENTDETAILS}}</div>
+        <div>
+             <div class="conf-txt-title rak-black-color">
+           </div>
+        </div>
+
+        <div class="conf-txt-label rak-black-color">
+          {{rakSendMoney.sendMoney.exchangeRate}}
+        </div>
+
+        <div class="conf-txt-label rak-black-color">
+          {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.CONVERTEDAMT}} {{rakSendMoney.common.exchangeAmt}}
+        </div>
+		<div class="conf-btn-wrap center rakpaddingBottom10 margin-zeroImp">
+              <button type="button" class="btn--special-btn btn-middle rak-button-right noFloat" ng-click='rakSendMoney.common.exchangePopUp=false' >
+                &nbsp; {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.OK}} &nbsp;
+            </button>
+
+        </div>
+
+    </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container"
+			ng-init="resetPageError();rakCorpInit.corpModel.resetCorpInitDetails();rakSendMoney.clearTab();rakSendMoney.sendMoneyTab=true;rakSendMoney.limitDispFlag='Y';rakSendMoney.sendMoney.initPayNowEditPage(successResponse.responsesList);">
+			<div class="rak-back-header">
+				<i class="rak-back-img" ng-click="rakSendMoney.common.exchangeRateCall=false;rakSendMoney.limitDispFlag='N';setEvent('onBackClick');"></i>
+			</div>
+			<div class="account-page">
+
+
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+
+							<ng-include
+								src="'./navigation/rakSendMoney/resources/RakSendMoneyTabPage.html'">
+							</ng-include>
+
+
+							<div class="tab-links" ng-show="rakHome.userTypeIDValue!='CORPORATE'">
+								<ul>
+									<li class="active"><span
+										class="active">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_BNKTRANSFER}}</span></li>
+									<li ng-show="dashboard.userType=='1'" ng-click="setGlobalEvent('onRakMoneyPayTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_RAKMNY}}</span></li>
+									<li  ng-show="rakHome.userTypeIDValue!='CORPORATE'" ng-click="rakSendMoney.mobileCash.isBenfTypeSelected=false;rakSendMoney.mobileCash.selectedBenfType='';rakSendMoney.mobileCash.clearFields();rakSendMoney.mobileCash.isBenfTypeSelected=false;setGlobalEvent('onMobileCashTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_MBLCASH}}</span></li>
+								</ul>
+							</div>
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="">
+									<div class="col-sm-1"></div>
+
+								<!-- 	<div>
+											<fin-input type="text"
+												model="rakSendMoney.schedule.toAccountDisp"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_TO}}"
+												readonly>
+											</fin-input>
+										</div> -->
+
+										<div
+										ng-init='toBenTypeArray=createDropDownOptionArray(rakSendMoney.sendMoney.benAccounts, ["beneficiaryName"],"beneficiaryIndex")'>
+										<fin-input type="dropdown" option-array="toBenTypeArray"
+											model="rakSendMoney.sendMoney.selectedToBenAccount"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_SELCT}}"
+											on-change="resetPageError();rakSendMoney.sendMoney.clearFields();rakSendMoney.sendMoney.getEventForBenf();rakSendMoney.sendMoney.setTxnType();rakSendMoney.sendMoney.getRemCurrencyPrepopulate();rakSendMoney.sendMoney.filterCurrencyArray();rakSendMoney.sendMoney.getPurposeList();rakSendMoney.sendMoney.getresidentCountryForBenf();rakSendMoney.sendMoney.getBankNameFlagBenf(successResponse.responsesList);"
+											validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedToBenAccount"]'>
+										</fin-input>
+									</div>
+
+									      <div ng-show="rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE && rakSendMoney.sendMoney.beneficiaryAccountNum">
+											<fin-input type="text"
+												model="rakSendMoney.sendMoney.beneficiaryAccountNum"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDSINITPAGE.CURRBAL}}"
+												readonly> </fin-input>
+										</div>
+	<div
+										ng-hide="rakSendMoney.sendMoney.selectedBenType=='undefined'||rakSendMoney.sendMoney.selectedBenType==null || rakSendMoney.sendMoney.selectedBenType=='' ">
+
+									
+	  <!--Benf Resident Country-start -->
+			<div  ng-show='rakSendMoney.sendMoney.showResidentCountryField=="Y"  || rakSendMoney.sendMoney.showUBFResidentCountry=="YES"' ng-init='benfRestcountryArr = createDropDownOptionArray(rakSendMoney.sendMoney.benfRestCountryList, ["countryDesc"], "countryCode");'>
+			<fin-input type="dropdown" model="rakSendMoney.sendMoney.rakBenfResidentCountry" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_RESIDENT_COUNTRY}}"
+			validation-flag='pageErrorArr["rakSendMoney.sendMoney.rakBenfResidentCountry"]' option-array="benfRestcountryArr">
+			</fin-input></div>
+		<!-- Benf Resident Country-end -->
+									
+									<div ng-show='rakSendMoney.sendMoney.isPromoSelected'
+										ng-init='fromAccountArray=createDropDownOptionArray(rakSendMoney.sendMoney.fromAccounts, ["subAccountTypeDesc","-","accountNumber", "-", "currencyCode"],"accountIndex")'>
+										<fin-input type="dropdown" option-array="fromAccountArray"
+											model="rakSendMoney.sendMoney.selectedFromAccount"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_FROM}}"
+											on-change="rakSendMoney.sendMoney.getDefaultTransCurr();rakSendMoney.common.updateBal('onAccountSelectionBalCall');rakSendMoney.sendMoney.filterCurrencyArray();"
+											validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedFromAccount"]' readonly>
+										</fin-input>
+
+									</div>
+
+
+									<div ng-hide='rakSendMoney.sendMoney.isPromoSelected || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OWN || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.RAKBANK || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OUTUAE'
+										ng-init='fromAccountArray=createDropDownOptionArray(rakSendMoney.sendMoney.fromAccounts, ["subAccountTypeDesc","-","accountNumber", "-", "currencyCode"],"accountIndex")'>
+										<fin-input type="dropdown" option-array="fromAccountArray"
+											model="rakSendMoney.sendMoney.selectedFromAccount"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_FROM}}"
+											on-change="rakSendMoney.sendMoney.selectedpromoCode='NA';rakSendMoney.sendMoney.getDefaultTransCurr();rakSendMoney.common.updateBal('onAccountSelectionBalCall');rakSendMoney.sendMoney.filterCurrencyArray();"
+											validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedFromAccount"]'>
+										</fin-input>
+
+									</div>
+									
+									<div ng-hide='rakSendMoney.sendMoney.isPromoSelected || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.RAKBANK || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OUTUAE'
+										ng-init='fromAccountArrayOwn=createDropDownOptionArray(rakSendMoney.sendMoney.fromAccountsOwn, ["subAccountTypeDesc","-","accountNumber", "-", "currencyCode"],"accountIndex")'>
+										<fin-input type="dropdown" option-array="fromAccountArrayOwn"
+											model="rakSendMoney.sendMoney.selectedFromAccountNew"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_FROM}}"
+											on-change="rakSendMoney.sendMoney.selectedpromoCode='NA';rakSendMoney.sendMoney.selectAccNo=rakSendMoney.sendMoney.fromAccountsOwn[rakSendMoney.sendMoney.selectedFromAccountNew].accountNumber;rakSendMoney.sendMoney.getDefaultTransCurr();rakSendMoney.common.updateBal('onAccountSelectionBalCall');rakSendMoney.sendMoney.filterCurrencyArray();rakSendMoney.sendMoney.validateTransactionInstantlyCBWSITransfer();"
+											validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedFromAccountNew"]'>
+										</fin-input>
+
+									</div>
+									
+									<div ng-hide='rakSendMoney.sendMoney.isPromoSelected || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OWN || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OUTUAE'
+										ng-init='fromAccountArrayRbf=createDropDownOptionArray(rakSendMoney.sendMoney.fromAccountsRbf, ["subAccountTypeDesc","-","accountNumber", "-", "currencyCode"],"accountIndex")'>
+										<fin-input type="dropdown" option-array="fromAccountArrayRbf"
+											model="rakSendMoney.sendMoney.selectedFromAccountNew"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_FROM}}"
+											on-change="rakSendMoney.sendMoney.selectedpromoCode='NA';rakSendMoney.sendMoney.selectAccNo=rakSendMoney.sendMoney.fromAccountsRbf[rakSendMoney.sendMoney.selectedFromAccountNew].accountNumber;rakSendMoney.sendMoney.getDefaultTransCurr();rakSendMoney.common.updateBal('onAccountSelectionBalCall');rakSendMoney.sendMoney.filterCurrencyArray();rakSendMoney.sendMoney.validateTransactionInstantlyCBWSITransfer();"
+											validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedFromAccountNew"]'>
+										</fin-input>
+
+									</div>
+									
+									<div ng-hide='rakSendMoney.sendMoney.isPromoSelected || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OWN || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.RAKBANK || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OUTUAE'
+										ng-init='fromAccountArrayUbf=createDropDownOptionArray(rakSendMoney.sendMoney.fromAccountsUbf, ["subAccountTypeDesc","-","accountNumber", "-", "currencyCode"],"accountIndex")'>
+										<fin-input type="dropdown" option-array="fromAccountArrayUbf"
+											model="rakSendMoney.sendMoney.selectedFromAccountNew"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_FROM}}"
+											on-change="rakSendMoney.sendMoney.selectedpromoCode='NA';rakSendMoney.sendMoney.selectAccNo=rakSendMoney.sendMoney.fromAccountsUbf[rakSendMoney.sendMoney.selectedFromAccountNew].accountNumber;rakSendMoney.sendMoney.getDefaultTransCurr();rakSendMoney.common.updateBal('onAccountSelectionBalCall');rakSendMoney.sendMoney.filterCurrencyArray();rakSendMoney.sendMoney.validateTransactionInstantlyCBWSITransfer();"
+											validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedFromAccountNew"]'>
+										</fin-input>
+
+									</div>
+									
+									<div ng-hide='rakSendMoney.sendMoney.isPromoSelected || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OWN || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.RAKBANK'
+										ng-init='fromAccountArrayObf=createDropDownOptionArray(rakSendMoney.sendMoney.fromAccountsObf, ["subAccountTypeDesc","-","accountNumber", "-", "currencyCode"],"accountIndex")'>
+										<fin-input type="dropdown" option-array="fromAccountArrayObf"
+											model="rakSendMoney.sendMoney.selectedFromAccountNew"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_FROM}}"
+											on-change="rakSendMoney.sendMoney.selectedpromoCode='NA';rakSendMoney.sendMoney.selectAccNo=rakSendMoney.sendMoney.fromAccountsObf[rakSendMoney.sendMoney.selectedFromAccountNew].accountNumber;rakSendMoney.sendMoney.getDefaultTransCurr();rakSendMoney.common.updateBal('onAccountSelectionBalCall');rakSendMoney.sendMoney.filterCurrencyArray();rakSendMoney.sendMoney.validateTransactionInstantlyCBWSITransfer();"
+											validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedFromAccountNew"]'>
+										</fin-input>
+
+									</div>
+
+									<div>
+											<p class="balance-available2"
+												ng-show="rakSendMoney.sendMoney.selectedFromAccount && rakSendMoney.common.availBal">
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.ENTITY_AVAIL_BALNCE}}
+												<span class="rs-color">
+													{{rakSendMoney.common.availBal}}</span>
+											</p>
+
+											<p class="balance-available2"
+												ng-show="rakSendMoney.sendMoney.subAccountTypeDesc=='Credit' && rakSendMoney.common.availBal">
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_ELGIBLEAMT}}
+												<span class="rs-color">
+													{{rakSendMoney.common.availBal}}</span>
+											</p>
+											<p class="balance-available2"
+												ng-show="rakSendMoney.sendMoney.fromAccounts.length > 0 && rakSendMoney.common.dailAvailLimitBal">
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.DAILY_TXN_LIMIT_LBL}}
+												<span class="rs-color">
+													{{rakSendMoney.common.dailAvailLimitBal}}</span>
+											</p>
+											<p class="balance-available2"
+												ng-show="rakSendMoney.sendMoney.fromAccounts.length > 0 && rakSendMoney.common.availLimitBal">
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.DAILY_LIMIT}}
+												<span class="rs-color">
+													{{rakSendMoney.common.availLimitBal}}</span>
+											</p>
+										</div>
+
+
+										<div
+											ng-show="rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OWN"
+											ng-init='toAccountList=createDropDownOptionArray(rakSendMoney.sendMoney.ownAccounts, ["subAccountTypeDesc","-","accountNumber","-","currencyCode"],"accountIndex")'>
+											<fin-input type="dropdown" option-array="toAccountList"
+												model="rakSendMoney.sendMoney.selectedToAccount" on-change="rakSendMoney.sendMoney.getEventForBenf();rakSendMoney.sendMoney.filterCurrencyArray();"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_SELF}}"
+												validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedFromAccount"]'>
+											</fin-input>
+
+										</div>
+
+
+
+
+
+
+
+										<!-- This field will be displayed only when the user has a deal for selected currency combination.
+Page will not refresh on selection of from account, if promo code is not available for the selected beneficiary type
+ -->
+										<!-- <div
+											ng-init='promoCodeArray=createDropDownOptionArray(rakSendMoney.sendMoney.promoCode, ["promoDesc"], "promoCode");'>
+											<fin-input type="dropdown" option-array="promoCodeArray"
+												model="rakSendMoney.sendMoney.selectedpromoCode"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_PROMO}}"
+												validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedpromoCode"]'>
+
+											</fin-input>
+
+										</div> -->
+
+										<div ng-show="(rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OUTUAE || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE) && rakSendMoney.sendMoney.showFDAComponentFlag=='Y'"
+											ng-init='RemcurrencyArray=createDropDownOptionArray(rakSendMoney.sendMoney.RemcurrencyList, ["currencyDesc"], "currencyCode");currencyArray=createDropDownOptionArray(rakSendMoney.sendMoney.txnCurrencyArray, ["currencyDesc"], "currencyCode");'>
+											<fin-input type="dropdown" option-array="RemcurrencyArray"
+												model="rakSendMoney.sendMoney.selectedRCurr"
+												display-row="half1" on-change="rakSendMoney.sendMoney.filterCurrencyArray();rakSendMoney.sendMoney.refreshValueforExchangeRate();rakSendMoney.sendMoney.refreshReasonList();rakSendMoney.sendMoney.refreshBenfResidentCountry();"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_RMTCUUR}}"
+												validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedRCurr"]'>
+
+											</fin-input>
+
+
+											<div class="fin-input-container fin-input-container-half2">
+										               <div ng-class="{'left-line': !pageErrorArr['rakSendMoney.sendMoney.selectedCurrency'], 'left-line-error':pageErrorArr['rakSendMoney.sendMoney.selectedCurrency']}" class="left-line">
+										               </div>
+										  <div class="input-body">
+										    <div class="input-body2 input-body2-dropdown">
+												<select dropdownpicker title="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_TRACURR}}" class="fin-input fin-select" ng-change='rakSendMoney.sendMoney.refreshValueforExchangeRate();' ng-model="rakSendMoney.sendMoney.selectedCurrency" ng-style="{{rakSendMoney.sendMoney.selectedCurrency}}== null || {{rakSendMoney.sendMoney.selectedCurrency}} == '' ? {'font-size': '14px'} : {'color': 'initial'}" >
+													    <option class="place-holder-select" value="" ng-selected="rakSendMoney.sendMoney.selectedCurrency== null" ng-show="rakSendMoney.sendMoney.selectedCurrency== null">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_TRACURR}}</option>
+													   	<option ng-repeat="option in rakSendMoney.sendMoney.txnCurrencyArray" ng-selected="'{{option.currencyCode}}'==='{{rakSendMoney.sendMoney.selectedCurrency}}'" value="{{option.currencyCode}}" >{{option.currencyDesc}}</option>
+												</select>
+											</div>
+												<div ng-class="{'bottom-line': !pageErrorArr['rakSendMoney.sendMoney.selectedCurrency'], 'bottom-line-error':pageErrorArr['rakSendMoney.sendMoney.selectedCurrency']}" class="bottom-line">
+										        </div>
+										</div>
+										</div>
+
+										</div>
+										
+										
+										<div ng-show="(rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OUTUAE || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE) && rakSendMoney.sendMoney.showFDAComponentFlag=='N'">
+											
+											<fin-input type="text_restrictedSpecialCharacter" 
+												model="rakSendMoney.sendMoney.selectedRCurr"
+												display-row="half1" 
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_RMTCUUR}}"
+												validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedRCurr"]' readonly>
+
+											</fin-input>
+
+
+											<div class="fin-input-container fin-input-container-half2">
+										               <div ng-class="{'left-line': !pageErrorArr['rakSendMoney.sendMoney.selectedCurrency'], 'left-line-error':pageErrorArr['rakSendMoney.sendMoney.selectedCurrency']}" class="left-line">
+										               </div>
+										  <div class="input-body">
+										    <div class="input-body2 input-body2-dropdown">
+												<select dropdownpicker title="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_TRACURR}}" class="fin-input fin-select" ng-change='rakSendMoney.sendMoney.refreshValueforExchangeRate();' ng-model="rakSendMoney.sendMoney.selectedCurrency" ng-style="{{rakSendMoney.sendMoney.selectedCurrency}}== null || {{rakSendMoney.sendMoney.selectedCurrency}} == '' ? {'font-size': '14px'} : {'color': 'initial'}" >
+													    <option class="place-holder-select" value="" ng-selected="rakSendMoney.sendMoney.selectedCurrency== null" ng-show="rakSendMoney.sendMoney.selectedCurrency== null">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_TRACURR}}</option>
+													   	<option ng-repeat="option in rakSendMoney.sendMoney.txnCurrencyArray" ng-selected="'{{option.currencyCode}}'==='{{rakSendMoney.sendMoney.selectedCurrency}}'" value="{{option.currencyCode}}" >{{option.currencyDesc}}</option>
+												</select>
+											</div>
+												<div ng-class="{'bottom-line': !pageErrorArr['rakSendMoney.sendMoney.selectedCurrency'], 'bottom-line-error':pageErrorArr['rakSendMoney.sendMoney.selectedCurrency']}" class="bottom-line">
+										        </div>
+										</div>
+										</div>
+
+										</div>
+
+
+
+
+
+
+						<div ng-hide="rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OUTUAE || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE ||rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OWN"
+											ng-init='currencyArray=createDropDownOptionArray(rakSendMoney.sendMoney.currencyList, ["currencyDesc"], "currencyCode");'>
+										 	<fin-input type="dropdown" option-array="currencyArray"
+												model="rakSendMoney.sendMoney.selectedCurrency"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_TRACURR}}"
+												on-change="rakSendMoney.sendMoney.isBenfSelected=true;rakSendMoney.sendMoney.refreshValueforExchangeRate();"
+												validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedCurrency"]'>
+
+											</fin-input>
+
+
+										</div>
+										
+										
+											<div class="fin-input-container" ng-show="rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OWN">
+											<div
+												ng-class="{'left-line': !pageErrorArr['rakSendMoney.sendMoney.selectedCurrency'], 'left-line-error':pageErrorArr['rakSendMoney.sendMoney.selectedCurrency']}"
+												class="left-line"></div>
+											<div class="input-body">
+												<div class="input-body2 input-body2-dropdown">
+													<select dropdownpicker title="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_TRACURR}}" class="fin-input fin-select"
+														ng-model="rakSendMoney.sendMoney.selectedCurrency" ng-change='rakSendMoney.sendMoney.refreshValueforExchangeRate();'
+														ng-style="{{rakSendMoney.sendMoney.selectedCurrency}}== null || {{rakSendMoney.sendMoney.selectedCurrency}} == '' ? {'font-size': '14px'} : {'color': 'initial'}">
+														<option class="place-holder-select" value=""
+															ng-selected="rakSendMoney.sendMoney.selectedCurrency== null"
+															ng-show="rakSendMoney.sendMoney.selectedCurrency== null">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_TRACURR}}</option>
+														<option
+															ng-repeat="option in rakSendMoney.sendMoney.txnCurrencyArray"
+															ng-selected="'{{option.currencyCode}}'==='{{rakSendMoney.sendMoney.selectedCurrency}}'"
+															value="{{option.currencyCode}}">{{option.currencyDesc}}</option>
+													</select>
+												</div>
+												<div
+													ng-class="{'bottom-line': !pageErrorArr['rakSendMoney.sendMoney.selectedCurrency'], 'bottom-line-error':pageErrorArr['rakSendMoney.sendMoney.selectedCurrency']}"
+													class="bottom-line"></div><div ng-hide='pageErrorArr["rakSendMoney.sendMoney.selectedCurrency"]==null' class="rakErrorMsg"> {{pageErrorArr['rakSendMoney.sendMoney.selectedCurrency']}}</div>
+											</div>
+										</div>
+
+									<div>
+											<fin-input type="money" model="rakSendMoney.sendMoney.amount"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_AMT}}"
+												on-change="rakSendMoney.sendMoney.getKeyUpForEdit();"
+												validation-flag='pageErrorArr["rakSendMoney.sendMoney.amount"]'>
+											</fin-input>
+										</div>
+
+										<div											
+											ng-show="rakSendMoney.sendMoney.showFDAComponentFlag=='N'">
+											<fin-input type="text_restrictedSpecialCharacter" model="rakSendMoney.sendMoney.selectedFrequencyDisp"
+												display-row="full" 
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_FRQ}}"
+												validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedFrequency"]' readonly>
+											</fin-input>
+										</div>
+
+										<div ng-show="rakSendMoney.sendMoney.showFDAComponentFlag=='Y'"
+											ng-init='frequencyArray=createDropDownOptionArray(rakSendMoney.sendMoney.frequencyType, ["frequencyTypeDesc"],"frequencyTypeCode")'>
+											<fin-input type="dropdown" option-array="frequencyArray"
+												model="rakSendMoney.sendMoney.selectedFrequency"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_FRQ}}"
+												validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedFrequency"]'>
+											</fin-input>
+
+										</div>
+
+										<div
+											ng-show="rakSendMoney.sendMoney.selectedFrequency!='O' && rakSendMoney.sendMoney.selectedFrequency!='undefined'">
+											<fin-input type="number_card"
+												model="rakSendMoney.sendMoney.noOfTransfer"
+												display-row="full"
+												max-length="5"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_NOOFTRA}}"
+												validation-flag='pageErrorArr["rakSendMoney.sendMoney.noOfTransfer"]' >
+											</fin-input>
+										</div>
+
+
+
+										<div class="fin-input-container rakexchangerate-block"
+											ng-show="rakSendMoney.sendMoney.exchangeRate">
+
+
+
+											<p class="rakexchangevalue">{{rakSendMoney.sendMoney.exchangeRate}}</p>
+											<span class="rakImageWhiteAlert" ng-click="rakSendMoney.getExchangePopUp();"></span>
+										</div>
+
+
+										<div>
+											<fin-input type="date"
+												model="rakSendMoney.common.displayDate"
+												value="futureDatesOnly"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_WHN}}"
+												display-row="full"> </fin-input>
+										</div>
+
+										<div											
+											ng-show="rakSendMoney.sendMoney.showFDAComponentFlag=='N'">
+											<fin-input type="text_restrictedSpecialCharacter" model="rakSendMoney.sendMoney.selectedChargesDisplay"
+												display-row="full" 
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_CHARGES}}"
+												validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedCharges"]' readonly>
+											</fin-input>
+										</div>
+
+
+
+										<div
+											ng-show=" rakSendMoney.sendMoney.showFDAComponentFlag=='Y' && (rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OUTUAE ||rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE)"
+											ng-init='chargesArray=createDropDownOptionArray(rakSendMoney.sendMoney.charges, ["chargeDesc"], "chargeCode");'>
+											<fin-input type="dropdown" option-array="chargesArray"
+												model="rakSendMoney.sendMoney.selectedCharges"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_CHARGES}}"
+												on-change="rakSendMoney.sendMoney.getStaticText();"
+												validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedCharges"]'>
+											</fin-input>
+
+
+
+										</div>
+
+									<!--	<p class="balance-available2"
+												ng-show="rakSendMoney.sendMoney.selectedCharges=='O'">
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.CHARGES_MSG}}
+
+											</p> -->
+
+										<div>
+
+											<p class="balance-available2"
+												ng-show="rakSendMoney.sendMoney.isAll">
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.STATIC_TEXT}}
+
+											</p>
+										</div>
+										
+										<div											
+											ng-show="rakSendMoney.sendMoney.showFDAComponentFlag=='N' && (rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE && rakSendMoney.sendMoney.selectedRCurr == 'AED')">
+											<fin-input type="text_restrictedSpecialCharacter" model="rakSendMoney.sendMoney.selectedPurposeDisplay"
+												display-row="full" max-length="33"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_REASON}}"
+												validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedPurpose"]' readonly>
+											</fin-input>
+											
+											
+
+										</div>
+
+
+										<div
+											ng-init='purposeArray=createDropDownOptionArray(rakSendMoney.sendMoney.purpose, ["purposeDesc"], "purposeCode");'
+											ng-show="rakSendMoney.sendMoney.selectedBenType=='UBF' &&  rakSendMoney.sendMoney.selectedRCurr == 'AED' && rakSendMoney.sendMoney.showFDAComponentFlag=='Y'">
+											<fin-input type="dropdown" option-array="purposeArray"
+												model="rakSendMoney.sendMoney.selectedPurpose"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_REASON}}"
+												validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedPurpose"]'>
+											</fin-input>
+
+										</div>
+
+										<div
+											ng-init='purposeArrayForNonAED=createDropDownOptionArray(rakSendMoney.sendMoney.reasonListForTxrn, ["reasonDesc"], "reasonCode");'
+											ng-show="rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE && rakSendMoney.sendMoney.selectedRCurr != 'AED' && rakSendMoney.sendMoney.showFDAComponentFlag=='Y'">
+											<fin-input type="dropdown" option-array="purposeArrayForNonAED"
+												model="rakSendMoney.sendMoney.selectedPurpose"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_REASON}}"
+												validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedPurpose"]'>
+											</fin-input>
+
+										</div>
+
+
+
+										<p class="left-txt"></p>
+
+						<div ng-show="rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE  || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OUTUAE">
+                                    <div ng-if="rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OUTUAE"
+											ng-init='reasonArray=createDropDownOptionArray(rakSendMoney.sendMoney.reasonListForTxrn, ["reasonDesc"], "reasonCode");'>
+											<fin-input type="dropdown" option-array="reasonArray"
+												model="rakSendMoney.sendMoney.selectedReason"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_REASON}}"
+												validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedReason"]'>
+											</fin-input>
+
+										</div>
+
+
+
+
+										<div class="addDet"  ng-init='rakAddDetFlag=false;' >
+				<div class="addDet1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakAddDetFlag}"  ng-click="rakAddDetFlag=!rakAddDetFlag">
+					<h3 class="addDet2">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.ADDET}}</h3>
+				</div>
+				<div  ng-if="rakAddDetFlag">
+									<div>
+											<fin-input type="text_restrictedSpecialCharacter" model="rakSendMoney.sendMoney.selectedReason1"
+												display-row="full" max-length="33"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_REASON}}"
+												validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedReason1"]'>
+											</fin-input>
+										</div>
+
+										<div>
+											<fin-input type="text_restrictedSpecialCharacter" model="rakSendMoney.sendMoney.selectedReason2"
+												display-row="full" max-length="33"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_REASON}}"
+												validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedReason2"]'>
+											</fin-input>
+										</div>
+
+
+										<div>
+											<fin-input type="text_restrictedSpecialCharacter" model="rakSendMoney.sendMoney.selectedReason3"
+												display-row="full" max-length="33"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_REASON}}"
+												validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedReason3"]'>
+											</fin-input>
+										</div>
+				</div>
+			</div>
+</div>
+
+
+
+                                      <div ng-hide="rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OUTUAE">
+											<fin-input type="text_restrictedSpecialCharacter" model="rakSendMoney.sendMoney.selectedReason"
+												display-row="full" max-length="33"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_REASON}}"
+												validation-flag='pageErrorArr["rakSendMoney.sendMoney.selectedReason"]'>
+											</fin-input>
+										</div>
+
+
+
+										<div class="label-wrap">
+
+											<button type="button"
+												class="btn--special-btn btn-middle rak-button-right"
+												ng-click="rak2FARegister.RegistrationModel.resolveEventFor2FA('SENDMONEYAGAIN');rakCorpInit.corpModel.eventName='SENDMONEYAGAIN';rakCorpInit.corpModel.backFlag='N';rak2FARegister.RegistrationModel.resolveEventFor2FA('SENDMONEYAGAIN');rakSendMoney.utils.parseNumbers();rakSendMoney.sendMoney.setFTAFieldsDefault();rakSendMoney.common.exchangeRateCall=false;rakSendMoney.schedule.schTxnListSubmitBtn='AGAIN';rakSendMoney.limitDispFlag='N';setEvent(rakSendMoney.sendMoney.getEventForModifyTransfer())";>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_SEND}}
+</button>
+										</div>
+
+								</div>
+							</div>
+							<div class="col-sm-1"></div>
+
+			
+						
+						
+					 <div class="disclaimer"  ng-init='rakDisclaimerFlag=false;' ng-if='rakSendMoney.sendMoney.selectedToBenAccount && rakSendMoney.sendMoney.fromAccounts && rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OWN &&  rakSendMoney.sendMoney.fromAccounts.length>1'>
+				<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+					<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+				</div>
+
+			<div class="disclaimer3" ng-if="rakDisclaimerFlag">
+					<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSENDMONEYINIT_OWN"></span>
+				<span ng-show="rakHome.userTypeIDValue!='CORPORATE'" ng-click="rakSendMoney.fetchDisclaimer('DailyTransactionLimits.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                   				<span ng-show="rakHome.userTypeIDValue=='CORPORATE'" ng-click="rakSendMoney.fetchDisclaimer('DailyTransactionLimits_CORP.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+               		<br/>
+                   			<br/>
+               		<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_AVIL_BAL_DISCLAIMER"></span>
+				</div>
+
+			</div>
+
+			<div class="disclaimer"  ng-init='rakDisclaimerFlag=false;' ng-if='rakSendMoney.sendMoney.selectedToBenAccount && rakSendMoney.sendMoney.fromAccounts && rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.RAKBANK'>
+				<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+					<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+				</div>
+				<div class="disclaimer3" ng-if="rakDisclaimerFlag">
+					<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSENDMONEYINIT_RAKBANK"></span>
+				<span ng-show="rakHome.userTypeIDValue!='CORPORATE'" ng-click="rakSendMoney.fetchDisclaimer('DailyTransactionLimits.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                   				<span ng-show="rakHome.userTypeIDValue=='CORPORATE'" ng-click="rakSendMoney.fetchDisclaimer('DailyTransactionLimits_CORP.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+             			<br/>
+                   			<br/>
+             			<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_AVIL_BAL_DISCLAIMER"></span>
+             	</div>
+			</div>
+
+			 <div class="disclaimer"  ng-init='rakDisclaimerFlag=false;' ng-if='rakSendMoney.sendMoney.selectedToBenAccount && rakSendMoney.sendMoney.fromAccounts && rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OUTUAE'>
+				<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+					<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+				</div>
+
+				<div class="disclaimer3" ng-if="rakDisclaimerFlag">
+
+
+                             <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSENDMONEYINIT_GENERALMSG"></span> 
+                             <span ng-click="rakSendMoney.fetchDisclaimer('FundsTransferCutOffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                             <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSENDMONEYINIT_OUTSIDE"></span>
+                             <span ng-click="rakSendMoney.fetchDisclaimer('CountryListIBAN.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                             <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSENDMONEYINIT_OUTSIDECONT1"></span>
+                             <span ng-click="rakSendMoney.fetchDisclaimer('FundTransferCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                             <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSENDMONEYINIT_OUTSIDECONT2"></span>
+                             <span ng-show="rakHome.userTypeIDValue!='CORPORATE'" ng-click="rakSendMoney.fetchDisclaimer('DailyTransactionLimits.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                   				<span ng-show="rakHome.userTypeIDValue=='CORPORATE'" ng-click="rakSendMoney.fetchDisclaimer('DailyTransactionLimits_CORP.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                   		<br/>
+                   			<br/>
+                   			<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_AVIL_BAL_DISCLAIMER"></span>
+				</div>
+
+			</div>
+
+			<div class="disclaimer"  ng-init='rakDisclaimerFlag=false;' ng-if='rakSendMoney.sendMoney.selectedToBenAccount && rakSendMoney.sendMoney.fromAccounts && rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE'>
+				<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+					<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+				</div>
+				<div class="disclaimer3" ng-if="rakDisclaimerFlag">
+
+
+						 <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSENDMONEYINIT_GENERALMSG"></span> 
+                        <span ng-click="rakSendMoney.fetchDisclaimer('FundsTransferCutOffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                        <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSENDMONEYINIT_CLICKHEREFORCUTOFF"></span> 
+                        <span ng-click="rakSendMoney.fetchDisclaimer('FundTransferCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                        <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSENDMONEYINIT_WITHIN"></span>
+                        <span ng-show="rakHome.userTypeIDValue!='CORPORATE'" ng-click="rakSendMoney.fetchDisclaimer('DailyTransactionLimits.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                   				<span ng-show="rakHome.userTypeIDValue=='CORPORATE'" ng-click="rakSendMoney.fetchDisclaimer('DailyTransactionLimits_CORP.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                   		<br/>
+                   			<br/>
+                   		<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_AVIL_BAL_DISCLAIMER"></span>
+
+				</div>
+			</div>			
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

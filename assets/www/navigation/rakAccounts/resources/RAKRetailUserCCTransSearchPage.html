@@ -1,0 +1,340 @@
+
+<div class="finacle-container"
+	ng-init='fields.selectedAccountDetails = successResponse;  byAmountFlag = false; byTrnxFlag = false; byTrxnOption = 0; fields.TxnType = "05,04"; fields.txnSrcMinAmt = ""; fields.txnSrcMaxAmt = ""; tmpTxnSrcMinAmt = null; tmpTxnSrcMaxAmt = null;
+			pageErrorArr["fields.trxnSearchByDateOption"] = null;
+			pageErrorArr["fields.trxnSearchByDate1"]=null;
+			pageErrorArr["fields.trxnSearchByDate2"]=null;
+            fields.trxnSearchByDateOption = null;
+            fields.trxnSearchByDate1 = null;
+            fields.trxnSearchByDate2 = null; tmpLastNTxn = "";
+            successResponse.invocationResult=successResponse.hasOwnProperty("responsesList")?successResponse.responsesList:successResponse.invocationResult.response.responsesList;
+            rakAccounts.accountList(successResponse.invocationResult);
+            rakAccounts.initPage(successResponse.responsesList,rakAccounts.RAKAccountsModel.accountType);'>
+    <div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="rakAccounts.backNavigation();"></i>
+	</div>
+ <div class="account-page">
+	<div class="col-sm-11">
+		<div class="bg-color ">
+			<div class="row">
+				<!-- <div class="col-sm-1"></div> -->
+				
+		    <div class="rakwidth75" 
+			ng-init='creditAccountArrayList=createDropDownOptionArray((rakAccounts.RAKAccountsModel.creditAccounts | filter:{isCIFlink:"!Y",isPrimary:"Y"}), ["subAccountTypeDesc", "-", "creditCardNo","-","currency"],"index");'> 
+			<fin-input type="dropdown" option-array="creditAccountArrayList"
+			model="rakAccounts.RAKAccountsModel.selectedAccount" 
+			select-req="false"
+			display-row="full"
+			placeholder="{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.SELECT_CC}}"
+			on-change='setEvent(rakAccounts.getEvent(rakAccounts.RAKAccountsModel.accountType,rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType))'> 
+			</fin-input>
+			</div>
+			
+			<div ng-show="rakAccounts.RAKAccountsModel.accountType == 'CCD' ">
+ 			<div class="app  rakapp-ellipses-icon"
+						ng-click="rakAccounts.handlePullDown($event);">
+						<span class="app-ellipses rakCustellipses"></span>
+						<ul class="rakPullDownMenu">
+						           
+							<li><a href="" ng-click='fields.txnType="Outstanding";fields.unsettledTxn="Y";
+							fields.applyFilter="unSetteled";
+							fields.txnSrcFromDate_day="";
+						    fields.txnSrcFromDate_month= "";
+							fields.txnSrcFromDate_year="";
+							fields.txnSrcToDate_day="";
+							fields.txnSrcToDate_month= " ";
+							fields.txnSrcToDate_year= " ";
+							fields.monthSelected="";
+							fields.yearSelected="";
+							setEvent("unSetteledTxn");'>
+							{{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.UNSETTLED_TXN}}</a></li>
+							
+							<li><a href=""
+							ng-click='fields.txnType="All";
+							fields.unsettledTxn="N";
+							fields.applyFilter="lastStatment";
+							fields.txnSrcFromDate_day="";
+						    fields.txnSrcFromDate_month= "";
+							fields.txnSrcFromDate_year="";
+							fields.txnSrcToDate_day="";
+							fields.txnSrcToDate_month= "";
+							fields.txnSrcToDate_year= ""; 
+							fields.dispalyPastStatement=true;
+							fields.selectedMonth="";
+							fields.selectedYear="";
+							setGlobalEvent("lastStatement");'>{{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.LAST_STATEMENT}}</a></li>
+							
+							
+							<li><a href="" ng-click='fields.txnType="Outstanding";fields.unsettledTxn="Y";
+							fields.applyFilter="";
+							fields.txnSrcFromDate_day="";
+						    fields.txnSrcFromDate_month= "";
+							fields.txnSrcFromDate_year="";
+							fields.txnSrcToDate_day="";
+							fields.txnSrcToDate_month= "";
+							fields.txnSrcToDate_year= "";
+							fields.dispalyPastStatement=true;
+							fields.selectedMonth="";
+							fields.selectedYear="";
+							setEvent("pastStatementSearch");'>
+							{{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.PAST_STATEMENT}}</a></li>
+						</ul>
+		</div>
+		</div>
+	
+		<!-- 		<div class="rakAccounts-nickName">
+					<span class="amount-curr">
+						{{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountNickName}}</span>
+					<div class="trans-date">
+						{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.CC_NICK_NAME}}</div>
+				</div>
+				<span class="rakEditImg" ng-click="rakMyProfile.updateNickName.navigationType='RetailCCUserTransSearch';rakMyProfile.updateNickname.clearNicknameDetails();
+				setEvent('onChangeNameClick')"></span> -->
+				
+		<div class="rakAccounts-nickName rakStmtDetWidth75">
+		<span class="amount-curr raktable100"> 
+		<span class="rakDisplayCell">
+		{{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountNickName}}
+		</span>
+		<span class="rakWidthTable30 rakEditImg" ng-if="rakHome.nicknameEnable==true" ng-click="rakMyProfile.updateNickName.navigationType='RetailUserAccounts';
+	        rakAccounts.RAKAccountsModel.clearTxnList='N';
+		rakMyProfile.updateNickname.clearNicknameDetails();setEvent('onChangeNameClick')"></span>
+		</span>
+		<div class="trans-date channel-select"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.CC_NICK_NAME}}</div>
+		</div>
+
+				<div class="balance-detail">
+					<div class="rakamount">
+					 <!--  <span class="amount-ps rakFontAcc">
+					  {{(rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance).indexOf("-") > -1 ? (rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance).replace("-","") : rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance+" CR"}}
+					  </span>
+					   -->
+             
+					<!-- <span class="amount-ps rakFontAcc">
+							{{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance}}</span> 
+					-->	
+							
+							
+					<span ng-if="rakAccounts.RAKAccountsModel.currentBalance.indexOf('0.00') > -1" class="amount-ps rakFontAcc">
+							  {{rakAccounts.RAKAccountsModel.currentBalance}}
+					</span>
+										
+					<span ng-hide="rakAccounts.RAKAccountsModel.currentBalance.indexOf('0.00') > -1" class="amount-ps rakFontAcc">
+							  {{rakAccounts.RAKAccountsModel.currentBalance.indexOf("-") > -1 ? rakAccounts.RAKAccountsModel.currentBalance.replace("-","") : rakAccounts.RAKAccountsModel.currentBalance+" CR"}}
+					</span>
+							
+							
+					</div>
+
+					<p class="balance-available-dash rak-display-caption">
+						{{appLiterals.APP.RAK_DASHBOARD.CURRENT_BALANCE}}
+					</p>
+
+				</div>
+				
+					<div class="balance-detail">
+						<div class="rakamount">
+						<!-- <span class="amount-ps rakFontAcc">
+						{{(rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).indexOf("-") > -1 ? (rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).replace("-","") : rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance+" CR"}}
+						</span> -->
+            
+							<!-- <span class="amount-ps rakFontAcc">
+								{{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance}}</span> -->
+						
+						<span ng-if="(rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).indexOf('0.00') > -1" class="amount-ps">
+					  			{{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance}}
+					  	</span>
+								
+						<span ng-hide="(rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).indexOf('0.00') > -1" class="amount-ps">
+					  			{{(rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).indexOf("-") > -1 ? (rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).replace("-","") : rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance+" CR"}}
+					  	</span>
+						
+						</div>
+
+						<p class="balance-available-dash rak-display-caption">
+							{{appLiterals.APP.RAK_DASHBOARD.STATEMENT_BALANCE}}
+						</p>
+
+					</div>
+				
+				
+				<div class="money-block">
+					<ul>
+					<!-- 	<li
+							ng-click='fields.subAccountType=rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType;
+            setEvent("onAccountClick");'> -->
+             	<li
+							ng-click='fields.subAccountType=rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType;
+            setEvent("onCCViewClick");'> 
+            
+							{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.TEXT_TRANSACTIONS}}
+
+						
+						<li
+							ng-click='fields.subAccountType=rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType;
+           setEvent("onCreditCardDetailsClick");'>
+							{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.CCD_DETAILS_TEXT}}</li>
+						<li class="active">
+							{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.TEXT_FILTER}}</li>
+					</ul>
+				</div>
+
+				<div ng-hide='fields.dispalyPastStatement'>
+
+					<div class="">
+						<div class="search-input-place">
+
+
+							<div class="rakfontmed bottompadzero">{{appLiterals.APP.RAK_ACCOUNTS.TRANSACTION_SEARCH_PAGE.PH_BYDTE}}
+							</div>
+							<div class="rakWidth100Percent">
+								<div class="">
+									<!-- <div class="rakleftalign">From Date</div> -->
+									<div class="rakWidth100Percent">
+										<!-- <fin-input type="date" model="fields.trxnSearchByDate1"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAK_ACCOUNTS.TRANSACTION_SEARCH_PAGE.PH_FRMDTE}}" 
+											validation-flag='pageErrorArr["fields.trxnSearchByDate1"]'>
+										</fin-input> -->
+										<fin-input type="date" model="fields.trxnSearchByDate1" value="past3YearsOnly"
+										display-row="half1" placeholder="{{appLiterals.APP.RAK_ACCOUNTS.TRANSACTION_SEARCH_PAGE.PH_FRMDTE}}"
+										validation-flag='pageErrorArr["fields.trxnSearchByDate1"]'></fin-input>
+
+									</div>
+								</div>
+								<div class="">
+									<!-- <div class="rakrighttalign">To Date</div> -->
+									<div class="rakWidth100Percent">
+									<fin-input type="date" model="fields.trxnSearchByDate2" value="past3YearsOnly"
+										display-row="half2" placeholder="{{appLiterals.APP.RAK_ACCOUNTS.TRANSACTION_SEARCH_PAGE.PH_TODTE}}"
+										validation-flag='pageErrorArr["fields.trxnSearchByDate2"]'></fin-input>
+									<!-- 	<fin-input type="date" model="fields.trxnSearchByDate2"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAK_ACCOUNTS.TRANSACTION_SEARCH_PAGE.PH_TODTE}}" 
+											validation-flag='pageErrorArr["fields.trxnSearchByDate2"]'>
+										</fin-input> -->
+									</div>
+								</div>
+							</div> 
+							
+								<!-- 	<div class="rakCtsmDateSrch">
+									<fin-input type="date" model="fields.trxnSearchByDate1"
+										display-row="half1" placeholder="{{appLiterals.APP.RAK_ACCOUNTS.TRANSACTION_SEARCH_PAGE.PH_FRMDTE}}"
+										validation-flag='pageErrorArr["fields.trxnSearchByDate1"]'></fin-input>
+
+									<fin-input type="date" model="fields.trxnSearchByDate2"
+										display-row="half2" placeholder="{{appLiterals.APP.RAK_ACCOUNTS.TRANSACTION_SEARCH_PAGE.PH_TODTE}}"
+										validation-flag='pageErrorArr["fields.trxnSearchByDate2"]'></fin-input>
+									</div> -->
+						<div class="rakradio-biller rakPadding01" ng-init="rakAccounts.RAKAccountsModel.TxnType='ALL'" >
+										<form>
+												<ul class="padding-zero center ">
+													<li>
+														<div class="rakCstmRadioDiv rak33">
+																<input type="radio" value="04" id="radio1" name="byTrnxChoice" ng-model="rakAccounts.RAKAccountsModel.TxnType">
+																<label for="radio1" class="rakMarginLeft1"><span><span></span></span>{{appLiterals.APP.RAK_ACCOUNTS.TRANSACTION_SEARCH_PAGE.BUTTON_CREDIT}}</label> 				
+														</div>
+														<div class="rakCstmRadioDiv rak33">
+																<input type="radio" value="05" id="radio2"  name="byTrnxChoice" ng-model="rakAccounts.RAKAccountsModel.TxnType">
+																<label for="radio2" class="rakMarginLeft1"><span><span></span></span>{{appLiterals.APP.RAK_ACCOUNTS.TRANSACTION_SEARCH_PAGE.BUTTON_DEBIT}}</label> 				
+														</div>
+														<div class="rakCstmRadioDiv rak33">
+																<input type="radio" value="ALL" id="radio3"  name="byTrnxChoice" ng-model="rakAccounts.RAKAccountsModel.TxnType">
+																<label for="radio3" class="rakMarginLeft1"><span><span></span></span>{{appLiterals.APP.RAK_ACCOUNTS.TRANSACTION_SEARCH_PAGE.BUTTON_BOTH}}</label> 				
+														</div>
+													</li>
+												</ul>
+												</form>
+						         		</div>
+
+							<button class="btn--special-btn rak-button-full-black marginTopTen"
+								ng-click='fields.accountDetailSource = "ACC_SEARCH_CLICK";
+                                rakAccounts.RAKAccountsModel.trxSearchFlag=true;
+                                fields.trxSearchFlag = true;
+                                fields.trxnSearchByDateOption=5;
+                                transactionSearchSetup(fields.trxnSearchByDateOption, fields.trxnSearchByDate1, fields.trxnSearchByDate2);
+                                fields.successResponsePrev = null;
+                                fields.transSearchResultData = false;
+                                fields.trxnSearchByDate1Prev = fields.trxnSearchByDate1;
+                                fields.trxnSearchByDate2Prev = fields.trxnSearchByDate2;
+                                fields.transSearchResultFlag = true;
+                                fields.applyFilter = "daterange";
+                                fields.txnType="All";
+                                fields.unsettledTxn="N";
+                                fields.txnSrcLatestNoOfTxns="";
+                                fields.selectedAccount.mainAccountType == "CCD";
+                                fields.monthSelected="";
+								fields.yearSelected="";
+                                setEvent("onCreditSearchClick")'>{{appLiterals.APP.RAK_ACCOUNTS.TRANSACTION_SEARCH_PAGE.BUTTON_SEARCH}}
+							</button>
+
+
+
+
+						</div>
+					</div>
+				</div>
+				<div ng-show='fields.dispalyPastStatement'>
+					<div class="rakwidth75Center">
+						<div class="search-input-place">
+
+							<div class="rakfontmed"></div>
+							<div class="rakWidth100Percent">
+								
+									<div class="rakrighttalign">Select The Month And Year</div>
+									<div class="rakWidth100Percent">
+								<!-- 	rakAccounts.RAKAccountsModel.yearSelected=result[0].yearValue -->
+									<div  ng-init='rakAccounts.RAKAccountsModel.tempYearList=rakAccounts.populateCurrentDateDetails();rakAccounts.RAKAccountsModel.yearSelected=rakAccounts.RAKAccountsModel.tempYearList[0].yearValue;
+									yearArr = createDropDownOptionArray(rakAccounts.RAKAccountsModel.tempYearList,["yearName"],"yearValue");'>
+								<fin-input type="dropdown" model="rakAccounts.RAKAccountsModel.yearSelected" display-row="full" select-req="false"
+								placeholder="{{appLiterals.APP.RAK_ACCOUNTS.TRANSACTION_SEARCH_PAGE.SELECT_YEAR}}"  
+									option-array="yearArr">			
+								</fin-input>
+									
+									
+									
+									</div>
+								</div>
+						
+
+
+
+
+						</div>
+					</div>
+					
+					    <button class="btn--special-btn rak-button-full-black marginTopTen pastStatementSearchAdd"
+                                ng-click='
+                                rakAccounts.RAKAccountsModel.trxSearchFlag=true;
+                                fields.trxSearchFlag = true;
+                                fields.txnType="All";
+                                fields.successResponsePrev = null;
+                                fields.transSearchResultData = false;
+                                fields.transSearchResultFlag = true;
+                                fields.applyFilter="pastStatement";
+								fields.txnSrcFromDate_day="";
+						    	fields.txnSrcFromDate_month= "";
+								fields.txnSrcFromDate_year="";
+								fields.txnSrcToDate_day="";
+								fields.txnSrcToDate_month= " ";
+								fields.txnSrcToDate_year= " ";
+								fields.unsettledTxn="N";
+								fields.selectedMonth="";
+								fields.selectedYear=rakAccounts.RAKAccountsModel.yearSelected;
+								setEvent("pastStatement");'>{{appLiterals.APP.RAK_ACCOUNTS.TRANSACTION_SEARCH_PAGE.BUTTON_SEARCH}}
+                                </button>	
+				</div>
+
+
+				<div class="col-sm-1"></div>
+
+
+
+
+			</div>
+		</div>
+	</div>
+
+</div>
+</div>
+</div>

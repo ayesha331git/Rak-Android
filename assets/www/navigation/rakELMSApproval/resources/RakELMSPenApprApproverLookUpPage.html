@@ -1,0 +1,77 @@
+<div class="rak-back-header">
+    <i class="rak-back-img" ng-click="rakELMSApproval.isBack=true;rakELMSApproval.backFlag='Y';setEvent('onELMSBackClickedApprove');rakELMSApproval.resolveEventForLookUp(rakELMSApproval.clickedEvent);"></i>
+  </div>
+    	<div class="finacle-container" >
+	<div class="account-page">
+		<div class="col-sm-11">
+			<div class="app-title-wrapper">					 
+			   <div class="form-block">
+	<div class="">
+		<div class="raksearch-field-wrap">
+	 <p class="search-field"><span class="rakGlyphicon glyphicon-search"> </span>
+        <input type="text" input-restricted-special-character placeholder="Search Approver" ng-model="rakCorpInit.corpModel.searchText" class="raksearch-txt">
+      </p>
+      </div>
+			<div class="main-form-heading-payee rakSearchBorder"> 
+		      <h2 >{{appLiterals.APP.CORPORATE.APPROVER_LOOKUP}}		 	     
+		      </h2>		       
+		  </div>
+	</div>
+							    
+         <div class="fin-txt"></div>
+         <div class="bg-color rak-cont-padding" ng-init="rakCorpInit.corpModel.searchText='';rakCorpInit.corpModel.roleSelectedFlag='N';">
+         		<div class="money-block" ng-if="rakELMSApproval.userRoleDetails.length> 0">
+		         <ul>
+		            <li  class="active rakwidth33Left">{{appLiterals.APP.CORPORATE.USERID}}</li>
+		            <li class="active rakwidth33Left">{{appLiterals.APP.CORPORATE.USERNAME}}</li>
+		           	<li class="active rakwidth33Left">Role</li>
+		         <!--    <li class="active rak25">{{appLiterals.APP.CORPORATE.OUTOFFICE}}</li> -->
+		         </ul> 
+				</div>
+         		<div class="rakScrollDivHistory rak-cont-paddingvh" ng-class="{'rakScrollDivHistorySmall':rakTxnSearch}" ng-if="rakELMSApproval.userRoleDetails.length> 0">
+		            <div class="" >
+						<div class="trans-detail rakGreyRow" ng-repeat="bank in  filtered=(rakELMSApproval.userRoleDetails | filter:rakCorpInit.corpModel.searchText)">
+		                  	<div class="trans-dash-right rakPeopleNameRow1 rakwidth33Left  rakPaddingPoint8em pull-left">					                   		
+		                   		<div> 
+		                    		<div class="trans-no trans-noupDated rakFont1em">{{bank.userId}}</div>
+		                    	</div>					                                  
+		                    </div>
+		                    <div class="trans-dash-right rakPeopleNameRow1 rakwidth33Left pull-left rakPaddingPoint8em">					                   		
+		                   		<div> 
+		                    		<div class="trans-no trans-noupDated rakFont1em">{{bank.userName}}</div>
+		                    	</div>					                                  
+		                    </div>
+			              <div class="trans-dash-left rakPeopleNameRow1 rakwidth33Left pull-left rakPaddingPoint8em">
+			                  	<div>
+			                    	<div class="trans-no trans-noupDated rakFont1em">{{bank.roleDesc}}</div>
+			               		</div>
+			                 </div> 
+			                 <div class="trans-dash-left rakPeopleNameRow1 rakwidth33Left pull-left rakPaddingPoint8em">					                  
+			                    <div>
+			                    
+				                    <div class="trans-no trans-noupDated rakFont1em "> 
+				                  <!--   <div>  {{bank.roleDesc}} </div>   -->   
+				                     <div class="rakupdatedHypLink" ng-click="rakCorpInit.corpModel.roleSelectedFlag='Y';rakELMSApproval.isBack=true;rakELMSApproval.apprRoleId=bank.userId;rakELMSApproval.approveAuthModel.userName=bank.userId;
+				                         rakELMSApproval.apprRoleDesc=bank.roleDesc;rakELMSApproval.backFlag='Y';setEvent('onELMSBackClickedApprove');">Select</div>      
+				                    </div>
+			                  	</div>
+			                 </div>
+			             </div>
+			             
+			                   			<div ng-show="filtered.length=='0'">
+
+							<div class="summary-ServiceReq">
+								<div class="iconDivNorecord">
+									<span class="infoIcon"></span><span class="success">The applicable users are not linked to any applicable roles in the selected rule for the entered criteria.</span>
+								</div>
+							</div>
+						</div>
+		             </div>
+				</div>
+			</div>
+		</div>		
+      </div>
+   </div>
+</div>
+</div>
+</div>

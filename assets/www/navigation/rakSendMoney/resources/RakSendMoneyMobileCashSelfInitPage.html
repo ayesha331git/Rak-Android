@@ -1,0 +1,139 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container"
+			ng-init="resetPageError();rakSendMoney.clearTab();rakSendMoney.sendMoneyTab=true;rakCorpInit.corpModel.resetCorpInitDetails();
+			 rakSendMoney.mobileCash.initPayNowPage(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+
+							<ng-include
+								src="'./navigation/rakSendMoney/resources/RakSendMoneyTabPage.html'">
+							</ng-include>
+
+
+							<div class="tab-links">
+								<ul>
+									<li ng-click="setGlobalEvent('onRakMoveMoneyClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_BNKTRANSFER}}</span></li>
+									<li ng-show="dashboard.userType=='1'" ng-click="setGlobalEvent('onRakMoneyPayTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_RAKMNY}}</span></li>
+									<li class="active"><span class="active">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_MBLCASH}}</span></li>
+								</ul>
+							</div>
+									
+						<div ng-if="rakSendMoney.isOprAvailabel">
+
+							<div class="summary-ServiceReq">
+								<div class="iconDivNorecord">
+									<span class="infoIcon"></span><span class="success">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.ELIGIBITYCHEK}}</span>
+								</div>
+							</div>
+						</div>
+
+			<div ng-if="!rakSendMoney.isOprAvailabel">
+							<div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh">
+								<div class="row">
+									<div class="col-sm-1"></div>
+
+									<div
+										ng-init='toList=createDropDownOptionArray(rakSendMoney.mobileCash.benfTypeList, ["benfDesc"],"benfCode")'>
+										<fin-input type="dropdown" option-array="toList"
+											model="rakSendMoney.mobileCash.selectedBenfType"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_TO}}"
+											on-change="rakSendMoney.mobileCash.isBenfTypeSelected=true;rakSendMoney.common.balCheck=false;rakSendMoney.mobileCash.clearFields();setEvent(rakSendMoney.mobileCash.getEvent())"
+											validation-flag='pageErrorArr["rakSendMoney.mobileCash.selectedBenfType"]'>
+										</fin-input>
+									</div>
+
+
+									<div ng-show="rakSendMoney.mobileCash.isBenfTypeSelected==true">
+
+						<div class="rak-parent-txt" >
+								<span class="rak-sum-label rak40Width ServiceReqNormalLable">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.NAME}}</span>
+								<span class="rak-sum-label blackRight rak60Width ServiceReqNormalLable">{{rakSendMoney.mobileCash.custName}}</span>
+						</div>	
+		
+								
+
+
+
+									<div
+										ng-init='fromAccountArray=createDropDownOptionArray(rakSendMoney.mobileCash.fromAccounts, ["subAccountTypeDesc","-","accountNumber", "-", "currencyCode"],"accountIndex")'>
+										<fin-input type="dropdown" option-array="fromAccountArray"
+											model="rakSendMoney.mobileCash.selectedFromAccount"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_FROM}}"
+											on-change="rakSendMoney.common.updateBal('onAccountSelectionBalCall');"
+											validation-flag='pageErrorArr["rakSendMoney.mobileCash.selectedFromAccount"]'>
+										</fin-input>
+
+									</div>
+
+									
+											<div class="balance-available2"
+												ng-show='rakSendMoney.mobileCash.selectedFromAccount && rakSendMoney.common.availBal'>
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_BALANCE}}
+												<span class="rs-color">
+													{{rakSendMoney.common.availBal}}</span>
+											</div>
+
+
+									
+
+
+
+
+										<fin-input type="number_card"
+											model="rakSendMoney.mobileCash.amount" max-length="5"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_AMOUNTAED}}"
+											validation-flag='pageErrorArr["rakSendMoney.mobileCash.amount"]'>
+										</fin-input>
+
+									<!-- 	<span class="rak-curr-label">
+										{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.AED}}</span> -->
+
+										<!-- 	<p class="balance-available2" ng-show='pageErrorArr["rakSendMoney.mobileCash.amount"]'>
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.AMT_MSG}}
+
+											</p> -->
+
+
+
+										<div class="label-wrap">
+
+											<button type="button"
+												class="btn--special-btn btn-middle rak-button-right"
+												ng-click="rakSendMoney.mobileCash.selectedBenf='';rakCorpInit.corpModel.eventName='MOBILECASH';rakCorpInit.corpModel.backFlag='N';setEvent('onMobileCashTransferSend')";>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_SEND}}
+											</button>
+
+										</div>
+										
+										<div class="disclaimer"  ng-init='rakDisclaimerFlag=false;' >
+											<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+												<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+											</div>
+											<div class="disclaimer3" ng-if="rakDisclaimerFlag">                       
+							                        <span ng-bind-html="appLiterals.APP.DISCLAIMER.MOBSELF"></span>
+							                        <span ng-click="rakServiceReq.fetchDisclaimer('MobileCashTermsAndConditions.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.TERMS}}</span>
+							                        <span ng-bind-html="appLiterals.APP.DISCLAIMER.MOBSELFCONT"></span>
+							                        <span ng-bind-html="appLiterals.APP.DISCLAIMER.MOBAMOUNTWITHDRAWAL"></span>
+													<span ng-click="rakSendMoney.fetchDisclaimer('DailyTransactionLimits.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+											</div>
+										</div>
+
+										</div>
+										
+				
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-1"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

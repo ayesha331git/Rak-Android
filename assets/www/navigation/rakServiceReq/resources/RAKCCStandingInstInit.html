@@ -1,0 +1,164 @@
+	
+		<span ng-show="rakServiceReq.RakCCStandingInstModel.isAlreadyStandingInst" class="rakOverlay">
+									<span  class="ng-binding rakPopUpDisplay">
+									<!-- CHANGES DONE AS FIX OF 1995 START -->
+										<span class="rakFullRmrksTxt">{{appLiterals.APP.RAKCCSTANDINGINST.SI_ALREADY_EXISTS_TXT}}</span>
+										<button  class="btn--special-btn btn-middle rak-button-small rakRightButtonInPopUp" ng-click="setEvent('onRAKCCStandingInstAmendSIOkClick');rakServiceReq.RakCCStandingInstModel.isAlreadyStandingInst=false;rakServiceReq.RakCCStandingInstModel.isNotAlreadyStandingInst=true;rakServiceReq.RakCCStandingInstModel.isDetailsFetchedForAmendSI=true;rakServiceReq.amendStandingInst.StandingInsDisplay=false;rakServiceReq.amendStandingInst.ccSelected=rakServiceReq.RakCCStandingInstModel.selectedCreditCard;">{{appLiterals.APP.RAKCCSTANDINGINST.BUTTON_OK}}</button>
+										<button  class="btn--special-btn btn-middle rak-button-small btn--back rakLeftButtonInPopUp" ng-click="rakServiceReq.RakCCStandingInstModel.isAlreadyStandingInst=false;rakServiceReq.RakCCStandingInstModel.selectedCreditCard=''">{{appLiterals.APP.RAKCCSTANDINGINST.BUTTON_CANCEL}}</button>
+									<!-- CHANGES DONE AS FIX OF 1995 END -->
+									</span>
+								</span>
+	
+	
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onRAKCCStandingInstInitBackClick');"></i>
+	</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.fetchRAKCCStandingInstInitData(successResponse.responsesList);">
+			<div class="account-page ">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+						
+						<div class="main-form-heading-ServiceReq"> 
+				                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CC_STANDING_INST}}
+				                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+				                 </h2>              
+						</div>
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="">
+									
+
+									<div
+										ng-init='CreditCardArr = createDropDownOptionArray(rakServiceReq.RakCCStandingInstModel.CreditCardList, ["cardTypeDesc","-","cardNumber"], "cardIndex");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RakCCStandingInstModel.selectedCreditCard"
+										display-row="full"
+										on-change="rakServiceReq.RakamendStandingfetchDetails();"
+										placeholder="{{appLiterals.APP.RAKCCSTANDINGINST.SEL_CREDIT_CARD}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakCCStandingInstModel.selectedCreditCard"]'
+										option-array="CreditCardArr"> </fin-input>
+							
+							<div class="" ng-if="rakServiceReq.RakCCStandingInstModel.isNotAlreadyStandingInst">
+										<div class="rakRow">
+											<div class="radio-biller rak100 rakWidth100 ">
+												{{appLiterals.APP.RAKCCSTANDINGINST.MONTHLY_PMT_PER}}</div>
+											<div class="rak100">
+												<div>
+													<div class="rakCstmRadioDiv rak100 rakTop2emLeft3 ">
+														<input type="radio" value="{{appLiterals.APP.RAKCCSTANDINGINST.CURR_STMT_BAL}}"  id="radio1"
+															ng-model="rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt" />
+														<label for="radio1"><span><span></span></span>{{appLiterals.APP.RAKCCSTANDINGINST.CURR_STMT_BAL}}</label>	
+													</div>
+
+													<div class="rakCstmRadioDiv rak100 rakTop2emLeft3 rakTop1em">
+														<input type="radio" value="{{appLiterals.APP.RAKCCSTANDINGINST.MIN_AMT_DUE}}" id="radio2"
+															ng-model="rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt" />
+														<label for="radio2"><span><span></span></span>{{appLiterals.APP.RAKCCSTANDINGINST.MIN_AMT_DUE}}</label>
+													</div>
+													
+			
+													<div class="rakCstmRadioDiv rak100 rakTop2emLeft3 rakTop1em">
+														<input type="radio" value="{{appLiterals.APP.RAKCCSTANDINGINST.FLAT_AMT}}" id="radio3"
+															ng-model="rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt" />
+														<label for="radio3"><span><span></span></span>{{appLiterals.APP.RAKCCSTANDINGINST.FLAT_AMT}}</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										 <!-- Rajesh: Radio Btn style changes End -->
+										
+										
+										<fin-input type="number"
+										model="rakServiceReq.RakCCStandingInstModel.perOfCurrentStatementBal"
+										ng-show="rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt=='{{appLiterals.APP.RAKCCSTANDINGINST.CURR_STMT_BAL}}'"
+										display-row="full" placeholder="{{appLiterals.APP.RAKCCSTANDINGINST.CURR_STMT_BAL}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakCCStandingInstModel.perOfCurrentStatementBal"]'></fin-input>
+										
+										
+										
+							<div class="rak100" ng-show="rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt=='{{appLiterals.APP.RAKCCSTANDINGINST.FLAT_AMT}}'">
+		                           
+		                           <div class="">
+		                           	<span class="invRed-curr-label"> 
+										{{appLiterals.APP.RAKCCSTANDINGINST.FLAT_AMT_CURR}}</span>
+		                           </div>
+		                           
+		                           <div class="rak85" >
+		                           	<fin-input type="number"
+										model="rakServiceReq.RakCCStandingInstModel.flatAmount"
+										ng-show="rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt=='{{appLiterals.APP.RAKCCSTANDINGINST.FLAT_AMT}}'"
+										display-row="full" placeholder="{{appLiterals.APP.RAKCCSTANDINGINST.FLAT_AMT}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakCCStandingInstModel.flatAmount"]'></fin-input>
+		                           </div>
+		                           
+		                     </div>
+										
+										
+										
+									
+										
+									
+										<div class="rakRow">
+											<div class="radio-biller rak100 rakWidth100 ">
+												{{appLiterals.APP.RAKCCSTANDINGINST.SI_DATE}}</div>
+											<div class="rak90">
+												<div>
+													<div class="rakCstmRadioDiv rak100 ">
+														<input type="radio" value="{{appLiterals.APP.RAKCCSTANDINGINST.DOM}}" id="radio4"
+															ng-model="rakServiceReq.RakCCStandingInstModel.isDOMorPmtDueDt" />
+														<label for="radio4"><span><span></span></span>{{appLiterals.APP.RAKCCSTANDINGINST.DOM}}</label>
+													</div>
+
+													<div class="rakCstmRadioDiv rak100 marginTopTen ">
+														<input type="radio" value="{{appLiterals.APP.RAKCCSTANDINGINST.PMT_DUE_DATE}}" id="radio5"
+															ng-model="rakServiceReq.RakCCStandingInstModel.isDOMorPmtDueDt" />
+																		<label for="radio5"><span><span></span></span>{{appLiterals.APP.RAKCCSTANDINGINST.PMT_DUE_DATE}}</label>
+													</div>
+												
+			
+												</div>
+											</div>
+										</div> 
+										<!-- Rajesh: Radio Btn style changes End -->
+									
+									<div
+										ng-init='dateOfMonthArr = createDropDownOptionArray(rakServiceReq.RakCCStandingInstModel.dateOfMnthList, ["dateOfMnthCode"], "dateOfMnthId");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RakCCStandingInstModel.selectedDateOfMonth"
+										display-row="full"
+										ng-show="rakServiceReq.RakCCStandingInstModel.isDOMorPmtDueDt=='{{appLiterals.APP.RAKCCSTANDINGINST.DOM}}'"
+										placeholder="{{appLiterals.APP.RAKCCSTANDINGINST.SEL_DOM}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakCCStandingInstModel.selectedDateOfMonth"]'
+										option-array="dateOfMonthArr"> </fin-input>
+											
+									<!--PROUAT -1946 <div
+										ng-init='OprAcctArr = createDropDownOptionArray(rakServiceReq.RakCCStandingInstModel.OprAccList, ["acctTypeDesc","-","accountId"," ","currencyCode"], "accountIndex");'></div>
+										 -->
+									 <div ng-init='OprAcctArr = createDropDownOptionArray(rakServiceReq.RakCCStandingInstModel.OprAccList, ["acctTypeDesc","-","accountId"], "accountIndex");'></div>
+										 <fin-input type="dropdown"
+										model="rakServiceReq.RakCCStandingInstModel.selectedOprAcc"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAKCCSTANDINGINST.SEL_OPR_ACC}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakCCStandingInstModel.selectedOprAcc"]'
+										option-array="OprAcctArr"> </fin-input>
+									
+
+									<div class="label-wrap">
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-right"
+											ng-click="rakServiceReq.detectMonthlyPmtPer();rakServiceReq.detectDOMorPmtDueDtSend();rakServiceReq.detectSelectedOptionsForValidation();setEvent('onRAKCCStandingInstConfirmClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+									</div>
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

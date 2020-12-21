@@ -1,0 +1,184 @@
+<div class="app app-arrow2 title-right-dash" id="backArrow"
+	ng-click="setEvent('onPrevServiceClick')"></div>
+<div class="finacle-container"
+	ng-init="services.initFixedDepositConfirmPage(successResponse.responsesList);services.fDAccountModel.transactionPassword='';formatAmountCrn('services.fDAccountModel.depositAmount','services.fDAccountModel.currency')">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper">
+				<div class="title-left"> </div>
+				<div class="title-center text-uppercase" id="PageHeader1">{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.HEADER}}</div>
+			</div>
+
+			<div class="dashboard-pad padding-top-zero">
+				<div class=" dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div class="item-title text-uppercase" id="PageHeader">{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.HEADER}}</div>
+					</div>
+					<div class="col-sm-12">
+
+
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="OpnFdConfrmDepAmtHead">
+								{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.DEP_AMT}} </strong><span
+								class="dash-ac-id" id="OpnFdConfrmDepAmtVal">
+								{{services.fDAccountModel.currency}}
+								{{services.fDAccountModel.depositAmount}}</span>
+						</div>
+
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="OpnFdConfrmDepDebAccHead">
+								{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.DEB_ACC}} </strong><span
+								class="dash-ac-id" id="OpnFdConfrmDepDebAccVal">
+								{{(services.openNewFDAccount.accountList |
+								filter:{accountNumber:services.fDAccountModel.selectedAccountNumber})[0].accountId}}</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="OpnFdConfrmDepMonthHead">
+								{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.TXT_MNTHS}} </strong><span
+								class="dash-ac-id" id="OpnFdConfrmDepMonthVal">
+								{{services.fDAccountModel.fDmonth}}</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="OpnFdConfrmDepDaysHead">
+								{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.TXT_DYS}} </strong><span
+								class="dash-ac-id" id="OpnFdConfrmDepDaysVal">{{services.fDAccountModel.fDDate}}</span>
+						</div>
+
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="OpnFdConfrmDeptxtDatehead">
+								{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.TXT_DTE}} </strong><span
+								class="dash-ac-id" id="OpnFdConfrmDeptxtDateVal"><fin-Date
+									date-value='{{services.fDAccountModel.fixedAccountOpenMonth + "/" + services.fDAccountModel.fixedAccountOpenDay + "/" + services.fDAccountModel.fixedAccountOpenYear}}'></fin-Date></span>
+						</div>
+
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="OpnFdConfrmDepTxtIdHead">
+								{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.TXT_ID_NUMBER}} </strong><span
+								class="dash-ac-id" id="OpnFdConfrmDepTxtIdval">{{services.fDAccountModel.identificationPin}}</span>
+						</div>
+
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="OpnFdConfrmDepBrnchHead">
+								{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.TXT_BRNCH}}</strong><span
+								class="dash-ac-id" id="OpnFdConfrmDepBrnchVal">{{services.openNewFDAccount.branchList[services.fDAccountModel.selectedBranch].branchName}}</span>
+						</div>
+
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="OpnFdConfrmtaxOprHead">
+								{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.TXT_TXOPER}}</strong><span
+								class="dash-ac-id" id="OpnFdConfrmtaxOprVal">{{services.fDAccountModel.isTaxOperative}}</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="OpnFdConfrmPrinMatHead">
+								{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.PRIN_MAT}}</strong><span
+								class="dash-ac-id" id="OpnFdConfrmPrinMatVal">{{(services.openNewFDAccount.maturityOptionList
+								|
+								filter:{value:services.fDAccountModel.selectedMaturity})[0].type}}</span>
+						</div>
+						<div class="account-detail-dash margin-zero"
+							ng-show="services.fDAccountModel.selectedMaturity == 'Redeem'">
+							<strong class="trans-no" id="OpnFdConfrmTrnsToHead">
+								{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.TRANSF_TO}}</strong><span
+								class="dash-ac-id" id="OpnFdConfrmTrnsToVal">{{(services.openNewFDAccount.transferTypeList
+								|
+								filter:{value:services.fDAccountModel.selectedMaturityTransferType})[0].type}}</span>
+						</div>
+
+						<div class="account-detail-dash margin-zero"
+							ng-show="services.fDAccountModel.selectedMaturityTransferType == 'MyAcc'">
+							<strong class="trans-no" id="OpnFdConfrmMyAccHead">
+								{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.ACC_NO}}</strong><span
+								class="dash-ac-id" id="OpnFdConfrmMyAccVal">{{services.openNewFDAccount.accountList[services.fDAccountModel.selectedOperativeAccountMaturity].accountId
+								}}</span>
+						</div>
+
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="OpnFdConfrmIntStrHead">
+								{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.INT_INSTR}}</strong><span
+								class="dash-ac-id" id="OpnFdConfrmIntStrVal">{{(services.openNewFDAccount.interestOptionList
+								|
+								filter:{value:services.fDAccountModel.selectedInterestOption})[0].type}}</span>
+						</div>
+						<div class="account-detail-dash margin-zero"
+							ng-show="services.fDAccountModel.selectedInterestOption == 'RedInt'">
+							<strong class="trans-no" id="OpnFdConfrmTrnToHead">
+								{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.TRANSF_TO}}</strong><span
+								class="dash-ac-id" id="OpnFdConfrmTrnToVal">{{(services.openNewFDAccount.transferTypeList
+								|
+								filter:{value:services.fDAccountModel.selectedInterestTransferType})[0].type}}</span>
+						</div>
+
+						<div class="account-detail-dash margin-zero"
+							ng-show="services.fDAccountModel.selectedInterestTransferType == 'MyAcc'">
+							<strong class="trans-no" id="OpnFdConfrmConfAccNoHead">
+								{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.ACC_NO}} </strong><span
+								class="dash-ac-id" id="OpnFdConfrmConfAccNoVal">{{services.openNewFDAccount.accountList[services.fDAccountModel.selectedInterestInstructionAccount].accountId
+								}}</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="OpnFdConfrmFreqHead">
+								{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.TXT_FREQ}} </strong><span
+								class="dash-ac-id" id="OpnFdConfrmFreqVal">{{services.fDAccountModel.frequency}}</span>
+						</div>
+					</div>
+					<form ng-if='services.fDAccountModel.authMode==""'
+						ng-submit="corpInit.corpModel.getSelectedRoleDetailsAsString();services.openNewFDAccount.unFormatNumbers();setEvent('onServicesSuccessNoAuthClick');">
+
+						<div
+							ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+							<approval-input></approval-input>
+						</div>
+						<fin-Stepauth></fin-Stepauth>
+
+						<md-button id="OpenFdAuthConfirm" type="submit"
+							id="OpenFdNoAuthConfirm3"
+							ng-if='services.fDAccountModel.authMode!=""'
+							class="md-raised btn--primary-btn"> <span
+							ng-if="!services.fDAccountModel.onlineStatus">
+							{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.BTN_SUBTORM}} </span> <span
+							ng-if="services.fDAccountModel.onlineStatus">
+							{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.BTN_SUB}} </span> </md-button>
+
+						<md-button id="OpenFdNoAuthConfirm2" type="submit"
+							class="md-raised btn--primary-btn"
+							ng-if='services.fDAccountModel.authMode==""'> <span
+							ng-if="!services.fDAccountModel.onlineStatus">
+							{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.BTN_SUBTORM}} </span> <span
+							ng-if="services.fDAccountModel.onlineStatus">
+							{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.BTN_SUB}} </span> </md-button>
+					</form>
+
+
+					<form ng-if='services.fDAccountModel.authMode!=""'
+						ng-submit="services.openNewFDAccount.unFormatNumbers();setEvent('onServicesSuccessClick');">
+						<div
+							ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+							<approval-input></approval-input>
+						</div>
+						<fin-Stepauth></fin-Stepauth>
+
+						<md-button id="OpenFdAuthConfirm" type="submit"
+							id="OpenFdNoAuthConfirmOfl"
+							ng-if='services.fDAccountModel.authMode!=""'
+							class="md-raised btn--primary-btn"> <span
+							ng-if="!services.fDAccountModel.onlineStatus">
+							{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.BTN_SUBTORM}} </span> <span
+							ng-if="services.fDAccountModel.onlineStatus">
+							{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.BTN_SUB}} </span> </md-button>
+						<md-button id="OpenFdNoAuthConfirm" type="submit"
+							class="md-raised btn--primary-btn"
+							ng-if='services.fDAccountModel.authMode==""'> <span
+							ng-if="!services.fDAccountModel.onlineStatus">
+							{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.BTN_SUBTORM}} </span> <span
+							ng-if="services.fDAccountModel.onlineStatus">
+							{{appLiterals.APP.SERVICES.ONFDACC_CNFRM.BTN_SUB}} </span> </md-button>
+					</form>
+
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

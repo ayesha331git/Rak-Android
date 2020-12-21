@@ -1,0 +1,338 @@
+<div class="finacle-container ng-scope"
+	ng-init="rakMyProfile.updatePersonalProfile.transactionPassword = '';rakMyProfile.initUpdatePersonalProfileConfirm(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+			
+			<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.UPDATE_PP_DETAILS}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}}</span>		     
+				      </h2>		       
+		 		</div>
+
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+					<div class="">
+                        <div class="rakDupliSRChkMsgImg" ng-show='rakServiceReq.common.message'>
+							<span class='rakAlertForDupStmt'></span> <span class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+			               </div>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_FULLNAME}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.fullName}}</span>
+						</p>
+
+				<div ng-if="rakMyProfile.updatePersonalProfile.userTypeValue=='2'">	
+
+						<p class="rak-sum-txt"
+							ng-if="rakMyProfile.updatePersonalProfile.preferredAddressType=='HEAD'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_PREFMAILADD}}</span>
+							<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HEAD_OFF}}</span>
+						</p>
+						
+							<p class="rak-sum-txt"
+							ng-if="rakMyProfile.updatePersonalProfile.preferredAddressType=='OFFICE'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_PREFMAILADD}}</span>
+							<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFF}}</span>
+						</p>
+					</div>
+						
+				<div ng-if="rakMyProfile.updatePersonalProfile.userTypeValue!='2'">	
+
+						<p class="rak-sum-txt"
+							ng-if="rakMyProfile.updatePersonalProfile.preferredAddressType=='RESIDENCE'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_PREFMAILADD}}</span>
+							<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_RESD}}</span>
+						</p>
+
+						<p class="rak-sum-txt"
+							ng-if="rakMyProfile.updatePersonalProfile.preferredAddressType=='OFFICE'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_PREFMAILADD}}</span>
+							<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFF}}</span>
+						</p>
+
+
+						<div class="fin-input-container rakTransfersexchangerate-block">
+							<p class="rakexchangevalue">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_RESADD}}</p>
+						</div>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_ADDRESS}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.address1}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_ADDRESS2}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.address2}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_STREET}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.street}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_ADDRESS3}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.address3}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_POBOX}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.pobox}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_CITY}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.cityDesc}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_COUNT}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.countryDesc}}</span>
+						</p>
+
+			</div>
+			
+			<div ng-if="rakMyProfile.updatePersonalProfile.userTypeValue=='2'">	
+					<div class="fin-input-container rakTransfersexchangerate-block">
+							<p class="rakexchangevalue">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HEAD_OFFADD}}</p>
+						</div>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HEAD_OFF_ADDRESS}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.head_offaddress1}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HEAD_OFF_ADDRESS2}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.head_offaddress2}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HEAD_OFF_ADDRESS3}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.head_offaddress3}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HEAD_OFF_POBOX}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.head_offpobox}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HEAD_OFF_CITY}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.head_offCityDesc}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HEAD_OFF_COUNT}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.head_offcountrydesc}}</span>
+						</p>
+				
+				</div>		
+						
+			
+			
+			
+			
+			
+			
+			
+
+						<div class="fin-input-container rakTransfersexchangerate-block">
+							<p class="rakexchangevalue">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFFADD}}</p>
+						</div>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFF_ADDRESS}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.offaddress1}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFF_ADDRESS2}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.offaddress2}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFF_ADDRESS3}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.offaddress3}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFF_POBOX}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.offpobox}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFF_CITY}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.offCityDesc}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFF_COUNT}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.offcountrydesc}}</span>
+						</p>
+						
+
+
+
+						<div class="fin-input-container rakTransfersexchangerate-block">
+							<p class="rakexchangevalue">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_CONTACTDEAT}}</p>
+						</div>
+		<div ng-if="rakMyProfile.updatePersonalProfile.userTypeValue!='2'">	
+
+					<!-- 	<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HOMENUM_CC}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.homeCountrycode}}</span>
+						</p> -->
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HOMENUM}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.homeCountrycode}}&nbsp;&nbsp;{{rakMyProfile.updatePersonalProfile.homeNumber}}</span>
+						</p>
+
+				<!-- 		<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HOMENUM2_CC}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.homeTwoCountrycode}}</span>
+						</p> -->
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HOMENUM2}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.homeTwoCountrycode}}&nbsp;&nbsp;{{rakMyProfile.updatePersonalProfile.homeNumberTwo}}</span>
+						</p>
+		 </div>
+
+
+				<!-- 		<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFFNUM_CC}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.OffCountrycode}}</span>
+						</p> -->
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFFNUM}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.OffCountrycode}}&nbsp;&nbsp;{{rakMyProfile.updatePersonalProfile.offNumber}}</span>
+						</p>
+
+					<!-- 	<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFFNUM2_CC}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.OffTwoCountrycode}}</span>
+						</p> -->
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFFNUM2}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.OffTwoCountrycode}}&nbsp;&nbsp;{{rakMyProfile.updatePersonalProfile.offNumberTwo}}</span>
+						</p>
+
+
+			<div ng-if="rakMyProfile.updatePersonalProfile.userTypeValue!='2'">	
+					<!-- 	<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HFAX_CC}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.faxHome_CC}}</span>
+						</p> -->
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HFAX}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.faxHome_CC}}&nbsp;&nbsp;{{rakMyProfile.updatePersonalProfile.faxHome}}</span>
+						</p>
+				</div>
+
+					<!-- 	<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFAX_CC}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.faxOffOne_CC}}</span>
+						</p> -->
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFAX}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.faxOffOne_CC}}&nbsp;&nbsp;{{rakMyProfile.updatePersonalProfile.faxOffOne}}</span>
+						</p>
+
+					<!-- 	<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OTFAX_CC}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.faxOffTwo_CC}}</span>
+						</p> -->
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OTFAX}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.faxOffTwo_CC}}&nbsp;&nbsp;{{rakMyProfile.updatePersonalProfile.faxOffTwo}}</span>
+						</p>
+						
+				<div ng-if="rakMyProfile.updatePersonalProfile.userTypeValue!='2'">			
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_EMIRATEID}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.emirateID}}</span>
+						</p>
+						
+						<!-- CHANGES DONE AS FIX OF PROUAT-2131 START -->
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_EMIRATEID_DATE}}</span>
+							<span class="rak-sum-label black">{{rakMyProfile.updatePersonalProfile.previewDateOne}}</span>
+							<!-- <span class="rak-sum-label black">{{rakMyProfile.common.displayDate.toLocaleDateString()}}</span> -->
+						</p>
+                       <!-- CHANGES DONE AS FIX OF PROUAT-2131 END -->
+                       
+                 </div>
+
+						<fin-input type="password_text"
+							model="rakMyProfile.updatePersonalProfile.transactionPassword"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+							min="0"
+							validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.transactionPassword"]'
+							ng-show="rakMyProfile.updatePersonalProfile.auth==txnpwdString"></fin-input>
+
+
+
+						<div ng-show="rakMyProfile.updatePersonalProfile.auth==otpString">
+							<div
+								ng-class="{'rakwidth38 noFocus':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65 noFocus':rakHome.otpModel.otpModesList.length===0}">
+								<fin-input type="password_num" model="rakMyProfile.updatePersonalProfile.transactionPassword"
+									display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.transactionPassword"]'></fin-input>
+							</div>
+						
+						
+							<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0'
+								ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+						
+								<fin-input type="dropdown" option-array="toModeArray"
+									model="rakHome.otpModel.otpModeSelected" display-row="full"
+									placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+								<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+						
+							</div>
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+								ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}}</button>
+						
+          </div>
+
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back"
+								ng-click="rakMyProfile.updatePersonalProfile.isBack=true;setEvent('onUpdatePPConfirmBackClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="setEvent('onUpdatePPConfirmConfirmClick');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}
+							</button>
+
+						</div>
+						<div class="col-sm-1"></div>
+						
+						<div class="disclaimer">
+                              <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                              <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                              </div>
+
+                              <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                              <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKUPDATECONTACTDETAILS_CONFIRMATIONPAGE"></div>
+                              </div>
+              			</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

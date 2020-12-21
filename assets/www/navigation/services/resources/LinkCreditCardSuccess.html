@@ -1,0 +1,31 @@
+<!-- partial code start here-->
+<div class="finacle-container"
+	ng-init="services.linkCreditCardSuccess(successResponse.responsesList);">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+			<div class="dashboard-pad full-height">
+				<div class="dashboard-item-body full-height">
+					<fin-success
+						success-banner="{{appLiterals.APP.COMMON.MSG.SUCCESS}}"
+						success-message="{{successResponse.responsesList[0].linkCreditCardSuccessResponse}}"
+						cross-click="setEvent('onCancelClick')"> </fin-success>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtAccNo" id="txtCardNo">
+							{{appLiterals.APP.SERVICES.CREDIT_CARD.LINK_CC_HEADER}}
+							{{appLiterals.APP.COMMON.TEXT.FOR}} </span>
+						<span class="sucs-right-color" id="cardNo">
+							{{services.linkCreditCardModel.cardNo}}
+						</span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtAddress">
+							{{appLiterals.APP.SERVICES.COMMON.ADDRESS}} </span> <span
+							class="sucs-right-color" id="address">
+							{{services.linkCreditCardModel.address}}
+						</span>
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,183 @@
+  <div class="rak-back-header">
+    <i class="rak-back-img" ng-click="setEvent('onPayeeBeneficiaryEditBackClick');"></i>
+  </div>
+  <div class="nano menu-scroll">
+	<div class="nano-content">
+ <div class="finacle-container" ng-init="rakPayee.payeeModel.editBnfFlag=false;rakPayee.selectedPayee = successResponse.responsesList || rakPayee.selectedPayee;rakPayee.payeeModel.addMobCashBnfFlag?rakPayee.payeeModel.editMobCashBeneficiaryDetails(rakPayee.selectedPayee):rakPayee.payeeModel.editBeneficairyDetails(rakPayee.selectedPayee);rakSendMoney.clearTab();rakSendMoney.benfTab=true;">
+	 <div class="account-page">
+		<div class="col-sm-11">
+		  <div class="app-title-wrapper">
+		 
+		  <div class="form-block">
+		   <ng-include  src="'./navigation/rakSendMoney/resources/RakSendMoneyTabPage.html'"> </ng-include>
+		   
+		   		<div class="tab-links" ng-show="rakHome.userTypeIDValue!='CORPORATE'">
+         <ul>             
+            <li  ng-class="{ 'active': rakPayee.payeeModel.addBankBnfFlag }" 
+                 ng-click="rakPayee.payeeModel.resetPayeeModel();rakPayee.selectedPayeeType=rakPayee.payeeTypes.BANK;rakPayee.payeeModel.addBankBnfFlag=true;rakPayee.common.fromAuthPage=false;rakPayee.bankbnftype='';setGlobalEvent('onPayeeClick');">
+                	<span>{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BANK}}</span>
+           </li>
+                                  
+            <li ng-show="rakHome.userTypeIDValue!='CORPORATE'" ng-class="{ 'active': rakPayee.payeeModel.addMobCashBnfFlag }" 
+                 ng-click="rakPayee.payeeModel.resetPayeeModel();rakPayee.selectedPayeeType=rakPayee.payeeTypes.MOBCASH;rakPayee.payeeModel.addMobCashBnfFlag=true;rakPayee.common.fromAuthPage=false;rakPayee.bankbnftype=rakPayee.payeeTypes.MOBCASH;setGlobalEvent('onPayeeClick');">
+                	<span>{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_MOBCASH}}</span></li>   
+                	       
+          </ul>
+        </div>
+		   
+		    <div class="rak-scroll">
+		  <div class="main-form-heading-payee"> 
+		      <h2 >{{rakPayee.selectedPayeeType == rakPayee.payeeTypes.MOBCASH ? "Edit Mobile Cash" : "Modify"}} Beneficiary		      
+		      <span ng-show="rakPayee.isEditBeneficiaryMode">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1}} : {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1_TXT_EDITBNF}} </span>
+		      </h2>		       
+		  </div>		 
+		  	
+		   <div class="bg-color rak-cont-padding">
+		   
+			<div class="" >
+			  <div class="col-sm-1"> </div>
+			  
+			 <!--  Name -->
+			  <p class="rak-sum-txt" ng-hide="rakPayee.selectedPayeeType == rakPayee.payeeTypes.MOBCASH">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NAME}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payeeModel.name}}</span>
+				</p> 
+			  
+			 <!--   Not Readonly -->
+			  <p class="rak-sum-txt"  ng-show="rakPayee.selectedPayeeType == rakPayee.payeeTypes.MOBCASH">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NAME}}</span>
+					<span class="rak-sum-label black rak38Edit" ng-if="!rakPayee.payBill.editIconFlag">{{rakPayee.payeeModel.name}}</span>
+					<span class="rakEditBenfImg" ng-if="!rakPayee.payBill.editIconFlag" ng-click="rakPayee.payBill.editIconFlag=true;"></span>
+					<span class="rak-sum-label black" ng-if="rakPayee.payBill.editIconFlag"><fin-input type="text_restrictedSpecialCharacter" model="rakPayee.payeeModel.name" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NAME}}" validation-flag='pageErrorArr["rakPayee.payeeModel.name"]'> </fin-input></span>
+			  </p> 
+			  
+			  <!-- Nick Name -->
+			    <p class="rak-sum-txt"  ng-hide="rakPayee.selectedPayeeType == rakPayee.payeeTypes.MOBCASH">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NICKNAME}}</span>
+					<span class="rak-sum-label black rak38Edit" ng-if="!rakPayee.payBill.editIconFlag">{{rakPayee.payeeModel.nickName}}</span>
+				<span class="rakEditBenfImg" ng-if="!rakPayee.payBill.editIconFlag" ng-click="rakPayee.payBill.editIconFlag=true;"></span>
+					<span class="rak-sum-label black" ng-if="rakPayee.payBill.editIconFlag"><fin-input ng-hide="rakPayee.selectedPayeeType == rakPayee.payeeTypes.MOBCASH"  type="text_restrictedSpecialCharacter" model="rakPayee.payeeModel.nickName" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NICKNAME}}" ng-class="{ 'active': rakPayee.payeeModel.editBnfFlag }"  validation-flag='pageErrorArr["rakPayee.payeeModel.nickName"]'> </fin-input></span>
+				</p> 
+				
+				
+				
+		
+				
+		
+            
+       <div ng-show="rakPayee.selectedPayeeType == rakPayee.payeeTypes.OUTSIDEUAEBANK||rakPayee.bankbnftype==rakPayee.payeeTypes.OUTSIDEUAEBANK">  
+             <!-- Payee Country -->
+              <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_COUNTRY}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payeeModel.rakBnfCountry}}</span>
+				</p> 
+				
+		    <!-- Payee Bank Name -->
+              <p class="rak-sum-txt"  >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BANK_NAME}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payeeModel.selectedBank}}</span>
+				</p> 
+				
+		<!-- Payee Bank Branch -->
+		
+		<div ng-hide="rakPayee.payeeModel.selectedBank=='CEBUANA'">
+              <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BANK_BRANCH}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payeeModel.bankBranch}}</span>
+				</p> 
+				
+          	<!-- Payee Bank City -->
+              <p class="rak-sum-txt"  >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BANK_CITY}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payeeModel.bankCity}}</span>
+				</p>  
+
+  			<!-- IFSC -->
+              <p class="rak-sum-txt"  ng-show="(rakPayee.payeeModel.rakBnfCountry==rakPayee.constants.INDIA||rakPayee.payeeModel.rakBnfCountry==rakPayee.constants.IN || rakPayee.payeeModel.beneficiaryBankCode==rakPayee.constants.IN)  && dashboard.userType=='1'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_ROUTNUM}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payeeModel.selectedRoutingNumber}}</span>
+				</p> 
+				
+				  
+			
+				 <!-- Swift Code -->
+              <p class="rak-sum-txt"  ng-show="rakPayee.payeeModel.swiftCode" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_SWIFTCODE}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payeeModel.swiftCode}}</span>
+				</p> 	
+	
+      		     <!-- Intermediary Bank -->
+              <p class="rak-sum-txt" ng-show="rakPayee.payeeModel.rakInterMedBank" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_INTMEDBANK}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payeeModel.rakInterMedBank}}</span>
+				</p>  
+				
+				  <!-- Bank Code -->
+              <p class="rak-sum-txt" ng-show="rakPayee.payeeModel.rakBnkCode" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_SWIFT_BANKCODE}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payeeModel.rakBnkCode}}</span>
+				</p>  
+				
+			    <p class="rak-sum-txt" ng-show='rakPayee.payeeModel.rakBnfResidentCountryDisplayName'>
+				      <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_RESIDENT_COUNTRY}}</span>
+				      <span class="rak-sum-label black">{{rakPayee.payeeModel.rakBnfResidentCountryDisplayName}}</span>
+				     </p>
+				
+        	 <!-- Account number  -->     
+              <p class="rak-sum-txt"  >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_RADIO}}</span>
+					<span class="rak-sum-label black rakMaxWidth137">{{rakPayee.payeeModel.accountNumber}}</span>
+				</p> 
+         </div>
+	
+		 <!-- IBAN Number -->
+            <!-- <fin-input ng-show="rakPayee.isEditBeneficiaryMode||rakPayee.payeeModel.isAccIban=='I'" type="text" model="rakPayee.payeeModel.accountNumber" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.IBAN}}" validation-flag='pageErrorArr["rakPayee.payeeModel.accountNumber"]' readonly> </fin-input> -->
+		
+		
+      </div>
+          	
+        	
+        	 <!-- Account number  -->     
+              <p class="rak-sum-txt"  ng-show="rakPayee.selectedPayeeType == rakPayee.payeeTypes.RAKBANK||rakPayee.bankbnftype==rakPayee.payeeTypes.RAKBANK" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_ACCNO_RADIO}}</span>
+					<span class="rak-sum-label black rakMaxWidth137">{{rakPayee.payeeModel.accountNumber}}</span>
+				</p> 
+				
+          <!-- IBAN Number -->    
+              <p class="rak-sum-txt" ng-show="rakPayee.selectedPayeeType == rakPayee.payeeTypes.WITHINUAEBANK||rakPayee.bankbnftype==rakPayee.payeeTypes.WITHINUAEBANK" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.IBAN}}</span>
+					<span class="rak-sum-label black rakMaxWidth137">{{rakPayee.payeeModel.accountNumber}}</span>
+				</p> 
+        
+         
+			      
+             <!-- Mobile number  -->         
+  
+              <p class="rak-sum-txt" ng-show="rakPayee.selectedPayeeType == rakPayee.payeeTypes.MOBCASH" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.MOBILE_NO}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payeeModel.mobileNumber}}</span>
+				</p> 
+
+         	 <div class="label-wrap">  
+				 
+				 	<button type="button"
+							class="btn--special-btn btn-middle rak-button-small btn--back"
+							ng-click="rakPayee.payeeModel.editBnfFlag=true;setEvent('onPayeeBeneficiaryEditBackClick');">
+							{{appLiterals.APP.RAK_SERVICES.RAK_CREDIT_REPLACEMENT.BACK}}</button>          
+              <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakPayee.checkCountry(rakPayee.payeeModel.rakBnfCountry);rakPayee.validateBenfNickName();rakPayee.payeeModel.editBnfFlag=true;"> {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_EDIT_DELETE_CONT}} </button>
+              </div>
+               <div class="col-sm-1"> </div>
+              </div>
+             
+          </div>
+       <!--  CHANGES FOR SPACING  START-->
+	  <div class="scroll-space"></div>
+	 <!--  CHANGES FOR SPACING  END-->
+       </div>   
+       </div>    
+       </div>             
+       </div>
+    </div>
+		</div>
+</div>
+</div>

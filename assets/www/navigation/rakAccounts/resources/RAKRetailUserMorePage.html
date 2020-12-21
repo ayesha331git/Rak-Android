@@ -1,0 +1,354 @@
+<div class="finacle-container" 
+ng-init='successResponse.invocationResult=successResponse.hasOwnProperty("responsesList")?successResponse.responsesList[1]:successResponse.invocationResult;
+	rakAccounts.initPage(fields.accountDetailSource,successResponse.responsesList);'>
+    <div class="account-page">
+    <div class="col-sm-11"> 
+       <div class="bg-color rak-cont-padding">	
+         <div class="row" >
+         <div class="col-sm-1"> </div>
+            
+
+		<div class="rakAccounts-details">
+		<span class="amount-curr"> {{rakAccounts.RAKAccountsModel.operativeAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountNickName}}</span>
+		<div class="trans-date"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.NICK_NAME}}</div>
+		</div>
+
+
+           <div  class="balance-detail" >
+              <div class="rakamount"> 
+               <span class="amount-curr">{{rakAccounts.RAKAccountsModel.operativeAccounts[rakAccounts.RAKAccountsModel.selectedAccount].currency }}</span>
+               <span class="amount-ps"> {{parseMoney(rakAccounts.RAKAccountsModel.operativeAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance).rs}}.</span>                
+               <span class="amount-ps"> {{parseMoney(rakAccounts.RAKAccountsModel.operativeAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance).ps}} </span> 
+             </div>
+         
+              <p class="balance-available-dash rak-display-caption"> {{fields.accountAmountLabel}} </p> 
+               
+            </div>
+                    
+					<div class="rakDetailFrame">
+					<div class="detail-pad" ng-show='fields.currAccountDetails.mainAccountType == "OPR"'>
+						
+				
+
+						<div class="rakAccounts-details">
+							 <span class="raktransno"> {{rakAccounts.RAKAccountsModel.currency}}</span>
+							<span class="raktransno"> {{parseMoney(rakAccounts.RAKAccountsModel.unclearFunds).rs}}.  </span>
+							 <span class="raktransno">{{parseMoney(rakAccounts.RAKAccountsModel.unclearFunds).ps}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_UNCLEAR_BALANCE}}</div>
+						</div>
+						
+						<div class="rakAccounts-details">
+							<span class="raktransno"> {{rakAccounts.RAKAccountsModel.currency}}</span>
+							<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_TEXT_CURRENCY}}</div>
+						</div>
+						
+							<div class="rakAccounts-details">
+								<span class="raktransno">  {{rakAccounts.RAKAccountsModel.currency}}</span>
+								<span class="raktransno"> {{parseMoney(rakAccounts.RAKAccountsModel.sancationLimit).rs}}.</span>
+							 	<span class="raktransno">{{parseMoney(rakAccounts.RAKAccountsModel.sancationLimit).ps}}</span>
+								 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_OVERDRAFT_LIMIT}}</div>
+						</div>
+							<div class="rakAccounts-details">
+							<span class="raktransno"> {{rakAccounts.RAKAccountsModel.branch}}</span>
+							<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_BRANCH}}</div>
+						</div>
+						
+					
+						<div class="rakAccounts-details">
+							<span class="raktransno"> {{rakAccounts.RAKAccountsModel.currency}}</span>
+							<span class="raktransno"> {{parseMoney(rakAccounts.RAKAccountsModel.amountOnHold).rs}}.  </span>
+							 <span class="raktransno">{{parseMoney(rakAccounts.RAKAccountsModel.amountOnHold).ps}}</span>
+							<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_AMT_HOLD}}</div>
+						</div>
+						
+						<div class="rakAccounts-details">
+							<span class="raktransno"> {{rakAccounts.RAKAccountsModel.currency}}</span>
+							<span class="raktransno"> {{parseMoney(rakAccounts.RAKAccountsModel.currentBal).rs}}.</span>
+							 <span class="raktransno">{{parseMoney(rakAccounts.RAKAccountsModel.currentBal).ps}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CURRENT_BAL}}</div>
+						</div>
+						
+						<div class="rakAccounts-details">
+								<span class="raktransno"> {{rakAccounts.RAKAccountsModel.iban}}</span>
+								<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_TEXT_IBAN}}</div>
+						</div>
+												
+						<div class="rakAccounts-details">
+							<span class="raktransno"> {{rakAccounts.RAKAccountsModel.currency}}</span>
+							<span class="raktransno"> {{parseMoney(rakAccounts.RAKAccountsModel.netAvailBal).rs}}.</span>
+							 <span class="raktransno">{{parseMoney(rakAccounts.RAKAccountsModel.netAvailBal).ps}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_AVAILABLE_BAL}}</div>
+						</div>
+							<!-- Prasen End -->
+						
+					</div>
+					</div>
+					<!-- data end -->
+					
+					<!-- data begin -->
+					<div class="detail-pad" ng-show='fields.currAccountDetails.mainAccountType == "DEP"'>
+						<div class="dashboard-details">
+							
+							<div class="detail-mar">
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_TENURE_PERIOD}}
+								</div>
+								<div >
+									<span class="trans-no">
+										{{dashboard.currSuccessResponse.responsesList[1].tenurePeriodMonths}} months,
+										{{dashboard.currSuccessResponse.responsesList[1].tenurePeriodDays}} days
+									</span>
+									
+								</div>
+							</div>
+							
+							<div class="detail-mar">
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_MATURITY_DATE}}
+								</div>
+								<div >
+									<span class="trans-no">
+										{{dashboard.currSuccessResponse.responsesList[1].maturityDate}}
+									</span>
+								</div>
+							</div>
+							
+							
+							<div class="detail-mar">
+								<div class="trans-date">
+								{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_AUTO_RENEWAL}}
+								</div>
+								<div >
+									<span class="trans-no">
+										{{dashboard.currSuccessResponse.responsesList[1].autoRenewal}}
+									</span>
+								</div>
+							</div>
+							
+								<div class="detail-mar">
+								<div class="trans-date">
+								{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_REV_AMOUNT}}
+								</div>
+								<div >
+									<span class="trans-no">
+										{{rakAccounts.RAKAccountsModel.revBalance}}
+									</span>
+								</div>
+							</div>
+							
+							
+							<div class="detail-mar">
+								<div class="trans-date">
+								{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_DEPOSITE_AMT}}
+								</div>
+								
+							<div>	
+							<span class="amt-cur"> {{rakAccounts.RAKAccountsModel.currency}}  </span>
+							<span class="amt-cur"> {{parseMoney(rakAccounts.RAKAccountsModel.depAmount).rs}}.</span>
+							 <span class="amt-ps">{{parseMoney(rakAccounts.RAKAccountsModel.depAmount).ps}}</span>
+							</div>
+							
+							</div>
+							
+								<div class="detail-mar">
+								<div class="trans-date">
+								{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_DEP_START_DATE}}
+								</div>
+								<div >
+									<span class="trans-no">
+										{{rakAccounts.RAKAccountsModel.depStartDate}}
+									</span>
+								</div>
+							</div>
+								<div class="detail-mar">
+								<div class="trans-date">
+								{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_DEP_MATURITY_INST}}
+								</div>
+								<div >
+									<span class="trans-no">
+										{{rakAccounts.RAKAccountsModel.maturityInstruction}}
+									</span>
+								</div>
+							</div>
+								<div class="detail-mar">
+								<div class="trans-date">
+								{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_DEP_Nomination}}
+								</div>
+								<div >
+									<span class="trans-no">
+												{{rakAccounts.RAKAccountsModel.nomination}}
+									</span>
+								</div>
+							</div>
+						<!-- 		<div class="detail-mar">
+								<div class="trans-date">
+								{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_DEP_BRANCH}}
+								</div>
+								<div >
+									<span class="trans-no">
+										{{rakAccounts.RAKAccountsModel.branch}}
+									</span>
+								</div>
+							</div> -->
+					<!-- 		<div class="detail-mar">
+								<div class="trans-date">
+								{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_DEP_PAYMENENT_MODE}}
+								</div>
+								<div >
+									<span class="trans-no">
+										{{rakAccounts.RAKAccountsModel.paymentMode}}
+									</span>
+								</div>
+							</div>	
+						</div> -->
+						
+						<div class="dashboard-details">
+							<div class="trans-date">
+								{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_LEDGER_BALANCE}}
+							</div>
+							<span class="amt-cur"> {{fields.currAccountDetails.currency}}  </span>
+							<span class="amt-rs"> {{parseMoney(dashboard.currSuccessResponse.responsesList[1].accountLedgerBalance).rs}}. </span>
+							<span class="amt-ps"> {{parseMoney(dashboard.currSuccessResponse.responsesList[1].accountLedgerBalance).ps}} </span>	
+							<div class="trans-date detail-mar">
+							{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_MATURITY_AMOUNT}}
+							</div>
+							<span class="amt-dol"> {{fields.currAccountDetails.currency}}  </span>
+							<span class="amt-rs"> {{parseMoney(dashboard.currSuccessResponse.responsesList[1].maturityAmount).rs}}. </span>
+							<span class="amt-ps"> {{parseMoney(dashboard.currSuccessResponse.responsesList[1].maturityAmount).ps}} </span>
+							<div class="trans-date detail-mar">
+							{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_INTEREST_RATE}}
+							</div>
+							<div>
+								<span class="trans-no">
+									{{dashboard.currSuccessResponse.responsesList[1].interestRate == "" ? "-" : dashboard.currSuccessResponse.responsesList[1].interestRate}}
+								</span>
+							</div>
+							
+							<div class="trans-date">
+								{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_DEP_PAYMENENT_MODE}}
+								</div>
+							<div >
+									<span class="trans-no">
+										{{rakAccounts.RAKAccountsModel.paymentMode}}
+									</span>
+								</div>
+								<div class="trans-date">
+								{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_DEP_BRANCH}}
+								</div>
+								<div >
+									<span class="trans-no">
+										{{rakAccounts.RAKAccountsModel.branch}}
+									</span>
+								</div>
+							
+						</div>
+						
+					</div>
+					<!-- data end -->
+					
+					<!-- data begin -->
+					<div class="detail-pad" ng-show='fields.currAccountDetails.mainAccountType == "LON"'>
+						<div class="dashboard-details">
+							
+							<div>
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_STATUS}}
+								</div>
+								<div >
+									<span class="trans-no"> {{dashboard.currSuccessResponse.responsesList[1].accountStatus}} </span>
+								</div>
+							</div>
+							
+							<div class="detail-mar">
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_LOAN_PERIOD}}
+								</div>
+								<div >
+									<span class="trans-no">
+										{{dashboard.currSuccessResponse.responsesList[1].loanPeriodMonths}} months,
+										{{dashboard.currSuccessResponse.responsesList[1].loanPeriodDays}} days
+									</span>
+									
+								</div>
+							</div>
+							
+							<div class="detail-mar">
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_SANCTIONED_AMOUNT}}
+								</div>
+								<span class="amt-cur"> {{fields.currAccountDetails.currency}}  </span>
+								<span class="amt-rs"> {{parseMoney(dashboard.currSuccessResponse.responsesList[1].sanctionAmount).rs}}. </span>
+								<span class="amt-ps"> {{parseMoney(dashboard.currSuccessResponse.responsesList[1].sanctionAmount).ps}} </span>
+							</div>
+							
+							
+							<div class="detail-mar">
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_INTEREST_RATE}}
+								</div>
+								<div>
+									<span class="trans-no">
+										{{dashboard.currSuccessResponse.responsesList[1].interestRate == "" ? "-" : dashboard.currSuccessResponse.responsesList[1].interestRate}}
+									</span>
+								</div>
+							</div>
+							
+							
+							<div class="detail-mar">
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_OVERDUE_AMOUNT}}
+								</div>
+								<span class="amt-cur"> {{fields.currAccountDetails.currency}}  </span>
+								<span class="amt-rs"> {{parseMoney(dashboard.currSuccessResponse.responsesList[1].overDueAmount).rs}}. </span>
+								<span class="amt-ps"> {{parseMoney(dashboard.currSuccessResponse.responsesList[1].overDueAmount).ps}} </span>
+							</div>
+							
+						</div>
+						
+						<div class="dashboard-details">
+							<div class="trans-date">
+								 {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_SANCTIONED_DATE}}
+							</div>
+							<span class="trans-no">
+								{{dashboard.currSuccessResponse.responsesList[1].loanSanctionDate == null || dashboard.currSuccessResponse.responsesList[1].loanSanctionDate == ""? "-" : dashboard.currSuccessResponse.responsesList[1].loanSanctionDate}}
+							</span>
+							
+							<div class="trans-date detail-mar">
+							{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_EMI_AMOUNT}}
+							</div>
+							<span class="amt-cur"> {{fields.currAccountDetails.currency}}  </span>
+							<span class="amt-rs"> {{parseMoney(dashboard.currSuccessResponse.responsesList[1].emiAmount).rs}}. </span>
+							<span class="amt-ps"> {{parseMoney(dashboard.currSuccessResponse.responsesList[1].emiAmount).ps}} </span>
+							
+							<div class="trans-date detail-mar">
+								{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_DISBURSED_AMOUNT}}
+							</div>
+								<span class="amt-cur"> {{fields.currAccountDetails.currency}}  </span>
+								<span class="amt-rs"> {{parseMoney(dashboard.currSuccessResponse.responsesList[1].disbursedAmount).rs}}. </span>
+								<span class="amt-ps"> {{parseMoney(dashboard.currSuccessResponse.responsesList[1].disbursedAmount).ps}} </span>
+							
+							<div class="trans-date detail-mar">
+								 {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_NEXT_EMI_DATE}}
+							</div>
+							<div>
+								<span class="trans-no">
+									{{dashboard.currSuccessResponse.responsesList[1].nextEMIDate}}
+								</span>
+							</div>
+							
+						</div>
+						
+					</div>
+					<!-- data end -->
+					
+				</div>
+			
+           <!-- add it here  -->
+           
+           
+               </div>         
+ 
+            </div>
+           </div>  
+        </div>
+  

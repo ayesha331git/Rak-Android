@@ -1,0 +1,167 @@
+ <div class="rak-back-header">
+	<i class="rak-back-img" ng-click="setEvent('onBackClick');"></i>
+</div>
+<div class="finacle-container bg-color"
+	ng-init="resetPageError();rakEDirham.initTxnHistoryPage(successResponse.responsesList);">
+	<div class="">
+
+		<div class="col-sm-11">
+			<div class="app-title-wrapper">
+
+				<div class="form-block">
+					
+
+					<div class="bg-color rak-cont-padding">
+						
+						<div class="row">
+
+
+							<div class="rakTxnSearch">
+								 <div class="">
+					              <div class="entr-edirham-pin-txt black-txt dashboard-item-title">{{appLiterals.APP.EDIRHAM.HISTORY_TXT}} </div>
+					              
+					            </div>	
+
+								<div class="rakeDirhamTxnSearch3 eDirham-history-date">
+								
+
+							 <div class="txn-history-to-from-txt" flex="100">
+								{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.FROM_DATE}}
+								
+							</div>
+							<div flex="100">
+							<fin-input type="date" model="rakEDirham.eDirhamHistory.fromDate"
+											display-row="full" value="pastDatesOnly"
+											placeholder="{{appLiterals.APP.RAK_PAYEE.HISTORY.FROM_DATE}}"
+											validation-flag='pageErrorArr["rakEDirham.eDirhamHistory.fromDate"]'></fin-input>
+							</div>
+										
+							<div class="txn-history-to-from-txt" flex="100">
+								{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.TO_DATE}}
+							</div>
+							<div flex="100">
+
+										<fin-input type="date" model="rakEDirham.eDirhamHistory.toDate"
+											display-row="full" value="pastDatesOnly"
+											placeholder="{{appLiterals.APP.RAK_PAYEE.HISTORY.TO_DATE}}"
+											validation-flag='pageErrorArr["rakEDirham.eDirhamHistory.toDate"]'></fin-input>
+											</div>
+
+
+								</div>
+								<button type="button" class="btn--special-btn btn-middle rak-button-full-black"
+									ng-click="rakEDirham.utils.setFromToDate();rakEDirham.getFormattedDates();">{{appLiterals.APP.RAK_COMMON.GO}}
+									</button>
+							</div>
+
+							<div ng-show="rakEDirham.eDirhamHistory.historyList.length == 0 ">
+								<div class="summary-ServiceReq">
+									<div class="iconDivNorecord">
+										<span class="infoIcon"></span><span class="success">{{appLiterals.APP.EDIRHAM.NO_TXNS}}</span>
+									</div>
+								</div>
+							</div>
+
+
+							<div ng-show="rakEDirham.eDirhamHistory.historyList.length > 0" class="eDirham-history-top-border">
+<div class="money-block rakBottomZero">
+						         <ul>
+						            <li  class="active rak30 rakPaddingPoint8em" >
+						            {{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.DATE}}</li>
+						           <li class="active rak30 ">
+						          {{appLiterals.APP.EDIRHAM.MERCHANT_NM_LBL}}</li>
+						            <li class="active rak30 ">
+						          {{appLiterals.APP.EDIRHAM.AMOUNT_TXN_STATUS_TXT}}  </li>
+						            <li class="active rak10 ">&nbsp;</li>
+						         </ul>
+						 	</div>
+
+								<div class="nano eDirham-history-scroll">
+									<div class="">
+						
+
+										<div class="trans-detail eDirham-history-lst"
+											ng-repeat="transfers in rakEDirham.eDirhamHistory.historyList">
+											<div
+												class="trans-dash-left rakPeopleNameRow1  eDirham-w30 pull-left rakPaddingPoint8em">
+												<div>
+													<div class="trans-no rakTextCenter rakFont1em">
+														{{transfers.txnDate}} </div>
+												</div>
+												
+
+											</div>
+
+											<div
+												class="trans-dash-right rakPeopleNameRow1  eDirham-w32 pull-left rakPaddingPoint8em">
+												<div>
+													<div class="trans-no rakTextCenter rakFont1em">
+														{{transfers.merchantName}}</div>
+												</div>
+												
+											</div>
+
+
+											<div
+												class="trans-dash-left rakPeopleNameRow1  eDirham-w30 pull-left rakPaddingPoint8em">
+												<div>
+													<div class="rakTextCenter rakFont1em">
+														{{transfers.txnAmount}}</div>
+												</div>
+												<div ng-if="transfers.txnStatus=='SUC'" class="rakTextCenter rakFont1em">
+												{{appLiterals.APP.EDIRHAM.CREDIT_TXT}} 
+												</div>
+												<div ng-if="transfers.txnStatus!='SUC' && transfers.txnStatus!='CAN' && transfers.txnStatus!='REJ'" class="rakTextCenter rakFont1em">
+												{{appLiterals.APP.EDIRHAM.DEBIT_TXT}} 
+												</div>
+												<div ng-if="transfers.txnStatus=='CAN'" class="rakTextCenter rakFont1em">
+												{{appLiterals.APP.EDIRHAM.CANCELLED_TXT}} 
+												</div>
+												<div ng-if="transfers.txnStatus=='REJ'" class="rakTextCenter rakFont1em">
+												{{appLiterals.APP.EDIRHAM.TXN_REJ_STATUS}} 
+												</div>
+
+											</div>
+
+											<div class="pull-right" style="width: 8%">
+                                                <div class="rakRelative">
+												<span class="eDirham-next-icon"
+													ng-click="rakHome.handlePullDown($event);"></span>
+												<ul
+													class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+													<li><a href=""
+														ng-click="rakEDirham.eDirhamHistory.selectedMcfRef=transfers.mcfRefNo;setEvent('onEdirhamHistDetailsClick')">
+															{{appLiterals.APP.EDIRHAM.VIEW_TXT}}</a></li>
+
+											   
+													<!-- <li><a href="" ng-show="transfers.frequency!='O'"
+														ng-click="rakPayee.schedule.schTxnListSubmitBtn='STOP';rakPayee.schedule.selectedTxn = transfers;rakPayee.schedule.selectedTxnIndex = transfers.index;rakPayee.schedule.selectedTxn = transfers;rakCorpInit.corpModel.eventName='PAYEESTOP';rakCorpInit.corpModel.backFlag='N';setEvent('onSchTxnSelectClick')">
+															{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.STOP}}</a></li>
+													<li><a href="" ng-show="transfers.txnFrequency=='O'"
+														ng-click="rakPayee.schedule.schTxnListSubmitBtn='STOP';rakPayee.schedule.freqType='O';rakPayee.schedule.selectedTxnIndex = transfers.index;rakPayee.schedule.selectedTxn = transfers;rakPayee.schedule.stopBtnClicked=false;rakCorpInit.corpModel.eventName='PAYEESTOP';rakCorpInit.corpModel.backFlag='N';setEvent('onSchTxnListStopBtnClick')">
+															{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.STOP}}</a></li> -->
+
+												</ul>
+                                                </div>
+											</div>
+
+
+										</div>
+									</div>
+
+								</div>
+
+
+							</div>
+
+						</div>
+
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

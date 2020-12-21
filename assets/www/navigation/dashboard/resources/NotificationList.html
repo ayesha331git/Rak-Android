@@ -1,0 +1,83 @@
+<div id="notificationListUserLoggedInPrev"
+	class="title-right app app-arrow2"
+	ng-click="setGlobalEvent('onDashboardClick');" ng-show='isUserLoggedIn'></div>
+<div id="notificationListUserNotLoggedInPrev"
+	class="title-right app app-arrow2"
+	ng-click="setGlobalEvent('onLoginClick');" ng-hide='isUserLoggedIn'></div>
+<div class="finacle-container">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+			<!--	<div class="app-title-wrapper">
+				<div class="title-left"></div>
+				<div class="title-center">
+					{{appLiterals.APP.DASHBOARD.NOTIFICATION_LIST.NOTIFICATION}}</div>
+				<div class="title-right app app-cancel"
+					ng-click="setGlobalEvent('onDashboardClick');"
+					ng-show='isUserLoggedIn'></div>
+				<div class="title-right app app-cancel"
+					ng-click="setGlobalEvent('onLoginClick');" ng-hide='isUserLoggedIn'></div>
+			</div> -->
+			<div class="dashboard-pad full-height">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div id="notificationListNOTIFICATION" class="item-title">{{appLiterals.APP.DASHBOARD.NOTIFICATION_LIST.NOTIFICATION}}</div>
+					</div>
+					<div class="col-sm-12 full-height notification-wrapper">
+
+
+						<div id="notificationListDisplayable{{$index}}"
+							class="trans-detail"
+							ng-repeat='notice in notifications.notificationsList'
+							ng-show='notifications.isDisplayable(notice)'
+						 md-swipe-left="notifications.removeNotifications(notice._id,notice.json.type,fields.finacleUserCorporateId)"> 
+							<div class="">
+								<div class="trans-dash-left">
+									<div id="notificationListDisplayableSelNotifications{{$index}}"
+										class="trans-no no-ellipsis"
+										ng-click="notifications.selNotifications=notice; notifications.notifyAction();">{{notice.json.message}}</div>
+								</div>
+
+								<div id="notificationListDisplayableNotifyAction{{$index}}"
+									class="trans-info-right"
+									ng-click="notifications.selNotifications=notice; notifications.notifyAction();">
+									<div id="notificationListDisplayableNotifDate{{$index}}"
+										class="trans-date">notice.json.time</div>
+								</div>
+
+								<div class="trans-date no-ellipsis clear-all padding-top-5"
+									ng-bind-html='notice.json.content'></div>
+							</div>
+
+
+
+
+							<div id="notificationListRemoveNotifications{{$index}}"
+								class="trash-lsplit"
+								ng-click="notifications.removeNotifications(notice._id,notice.json.type,fields.finacleUserCorporateId)"
+								ng-if='isUserLoggedIn'>
+								<span class="glyphicon glyphicon-trash notif-del"></span>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class=" trans-detail text-center amt-rs"
+							id="notificationListNoNotification"
+							ng-show="notifications.notificationsList.length==0">{{appLiterals.APP.DASHBOARD.NOTIFICATION_LIST.TXT_NO_NOTIFICATION}}</div>
+					</div>
+					<md-button id="notificationListBtnRemoveAllNotification"
+						type="button" class=" md-raised btn--primary-btn"
+						ng-click='notifications.removeAllNotification(fields.finacleUserCorporateId)'
+						ng-show='isUserLoggedIn && notifications.notificationsList.length!==0'>{{appLiterals.APP.DASHBOARD.NOTIFICATION_LIST.CLEAR_ALL}}
+					</md-button>
+
+
+
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+</div>

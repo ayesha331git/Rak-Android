@@ -1,0 +1,100 @@
+<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onRAKBalanceTransferBackClick');"></i>
+	</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.rakCCTxnDisputeInit(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<!--  <div class="app-title-wrapper"> -->
+					<div class="form-block">
+						<div class="main-form-heading-ServiceReq"> 
+				                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.RAK_CC_TXN_DISPUTE}}
+				                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+				                 </h2>              
+						</div>
+						<div class="bg-color rak-cont-padding  rak-scroll">
+							<div class="row">
+								
+
+								<div
+									ng-init='cardArr = createDropDownOptionArray(rakServiceReq.RakCCTxnDisputeSR.cardList, ["cardDesc","-","cardId"], "ccIndex");'></div>
+								<fin-input type="dropdown"
+									model="rakServiceReq.RakCCTxnDisputeSR.selectedCard"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAKTEMPDEBBLOCK.CARDNO}}"
+									validation-flag='pageErrorArr["rakServiceReq.RakCCTxnDisputeSR.selectedCard"]'
+									option-array="cardArr"> </fin-input>
+									
+									
+						<!--CHNAGES DONE AS FIX OF PROUAT-2521 START  -->			
+								<fin-input type="date"
+									model="rakServiceReq.RakCCTxnDisputeSR.fromDate"
+									display-row="half1"
+									validation-flag='pageErrorArr["rakServiceReq.RakCCTxnDisputeSR.fromDate"]'>
+								</fin-input>
+
+								<fin-input type="date"
+									model="rakServiceReq.RakCCTxnDisputeSR.toDate"
+									display-row="half2"
+									validation-flag='pageErrorArr["rakServiceReq.RakCCTxnDisputeSR.toDate"]'>
+								</fin-input>
+						<!--CHNAGES DONE AS FIX OF PROUAT-2521 END  -->		
+								
+									<div class="label-wrap">
+
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small"
+										ng-click="rakServiceReq.RakCCTxnDisputeSR.rakCCTxnDisputeTxn();setEvent('onRAKCCTxnDetails');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.GO}}</button>
+								</div>
+								
+            		
+            		<div class="rakColumnDivDarkBackTop"
+								ng-show="rakServiceReq.RakCCTxnDisputeSR.isTxnListPresent">
+								<span class="pullLeft">&nbsp;</span> <span
+									class="rakColumnLabelDark">{{appLiterals.APP.RAK_SERVICES.RAK_CAD_TXN.TXNDATE}}</span><span
+									class="rakColumnLabelDark">{{appLiterals.APP.RAK_SERVICES.RAK_CAD_TXN.TXNREM}}</span>
+								<span class="rakColumnLabelDark">{{appLiterals.APP.RAK_SERVICES.RAK_CAD_TXN.TXNAMT}}</span>
+
+							</div>
+							
+							
+							<div class="rakColumnDiv"
+								ng-repeat="trans in rakServiceReq.RakCCTxnDisputeSR.txnList" ng-show="rakServiceReq.RakCCTxnDisputeSR.isTxnListPresent">
+								<span class="pullLeft"> <input type="radio"
+									value="{{trans.index}}" class="rakRadio"
+									
+									ng-model="rakServiceReq.RakCCTxnDisputeSR.txnSel" /></span>
+								<span class="rakColumnLabel">{{trans.txnDate}}</span> <span
+									class="rakColumnLabel">{{trans.remarks}}</span> <span
+									class="rakColumnLabel">{{trans.originalAmt}}</span>
+
+							</div>
+
+								
+				
+
+
+
+
+
+								<div class="label-wrap" ng-show="rakServiceReq.RakCCTxnDisputeSR.isTxnListPresent">
+					
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small"
+										ng-click="rakServiceReq.RakCCTxnDisputeSR.resetRakCCTxnDisputeConfirm();setEvent('onRAKCCTxnContinue');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+								</div>
+								<div class="col-sm-1"></div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

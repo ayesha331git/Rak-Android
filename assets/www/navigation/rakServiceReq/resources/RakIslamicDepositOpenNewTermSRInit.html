@@ -1,0 +1,253 @@
+	<div class="rak-back-header">
+			<i class="rak-back-img"
+				ng-click="rakServiceReq.setIslamicRakDepositOpenNewTermInitBackBtnClicked()"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+	
+		<div class="finacle-container"
+			ng-init="rakServiceReq.rakIslamicDepositOpenNewTermInit(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<!-- 		<div class="app-title-wrapper"> -->
+					<div class="form-block">
+						<div class="main-form-heading-ServiceReq"> 
+			                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.ISL_DEP_OPEN}}
+			                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+			                 </h2>              
+						</div>
+						<div class="bg-color rak-cont-padding rak-scroll">
+							<div class="row">
+							
+								<div
+									ng-init='oprArr = createDropDownOptionArray(rakServiceReq.RakIslamicDepositOpenNewTermReq.oprList, ["productCatDesc","-","accountId"], "accountIndex");'></div>
+								<fin-input type="dropdown"
+									model="rakServiceReq.RakIslamicDepositOpenNewTermReq.accNo"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.AC_NO}}"
+									on-change="rakServiceReq.rakIslamicDepositOpenNewTermSameCurrencyAccFilter();"
+									validation-flag='pageErrorArr["rakServiceReq.RakIslamicDepositOpenNewTermReq.accNo"]'
+									option-array="oprArr"> </fin-input>
+
+
+								
+									
+									
+									<div class="rakRow" >
+										<div class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px" >
+											{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.PERIOD}}</div>
+										<div class="rak100" >
+											<div>
+												<div class="rakCstmRadioDiv rak50 rakTop2emLeft3">
+
+													<input type="radio"
+														value="DPV" 
+														id="radio1"
+														ng-model="rakServiceReq.RakIslamicDepositOpenNewTermReq.depPeriodSelection"
+														validation-flag='pageErrorArr["rakServiceReq.RakIslamicDepositOpenNewTermReq.depPeriodSelection"]'
+														/>
+														<label for="radio1"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.FORPERIOD}}</label>
+
+														
+												</div>
+
+												<div class="rakCstmRadioDiv rak47 rakTop2emLeft3">
+													<input type="radio"
+														value="DPD" 
+														id="radio2"
+														ng-model="rakServiceReq.RakIslamicDepositOpenNewTermReq.depPeriodSelection"
+														validation-flag='pageErrorArr["rakServiceReq.RakIslamicDepositOpenNewTermReq.depPeriodSelection"]'
+														/>
+														<label for="radio2"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.DATERANGE}}</label>
+														
+												
+												</div>
+
+											</div>
+										</div>
+									</div>
+									
+									<!-- CHANGES DONE AS FIX FOR PROUAT-1719 START -->
+									<div ng-show="rakServiceReq.RakIslamicDepositOpenNewTermReq.depPeriodSelection=='DPV'"
+														ng-init='perArr = createDropDownOptionArray(rakServiceReq.RakIslamicDepositOpenNewTermReq.periodList, ["periodDesc"], "periodIndexed");'>
+													<fin-input type="dropdown"
+														model="rakServiceReq.RakIslamicDepositOpenNewTermReq.period"
+														display-row="full"
+														placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.PERIOD}}"
+														validation-flag='pageErrorArr["rakServiceReq.RakIslamicDepositOpenNewTermReq.period"]'
+														option-array="perArr"> </fin-input></div>
+                                  <!-- CHANGES DONE AS FIX FOR PROUAT-1719 END -->
+
+									<div ng-show="rakServiceReq.RakIslamicDepositOpenNewTermReq.depPeriodSelection=='DPD'">
+													<fin-input type="date"
+														model="rakServiceReq.RakIslamicDepositOpenNewTermReq.fromDate"
+														display-row="half1" value="futureDatesOnly"
+														validation-flag='pageErrorArr["rakServiceReq.RakIslamicDepositOpenNewTermReq.fromDate"]'>
+													</fin-input>
+					
+													<fin-input type="date"
+														model="rakServiceReq.RakIslamicDepositOpenNewTermReq.toDate"
+														display-row="half2" value="futureDatesOnly"
+														validation-flag='pageErrorArr["rakServiceReq.RakIslamicDepositOpenNewTermReq.toDate"]'>
+													</fin-input>
+													
+											<div>
+												<span class="dateLabelLeftAlert">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.FROM}}</span>
+											</div>
+				
+											<div>
+												<span class="dateLabelRightAlert">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.TO}}</span>
+											</div>					
+													
+									</div>
+
+								<div
+									ng-init='curArr = createDropDownOptionArray(rakServiceReq.RakIslamicDepositOpenNewTermReq.currencyList, ["currencyDesc"], "currencyIndex");'></div>
+								<fin-input type="dropdown"
+									model="rakServiceReq.RakIslamicDepositOpenNewTermReq.currency"
+									display-row="half1"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.CURRENCY}}"
+									validation-flag='pageErrorArr["rakServiceReq.RakIslamicDepositOpenNewTermReq.currency"]'
+									option-array="curArr"> </fin-input>
+
+								<fin-input type="number"
+									model="rakServiceReq.RakIslamicDepositOpenNewTermReq.amount"
+									display-row="half2"
+									validation-flag='pageErrorArr["rakServiceReq.RakIslamicDepositOpenNewTermReq.amount"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.DEP_AMT}}">
+								</fin-input>
+								
+							<span  class="interstRate" ng-if="rakServiceReq.RakIslamicDepositOpenNewTermReq.linkRqd=='Y'"
+									ng-click="rakServiceReq.fetchDisclaimer('AmalProfitRates.html');">
+									{{appLiterals.APP.DISCLAIMER.PROFIT_RATE}}</span>
+								<div class="rakRow">
+									<div class="radio-biller rak100 rakWidth100">
+										{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.MATURITY}}</div>
+									<div class="rak100">
+										<div>
+											<div class="rakCstmRadioDiv rak100 ">
+												<input type="radio"
+													value="OMA"
+													id="radio3"
+													ng-model="rakServiceReq.RakIslamicDepositOpenNewTermReq.maturity" />
+													<label for="radio3"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.RADIO1}}</label>
+											</div>
+											<div class="rakCstmRadioDiv rak100 marginTopTen">
+												<input type="radio"
+													value="OMR"
+													id="radio4"
+													ng-model="rakServiceReq.RakIslamicDepositOpenNewTermReq.maturity" />
+												
+													<label for="radio4"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.RADIO2}}</label>
+											</div>
+
+										</div>
+									</div>
+								</div>
+		
+					<div class="fin-input-container "  ng-show="rakServiceReq.RakIslamicDepositOpenNewTermReq.maturity=='OMA'">
+					 <div ng-class="{'left-line': !pageErrorArr['rakServiceReq.RakIslamicDepositOpenNewTermReq.matAccount'], 'left-line-error':pageErrorArr['rakServiceReq.RakIslamicDepositOpenNewTermReq.matAccount']}" class="left-line">
+               </div>
+				 <div class="input-body">
+    <div class="input-body2 input-body2-dropdown">
+		<select dropdownpicker title="{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.RADIO1}}" class="fin-input fin-select" ng-model="rakServiceReq.RakIslamicDepositOpenNewTermReq.matAccount" ng-style="{{rakServiceReq.RakIslamicDepositOpenNewTermReq.matAccount}} == '' ? {'font-size': '14px'} : {'color': 'initial'}"  >
+			    <option  class="place-holder-select" value="" ng-selected="{{rakServiceReq.RakIslamicDepositOpenNewTermReq.matAccount== null ||
+			    rakServiceReq.RakIslamicDepositOpenNewTermReq.matAccount==''}}" ng-show="{{rakServiceReq.RakIslamicDepositOpenNewTermReq.matAccount== null ||
+			    rakServiceReq.RakIslamicDepositOpenNewTermReq.matAccount==''}}">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.RADIO1}}</option>
+			   	<option ng-repeat="option in rakServiceReq.RakIslamicDepositOpenNewTermReq.currencyAcc" ng-selected="{{option.accountId==rakServiceReq.RakIslamicDepositOpenNewTermReq.matAccount}}" value="{{option.accountId}}" >{{option.productCatDesc}}-{{option.accountId}}</option>
+		</select>
+	</div>
+	<div ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.RakIslamicDepositOpenNewTermReq.matAccount'], 'bottom-line-error':pageErrorArr['rakServiceReq.RakIslamicDepositOpenNewTermReq.matAccount']}" class="bottom-line">
+        </div><div ng-hide='pageErrorArr["rakServiceReq.RakIslamicDepositOpenNewTermReq.matAccount"]==null' class="rakErrorMsg"> {{pageErrorArr['rakServiceReq.RakIslamicDepositOpenNewTermReq.matAccount']}}</div>
+	
+	</div>	
+</div>
+
+								
+								
+					
+									<div class="rakRow"
+									ng-show="rakServiceReq.RakIslamicDepositOpenNewTermReq.maturity=='OMR'">
+									<div class="radio-biller rak100 rakWidth100 ">
+										{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.PROFIT_HANDLE}}</div>
+									<div class="rak100">
+										<div>
+											<div class="rakCstmRadioDiv rak100 ">
+												<!-- <input type="radio"
+													value="IHA" 
+													id="radio5"
+													ng-model="rakServiceReq.RakIslamicDepositOpenNewTermReq.interestHandling" /> -->
+													<input type="radio"
+													value="PFA" 
+													id="radio5"
+													ng-model="rakServiceReq.RakIslamicDepositOpenNewTermReq.interestHandling" />
+													<label for="radio5"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.CREDIT_PROFIT}}</label>
+											</div>
+											<!-- <div class="rakCstmRadioDiv rak100 marginTopTen">
+												<input type="radio"
+													value="IHR" 
+													id="radio6"
+													ng-model="rakServiceReq.RakIslamicDepositOpenNewTermReq.interestHandling" />
+												
+													<label for="radio6"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.RADIO4}}</label>
+											</div> -->
+
+										</div>
+									</div>
+								</div>
+								
+								
+									
+									<div class="fin-input-container "  ng-show="rakServiceReq.RakIslamicDepositOpenNewTermReq.maturity=='OMR' && rakServiceReq.RakIslamicDepositOpenNewTermReq.interestHandling=='PFA'">
+									 <div ng-class="{'left-line': !pageErrorArr['rakServiceReq.RakIslamicDepositOpenNewTermReq.intHandlingAccount'], 'left-line-error':pageErrorArr['rakServiceReq.RakIslamicDepositOpenNewTermReq.intHandlingAccount']}" class="left-line">
+               						</div>
+										 <div class="input-body">
+						    <div class="input-body2 input-body2-dropdown">
+								<select dropdownpicker title="{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.CREDIT_PROFIT}}" class="fin-input fin-select" ng-model="rakServiceReq.RakIslamicDepositOpenNewTermReq.intHandlingAccount" ng-style="{{rakServiceReq.RakIslamicDepositOpenNewTermReq.intHandlingAccount == '' ? {'font-size': '14px'} : {'color': 'initial'}"  >
+									    <option  class="place-holder-select" value="" ng-selected="{{rakServiceReq.RakIslamicDepositOpenNewTermReq.intHandlingAccount== null ||
+									    rakServiceReq.RakIslamicDepositOpenNewTermReq.intHandlingAccount==''}}" ng-show="{{rakServiceReq.RakIslamicDepositOpenNewTermReq.intHandlingAccount== null ||
+									    rakServiceReq.RakIslamicDepositOpenNewTermReq.intHandlingAccount==''}}">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.CREDIT_PROFIT}}</option>
+									   	<option ng-repeat="option in rakServiceReq.RakIslamicDepositOpenNewTermReq.currencyAcc" ng-selected="{{option.accountId==rakServiceReq.RakIslamicDepositOpenNewTermReq.intHandlingAccount}}" value="{{option.accountId}}" >{{option.productCatDesc}}-{{option.accountId}}</option>
+								</select>
+							</div>
+							<div ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.RakIslamicDepositOpenNewTermReq.intHandlingAccount'], 'bottom-line-error':pageErrorArr['rakServiceReq.RakIslamicDepositOpenNewTermReq.intHandlingAccount']}" class="bottom-line">
+        </div><div ng-hide='pageErrorArr["rakServiceReq.RakIslamicDepositOpenNewTermReq.intHandlingAccount"]==null' class="rakErrorMsg"> {{pageErrorArr['rakServiceReq.RakIslamicDepositOpenNewTermReq.intHandlingAccount']}}</div>
+							</div>	
+						</div>
+									<div class="disclaimer">
+									<div class="disclaimer3">
+									<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKISLAMICDEPOSITOPEN_INITPAGE_UNDERTAKING"></span>
+									</div>
+									</div>
+									
+
+								<div class="label-wrap">
+
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small"
+										ng-click="rakServiceReq.rakIslamicDepositOpenNewTermAmtCheck();rakServiceReq.rakIslamicDepositOpenNewTermDate();setEvent('onRAKIslamicOpenDepositNewTermConfirmClick');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+								</div>
+							
+								
+								
+								<div class="disclaimer">
+                              <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                              <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                              </div>
+                              
+                              <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+										<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKISLAMICDEPOSITOPEN_INITPAGE"></span>
+										<span ng-click="rakServiceReq.fetchDisclaimer('IslamicDepositServiceRequestsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKISLAMICDEPOSITOPEN_INITPAGECONT"></span>
+										<span ng-click="rakServiceReq.fetchDisclaimer('TermsAndConditionsAmalProducts.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKISLAMICDEPOSITOPEN_INITPAGECONT1"></span>
+									</div>
+              			</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

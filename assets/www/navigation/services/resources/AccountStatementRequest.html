@@ -1,0 +1,89 @@
+<div class="app app-arrow2 title-right-dash" id="accountStmtBackAction"
+					ng-click="setEvent('onCancelClick')"></div> 
+<div class="finacle-container"
+	ng-init="services.accountStatement.initAccountService(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase" id="pageTitle">
+							<span> {{appLiterals.APP.SERVICES.ACC_STM.HEADER}} </span>
+						</div>
+					</div>
+					<!--  end of title -->
+					<form
+						ng-submit="corpInit.corpModel.resetCorpInitDetails();setEvent('onStatementContinueClick')">
+						<div class="avail-bal-wrap"
+							ng-init='cardNumberArray = createDropDownOptionAccountArray(services.accountStatement.accountsList, ["accountNumber"], "index");'>
+							<fin-input type="dropdown"
+								model="services.accountStatement.cardNumber" display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.ACC_STM.PH_ACC}}"
+								validation-flag='pageErrorArr["services.accountStatement.cardNumber"]'
+								option-array="cardNumberArray"></fin-input>
+						</div>
+						<div class="avail-bal-wrap"
+							ng-init='frequencyArray = createDropDownOptionArray(services.accountStatement.statementfrequencyList,["content"], "value");'>
+							<fin-input type="dropdown"
+								model="services.accountStatement.frequency" display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.ACC_STM.PH_FREQ}}"
+								validation-flag='pageErrorArr["services.accountStatement.frequency"]'
+								option-array="frequencyArray"></fin-input>
+							<fin-input type="date"
+								model="services.accountStatement.startDate"
+								on-change="services.accountStatement.onDateChange();"
+								display-row="full"
+								validation-flag='pageErrorArr["services.accountStatement.startDate"]'
+								placeholder="{{appLiterals.APP.SERVICES.ACC_STM.PH_STMT_START_DATE}}"></fin-input>
+						</div>
+						<div class="col-sm-12 ">
+							<div class="transaction-info">
+								<div class="fut-txt1 lh13 margin-bottom-20" id="dispathMode">
+									{{appLiterals.APP.SERVICES.ACC_STM.DISPACH_MODE}}</div>
+
+								<div class="col-sm-12 margin-bottom-20">
+									<md-radio-group layout="horizontal"
+										ng-model="services.accountStatement.highLightselectedDispatchMode">
+
+									<md-radio-button class="amt-rs" value="0" id="radioEmail">{{appLiterals.APP.SERVICES.ACC_STM.EMAIL}}
+									</md-radio-button> <md-radio-button class="amt-rs" value="1" id="radioPost">
+									{{appLiterals.APP.SERVICES.ACC_STM.BY_POST}} </md-radio-button> <md-radio-button class="amt-rs"
+										value="2" id="radioBoth">{{appLiterals.APP.COMMON.TEXT.BOTH}}</md-radio-button>
+
+
+									</md-radio-group>
+								</div>
+							</div>
+
+
+						</div>
+
+
+
+						<div class="avail-bal">
+							<fin-input type="mail_Id"
+								ng-if="services.accountStatement.highLightselectedDispatchMode != 1"
+								model="services.accountStatement.email" display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.ACC_STM.PH_EMAIL}}"
+								validation-flag='pageErrorArr["services.accountStatement.email"]'></fin-input>
+						</div>
+						<div class="col-sm-12 margin-bottom-20">
+
+
+							<span
+								ng-if="services.accountStatement.highLightselectedDispatchMode == 1 || services.accountStatement.highLightselectedDispatchMode == 2"
+								class="dash-ac-id" id="Address">{{services.accountStatement.address}}</span>
+
+
+						</div>
+						<md-button type="submit" class="md-raised btn--primary-btn"
+							id="submit">
+						{{appLiterals.APP.COMMON.BUTTON.CONTINUE}}</md-button>
+
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,162 @@
+
+<div class="container-fluid padding-auto" ng-init="myProfile.rememberUserID.initLoginPage();setEvent(home.getLoginEventForAppModeOnLoginLoad(isStubbedVersion),true); fields.finacleUserCorporateId = ''; fields.finacleUserPassword ='';
+ myProfile.errorCheck(successResponse.responsesList);" >
+
+<div class="container-fluid padding-zero">
+
+  <div class="row">
+
+      <div class="col-sm-1"> </div>
+
+      <div class="col-sm-11 login-form">
+        
+        <div class="center"><span class="login-label rak-color border-right"> {{appLiterals.APP.DASHBOARD.LOGIN_PAGE.HEADER}} </span> 
+         <span class="login-label"> {{appLiterals.APP.RAK_LOGIN_PAGE.REGISTER}}</span>
+         
+        </div>
+        <div class="login-div">        
+		<span class="width-30 border-right" ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'PWD'" ng-click="fields.finacleUserCorporateId = '';fields.finacleUserPassword ='';myProfile.resetPwdFields();resetPageError();setGlobalEvent('onForgotPasswordClick')">{{appLiterals.APP.DASHBOARD.LOGIN_PAGE.FORGOT_PASSWORD_TXT}}</span>
+		<span class="width-30 border-right" ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'PWD'" ng-click="fields.finacleUserCorporateId = '';fields.finacleUserPassword ='';myProfile.resetPwdFields();resetPageError();setGlobalEvent('onForgotPasswordClick')">{{appLiterals.APP.DASHBOARD.LOGIN_PAGE.FORGOT_PASSWORD_TXT}}</span>
+		<span class="width-30" ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'PWD'" ng-click="fields.finacleUserCorporateId = '';fields.finacleUserPassword ='';myProfile.resetPwdFields();resetPageError();setGlobalEvent('onForgotPasswordClick')">{{appLiterals.APP.DASHBOARD.LOGIN_PAGE.FORGOT_PASSWORD_TXT}}</span>
+		</div>
+		  
+		  <div class="forget_pwd" ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'MPIN'" ng-click="fields.finacleUserCorporateId = '';fields.finacleUserPassword ='';resetPageError();setEvent('onForgotMPINClick')">Trouble Logging In?</div>
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">		  
+        <div class="app-login-input-wrap">
+
+		         
+
+         <div ng-hide='pageErrorArr["fields.finacleUserCorporateId"] == null' class="login-input--login-left-box app-login-left" > 
+          </div>
+
+
+          
+          <div class="login-input--login-right-box"> 
+          </div>
+
+          <div ng-hide='pageErrorArr["fields.finacleUserCorporateId"] == null' class="login-input--login-right-box app-login-right" > 
+          </div>
+		   <button class='ng-hide' id='dummy-btn' ng-click="myProfile.rememberUserID.autoCompleteChk='0'"></button>
+           <button class='ng-hide' id='dummy2-btn' ng-click="fields.finacleUserCorporateId =myProfile.rememberUserID.userID"></button>
+		
+          <div class="text-box"> 
+            	<input ng-model="fields.finacleUserCorporateId"
+							class="login-input-style" type="text" id="login-form"
+							placeholder="{{appLiterals.APP.DASHBOARD.LOGIN_PAGE.USER_NAME_TXT}}"
+							clear-warning="fields.finacleUserCorporateId"
+							ng-blur="myProfile.rememberUserID.focusShift();"
+							autocorrect="off" autocapitalize="none"
+							ng-change="(myProfile.rememberUserID.rememberUser.length==0 || (myProfile.rememberUserID.rememberUser | filter:fields.finacleUserCorporateId).length ==0)?
+							myProfile.rememberUserID.autoCompleteChk='0':fields.finacleUserCorporateId.length==0 ?
+							 myProfile.rememberUserID.autoCompleteChk='0':myProfile.rememberUserID.autoCompleteChk='1'">
+						<ul ng-hide="myProfile.rememberUserID.autoCompleteChk=='0';  " class="type-user-name">
+							<li class="user-name-list"
+								ng-focus="myProfile.rememberUserID.stayFocused=true"
+								ng-repeat="value in myProfile.rememberUserID.rememberUser | filter:fields.finacleUserCorporateId"
+								ng-click="fields.finacleUserCorporateId=value.name ;myProfile.rememberUserID.autoCompleteChk='0';myProfile.rememberUserID.rememberUserIDChk=true;">
+								<a class="user-name-txt">
+									{{value.name}} </a>
+							</li>
+						</ul>
+          </div>
+
+          <div ng-hide='pageErrorArr["fields.finacleUserCorporateId"] == null' class="login-txt-error">
+            <span> ! </span>
+          </div>
+		  </div>
+		  
+          <div class="fin-txt"> </div>
+		<div class="app-login-input-wrap">
+          
+
+         <div ng-hide='pageErrorArr["fields.finacleUserPassword"] == null' class="login-input--login-left-box app-login-left"> 
+          </div>
+
+          
+
+          
+          <div class="login-input--login-right-box"> 
+          </div>
+
+          <div ng-hide='pageErrorArr["fields.finacleUserPassword"] == null' class="login-input--login-right-box app-login-right"> 
+          </div>
+
+          <div class="text-box"> 
+            <!-- <input ng-model="fields.finacleUserPassword" ng-if="isStubbedVersion == true" ng-focus="myProfile.rememberUserID.autoCompleteChk='0'" class="login-input-style" type="password" ng-keypress="myProfile.spaceCheckInPassword(fields.finacleUserPassword)";  id="login-form" placeholder="{{appLiterals.APP.DASHBOARD.LOGIN_PAGE.PASSWORD_TXT}}" clear-warning="fields.finacleUserPassword"/> -->            
+         	<input ng-model="fields.finacleUserPassword" onpaste="return false;" ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'PWD'"  ng-focus="myProfile.rememberUserID.autoCompleteChk='0'" class="login-input-style" type="password" ng-keypress="myProfile.spaceCheckInPassword($event)";  id="login-form" placeholder="{{appLiterals.APP.DASHBOARD.LOGIN_PAGE.PASSWORD_TXT}}" clear-warning="fields.finacleUserPassword"/>
+          	<input ng-model="fields.finacleUserPassword" onpaste="return false;" ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'MPIN'" ng-focus="myProfile.rememberUserID.autoCompleteChk='0'" class="login-input-style" type="password" ng-keypress="myProfile.spaceCheckInPassword($event)";  id="login-form" placeholder="MPIN" clear-warning="fields.finacleUserPassword"/>
+          </div>           
+
+          <div ng-hide='pageErrorArr["fields.finacleUserPassword"] == null' class="login-txt-error">
+            <span> ! </span>
+          </div>
+
+		</div>  
+		  
+		  <div > 
+		  
+		<div class="fin-txt"> </div>
+      <button type="button" class="btn--special-btn login-btn btn-middle" ng-if="isStubbedVersion == true" ng-click="setGlobalEvent(home.getLoginEventForAppMode(isStubbedVersion))"> {{appLiterals.APP.DASHBOARD.LOGIN_PAGE.PROCEED_BTN}} </button>
+      
+      <button type="button" class="btn--special-btn login-btn btn-middle" ng-if="isStubbedVersion == false && appVersionDetails.appConfigParams[1].BUILDTYPE == 'PWD'" 
+       ng-click="setEvent(home.getLoginEventForAppMode(isStubbedVersion))">  {{appLiterals.APP.DASHBOARD.LOGIN_PAGE.PROCEED_BTN}} </button>
+      
+      <button type="button" class="btn--special-btn login-btn btn-middle" ng-hide="true" id="MPINLogin" ng-click="setEvent('onMPINLoginClick')"></button>
+      <button type="button" class="btn--special-btn login-btn btn-middle" ng-if="isStubbedVersion == false && appVersionDetails.appConfigParams[1].BUILDTYPE == 'MPIN'" ng-click="resetPageError();appActivation.clearMPINData();appActivation.loginUser();"> {{appLiterals.APP.DASHBOARD.LOGIN_PAGE.PROCEED_BTN}} </button>
+          
+      <button type="button" class="btn--register-btn login-btn btn-middle" ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'MPIN'" ng-click="resetPageError();appActivation.clearMPINData();setEvent('onAppActivationRegisterClick')">REGISTER </button>
+			</div>
+			</div>
+				<div class="swiper-slide">
+					<div class="rak-heading">Quick Balance</div>
+					<div  class="rak-font-8">Enter your PIN to see your quick balance</div>
+					<span> <input type="text"  input-restricted-special-character name="ABC" style="width:20px;"/></span>
+					<span><input type="text" name="ABC1" style="width:20px;"/></span>
+					<span><input type="text" name="ABC2" style="width:20px;"/></span>
+					<span><input type="text" name="ABC3" style="width:20px;"/></span>
+					<div class="fin-txt"> </div>
+					 <button type="button" class="btn--special-btn login-btn btn-middle" ng-if="isStubbedVersion == true" 
+       ng-click="setEvent(home.getLoginEventForAppMode(isStubbedVersion))">  {{appLiterals.APP.DASHBOARD.LOGIN_PAGE.PROCEED_BTN}} </button>
+     
+				</div>
+			</div>
+		</div>
+		<div class="swiper-pagination"></div>
+		</div>		  
+		  <div >
+
+	  <!--  <button type="button" class="btn--special-btn" id="MPINLogin" ng-hide="true" ng-click="setEvent('onAppActivationRegisterClick')"></button>
+	   <button type="button" class="btn--special-btn" ng-if="isStubbedVersion == false && appVersionDetails.appConfigParams[1].BUILDTYPE == 'MPIN'" ng-click="appActivation.clearMPINData();appActivation.loginUser();"> App REGISTER </button>
+       -->
+       <!-- <button type="button" class="btn--register-btn" ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'PWD'" ng-click="setEvent('onRegisterClick')"> REGISTER </button> -->
+       
+		 <!--  <button type="button" class="btn--register-btn" ng-click="setEvent('onRegisterClick')"> REGISTER </button> -->
+		  <!-- <button type="button" class="btn--register-btn" ng-click="appActivation.gotoOTPPage=false;setEvent('onAppActivationRegisterClick')"> App REGISTER </button> -->
+		  
+		  </div>
+			
+		  </div>
+    </div>
+    <div class="col-sm-1"> </div>
+  </div>
+	<div class="icons-block">
+        	
+					
+					<span style="float:left;"> <i class="spirt-icon send-money-icon"></i> {{appLiterals.APP.RAK_LOGIN_PAGE.PRODUCTS}}  </span>
+					<span style="float:right;">  <i class="spirt-icon live-chat-icon"></i> {{appLiterals.APP.RAK_LOGIN_PAGE.LIVE_CHAT}} </span>
+					<span style="float:left;">  <i class="spirt-icon deals-icon"></i> {{appLiterals.APP.RAK_LOGIN_PAGE.PAY_BILLS}}  </span>
+					<span style="float:right;"> <i class="spirt-icon locateus-icon"></i> {{appLiterals.APP.RAK_LOGIN_PAGE.LOCATE_US}} </span>
+				
+        </div>
+</div> 
+ 
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true
+    });
+    </script>

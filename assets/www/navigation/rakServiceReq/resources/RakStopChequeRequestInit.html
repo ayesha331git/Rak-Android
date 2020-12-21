@@ -1,0 +1,122 @@
+
+		<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onstopChequeReqInitBackClick');"></i>
+		</div>
+
+<div class="nano menu-scroll">
+	<div class="nano-content">
+<div class="finacle-container"
+	ng-init="rakServiceReq.stopChequeReq.initstopChequeReq(successResponse.responsesList);">
+	
+	<div class="account-page">
+		<div class="col-sm-11">
+
+			<div class="form-block">
+			<div class="main-form-heading-ServiceReq"> 
+							      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.STOP_CHQ_REQ}}
+							      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+							      </h2>		       
+				</div>
+				
+			<div class="bg-color">
+				<div class="row">
+					
+				
+					
+					<!-- Operative Account - Start -->
+					
+					<div
+						ng-init='operativeaccountlist = createDropDownOptionArray(rakServiceReq.stopChequeReq.operativeAccountList,["productDescription","-","oprAccountDesc"],"index");'
+						 >
+						
+						<fin-input type="dropdown"
+							model="rakServiceReq.stopChequeReq.operativeIndex"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_STOP_CHQ_REQ.OPR_ACC_LIST}}"
+							validation-flag='pageErrorArr["rakServiceReq.stopChequeReq.operativeIndex"]'
+							option-array="operativeaccountlist" ></fin-input>
+					</div>
+					
+					<!-- Operative Account - End -->
+					
+					<fin-input type="date"
+								model="rakServiceReq.stopChequeReq.tranStartDate"
+								display-row="half1" 
+								validation-flag='pageErrorArr["rakServiceReq.stopChequeReq.tranStartDate"]'>
+					</fin-input>
+					<!-- placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.TRAN_START_DATE}}" -->
+					<fin-input type="date"
+								model="rakServiceReq.stopChequeReq.tranEndDate"
+								display-row="half2" 
+								validation-flag='pageErrorArr["rakServiceReq.stopChequeReq.tranEndDate"]'>
+					</fin-input>
+					<!-- placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.TRAN_END_DATE}}" -->
+						<div class="label-wrap">
+
+							<button type="button"
+							class="btn--special-btn btn-middle rak-button-small btn--back"
+							ng-click="setEvent('onstopChequeReqInitBackClick');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+							
+							<button type="button"
+							class="btn--special-btn btn-middle rak-button-small rak-button-right"
+							ng-click="rakServiceReq.stopChequeReq.continueClick();setEvent('onSelectForTransactionDateinCheque');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+
+						</div>
+						
+					</div>
+				</div>
+				
+				<div ng-show="rakServiceReq.stopChequeReq.isTxnListPresent">
+				
+		
+
+
+							<div class="rakStopchequTable">
+								
+									
+									<span class="scq-init-rakColumnLabelDark">{{appLiterals.APP.RAK_SERVICES.RAK_STOP_CHQ_REQ.CHQ_BOOK_NUM}}</span>
+									<span class="scq-init-rakColumnLabelDark">{{appLiterals.APP.RAK_SERVICES.RAK_STOP_CHQ_REQ.NUM_OF_LVS}}</span>
+									
+									<span class="scq-init-rakColumnLabelDark">{{appLiterals.APP.RAK_SERVICES.RAK_STOP_CHQ_REQ.ISSUE_DT}}</span>
+								
+							</div>
+						
+			
+				<div class="rakHalfScrollDiv" >	
+					
+						
+			
+ 				
+			<div class="rakColumnDiv" >
+			
+				<div ng-repeat="x in rakServiceReq.stopChequeReq.testArray">
+					
+					
+					<span class="scq-init-rakColumnLabel rakscqLink"
+					ng-model = "rakServiceReq.stopChequeReq.selectedChqBook"
+					ng-click="rakServiceReq.stopChequeReq.selectedChqBook = {{x.chqBookNum}}; 
+					rakServiceReq.stopChequeReq.continueClickAfterClick()">{{x.chqBookNum}}</span>
+					
+					<span class="scq-init-rakColumnLabel">{{x.chqBookNoOfLeaves}}</span>
+					
+					<span class="scq-init-rakColumnLabel">{{x.chqBookIssueDate}}</span>
+					
+				</div>
+				
+			</div>
+
+				
+				
+				</div>
+			</div>
+		</div>
+</div>
+	</div>
+</div>
+
+</div>
+</div>

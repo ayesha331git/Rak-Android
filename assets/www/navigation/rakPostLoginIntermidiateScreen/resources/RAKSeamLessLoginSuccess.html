@@ -1,0 +1,87 @@
+<div class="finacle-container"
+	ng-init="fields.finacleUserCorporateId = ''; fields.finacleUserPassword ='';rakSeamLessLogin.initSeamLessSuccess(successResponse.responsesList)";>
+	<div class="account-page">
+		<div class="col-sm-11 rakTouchIdScroll">
+			        <div class="banner-wrapper">
+			        	<img src="images/banner.jpg" width="100%">
+			        </div>
+			        	<div class="main-content-top-seamless">
+			            	<div class="comp-img">
+			                
+			                </div>
+			                <div class="comp-text">
+			                	<h4 class="comp-text-magin">{{appLiterals.APP.RAK_SEAM_LESS.TXT_WELCOME_MSG}}</h4>
+			                </div>
+			            </div>
+			            	<div class="border_seam"></div>
+
+						<div class="main-content-bottom">	
+							<div class="text-section unselectedTab">
+			                	<div class="text1">
+			                    	<p>{{appLiterals.APP.RAK_SEAM_LESS.TXT_SETUP_USERID}}</p>
+			                    </div>
+			                    <div class="text2 unselectedTab">
+			                    	<p>{{appLiterals.APP.RAK_SEAM_LESS.TXT_SETUP_PWD}}</p>
+			                    </div>
+			                    <div class="text3">
+			                    	<p class="selectedTab">{{appLiterals.APP.RAK_SEAM_LESS.TXT_COMPLETE}}</p>
+			                    </div>
+			                </div>
+			            	<div class="circular-border3">
+			                	
+			                </div>
+
+		<div class="bg-color">
+			<div class="">
+				<div class="">
+					<p class="rak-sum-txt table-header">
+						<span class="rak-sum-label-heading  row-border-left">{{appLiterals.APP.RAK_SEAM_LESS.TXT_USERID}}</span>
+						<span class="rak-sum-label-seamless  ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_CHANNEL}}</span>
+					</p>
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label-heading  row-border-left">{{rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSend}}</span>
+						<span class="rak-sum-label-seamless ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_IBMB}}</span>
+					</p>
+				<div class="screen3-section">
+                	<div class="tick-left-section">
+                    	<img src="images/success.png" class="tick-left-section-img">
+                    </div>
+                    <div class="tick-text" ng-if="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd=='EXISTINGPWD'">
+                    	<p style="text-align:center">{{appLiterals.APP.RAK_SEAM_LESS.TXT_READY2GO_EXISTING_PWD}}</p>
+                    </div>
+                    <div class="tick-text" ng-if="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd!='EXISTINGPWD'">
+                    	<p style="text-align:center">{{appLiterals.APP.RAK_SEAM_LESS.TXT_READY2GO_NEW_PWD}}</p>
+                    </div>
+                </div>
+                <p style="text-align:center" ng-if='rakSeamLessLogin.RakSeamLessLoginModel.IsSingleChannel == "M"'>
+                {{appLiterals.APP.RAK_SEAM_LESS.TXT_PREV_MOB_PWD_NOT_AVL}}</p>
+				<div class="label-wrap" ng-show="rak2FARegister.RegistrationModel.seamlessTokenFlow!='TokenRegistrationFlow'">
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-full rak-back rak-btn-large-text"
+						ng-if="!rakSeamLessLogin.RakSeamLessLoginModel.isPreLoginFlow"
+						ng-click="rakSeamLessLogin.RakSeamLessLoginModel.sessionClear='YES';fields.finacleUserCorporateId = rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSend; fields.finacleUserPassword =rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd;rakSeamLessLogin.logoutLoginSuccess();">
+						{{appLiterals.APP.RAK_SEAM_LESS.TXT_LOGIN}}</button>
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-full rak-back rak-btn-large-text"
+						ng-if="rakSeamLessLogin.RakSeamLessLoginModel.isPreLoginFlow"
+						ng-click="setEvent('onRakSeamLessLoginSuccessNonAuthOkClick');">
+						{{appLiterals.APP.RAK_SEAM_LESS.TXT_LOGIN}}</button>
+				</div>
+                
+                <div class="label-wrap" ng-show="rak2FARegister.RegistrationModel.seamlessTokenFlow=='TokenRegistrationFlow'">
+                    
+                    <button type="button"
+                        class="btn--special-btn btn-middle rak-button-full rak-back rak-btn-large-text"
+                        
+                        ng-click="rak2FARegister.initiateTxnRegistrationForAuth('onsetupClick');">
+                        Proceed for Token Registration</button>
+                </div>
+
+				<div class="col-sm-10"></div>
+				</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>

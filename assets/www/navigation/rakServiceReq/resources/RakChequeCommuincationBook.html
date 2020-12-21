@@ -1,0 +1,379 @@
+		<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onCancelClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.chequeBookRequest.isAuthorizedPersonSet='Self';rakServiceReq.checkBookRequest.parseChequeBookRequestInit(successResponse);">
+			<div class="account-page">
+				<div class="col-sm-11">
+			
+			
+				<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.REQ_NEWCHEQBK}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+				      </h2>		       
+		 		</div>
+				
+
+					<div class="bg-color rak-cont-padding rak-scroll">
+						<div class="row">
+						
+
+							<div
+								ng-init='fromAccountNumberArr = createDropDownOptionArray(rakServiceReq.checkBookRequest.fromAccountNumbers, ["productCatDesc","-", "accountID","-","currencyCode"], "accountValue");'>
+								<fin-input type="dropdown"
+									model="rakServiceReq.checkBookRequest.model.selectedfromAccountNumber"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAKCOMMUN_BOOK.PH_ACCNO}}"
+									validation-flag='pageErrorArr["rakServiceReq.checkBookRequest.model.selectedfromAccountNumber"]'
+									option-array="fromAccountNumberArr"></fin-input>
+							</div>
+							<div
+								ng-init='chequeLeavesArr = createDropDownOptionArray(rakServiceReq.checkBookRequest.noOfCheques, ["content"], "value");'>
+								<fin-input type="dropdown"
+									model="rakServiceReq.checkBookRequest.model.selectedCheque"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAKCOMMUN_BOOK.PH_CHEQLEF}}"
+									validation-flag='pageErrorArr["rakServiceReq.checkBookRequest.model.selectedCheque"]'
+									option-array="chequeLeavesArr"></fin-input>
+							</div>
+
+ <!-- CHANGES DONE AS FIX OF PRCU-1543 START -->
+ 
+ 							<div class=""  ng-show="rakServiceReq.checkBookRequest.subSegFlag != 'Y'">
+ 								
+ 								<p class="rak-parent-txt">
+											<span class="rak-sum-label-chk-book labelServiceReqTempChqBook">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_DISPMODE}}</span>
+											 <span	class="rak-sum-label black labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_DISPCOURIER}}</span>
+										</p>
+ 								
+ 							</div>
+ 
+							<div class="rakRow" ng-show="rakServiceReq.checkBookRequest.subSegFlag == 'Y'">
+								<div class="radio-biller rak100 rakWidth100 raktext-align  rakRadioBottom">
+									{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_DISPMODE}}</div>
+								<div class="rak100">
+									<div  class="">
+										
+										<div class="rakCstmRadioDiv rak100">
+											<input type="radio" value="C" id="radio1"
+												ng-click="rakServiceReq.chequeBookRequest.isDeliveryAddSet = 'Registered Address';rakServiceReq.chequeBookRequest.resetDispatchModeChange();"
+												ng-model="rakServiceReq.chequeBookRequest.isDispatchModeSet" />
+												<label for="radio1"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_DISPCOURIER}}</label>
+										
+										</div>
+									 	<div class="rakCstmRadioDiv rak100 rakRadioBottom marginTopTen" ng-if="!rakServiceReq.branchDelOptHideSrList.includes('CHK') || rakServiceReq.hideBranchDelOpt!='Y'">
+											<input type="radio" value="B" id="radio2"
+												ng-click="rakServiceReq.chequeBookRequest.isDeliveryAddSet = '';rakServiceReq.chequeBookRequest.resetDispatchModeChange();"
+												ng-model="rakServiceReq.chequeBookRequest.isDispatchModeSet" />
+											<label for="radio2"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_DISPBRANCH}}</label>
+											
+										</div> 
+										
+									</div>
+									<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.chequeBookRequest.isDispatchModeSet"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_DISPMODE}}</div>
+								</div>
+							</div>
+<!-- CHANGES DONE AS FIX OF PRCU-1543 END -->
+
+
+							<div
+								ng-init='cardArr = createDropDownOptionArray(rakServiceReq.checkBookRequest.emirateList, ["codeDesc"], "code");'
+								ng-show="rakServiceReq.chequeBookRequest.isDispatchModeSet=='B'"
+								>
+							<fin-input type="dropdown"
+								model="rakServiceReq.checkBookRequest.emirateSeletected"
+								display-row="full"
+								placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}"
+								on-change="rakServiceReq.rakCheckBookRequestOptionChange();"
+								validation-flag='pageErrorArr["rakServiceReq.checkBookRequest.emirateSeletected"]'
+								option-array="cardArr"> </fin-input>
+							</div>
+							
+						
+							
+							<div class="fin-input-container"
+								ng-show="rakServiceReq.chequeBookRequest.isDispatchModeSet=='B' && rakServiceReq.checkBookRequest.isEmiSelected">
+								<div
+									ng-class="{'left-line': !pageErrorArr['rakServiceReq.checkBookRequest.model.seletedBranch'], 'left-line-error':pageErrorArr['rakServiceReq.checkBookRequest.model.seletedBranch']}"
+									class="left-line"></div>
+								<div class="input-body">
+									<div class="input-body2 input-body2-dropdown">
+										<select dropdownpicker title="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}" class="fin-input fin-select"
+											ng-model="rakServiceReq.checkBookRequest.model.seletedBranch"
+											ng-style="{{rakServiceReq.checkBookRequest.model.seletedBranch}} == '' ? {'font-size': '14px'} : {'color': 'initial'}">
+											<option class="place-holder-select" value=""
+												ng-selected="rakServiceReq.checkBookRequest.model.seletedBranch== null"
+												ng-show="rakServiceReq.checkBookRequest.model.seletedBranch== null">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}</option>
+											<option
+												ng-repeat="option in rakServiceReq.checkBookRequest.emiCategorizedBranchList"
+												ng-selected="option.value=={{rakServiceReq.checkBookRequest.model.seletedBranch}}"
+												value="{{option.branchIndex}}">{{option.branchName}}</option>
+										</select>
+									</div>
+									<div
+										ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.checkBookRequest.model.seletedBranch'], 'bottom-line-error':pageErrorArr['rakServiceReq.checkBookRequest.model.seletedBranch']}"
+										class="bottom-line"></div>
+									<div
+										ng-hide='pageErrorArr["rakServiceReq.checkBookRequest.model.seletedBranch"]==null'
+										class="rakErrorMsg">
+										{{pageErrorArr['rakServiceReq.checkBookRequest.model.seletedBranch']}}</div>
+
+								</div>
+							</div>
+
+
+				
+							<div
+								ng-show="rakServiceReq.chequeBookRequest.isDispatchModeSet=='C'">
+
+
+ <!-- CHANGES DONE AS FIX OF PRCU-1543 START -->
+								<div class="rakRow" ng-show="rakHome.userTypeIDValue!='CORPORATE'">
+									<div class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px rakRadioBottom">
+										{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_ADDDEL}}</div>
+									<div class="rak100">
+										<div>
+											<div class="rakCstmRadioDiv rak100 rakTop2emLeft3">
+												<input type="radio" value="Registered Address"
+													class=""
+													id="radio3"
+													ng-click="rakServiceReq.chequeBookRequest.resetDeliveryAddress();"
+													ng-model="rakServiceReq.chequeBookRequest.isDeliveryAddSet" />
+											
+												<label for="radio3"><span><span></span></span>
+															{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_ADDREG}}</label>
+											</div>
+											<div class="rakCstmRadioDiv rak100 rakTop2emLeft3 marginTopTen">
+												<input type="radio" value="Other Address" class=""
+												    id="radio4"
+												    ng-click="rakServiceReq.chequeBookRequest.resetDeliveryAddress();"
+													ng-model="rakServiceReq.chequeBookRequest.isDeliveryAddSet" />
+												<!-- <span class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_ADDOTHER}}</span> -->
+												<label for="radio4"><span><span></span></span>
+															{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_ADDOTHER}}</label>
+											</div>
+										</div>
+										<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.chequeBookRequest.isDeliveryAddSet"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_ADDDEL}}</div>
+									</div>
+								</div>
+ 
+  
+						<!-- 		<p class="rak-parent-txt" ng-show="rakServiceReq.chequeBookRequest.isDeliveryAddSet=='Registered Address'">
+											<span class="rak-sum-label-left-aligned">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_ADDREG}}</span> <span
+												class="rak-sum-label-left-aligned black">{{rakServiceReq.checkBookRequest.registeredAddress}}</span>
+									</p> -->
+									
+									
+				 <!-- CHANGES DONE AS FIX OF PRCU-1543 END -->			
+
+								<div
+									ng-show="rakServiceReq.chequeBookRequest.isDeliveryAddSet=='Other Address'">
+
+									<div class="rakLabel">{{appLiterals.APP.RAK_SERVICES.RAKCOMMUN_BOOK.TXT_ADDR}}</div>
+									<div>
+									
+										<fin-input type="text"
+											model="rakServiceReq.checkBookRequest.model.selectedAddress1"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAK_SERVICES.RAKCOMMUN_BOOK.PH_ADDR1}}"
+											validation-flag='pageErrorArr["rakServiceReq.checkBookRequest.model.selectedAddress1"]'>
+										</fin-input>
+										<fin-input type="text"
+											model="rakServiceReq.checkBookRequest.model.selectedAddress2"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAK_SERVICES.RAKCOMMUN_BOOK.PH_ADDR2}}"
+											validation-flag='pageErrorArr["rakServiceReq.checkBookRequest.model.selectedAddress2"]'>
+										</fin-input>
+										<fin-input type="text"
+											model="rakServiceReq.checkBookRequest.model.selectedAddress3"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAK_SERVICES.RAKCOMMUN_BOOK.PH_ADDR3}}"
+											validation-flag='pageErrorArr["rakServiceReq.checkBookRequest.model.selectedAddress3"]'>
+										</fin-input>
+										<div
+											ng-init='countryListArr = createDropDownOptionArray(rakServiceReq.checkBookRequest.countryList, ["content"], "content");'>
+											<fin-input type="dropdown"
+												model="rakServiceReq.checkBookRequest.model.selectedCountry"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAK_SERVICES.RAKCOMMUN_BOOK.PH_CNTRY}}"
+												validation-flag='pageErrorArr["rakServiceReq.checkBookRequest.model.selectedCountry"]'
+												option-array="countryListArr"></fin-input>
+										</div>
+									</div>
+
+								
+						</div>
+						
+						
+ <!-- CHANGES DONE AS FIX OF PRCU-1543 START rak-sum-label-left-aligned-->	
+									<p class="rak-parent-txt" ng-show="rakServiceReq.chequeBookRequest.isAuthorizedPersonSet=='Self' && dashboard.userType=='1'">
+											<span class="rak-sum-label-left-aligned">{{appLiterals.APP.RAK_SERVICES.RAK_CREDIT_REPLACEMENT.CONTACTNUMBER}}</span> <span
+												class="rak-sum-label-left-aligned black">{{rakServiceReq.checkBookRequest.contactNumber}}</span>
+									</p>
+ <!-- CHANGES DONE AS FIX OF PRCU-1543 END -->	
+ 
+ 					<!-- RAK Cheque Book Request Authorized person changes start -->
+								<div
+								ng-show="rakServiceReq.chequeBookRequest.isDeliveryAddSet=='Registered Address'">								
+								
+
+ 							<div class="rakRow">
+									<div class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px rakRadioBottom">
+										{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_AUTHREP}}</div>
+									<div class="rak100">
+										<div>
+											<div class="rakCstmRadioDiv rak100 rakTop2emLeft3">
+												<input type="radio" value="Self" 
+													class=""
+													id="radio5"
+													ng-click="rakServiceReq.chequeBookRequest.resetDeliverTo();"
+													ng-model="rakServiceReq.chequeBookRequest.isDeliveryDetSet" />
+												<label for="radio5"><span><span></span></span>
+															{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_DELSELF}}</label>
+											</div>
+											<div class="rakCstmRadioDiv rak100 rakTop2emLeft3 marginTopTen">
+												<input type="radio" value="Authorized Person" class=""
+												    id="radio6"
+												    ng-click="rakServiceReq.chequeBookRequest.resetDeliverTo();"
+													ng-model="rakServiceReq.chequeBookRequest.isDeliveryDetSet" />
+												<label for="radio6"><span><span></span></span>
+															{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_DELAUTH}}</label>
+											</div>
+										</div>
+										<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.chequeBookRequest.isDeliveryDetSet"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_DELDET}}</div>
+									</div>
+							</div>
+								
+								
+ 						<div ng-show="rakServiceReq.chequeBookRequest.isDeliveryDetSet=='Self'">
+  
+									<p class="rak-parent-txt" >
+											<span class="rak-sum-label-left-aligned">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_ADDREG}}</span> <span
+												class="rak-sum-label-left-aligned black">{{rakServiceReq.checkBookRequest.registeredAddress}}</span>
+									</p>
+									
+									<p class="rak-parent-txt" ng-show="dashboard.userType=='1'">
+											<span class="rak-sum-label-left-aligned">{{appLiterals.APP.RAK_SERVICES.RAK_CREDIT_REPLACEMENT.CONTACTNUMBER}}</span> <span
+												class="rak-sum-label-left-aligned black">{{rakServiceReq.checkBookRequest.contactNumber}}</span>
+									</p>
+									
+						</div>
+									
+									
+						<div ng-show="rakServiceReq.chequeBookRequest.isDeliveryDetSet=='Authorized Person'">
+									
+								<p class="rak-parent-txt" >
+											<span class="rak-sum-label-left-aligned">{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_ADDREG}}</span> <span
+												class="rak-sum-label-left-aligned black">{{rakServiceReq.checkBookRequest.registeredAddress}}</span>
+								</p>	
+									
+					
+								<fin-input type="text"
+									model="rakServiceReq.checkBookRequest.model.AuthName"
+									display-row="full"
+									max-length="35"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_NAME}}"
+									validation-flag='pageErrorArr["rakServiceReq.checkBookRequest.model.AuthName"]'>
+								</fin-input>
+								
+								<!-- Mobile Number - Start -->
+					
+							<div class="rak100">
+										
+									<div class="rak30" ng-init='mobileprefixlist = createDropDownOptionArray(rakServiceReq.checkBookRequest.mobilePrefixList,["mobileprefixDesc"],"mobileprefixCode");'> 
+										<fin-input type="dropdown"
+											model="rakServiceReq.checkBookRequest.model.mobilePrefix"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_INVEST_SUBS.MOBILEPREFIX}}"
+											validation-flag='pageErrorArr["rakServiceReq.checkBookRequest.model.mobilePrefix"]'
+											option-array="mobileprefixlist" ></fin-input>
+									</div>
+									
+									<!-- <div class="rak30">
+									<fin-input type="text"
+										model="rakServiceReq.checkBookRequest.model.mobilePrefix"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.COUNTRYCODE}}"
+										validation-flag='pageErrorArr["rakServiceReq.checkBookRequest.model.mobilePrefix"]' readonly></fin-input>
+											<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_INVEST_SUBS.MOBILEPREFIX}}</span>	
+									</div> -->
+									<div class="rak65 pull-right">
+										<fin-input type="number_card"
+											model="rakServiceReq.checkBookRequest.model.AuthMobile"
+											display-row="full" max-length="7"
+											placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_MOBILE}}"
+											validation-flag='pageErrorArr["rakServiceReq.checkBookRequest.model.AuthMobile"]'></fin-input>
+										</fin-input>
+									</div>
+									
+							</div>
+						<!-- Mobile Number - End -->
+							
+								<fin-input type="number_card"
+									model="rakServiceReq.checkBookRequest.model.AuthEid"
+									display-row="full"  max-length="15"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_COMMUN_BOOK.TXT_EID}}"
+									validation-flag='pageErrorArr["rakServiceReq.checkBookRequest.model.AuthEid"]'>
+								</fin-input>
+								
+								
+					
+						</div>
+						
+				
+					
+										
+				
+									
+									
+					 </div>
+									
+								
+						
+						
+ 
+								
+
+					</div>
+							
+
+							<div class="label-wrap">
+							
+
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small rak-button-right"
+									ng-click='rakServiceReq.rakChequeBookContinue();setEvent("onChequeBookAuthClick");'>
+									{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+
+							</div>
+							
+
+						</div>
+						
+						
+						   <div class="disclaimer">
+                                         <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                         <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                         </div>
+         
+                                         <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                                  <span ng-click="rakServiceReq.fetchDisclaimer('AcntAndDebitCardSrvcRqstsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCHEQUEBOOKREQUEST_INITPROCESS"></span>
+                                                  <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCHEQUEBOOKREQUEST_INITPAGE"  ng-show="rakServiceReq.checkBookRequest.subSegFlag == 'Y'"></span>
+                                                  <span ng-click="rakServiceReq.fetchDisclaimer('AccountServiceRequestsCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCHEQUEBOOKREQUEST_INITCONT"></span>  
+                                         </div>
+                         </div>
+						
+						
+					</div>
+					
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

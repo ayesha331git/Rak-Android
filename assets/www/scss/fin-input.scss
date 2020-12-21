@@ -1,0 +1,313 @@
+html {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+input.fin-input::-webkit-input-placeholder {
+  color: rgba(120,144,156,0.54);;
+  font-size: 1em; }
+
+select.fin-input::-webkit-input-placeholder {
+  color: rgba(120,144,156,0.54);; }
+
+.search-input-place .place-holder::-webkit-input-placeholder {
+    padding-top: 0.5em $imp;}
+.search-input-place input.fin-input{
+    padding-bottom: 0 $imp;}
+
+input.login-input-style::-webkit-input-placeholder {
+  font-size: 20px;
+    padding-top: 6px; }
+	md-input-container {
+margin-top: -8px; }
+.text_area::-webkit-input-placeholder {
+      color: rgba(120,144,156,0.54) $imp; }
+
+.search-field input.search-txt::-webkit-input-placeholder {
+    color: #acb1b4 $imp;}
+
+.loc-search-wrap .search-input::-webkit-input-placeholder {
+  color: #444 $imp; }
+
+
+.limit-input .input-body2{
+    width: 80% $imp;
+}
+.limit-input .input-body2 .fin-input{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+%half {
+	width: $fn-half-width $imp;
+}
+
+.sms .fin-input-container{
+	height: 10em;
+}
+.ques .fin-input-container{
+	height: 6em;
+}
+
+%fin-line{
+	float: $left;
+	width: $fn-left-line-width;
+	background-color: $fn-left-line-bg;
+	height: $fn-left-line-height;
+	position: $absolute;
+	bottom: $index-bottom;
+}
+.left-line {
+	@extend %fin-line;
+}
+
+.left-line-error {
+	@extend %fin-line;
+	background-color: $error-color;
+}
+
+.right-line {
+	@extend %fin-line;
+	margin-left: $fn-line-mar;
+}
+.right-line-error {
+	@extend %fin-line;
+	margin-left: $fn-line-mar;
+	background-color: $error-color;
+}
+
+.bottom-line {
+  border-bottom: $bottom-line !important;
+  opacity: 1 $imp;
+}
+fin-input label, .select-input label {
+    font-size: $font-size-m;
+}
+.bottom-line-error, .bottom-line-error .md-datepicker-input-container, .bottom-line-error md-select-value {
+  border-color: $error-color $imp;
+  opacity: 1 $imp;
+}
+
+md-datepicker.bottom-line-error {
+    border: none !important;
+}
+%icon-calendar{
+	right: $fn-icon-index-right;
+	color: $fn-icon-color;
+	font-size: $fn-icon-size;
+	position: $absolute;
+	z-index: $index;
+	top: $fn-icon-index-top;
+}
+.icon-calendar-input {
+	@extend %icon-calendar;
+}
+
+.icon-calendar-input-error {
+	@extend %icon-calendar;
+	color: $error-color;
+}
+
+fin-input[display-row="half1"], fin-input[display-row="half2"] {
+    width: 49%;
+    display: inline-block;
+    margin-left:0 ;
+    margin-right:0 ;
+}
+
+.two-input-wrapper {
+	margin: 0 .8em;
+}
+
+fin-input[display-row="half1"] {
+    margin-right: 1%;
+}
+
+
+/*.date-adjust {
+  margin: $fn-date-adjust-mar;
+}*/
+
+.dateplaceholder::before{
+	width: $fn-width;
+	content:attr(placeholder);
+	margin: $fn-date-place-holder-mar;
+}
+fin-input, .select-input-container {
+    display: block;
+    margin: -5px .8em 18px;
+}
+
+.select-input-container .md-select-value span:first-child {
+	font-size: $font-size-m;
+	color: $material-label-color;
+}
+
+%holder{
+	padding: $fn-holder-padding;
+}
+
+.place-holder span {
+    font-size: $title-large-size;
+    position: relative;
+    top: -2px;
+}
+
+form {
+  md-datepicker {
+    position: relative;
+    left: -16px;
+
+    .md-datepicker-input-container{
+      margin-left: 0;
+    }
+    .md-datepicker-button.md-icon-button {
+      margin-right: 0;
+    }
+  }
+}
+fin-input .shift-label-placeholder span {
+    font-size: $mob-user-size;
+	color: $secondary-txt-color !important;
+}
+.search-input-place .place-holder {
+	@extend %holder;
+}
+.label-holder {
+	@extend %holder;
+	color: initial;
+	font-size: $fn-size;
+}
+
+select.fin-select {
+  color: rgba(120,144,156,0.54);
+}
+%warning{
+	float: $right;
+	font-size: $fn-warning-size;
+	color: $error-color;
+	margin: $fn-warning-margin;
+}
+.warning-date {
+	@extend %warning;
+	margin: 1em 1.3em 0 0;
+}
+
+.warning-text {
+	@extend %warning;
+}
+
+.warning-select {
+  margin-right:1em;
+}
+.error-text {
+	@extend %warning;
+	margin: $fn-warning-txt-margin;
+}
+%dropdown{
+	border-left: 2em solid $fn-border;
+	border-bottom: 2em solid $fn-left-line-bg;
+	margin: $fn-dropdown-margin;
+	right: $fn-dropdown-index;
+	position: $absolute;
+
+}
+.dropdown {
+	@extend %dropdown;
+}
+
+.dropdown-error {
+	@extend %dropdown;
+	border-bottom: 2em solid $error-color;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+.btn--primary-btn.md-button.md-raised:not([disabled]):hover {
+    background-color: $orange-color;
+}
+
+.finInput_checkbox {
+	width: 90%;
+}
+
+fin-input .md-errors-spacer, .app-login-input-wrap .md-errors-spacer {
+	display: none;
+}
+
+
+
+md-input-container.md-default-theme .md-input[disabled], md-input-container .md-input[disabled], [disabled] md-input-container.md-default-theme .md-input, [disabled] md-input-container .md-input, [disabled] md-input-container .md-input * {
+	color: $primary-text-color !important;
+	-webkit-text-fill-color: $primary-text-color !important;
+	opacity: 1 !important;
+}
+
+fin-date {
+	color: inherit;
+}
+
+.mails_subject_bck fin-input input {    
+    height: 36px;
+}
+
+.trans-detail.mails_text_bck { 
+	    padding-top: 0 !important;
+}
+
+form md-datepicker .md-datepicker-button.md-icon-button {
+	display: none !important;
+}
+
+md-icon.calender_icon {
+    position: absolute !important; 
+    right: 0 !important;
+    font-size: $font-size-xs * 1.84 !important;
+}
+
+form md-datepicker {
+	left: 0 !important;
+	padding: 0;
+}
+
+form md-datepicker .md-datepicker-input-container {
+    margin-left: 0 !important;
+    width: 99% !important;
+}
+
+.md-datepicker-expand-triangle {
+    display: none !important;
+}
+
+fin-input[type="date"] .fin-input-container {
+    display: inline-block;
+    width: 100%;
+}
+
+md-content .md-datepicker-triangle-button.md-button.md-icon-button {
+    padding: 0 !important;
+    right: initial !important;
+    left: 0 !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    transform: initial !important;
+    -webkit-transform: initial !important;
+    margin: auto !important;
+    height: 27px !important;
+    min-height: 27px !important;
+}
+
+md-radio-button.md-default-theme.md-checked ._md-off, md-radio-button.md-checked ._md-off {
+	border-color: $primary-background-color;
+}
+md-radio-button.md-default-theme ._md-on, md-radio-button ._md-on, md-switch.md-default-theme.md-checked ._md-thumb, md-switch.md-checked ._md-thumb {
+	    background-color: $primary-background-color;
+}
+
+md-switch.md-default-theme.md-checked ._md-bar, md-switch.md-checked ._md-bar {
+	    background-color: rgba($primary-background-color,0.5);
+}

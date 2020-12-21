@@ -1,0 +1,41 @@
+<div class="app app-arrow2 title-right"
+	ng-click="setEvent('onCancelClick');"></div>
+<div class="finacle-container"
+	ng-init="myProfile.referAndShare.getMessage();">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<form id="refereAndSharePageForm"
+						ng-submit="myProfile.referAndShare.shareOnline(myProfile.referAndShare.message)"
+						class="">
+						<div class="dashboard-item-title col-sm-12">
+							<div id="referAndSharePageHEADER"
+								class="item-title text-uppercase width-auto">
+								{{appLiterals.APP.MYPROFILE.REFER_SHARE.HEADER}}</div>
+							 <md-menu class="title-right">
+							<md-button id="referAndSharePageMoreDetails"
+								class="md-icon-button more-details"
+								ng-click='$mdOpenMenu($event)' aria-label="More"> <md-icon
+								class="app app-ellipses"></md-icon> </md-button> <md-menu-content
+								class="fin-menu-content" width="4"> <md-menu-item>
+							<md-button id="referAndSharePageOnReferClick"
+								ng-click="setEvent('onReferClick');">
+							{{appLiterals.APP.MYPROFILE.REFER_SHARE.REFER_RM}} </md-button> </md-menu-item> </md-menu-content> </md-menu> 
+							<md-button id="referAndSharePageSendMail" type="submit"
+								class="md-icon-button send-mail-button"> <md-icon
+								class="app app-icon-mail_send"></md-icon> </md-button>
+						</div>
+						<div class="col-sm-12">
+							<!-- <div class="trans-detail text-uppercase no-border col-sm-12">
+								<div id="referAndSharePageSHARE_MSG" class="fut-txt1 lh13">{{appLiterals.APP.MYPROFILE.REFER_SHARE.SHARE_MSG}}</div>
+							</div> -->
+							<p class="fut-txt1 lh13" id="referMsg">
+								{{myProfile.referAndShare.message}}</p>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

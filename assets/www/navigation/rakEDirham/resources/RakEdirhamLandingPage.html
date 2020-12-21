@@ -1,0 +1,72 @@
+
+		<div class="finacle-container">
+			<div class="eDirham-scroll bg-color">
+			
+					<div class="app-title-wrapper">
+						<div class="form-block">						 
+							
+							<div class="bg-color rak-cont-padding ">
+							<div class="paybils-block-top w-100">
+					            	
+					            <div>
+					           <img class="eDirham-icon" src="images/EDirham.PNG">	
+					            </div>	            
+					            
+					        </div>
+								<div class="">
+									
+										
+									<div class="eDirham-payment_msg"
+										ng-init=''>
+										<div class="setPin-msg">
+										{{appLiterals.APP.EDIRHAM.EDIRHAM_LANDING_PAGE_TXT1}} 
+										<br/>
+										<br/>
+										{{appLiterals.APP.EDIRHAM.EDIRHAM_LANDING_PAGE_TXT2}}
+											
+									</div>		
+
+									</div>	
+								<div class="margin-top-thirtypx">
+
+											
+										<button type="button"
+												class="btn--special-btn btn-middle generate-token-btn mrgn-left-31Per"
+												ng-click="setEvent('onAuthClick')">
+												{{appLiterals.APP.EDIRHAM.GENERATE_TOKEN_BTN}} 
+												
+											</button>
+											
+											
+
+								</div>
+								<div class="margin-top-thirtypx">
+								<button type="button"
+												class="btn--special-btn btn-middle go-overview-btn mrgn-left-31Per"
+												ng-click="setEvent('onSettingClick')">
+												{{appLiterals.APP.EDIRHAM.SETTING_BTN}} 
+												
+											</button>
+								</div>
+								
+								<!-- <div class="disclaimer" ng-init="rakDisclaimerFlag=false">
+						                         <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+						                                         <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+						                         </div>
+						
+						                         <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+						                                         <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKMULTIPLEBILLS"></div>
+						                         </div>
+						         </div> -->
+																		
+										
+									
+								</div>
+										
+							</div>
+					</div>
+				</div>
+			
+		</div>
+	</div>
+	

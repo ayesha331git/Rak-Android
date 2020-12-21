@@ -1,0 +1,197 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+<div class="finacle-container" ng-init="rakHome.AuthPageData.resetConfirmPageDataAfterNavigation();rakSendMoney.common.authValue='';rakSendMoney.txnHistory.initAuthPage(successResponse.responsesList);rakCorpInit.corpModel.processCorpInit(successResponse.responsesList);">
+ 	<div class="rak-back-header">
+			<i class="rak-back-img" ng-click="setEvent('onBackClick')"></i>
+		</div>
+  <div class="account-page">
+    <div class="col-sm-11">
+     <div class="app-title-wrapper">
+		  
+		  <ng-include
+								src="'./navigation/rakSendMoney/resources/RakSendMoneyTabPage.html'">
+							</ng-include>
+
+
+							<div class="tab-links">
+								<ul>
+									<li class="active"><span class="active">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_HISTORY}}</span></li>
+									<li  ng-click="rakSendMoney.clearTab();rakSendMoney.common.clearSearchData();rakSendMoney.schedule.clearScheduleTransferData();rakSendMoney.history=true;rakSendMoney.txnHistory.setFutureDate();setGlobalEvent('onRakHistoryTabClick')"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_SCHEDULE}}</span></li>									
+									<li ng-hide="rakHome.userTypeIDValue=='CORPORATE'" ng-click="rakSendMoney.mobileCashHistory.clearSearchHistory();rakSendMoney.mobileCashHistory.setInitialDate();setGlobalEvent('onRakSendMoneyMobileCashHistoryTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_MOBILECASH_HISTORY}}</span></li>
+								</ul>
+							</div>  
+		  
+		  <div class="">
+    	
+    <!-- 	<div class="main-form-heading-payee">                    	
+                   <h2>{{appLiterals.APP.RAK_PAYEE.HISTORY.CANCEL_TRS}}<span>{{appLiterals.APP.RAK_PAYEE.HISTORY.CANCEL_TRS_MSG}}</span>		      
+		      </h2>	
+		    </div> -->
+	
+<!--CHANGES DONE AS FIX OF CONFIRMATION UI START -->
+      <div class="main-form-heading">
+           <h2>{{appLiterals.APP.RAK_PAYEE.HISTORY.REMIT_CANCEL}}<span>{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}}</span></h2>
+      </div>
+<!--CHANGES DONE AS FIX OF CONFIRMATION UI END -->
+	 
+		<div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh">      
+		 
+			<div class="" >
+			  <div class="">
+			  
+			  
+			    
+			  <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.CANCEL_REFERENCE_NUM}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.hostRefNo}}</span>
+				</p>
+				
+			  <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.CANCEL_REF_NUM}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.selectedCompltTxn.txnReferenceId}}</span>
+				</p>
+				
+					 <p class="rak-sum-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.REQUESTE_DATE}}
+									</span> <span class="rak-sum-label black">{{rakSendMoney.txnHistory.refDate}}</span>
+								</p> 
+					<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.DATE}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.selectedCompltTxn.txnDate}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FROM}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.selectedCompltTxn.debitAccount}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.TOACC}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.selectedCompltTxn.toAccount}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NAME}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.bnfName}}</span>
+				</p>
+				
+				
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.AMOUNT}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.selectedCompltTxn.txnCurrency}} {{rakSendMoney.txnHistory.selectedCompltTxn.txnAmount}}</span>
+				</p>
+				
+		<!-- 	<p class="rak-sum-txt" ng-show="rakSendMoney.txnHistory.selectedCompltTxn.freqType=='O'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FREQ}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAK_PAYEE.HISTORY.ONCE}}</span>
+				</p> -->
+				
+		<!-- 		<p class="rak-sum-txt" ng-show="rakSendMoney.txnHistory.selectedCompltTxn.freqType!='O'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FREQ}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAK_PAYEE.HISTORY.REC}}</span>
+				</p> -->
+				
+				
+				 
+											<fin-input type="text_restriction" model="rakSendMoney.txnHistory.reason"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDSINITPAGE.REMARKS}}"
+												validation-flag='pageErrorArr["rakSendMoney.txnHistory.reason"]'>
+											</fin-input>
+							
+							<!-- 		<div
+							ng-init="rakCorpInit.corpModel.processCorpInit(successResponse.responsesList);">
+							
+							
+							
+							
+							 <corpapproval-input></corpapproval-input>
+							 
+	
+ 					<div ng-if="rakCorpInit.corpModel.ruleCount>0">
+
+
+		<div ng-if="rakCorpInit.corpModel.ruleCount>1">
+						
+						<div>
+										<fin-input type="text" 
+											model="rakCorpInit.corpModel.selectedRuleDescription"
+											display-row="full"
+											placeholder="select Rules"
+											ng-click="rakCorpInit.corpModel.setOverlapping();"
+											validation-flag='pageErrorArr["rakCorpInit.corpModel.selectedRuleDescription"]'>
+										</fin-input>
+									</div>
+									</div>
+		
+				<div class="apprHeadingMain rakWidth100">
+								<div class="apprHeading">{{appLiterals.APP.CORPORATE.SELECTAPPR}}</div>
+						
+						</div> 
+						<div>
+			<div class="workFlowInputs">
+			<fin-input  type="text" model="rakCorpInit.corpModel.apprRoleId" display-row="full"  validation-flag='pageErrorArr["rakCorpInit.corpModel.apprRoleId"]' placeholder="{{appLiterals.APP.CORPORATE.SELECTUSER}}" > </fin-input>validation-flag='pageErrorArr["rakPayee.payeeModel.name"]'
+			</div>
+			<div class="workFlowInputsGetID">
+			<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakLookUpbutton" ng-click="rakHome.AuthPageData.approvalLookUpClick='Y';setEvent('onCorpGetLookUpClick');"> {{appLiterals.APP.CORPORATE.LOOKUP}}</button>
+</div>
+			
+			</div>
+		
+		
+							</div>
+ 
+							 
+							
+		
+						</div>	 -->
+						 <corpapproval-input></corpapproval-input>
+				<div class="label-wrap" >
+
+
+				<fin-input type="password_text" model="rakSendMoney.txnHistory.authField"
+					display-row="full" placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.PH_TRANSPASS}}"
+					validation-flag='pageErrorArr["rakSendMoney.txnHistory.authField"]'
+					ng-show="rakSendMoney.txnHistory.authFlag==txnpwdString">
+					</fin-input>
+
+
+						<div ng-show="rakSendMoney.txnHistory.authFlag==otpString">
+								<div ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+			<fin-input type="password_num" model="rakSendMoney.txnHistory.authField"
+			display-row="full" placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.PH_OTP}}"
+			validation-flag='pageErrorArr["rakSendMoney.txnHistory.authField"]' > </fin-input>
+			</div>
+
+
+			<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0' ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+
+				<fin-input type="dropdown" option-array="toModeArray" model="rakHome.otpModel.otpModeSelected" display-row="full" placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+				<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+
+			</div>
+									
+									
+									<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>
+          </div>
+
+					</div>
+				<div class="label-wrap">
+
+
+
+				 <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="rakSendMoney.common.fromAuthPage=true; setEvent('onBackClick');">  {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.BTN_BACK}} </button>
+				 <button type="button"  class="btn--special-btn btn-middle rak-button-small" ng-click='setEvent("onSubmitAuthClick")'>  {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.BTN_CNFIRM}} </button>
+			  </div>		  
+								
+				
+      </div>
+    </div>
+  </div>
+		  </div>
+		</div>
+	</div>
+<div class="scroll-space"></div>
+		</div>
+<!-- partial code end here-->

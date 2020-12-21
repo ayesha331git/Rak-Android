@@ -1,0 +1,235 @@
+<div class="finacle-container">
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="rakAccounts.backNavigation();"></i>
+	</div>
+<div class="finacle-container" 
+ng-init='
+	successResponse.invocationResult=successResponse.hasOwnProperty("responsesList")?successResponse.responsesList:successResponse.invocationResult.response.responsesList;
+	rakAccounts.accountList(successResponse.invocationResult);
+	rakAccounts.initPage(successResponse.responsesList,rakAccounts.RAKAccountsModel.accountType);'>
+    <div class="account-page">
+    <div class="col-sm-11"> 
+       <div class="bg-color rak-cont-padding">	
+         <div class="row" >
+         <!-- <div class="col-sm-1"> </div> -->
+       <!--   <div class="rakFixed"> -->
+             					
+						<!-- <div class="rakwidth75" ng-show="rakAccounts.RAKAccountsModel.accountType == 'CCD' "
+						ng-init='creditAccountArrayList=createDropDownOptionArray(rakAccounts.RAKAccountsModel.creditAccounts, ["subAccountTypeDesc", "-", "creditCardNo","-","currency"],"index")'> 
+						<fin-input type="dropdown" option-array="creditAccountArrayList"
+							model="rakAccounts.RAKAccountsModel.selectedAccount" display-row="full"
+							select-req="false" 
+							 on-change='setEvent(rakAccounts.getEvent(rakAccounts.RAKAccountsModel.accountType,rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType))' readonly>
+							
+						</fin-input>
+						</div> --> 
+						
+				<!-- 	<div class="rakwidth75" ng-show="rakAccounts.RAKAccountsModel.accountType == 'CCD' " ></div>
+						<fin-input type="text" option-array="creditAccountArrayList"
+							model="textVal" display-row="full"
+							readonly ng-init="textVal = {{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].subAccountTypeDesc}} {{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].creditCardNo}} {{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].currency}}">
+						</fin-input>
+						</div>  -->
+							<div class="fin-input-container rakwidth75"
+											ng-show="rakAccounts.RAKAccountsModel.accountType == 'CCD' ">
+											<p class="mbsc-control mbsc-control-ev rakLineHeight28">
+											{{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].subAccountTypeDesc}}-{{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].creditCardNo}}-{{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].currency}}</p>
+							</div>
+							
+				<!-- 			<div ng-show="rakAccounts.RAKAccountsModel.accountType == 'CCD' ">
+ 						<div class="app  rakapp-ellipses-icon"
+						ng-click="rakAccounts.handlePullDown($event);">
+						<span class="app-ellipses rakCustellipses "></span>
+						<ul class="rakPullDownMenu">
+
+							<li><a href="" ng-click='fields.txnType="Outstanding";fields.unsettledTxn="Y";
+							fields.applyFilter="unSetteled";
+							fields.txnSrcFromDate_day="";
+						    fields.txnSrcFromDate_month= "";
+							fields.txnSrcFromDate_year="";
+							fields.txnSrcToDate_day="";
+							fields.txnSrcToDate_month= " ";
+							fields.txnSrcToDate_year= " ";
+							fields.monthSelected="";
+							fields.yearSelected="";
+							setEvent("unSetteledTxn");'>
+							{{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.UNSETTLED_TXN}}</a></li>
+						</ul>
+					</div>
+				 </div> -->
+						
+                            	
+		 <div class="rakAccounts-nickName">
+		<span class="amount-curr"> {{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountNickName}}</span>
+		<div class="trans-date"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.CC_NICK_NAME}}</div>
+		</div>
+
+		 <span class="rakEditImg" ng-click="rakMyProfile.updateNickName.navigationType='RetailSUPCCUserAccDetails';rakMyProfile.updateNickname.clearNicknameDetails();setEvent('onChangeNameClick')"></span>
+
+           <div  class="balance-detail" >
+              <div class="rakamount">                
+             
+               <span class="amount-ps">{{appLiterals.APP.RAK_DASHBOARD.NA}}</span>
+           <!--     <span ng-if="(rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance).indexOf('0.00') > -1" class="amount-ps">
+					  			{{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance}}
+				</span>
+								
+				<span ng-hide="(rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance).indexOf('0.00') > -1" class="amount-ps">
+					  			{{(rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance).indexOf("-") > -1 ? (rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance).replace("-","") : rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance+" CR"}}
+				</span> -->
+               
+             </div>
+         
+              <p class="balance-available-dash rak-display-caption"> {{appLiterals.APP.RAK_DASHBOARD.CURRENT_BALANCE}} </p> 
+               
+            </div>
+            <div class="balance-detail">
+						<div class="rakamount">
+						
+							
+						<!-- <span ng-if="(rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).indexOf('0.00') > -1" class="amount-ps">
+					  			{{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance}}
+					  	</span>
+								
+						<span ng-hide="(rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).indexOf('0.00') > -1" class="amount-ps">
+					  			{{(rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).indexOf("-") > -1 ? (rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).replace("-","") : rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance+" CR"}}
+					  	</span> -->
+							
+						<span class="amount-ps">{{appLiterals.APP.RAK_DASHBOARD.NA}}</span>	
+						
+						</div>
+
+						<p class="balance-available-dash rak-display-caption">
+							{{appLiterals.APP.RAK_DASHBOARD.STATEMENT_BALANCE}}
+						</p>
+
+					</div>
+            
+            
+                   
+     <div class="money-block">              
+         <ul>
+          
+            <li class="active">
+            {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.CCD_DETAILS_TEXT}}</li>
+        
+          </ul>
+	 </div>
+
+					<div class="rakcustomer-wrapper rakHalfScrollDiv mCustomScrollbar"> 
+			
+
+				 <div class="rakDetailFrame ">
+					 <div class="detail-pad" ng-show='rakAccounts.RAKAccountsModel.accountType == "CCD"'>
+					 
+					 <div class="rakAccounts-details">
+								<span class="raktransno"> {{rakAccounts.RAKAccountsModel.creditCardNo}}</span>
+								<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_NUMBER}}</div>
+					</div>
+ 				 	<div class="rakAccounts-details">
+								<span class="raktransno"> {{rakAccounts.RAKAccountsModel.nameOnCard}}</span>
+								<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_ISSUER}}</div>
+					</div>
+					
+						<div class="rakAccounts-details">
+							<span class="raktransno">{{appLiterals.APP.RAK_DASHBOARD.NA}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_CURRENT_BALANCE}}</div>
+						</div>
+						
+		
+						
+						 <div class="rakAccounts-details" ng-if="rakAccounts.RAKAccountsModel.ccCombinedLimitFlag">
+							  <span class="raktransno">{{rakAccounts.RAKAccountsModel.totalcreditlimit}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_COMMON.RAK_COMBINED_LIMIT}}</div>
+						</div>
+						<div class="rakAccounts-details" ng-if="!rakAccounts.RAKAccountsModel.ccCombinedLimitFlag">
+							  <span class="raktransno">{{rakAccounts.RAKAccountsModel.totalcreditlimit}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_TOTAL_CREDIT_LIMIT}}</div>
+						</div> 
+					
+						 
+
+						<div class="rakAccounts-details">
+						
+							 <!-- <span class="raktransno">{{rakAccounts.RAKAccountsModel.totalAmountDue}}</span> -->
+							 <span class="raktransno">{{appLiterals.APP.RAK_DASHBOARD.NA}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_TOTAL_AMT_DUE}}</div>
+						</div>
+					
+						
+						<div class="rakAccounts-details" ng-if="rakAccounts.RAKAccountsModel.ccCombinedLimitFlag">
+							  <span class="raktransno">{{rakAccounts.RAKAccountsModel.availableCreditLimit}}</span>
+							 <div class="trans-date rak-color">{{appLiterals.APP.RAK_COMMON.RAK_COMBINED_AVL_LIMIT}}</div>
+						</div>
+						<div class="rakAccounts-details" ng-if="!rakAccounts.RAKAccountsModel.ccCombinedLimitFlag">
+							  <span class="raktransno">{{rakAccounts.RAKAccountsModel.availableCreditLimit}}</span>
+							 <div class="trans-date rak-color">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_AVAILABLE_CREDIT_LIMIT}}</div>
+						</div>
+						
+						
+						
+							<div class="rakAccounts-details">
+						
+							 <!-- <span class="raktransno">{{rakAccounts.RAKAccountsModel.minAmtDue}}</span> -->
+							  <span class="raktransno">{{appLiterals.APP.RAK_DASHBOARD.NA}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_MIN_AMT_DUE}}</div>
+						</div>
+					 
+					 
+					 <div class="rakAccounts-details" ng-if="rakAccounts.RAKAccountsModel.ccCombinedLimitFlag">
+							 <span class="raktransno">{{rakAccounts.RAKAccountsModel.totalCashLimit}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_COMMON.RAK_COMBINED_CASH_LIMIT}}</div>
+						</div>
+						<div class="rakAccounts-details" ng-if="!rakAccounts.RAKAccountsModel.ccCombinedLimitFlag">
+							 <span class="raktransno">{{rakAccounts.RAKAccountsModel.totalCashLimit}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_TOTAL_CASH_LIMIT}}</div>
+						</div>
+						
+							<!--  <div class="rakAccounts-details">
+					
+							 <span class="raktransno">{{rakAccounts.RAKAccountsModel.totalCashLimit}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_TOTAL_CASH_LIMIT}}</div>
+						</div> -->
+						
+						<div class="rakAccounts-details">
+							<span class="raktransno">{{appLiterals.APP.RAK_DASHBOARD.NA}}</span>
+							<div class="trans-date"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_DUE_DATE}}</div>
+						</div>
+						
+						<!-- <div class="rakAccounts-details">
+							
+							 <span class="raktransno">{{rakAccounts.RAKAccountsModel.availableCashLimit}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_AVAILABLE_CASH_LIMIT}}</div>
+						</div> -->
+						
+						<!-- <div class="rakAccounts-details" ng-if="rakAccounts.RAKAccountsModel.ccCombinedLimitFlag">
+							 <span class="raktransno">{{rakAccounts.RAKAccountsModel.availableCashLimit}}*</span>
+							 <div class="trans-date rak-color">{{appLiterals.APP.RAK_COMMON.RAK_COMBINED_AVAILABLE_CASH_LIMIT}}</div>
+						</div>
+						<div class="rakAccounts-details" ng-if="!rakAccounts.RAKAccountsModel.ccCombinedLimitFlag">
+							 <span class="raktransno">{{rakAccounts.RAKAccountsModel.availableCashLimit}}*</span>
+							 <div class="trans-date rak-color">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_AVAILABLE_CASH_LIMIT}}</div>
+						</div> -->
+						
+						<div class="rakAccounts-details">
+							<!-- <span class="raktransno">{{rakAccounts.RAKAccountsModel.statementDate}}</span> -->
+							 <span class="raktransno">{{appLiterals.APP.RAK_DASHBOARD.NA}}</span>
+							<div class="trans-date"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_STATEMENT_DATE}}</div>
+						</div>
+						<!-- Rewards List Below  -->
+						<div class="rakAccounts-details">
+							<span class="raktransno">{{rakAccounts.RAKAccountsModel.expDate}}</span>
+							<div class="trans-date"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_EXPIRY_DATE}}</div>
+						</div>	 
+						
+						
+					 </div>
+					 </div>
+				</div>
+               </div>         
+ 
+            </div>
+           </div>  
+        </div>
+  
+ </div>

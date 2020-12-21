@@ -1,0 +1,129 @@
+<div class="app app-arrow2 title-right-dash" id="renewFixedDepositPageBack"
+	ng-click="setEvent('onCancelClick')"></div>
+<div class="finacle-container"
+	ng-init="services.initRenewFDPage(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase">
+							<span id="pageTitle"> {{appLiterals.APP.SERVICES.DEPOSIT.RE_FD_HEADER}} </span>
+						</div>
+					</div>
+					<!--  end of title -->
+					<form
+						ng-submit="corpInit.corpModel.resetCorpInitDetails();services.convertToStr();setEvent(services.renewFixedDepositModel.getEvent());">
+						<div class="avail-bal-wrap"
+							ng-init='depositAcc = createDropDownOptionAccountArray(services.renewFDResponseself.depositAccountsList,["accountId"],"accountIdValue");'>
+							<fin-input type="dropdown"
+								model="services.renewFixedDepositModel.depositAccount"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.DEPOSIT.PH_DEPOSIT_ACC}}"
+								validation-flag='pageErrorArr["services.renewFixedDepositModel.depositAccount"]'
+								option-array="depositAcc"></fin-input>
+						</div>
+						<h4 class="balance-available"
+							ng-show="services.renewFixedDepositModel.depositAccount.length > 0" id="AVL_BAL">
+							{{appLiterals.APP.COMMON.TEXT.AVL_BAL}}:<span class="rs-color" id="depositAccountsList">{{(services.renewFDResponseself.depositAccountsList
+								|
+								filter:{accountIdValue:services.renewFixedDepositModel.depositAccount})[0].balance}}</span>
+						</h4>
+						<div id="RenewFixedDepositModel" class="avail-bal-wrap"
+							ng-init='renewInstruction = createDropDownOptionArray(services.renewFDResponseself.renewalList,["renewalDescription"],"renewalCode");'
+							ng-click="services.renewFixedDepositModel.account='';">
+							<fin-input type="dropdown"
+								model="services.renewFixedDepositModel.renewList"
+								display-row="full" on-change="services.onRenewListChange();"
+								placeholder="{{appLiterals.APP.SERVICES.DEPOSIT.PH_RENEW_INSTRUC}}"
+								validation-flag='pageErrorArr["services.renewFixedDepositModel.renewList"]'
+								option-array="renewInstruction"></fin-input>
+						</div>
+						<div class="col-sm-12">
+							<div class="transaction-info">
+								<div class="fut-txt1 lh13 margin-bottom-20" id="RE_PERIOD">
+									{{appLiterals.APP.SERVICES.DEPOSIT.RE_PERIOD}}</div>
+							</div>
+						</div>
+						<div class="col-sm-12">
+							<div class="col-sm-3 card_no">
+								<fin-input type="number"
+									model="services.renewFixedDepositModel.dateMonth"
+									display-row="full"
+									validation-flag='pageErrorArr["services.renewFixedDepositModel.dateMonth"]'
+									max-length="2"
+									placeholder="{{appLiterals.APP.SERVICES.DEPOSIT.PH_MONTHS}}"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="number"
+									model="services.renewFixedDepositModel.dateDay"
+									display-row="full"
+									validation-flag='pageErrorArr["services.renewFixedDepositModel.dateDay"]'
+									max-length="2"
+									placeholder="{{appLiterals.APP.SERVICES.DEPOSIT.PH_DAYS}}"></fin-input>
+							</div>
+							<!-- <p class="view-in-txt col-sm-6">
+								&nbsp;&nbsp;{{appLiterals.APP.SERVICES.COMMON.VIEW_INTEREST_RATE}}
+							</p> -->
+						</div>
+						<div class="col-sm-12 clear-all">
+							<div class="transaction-info">
+								<div class="fut-txt1 lh13 margin-bottom-20" id="INTREST_INST">
+									{{appLiterals.APP.SERVICES.COMMON.INTREST_INST}}</div>
+							</div>
+						</div>
+						<div class="avail-bal-wrap"
+							ng-init='maturityInstruction = createDropDownOptionArray(services.renewFDResponseself.interestInstruction,["Content"], "Value");'>
+							<fin-input type="dropdown"
+								model="services.renewFixedDepositModel.interestInstruction"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.DEPOSIT.PH_MATURITY_INSTRUC}}"
+								validation-flag='pageErrorArr["services.renewFixedDepositModel.interestInstruction"]'
+								option-array="maturityInstruction"></fin-input>
+						</div>
+
+						<div class="avail-bal-wrap"
+							ng-show="services.renewFixedDepositModel.interestInstruction == 'CalculateInflow'">
+							<div
+								ng-init='inflow = createDropDownOptionArray(services.renewFDResponseself.inflow,["inflowDescription"], "inflowCode");'>
+								<fin-input type="dropdown"
+									model="services.renewFixedDepositModel.inflow"
+									display-row="full"
+									placeholder="{{appLiterals.APP.SERVICES.DEPOSIT.PH_MATURITY}}"
+									validation-flag='pageErrorArr["services.renewFixedDepositModel.inflow"]'
+									option-array="inflow"></fin-input>
+							</div>
+						</div>
+
+						<div class="avail-bal-wrap"
+							ng-show="services.renewFixedDepositModel.interestInstruction == 'CalculateOutflow'">
+							<div
+								ng-init='outflow = createDropDownOptionArray(services.renewFDResponseself.outflow,["outFlowDescription"], "outFlowCode");'>
+								<fin-input type="dropdown"
+									model="services.renewFixedDepositModel.outflow"
+									display-row="full"
+									placeholder="{{appLiterals.APP.SERVICES.DEPOSIT.PH_MATURITY}}"
+									validation-flag='pageErrorArr["services.renewFixedDepositModel.outflow"]'
+									option-array="outflow"></fin-input>
+							</div>
+						</div>
+						<div class="avail-bal-wrap"
+							ng-hide='!services.renewFixedDepositModel.accountStatus'>
+							<div
+								ng-init='account = createDropDownOptionAccountArray(services.renewFDResponseself.accountList,["accountId"], "accountIdValue");'>
+								<fin-input type="dropdown"
+									model="services.renewFixedDepositModel.account"
+									display-row="full"
+									placeholder="{{appLiterals.APP.SERVICES.DEPOSIT.PH_SELECT_ACC}}"
+									validation-flag='pageErrorArr["services.renewFixedDepositModel.account"]'
+									option-array="account"></fin-input>
+							</div>
+						</div>
+						<md-button type="submit" class="md-raised btn--primary-btn">{{appLiterals.APP.COMMON.BUTTON.CONTINUE}}
+						</md-button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

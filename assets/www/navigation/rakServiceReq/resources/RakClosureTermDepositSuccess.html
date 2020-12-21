@@ -1,0 +1,82 @@
+<div class="finacle-container" ng-init="rakServiceReq.initClosureTDSuccess(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+	
+            
+            <div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{successResponse.responsesList[0].successMessage}}</span>
+                        </div>
+                  </div>
+            
+            
+            
+            <div class="main-form-heading-ServiceReq" ng-if="rakServiceReq.RakClosureTermDepositModel.closureType=='TDC'"> 
+                      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.TXT_CTD}}
+                      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}} </span>                
+                      </h2>              
+				</div>
+				
+				<div class="main-form-heading-ServiceReq" ng-if="rakServiceReq.RakClosureTermDepositModel.closureType=='TSC'"> 
+                      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.TXT_ICT}}
+                      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}} </span>                
+                      </h2>              
+				</div>
+          
+		<div class="bg-color rak-cont-padding rak-scroll-success">
+
+				<div class="">
+					<div class="">
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_FD_NUM}}
+								&nbsp;</span> <span class="rak-sum-label black">{{rakServiceReq.RakClosureTermDepositModel.previewFDNumber}}</span>
+						</p>
+
+						<p class="rak-sum-txt" ng-if="rakServiceReq.RakClosureTermDepositModel.closureType=='TDC'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_PRE_MAT_INTS}}
+								&nbsp;</span> <span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_PRE_MAT_INT_RADIO}}</span>
+						</p>
+						
+						<p class="rak-sum-txt" ng-if="rakServiceReq.RakClosureTermDepositModel.closureType=='TSC'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_PRE_MAT_INTS}}
+								&nbsp;</span> <span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_PRE_MAT_INT_ISL_RADIO}}</span>
+						</p>
+
+
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_ACTION_DATE}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakClosureTermDepositModel.previewActionDate}}</span>
+						</p>
+
+						<p class="rak-sum-txt" ng-show="rakServiceReq.RakClosureTermDepositModel.upliftmentInstructions && rakServiceReq.RakClosureTermDepositModel.closureType=='TDC'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_CREDIT_TO}}</span> <span
+								class="rak-sum-label black">{{rakServiceReq.RakClosureTermDepositModel.previewCreditAcc}}</span>
+						</p>
+						
+						<p class="rak-sum-txt" ng-show="rakServiceReq.RakClosureTermDepositModel.upliftmentInstructions && rakServiceReq.RakClosureTermDepositModel.closureType=='TSC'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_CREDIT_TO_ISL}}</span> <span
+								class="rak-sum-label black">{{rakServiceReq.RakClosureTermDepositModel.previewCreditAcc}}</span>
+						</p>
+
+						<p class="rak-sum-txt" ng-if="rakServiceReq.RakClosureTermDepositModel.remarks!=''">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.REMARKS}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakClosureTermDepositModel.remarks}}</span>
+						</p>
+
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakServiceReq.RakClosureTermDepositModel.resetRakClosureTermDepositModel();rakServiceReq.RakClosureTermDepositModel.closureType='';setEvent('onCancelClick')">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>

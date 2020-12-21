@@ -1,0 +1,22 @@
+<div class="finacle-container">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+			<div class="dashboard-pad full-height">
+				<div class=" dashboard-item-body full-height">
+					<fin-success
+						success-banner="{{ appLiterals.APP.COMMON.MSG.SUCCESS }}"
+						success-message="{{successResponse.responsesList[0].message}}"
+						cross-click="setEvent('onDeviceEditDoneClick');"></fin-success>
+					<p class="sucs-left-txt" id="editDeviceTxt1">
+						{{appLiterals.APP.MYPROFILE.MANAGE_AC_DEVICES.OLD_DEV_NAME}}:
+						&nbsp;<span class="sucs-right-color" id="editDeviceOldName">{{myProfile.oldDeviceName}}</span>
+					</p>
+					<p class="sucs-left-txt" id="editDeviceTxt2">
+						{{appLiterals.APP.MYPROFILE.MANAGE_AC_DEVICES.NEW_DEV_NAME}}
+						:&nbsp;<span class="sucs-right-color" id="editDeviceNewName">{{appActivation.deviceName}}</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

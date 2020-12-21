@@ -1,0 +1,19 @@
+
+
+ <div class="full-page-screen"></div>
+
+ <div class="confirmation-content-container">
+  <div class="message-box-new">
+         <div>
+             <p class="round-icon-new">
+             <span class="app app-alert pop-alert-icon rak-color"></span>
+             </p>
+
+             <div class="otp-txt-label rak-black-color"> {{confirmationObj.message}}</div>
+         </div>
+         <div class="otp-btn-wrap">
+             <button type="button" class="btn--otppri-btn rak-grey-color" ng-click='fields.finacleUserCorporateId = null;fields.finacleUserPassword = null;setGlobalEvent("onLogoutClickOK")'> &nbsp; {{confirmationObj.okText}}&nbsp; </button>
+             <!--<button type="button" class="btn--confsec-btn" ng-hide="alertOverlayObj.noSetEvent" ng-click='showAlertFlag = false; setGlobalEvent("onErrorPageOKClick")'> &nbsp; {{alertOverlayObj.okText}}  &nbsp; </button>-->
+         </div>
+     </div>
+ </div>

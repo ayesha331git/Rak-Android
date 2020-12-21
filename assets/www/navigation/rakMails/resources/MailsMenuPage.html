@@ -1,0 +1,224 @@
+<div class="finacle-container"
+	ng-init="mails.clearData(); mails.compose.clear();mails.initLandingPage(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-10">
+			<div class="app-title-wrapper">
+				<div class="app glyphicon glyphicon-arrow-left title-left" ng-click="setEvent('onCloseClick')"></div>
+				<div class="title-center" ng-if='mails.isInboxEmpty'>{{appLiterals.APP.MAILS.MENU_PAGE.TXT_MAILS}}</div>
+				<div class="title-center" ng-if='!mails.isInboxEmpty'>{{appLiterals.APP.MAILS.MENU_PAGE.TXT_INBOX}}</div>
+				<div class="glyphicon glyphicon-edit title-mail-right" ng-if='mails.isInboxEmpty'
+					ng-click="mails.fromInbox=false; setEvent('onComposeClick')"></div>
+				<div class="title-right icon icon-cancel" ng-if='!mails.isInboxEmpty'
+					ng-click="setEvent('onCloseClick')"></div>
+			</div>
+			<div class="highlight-color"></div>
+			<div class="bg-color">
+				<div class="row">
+					<div class="col-sm-1"></div>
+					<div class="col-sm-10">
+						<div class="customer-wrapper">
+
+							<div class="customer-detail-wrap1" ng-show='!mails.isInboxEmpty'
+								ng-click="mails.fromInbox=false; setEvent('onComposeClick')">
+								<div class="people-circle-wrap">
+									<div class="people-circle-pic"></div>
+									<p class="people-circle-txt">
+										<span class="mail-icon-list glyphicon glyphicon-edit"></span>
+									</p>
+								</div>
+								<div class="mail-features" >
+									<div class="feature-lists">{{appLiterals.APP.MAILS.MENU_PAGE.BTN_COMP}}</div>
+								</div>
+								<div class="app-hr2"></div>
+							</div>
+
+							<div class="customer-detail-wrap1" ng-show='mails.isInboxEmpty'
+								ng-click="setEvent('onInboxClick')">
+								<div class="people-circle-wrap">
+									<div class="people-circle-pic"></div>
+									<p class="people-circle-txt">
+										<span class="mail-icon-list glyphicon glyphicon-download"></span>
+									</p>
+								</div>
+								<div class="mail-features">
+									<div class="feature-lists">{{appLiterals.APP.MAILS.MENU_PAGE.TXT_INBOX}} ({{mails.inbox.count}})</div>
+								</div>
+								<div class="app-hr2"></div>
+							</div>
+
+							<div class="customer-detail-wrap1"
+								ng-click="setEvent('onSentClick')">
+								<div class="people-circle-wrap">
+									<div class="people-circle-pic"></div>
+									<p class="people-circle-txt">
+										<span class="mail-icon-list glyphicon glyphicon-upload"></span>
+									</p>
+								</div>
+								<div class="mail-features">
+									<div class="feature-lists">{{appLiterals.APP.MAILS.MENU_PAGE.TXT_SENTMAIL}}</div>
+								</div>
+								<div class="app-hr2"></div>
+							</div>
+
+							<div class="customer-detail-wrap1"
+								ng-click="setEvent('onTrashClick')">
+								<div class="people-circle-wrap">
+									<div class="people-circle-pic"></div>
+									<p class="people-circle-txt">
+										<span class="mail-icon-list glyphicon glyphicon-trash"></span>
+									</p>
+								</div>
+								<div class="mail-features">
+									<div class="feature-lists">{{appLiterals.APP.MAILS.MENU_PAGE.TXT_TRASH}}</div>
+								</div>
+								<div class="app-hr2"></div>
+							</div>
+
+
+		                     <div class="customer-detail-wrap1"
+								ng-click="setEvent('onDraftClick')">
+								<div class="people-circle-wrap">
+									<div class="people-circle-pic"></div>
+									<p class="people-circle-txt">
+										<span class="mail-icon-list glyphicon glyphicon-draft"></span>
+									</p>
+								</div>
+								<div class="mail-features">
+									<div class="feature-lists">{{appLiterals.APP.MAILS.MENU_PAGE.TXT_DRAFT}}</div>
+								</div>
+								<div class="app-hr2"></div>
+							</div>
+						<!-- 	RAK:1:Jhansi added for personal folder -->
+ 			<div class="customer-detail-wrap1"
+								ng-click="setEvent('onPersonalClick')">
+								<div class="people-circle-wrap">
+									<div class="people-circle-pic"></div>
+									<p class="people-circle-txt">
+										<span class="mail-icon-list glyphicon glyphicon-draft"></span>
+									</p>
+								</div>
+								<div class="mail-features">
+									<div class="feature-lists">{{appLiterals.APP.MAILS.MENU_PAGE.TXT_PERSONAL}}</div>
+								</div>
+								<div class="app-hr2"></div>
+							</div>
+
+							<div class="customer-detail-wrap1"
+								ng-click="setEvent('onBroadcastClick')">
+								<div class="people-circle-wrap">
+									<div class="people-circle-pic"></div>
+									<p class="people-circle-txt">
+										<span class="mail-icon-list glyphicon glyphicon-user"></span>
+									</p>
+								</div>
+								<div class="mail-features">
+									<div class="feature-lists">{{appLiterals.APP.MAILS.MENU_PAGE.TXT_BROADCASTMSGS}}
+										({{mails.broadcastCount}})</div>
+								</div>
+								<div class="app-hr2"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--DON'T REMOVE THIS STYLE-->
+<style>
+.customer-detail-wrap, .customer-detail-wrap1 {
+	float: left;
+	width: 100%;
+	padding: 0.5em 0 0;
+}
+
+.customer-detail-wrap {
+	background-color: #444;
+}
+
+.customer-wrapper {
+	float: left;
+	width: 100%;
+	background-color: #fff;
+}
+
+.people-detail-wrap {
+	width: 100%;
+	overflow: hidden;
+}
+
+.people-circle-wrap {
+	float: left;
+	margin: 0 0 0.5em;
+}
+
+.people-circle-pic {
+	height: 5.6em;
+	border-radius: 2.8em;
+	margin: 0 0 0 1.3em;
+	border: 1px solid #dbdbdb;
+	width: 6em;
+}
+
+.people-circle-txt {
+	height: 5.6em;
+	width: 5.6em;
+	line-height: 5.6em;
+	text-align: center;
+	padding: 0;
+	margin: -5.6em 0 0 1.3em;
+}
+
+.people-first-char, .people-first-char1 {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.people-first-char {
+	color: #fff;
+}
+
+.people-details {
+	float: left;
+	margin: 0.5em 0 0 1.3em;
+}
+
+.mail-features {
+	float: left;
+	margin: 1.4em 0 0 1.3em;
+}
+
+.people-name {
+	padding: 0.5em 0 0;
+	font-size: 2em;
+	color: #fff;
+}
+
+.feature-lists {
+	font-size: 2em;
+	color: #232222;
+}
+
+.people-name2 {
+	font-size: 1.8em;
+	color: #232222;
+}
+
+.title-mail-right {
+	float: right;
+	border: 0.05em solid #fff;
+	padding: 0.2em;
+	width: 9%;
+	font-size: 2em;
+	position: absolute;
+	border-radius: 1em;
+	margin-top: 0.65em;
+	color: #fff;
+}
+
+.feature-lists {
+	font-size: 1.8em;
+	color: #232222;
+}
+</style>
+<!--NEW CSS STYLE END HERE-->

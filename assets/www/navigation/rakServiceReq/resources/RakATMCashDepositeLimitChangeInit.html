@@ -1,0 +1,107 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		 <div class="finacle-container" ng-init="rakServiceReq.ATMCashDepositeLimitChangeReq.parseACDRequestInit(successResponse);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="">
+						<div class="">
+						 <div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.ACD_LIMIT_CHANGE}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+				      </h2>		       
+		 		</div>
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="">
+																	
+										<div
+											ng-init='fromAccountNumberArr = createDropDownOptionArray(rakServiceReq.ATMCashDepositeLimitChangeReq.fromAccountNumbers, ["acctTypeDesc","-", "accountId","-","currencyCode"], "accountIndex");'>
+											<fin-input type="dropdown"
+												model="rakServiceReq.ATMCashDepositeLimitChangeReq.selectedfromAccountNumber"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_ACD_LIMIT_CHANGE.ACD_ACCNO}}"
+												validation-flag='pageErrorArr["rakServiceReq.ATMCashDepositeLimitChangeReq.selectedfromAccountNumber"]'
+												option-array="fromAccountNumberArr"></fin-input>
+										</div>
+										
+										<fin-input type="money"
+									               model="rakServiceReq.ATMCashDepositeLimitChangeReq.sameCurrencyTransferLimit"
+									               display-row="full"
+									               placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_ACD_LIMIT_CHANGE.SAME_CURTRF_LIMIT}}"
+									               validation-flag='pageErrorArr["rakServiceReq.ATMCashDepositeLimitChangeReq.sameCurrencyTransferLimit"]'>
+								       </fin-input>
+										
+										<div>
+											<fin-input type="text" model="rakServiceReq.ATMCashDepositeLimitChangeReq.remarks"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_ACD_LIMIT_CHANGE.ACD_REMARKS}}"
+												max-length="30">
+											</fin-input>
+										</div>
+										
+										<!-- </div></div> -->
+										<!--<fin-input type="money"									               
+									               model="rakServiceReq.transactionLimitChangeRq.crossCurrencyTransferLimit"
+									               display-row="full"
+									               validation-flag='pageErrorArr["rakServiceReq.transactionLimitChangeRq.crossCurrencyTransferLimit"]'
+									               placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_TXN_LIMIT_CHANGE.CROSS_CURTRF_LIMIT}}">
+								       </fin-input>-->
+										
+					<div class="fin-txt"></div>
+					
+
+
+					<div class="disclaimer3" >
+						<span  ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_DAILY_LIMI_UPDATE_RET_UNDERTAKE"></span>
+						<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_ATM_CASH_DEPOSIT_LIMIT_RET1"></span>
+						<!-- <span>{{rakServiceReq.ATMCashDepositeLimitChangeReq.disclaimerTxt}}</span>	 -->
+						<!-- <span ng-show="dashboard.userType=='2'" ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_DAILY_LIMI_UPDATE_CORP"></span> -->
+
+
+								<div class="check-boxsLeft" ng-init="rakServiceReq.ATMCashDepositeLimitChangeReq.acceptTermscondition='N'">
+				                    <input id="termsFlag"  class="checkbox-custom-new"  type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" ng-model='rakServiceReq.ATMCashDepositeLimitChangeReq.acceptTermscondition' >
+				                    <label for="termsFlag" class="checkbox-custom-label termsCheck smallCheck" ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_DAILY_LIMIT_CHECK"></label>
+				                </div>		
+				                
+				                
+				                						
+					</div>
+									
+
+									<div class="label-wrap">
+										<button type="button"
+											    class="btn--special-btn btn-middle rak-button-small btn--back margin-top-sixtypx"
+											    ng-click="setEvent('onBackClick');">
+											    {{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+										<button type="button"
+											    class="btn--special-btn btn-middle rak-button-right margin-top-sixtypx"
+											    ng-click="rakServiceReq.ATMCashDepositeLimitChangeReq.fetchATMPreviewEvent()">
+											    {{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+									</div>
+									
+									<div class="col-sm-1"></div>
+									<div class="col-sm-1"></div>
+									
+									
+									<!-- <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_DAILY_LIMI_UPDATE_CONT"></span>	 -->	
+								</div>
+								
+								 <div class="disclaimer">
+                                               <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                               <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                               </div>
+                                               
+                                               <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+												
+												<span ng-click="rakServiceReq.fetchDisclaimer('AcntAndDebitCardSrvcRqstsCutoffTime_CORP.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKDUPSTMT_INITPAGE"></span>														
+											</div>
+                                                   
+                                 </div>
+								
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

@@ -1,0 +1,31 @@
+<div class="finacle-container bg-color" ng-init="resetPageError();">
+	<div class="rakServiceReqList">
+		<ul class="rak-accordianUL rakScrollDiv">
+			<li class="rak-accordianList" ng-click="RakRAK_SERVICES.expandMenu($event);"><span>{{appLiterals.APP.RAK_SERVICES.SERV_LANDPG.TXT_OPERACC}}</span>
+				<ul class="reqSubMenu">
+					<li ng-click="RakRAK_SERVICES.AdvanceSalaryData.clearAdvanceSalaryData();setEvent('onAdvanceClick');rakHome.closeMenu();"><span>{{appLiterals.APP.RAK_SERVICES.SERV_LANDPG.ADVSALARY}}
+							</span></li>
+					<li ng-click="RakRAK_SERVICES.EvantageData.clearEvantageData();setEvent('onEvantageClick');rakHome.closeMenu();"><span>{{appLiterals.APP.RAK_SERVICES.SERV_LANDPG.RAK_EVANTAGE_BALANCE}}
+							</span></li>
+					<li ng-click="RakRAK_SERVICES.operativeAccountModel.resetOperativeAccountModel();setEvent('onNewAcClick');rakHome.closeMenu();"><span>{{appLiterals.APP.RAK_SERVICES.SERV_LANDPG.TXT_OPNEWACC}}</span></li>
+					
+				</ul></li>
+			<li class="rak-accordianList" ng-click="RakRAK_SERVICES.expandMenu($event);"><span> {{appLiterals.APP.RAK_SERVICES.SERV_LANDPG.DEBT_CRD}} </span>
+				<ul class="reqSubMenu">
+					<li ng-click="setEvent('onApplyNewDCClick');RakRAK_SERVICES.applyNewDCModel.resetapplyNewDCModel();rakHome.closeMenu();"><span>Apply for New Debit Card</span></li>
+					<li ng-click="setEvent('onReplacementDCClick');RakRAK_SERVICES.changeDCLimitModel.resetChangeDCLimitModel();rakHome.closeMenu();"><span>Request for Replacement Card</span></li>
+					<li ng-click="setEvent('onDCCashRedeemlick');RakRAK_SERVICES.debitCashReedemModel.resetDebitCashReedemModel();rakHome.closeMenu();"><span> Debit Cash Reedem</span></li>
+					
+					
+				</ul></li>
+			<li class="rak-accordianList" ng-click="RakRAK_SERVICES.expandMenu($event);"><span>{{appLiterals.APP.RAK_SERVICES.SERV_LANDPG.CRED_CRD}}</span>
+				<ul class="reqSubMenu">
+					
+					
+					<li ng-click="setEvent('onReplacementCCClick');RakRAK_SERVICES.ReplacementCCData.clearReplacementCCData();rakHome.closeMenu();"><span>{{appLiterals.APP.RAK_SERVICES.SERV_LANDPG.CREDITCARD}}</span></li>
+					
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>

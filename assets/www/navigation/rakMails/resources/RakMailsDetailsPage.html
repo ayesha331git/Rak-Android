@@ -1,0 +1,156 @@
+<div class="nano menu-scroll">
+
+	<div ng-if="rakMails.detailType=='Inbox'" class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onDetailsBackClick');"></i>
+	</div>
+<div ng-if="rakMails.detailType=='Sent'" class="rak-back-header" ng-click="setEvent('onDetailsBackToSentClick');">
+<i class="rak-back-img"></i>
+</div>
+<div ng-if="rakMails.detailType=='Trash'" class="rak-back-header" ng-click="setEvent('onDetailsBackToTrashClick');">
+<i class="rak-back-img"></i>
+</div>
+
+	<div class="nano-content">
+<div class="finacle-container"
+	ng-init="rakMails.initDetailsPage(successResponse.responsesList);">
+	<div class="account-page">
+	<div class="col-sm-11">
+	<div class="app-title-wrapper">
+	<div class="form-block">
+	
+				<div
+					ng-init='mailTypeArray=createDropDownOptionArray(rakMails.mailOptions, ["mailOption"],"mailValue")'>
+					<fin-input type="dropdown" option-array="mailTypeArray"
+						model="rakMails.selectedMailType"
+						display-row="full"
+						placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_SELCT}}"
+						on-change="resetPageError();setGlobalEvent(rakMails.getMailEvent());"
+						validation-flag='pageErrorArr["rakMails.selectedMailType"]'>
+					</fin-input>
+				</div>
+		
+		<div class="">
+							
+			
+     <div class="fin-txt"> </div>
+    
+	    <div class="settings-block" ng-hide="rakMails.selectedMail.folderIDS=='AL'">
+	
+			<div class="backword-div"  ng-click="setEvent('onRakReplySentClick');"> <span><img src="images/back-wrod.png" alt="" class="marginTop6less"></span> </div>	
+			<div class="mailReplyText">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.BTN_Reply}}</div>
+		 	<!-- <div class="recyclie-div-right"  ng-click="rakMails.trash.clear();rakMails.isDeleteClicked=true;setEvent(rakMails.trash.getEventNameAfterDelete());"> <span><img src="images/recyclie-bin.png" alt="" class="recycleImg"></span></div> -->
+	
+		</div>
+        <div class="bg-color rak-cont-padding rak-scroll">
+			<div class="">
+						
+						<div class="full-mail open">
+							<div class="center"></div>
+							<div class="full-mail-top">
+							
+							<div class="rakMailDet"><div>
+							      <span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.FROM}}:</span>
+							      <span>{{rakMails.mailFromId}}</span>
+							    </div>
+							    <div >
+							      <span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.TO}}:</span>
+							      <!--<span>{{rakMails.mailToId}}</span> -->
+								  <span>{{fields.finacleUserCorporateId| uppercase}}</span>
+
+							    </div>
+							    <div >
+							      <span>Subject:</span>
+							      <span>{{rakMails.mailSubject}}</span>
+							    </div>
+							    <div>
+							      <span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.DATE}}:</span>
+							      <span>{{rakMails.mailDate}}</span>
+							    </div>
+							  </div>
+							 <!--  <div class="rakMailDet" ng-if="rakMails.detailType == 'Inbox' || rakMails.detailType == 'Broadcast' || rakMails.detailType == 'Trash'"><div>
+							      <span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.FROM}}:</span>
+							      <span>{{rakMails.mailFromId}}</span>
+							    </div>
+							    <div ng-if="rakMails.detailType == 'Sent' || rakMails.detailType == 'Trash'">
+							      <span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.TO}}:</span>
+							      <span>{{rakMails.mailToId}}</span>
+							    </div>
+							    <div ng-hide='rakMails.detailType=="Broadcast"'>
+							      <span>Subject:</span>
+							      <span>{{rakMails.mailSubject}}</span>
+							    </div>
+							    <div>
+							      <span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.DATE}}:</span>
+							      <span>{{rakMails.mailDate}}</span>
+							    </div>
+							  </div> -->
+							</div>
+							<div class="full-mail-bottom"> 
+							<pre class="rakWordWrap" ng-bind-html=rakMails.mailBody></pre>
+							</div>
+						</div>
+<!--  CHANGES SHOWING FROM AND TO AS PROUAT-200 END -->
+
+						<!-- <div class=""
+							ng-hide='rakMails.detailType=="Broadcast"'>
+							<div class="label-title-ellipsis1">{{rakMails.mailSubject}}</div>
+						</div>
+						<div class="msg-mrg" ng-hide='rakMails.detailType=="Broadcast"'></div>
+						<div ng-if="rakMails.detailType == 'Inbox' || rakMails.detailType == 'Broadcast' || rakMails.detailType == 'Trash'">
+							<p class="label-title-ellipsis">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.FROM}} &nbsp;{{rakMails.mailFromId}}</p>
+						</div>
+						
+						<div ng-if="rakMails.detailType == 'Sent' || rakMails.detailType == 'Trash'">
+							<p class="label-title-ellipsis">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.TO}} &nbsp;{{rakMails.mailToId}}</p>
+						</div>
+						<div ng-if="rakMails.detailType == 'Trash'">
+							<p  class="label-title-ellipsis">From &nbsp;{{rakMails.mailFromId}}</p>
+							<p  class="label-title-ellipsis">To &nbsp;{{rakMails.mailToId}}</p>
+						</div>
+						<div>
+							<p class="label-title-ellipsis">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.DATE}} &nbsp;{{rakMails.mailDate}}</p>
+						</div>
+
+						<br>
+						<div class="mail-sub"><pre>{{rakMails.mailBody}}</pre></div> -->
+						
+		<!-- 				<div class="">
+							<button type="button" class="btn--special-btn"
+								ng-click="rakMails.fromInbox=true; setEvent('onRakReplyClick')"
+								ng-show='rakMails.detailType=="Inbox"'>{{appLiterals.APP.RAK_MAILS.RAKDETAILS_PAGE.BTN_REPLY}}
+							</button>
+							<button type="button" class="btn--secondary-right-btn"
+								ng-show='rakMails.detailType=="Broadcast"'
+								ng-click="rakMails.fromInbox=true; setEvent('onRakReplyClick')" ng-class="{'del-btn-left':rakMails.detailType!='Inbox'}">{{appLiterals.APP.rakMails.DETAILS_PAGE.BTN_DEL}}
+							</button>
+							<button type="button" class="btn--special-btn"
+								ng-show='rakMails.detailType=="Sent"'
+								ng-click=" setEvent('onRakReplySentClick')" >{{appLiterals.APP.RAK_MAILS.RAKDETAILS_PAGE.BTN_REPLY}}
+							</button>
+							
+							<button type="button" class="btn--special-btn"
+								ng-show='rakMails.detailType=="Trash"'
+								ng-click=" setEvent('onRakReplySentClick')" >{{appLiterals.APP.RAK_MAILS.RAKDETAILS_PAGE.BTN_REPLY}}
+							</button>
+							
+							<button type="button" class="btn--primary-left1-btn"
+								ng-show='rakMails.detailType=="Trash"'
+								ng-click=" setEvent('onReplySentClick')" >{{appLiterals.APP.rakMails.DETAILS_PAGE.BTN_REPLY}}
+							</button>
+								<button type="button" class="btn--special-btn"
+								ng-show='rakMails.detailType=="Personal"'
+								ng-click=" setEvent('onRakReplySentClick')" >{{appLiterals.APP.RAK_MAILS.RAKDETAILS_PAGE.BTN_REPLY}}
+							</button>
+						</div> -->
+						</div>
+						</div>
+		 </div>
+          <div class="col-sm-1"> </div>
+       
+      </div>
+    </div>
+    </div>
+    </div>  
+  </div>
+</div>
+</div>

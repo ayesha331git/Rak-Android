@@ -1,0 +1,251 @@
+<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onRAKEarlyCardRenewalBackClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.initApplyAddOnCard(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="row">
+									<div class="col-sm-1"></div>
+
+									<div
+										ng-init='ccArr = createDropDownOptionArray(rakServiceReq.RAKApplyAddOnCard.activePrimaryCCList, ["cardDesc","-", "cardId"], "ccIndex");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RAKApplyAddOnCard.selectedCardNo"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKADDON.TXT_CARDNO}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKApplyAddOnCard.selectedCardNo"]'
+										option-array="ccArr"> </fin-input>
+
+									</br>
+									<p></p>
+									
+								<div class="rakRow">
+									<div ng-init='toSubArr = createDropDownOptionArray(rakServiceReq.RAKApplyAddOnCard.salutationList,["sautation"], "subject");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RAKApplyAddOnCard.salutation"
+										display-row="full" option-array="toSubArr"> </fin-input>
+								</div>
+									
+								<div class="rakRow">
+									<fin-input type="text" model="rakServiceReq.RAKApplyAddOnCard.cardHolderName"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKADDON.CARD_HOLDER_NAME}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKApplyAddOnCard.cardHolderName"]' />
+								</div>
+								
+								<div class="rakRow">
+									<div ng-init='toSubArr = createDropDownOptionArray(rakServiceReq.RAKApplyAddOnCard.genderList,["sautation"], "subject");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RAKApplyAddOnCard.gender"
+										display-row="full" option-array="toSubArr"> </fin-input>
+								</div>
+								
+								<div class="rakRow">
+									<fin-input type="text" model="rakServiceReq.RAKApplyAddOnCard.embossingName"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKADDON.EMBOSSING_NAME}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKApplyAddOnCard.embossingName"]' />
+								</div>
+								
+								<div class="rakRow">
+									<fin-input type="text" model="rakServiceReq.RAKApplyAddOnCard.passportNumber"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKADDON.PASSPORT_NUMBER}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKApplyAddOnCard.passportNumber"]' />
+								</div>
+								
+								<!-- <div>
+									<fin-input type="date"
+										model="rakServiceReq.RAKApplyAddOnCard.expiryDate"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKADDON.EXPIRY_DATE}}"
+										display-row="full" 
+										validation-flag='pageErrorArr["rakServiceReq.RAKApplyAddOnCard.expiryDate"]'> 
+									</fin-input>
+								</div> -->
+								<div>
+									<fin-input type="date"
+										model="rakServiceReq.RAKApplyAddOnCard.expiryDate" value="futureDatesOnly"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKADDON.EXPIRY_DATE}}"
+										display-row="full" 
+										validation-flag='pageErrorArr["rakServiceReq.RAKApplyAddOnCard.expiryDate"]'> 
+									</fin-input>
+								</div>
+								
+								<div class="rakRow">
+									<div ng-init='toSubArr = createDropDownOptionArray(rakServiceReq.RAKApplyAddOnCard.nationalityList,["sautation"], "subject");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RAKApplyAddOnCard.nationality"
+										display-row="full" option-array="toSubArr"> </fin-input>
+								</div>
+								
+								<div class="rakRow">
+									<fin-input type="text" model="rakServiceReq.RAKApplyAddOnCard.visaNumber"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKADDON.VISA_NUMBER}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKApplyAddOnCard.visaNumber"]' />
+								</div>
+								
+								<!-- <div>
+									<fin-input type="date"
+										model="rakServiceReq.RAKApplyAddOnCard.visaExpiryDate"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKADDON.VISA_EXPIRY_DATE}}"
+										display-row="full" 
+										validation-flag='pageErrorArr["rakServiceReq.RAKApplyAddOnCard.visaExpiryDate"]'> 
+									</fin-input>
+								</div> -->
+								
+								<div>
+									<fin-input type="date"
+										model="rakServiceReq.RAKApplyAddOnCard.visaExpiryDate"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKADDON.VISA_EXPIRY_DATE}}"
+										display-row="full"  value="futureDatesOnly"
+										validation-flag='pageErrorArr["rakServiceReq.RAKApplyAddOnCard.visaExpiryDate"]'> 
+									</fin-input>
+								</div>
+								
+								<div class="rakRow">
+									<div class="radio-biller rak20">{{appLiterals.APP.RAK_SERVICES.RAKADDON.RESIDENT_TYPE}}</div>
+									<div class="rak80">
+										<div>
+											<div class="rak33 rakRelative">
+												<input type="radio" value="UAE" class="rakRadio"
+													ng-model="rakServiceReq.RAKApplyAddOnCard.residenceType" />
+												<span class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.RAKADDON_UAE}}</span>
+											</div>
+											<div class="rak33 rakRelative">
+												<input type="radio" value="NONUAE" class="rakRadio"
+													ng-model="rakServiceReq.RAKApplyAddOnCard.residenceType" />
+												<span class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.RAKADDON.NON_UAE}}</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<!-- <div>
+									<fin-input type="date"
+										model="rakServiceReq.RAKApplyAddOnCard.dateOfBirth"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKADDON.DATE_OF_BIRTH}}"
+										display-row="full" 
+										validation-flag='pageErrorArr["rakServiceReq.RAKApplyAddOnCard.dateOfBirth"]'> 
+									</fin-input>
+								</div> -->
+								<div>
+									<fin-input type="date"
+										model="rakServiceReq.RAKApplyAddOnCard.dateOfBirth"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKADDON.DATE_OF_BIRTH}}"
+										display-row="full"  value="pastDatesOnly"
+										validation-flag='pageErrorArr["rakServiceReq.RAKApplyAddOnCard.dateOfBirth"]'> 
+									</fin-input>
+								</div>
+								<div class="rakRow">
+									<fin-input type="text" model="rakServiceReq.RAKApplyAddOnCard.motherMaidenName"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKADDON.MOTHER_MAIDEN_NAME}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKApplyAddOnCard.motherMaidenName"]' />
+								</div>
+								
+								<div class="rakRow">
+									<fin-input type="text" model="rakServiceReq.RAKApplyAddOnCard.occupation"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKADDON.OCCUPATION}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKApplyAddOnCard.occupation"]' />
+								</div>
+								<div class="rakRow">
+									<fin-input type="text" model="rakServiceReq.RAKApplyAddOnCard.mobileNumber"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKADDON.MOBILE_NUMBER}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKApplyAddOnCard.mobileNumber"]' />
+								</div>
+								<div class="rakRow">
+									<fin-input type="text" model="rakServiceReq.RAKApplyAddOnCard.emailId"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKADDON.EMAIL_ID}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKApplyAddOnCard.emailId"]' />
+								</div>
+								<div class="rakRow">
+									<fin-input type="text" model="rakServiceReq.RAKApplyAddOnCard.emiratedId"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKADDON.EMIRATES_ID}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKApplyAddOnCard.emiratedId"]' />
+								</div>
+								<!-- <div>
+								<fin-input type="date"
+										model="rakServiceReq.RAKApplyAddOnCard.emiratesIdExpiryDate"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKADDON.EMIRATES_ID_EXPIRY_DATE}}"
+										display-row="full" 
+										validation-flag='pageErrorArr["rakServiceReq.RAKApplyAddOnCard.emiratesIdExpiryDate"]'> 
+								</fin-input>
+								</div> -->
+								
+								<div>
+								<fin-input type="date"
+										model="rakServiceReq.RAKApplyAddOnCard.emiratesIdExpiryDate"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKADDON.EMIRATES_ID_EXPIRY_DATE}}"
+										display-row="full"  value="futureDatesOnly"
+										validation-flag='pageErrorArr["rakServiceReq.RAKApplyAddOnCard.emiratesIdExpiryDate"]'> 
+								</fin-input>
+								</div>
+								<div class="rakRow">
+									<fin-input type="text" model="rakServiceReq.RAKApplyAddOnCard.limitOnCard"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKADDON.LIMIT_ON_CARD}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKApplyAddOnCard.limitOnCard"]' />
+								</div>
+								<div class="rakRow">
+									<div ng-init='toSubArr = createDropDownOptionArray(rakServiceReq.RAKApplyAddOnCard.relationshipList,["sautation"], "subject");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RAKApplyAddOnCard.relationshipList"
+										display-row="full" option-array="toSubArr"> </fin-input>
+								</div>
+								<div class="rakRow">
+									<div class="radio-biller rak20">{{appLiterals.APP.RAK_SERVICES.RAKADDON.DELIVERY_MODE}}</div>
+									<div class="rak80">
+										<div>
+											<div class="rak33 rakRelative">
+												<input type="radio" value="BRANCH" class="rakRadio"
+													ng-model="rakServiceReq.RAKApplyAddOnCard.deliveryMode" />
+												<span class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.BRANCH}}</span>
+											</div>
+											<div class="rak33 rakRelative">
+												<input type="radio" value="COURIER" class="rakRadio"
+													ng-model="rakServiceReq.RAKApplyAddOnCard.deliveryMode" />
+												<span class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.RAKADDON.COURIER}}</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="rakRow">
+									<fin-input type="text" model="rakServiceReq.RAKApplyAddOnCard.primaryCardHolderDec"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKADDON.CARD_HOLDER_DEC}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKApplyAddOnCard.primaryCardHolderDec"]' />
+								</div>
+								<div class="rakRow">
+									<div class="radio-biller rak20">{{appLiterals.APP.RAK_SERVICES.RAKADDON.DEC_ACCEPTANCE}}</div>
+									<div class="rak80">
+										<div>
+											<div class="rak33 rakRelative">
+												<input type="radio" value="YES" class="rakRadio"
+													ng-model="rakServiceReq.RAKApplyAddOnCard.acceptance" />
+												<span class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.YES}}</span>
+											</div>
+											<div class="rak33 rakRelative">
+												<input type="radio" value="NO" class="rakRadio"
+													ng-model="rakServiceReq.RAKApplyAddOnCard.acceptance" />
+												<span class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.RAKADDON.NO}}</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-1"></div>
+			</div>
+			<div class="scroll-space"></div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,110 @@
+
+	<div class="col-sm-11">
+		<div class="app-title-wrapper">
+			<div class="form-block">
+				<div class="bg-color rak-cont-padding">
+					<div class="row">
+						<div class="col-sm-1 rakDblheight"></div>
+
+						<div class=" login-form">
+				
+				<div class="center rakFont10">
+					<div class="rak-logintab"
+						ng-click="setGlobalEvent('onLoginClick');">
+						<span class="rak-black-color login-label">
+							{{appLiterals.APP.RAK_LOGIN_PAGE.LOGIN}} </span>
+					</div>
+
+					<!-- CHANGES DONE AS FIX OF PRCU-1412 START -->
+					<div class="rak-logintab  border-left"
+						ng-show="rak2FARegister.RegistrationModel.isRegisterClicked">
+						<span class="login-label rak-color border-bottom">
+							{{appLiterals.APP.RAK_LOGIN_PAGE.TOKEN_REGISTER}}</span>
+					</div>
+
+		
+			
+				
+				</div>
+					
+
+
+		<div >
+			<div class="selfReg-main-form-heading margin-top10px">
+				<div >
+					<span class="rak-black-color login-label-selfReg ">{{appLiterals.APP.RAK_2FA_MESSAGES.NEWREG_TXT}}</span>
+					<ul class="process-steps">
+						<li ></li>
+						<li class="active"></li>
+						<li></li>
+						<li></li>
+						
+                        <li></li>
+					</ul>
+					</div>
+					
+					
+			</div>
+		</div>
+
+	
+</div>
+		
+		
+		
+						</br>
+						</br>
+
+
+						<div class="fin-input-container selfReg-rakexchangerate-block rak-selfReg-lable">
+							<p class="rakexchangevalue rak-Reg-lable"
+								ng-show="rak2FARegister.RegistrationModel.selectedNoType=='A'">
+								{{appLiterals.APP.RAKSELFREG.ACCTNO}}&nbsp;&nbsp;&nbsp;&nbsp;
+								{{rak2FARegister.RegistrationModel.enteredAcctNo}}</p>
+
+							<p class="rakexchangevalue rak-Reg-lable"
+								ng-show="rak2FARegister.RegistrationModel.selectedNoType=='C'">
+								{{appLiterals.APP.RAKSELFREG.CCNO}}&nbsp;&nbsp;&nbsp;&nbsp;
+								{{rak2FARegister.RegistrationModel.enteredAcctNo}}</p>
+
+							<p class="rakexchangevalue rak-Reg-lable"
+								ng-show="rak2FARegister.RegistrationModel.selectedNoType=='D'">
+								{{appLiterals.APP.RAKSELFREG.DCNO}}&nbsp;&nbsp;&nbsp;&nbsp;
+								{{rak2FARegister.RegistrationModel.enteredAcctNo}}</p>
+
+						</div>
+
+						<div class="fin-input-container selfReg-rakexchangerate-block rak-selfReg-lable">
+							<p class="rakexchangevalue rak-Reg-lable">
+								{{appLiterals.APP.RAKSELFREG.DOB}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								{{rak2FARegister.RegistrationModel.previewDateOne}}</p>
+						</div>
+						
+							<div class="rak-selfReg-lable" ng-show="rak2FARegister.RegistrationModel.isShowMobileNo=='true'">
+								<p>{{appLiterals.APP.RAKSELFREG.SAME_DOB_MSG}}</p>
+							</div>
+
+						<fin-input type="number_card" max-length="14"
+							model="rak2FARegister.RegistrationModel.mobileNo" display-row="full"
+							ng-show="rak2FARegister.RegistrationModel.isShowMobileNo=='true'"
+							validation-flag='pageErrorArr["rak2FARegister.RegistrationModel.mobileNo"]'
+							placeholder="{{appLiterals.APP.RAKSELFREG.MOBILENO}}">
+						</fin-input>
+
+						
+						<div class="label-wrap ">
+							<button type="button"
+							class="btn--special-btn btn-middle rak-button-small btn--back"
+							ng-click="setGlobalEvent('onLoginClick');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CANCEL}}</button>
+
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="setEvent('onRAKSelfRegCheckPageConfirmClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.PROCEED}}</button>
+						</div>
+						<div class="col-sm-1"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

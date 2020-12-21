@@ -1,0 +1,49 @@
+<div class="app app-arrow2 title-right-dash" id="serviceRequestStatusback"
+	ng-click="setEvent('onServiceRequestStatusCancelClick')"></div>
+<div class="finacle-container"
+	ng-init="services.serviceRequestStatusModel.serviceRequestInitService(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div class="item-title text-uppercase width-auto">
+							<span id="pageTitle">
+								{{appLiterals.APP.SERVICES.ACC_STM.SERVICES_HEADER}} </span>
+						</div>
+						<div
+							class="sub-menu-search-icon glyphicon glyphicon-search search-icon-white"
+							ng-click="resetPageError();services.serviceRequestStatusModel.resetServiceRequestStatusSearchForm();setEvent('onServiceRequestStatusSearchClick')"></div>
+					</div>
+					<!--  end of title -->
+					<div class="col-sm-12">
+						<div class="nano-content"
+							ng-if="!services.serviceRequestStatusModel.response.length">
+							<p class="no-detail" id="NO_PENDING_REQUEST_MESSAGE">{{appLiterals.APP.SERVICES.SERVICE_STATUS_REQUEST.NO_PENDING_REQUEST_MESSAGE}}</p>
+						</div>
+						<!-- ng-if="!services.serviceRequestStatusModel.response.length">
+								{{appLiterals.APP.SERVICES.SERVICE_STATUS_REQUEST.NO_PENDING_REQUEST_MESSAGE}} -->
+						<div class="nano-content details-wrapper-block"
+							ng-if="services.serviceRequestStatusModel.response.length">
+							<div class="trans-detail"
+								ng-repeat="serviceRequestDeatils in services.serviceRequestStatusModel.response">
+								<div class="trans-dash-left">
+									<div class="trans-no" id="date{{$index}}">
+										<fin-Date class="font-size-initial" date-value='{{serviceRequestDeatils.requestDate}}'></fin-Date>
+									</div>
+								</div>
+								<div class="trans-dash-right">
+									<span class="amt-rs" id="requestStatus{{$index}}">
+										{{serviceRequestDeatils.requestStatus}}</span>
+								</div>
+								<div class="trans-date" id="referenceIdrequestDescription{{$index}}">{{serviceRequestDeatils.referenceId}}
+									- {{serviceRequestDeatils.requestDescription}}</div>
+							</div>
+
+						</div>
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

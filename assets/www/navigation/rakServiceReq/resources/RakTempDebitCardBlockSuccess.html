@@ -1,0 +1,61 @@
+<div class="finacle-container" ng-init="rakServiceReq.rakTempDebitCardBlockSuccess(successResponse.responsesList)">
+	<div class="account-page">
+     	<div class="col-sm-11">
+	 
+						   <div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakServiceReq.rakTempDebitCardBlock.successMessage}}</span>
+                        </div>
+                  </div>
+            <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAKTEMPDEBBLOCK.BLOCK}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>                 
+                              </h2>              
+</div>
+                  
+
+     		<div class="bg-color rak-cont-padding rak-scroll-success" >
+		 		<div class="row" >
+		      	
+
+	      	       		<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKTEMPDEBBLOCK.CARDNO}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.rakTempDebitCardBlock.cardList[rakServiceReq.rakTempDebitCardBlock.selectedCard].debitcardNumber}}</span>
+			</p>
+
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKTEMPDEBBLOCK.EXPDATE}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.rakTempDebitCardBlock.expDate}}</span>
+			</p>
+			
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKECR.TXT_ACC_NUM}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.rakTempDebitCardBlock.accountNumber}}</span>
+			</p>
+
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKTEMPDEBBLOCK.REASON}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.rakTempDebitCardBlock.confirmedReason}}</span>
+			</p>
+
+       		<p class="rak-sum-txt" ng-show="rakServiceReq.rakTempDebitCardBlock.reason=='Others'">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKTEMPDEBBLOCK.OTHERS}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.rakTempDebitCardBlock.other}}</span>
+			</p>
+
+	      			<div class="label-wrap">
+	      				<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click='setEvent("onRAKTempDebBlockSuccessOkClick");'> {{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}} </button>
+
+ 						
+					</div>
+					<div class="col-sm-10"> </div>
+
+
+      		
+
+      		</div>
+    	</div>
+
+  	</div>
+
+</div>

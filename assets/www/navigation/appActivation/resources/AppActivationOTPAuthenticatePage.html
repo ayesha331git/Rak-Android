@@ -1,0 +1,81 @@
+<div class="finacle-container"
+	ng-init="setSingleStepRealmAuthFailure();appActivation.authenticateOTP='';appActivation.initAppActivationOTPPage(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div class="item-title text-uppercase"
+							ng-if="!appActivation.isForgotMPINClick" id="appActivationHeader">
+							{{appLiterals.APP.REGISTER.SET_MPIN.ACT_HEADER}}</div>
+						<div class="item-title text-uppercase"
+							ng-if="appActivation.isForgotMPINClick" id="forgotMpinHeader">
+							{{appLiterals.APP.REGISTER.SET_MPIN.FORGOT_HEADER}}</div>
+					</div>
+					<div class="stage_wrap">
+						<div class="stage3">
+							<p class="staging" id="activationTickCircle1">
+								{{appLiterals.APP.REGISTER.REG_CHAN_SEL.NO1}}</p>
+						</div>
+						<div class="stage-line line-small"></div>
+						<div class="next-stage">
+							<p class="staging" id="activationTickCircle2">
+								{{appLiterals.APP.REGISTER.REG_CHAN_SEL.NO2}}</p>
+						</div>
+						<div class="stage-line line-small"
+							ng-hide="isUserLoggedIn && appVersionDetails.appConfigParams[1].BUILDTYPE == 'PWD'">
+						</div>
+						<div class="next-stage"
+							ng-hide="isUserLoggedIn && appVersionDetails.appConfigParams[1].BUILDTYPE == 'PWD'">
+							<p class="staging" id="activationTickCircle3">
+								{{appLiterals.APP.REGISTER.REG_CHAN_SEL.NO3}}</p>
+						</div>
+					</div>
+					<p class="col-sm-12 fut-txt1 lh13" id="activationOtpMessage">{{appActivation.smsOTPMessage}}</p>
+					<form
+						ng-submit="isUserLoggedIn 
+					 ? (appVersionDetails.appConfigParams[1].BUILDTYPE == 'MPIN' ? setEvent('onValidateSMSOTPForTouchIDAndMPINClick') : setEvent('onValidateSMSOTPForTouchIDAndPWDClick')) 
+					  : setEvent('onAppActivationOTPProceedClick')">
+						<div class="avail-bal-wrap">
+							<fin-input type="password_num"
+								model="appActivation.authenticateOTP"
+								validation-flag='pageErrorArr["appActivation.authenticateOTP"]'
+								display-row="full"
+								placeholder="{{appLiterals.APP.MYPROFILE.FP_AUTH.PH_OTP}}"
+								max-length="8"></fin-input>
+							<div ng-show='appActivation.otpLinkenable'
+								ng-if="appActivation.touchIdEnable"
+								class="balance-available new_user" id="regenerateOtp"
+								ng-click="appActivation.disableOTPClick();setEvent('onRegenerateOTPClick');">
+								{{appLiterals.APP.ACTIVATION.AUTH_PAGE.REGENERATE_OTP}}</div>
+							<div ng-show='appActivation.otpLinkenable'
+								ng-if="!appActivation.touchIdEnable"
+								class="balance-available new_user"
+								ng-click="appActivation.disableOTPClick();setEvent('onRegenerateOTPForTouchIDClick');"
+								id="regenerateOtpForTouchId">
+								{{appLiterals.APP.ACTIVATION.AUTH_PAGE.REGENERATE_OTP}}</div>
+							<div ng-hide='appActivation.otpLinkenable' class="balance-available new_user disable-text"
+								id="disableRegenerateOtp">{{appLiterals.APP.ACTIVATION.AUTH_PAGE.REGENERATE_OTP}}</div>
+						</div>
+						<section layout="row" layout-align="center center"
+							class="btn-wrap button-wrapper">
+							<md-button id="activationOtpCancel" type="button"
+								ng-if="!appActivation.touchIdEnable"
+								class=" md-raised btn--secondary-btn"
+								ng-click="setEvent('onOTPAuthenticateCancelClick');">
+							{{appLiterals.APP.COMMON.BUTTON.CANCEL}} </md-button>
+							<md-button id="touchIdOtpCancel" type="button"
+								ng-if="appActivation.touchIdEnable"
+								class=" md-raised btn--secondary-btn"
+								ng-click="setEvent('onTouchIDOTPAuthenticateCancelClick');">
+							{{appLiterals.APP.COMMON.BUTTON.CANCEL}} </md-button>
+							<md-button type="submit" id="activationOtpSubmit"
+								class=" md-raised btn--primary-btn">
+							{{appLiterals.APP.COMMON.BUTTON.PROCEED}}</md-button>
+						</section>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

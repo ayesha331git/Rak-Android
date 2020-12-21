@@ -1,0 +1,160 @@
+<div class="finacle-container"
+	ng-init="services.initFixedDepositAccountSuccess(successResponse.responsesList);formatAmountCrn('services.fDAccountModel.depositAmount','services.fDAccountModel.currency')">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+			<div class="dashboard-pad full-height">
+				<div class="dashboard-item-body full-height">
+					<!-- 	<div class="sucs_circle_wrap">
+						<span class="app-tickcircle sucs_circle_icon"></span>
+						<div id="closeBtn" class="title-right-succPage" ng-click="cm.stopCheques.resetModel();setEvent('onCancelClick')" role="button"
+							tabindex="0"></div>
+					</div>
+					<p class="trans_sucs_txt payementTxtColor" id="chqStopSuccHeader">{{appLiterals.APP.COMMON.MSG.SUCCESS}}</p>
+					<div class="trans_id_wrap">
+						<div class="id_container"> </div>
+						<div class="id_txt_wrap">
+							<div class="id_txt_pad">
+								<p class="sucs-id-txt" id="chqStopSuccResponse">{{successResponse.responsesList[0].openFixedDipositeResponse}}</p>
+							</div>
+						</div>
+					</div> -->
+					<fin-success
+						success-banner="{{appLiterals.APP.COMMON.MSG.SUCCESS}}"
+						success-message="{{successResponse.responsesList[0].openFixedDipositeResponse}}"
+						cross-click="setEvent('onCancelClick')"></fin-success>
+
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="OpnFdSuccAmtHead">{{appLiterals.APP.SERVICES.ONFDACC_SUCC.DEP_AMT}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpnFdSuccAmtVal">{{services.fDAccountModel.currency}}
+								{{services.fDAccountModel.depositAmount}}</span>
+						</div>
+					</div>
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="OpnFdSuccAccHead">{{appLiterals.APP.SERVICES.ONFDACC_SUCC.DEB_ACC}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpnFdSuccAccVal">{{(services.openNewFDAccount.accountList
+								|
+								filter:{accountNumber:services.fDAccountModel.selectedAccountNumber})[0].accountId}}</span>
+						</div>
+					</div>
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="OpnFdSuccMonHead">{{appLiterals.APP.SERVICES.ONFDACC_SUCC.TXT_MNTHS}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpnFdSuccMonVal">{{services.fDAccountModel.fDmonth}}</span>
+						</div>
+					</div>
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="OpnFdSuccDayHead">{{appLiterals.APP.SERVICES.ONFDACC_SUCC.TXT_DYS}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpnFdSuccDayVal">{{services.fDAccountModel.fDDate}}</span>
+						</div>
+					</div>
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="OpnFdSuccDateHead">{{appLiterals.APP.SERVICES.ONFDACC_SUCC.TXT_DTE}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpnFdSuccDateVal"><fin-Date
+									date-value='{{services.fDAccountModel.fixedAccountOpenMonth + "/" + services.fDAccountModel.fixedAccountOpenDay + "/" + services.fDAccountModel.fixedAccountOpenYear}}'></fin-Date></span>
+						</div>
+					</div>
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="OpnFdSuccIdNoHead">{{appLiterals.APP.SERVICES.ONFDACC_SUCC.TXT_IDENNO}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpnFdSuccIdNoVal">{{services.fDAccountModel.identificationPin}}</span>
+						</div>
+					</div>
+
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="OpnFdSuccBrnchHead">{{appLiterals.APP.SERVICES.ONFDACC_SUCC.TXT_BRNCH}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpnFdSuccBrnchVal">{{services.openNewFDAccount.branchList[services.fDAccountModel.selectedBranch].branchName}}</span>
+						</div>
+					</div>
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="OpnFdSuccTxOprHead">{{appLiterals.APP.SERVICES.ONFDACC_SUCC.TXT_TXOPER}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpnFdSuccTxOprVal">{{services.fDAccountModel.isTaxOperative}}</span>
+						</div>
+					</div>
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="OpnFdSuccPrnMatHead">{{appLiterals.APP.SERVICES.ONFDACC_SUCC.PRIN_MAT}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpnFdSuccPrnMatVal">{{(services.openNewFDAccount.maturityOptionList
+								|
+								filter:{value:services.fDAccountModel.selectedMaturity})[0].type}}</span>
+						</div>
+					</div>
+
+					<div class="sucs-left-txt"
+						ng-show="services.fDAccountModel.selectedMaturity == 'Redeem'">
+						<span class="sucs-left-color" id="OpnFdSucctrnsToHead">{{appLiterals.APP.SERVICES.ONFDACC_SUCC.TRANSF_TO}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpnFdSucctrnsToVal">{{(services.openNewFDAccount.transferTypeList
+								|
+								filter:{value:services.fDAccountModel.selectedMaturityTransferType})[0].type}}</span>
+						</div>
+					</div>
+
+					<div class="sucs-left-txt"
+						ng-show="services.fDAccountModel.selectedMaturityTransferType == 'MyAcc'">
+						<span class="sucs-left-color" id="OpnFdSuccMAccHead">{{appLiterals.APP.SERVICES.ONFDACC_SUCC.ACC_NO}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpnFdSuccMAccVal">{{services.openNewFDAccount.accountList[services.fDAccountModel.selectedOperativeAccountMaturity].accountId}}</span>
+						</div>
+					</div>
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="OpnFdSuccIntInstHead">{{appLiterals.APP.SERVICES.ONFDACC_SUCC.TXT_INT_INST}}
+						</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpnFdSuccIntInstVal">{{(services.openNewFDAccount.interestOptionList
+								|
+								filter:{value:services.fDAccountModel.selectedInterestOption})[0].type}}</span>
+						</div>
+					</div>
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="OpnFdSuccFreqHead">{{appLiterals.APP.SERVICES.ONFDACC_SUCC.TXT_FREQ}}
+						</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpnFdSuccFreqVal">{{successResponse.responsesList[0].principleMaturity}}</span>
+						</div>
+					</div>
+
+					<div class="sucs-left-txt"
+						ng-show="services.fDAccountModel.selectedInterestOption == 'RedInt'">
+						<span class="sucs-left-color" id="OpnFdSuccTnsfToHead">{{appLiterals.APP.SERVICES.ONFDACC_SUCC.TRANSF_TO}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpnFdSuccTnsfToVal">{{(services.openNewFDAccount.transferTypeList
+								|
+								filter:{value:services.fDAccountModel.selectedInterestTransferType})[0].type}}</span>
+						</div>
+					</div>
+
+					<div class="sucs-left-txt"
+						ng-show="services.fDAccountModel.selectedInterestTransferType == 'MyAcc'">
+						<span class="sucs-left-color" id="OpnFdSuccsuccAccNoHead">{{appLiterals.APP.SERVICES.ONFDACC_SUCC.ACC_NO}}
+						</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="OpnFdSuccsuccAccNoVal">{{services.openNewFDAccount.accountList[services.fDAccountModel.selectedInterestInstructionAccount].accountId
+								}}</span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+

@@ -1,0 +1,213 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="rak-back-header">
+			<i class="rak-back-img"
+				ng-click="setEvent('onRakValuationBackBtnClicked');"></i>
+		</div>
+
+		<div class="finacle-container"
+			ng-init="rakAccounts.rakValuationUtilizationInit(successResponse.responsesList);">
+			<div class="account-page ">
+				<div class="col-sm-11">
+					<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.UTILIZATION}}
+				    		     
+				      </h2>		       
+		 		</div>
+				
+				
+
+
+					<div class="money-block">
+						<ul>
+							<li ng-click="setEvent('onRakValuationClick');">
+								{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.ENROLL}}</li>
+							<li class="active">
+								{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.UPGRADE}}</li>
+
+						</ul>
+					</div>
+					
+
+					<div class="bg-color rak-cont-padding rakScrollDiv">
+						<div class="row">
+							
+
+							<div class="rakValUtilDetails-wrapper">
+								<div class="rakStmtdetDetailFrame1">
+									<!-- 	<div class="rakStmtdetAccounts-details">
+											<span>Standard Investment</span>
+										</div> -->
+
+									<div class="rakStmtdetAccounts-details1"
+										ng-show="rakAccounts.RakValuationUpgradeValuation.accountType=='ODA'">
+										<span class="rakValUtilizationDetRowLabel">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.AC_NO}}</span><span
+											class="rakValUtilizationDetRowLabel">
+											{{rakAccounts.RakValuationUpgradeValuation.accountNumber}}</span>
+									</div>
+
+									<div class="rakStmtdetAccounts-details1"
+										ng-show="rakAccounts.RakValuationUpgradeValuation.accountType=='CCD'">
+										<span class="rakValUtilizationDetRowLabel">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CCD_NO}}</span><span
+											class="rakValUtilizationDetRowLabel">{{rakAccounts.RakValuationUpgradeValuation.accountNumber}}</span>
+									</div>
+
+
+									<div class="rakStmtdetAccounts-details1">
+										<span class="rakValUtilizationDetRowLabel">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.PACKNAME}}
+										</span><span class="rakValUtilizationDetRowLabel">
+											{{rakAccounts.RakValuationUpgradeValuation.packageName}}</span>
+									</div>
+
+
+								</div>
+							</div>
+
+
+							<div>
+								<!-- <h2 class="rakUpdatedfont">Banking Benefits</h2> -->
+								<h2 class="rakUpdatedfont">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.BANKING_BENEFITS}}</h2>
+							</div>
+
+							<div class="rakColumnDivDarkBack">
+								 <span
+									class="rakColumnLabelDark">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.BENEFIT}}</span><span
+									class="rakColumnLabelDark">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.ELIGIBLE}}</span>
+								<span class="rakColumnLabelDark">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.AVAIL}}</span>
+
+							</div>
+
+						
+						
+
+							<div class="rakColumnDiv" 
+								ng-repeat="trans in rakAccounts.RakValuationUpgradeValuation.utilBankingList">
+
+
+
+
+
+								<span class="pullLeft"> </span> <span class="rakColumnLabelUnderline" ng-click="rakAccounts.rakValuationUtilizationViewDetails($index);">{{trans.benefitName}}
+								
+								
+								</span>
+
+								<span
+									ng-show="rakAccounts.RakValuationUpgradeValuation.isViewDetails[$index]==true"
+									class="rakOverlay"> <span
+									class="ng-binding rakValViewDetailsDisply">
+										<div class="rakTCDiv">
+											<a class="rakTCClickLabel">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.BENEFIT}}
+												</a> <span class="rakTCClickLabel">{{rakAccounts.RakValuationUpgradeValuation.utilBankingList[$index].benefitName}}</span>
+										</div>
+
+
+										<div class="rakTCDiv">
+											<a class="rakTCClickLabel">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.ELIGIBLE}}
+												</a> <span class="rakTCClickLabel">{{rakAccounts.RakValuationUpgradeValuation.utilBankingList[$index].eligBal}}</span>
+										</div>
+
+
+										<div class="rakTCDiv">
+											<a class="rakTCClickLabel">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.AVAIL}}
+												</a> <span class="rakTCClickLabel">{{rakAccounts.RakValuationUpgradeValuation.utilBankingList[$index].utilBal}}</span>
+										</div>
+
+
+										<div class="rakTCDiv">
+											<a class="rakTCClickLabel">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.FREQUENCY}}
+												</a> <span class="rakTCClickLabel">{{rakAccounts.RakValuationUpgradeValuation.utilBankingList[$index].frequency}}</span>
+										</div>
+
+
+
+										<div class="rakTCDiv">
+											<a class="rakTCClickLink">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.BALANCE}}
+												</a> <span class="rakTCClickLabel">{{rakAccounts.RakValuationUpgradeValuation.utilBankingList[$index].availBal}}</span>
+										</div>
+										<button class="rakFullRmrksBtnPop"
+											ng-click="rakAccounts.RakValuationUpgradeValuation.resetRakValuationUpgradeViewDetails($index);">
+											{{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.OK}}</button>
+
+
+								</span>
+								</span>
+								
+								
+								
+								
+								
+								<span class="rakColumnLabel">{{trans.eligBal}} </span> <span
+									class="rakColumnLabel">{{trans.utilBal}}</span>
+
+							</div>
+							<br> <br>
+							<!-- For Credit Cards -->
+
+							<div>
+								<!-- <h2 class="rakUpdatedfont">Insurance and Lifestyle Benefits</h2> -->
+								<h2 class="rakUpdatedfont">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.OTHER_BENEFITS}}</h2>
+							</div>
+
+							<div class="rakColumnDivDarkBack">
+							 <span
+									class="rakColumnLabelDarkWide">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.BENEFIT}}</span>
+								<span class="rakColumnLabelDarkWide">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.FREQUENCY}}</span>
+
+
+							</div>
+
+							<div class="rakColumnDiv"
+								ng-repeat="trans in rakAccounts.RakValuationUpgradeValuation.utilNonBankingList">
+								<span class="pullLeft"></span> <span class="rakColumnLabelWide">{{trans.benefitName}}</span>
+								<span class="rakColumnLabelWide">{{trans.frequency}}</span>
+
+
+							</div>
+
+						
+							
+							<div class="rakTCDiv" ng-if="rakAccounts.RakValuationUpgradeValuation.oprAccSel && rakHome.chkUserType=='1'">                            
+                             <span ng-click="rakServiceReq.fetchTermsUrl('RVC_Enroll_Acc_Features.pdf');" class="hyperLinkRed">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CLICK}}</span>
+                             <span ng-bind-html="appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CLICKUTIL1"></span>  
+						</div>
+						
+						<div class="rakTCDiv" ng-if="rakAccounts.RakValuationUpgradeValuation.oprAccSel && rakHome.chkUserType=='2' && rakAccounts.RakValuationUpgradeValuation.oprList[rakAccounts.RakValuationUpgradeValuation.accountId].rvcDisclaimerFlag=='Y'">                            
+                             <span ng-click="rakServiceReq.fetchTermsUrl('RVC_Enroll_Acc_SME_Features.pdf');" class="hyperLinkRed">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CLICK}}</span>
+                             <span ng-bind-html="appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CLICKUTIL1"></span>  
+						</div>
+						
+						<div class="rakTCDiv" ng-if="rakAccounts.RakValuationUpgradeValuation.ccdAccSel">                            
+                             <span ng-click="rakServiceReq.fetchTermsUrl('RAKvalue_CC.pdf');" class="hyperLinkRed">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CLICK}}</span>
+                             <span ng-bind-html="appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CLICKUTIL1"></span>  
+						</div>
+
+							<div class="rakTCDiv">
+								<span ng-click="rakServiceReq.fetchTermsUrl('RVC_Enroll_Acc_TnC.pdf');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+								<span>{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CLICKUTIL2}}</span>
+							</div>
+
+
+
+
+			<div class="fin-txt"></div>	 
+							<div class="label-wrap">
+					
+
+						
+
+
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small"
+									ng-click="rakAccounts.RakValuationUpgradeValuation.resetRakValuationUpgradeHomeReturn();setEvent('onRakValuationBackBtnClicked');">
+									{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+							</div>
+							<div class="col-sm-1"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

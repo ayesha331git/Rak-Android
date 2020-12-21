@@ -1,0 +1,50 @@
+<div class="full-page-screen"
+	ng-init="myProfile.initUpdateIdPage(successResponse.responsesList)"></div>
+
+<div class="confirmation-content-container">
+	<div class="message-box-new">
+		<div>
+			<p class="round-icon-new">
+				<span class="app app-alert pop-alert-icon"></span>
+			</p>
+			<div id="warningMessage" class="conf-txt-label">
+				{{myProfile.updateIdInitResponse.warningMessage}}</div>
+		</div>
+
+		<div id="warningText" class="conf-txt-label">
+			{{appLiterals.APP.MYPROFILE.UPDATEUSERID.USER_ID_SHARED_WARNING_MSG}}
+		</div>
+		<div class="conf-btn-wrap">
+
+
+			<!-- <button type="button" class="btn--confpri-btn"
+				ng-click='setEvent("onNNConfirmClick")'>&nbsp;
+				{{appLiterals.APP.MYPROFILE.UPDATEUSERID.YES_BTN}} &nbsp;</button>
+
+
+			<button type="button" class="btn--confsec-btn"
+				ng-click='setEvent("onNoClick")'>&nbsp;
+				{{appLiterals.APP.MYPROFILE.UPDATEUSERID.NO_BTN}} &nbsp;</button> -->
+
+			<div class="padding-top-10 touch-press clear-all">
+				<section class="button-wrapper" layout="row"
+					layout-align="center center" layout-wrap>
+					<md-button id="buttonNo" class=" md-raised btn--secondary-btn" type="button"
+						ng-click='setEvent("onNoClick")'>
+					{{appLiterals.APP.MYPROFILE.UPDATEUSERID.NO_BTN}}
+					</md-button>
+					<md-button id="buttonYes" class=" md-raised btn--primary-btn" type="button"
+					ng-click='setEvent("onNNConfirmClick")'>
+					{{appLiterals.APP.MYPROFILE.UPDATEUSERID.YES_BTN}}
+					</md-button>
+				</section>
+			</div>
+
+
+		</div>
+
+
+	</div>
+</div>
+
+

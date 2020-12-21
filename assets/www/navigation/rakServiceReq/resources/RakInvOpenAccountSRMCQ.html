@@ -1,0 +1,161 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="rak-back-header">
+			<i class="rak-back-img" ng-click="setEvent('onRAKInvOpenBackClick');"></i>
+		</div>
+		<div class="finacle-container">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="main-form-heading-ServiceReq">
+						<h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.INV_OPEN}}<span>{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.PERSONAL_INFO}}</span></h2>
+					</div>
+
+					<div class="form-block">
+						<div class="bg-color rak-cont-padding  rak-scroll">
+							<div class="row">
+								
+
+
+								<div class="rakRow">
+									<div
+										class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px">
+										{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.Q1}}</div>
+									<div class="rak90">
+										<div>
+
+											<div class="rakCstmRadioDiv rak100 rakTop2emLeft3">
+												<input type="radio" value="10" id="radio1"
+													ng-model="rakServiceReq.RakInvOpenAccSR.mcq1" /> <label
+													for="radio1"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.Q1OP1}}</label>
+											</div>
+
+											<div class="rakCstmRadioDiv rak100 rakTop2emLeft3 rakTop1em">
+												<input type="radio" value="20" id="radio2"
+													ng-model="rakServiceReq.RakInvOpenAccSR.mcq1" /> <label
+													for="radio2"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.Q1OP2}}</label>
+											</div>
+
+											<div class="rakCstmRadioDiv rak100 rakTop2emLeft3 rakTop1em">
+												<input type="radio" value="30" id="radio3"
+													ng-model="rakServiceReq.RakInvOpenAccSR.mcq1" /> <label
+													for="radio3"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.Q1OP3}}</label>
+											</div>
+
+											<div class="rakCstmRadioDiv rak100 rakTop2emLeft3 rakTop1em">
+												<input type="radio" value="40" id="radio4"
+													ng-model="rakServiceReq.RakInvOpenAccSR.mcq1" /> <label
+													for="radio4"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.Q1OP4}}</label>
+											</div>
+
+											<div class="rakCstmRadioDiv rak100 rakTop2emLeft3 rakTop1em">
+												<input type="radio" value="50" id="radio5"
+													ng-model="rakServiceReq.RakInvOpenAccSR.mcq1" /> <label
+													for="radio5"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.Q1OP5}}</label>
+											</div>
+										</div>
+									</div>
+									<div class="rakRadioErr"
+											ng-hide='pageErrorArr["rakServiceReq.RakInvOpenAccSR.mcq1"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.ErrorMsg_Q1}}</div>
+								</div>
+
+								<div class="rakRow">
+									
+
+									<div
+										class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px">
+										{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.Q2}}</div>
+									<div class="rak90">
+										<div>
+
+											<div class="rakCstmRadioDiv rak100 rakTop2emLeft3">
+												<input type="radio" value="40" id="radio6"
+													ng-model="rakServiceReq.RakInvOpenAccSR.mcq2" /> <label
+													for="radio6"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.Q2OP1}}</label>
+											</div>
+
+											<div class="rakCstmRadioDiv rak100 rakTop2emLeft3 rakTop1em ">
+												<input type="radio" value="30" id="radio7"
+													ng-model="rakServiceReq.RakInvOpenAccSR.mcq2" /> <label
+													for="radio7"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.Q2OP2}}</label>
+											</div>
+
+											<div class="rakCstmRadioDiv rak100 rakTop2emLeft3 rakTop1em">
+												<input type="radio" value="20" id="radio8"
+													ng-model="rakServiceReq.RakInvOpenAccSR.mcq2" /> <label
+													for="radio8"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.Q2OP3}}</label>
+											</div>
+
+											<div class="rakCstmRadioDiv rak100 rakTop2emLeft3 rakTop1em">
+												<input type="radio" value="10" id="radio9"
+													ng-model="rakServiceReq.RakInvOpenAccSR.mcq2" /> <label
+													for="radio9"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.Q2OP4}}</label>
+											</div>
+										</div>
+									</div>
+									<div class="rakRadioErr"
+											ng-hide='pageErrorArr["rakServiceReq.RakInvOpenAccSR.mcq2"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.Q2}}</div>
+								</div>
+
+								<div class="rakRow">
+									<!-- <div class="radio-biller-IAO rakFullWidth">
+									{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.Q3}}</div>
+									<div class="rak100 ">
+									<div>
+										<div class="rakWidth100Percent-IAO rakRelative">
+											<input type="radio" value="10" class="rakRadio"
+												ng-model="rakServiceReq.RakInvOpenAccSR.mcq3" /><span
+												class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.Q3OP1}}</span>
+										</div>
+										<div class="rakWidth100Percent-IAO rakRelative">
+											<input type="radio" value="05" class="rakRadio"
+												ng-model="rakServiceReq.RakInvOpenAccSR.mcq3" /> <span
+												class="rakRadioLabel-SR">
+												{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.Q3OP2}}</span>
+										</div>
+	
+									</div>
+								</div> -->
+
+									<div
+										class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px">
+										{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.Q3}}</div>
+									<div class="rak90">
+										<div>
+											<div class="rakCstmRadioDiv rak100 rakTop2emLeft3">
+												<input type="radio" value="10" id="radio10"
+													ng-model="rakServiceReq.RakInvOpenAccSR.mcq3" /> <label
+													for="radio10"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.Q3OP1}}</label>
+											</div>
+
+											<div class="rakCstmRadioDiv rak100 rakTop2emLeft3 rakTop1em">
+												<input type="radio" value="05" id="radio11"
+													ng-model="rakServiceReq.RakInvOpenAccSR.mcq3" /> <label
+													for="radio11"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.Q3OP2}}</label>
+											</div>
+										</div>
+									</div>
+									<div class="rakRadioErr"
+											ng-hide='pageErrorArr["rakServiceReq.RakInvOpenAccSR.mcq3"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_INV_OPEN.Q3}}</div>
+								</div>
+
+
+								<div class="label-wrap">
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small-IAO btn--back"
+										ng-click="setEvent('onRAKInvOpenBackClick');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small-IAO"
+										ng-click="rakServiceReq.RakInvOpenAccSR.resetRakCCTxnDisputeConfirm();setEvent('onRAKInvOpenContClick');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+								</div>
+								<div class="col-sm-1"></div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

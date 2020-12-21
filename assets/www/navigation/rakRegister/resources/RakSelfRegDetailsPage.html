@@ -1,0 +1,141 @@
+
+<div class="account-page fin-txt">
+	<div class="col-sm-11">
+		<div class="app-title-wrapper">
+			<div class="form-block">
+				<div class="bg-color rak-cont-padding">
+					<div class="row">
+						<div class="col-sm-1 rakDblheight"></div>
+
+						<div class="center rakFont10">
+					<div class="rak-logintab"
+						ng-click="setGlobalEvent('onLoginClick');">
+						<span class="rak-black-color login-label">
+							{{appLiterals.APP.RAK_LOGIN_PAGE.LOGIN}} </span>
+					</div>
+
+					<!-- CHANGES DONE AS FIX OF PRCU-1412 START -->
+					<div class="rak-logintab  border-left"
+						ng-show="rakRegister.RegistrationModel.isRegisterClicked">
+						<span class="login-label rak-color border-bottom">
+							{{appLiterals.APP.RAK_LOGIN_PAGE.REGISTER}}</span>
+					</div>
+
+					<div class="rak-logintab  border-left"
+						ng-show="rakRegister.RegistrationModel.isforgotUserIdClicked">
+						<span class="login-label rak-color border-bottom">
+							{{appLiterals.APP.RAK_LOGIN_PAGE.FORGOT_USERID}}</span>
+					</div>
+
+					<div class="rak-logintab  border-left"
+						ng-show="rakRegister.RegistrationModel.isforgotPasswordClicked">
+						<span class="login-label rak-color border-bottom">
+							{{appLiterals.APP.RAK_LOGIN_PAGE.FORGOT_PASSWORD}}</span>
+					</div>
+
+					<div class="rak-logintab  border-left"
+						ng-show="rakRegister.RegistrationModel.isEnableUserIdClicked">
+						<span class="login-label rak-color border-bottom">
+						{{appLiterals.APP.RAK_LOGIN_PAGE.ENABLE_USERID}}</span>
+					</div>
+			<!--  CHANGES DONE AS FIX OF PRCU-1412 END -->
+				
+				</div>
+						
+
+						
+
+
+						<div ng-if="rakRegister.RegistrationModel.requestType=='ORON'">
+							<div class="selfReg-main-form-heading margin-top10px">
+								<div><span class="rak-black-color login-label-selfReg ">{{appLiterals.APP.RAKSELFREG.NEWREG_TXT}}</span>
+								<ul class="process-steps">
+	<li ></li>
+	<li class="active"></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+								</div>
+							</div>
+						</div>
+		
+						<div ng-if="rakRegister.RegistrationModel.requestType=='FUON'">					
+							<div class="selfReg-main-form-heading margin-top10px">
+								<p><span class="rak-black-color login-label-selfReg ">{{appLiterals.APP.RAK_LOGIN_PAGE.FORGOT_USERID}}</span></p>
+							</div>					
+						</div>
+		
+						<div ng-if="rakRegister.RegistrationModel.requestType=='FPON'">
+							<div class="selfReg-main-form-heading margin-top10px">
+								<p><span class="rak-black-color login-label-selfReg ">{{appLiterals.APP.RAK_LOGIN_PAGE.FORGOT_PASSWORD}}</span></p>
+							</div>					
+						</div>
+		
+						<div ng-if="rakRegister.RegistrationModel.requestType=='EUON'">
+							<div class="selfReg-main-form-heading margin-top10px">
+								<p><span class="rak-black-color login-label-selfReg ">{{appLiterals.APP.RAK_LOGIN_PAGE.ENABLE_USERID}}</span></p>
+							</div>					
+						</div>
+		
+		
+						</br>
+						</br>
+
+
+						<div class="fin-input-container selfReg-rakexchangerate-block rak-selfReg-lable">
+							<p class="rakexchangevalue rak-Reg-lable"
+								ng-show="rakRegister.RegistrationModel.selectedNoType=='A'">
+								{{appLiterals.APP.RAKSELFREG.ACCTNO}}&nbsp;
+								{{rakRegister.RegistrationModel.enteredAcctNo}}</p>
+
+							<p class="rakexchangevalue rak-Reg-lable"
+								ng-show="rakRegister.RegistrationModel.selectedNoType=='C'">
+								{{appLiterals.APP.RAKSELFREG.CCNO}}&nbsp;
+								{{rakRegister.RegistrationModel.enteredAcctNo}}</p>
+
+							<p class="rakexchangevalue rak-Reg-lable"
+								ng-show="rakRegister.RegistrationModel.selectedNoType=='D'">
+								{{appLiterals.APP.RAKSELFREG.DCNO}}&nbsp;
+								{{rakRegister.RegistrationModel.enteredAcctNo}}</p>
+						</div>
+
+						<div ng-if="rakRegister.RegistrationModel.isSme=='true'">
+							<fin-input type="text" max-length="20"
+								model="rakRegister.RegistrationModel.passportNo"
+								display-row="full"
+								validation-flag='pageErrorArr["rakRegister.RegistrationModel.passportNo"]'
+								placeholder="{{appLiterals.APP.RAKSELFREG.PASSPORT}}">
+							</fin-input>
+						</div>
+
+						<fin-input type="date" model="rakRegister.RegistrationModel.dob"
+							display-row="full" value="pastDatesOnly"
+							validation-flag='pageErrorArr["rakRegister.RegistrationModel.dob"]'
+							placeholder="{{appLiterals.APP.RAKSELFREG.DOB}}"
+							validation-flag='pageErrorArr["rakRegister.RegistrationModel.dob"]'> </fin-input>
+
+					
+
+
+
+						<div class="label-wrap">
+						
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back"
+								ng-click="setGlobalEvent('onLoginClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CANCEL}}</button>
+
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakRegister.formatDate(rakRegister.RegistrationModel.dob);setEvent('onRAKSelfRegConfirmClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.PROCEED}}</button>
+						</div>
+						<div class="col-sm-1"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,30 @@
+
+<!-- page has been modified for rak customization -->
+<div class="full-page-screen rakfullpageScreenBackground"></div>
+
+<div class="confirmation-content-container">
+    <div class="message-box-new rakConfirmBoxShadow">
+        <div>
+            <div  class="rakConfirmHeader">
+           <span class="rakConfirmLogouttext paddingPush ng-binding">{{appLiterals.APP.ERROR_MESSAGE.PUSH_NOTIFY}}</span>
+          </div>
+          
+           
+         <div  class="sessionTimeOutLabel">
+           <span class="rakLabelValue">{{appLiterals.APP.ERROR_MESSAGE.PUSH_NOT_REG}}</span>
+          </div> 
+            
+            
+      
+         
+        <div class="conf-btn-wrap rakWidth100Percent">
+	
+			<button  type="button"  class="btn--confsec-btn rakButtonGreyColor rak-border rakWhiteFont" ng-click='rakHome.doSubscribeNotification();'>{{appLiterals.APP.RAK_COMMON.YES}}</button>
+			
+
+				<button type="button"  class="btn--confpri-btn rakButtonGreyColor rak-border rakWhiteFont" ng-click='rakHome.pushReject();'>{{appLiterals.APP.RAK_COMMON.NO}}</button>
+			
+        </div>
+    </div>
+</div> 
+</div>

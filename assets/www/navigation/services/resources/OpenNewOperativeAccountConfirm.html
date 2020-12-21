@@ -1,0 +1,117 @@
+<div id="backArrow" class="app app-arrow2 title-right-dash"
+	ng-click="services.operativeAccountModel.transactionPassword = '';setEvent('onOperativeAccountBackClick')"></div>
+<div class="finacle-container"
+	ng-init="services.initOpenOperativeAccountConfirmPage(successResponse.responsesList);formatAmountCrn('services.operativeAccountModel.accountOpenAmount','services.operativeAccountModel.selectedCurrency')">
+	<div class="account-page">
+		<div class="col-sm-12">
+
+
+			<div class="app-title-wrapper">
+				<div class="title-left"> </div>
+				<div class="title-center text-uppercase"></div>
+			</div>
+			<div class="dashboard-pad padding-top-zero">
+				<div class=" dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div class="item-title text-uppercase" id="OpnOpAcConfHead">{{appLiterals.APP.SERVICES.ONOPER_ACCCNFRM.HEADER}}</div>
+					</div>
+
+					<div class="col-sm-12">
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="OpnOpAcConfOpAccHead">
+								{{appLiterals.APP.SERVICES.ONOPER_ACCCNFRM.MIN_OPN_ACC}} </strong><span
+								class="dash-ac-id" id="OpnOpAcConfOpAcVal">{{services.operativeAccountModel.accountOpenAmount}}</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="OpnOpAcConfCurrHead">
+								{{appLiterals.APP.SERVICES.ONOPER_ACCCNFRM.CURR}} </strong><span
+								class="dash-ac-id" id="OpnOpAcConfCurrVal">
+								{{services.operativeAccountModel.selectedCurrency.split("|")[0]}}</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="OpnOpAcConfAccrHead">
+								{{appLiterals.APP.SERVICES.ONOPER_ACCCNFRM.DEB_ACC}} </strong><span
+								class="dash-ac-id" id="OpnOpAcConfAccrVal">
+								{{services.operativeAccountModel.authResponse.accountNumber}}</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="OpnOpAcConfBrnchHead">
+								{{appLiterals.APP.SERVICES.ONOPER_ACCCNFRM.BRNCH}} </strong><span
+								class="dash-ac-id" id="OpnOpAcConfBrnchVal">
+								{{services.operativeAccountModel.authResponse.branchName}}</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="OpnOpAcConfFrmDatHead">
+								{{appLiterals.APP.SERVICES.ONOPER_ACCCNFRM.DTE}} </strong><span
+								class="dash-ac-id" id="OpnOpAcConfFrmDatVal"> <fin-Date
+									date-value='{{services.operativeAccountModel.authResponse.processDate}}'></fin-Date></span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="OpnOpAcConfTxtNamHead">
+								{{appLiterals.APP.SERVICES.ONOPER_ACCCNFRM.TXT_NAME}} </strong><span
+								class="dash-ac-id" id="OpnOpAcConfTxtNamVal">
+								{{services.operativeAccountModel.accountHolderName}}</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="OpnOpAcConfAddrHead">
+								{{appLiterals.APP.SERVICES.ONOPER_ACCCNFRM.ADDRSS}} </strong><span
+								class="dash-ac-id" id="OpnOpAcConfAddrVal">
+								{{services.operativeAccountModel.accountOpenDateConfiemPageAddress}}</span>
+						</div>
+
+						<form ng-if="services.operativeAccountModel.isOnline == 'true'"
+							ng-submit="services.openNewOperativeAccount.unFormatNumbers();corpInit.corpModel.getSelectedRoleDetailsAsString();setEvent('onOperativeAccountSubmitOnlineClick')">
+
+							<div
+								ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+								<approval-input user-type="{{userType}}"></approval-input>
+							</div>
+							<fin-Stepauth></fin-Stepauth>
+
+
+
+							<md-button type="submit" id="OpnOpAcConfSubmit"
+								ng-if="services.operativeAccountModel.isOnline == 'true'"
+								class="md-raised  btn--primary-btn">
+								{{appLiterals.APP.COMMON.BUTTON.SUBMIT}}</md-button>
+
+
+							<md-button type="submit" id="OpnOpAcConfSubmitRM"
+								ng-if="services.operativeAccountModel.isOnline == 'false'"
+								class="md-raised  btn--primary-btn">
+								{{appLiterals.APP.SERVICES.ONOPER_ACCCNFRM.BTN_SUBTORM}}</md-button>
+
+						</form>
+
+						<form ng-if="services.operativeAccountModel.isOnline == 'false'"
+							ng-submit="services.openNewOperativeAccount.unFormatNumbers();corpInit.corpModel.getSelectedRoleDetailsAsString();setEvent('onOperativeAccountSubmitClick');">
+
+							<div
+								ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+								<approval-input user-type="{{userType}}"></approval-input>
+							</div>
+							<fin-Stepauth></fin-Stepauth>
+
+
+
+							<md-button type="submit" id="OpnOpAcConfSubmit1"
+								ng-if="services.operativeAccountModel.isOnline == 'true'"
+								class="md-raised  btn--primary-btn">
+								{{appLiterals.APP.COMMON.BUTTON.SUBMIT}}</md-button>
+
+
+							<md-button type="submit" id="OpnOpAcConfSubmitRM1"
+								ng-if="services.operativeAccountModel.isOnline == 'false'"
+								class="md-raised  btn--primary-btn">
+								{{appLiterals.APP.SERVICES.ONOPER_ACCCNFRM.BTN_SUBTORM}}</md-button>
+
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

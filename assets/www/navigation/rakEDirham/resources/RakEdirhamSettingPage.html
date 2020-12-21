@@ -1,0 +1,49 @@
+ <div class="rak-back-header">
+	<i class="rak-back-img" ng-click="setEvent('onBackClick');"></i>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content bg-color">
+<div class="finacle-container " ng-init="resetPageError();">
+	<div class="account-page">
+	<div class="col-sm-11">
+	<div class="main-form-heading-eDirham"> 
+                              <h2 class="rakBenfHeader ng-binding">{{appLiterals.APP.EDIRHAM.SETTING}}
+                                              
+                              </h2>              
+						</div>
+		</div>
+		
+		<div class="bg-color rak-cont-padding">
+	<div class="position-static">
+		<ul class="rak-accordianUL blockWidth">
+
+
+
+			<li class="rak-accordianList" >
+				<ul class="blockDisplay eDirham-setting-block" id="srId">
+					<li ng-click="rakEDirham.utils.setFromToDate();setEvent('onHistoryClick')"><span class="eDirham-setting-option" class="eDirham-setting-option">{{appLiterals.APP.EDIRHAM.SETTING_HISTORY}}</span></li>
+					<li ng-click="setEvent('onAcctSettingClick');rakEDirham.eDirhamSettings.isAcctSet=true;"><span class="eDirham-setting-option">{{appLiterals.APP.EDIRHAM.SETTING_FUNDING_ACCT}}</span></li>
+<!-- 					<li ng-click="setEvent('onAcctSettingClick');rakEDirham.eDirhamSettings.isAcctSet=false;"><span class="eDirham-setting-option">{{appLiterals.APP.EDIRHAM.SETTING_AUTHORIZATION}}</span></li> -->
+					<li ng-click="setEvent('onBlockEDClick');rakEDirham.eDirhamSettings.isAcctSet=false;"><span class="eDirham-setting-option">{{appLiterals.APP.EDIRHAM.BLOCK_UNBLOCK_EDIRHAM_TXT}}</span></li>
+
+				
+					
+				</ul>
+			</li>
+
+
+
+		</ul>
+		<!-- <div class="block-eDirham-div">
+								
+					<md-switch class="eDirham-switch margin-top-thirtypx" ng-model="rakEDirham.eDirhamSettings.blockEdirham">
+							{{appLiterals.APP.EDIRHAM.BLOCK_E_DIRHAM}}
+					 </md-switch>
+		</div> -->
+	</div>
+	
+</div>
+</div>
+</div>
+</div>
+</div>

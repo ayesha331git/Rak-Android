@@ -1,0 +1,331 @@
+
+<div class="rak-back-header">
+	<i class="rak-back-img" ng-click="setEvent('onCancelClick');"></i>
+</div>
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRAKRenewalTermDeposit(successResponse.responsesList);">
+
+	<div class="account-page ">
+		<div class="col-sm-11">
+
+			<div class="main-form-heading-ServiceReq">
+				<h2 class="rakBenfHeader">
+					{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.RENEWAL_FXDEP_ISLAMIC}}
+					<span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}
+					</span>
+				</h2>
+			</div>
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+
+
+
+					<!-- CHANGES DONE AS FIX OF PROUAT-2576 REMOVING CURRENCY START -->
+					<div
+						ng-init='depAccountArray = createDropDownOptionArray(rakServiceReq.RAKRenewalTermDeposit.depaccountList,
+["productCatDesc","-","accountId"], "accountIndex");'></div>
+					<fin-input type="dropdown"
+						model="rakServiceReq.RAKRenewalTermDeposit.selectedDepAccNo"
+						display-row="full"
+						on-change="rakServiceReq.RAKRenewalTermDeposit.flag=rakServiceReq.RAKRenewalTermDeposit.selectedDepAccNo!=''?true:false;setEvent('onRAKRenewalFetchingDepAcc');"
+						placeholder="{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.FIXED_DEPOSIT_NUMBER}}"
+						validation-flag='pageErrorArr["rakServiceReq.RAKRenewalTermDeposit.selectedDepAccNo"]'
+						option-array="depAccountArray"> </fin-input>
+				
+
+
+					<p class="rak-parent-txt"
+						ng-show="rakServiceReq.RAKRenewalTermDeposit.flag">
+						<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.FIXED_DEPOSIT_NUMBER}}</span>
+						<span class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RAKRenewalTermDeposit.selectedepaccountnum}}</span>
+					</p>
+
+					<p class="rak-parent-txt"
+						ng-show="rakServiceReq.RAKRenewalTermDeposit.flag">
+						<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.DEPOSIT_REFERENCE_NUMBER}}</span>
+						<span class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RAKRenewalTermDeposit.selectedepaccountnum}}</span>
+					</p>
+
+					<p class="rak-parent-txt"
+						ng-show="rakServiceReq.RAKRenewalTermDeposit.flag">
+						<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.DEPOSIT_START_DATE}}</span>
+						<span class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RAKRenewalTermDeposit.selectedepstartDate}}</span>
+					</p>
+
+					<p class="rak-parent-txt"
+						ng-show="rakServiceReq.RAKRenewalTermDeposit.flag">
+						<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.DEPOSIT_MATURITY_DATE}}</span>
+						<span class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RAKRenewalTermDeposit.selectedepmaturityendDate}}</span>
+					</p>
+
+					<p class="rak-parent-txt"
+						ng-show="rakServiceReq.RAKRenewalTermDeposit.flag">
+						<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.DEPOSIT_AMOUNT}}</span>
+						<span class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RAKRenewalTermDeposit.selectedepamount}}</span>
+					</p>
+
+					<p class="rak-parent-txt"
+						ng-show="rakServiceReq.RAKRenewalTermDeposit.flag">
+						<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.MATURITY_AMOUNT}}</span>
+						<span class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RAKRenewalTermDeposit.selectedmaturityamount}}</span>
+					</p>
+
+
+					
+				
+						<div
+							ng-init='cocdCurrencyArray = createDropDownOptionArray(rakServiceReq.RAKRenewalTermDeposit.currency,
+					   ["description"], "code");'></div>
+						<fin-input type="dropdown"
+							model="rakServiceReq.RAKRenewalTermDeposit.selectedcurrency"
+							ng-show="rakServiceReq.RAKRenewalTermDeposit.flag"
+							display-row="half1"
+							validation-flag='pageErrorArr["rakServiceReq.RAKRenewalTermDeposit.selectedcurrency"]'
+							placeholder="Currency" option-array="cocdCurrencyArray"
+							select-req="false"></fin-input>
+						
+
+
+						
+
+						<fin-input type="number"
+							model="rakServiceReq.RAKRenewalTermDeposit.renewalamount"
+							ng-show="rakServiceReq.RAKRenewalTermDeposit.flag"
+							display-row="half2"
+							validation-flag='pageErrorArr["rakServiceReq.RAKRenewalTermDeposit.renewalamount"]'
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.RENEWAL_AMOUNT}}">
+						</fin-input>
+						
+
+
+
+					<div class="">
+						<div class="radio-biller rak100 rakWidth100 rakRadioBottom"
+							ng-show="rakServiceReq.RAKRenewalTermDeposit.flag">
+							{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.RENEWAL_PERIOD}}</div>
+						<div class="rak100">
+
+							<div class="rakCstmRadioDiv rak50 rakTop2emLeft3">
+								<input type="radio" value="FPV" id="radio1"
+									ng-show="rakServiceReq.RAKRenewalTermDeposit.flag"
+									ng-model="rakServiceReq.RAKRenewalTermDeposit.renewalperiod" />
+
+								<label for="radio1"
+									ng-show="rakServiceReq.RAKRenewalTermDeposit.flag"><span><span></span></span>For
+									Period</label>
+							</div>
+
+							<div class="rakCstmRadioDiv rak40 rakTop2emLeft3">
+								<input type="radio" value="Date" id="radio2"
+									ng-show="rakServiceReq.RAKRenewalTermDeposit.flag"
+									ng-model="rakServiceReq.RAKRenewalTermDeposit.renewalperiod" />
+
+								<label for="radio2"
+									ng-show="rakServiceReq.RAKRenewalTermDeposit.flag"><span><span></span></span>Date
+									Range</label>
+							</div>
+
+
+						</div>
+						<div class="rakRadioErr"
+								ng-hide='pageErrorArr["rakServiceReq.RAKRenewalTermDeposit.renewalperiod"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAKRENEWTERMDEPSR.RENEWAL_PERIOD}}</div>
+						
+
+					</div>
+
+					<div
+						ng-init='cocdPeriodArray = createDropDownOptionArray(rakServiceReq.RAKRenewalTermDeposit.period,
+												                                                               ["description"], "code");'></div>
+					<fin-input type="dropdown"
+						model="rakServiceReq.RAKRenewalTermDeposit.selectedperiod"
+						validation-flag='pageErrorArr["rakServiceReq.RAKRenewalTermDeposit.selectedperiod"]'
+						placeholder="Select" option-array="cocdPeriodArray"
+						ng-show="rakServiceReq.RAKRenewalTermDeposit.flag && rakServiceReq.RAKRenewalTermDeposit.renewalperiod == 'FPV'"></fin-input>
+					
+				
+
+					<div class="renewDate">
+
+							
+								<fin-input type="date"
+									model="rakServiceReq.RAKRenewalTermDeposit.fromDate"
+									display-row="half1" value="futureDatesOnly"
+									validation-flag='pageErrorArr["rakServiceReq.RAKRenewalTermDeposit.fromDate"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.FROM_DATE}}"
+									ng-show="rakServiceReq.RAKRenewalTermDeposit.flag && rakServiceReq.RAKRenewalTermDeposit.renewalperiod == 'Date'">
+								</fin-input>
+							
+
+
+							
+								<fin-input type="date"
+									model="rakServiceReq.RAKRenewalTermDeposit.toDate"
+									validation-flag='pageErrorArr["rakServiceReq.RAKRenewalTermDeposit.toDate"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.TO_DATE}}"
+									display-row="half2" value="futureDatesOnly"
+									ng-show="rakServiceReq.RAKRenewalTermDeposit.flag && rakServiceReq.RAKRenewalTermDeposit.renewalperiod == 'Date'">
+								</fin-input>
+						
+
+							<div
+								ng-show="rakServiceReq.RAKRenewalTermDeposit.flag && rakServiceReq.RAKRenewalTermDeposit.renewalperiod == 'Date'">
+								<span class="dateLabelLeftAlert">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.FROM_DATE}}</span>
+							</div>
+
+							<div
+								ng-show="rakServiceReq.RAKRenewalTermDeposit.flag && rakServiceReq.RAKRenewalTermDeposit.renewalperiod == 'Date'">
+								<span class="dateLabelRightAlert">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.TO_DATE}}</span>
+							</div>
+
+
+						</div>
+				
+
+
+					<div class="">
+
+
+
+						
+						<div
+							ng-init='debitoprAccountArray = createDropDownOptionArray(rakServiceReq.RAKRenewalTermDeposit.debitopraccountList,
+                       ["productCatDesc","-","accountId"], "accountIndex");'></div>
+						<fin-input type="dropdown"
+							model="rakServiceReq.RAKRenewalTermDeposit.selectedDebitOprAccNo" 
+							validation-flag='pageErrorArr["rakServiceReq.RAKRenewalTermDeposit.selectedDebitOprAccNo"]'
+							ng-show="rakServiceReq.RAKRenewalTermDeposit.flag"
+							display-row="full"
+							on-change="setEvent('onDebitAccountChangeRenewalDep');"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.DEBIT_ACC_NO}}"
+							option-array="debitoprAccountArray"> </fin-input>
+					
+						<div ng-show='rakServiceReq.RAKRenewalTermDeposit.selectedDebitOprAccNo'>
+											<p class="balance-available2"
+												ng-show="rakServiceReq.RAKRenewalTermDeposit.selectedDebitOprAccNo.length > 0">
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_BALANCE}}
+												<span class="rs-color">
+													{{rakServiceReq.common.availBal}}</span>
+											</p>
+										</div>
+		<div ng-show="rakServiceReq.RAKRenewalTermDeposit.selectedDebitOprAccNo!=''">
+						<div class="">
+							<div class="radio-biller rak100 rakWidth100"
+								ng-show="rakServiceReq.RAKRenewalTermDeposit.flag">
+								{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.ON_MATURITY}}</div>
+							<div class="rak100">
+								<div>
+									<div class="rakCstmRadioDiv rak100 rakTop2emLeft3">
+										<input type="radio" value="PA" id="radio3"
+											ng-show="rakServiceReq.RAKRenewalTermDeposit.flag"
+											ng-model="rakServiceReq.RAKRenewalTermDeposit.onamturityradiobtn" />
+
+										<label for="radio3"
+											ng-show="rakServiceReq.RAKRenewalTermDeposit.flag"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.CREDIT_PROCEED_TO_MY_ACCOUNT}}</label>
+									</div>
+
+									<div
+										ng-init='oprMaturityAccountArray = createDropDownOptionArray(rakServiceReq.RAKRenewalTermDeposit.maturityopraccountList,
+													     ["productCatDesc","-","accountId"], "accountIndex");'></div>
+									
+									<fin-input type="dropdown"
+										model="rakServiceReq.RAKRenewalTermDeposit.selectedMaturityOprAccNo"
+										display-row="full"
+										validation-flag='pageErrorArr["rakServiceReq.RAKRenewalTermDeposit.selectedMaturityOprAccNo"]'
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.ON_MATURITY_Account_Number}}"
+										option-array="oprMaturityAccountArray"
+										ng-show="rakServiceReq.RAKRenewalTermDeposit.flag && rakServiceReq.RAKRenewalTermDeposit.onamturityradiobtn == 'PA'">
+									</fin-input>
+
+									<div class="rakCstmRadioDiv rak100 rakTop2emLeft3 marginTopTen">
+										<input type="radio" value="Auto" id="radio4"
+											ng-show="rakServiceReq.RAKRenewalTermDeposit.flag"
+											ng-model="rakServiceReq.RAKRenewalTermDeposit.onamturityradiobtn" />
+
+										<label for="radio4"
+											ng-show="rakServiceReq.RAKRenewalTermDeposit.flag"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.AUTO_ROLLOVER}}</label>
+									</div>
+								</div>
+								
+								<div class="rakRadioErr"
+								ng-hide='pageErrorArr["rakServiceReq.RAKRenewalTermDeposit.onamturityradiobtn"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.ON_MATURITY}}</div>
+						
+							</div>
+
+
+						</div>
+
+
+
+						<div class="">
+							<div class="radio-biller rak100 rakWidth100 "
+								ng-show="rakServiceReq.RAKRenewalTermDeposit.flag && rakServiceReq.RAKRenewalTermDeposit.onamturityradiobtn == 'Auto'">
+								{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.PROFIT_HANDLING}}</div>
+							<div class="rak100">
+								<div class="rakCstmRadioDiv rak100 rakTop2emLeft3">
+									<input type="radio" value="IA" id="radio5"
+										ng-model="rakServiceReq.RAKRenewalTermDeposit.interesthandling"
+										ng-show="rakServiceReq.RAKRenewalTermDeposit.flag && rakServiceReq.RAKRenewalTermDeposit.onamturityradiobtn == 'Auto'" />
+
+									<label for="radio5"
+										ng-show="rakServiceReq.RAKRenewalTermDeposit.flag
+													&& rakServiceReq.RAKRenewalTermDeposit.onamturityradiobtn == 'Auto'"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.CREDIT_PROFIT_TO_MY_ACCOUNT}}</label>
+								</div>
+								
+								<div class="rakRadioErr"
+								ng-hide='pageErrorArr["rakServiceReq.RAKRenewalTermDeposit.interesthandling"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.PROFIT_HANDLING}}</div>
+						
+
+							</div>
+						</div>
+
+
+					
+						<div
+							ng-init='InterestHandlingoprAccountArray = createDropDownOptionArray(rakServiceReq.RAKRenewalTermDeposit.InterestHandlingopraccountList,
+                       ["productCatDesc","-","accountId"], "accountIndex");'></div>
+						<fin-input type="dropdown"
+							model="rakServiceReq.RAKRenewalTermDeposit.selectedIAOprAccNo"
+							validation-flag='pageErrorArr["rakServiceReq.RAKRenewalTermDeposit.selectedIAOprAccNo"]'
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.INTEREST_HANDLING_ACC_NUM}}"
+							option-array="InterestHandlingoprAccountArray"
+							ng-show="rakServiceReq.RAKRenewalTermDeposit.flag && rakServiceReq.RAKRenewalTermDeposit.onamturityradiobtn == 'Auto'
+                       && rakServiceReq.RAKRenewalTermDeposit.interesthandling == 'IA'">
+						</fin-input>
+				
+	</div>
+
+						<div class="label-wrap">
+
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-right"
+								ng-show="rakServiceReq.RAKRenewalTermDeposit.flag"
+								ng-click="rakServiceReq.RAKRenewalTermDepositflagClear();rakServiceReq.checkHiddenFieldValue();
+								rakServiceReq.GenericAuthorizationVariable.transactionPassword = '';
+								rakServiceReq.setRAKRenewalTermDepositDate();
+									setEvent('onRenewContinueClick');">
+								{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.CONTINUE}}</button>
+
+						</div>
+						
+							<div class="disclaimer">
+                              <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                              <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                              </div>
+                              
+                           <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+										
+										<span ng-bind-html="appLiterals.APP.DISCLAIMER.RENEW_DEP_INIT"></span>
+										<span ng-click="rakServiceReq.fetchDisclaimer('IslamicDepositServiceRequestsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RENEW_DEP_INIT_CLCIK"></span>
+										<span ng-click="rakServiceReq.fetchDisclaimer('TermsAndConditionsAmalProducts.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RENEW_DEP_INIT_TERMS"></span>
+									</div>
+              			</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>

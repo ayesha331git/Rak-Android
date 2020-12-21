@@ -1,0 +1,105 @@
+<div class="finacle-container" ng-init="rakSendMoney.mobileCashHistory.initSuccessPage(successResponse.responsesList)">
+	<div class="account-page">
+     <div class="col-sm-11">
+	 <div class="app-title-wrapper">
+
+		<ng-include  src="'./navigation/rakSendMoney/resources/RakSendMoneyTabPage.html'"> </ng-include>
+
+	<div class="tab-links">
+								<ul>																		
+									<li ng-click="rakSendMoney.txnHistory.clearSearchHistory();rakSendMoney.txnHistory.setInitialDate();rakPayee.isBeneficiaryHistoryMode=false;setGlobalEvent('onRakSendMoneyHistoryTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_HISTORY}}</span></li>
+									<li ng-click="rakSendMoney.clearTab();rakSendMoney.common.clearSearchData();rakSendMoney.schedule.clearScheduleTransferData();rakSendMoney.history=true;rakSendMoney.txnHistory.setFutureDate();setGlobalEvent('onRakHistoryTabClick')"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_SCHEDULE}}</span></li>
+									<li class="active"><span class="active">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_MOBILECASH_HISTORY}}</span></li>
+								</ul>
+							</div>
+        <div class="">
+        <!--  <div class="main-form-heading">
+                    	<h2 class="success">{{appLiterals.APP.RAK_COMMON.SENDMONEY_SUCCESS}}<span>{{rakSendMoney.common.successMessage}}</span></h2>
+            </div> -->
+            
+            
+              <div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakSendMoney.common.successMessage}}</span>
+				</div>
+			</div>
+		<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_COMMON.MOBILE_CASH_CANCELLLATION}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAK_COMMON.PAYCARDS_STEP3}}</span>		     
+				      </h2>		       
+		 </div>
+
+
+	 <div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh" >
+
+	    <div class="" >
+	      <div class="">
+	      
+	     	 <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.OTPREFNO}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCashHistory.selectedCompltTxn.reqRefId}}</span>
+				</p>
+				
+				   <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FROM_ACCOUNT}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCashHistory.selectedCompltTxn.fromAccount}}</span>
+				</p>
+				
+				  <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.CUST_NAME}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCashHistory.selectedCompltTxn.benfName}}</span>
+				</p>
+				
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.CONSUMER_NO}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCashHistory.selectedCompltTxn.mobileno}}</span>
+				</p>
+		<!-- 	  	<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.OTPGENDATE}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCashHistory.selectedCompltTxn.txnDate}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.OTPEXPDATE}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCashHistory.selectedCompltTxn.otpExpDate}}</span>
+				</p>
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.OTPLASTUPDTDATE}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCashHistory.selectedCompltTxn.otpLastUpdtDate}}</span>
+				</p>
+				 -->
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.OTPSTATUS}}</span>
+					<span class="rak-sum-label black"> {{rakSendMoney.mobileCashHistory.selectedCompltTxn.txnStatus}}</span>
+				</p>	
+			
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.AMOUNT}}</span>
+					<span class="rak-sum-label black"> {{rakSendMoney.mobileCashHistory.selectedCompltTxn.txnAmount}}</span>
+				</p>	
+				
+			
+				
+				
+				<!-- <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.TXN_CRN}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCashHistory.selectedCompltTxn.txnCrn}}</span>
+				</p> -->			  
+								
+				
+				<!--  <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDSINITPAGE.REMARKS}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCashHistory.reason}}</span>
+				</p>	  -->	  
+<div class="label-wrap">
+ <button type="button" class="btn--special-btn btn-middle rak-button-small rak-back rak-btn-large-text" ng-click="rakSendMoney.mobileCashHistory.clearSelfTransfersData();rakSendMoney.utils.clearCommonData();setGlobalEvent('onMobileCashTabClick');">  {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_SUCCESSPAGE.SEND_AGAIN}}  </button>
+<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click='rakSendMoney.mobileCashHistory.clearSelfTransfersData(); rakSendMoney.utils.clearCommonData(); setEvent("onTransfersSuccessOkClick")'> {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_SUCCESSPAGE.HOME}} </button>
+</div>
+	<div class="col-sm-10"> </div>
+	</div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

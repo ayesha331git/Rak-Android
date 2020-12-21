@@ -1,0 +1,192 @@
+<div id="updateContactDetailsPage" class="app app-arrow2 title-right"
+	ng-click="myProfile.updateContactModel.isBack=false;setEvent('onCancelClick')"></div>
+<div class="finacle-container"
+	ng-init="myProfile.initUpdateContactDetails(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper"></div>
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div id="updateContactTitle" class="item-title text-uppercase">{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.UPDATE_CONTACT_DETAILS}}</div>
+					</div>
+					<form
+						ng-submit="myProfile.makeUpdateContactResponse();setEvent('onCCConfirmClick');">
+						<md-radio-group class="padding-zero account-detail-dash radioButtonRight" ng-model="myProfile.updateContactModel.prefPhn">
+						<div class=" account-detail-dash padding-bottom-zero">
+							<div class="col-sm-12 margin-bottom-15">
+								<span class="trans-no">{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PERSONAL}}</span>
+								<md-radio-button ng-if="false" class="trans-no" value="CELLPH">{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PREFFERED}}</md-radio-button>
+							</div>
+							<!-- <div class="col-sm-12"
+								ng-init='countryCode = createDropDownOptionArray(myProfile.updateContactModel.cocdCountryCodes, ["value"], "value");'>
+
+								<fin-input type="dropdown_optional"
+									model="myProfile.updateContactModel.mobileNumber"
+									display-row="half1"
+									placeholder="{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PH_COUNTRY}}"
+									option-array="countryCode"></fin-input>
+
+
+								<fin-input type="number" ng-show="false"
+									model="myProfile.updateContactModel.mobileNumberCity"
+									placeholder="{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PH_CITY}}"
+									display-row="half2" max-length="5"
+									validation-flag='pageErrorArr["myProfile.updateContactModel.mobileNumberCity"]'></fin-input>
+							</div> -->
+							<div class="">
+
+								<fin-input type="phone" readonly
+									model="myProfile.updateContactModel.mobileNumberComplete"
+									placeholder="{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.NUMBER}}"
+									max-Length="20"
+									validation-flag='pageErrorArr["myProfile.updateContactModel.MobileNumberLocalCode"]'
+									display-row="full"></fin-input>
+
+
+								<div ng-show="false" class="new_user balance-available">
+									<input id="prefMobNumCheckbox" type="checkbox"
+										ng-model="myProfile.updateContactModel.phn[2]"
+										ng-click="myProfile.checkPhnPreference('CELLPH',2);">
+									{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PREFFERED}}
+
+								</div>
+							</div>
+						</div>
+
+						<div class=" account-detail-dash padding-bottom-zero">
+							<div class="col-sm-12 ">
+								<span class="trans-no"> {{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.HOME}} </span> <span class="float-right trans-no"> <md-radio-button
+										class="" value="HOMEPH1">{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PREFFERED}}</md-radio-button>
+								</span>
+							</div>
+							<!-- <div class="col-sm-12"
+								ng-init='countryCode = createDropDownOptionArray(myProfile.updateContactModel.cocdCountryCodes, ["value"], "value");'>
+
+								<fin-input type="dropdown_optional"
+									model="myProfile.updateContactModel.homePhoneNumberCountry"
+									validation-flag='pageErrorArr["myProfile.updateContactModel.homePhoneNumberCountry"]'
+									display-row="half1"
+									placeholder="{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PH_COUNTRY}}"
+									option-array="countryCode"></fin-input>
+
+								<fin-input type="number"
+									model="myProfile.updateContactModel.homePhoneNumberCity"
+									placeholder="{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PH_CITY}}"
+									max-Length="5"
+									validation-flag='pageErrorArr["myProfile.updateContactModel.homePhoneNumberCity"]'
+									display-row="half2"></fin-input>
+							</div> -->
+							<div class="">
+								<fin-input type="phone"
+									model="myProfile.updateContactModel.homePhoneNumberComplete"
+									placeholder="{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.HOME}}"
+									max-Length="20"
+									validation-flag='pageErrorArr["myProfile.updateContactModel.homePhoneNumberLocalCode"]'
+									display-row="full"></fin-input>
+								<div class="new_user balance-available" ng-if="false">
+									<input type="checkbox" id="prefHomeNumCheckbox"
+										ng-model="myProfile.updateContactModel.phn[0]">{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PREFFERED}}
+								</div>
+							</div>
+						</div>
+						<div class=" account-detail-dash padding-bottom-zero ">
+							<div class="col-sm-12 ">
+								<span class="trans-no"> Work </span> <span class="float-right trans-no"> <md-radio-button
+										class="md-primary" value="WORKPH1">{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PREFFERED}}</md-radio-button>
+								</span>
+							</div>
+							<!-- <div class="col-sm-12"
+								ng-init='countryCode = createDropDownOptionArray(myProfile.updateContactModel.cocdCountryCodes, ["value"], "value");'>
+
+								<fin-input type="dropdown_optional"
+									model="myProfile.updateContactModel.workPhoneNumberCountry"
+									display-row="half1"
+									validation-flag='pageErrorArr["myProfile.updateContactModel.workPhoneNumberCountry"]'
+									placeholder="{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PH_COUNTRY}}"
+									option-array="countryCode"></fin-input>
+
+								<fin-input type="number"
+									model="myProfile.updateContactModel.workPhoneNumberCity"
+									max-Length="5"
+									validation-flag='pageErrorArr["myProfile.updateContactModel.workPhoneNumberCity"]'
+									placeholder="{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PH_CITY}}"
+									display-row="half2"></fin-input>
+							</div> -->
+							<div class="">
+								<fin-input type="phone"
+									model="myProfile.updateContactModel.workPhoneNumberComplete"
+									max-Length="20"
+									validation-flag='pageErrorArr["myProfile.updateContactModel.workPhoneNumberLocalCode"]'
+									placeholder="{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.WORK}}"
+									display-row="full"></fin-input>
+							</div>
+							<div class="avail-bal-wrap">
+								
+								<fin-input type="number"
+									model="myProfile.updateContactModel.workExtenNumber"
+									validation-flag='pageErrorArr["myProfile.updateContactModel.workExtenNumber"]'
+									max-Length="20" display-row="full"
+									placeholder="{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.WORK_EXTN}}"></fin-input>
+								<div class="new_user balance-available" ng-if="false">
+									<input type="checkbox" id="prefWorkNumCheckbox"
+										ng-model="myProfile.updateContactModel.phn[1]">
+								</div>
+							</div>
+						</div>
+						</md-radio-group>
+
+
+						<md-radio-group class="radioButtonRight" ng-model="myProfile.updateContactModel.prefEmail">
+						<div class=" account-detail-dash padding-bottom-zero ">
+							<div class="col-sm-12 ">
+								<span class="trans-no"> {{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PERSONAL}} </span> <span class="float-right trans-no">
+									<md-radio-button class="md-primary" value="HOMEEML">{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PREFFERED}}</md-radio-button>
+								</span>
+							</div>
+							<div class="avail-bal-wrap">
+								<fin-input type="mail_Id"
+									model="myProfile.updateContactModel.personalEmail"
+									validation-flag='pageErrorArr["myProfile.updateContactModel.personalEmail"]'
+									display-row="full"
+									placeholder="{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PERSONAL_EMAIL_ID}}"></fin-input>
+								<div class="new_user balance-available" ng-if="false">
+									<input id="prefHomeEmailCheckbox" type="checkbox"
+										ng-model="myProfile.updateContactModel.email[1]">{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PREFFERED}}
+								</div>
+							</div>
+						</div>
+
+						<div class=" account-detail-dash padding-bottom-zero">
+							<div class="col-sm-12 ">
+								<span class="trans-no"> Work </span> <span class="float-right trans-no"> <md-radio-button
+										value="WORKEML" class="md-primary">{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PREFFERED}}</md-radio-button>
+								</span>
+							</div>
+							<div class="avail-bal-wrap">
+								<fin-input type="mail_Id"
+									model="myProfile.updateContactModel.workEmail"
+									validation-flag='pageErrorArr["myProfile.updateContactModel.workEmail"]'
+									display-row="full"
+									placeholder="{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.WORK_EMAIL_ID}}"></fin-input>
+								<div class="new_user balance-available" ng-if="false">
+									<input id="prefWorkEmailCheckbox" type="checkbox"
+										ng-model="myProfile.updateContactModel.email[0]">
+								</div>
+							</div>
+						</div>
+						</md-radio-group>
+						<section class="button-wrapper" layout="row"
+							layout-align="center center" layout-wrap>
+							<md-button id="updateContactDetail" type="submit"
+								class=" md-raised btn--primary-btn">
+							{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.CONTINUE_BTN}} </md-button>
+						</section>
+
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

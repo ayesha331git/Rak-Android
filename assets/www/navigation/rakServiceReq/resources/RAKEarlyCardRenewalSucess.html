@@ -1,0 +1,74 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRAKEarlyCardRenewalSucess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+
+
+<div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakServiceReq.RAKEarlyCardRenewalModel.successMessage}}</span>
+                        </div>
+                  </div>
+            <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.ECR}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>                 
+                              </h2>              
+</div>
+                  
+
+	
+
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+				<div class="row">
+					<div class=""></div>
+
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKECR.TXT_CARDNO}}
+						</span> <span class="rak-sum-label black">{{rakServiceReq.RAKEarlyCardRenewalModel.cardNo}}</span>
+					</p>
+
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKECR.TXT_EXPIRYDATE}}
+						</span> <span class="rak-sum-label black">{{rakServiceReq.RAKEarlyCardRenewalModel.expiryDate}}</span>
+					</p>
+
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKECR.TXT_REASON}}
+						</span> <span class="rak-sum-label black">{{rakServiceReq.RAKEarlyCardRenewalModel.selectedReasonDesc}}</span>
+					</p>
+					
+<!-- CHANGES DONE AS FIX OF PROUAT-2281 START -->
+<p class="rak-sum-txt" ng-show="rakServiceReq.RAKEarlyCardRenewalModel.selectedReason=='Others'">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CC_CHEQ_REQ.OTHERS}}
+						</span> <span class="rak-sum-label black">{{rakServiceReq.RAKEarlyCardRenewalModel.others}}</span>
+</p>
+<!-- CHANGES DONE AS FIX OF PROUAT-2281 END -->
+					
+					<p class="rak-sum-txt" 
+							ng-show="rakServiceReq.RAKEarlyCardRenewalModel.isBranchOptionSelected">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKEarlyCardRenewalModel.emiSelDesc}}</span>
+					</p>
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKECR.TXT_DELCHANNEL}}
+						</span> <span class="rak-sum-label black"
+							ng-hide="rakServiceReq.RAKEarlyCardRenewalModel.isBranchOptionSelected ">{{appLiterals.APP.RAK_SERVICES.RAKECR.TXT_COURIER}}
+						</span> <span class="rak-sum-label black"
+							ng-show="rakServiceReq.RAKEarlyCardRenewalModel.isBranchOptionSelected ">{{appLiterals.APP.RAK_SERVICES.RAKECR.TXT_BRANCH}}
+							- {{rakServiceReq.RAKEarlyCardRenewalModel.branchName}}</span>
+					</p>
+
+					<div class="label-wrap">
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small"
+							ng-click='setEvent("onRAKECROkClick");'>
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+					</div>
+
+					<div class="col-sm-1"></div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,130 @@
+		<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onRAKLoanPreClosureBackClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.initRAKLoanPreClosureData(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="">
+						<div class="">
+								<div class="main-form-heading-ServiceReq"> 
+								      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.PRECLOSURELOAN}}
+								      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+								      </h2>		       
+						 		</div>
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="row">
+								
+									<div
+										ng-init='loanAcctArr = createDropDownOptionArray(rakServiceReq.RAKLoanPreClosureAcctArrays.loanAcctList, ["acctTypeDesc","-","accountNumber"], "accountId");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RAKLoanPreClosureModel.selectedLoanAcct"
+										display-row="full"
+										on-change="setEvent('onSubmitOfLoanPreClosureDetailsToFetch');"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKLOANPRECLOSURE.LNAGREE}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKLoanPreClosureModel.selectedLoanAcct"]'
+										option-array="loanAcctArr"> </fin-input>
+			
+			
+			
+			<!-- Yadesh - modified - start -->
+			<div ng-show="rakServiceReq.RAKLoanPreClosureModel.selectedLoanAcct">					
+			
+					
+						<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKLOANPRECLOSURE.LNAGREE}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.RAKLoanPreClosureModel.selectedLoanAcct}}</span>
+						</p>
+						<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.LOAN_PRDT_NAME}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.RAKLoanPreClosureModel.loanProductName}}</span>
+						</p>			
+						
+						<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.CURRENCY}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.RAKLoanPreClosureModel.currency}}</span>
+						</p>			
+						
+						<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.LOAN_AMOUNT}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.RAKLoanPreClosureModel.loanAmount}}</span>
+						</p>			
+						
+						<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.LOAN_OUTSTANDING}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.RAKLoanPreClosureModel.loanOutstanding}}</span>
+						</p>			
+						
+						<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.NEXT_INSTALLMENT_AMOUNT}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.RAKLoanPreClosureModel.nextInstallmentAmount}}</span>
+						</p>			
+						
+						<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.NEXT_INSTALLMENT_DATE}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.RAKLoanPreClosureModel.nextInstallmentDate}}</span>
+						</p>			
+						
+						<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.LOAN_OVERDUE_AMOUNT}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.RAKLoanPreClosureModel.loanOverdueAmount}}</span>
+						</p>
+						
+						<!-- Yadesh - modified - end -->
+						
+						
+									<div
+										ng-init='debtAcctArr = createDropDownOptionArray(rakServiceReq.RAKLoanPreClosureAcctArrays.debitAcctList, ["acctTypeDesc","-","accountNumber"], "accountId");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RAKLoanPreClosureModel.selectedDebitAcct"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKLOANPRECLOSURE.DEBTACCTNO}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKLoanPreClosureModel.selectedDebitAcct"]'
+										option-array="debtAcctArr"> </fin-input>
+
+
+
+									<div class="label-wrap">
+										<!-- <button type="button"
+											class="btn--special-btn btn-middle rak-button-small btn-back"
+											ng-click="setEvent('onRAKLoanPreClosureBackClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button> -->
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-small rak-button-right"
+											ng-click="setEvent('onRAKLoanPreClosureConfirmClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+									</div>
+									<div class="col-sm-1"></div>
+									
+							</div>  
+							
+							
+							
+						</div>
+						
+						<div class="disclaimer">
+                                 <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                             <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                 </div>                                                 
+                                      
+                                 <div class="disclaimer3" ng-if="rakDisclaimerFlag ">	
+                                 		<div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKLOANCLOS_INITPAGE"></div>									
+										<span ng-click="rakServiceReq.fetchDisclaimer('LoanServiceCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKLOANCLOS_INITPAGECONT"></span>
+									</div>
+                                                 
+                             </div>
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>

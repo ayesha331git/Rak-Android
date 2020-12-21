@@ -1,0 +1,280 @@
+{
+    "pageNavigation": [
+        {
+            "RakFinacleLocationListPage": [                    
+                
+                {
+                    "eventName": "onRakLocatorSearchByEmrAreaBtnClicked",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "parameters": {},
+                    "successPage": {
+                        "subFeature": "rakCommon",
+                        "pageName": "RakFinacleSearchATMBranchCriteriaPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                
+                {
+                   	  "eventName" : "onBackClick",
+			          "validation":"false",
+			          "action" : "AuthenticationService",
+			          "actionType":"service",
+			          "encryptionEnabled" : false,
+			  	      "sensitiveFields" : [ "fields.finacleUserCorporateId", "fields.finacleUserPassword" ],
+			          "parameters": {"CorpId": "fields.finacleUserCorporateId", "PassWord": "fields.finacleUserPassword"},
+			          "successPage" : {"pageName": "RetailUserDashboardPage"},
+			          "errorPage" : {"pageName": "RetailUserLoginPage"}
+                },
+                
+                {
+                    "eventName": "onLocatorSearch",
+                    "action": "JSONLocationService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "fields.locationSearchText"
+                    ],
+                    "parameters": {
+                        "searchString": "fields.locationSearchText",
+                        "method": "fields.locatorMethodName",
+                        "latitude": "currentLocation.position.coords.latitude",
+                        "longitude": "currentLocation.position.coords.longitude",
+                        "radius": "25"
+                    },
+                    "successPage": {
+                        "subFeature": "FinacleCommon",
+                        "pageName": "FinacleLocationListPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onLocatorDetailsClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "parameters": {},
+                    "successPage": {
+                        "subFeature": "rakCommon",
+                        "pageName": "RakFinacleLocationDetailsPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onLocatorBackClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "parameters": {
+                        "bankid": "fields.bankId",
+                        "method": "fields.locatorMethodName",
+                        "latitude": "currentLocation.position.coords.latitude",
+                        "longitude": "currentLocation.position.coords.longitude",
+                        "radius": "25"
+                    },
+                    "successPage": {
+                        "subFeature": "FinacleCommon",
+                        "pageName": "FinacleLocationListPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                }
+            
+            ],
+            
+           "RakFinacleLocationDetailsPage":[
+           
+             {
+                    "eventName": "onBackClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "parameters": {
+                    
+                    },
+                    "successPage": {
+                        "subFeature": "rakCommon",
+                        "pageName": "RakFinacleLocationSearchListPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakCommon",
+                        "pageName": "RakFinacleLocationDetailsPage"
+                    }
+                }
+           ],
+           
+                  "RakMapDetailsPage":[
+           
+             {
+                    "eventName": "onBackClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "parameters": {
+                    
+                    },
+                    "successPage": {
+                        "subFeature": "rakCommon",
+                        "pageName": "RakFinacleLocationSearchListPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakCommon",
+                        "pageName": "RakMapDetailsPage"
+                    }
+                }
+           ],
+            "RakFinacleSearchATMBranchCriteriaPage":
+            [
+            
+            	{
+                    "eventName": "onLocateUsEmiratesChanged",
+                    "action": "RakLocateUsFetchAreaService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "rakLocateUs.RAKLocateUsSearchData.selectedEmr"
+                    ],
+                    "parameters": {
+                     	"jsessionid":"rakLocateUs.jsessionid",  
+                    	"mbparam":"fields.finacleMbParam",
+                       	"Emirates":"rakLocateUs.RAKLocateUsSearchData.selectedEmr"
+                    },
+                    "successPage": {
+                        "subFeature": "rakCommon",
+                        "pageName": "RakFinacleSearchATMBranchCriteriaPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakCommon",
+                        "pageName": "RakFinacleSearchATMBranchCriteriaPage"
+                    }
+                },                
+                
+                
+                  	{
+                    "eventName": "onRakLocateUsEmiratesChanged",
+                    "action": "RakPostLocateUsFetchAreaService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "rakLocateUs.RAKLocateUsSearchData.selectedEmr"
+                    ],
+                    "parameters": {
+                     	"jsessionid": "fields.finacleUserSessionId",  
+                    	"mbparam": "fields.finacleMbParam",
+                       	"Emirates":"rakLocateUs.RAKLocateUsSearchData.selectedEmr"
+                    },
+                    "successPage": {
+                        "subFeature": "rakCommon",
+                        "pageName": "RakFinacleSearchATMBranchCriteriaPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakCommon",
+                        "pageName": "RakFinacleSearchATMBranchCriteriaPage"
+                    }
+                },      
+                
+                
+                
+            	
+            	{
+                    "eventName": "onRakLocatorSearchByEmrArea",
+                    "action": "RakLocateUsSearchByEmrAreaService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "rakLocateUs.RAKLocateUsSearchData.selectedEmr",
+                        "rakLocateUs.RAKLocateUsSearchData.selectedArea"
+                    ],
+                    "parameters": {
+                     	"jsessionid": "rakLocateUs.jsessionid", 
+                     	"latitude": "currentLocation.position.coords.latitude.toString()",
+                        "longitude": "currentLocation.position.coords.longitude.toString()",
+                    	"mbparam": "fields.finacleMbParam",
+                       	"Emirates":"rakLocateUs.RAKLocateUsSearchData.selectedEmr",
+                       	"Area":"rakLocateUs.RAKLocateUsSearchData.selectedArea",
+                       	"eventExecuted":"rakLocateUs.RAKLocateUsSearchData.eventExecutedName",
+                       	"searchFlag":"rakLocateUs.RAKLocateUsSearchData.searchFlag"
+                    },              
+                    "successPage": {
+                        "subFeature": "rakCommon",
+                        "pageName": "RakFinacleLocationSearchListPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakCommon",
+                        "pageName": "RakFinacleSearchATMBranchCriteriaPage"
+                    }
+                },
+                
+                {
+                    "eventName": "onLocatorBackClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "parameters": {
+                        "bankid": "fields.bankId",
+                        "method": "fields.locatorMethodName",
+                        "latitude": "currentLocation.position.coords.latitude",
+                        "longitude": "currentLocation.position.coords.longitude",
+                        "radius": "25"
+                    },
+                    "successPage": {
+                        "subFeature": "rakCommon",
+                        "pageName": "RakFinacleLocationListPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakCommon",
+                        "pageName": "RakFinacleSearchATMBranchCriteriaPage"
+                    }
+                }
+        	],
+        	
+        	"RakFinacleLocationSearchListPage":
+        	[
+        		{
+                    "eventName": "onLocatorSearchListBackClick",
+                    "action": "navigation",
+                    "actionType": "navigation",                    
+                    "successPage": {
+                        "subFeature": "rakCommon",
+                        "pageName": "RakFinacleSearchATMBranchCriteriaPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakCommon",
+                        "pageName": "RakFinacleLocationSearchListPage"
+                    }
+                },
+                
+                 {
+                    "eventName": "onRakLocatorSearchByEmrAreaBtnClicked",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "parameters": {},
+                    "successPage": {
+                        "subFeature": "rakCommon",
+                        "pageName": "RakFinacleSearchATMBranchCriteriaPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakCommon",
+                        "pageName": "RakFinacleLocationSearchListPage"
+                    }
+                }
+                 
+        	]
+        }
+    ],
+    "subFeatureName": "rakCommon",
+    "startPage": "FinacleConfirmationPage"
+}

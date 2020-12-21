@@ -1,0 +1,54 @@
+<div class="finacle-container" ng-init="rakServiceReq.rakCCPinSetSRSuccess(successResponse.responsesList)">
+	<div class="account-page">   
+     	<div class="col-sm-11">
+	 	
+     		
+     		
+<div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakServiceReq.RakCCPinSetSR.successMessage}}</span>
+                        </div>
+                  </div>
+            <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_CC_PIN_SET.PS_REQ}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>                 
+                              </h2>              
+</div>
+                  
+     		
+     		<div class="bg-color rak-cont-padding rak-scroll-success" >
+		 		<div class="row" >
+		      	
+			
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CC_PIN_SET.CC}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RakCCPinSetSR.accList[rakServiceReq.RakCCPinSetSR.selectedAcc].creditCardNumber}}</span>
+					</p>
+
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CC_PIN_SET.PIN}}
+							</span> <span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_CC_PIN_SET.PINMASK}}</span>
+					</p>
+
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CC_PIN_SET.CPIN}}
+							</span> <span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_CC_PIN_SET.PINMASK}}</span>
+					</p>
+
+	      			<div class="label-wrap">
+	      				<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click='setEvent("onRAKCCPinSetBackClick");'> {{appLiterals.APP.RAKCOMMONLITERALS.DONE}} </button>
+	      			
+ 						<!-- <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click=" setEvent('onSendAgainClick');">  {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_SUCCESSPAGE.SEND_AGAIN}}  </button>
+						<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click='rakSendMoney.sendMoney.clearSelfTransfersData(); rakSendMoney.utils.clearCommonData(); setEvent("onTransfersSuccessOkClick")'> {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_SUCCESSPAGE.HOME}} </button> -->
+					</div>
+					<div class="col-sm-10"> </div> 
+	      		
+	  
+      	
+        	
+      		</div>
+    	</div>
+    	    
+  	</div>
+	
+</div>

@@ -1,0 +1,169 @@
+<div class="rak-back-header" ng-if="rakPendingApproval.isFromLandingPage==true">
+	<i class="rak-back-img" ng-click="rakPendingApproval.isBack=true; setGlobalEvent('onPendingApprovalClick');"></i>
+</div>
+<div class="rak-back-header" ng-if="rakPendingApproval.isFromLandingPage==false">
+	<i class="rak-back-img" ng-click="rakPendingApproval.isBack=true; setEvent('onPrevClick');"></i>
+</div>
+<div class="nano menu-scroll">
+<div class="nano-content">
+<div class="finacle-container ng-scope"
+	ng-init='resetPageError(); rakHome.AuthPageData.firstAuthModeValue="";rakPendingApproval.isBack=false;
+	rakPendingApproval.responsePendingApprovalSwipeApproveDetails(successResponse.responsesList);'>
+	<div class="account-page">
+		<div class="col-sm-11">
+										
+				<div class="summary-ServiceReq" ng-show='rakPendingApproval.common.message'>
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakPendingApproval.common.message}}</span>
+                        </div>
+                  </div>
+			
+	
+	 				
+			  <div class="main-form-heading-ServiceReq">
+                    <h2 class="rakBenfHeader">{{rakPendingApproval.clickedEvent=='APPRCM' && appLiterals.APP.RAKPENDINGAPPROVAL.RCM.APPROVE || appLiterals.APP.RAKPENDINGAPPROVAL.RCM.REJECT}}
+                     <span >{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}}</span>
+                    
+                    </h2>
+                </div>  		
+					
+			<div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh">
+				<div class="">
+				
+				
+				<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.RCM.TO}}</span>
+							<span class="rak-sum-label black">{{rakPendingApproval.detailModel.benfName}}</span>
+				</p>
+				
+				<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.RCM.BENEFICIARY}}</span>
+							<span class="rak-sum-label black">{{rakPendingApproval.detailModel.benfAccNumber}}</span>
+				</p>
+				
+				<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.RCM.BENF_BANK}}</span>
+							<span class="rak-sum-label black">{{rakPendingApproval.detailModel.benfBankName}}</span>
+				</p>
+				
+				<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.RCM.FROM}}</span>
+							<span class="rak-sum-label black">{{rakPendingApproval.detailModel.debitAcctNumber}}</span>
+				</p>
+				
+				<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.RCM.REMITTANCE_ID}}</span>
+							<span class="rak-sum-label black">{{rakPendingApproval.detailModel.remittanceID}}</span>
+				</p>
+				
+				<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.RCM.REMIT_AMT}}</span>
+							<span class="rak-sum-label black">{{rakPendingApproval.detailModel.remittanceAmt}}</span>
+				</p>
+				
+				<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.RCM.TXN_DATE}}</span>
+							<span class="rak-sum-label black">{{rakPendingApproval.detailModel.remitTransactionDate}}</span>
+				</p>
+				
+					<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.RCM.PMT_TYPE}}</span>
+							<span class="rak-sum-label black">{{rakPendingApproval.detailModel.paymentType}}</span>
+				</p>
+				
+					<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.RCM.STATUS}}</span>
+							<span class="rak-sum-label black">{{rakPendingApproval.detailModel.remitStatus}}</span>
+				</p>
+				
+			
+				
+				
+				<p class="rak-sum-txt" ng-show='rakPendingApproval.detailModel.selectedReason'>
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.REASON}}</span>
+					<span class="rak-sum-label black">{{rakPendingApproval.detailModel.selectedReason}}</span>
+				</p>
+				<p class="rak-sum-txt" ng-show='rakPendingApproval.detailModel.selectedReason1'>
+					<span class="rak-sum-label"></span>
+					<span class="rak-sum-label black">{{rakPendingApproval.detailModel.selectedReason1}}</span>
+				</p>
+				<p class="rak-sum-txt" ng-show='rakPendingApproval.detailModel.selectedReason2'>
+					<span class="rak-sum-label"></span>
+					<span class="rak-sum-label black">{{rakPendingApproval.detailModel.selectedReason2}}</span>
+				</p>
+				<p class="rak-sum-txt" ng-show='rakPendingApproval.detailModel.selectedReason3'>
+					<span class="rak-sum-label"></span>
+					<span class="rak-sum-label black">{{rakPendingApproval.detailModel.selectedReason3}}</span>
+				</p>
+				
+					<fin-input type="text" ng-show="rakPendingApproval.clickedEvent=='REJRCM'"
+							model="rakPendingApproval.approveAuthModel.remarksTextRemit"
+							display-row="full" placeholder="{{appLiterals.APP.RAKPENDINGAPPROVAL.RCM.REMARKS}}"
+							validation-flag='pageErrorArr["rakPendingApproval.approveAuthModel.remarksTextRemit"]'></fin-input>
+					
+						
+						
+						<div ng-if="rakPendingApproval.approveAuthModel.roleDetailsList.length>0">
+
+			<p class="rak-sum-txt " ng-show='rakPendingApproval.pendingItem.requestedBy'>
+							<span  class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.APPROVEDBY}}</span>
+							<span  class="rak-sum-label black">{{rakPendingApproval.pendingItem.requestedBy}}</span>
+						</p>
+			
+			
+			
+			
+			<p class="rak-sum-txt" ng-show="rakPendingApproval.approveAuthModel.userName">
+					<span class="rak-sum-label ng-binding">Approver Name</span>
+					<span class="rak-sum-label black ng-binding">{{rakPendingApproval.approveAuthModel.userName}}</span>
+				</p>	
+				
+							   <div class="fin-txt"></div>
+
+			
+			<div class="disclaimer3"  ng-show="rakCorpInit.corpModel.roleSelectedFlag=='N'">
+					 <span class="black" ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_OVERLAPPINGRULE1"></span> 
+                       <!--  <span ng-click="rakCorpInit.corpModel.setOverlapping();" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span> -->
+				
+				</div>
+				
+				<div class="label-wrap">
+			<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="rakCorpInit.corpModel.roleSelectedFlag=='N';setEvent('onCorpGetPendingLookUpClick');"> {{appLiterals.APP.CORPORATE.SELECTAPPR}}</button>
+			</div>
+			
+			
+			<!-- 
+				<div class="apprHeadingMain rakWidth100">
+								<div class="apprHeading">{{appLiterals.APP.CORPORATE.SELECTAPPR}}</div>
+						
+						</div> 
+						<div>
+			<div class="rakwidth65">
+			<fin-input  type="text" model="rakPendingApproval.approveAuthModel.userName" display-row="full"  validation-flag='pageErrorArr["rakPendingApproval.approveAuthModel.userName"]' placeholder="{{appLiterals.APP.CORPORATE.SELECTUSER}}" > </fin-input>validation-flag='pageErrorArr["rakPayee.payeeModel.name"]'
+			</div>
+			<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakLookUpbutton" ng-click="rakPendingApproval.approveAuthModel.backFlag='Y';setEvent('onCorpGetPendingLookUpClick');"> {{appLiterals.APP.CORPORATE.LOOKUP}}</button>
+
+			
+			</div>
+		 -->
+				
+							</div>
+					
+
+						
+						<fin-dynamicauth></fin-dynamicauth>
+
+						<div class="label-wrap" layout-align="center center" class="btn-wrap button-wrapper">
+							<button type="button"
+								
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakPendingApproval.approveAuthModel.backFlag='Y';setEvent('onConfirmClick');">
+								{{appLiterals.APP.COMMON.BUTTON.CONFIRM}}</button>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

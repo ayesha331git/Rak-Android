@@ -1,0 +1,147 @@
+<div class="finacle-container"
+	ng-init="resetPageError(); moveMoney.transfers.initPayNowPage(successResponse.responsesList);">
+	<div class="account-page">
+    <div class="col-sm-10"> 
+      <div class="app-title-wrapper">
+		
+  		  <div ng-class="app-sche-details" ng-click="rakSendMoney.sendMoneyTab=true">  Send Money </div>     
+  		      
+          <!--  <div class="rak-header-tab-30per">Beneficiary</div> -->
+           <div class="app-sche-details">Beneficiary</div>
+               <div class="app-sche-details">History</div>
+  	
+      </div>
+      <div class="highlight-color"> </div>       
+      <div class="bg-color">
+        <div class="row" >
+          <div class="col-sm-1"> </div>
+          <div class="col-sm-10">
+         <!--  <div class="rak-grey-header">
+        
+          </div> -->
+          
+		  <div class="app-future"> 
+				  <div class="app-transaction"> 
+					<div class="fut-txt1"  ng-click="setEvent('onBankTransferTabClick')"> Bank Transfer</div>
+					<div class="app-fut-line"></div>
+					<div class="app-fut-tri"></div>           
+				  </div>
+				  <div class="app-sche-details" ng-click="setEvent('onRakMoneyPayTabClick')">
+					<span class="fut-txt"> RAK money</span>
+				  </div>
+				  <div class="app-sche-details" ng-click="setEvent('onMobileCashTabClick')">
+					<span class="fut-txt">Mobile Cash</span>
+				  </div>				  
+				</div>
+				<div 
+						ng-init='fromAccountArray=createDropDownOptionArray(moveMoney.common.ownAccounts, ["accountNickName", " - ", "accountNumber"],"accountIndex")'>
+						<fin-input type="dropdown" option-array="fromAccountArray"
+							model="moveMoney.common.selectedFromAccount" display-row="full"
+							placeholder="To:Select Existing Ben" validation-flag='pageErrorArr["moveMoney.common.selectedFromAccount"]' > </fin-input>
+					
+					</div>
+					
+					<div 
+						ng-init='fromAccountArray=createDropDownOptionArray(moveMoney.common.ownAccounts, ["accountNickName", " - ", "accountNumber"],"accountIndex")'>
+						<fin-input type="dropdown" option-array="fromAccountArray"
+							model="moveMoney.common.selectedFromAccount" display-row="full"
+							placeholder="Select your Bank Acccount" validation-flag='pageErrorArr["moveMoney.common.selectedFromAccount"]' > </fin-input>
+					
+					</div>
+					
+					<div ng-hide="true"
+						ng-init='fromAccountArray=createDropDownOptionArray(moveMoney.common.ownAccounts, ["accountNickName", " - ", "accountNumber"],"accountIndex")'>
+						<fin-input type="dropdown" option-array="fromAccountArray"
+							model="moveMoney.common.selectedFromAccount" display-row="full"
+							placeholder="Select your  Self Bank Acccount" validation-flag='pageErrorArr["moveMoney.common.selectedFromAccount"]' > </fin-input>
+					
+					</div>
+					<div ng-hide="true"
+						ng-init='fromAccountArray=createDropDownOptionArray(moveMoney.common.ownAccounts, ["accountNickName", " - ", "accountNumber"],"accountIndex")'>
+						<fin-input type="dropdown" option-array="fromAccountArray"
+							model="moveMoney.common.selectedFromAccount" display-row="full"
+							placeholder="Select your  Within Rak" validation-flag='pageErrorArr["moveMoney.common.selectedFromAccount"]' > </fin-input>
+					
+					</div>
+					<div ng-hide="true"
+						ng-init='fromAccountArray=createDropDownOptionArray(moveMoney.common.ownAccounts, ["accountNickName", " - ", "accountNumber"],"accountIndex")'>
+						<fin-input type="dropdown" option-array="fromAccountArray"
+							model="moveMoney.common.selectedFromAccount" display-row="full"
+							placeholder="Select your Within UAE" validation-flag='pageErrorArr["moveMoney.common.selectedFromAccount"]' > </fin-input>
+					
+					</div>
+					<div ng-hide="true"
+						ng-init='fromAccountArray=createDropDownOptionArray(moveMoney.common.ownAccounts, ["accountNickName", " - ", "accountNumber"],"accountIndex")'>
+						<fin-input type="dropdown" option-array="fromAccountArray"
+							model="moveMoney.common.selectedFromAccount" display-row="full"
+							placeholder="Select your Outside UAE" validation-flag='pageErrorArr["moveMoney.common.selectedFromAccount"]' > </fin-input>
+					
+					</div>
+				
+					<div 
+						ng-init='fromAccountArray=createDropDownOptionArray(moveMoney.common.ownAccounts, ["accountNickName", " - ", "accountNumber"],"accountIndex")'>
+						<fin-input type="dropdown" option-array="fromAccountArray"
+							model="moveMoney.common.selectedFromAccount" display-row="full"
+							placeholder="Currency" validation-flag='pageErrorArr["moveMoney.common.selectedFromAccount"]' > 
+							
+						</fin-input>
+					
+					</div>
+					
+					<div 
+						ng-init='fromAccountArray=createDropDownOptionArray(moveMoney.common.ownAccounts, ["accountNickName", " - ", "accountNumber"],"accountIndex")'>
+						<fin-input type="dropdown" option-array="fromAccountArray"
+							model="moveMoney.common.selectedFromAccount" display-row="full"
+							placeholder="INR" validation-flag='pageErrorArr["moveMoney.common.selectedFromAccount"]' >
+							 </fin-input>
+					
+					</div>
+					
+					
+					
+					 <div >
+            				<fin-input type="text" model="fields.notificationAddress" display-row="full" placeholder="Enter Amount" validation-flag='pageErrorArr["moveMoney.transfers.notificationFields[" + {{$index}} +"].notificationAddress"]'> </fin-input>
+            			</div>					
+					
+					
+					 <div >
+            				<fin-input type="text" model="fields.notificationAddress" display-row="full" placeholder="1 AED=" validation-flag='pageErrorArr["moveMoney.transfers.notificationFields[" + {{$index}} +"].notificationAddress"]' read only> </fin-input>
+            			</div>	
+            			
+            			
+            			<div>
+							<fin-input type="date" model="moveMoney.common.displayDate"
+								validation-flag="false" placeholder="date of Transfer"
+								display-row="full" > </fin-input>
+						</div>
+							
+							
+								<div ng-init='fromAccountArray=createDropDownOptionArray(moveMoney.common.ownAccounts, ["accountNickName", " - ", "accountNumber"],"accountIndex")'>
+						<fin-input type="dropdown" option-array="fromAccountArray"
+							model="moveMoney.common.selectedFromAccount" display-row="full"
+							placeholder="Frequency :once" validation-flag='pageErrorArr["moveMoney.common.selectedFromAccount"]' > </fin-input>
+					
+					</div>	
+					
+						<div	ng-init='fromAccountArray=createDropDownOptionArray(moveMoney.common.ownAccounts, ["accountNickName", " - ", "accountNumber"],"accountIndex")'>
+						<fin-input type="dropdown" option-array="fromAccountArray"
+							model="moveMoney.common.selectedFromAccount" display-row="full"
+							placeholder="Charges:All charges to my account" validation-flag='pageErrorArr["moveMoney.common.selectedFromAccount"]' > </fin-input>
+					
+					</div>
+						
+					<div	ng-init='fromAccountArray=createDropDownOptionArray(moveMoney.common.ownAccounts, ["accountNickName", " - ", "accountNumber"],"accountIndex")'>
+						<fin-input type="dropdown" option-array="fromAccountArray"
+							model="moveMoney.common.selectedFromAccount" display-row="full"
+							placeholder="Reason of Transfer" validation-flag='pageErrorArr["moveMoney.common.selectedFromAccount"]' > </fin-input>
+					
+					</div>				
+			
+
+						<button type="button" class="btn--primary-btn" ng-click="moveMoney.transfers.isPayNowClick=true; moveMoney.utils.parseNumbers(); moveMoney.common.fromAuthPage=false; moveMoney.transfers.populateNotificationDetails(); moveMoney.common.currentMoveMoneyType==moveMoney.moveMoneyType.AdhocTransfer ? setEvent('onAdhocTransferPayNowClick') : (moveMoney.common.currentMoveMoneyType==moveMoney.moveMoneyType.SFT) ? setEvent('onSFTPayNowClick') : setEvent('onTransfersPayNowClick') ;">Send 
+						</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

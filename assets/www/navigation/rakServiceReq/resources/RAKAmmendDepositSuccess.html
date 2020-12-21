@@ -1,0 +1,93 @@
+<div class="finacle-container">
+
+	      <div class="account-page">
+	      <div class="col-sm-11">
+            
+            <div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{successResponse.responsesList[0].SuccessMsg}}</span>
+                        </div>
+                  </div>
+            
+            
+            <div class="main-form-heading-ServiceReq"> 
+                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DEP_AMMEND_MATURITY_INST}}
+                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}} </span>                
+                 </h2>              
+			</div>
+
+			 <div class="bg-color rak-cont-padding rak-scroll-success">
+
+			<div class="row" >
+
+          <div class="">
+
+
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.FIXED_DEPOSIT_NUMBER}}
+						</span> <span class="rak-sum-label black">{{rakServiceReq.RAKAmmendDeposit.selectedepaccountnum}}</span>
+					</p>
+
+					<p class="rak-sum-txt" ng-show="rakServiceReq.RAKAmmendDeposit.instructions == 'C'">
+						<span class="rak-sum-label" ng-show="rakServiceReq.RAKAmmendDeposit.instructions == 'C'">{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.CREDIT_INTEREST_TO_MY_ACCOUNT}}</span>
+						<span class="rak-sum-label black">{{rakServiceReq.RAKAmmendDeposit.debitopraccountList[rakServiceReq.RAKAmmendDeposit.selectedDebitOprAccNo].accountId}}</span>
+					</p>
+
+
+					<p class="rak-sum-txt" ng-show="rakServiceReq.RAKAmmendDeposit.instructions == 'I'">
+						<span class="rak-sum-label" ng-show="rakServiceReq.RAKAmmendDeposit.instructions == 'I'">{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.INCREASE_AMOUNT_DEP}}</span>
+						 <span class="rak-sum-label black">{{rakServiceReq.RAKAmmendDeposit.increaseamtdepval}}</span>
+					</p>
+
+					<p class="rak-sum-txt" ng-show="rakServiceReq.RAKAmmendDeposit.instructions == 'I'">
+						<span class="rak-sum-label" ng-show="rakServiceReq.RAKAmmendDeposit.instructions == 'I'">{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.AND_DEBIT_ACCOUNT_NUM}}</span>
+						 <span class="rak-sum-label black">{{rakServiceReq.RAKAmmendDeposit.debitopraccountListincrease[rakServiceReq.RAKAmmendDeposit.selecteddebitopraccountListincrease].accountId}}</span>
+					</p>
+
+					<p class="rak-sum-txt" ng-show="rakServiceReq.RAKAmmendDeposit.instructions == 'D'">
+						<span class="rak-sum-label" ng-show="rakServiceReq.RAKAmmendDeposit.instructions == 'D'">{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.DECREASE_AMOUNT_DEP}}</span>
+					    <span class="rak-sum-label black">{{rakServiceReq.RAKAmmendDeposit.decreaseamtdepval}}</span>
+					</p>
+
+					<p class="rak-sum-txt" ng-show="rakServiceReq.RAKAmmendDeposit.instructions == 'D'">
+						<span class="rak-sum-label" ng-show="rakServiceReq.RAKAmmendDeposit.instructions == 'D'">{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.AND_CREDIT_ACCOUNT_NUM}}</span>
+					    <span class="rak-sum-label black">{{rakServiceReq.RAKAmmendDeposit.debitopraccountListdecrease[rakServiceReq.RAKAmmendDeposit.selecteddebitopraccountListdecrease].accountId}}</span>
+					</p>
+
+
+					<p class="rak-sum-txt" ng-show="rakServiceReq.RAKAmmendDeposit.instructions == 'CTD' && rakServiceReq.RAKAmmendDeposit.regularperiodvalue == 'RegP'">
+						<span class="rak-sum-label" ng-show="rakServiceReq.RAKAmmendDeposit.instructions == 'CTD' && rakServiceReq.RAKAmmendDeposit.regularperiodvalue == 'RegP'">{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.REGULAR_PERIOD}}</span>
+					    <span class="rak-sum-label black">{{rakServiceReq.RAKAmmendDeposit.selectedperiod}}</span>
+					</p>
+
+					<p class="rak-sum-txt" ng-show="rakServiceReq.RAKAmmendDeposit.instructions == 'CTD' && rakServiceReq.RAKAmmendDeposit.regularperiodvalue == 'Date'">
+						<span class="rak-sum-label" ng-show="rakServiceReq.RAKAmmendDeposit.instructions == 'CTD' && rakServiceReq.RAKAmmendDeposit.regularperiodvalue == 'Date'">
+						{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.FROM_DATE}}</span>
+					    <span class="rak-sum-label black">{{rakServiceReq.RAKAmmendDeposit.fromDate}}</span>
+					</p>
+
+					<p class="rak-sum-txt" ng-show="rakServiceReq.RAKAmmendDeposit.instructions == 'CTD' && rakServiceReq.RAKAmmendDeposit.regularperiodvalue == 'Date'">
+						<span class="rak-sum-label" ng-show="rakServiceReq.RAKAmmendDeposit.instructions == 'CTD' && rakServiceReq.RAKAmmendDeposit.regularperiodvalue == 'Date'">
+						{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.TO_DATE}}</span>
+					    <span class="rak-sum-label black">{{rakServiceReq.RAKAmmendDeposit.toDateFormatted}}</span>
+					</p>
+
+
+
+		<div class="label-wrap">
+				<button type="button"
+				class="btn--special-btn btn-middle rak-button-right"
+				ng-click="rakServiceReq.clearRAKAmmendDepositData();setEvent('RAKAmmendDepositDoneClick')">
+				{{appLiterals.APP.RAKCOMMONLITERALS.DONE}} </button>
+			</div>
+
+         	</div>
+         	</div>
+
+          </div>
+          <div class="col-sm-1"> </div>
+        </div>
+      </div>
+    </div>
+
+

@@ -1,0 +1,101 @@
+		<div class="rak-back-header">
+
+			<i class="rak-back-img"
+				ng-click="setEvent('onCancelClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.initRakAmendRecTermDeposit(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+				
+									
+					<div class="main-form-heading-ServiceReq"> 
+		                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.AMEND_FIXED_REC}}
+		                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+		                 </h2>              
+					</div>
+
+					<div class="bg-color rak-cont-padding rak-scroll">
+						<div class="row">
+							
+
+							<div
+								ng-init='recDepositAcc = createDropDownOptionArray(rakServiceReq.RakAmendRecTermDepositModel.recDepositAccountsList,["productDesc","-","accountId"],"index");'>
+								<fin-input type="dropdown"
+									model="rakServiceReq.RakAmendRecTermDepositModel.depositAccount"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_AMENDTD.TXT_RD_NUM}}"
+									validation-flag='pageErrorArr["rakServiceReq.RakAmendRecTermDepositModel.depositAccount"]'
+									option-array="recDepositAcc"
+									on-change="rakServiceReq.RakRecAmendHideOtherfields();rakServiceReq.RakAmendRecTermDepositModel.resetRakAmendRecTermDepositModel();setEvent('RAKonFetchDetailClick');"></fin-input>
+							</div>
+
+								
+
+							
+                                <div ng-show="rakServiceReq.RakAmendRecTermDepositModel.isDetailsFetched =='Y'">
+								
+								<p class="rak-parent-txt">
+									<span class="rak-sum-label ServiceReqNormalLable">{{appLiterals.APP.RAK_SERVICES.RAK_AMENDTD.PH_FUND_ACC_NUM}}</span>
+									<span class="rak-sum-label black ServiceReqNormalLable">{{rakServiceReq.RakAmendRecTermDepositModel.FundingAccountNumber}}</span>
+										
+								</p>
+								
+						
+
+								<div>
+									<div
+										ng-init='updatedArr = createDropDownOptionArray(rakServiceReq.RakAmendRecTermDepositModel.creditAccList,["productDesc","-","accountId"], "index");'>
+										<fin-input type="dropdown"
+											model="rakServiceReq.RakAmendRecTermDepositModel.selectedCreditAccount"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_AMENDTD.PH_NEW_FUND_ACC_NUM}}"
+											validation-flag='pageErrorArr["rakServiceReq.RakAmendRecTermDepositModel.selectedCreditAccount"]'
+											option-array="updatedArr"> </fin-input>
+									</div>
+								</div>
+
+
+							
+
+
+								<div class="label-wrap">
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small rak-button-right"
+										ng-click="setEvent('onConfirmClick');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+
+								</div>
+								
+					<!-- 			
+							<div class="disclaimer">
+                              <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                              <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                              </div>
+                              
+                           		<div class="disclaimer3" ng-if="rakDisclaimerFlag">
+										<span ng-bind-html="appLiterals.APP.DISCLAIMER.PLEASE"></span>
+										<span ng-click="rakServiceReq.fetchDisclaimer('RDPreClosureRates.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+										<span ng-bind-html="appLiterals.APP.DISCLAIMER.CLOSE_REC_DEP_INIT_CLCIK"></span>										
+								</div>
+								
+								
+              				</div> -->
+								
+													
+
+							</div>
+						</div>
+
+					</div>
+					<div class="col-sm-1"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

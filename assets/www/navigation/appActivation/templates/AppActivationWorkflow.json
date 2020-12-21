@@ -1,0 +1,626 @@
+{
+  "pageNavigation":
+  [
+  		{ 
+  			"RegisterCustomerIdPage" :
+  			[
+	  			{
+	                    "eventName": "onForgotMPINCloseClick",
+	                    "action": "navigation",
+	                    "actionType": "navigation",
+	                    "successPage": {
+	                        "subFeature": "AppActivation",
+	                        "pageName": "ForgotMPINLandingPage"
+	                    },
+	                    "errorPage": {
+	                        "subFeature": "AppActivation",
+	                        "pageName": "RegisterCustomerIdPage"
+	                    }
+	                },
+  				{ 
+  					"eventName" : "onAppActivationProceedClick",
+  					"action" : "AppActivationInitService",
+  					"actionType":"service",
+  					"validation": "true",
+  					"validationParams": [
+                    	"appActivation.userId"
+                    ],
+  					"parameters": {
+                        "CorpId": "appActivation.userId",
+                        "CLIENT_ID": "appActivation.clientId",
+                        "isActivation":"appActivation.isActivation"
+                    },
+  					"successPage" : {
+  						"pageName": "AppActivationOTPAuthenticatePage"
+  					},
+  					"errorPage" : {
+  						"pageName": "RegisterCustomerIdPage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onAppActivationUserDoesNotExistClick",
+  					"action" : "AppActivationInitService",
+  					"actionType":"service",
+  					"validation": "false",
+  					"successPage" : {
+  						"pageName": "AppActivationOTPAuthenticatePage"
+  					},
+  					"errorPage" : {
+  						"pageName": "RegisterCustomerIdPage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onCustomerIdCancelClick",
+  					"action" : "navigation",
+  					"actionType":"navigation",
+  					"validation": "false",
+  					"successPage" : {
+  						"subFeature": "RetailUserLogin",
+  						"pageName": "RetailUserLoginPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "RegisterCustomerIdPage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onForgotMPINPasswordClick",
+  					"action": "ForgotPasswordUserIDService",
+                    "actionType": "service",
+                    "encryptionEnabled": false,
+                    "validation": "false",
+                    "parameters": {
+                        "CorpId": "appActivation.userId"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotPasswordUserID"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotPasswordUserID"
+                    }
+  				},
+  				{ 
+  					"eventName" : "onDoNotHaveUserIDClick",
+  					"action": "RegisterEnrolmentInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterSelfEnrolment"
+                    },
+                    "errorPage": {
+                        "pageName": "RegisterCustomerIdPage"
+                    }
+  				}
+  			]
+  		},
+  		{ 
+  			"AppActivationOTPAuthenticatePage" :
+  			[
+  				{ 
+  					"eventName" : "onAppActivationOTPProceedClick",
+  					"action" : "AppActivationValidateSMSOTPService",
+  					"actionType":"service",
+  					"validation": "true",
+  					"validationParams": [
+                    	"appActivation.authenticateOTP"
+                    ],
+  					"parameters": {
+  						"jsessionid": "appActivation.sessionId",
+                        "mbparam": "appActivation.mparam",
+                        "SMSOTP": "appActivation.authenticateOTP"
+                    },
+  					"successPage" : {
+  						"pageName": "AppActivationCreditCardAndDebitCardPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "AppActivationOTPAuthenticatePage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onValidateSMSOTPForTouchIDAndMPINClick",
+  					"action" : "ValidateSMSOTPForTouchIDService",
+  					"actionType":"service",
+  					"validation": "true",
+  					"validationParams": [
+                    	"appActivation.authenticateOTP"
+                    ],
+  					"parameters": {
+  						"jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "SMSOTP": "appActivation.authenticateOTP"
+                    },
+  					"successPage" : {
+  						"pageName": "AppActivationSetMPINTouchIDPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "AppActivationOTPAuthenticatePage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onValidateSMSOTPForTouchIDAndPWDClick",
+  					"action" : "ValidateSMSOTPForTouchIDService",
+  					"actionType":"service",
+  					"validation": "true",
+  					"validationParams": [
+                    	"appActivation.authenticateOTP"
+                    ],
+  					"parameters": {
+  						"jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "SMSOTP": "appActivation.authenticateOTP"
+                    },
+  					"successPage" : {
+  						"pageName": "AppActivationSetMPINPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "AppActivationOTPAuthenticatePage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onRegenerateOTPClick",
+  					"action" : "AppActivationReGenerateOTPService",
+  					"actionType":"service",
+  					"validation": "false",
+  					"parameters": {
+  						"jsessionid": "appActivation.sessionId",
+                        "mbparam": "appActivation.mparam"
+                    },
+  					"successPage" : {
+  						"pageName": "AppActivationOTPAuthenticatePage"
+  					},
+  					"errorPage" : {
+  						"pageName": "AppActivationOTPAuthenticatePage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onRegenerateOTPForTouchIDClick",
+  					"action" : "AppActivationReGenerateOTPService",
+  					"actionType":"service",
+  					"validation": "false",
+  					"parameters": {
+  						"jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+  					"successPage" : {
+  						"pageName": "AppActivationOTPAuthenticatePage"
+  					},
+  					"errorPage" : {
+  						"pageName": "AppActivationOTPAuthenticatePage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onOTPAuthenticateCancelClick",
+  					"action" : "navigation",
+  					"actionType":"navigation",
+  					"validation": "false",
+  					"successPage" : {
+  						"subFeature": "RetailUserLogin",
+  						"pageName": "RetailUserLoginPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "AppActivationOTPAuthenticatePage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onTouchIDOTPAuthenticateCancelClick",
+  					"action": "RefreshAccountDetailsService",
+                    "actionType": "service",
+  					"validation": "false",
+  					"successPage" : {
+  						"subFeature": "RetailUserLogin",
+  						"pageName": "RetailUserDashboardPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "AppActivationOTPAuthenticatePage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onMaxDeviceInfo",
+  					"action" : "navigation",
+  					"actionType":"navigation",
+  					"validation": "false",
+  					"successPage" : {
+  						"pageName": "MaximumDeviceInfoPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "RegisterCustomerIdPage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onAppActivationSetMPINSubmitClick",
+  					"action" : "AppActivationSubmitService",
+  					"actionType":"service",
+  					"validation": "true",
+  					"validationParams": [
+                    	"appActivation.authenticateOTP"
+                    ],
+  					"parameters": {
+  						"jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Activation_DeviceName": "appActivation.deviceName",
+                        "CLIENT_ID":"appActivation.clientId",
+                        "LICENSE_STORE_SUCCESS":"true"
+                    },
+  					"successPage" : {
+  					    "subFeature":"AppActivation",
+  						"pageName": "AppActivationSuccessfulPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "AppActivationSetMPINPage"
+  					}
+  				}
+  			]
+  		},
+  		{ 
+  			"AppActivationCreditCardAndDebitCardPage" :
+  			[
+  				{ 
+  					"eventName" : "onAppActivationCCProceedClick",
+  					"action" : "AppActivationCCValidationService",
+  					"actionType":"service",
+  					"validation": "true",
+  					"validationParams": [
+  						"appActivation.cardNumber1",
+  						"appActivation.cardNumber2",
+                    	"appActivation.cardNumber3",
+                    	"appActivation.cardNumber4",
+                    	"appActivation.atmPin",
+                    	"appActivation.cardExpiryMonth",
+                    	"appActivation.cardExpiryYear"
+                    ],
+                    "validationErrorMessage": [
+           				{
+           					"pinAndCVVMinLength":"APP.ACTIVATION.VAL_ERROR.VALID_CVV"
+           				}
+           			],
+  					"parameters": {
+  					    "jsessionid": "appActivation.sessionId",
+                        "mbparam": "appActivation.mparam",
+                        "CardNumber1": "appActivation.cardNumber1",
+                        "CardNumber2": "appActivation.cardNumber2",
+                        "CardNumber3": "appActivation.cardNumber3",
+                        "CardNumber4": "appActivation.cardNumber4",
+                        "AtmPin":"appActivation.atmPin",
+                        "CardExpiryMonth":"appActivation.cardExpiryMonth",
+                        "CardExpiryYear":"appActivation.cardExpiryYear"
+                    },
+  					"successPage" : {
+  						"pageName": "AppActivationSetMPINPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "AppActivationCreditCardAndDebitCardPage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onAppActivationDCProceedClick",
+  					"action" : "AppActivationDCValidationService",
+  					"actionType":"service",
+  					"validation": "true",
+  					"validationParams": [
+  						"appActivation.cardNumber1",
+  						"appActivation.cardNumber2",
+                    	"appActivation.cardNumber3",
+                    	"appActivation.cardNumber4",
+                    	"appActivation.atmPin",
+                    	"appActivation.cardName"
+                    ],
+                    "validationErrorMessage": [
+           				{
+           					"pinAndCVVMinLength":"APP.ACTIVATION.VAL_ERROR.VALID_PIN"
+           				}
+           			],
+  					"parameters": {
+  						"jsessionid": "appActivation.sessionId",
+                        "mbparam": "appActivation.mparam",
+                        "CardNumber1": "appActivation.cardNumber1",
+                        "CardNumber2": "appActivation.cardNumber2",
+                        "CardNumber3": "appActivation.cardNumber3",
+                        "CardNumber4": "appActivation.cardNumber4",
+                        "AtmPin":"appActivation.atmPin",
+                        "CardName":"appActivation.cardName"
+                    },
+  					"successPage" : {
+  						"pageName": "AppActivationSetMPINPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "AppActivationCreditCardAndDebitCardPage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onCreditCardAndDebitCardCancelClick",
+  					"action" : "navigation",
+  					"actionType":"navigation",
+  					"validation": "false",
+  					"successPage" : {
+  						"subFeature": "RetailUserLogin",
+  						"pageName": "RetailUserLoginPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "AppActivationCreditCardAndDebitCardPage"
+  					}
+  				}
+  			]
+  		},
+  		{ 
+  			"AppActivationSetMPINPage" :
+  			[
+  				{ 
+  					"eventName" : "onAppActivationSetMPINSubmitClick",
+  					"action" : "AppActivationSubmitService",
+  					"actionType":"service",
+  					"validation": "true",
+  					"validationParams": [
+  						"appActivation.userMPIN",
+  						"appActivation.confirmMPIN",
+                    	"appActivation.deviceName"
+                    ],
+                    "validationErrorMessage": [
+           				{
+                   			"stringEquals": "APP.ACTIVATION.VAL_ERROR.VALID_MPIN"
+           				},
+           				{
+           					"maxLength":"APP.ACTIVATION.VAL_ERROR.VALID_DEVICENAME"
+           				}
+           			],
+  					"parameters": {
+  						"jsessionid": "appActivation.sessionId",
+                        "mbparam": "appActivation.mparam",
+                        "Activation_DeviceName": "appActivation.deviceName",
+                        "CLIENT_ID":"appActivation.clientId",
+                        "LICENSE_STORE_SUCCESS":"appActivation.licenseStoreSuccess"
+                    },
+  					"successPage" : {
+  						"pageName": "AppActivationSuccessfulPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "AppActivationSetMPINPage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onSetMPINCancelClick",
+  					"action" : "navigation",
+  					"actionType":"navigation",
+  					"validation": "false",
+  					"successPage" : {
+  						"subFeature": "RetailUserLogin",
+  						"pageName": "RetailUserLoginPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "AppActivationSetMPINPage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onManageDevicePage",
+  					"action": "ManageDeviceInitService",
+  					"actionType": "service",
+                  	"validation": "false",
+                 	 "parameters": {
+                        "jsessionid": "appActivation.sessionId",
+                        "mbparam": "appActivation.mparam"
+                    },
+  					"successPage" : {
+  						"subFeature": "MyProfile",
+  						"pageName": "ManageDevicePage"
+  					},
+  					"errorPage" : {
+  						"pageName": "AppActivationSetMPINPage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onActivateTouchIDClick",
+  					"action": "navigation",
+  					"actionType": "navigation",
+                  	"validation": "false",
+  					"successPage" : {
+  						"pageName": "AppActivationSuccessfulPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "AppActivationSetMPINPage"
+  					}
+  				}
+  			]
+  		},
+  		{ 
+  			"AppActivationSuccessfulPage" :
+  			[
+  				{ 
+  					"eventName" : "onAppActivationSuccessLoginClick",
+  					"action" : "navigation",
+  					"actionType":"navigation",
+  					"validation": "false",
+  					"successPage" : {
+  						"subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "AppActivationSuccessfulPage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onAppActivationSuccessClick",
+  					"action" : "navigation",
+  					"actionType":"navigation",
+  					"validation": "false",
+  					"successPage" : {
+  						"subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "AppActivationSuccessfulPage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onAppActivationSuccessClickGotoDashboard",
+  					"action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "parameters": {
+                         "jsessionid": "fields.finacleUserSessionId",
+                		 "mbparam": "fields.finacleMbParam",
+                		 "USER_TYPE": "dashboard.userType"
+                    },
+  					"successPage" : {
+  						"subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "AppActivationSuccessfulPage"
+  					}
+  				}
+  			]
+  		},
+  		{ 
+  			"ForgotMPINLandingPage" :
+  			[
+  				{ 
+  					"eventName" : "onForgotMPINClick",
+  					"action" : "navigation",
+  					"actionType":"navigation",
+  					"validation": "false",
+  					"successPage" : {
+                        "pageName": "RegisterCustomerIdPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "ForgotMPINLandingPage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onCancelClick",
+  					"action" : "navigation",
+  					"actionType":"navigation",
+  					"validation": "false",
+  					"successPage" : {
+  						"subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "ForgotMPINLandingPage"
+  					}
+  				}
+  			]
+  		},
+  		{ 
+  			"AppActivationSetMPINTouchIDPage" :
+  			[ 
+  				{
+  					"eventName" : "onAppActivationSetMPINSubmitClick",
+  					"action" : "AppActivationSubmitService",
+  					"actionType":"service",
+  					"validation": "true",
+  					"validationParams": [
+  						"appActivation.userMPIN"
+                    ],
+  					"parameters": {
+  						"jsessionid": "fields.finacleUserSessionId",
+                		 "mbparam": "fields.finacleMbParam",
+                        "Activation_DeviceName": "appActivation.deviceName",
+                        "CLIENT_ID":"appActivation.clientId",
+                        "LICENSE_STORE_SUCCESS":"appActivation.licenseStoreSuccess"
+                    },
+  					"successPage" : {
+  						"pageName": "AppActivationSuccessfulPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "AppActivationSetMPINTouchIDPage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onSetMPINTouchIDPageCancelClick",
+  					"action": "RefreshAccountDetailsService",
+                    "actionType": "service",
+  					"validation": "false",
+  					"successPage" : {
+  						"subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserDashboardPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "ForgotMPINLandingPage"
+  					}
+  				}
+   			]
+  		},
+  		{ 
+  			"MaximumDeviceInfoPage" :
+  			[
+  				{ "eventName" : "onMaxDeactivate",
+		          "action" : "navigation",
+		          "actionType":"navigation",
+		          "validation": "false",
+		          "successPage" : {
+		                  "pageName": "AppActivationOTPAuthenticatePage"
+		                  },
+		          "errorPage" : {
+		                  "pageName": "AppActivationOTPAuthenticatePage"
+		                }
+		         },
+  				{ 
+  					"eventName" : "onNoMaxDevice",
+  					"action" : "navigation",
+  					"actionType":"navigation",
+  					"validation": "false",
+  					"successPage" : {
+  						"pageName": "RetailUserLoginPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "RegisterCustomerIdPage"
+  					}
+  				}
+  			]
+  		},
+  		{ 
+  			"ActivationChangeMPINPage" :
+  			[
+  				{ 
+  					"eventName" : "onSubmitClick",
+  					"action" : "MPINChangeSuccessService",
+  					"actionType":"service",
+  					"validation": "true",
+  					"validationParams": [
+  						"appActivation.userMPIN",
+  						"appActivation.confirmMPIN",
+                    	"appActivation.oldMPIN"
+                    ],
+                    "validationErrorMessage": [
+           				{
+                   			"stringEquals": "APP.ACTIVATION.VAL_ERROR.VALID_MPIN"
+           				},
+           				{
+           					"maxLengthMPIN":"APP.ACTIVATION.VAL_ERROR.VALID_MPINLENGTH" 
+           				}
+           				
+           			],
+  					"parameters": {
+  						"jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "CHANGE_MPIN_OTP": "appActivation.otp",
+                        "CLIENT_ID":"appActivation.clientId",
+                        "CHANGE_MPIN_DONE":"appActivation.changeMPINDone"
+                    },
+  					"successPage" : {
+  						"pageName": "AppActivationSuccessfulPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "ActivationChangeMPINPage"
+  					}
+  				},
+  				{ 
+  					"eventName" : "onSetMPINCancelClick",
+  					"action" : "navigation",
+  					"actionType":"navigation",
+  					"validation": "false",
+  					"successPage" : {
+  						"subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+  					},
+  					"errorPage" : {
+  						"pageName": "AppActivationSetMPINPage"
+  					}
+  				}
+  			]
+  		}
+  ],
+  	"subFeatureName": "AppActivation",
+  	"startPage": "RegisterCustomerIdPage"
+}

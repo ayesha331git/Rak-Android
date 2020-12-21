@@ -1,0 +1,17 @@
+		<div class="main-form-heading-ServiceReq">
+                <h2 class="rakBenfHeader">{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.MAIN_HEADER}}
+                </h2>
+		</div>
+		<div class="money-block">
+				<ul>					
+					<li ng-class="{'active':rakPendingApproval.pendingApprovalTab=='PMA','':rakPendingApproval.pendingApprovalTab!='PMA'}"
+						ng-click='rakPendingApproval.pendingApprovalTab="PMA";rakPendingApproval.resetSearchVals();rakPendingApproval.setInitialFromToDate();rakPendingApproval.setFromToDate();rakPendingApproval.setInitialData();setGlobalEvent("onPendingApprovalClick");'>
+						{{appLiterals.APP.RAKPENDINGAPPROVAL.TABHEADERS.VIEW_APPROVAL_Q}}</li>						
+					<li ng-class="{'active':rakPendingApproval.pendingApprovalTab=='PCA','':rakPendingApproval.pendingApprovalTab!='PCA'}"
+						ng-click='rakPendingApproval.pendingApprovalTab="PCA";rakPendingApproval.resetSearchVals();rakPendingApproval.setInitialFromToDate();rakPendingApproval.setFromToDate();rakPendingApproval.setInitialData();setGlobalEvent("onPendingApprovalClick");'>
+						{{appLiterals.APP.RAKPENDINGAPPROVAL.TABHEADERS.VIEW_UNAPPROVED_TXNS}}</li>					
+					<li ng-class="{'active':rakPendingApproval.pendingApprovalTab=='PIA','':rakPendingApproval.pendingApprovalTab!='PIA'}"
+						ng-click='rakPendingApproval.pendingApprovalTab="PIA";rakPendingApproval.resetSearchVals();rakPendingApproval.setInitialFromToDate();rakPendingApproval.setFromToDate();rakPendingApproval.setInitialData();setGlobalEvent("onPendingIncompleteTxnsClick");'>
+						{{appLiterals.APP.RAKPENDINGAPPROVAL.TABHEADERS.VIEW_INCOMPLETE_TXNS}}</li>
+				</ul>
+		</div>

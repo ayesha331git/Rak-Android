@@ -1,0 +1,309 @@
+<div class="finacle-container" 
+     ng-init='
+        dashboard.currSuccessResponse = ( 
+          fields.accountDetailSource == "DASHBOARD" || fields.accountDetailSource == "ACC_ITEM" ? successResponse : dashboard.currSuccessResponse
+        );
+        fields.trxSearchFlag = (
+          fields.accountDetailSource == "DASHBOARD" || fields.accountDetailSource == "ACC_ITEM" ? false : fields.trxSearchFlag        
+        );
+        fields.trxSeachResult = fields.accountDetailSource == "ACC_SEARCH_CLICK" ? successResponse.responsesList[0].transactionList : fields.trxSeachResult;        
+        fields.currAccountDetails = fields.dashboardResponseList[fields.browseAccountIndexInt];
+      	fields.acccountEventName = (
+          fields.currAccountDetails.mainAccountType == "OPR" ? "onOprAccountDetailsClick" : 
+          (fields.currAccountDetails.mainAccountType == "DEP" ? "onDepositAccountDetailsClick" : "onLoanAccountDetailsClick")
+        );
+        successResponse.invocationResult=successResponse.hasOwnProperty("responsesList")?successResponse.responsesList:successResponse.invocationResult.response.responsesList;
+        rakAccounts.accountList(successResponse.invocationResult);
+        rakAccounts.initPage(successResponse.responsesList,rakAccounts.RAKAccountsModel.accountType);'>
+      
+<!-- dashboard.initRetailAccountsPage(cm.viewCheque.model.fromDashboard); cm.viewCheque.model.fromDashboard=false;
+        dashboard.mmid.initRetailUserAccountsPage(successResponse.responsesList[1]); -->
+
+  <div class="account-page" ng-focus="addMMIDFlag?addMMIDFlag=false:''">
+    <div class="col-sm-11">     
+      <div class="bg-color rak-cont-padding">
+          <div class="row" >
+         <div class="col-sm-1"> </div>
+			  <div class="rakwidth75" 
+			ng-init='invtAccountArrayList=createDropDownOptionArray(rakAccounts.RAKAccountsModel.invtAccounts, ["subAccountTypeDesc","accountID","-","currency"],"accountIndex");'> 
+			<fin-input type="dropdown" option-array="invtAccountArrayList"
+			model="rakAccounts.RAKAccountsModel.selectedAccount"
+			select-req="false"
+			display-row="full"
+			placeholder="{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.SELECT_ACCOUNT}}"
+			on-change='setEvent(rakAccounts.getEvent(rakAccounts.RAKAccountsModel.accountType,rakAccounts.RAKAccountsModel.invtAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType))'> 
+			</fin-input>
+			</div> 
+							
+         <div class="app  rakapp-ellipses-icon" ng-click="rakAccounts.handlePullDown($event);">
+         	<span class="app-ellipses "></span>
+         	<ul class="rakPullDownMenu">
+			    <li><a href="" ng-click="setEvent('onChequeLodgedDetail')">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_INVTESTEMENT_VALUATION}}</a></li>			          			      
+			    <li><a href="" ng-click="setEvent('onChangeNameClick')">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_INVTESTEMENT_STATEMENT}}</a></li>		          			      
+			  </ul>
+         </div>
+            
+            
+        <div ng-show="rakAccounts.RAKAccountsModel.accountType == 'MTF' ">
+            	
+	
+		<div class="rakAccounts-nickName">
+		<span class="amount-curr"> {{rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountNickName}}</span>
+		<div class="trans-date"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.NICK_NAME}}</div>
+		</div>
+		<span class="rakEditImg" ng-click="setEvent('onChangeNameClick')"></span>
+           <div  class="balance-detail" >
+              <div class="rakamount"> 
+               <span class="amount-curr">{{rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].currency }}</span>
+               <span class="amount-ps"> {{parseMoney(rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance).rs}}.</span>                
+               <span class="amount-ps"> {{parseMoney(rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance).ps}} </span> 
+             </div>
+         
+              <p class="balance-available-dash rak-display-caption">  {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CURRENT_BAL}} </p> 
+               
+            </div>
+            
+         <div class="money-block">              
+         <ul>
+            <li  class="active">
+            {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.TEXT_TRANSACTIONS}}</li>
+           <li ng-click='fields.subAccountType=rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType;
+           setEvent("onGenericAccountDetailsClick");'>
+            {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.DETAILS_TEXT}}</li>
+            <li ng-click='fields.subAccountType=rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType;
+            setEvent("onTransactionSearchClick");'>
+           {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.TEXT_FILTER}}</li>
+         </ul>
+ 		</div>
+            
+            
+            </div>
+                                                                  
+            <div class="app-future-results" ng-show='rakAccounts.RAKAccountsModel.trxSearchFlag'></div>
+            <!-- {{rakAccounts.RAKAccountsModel.trxSearchFlag}} -->
+           <!--    <div class="fut-result"> 
+                Search Results:  
+              </div>
+              <div class="app app-cancel result-close"
+               ng-click='fields.accountDetailSource = "ACC_OTHER_PAGE"; rakAccounts.RAKAccountsModel.trxSearchFlag = false;fields.trxSearchFlag=false;'></div>
+            </div> -->
+			
+			<!-- <div class="col-sm-10"> -->
+            <div class="nano scroll-height rakscroll-height" >    
+            <div class="nano-content" ng-hide='rakAccounts.RAKAccountsModel.trxSearchFlag'>
+          
+                <div class="trans-detail rakGreyRow" ng-show="rakAccounts.RAKAccountsModel.operativeTransactions == null || rakAccounts.RAKAccountsModel.operativeTransactions.length == 0">
+                  {{appLiterals.APP.DASHBOARD.ACCOUNTS_PAGE.NO_TRANSACTIONS_MSG}}
+                </div>
+                
+                <div class="trans-detail rakGreyRow" ng-hide="rakAccounts.RAKAccountsModel.operativeTransactions.length == 0" ng-repeat="transaction in rakAccounts.RAKAccountsModel.operativeTransactions" ng-click="trnxIndex = $index; fields.selectedTransId = '' + $index + ''; trxDetailsFlag = true; setEvent('onMiniStatementDetailsClick'); ">
+                  	<div class="trans-date rakPeopleNameRow1 rak20">
+                     <!--  {{transaction.date}} -->
+                       {{transaction.transactionDate}}
+                    </div>
+                    
+                  <div class="trans-dash-right rakPeopleNameRow1 rak40">
+                  	<div class="trans-no">
+                      {{transaction.transactionRemarks.length == 0 ? "-" : (transaction.transactionRemarks).substr(0,14)}}
+                    </div>
+                  </div>
+                    
+                    
+                  <div class="trans-dash-left rakPeopleNameRow1 rak40">
+                  
+                  <div class="rakTextRight">  
+                   <!-- <span class="amt-cur"> {{fields.selectedAccount.currency}} </span>  -->  
+                   <span class="amt-cur"> {{transaction.currency}} </span>           
+                    <span class="amt-rs"> {{parseMoney(transaction.transactionAmount).rs}}. </span>
+                    <span class="amt-ps"> {{parseMoney(transaction.transactionAmount).ps}} </span>
+                  </div>
+                     <span class=" rakTextRight rakitem-arrow-right" ng-show='transaction.transactionAmtType == "CR"'> Credit</span> 
+                    <span class=" rakTextRight rakitem-arrow-right" ng-show='transaction.transactionAmtType == "DR"'> Debit</span>   
+                   
+                  </div>
+
+
+                
+               
+                </div>
+              </div> 
+
+              <!-- Content for Search -->
+              <div class="transaction-info nano-content" ng-show='rakAccounts.RAKAccountsModel.trxSearchFlag'>
+            <!--  <div class="transaction-info nano-content" ng-show=true>  -->
+			<!-- <p> inside 2</p> -->
+                <div ng-show="fields.trxSeachResult.length == null || fields.trxSeachResult.length == 0">
+                  {{appLiterals.APP.DASHBOARD.ACCOUNTS_PAGE.NO_RESULTS_MSG}}
+                </div>
+
+                <div class="trans-detail"
+                 ng-show="fields.trxSeachResult.length > 0" ng-repeat="transaction in fields.trxSeachResult" 
+                 ng-click="trnxIndex = $index; fields.selectedTransId = '' + transaction.transactionIndex + ''; trxDetailsFlag = true; setEvent('onTransSearchDetailsClick'); ">
+
+ 				<div class="trans-detail rakGreyRow">
+ 					<div class="trans-date rakPeopleNameRow1 rak20">
+                      {{transaction.transactionDate}}
+                    </div>
+ 				<!--</div>
+     			 <div class="trans-dash-right"> -->
+                    <div class="trans-dash-right rakPeopleNameRow1 rak40">
+                      {{transaction.transactionRemarks.length == 0 ? "-" : (transaction.transactionRemarks).substr(0,14)}}
+                    </div>
+                  <!--   <div class="trans-date">
+                      {{transaction.transactionDate}}
+                    </div> -->
+                  
+                  
+                    <!-- <div class="trans-dash-cd">
+                    <span class="app app-credit credit-icon" ng-show='transaction.transactionAmtType == "CR"'></span> 
+                    <span class="app app-debit debit-icon" ng-show='transaction.transactionAmtType == "DR"'></span>
+                  </div>  -->
+
+                   <div class="trans-dash-left rakPeopleNameRow1 rak40">
+                      <!-- <span class="amt-cur"> {{fields.selectedAccount.currency}} </span>  -->  
+                   <span class="amt-cur"> {{transaction.currency}} </span>             
+                    <span class="amt-rs"> {{parseMoney(transaction.transactionAmount).rs}}. </span>
+                    <span class="amt-ps"> {{parseMoney(transaction.transactionAmount).ps}} </span>
+                  </div> 
+                </div>
+			</div>
+            </div>
+</div>
+        <!--   </div> -->
+          <div class="col-sm-1"> </div>
+      
+
+    
+
+    
+    <div class="col-sm-1"></div>    
+  </div>
+</div>
+  
+  
+  <!-- overlay for transaction details -->
+  <!--             <div ng-show="onTrxClick"> -->
+  <!--            <div ng-show="popoverObject.isSuccess">-->
+  
+  <!--            <div ng-show="popoverObject.isInProgress">-->
+  
+  <!-- overlay for transaction details -->
+  <!--             <div ng-show="onTrxClick"> -->
+  <div ng-show="true">
+      
+      <!-- Overlay begin -->
+      <div ng-show="(popoverObject.isInProgress || (popoverObject.isSuccess != null))">
+          
+          <div class="ac-popup">
+          </div>
+          
+          <!-- Loader begin -->
+          <div class="message-box" ng-show="popoverObject.isInProgress">
+              <div class="spinner-wrapper">                  
+                  <p class="round-icon app app-loading load-icon"></p>
+              </div>              
+              <p class="desc-text">
+          {{appLiterals.APP.DASHBOARD.ACCOUNTS_PAGE.LOADING}}
+              </p>
+          </div>
+          <!-- Loader end -->
+           
+         
+          <div class="popup-msg-wrap" ng-show="popoverObject.isSuccess">
+              <div class="highlight-color"> </div>
+              
+              <div class="bg-white">
+                  
+                  <!-- transaction title begin -->
+                  <div class="popup-ac-info" >
+                  	<div class="trans-dash-left">
+                    <span class="amt-cur"> {{fields.selectedAccount.currency}} </span>              
+                    <span class="amt-rs"> {{parseMoney(successResponse.responsesList[0].transactionAmount).rs}}. </span>
+                    <span class="amt-ps"> {{parseMoney(successResponse.responsesList[0].transactionAmount).ps}} </span>
+                    
+                  </div>
+
+                  <div class="trans-dash-cd">
+                    <span class="app app-credit credit-icon" ng-show='successResponse.responsesList[0].transactionType == "CR"'></span>
+                          <span class="app app-debit debit-icon" ng-show='successResponse.responsesList[0].transactionType == "DR"'></span>                   
+                  </div> 
+
+                  <div class="trans-dash-right">
+                  	<div class="trans-no">
+                      {{successResponse.responsesList[0].transactionRemarks == "" ? "-" : (successResponse.responsesList[0].transactionRemarks).substr(0,14)}}
+
+                    </div>
+                    <div class="trans-date">
+                      {{successResponse.responsesList[0].transactionDate}}
+                    </div>
+                  </div>
+                      
+                  </div>
+                  <!-- transaction title end -->
+                  
+                  <!-- transaction detail body begin -->
+                  <div class="col-sm-10">
+                      <div class="db-popup-cheque" ng-show="successResponse.responsesList[0].instrumentId">
+                          <strong>  {{appLiterals.APP.DASHBOARD.ACCOUNTS_PAGE.TEXT_CHEQUE}} </strong> <span class="txt-dec"> {{successResponse.responsesList[0].instrumentId}} </span>
+                      </div>
+                      
+                      <div class="db-popup-cdate" ng-show="true">
+                          <strong> {{appLiterals.APP.DASHBOARD.ACCOUNTS_PAGE.TEXT_DATE}}</strong>{{successResponse.responsesList[0].valueDate}}  
+                      </div>
+                      <div class="center">
+                      <button class="btn--third-btn"  ng-show="successResponse.responsesList[0].instrumentId" ng-click="cm.viewCheque.model.fromDashboard=true; dashboard.chequeInstrumentId = successResponse.responsesList[0].instrumentId; setEvent('onViewChequeClick');">
+                          {{appLiterals.APP.DASHBOARD.ACCOUNTS_PAGE.BUTTON_VIEW_CHEQUE}}
+                      </button>
+                      </div>
+                      
+                      <div ng-show="false">
+                          <strong> Payee: </strong>  <span class="txt-dec"> Jonh Doe </span>
+                      </div>
+                      
+                      <div class="des-mar">
+                          <strong> Description: </strong> <br>
+                          <span class="des-ac">
+                              {{successResponse.responsesList[0].transactionRemarks == "" ? "-" : successResponse.responsesList[0].transactionRemarks}}
+                          </span>
+                      </div>
+                      <div class="toggle_btn">
+	                      <button class="btn--db-small" ng-click="popoverObject.isSuccess=null; trxDetailsFlag = false;">
+	                          {{appLiterals.APP.DASHBOARD.ACCOUNTS_PAGE.BUTTON_OK}}
+	                      </button>
+	                  </div>
+                      
+                  </div>
+                  <!-- transaction detail body end -->
+                  
+              </div>
+          </div>
+          <!-- content end -->
+          
+      </div>
+      <!-- Overlay end -->
+      
+      <!-- Error overlay begin -->
+      <div ng-show="false">
+          
+          <div class="full-screen1">
+          </div>
+          
+          <!-- Loader error begin -->
+          <div class="message-box">
+              
+              <p class="desc-text3">{{appLiterals.APP.DASHBOARD.ACCOUNTS_PAGE.MESSAGE_TRANSAC_DETAIL_FAIL}}</p>
+              <img src="images/refresh.png" class="page-refresh" />                  
+              <p class="desc-text4">{{appLiterals.APP.DASHBOARD.ACCOUNTS_PAGE.MESSAGE_TRY_AGAIN}}</p>
+                  
+          </div>
+
+          
+      </div>
+  
+     </div>    
+  </div>
+    </div>
+       </div>
+
+
+    

@@ -1,0 +1,23 @@
+{
+    "CAMPAIGN_SERVICE": {
+        "protocol": "http",
+        "host": "",
+        "port": "",
+        "rootContextPath": "/v1.0",
+        "serviceFactoryHandler":["CampaignProcessor"],
+        "apiEndpoints": {
+            "ping": "/ping/apiKeyAuth",
+            "getCampaigns": "/campaigns/userDeviceProfile"
+        }
+    },
+    "External_SERVICE_1": {
+        "protocol": "http",
+        "host": "localhost",
+        "port": "",
+        "rootContextPath": "/v1",
+        "apiEndpoints": {
+            "ping": "/ping/apiKeyAuth",
+            "getCampaigns": "/campaigns/userDeviceProfile"
+        }
+    }
+}

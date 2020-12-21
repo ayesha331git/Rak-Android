@@ -1,0 +1,42 @@
+<div class="app app-arrow2 title-right-dash" id="delinkCardBackAction" ng-click="setEvent('onCancelClick')"></div>
+<div class="finacle-container" ng-init="services.initDelinkCreditCard(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase">
+							<span id="pageTitle">
+								{{appLiterals.APP.SERVICES.CREDIT_CARD.DE_LINK_HEADER}} </span>
+						</div>
+						<!-- end of the title -->
+					</div>
+					<form ng-submit="corpInit.corpModel.resetCorpInitDetails();setEvent('onConfirmClick')">
+						<div class="avail-bal-wrap"
+							ng-init='creditCardArr = createDropDownOptionArray(services.delinkCreditCard.creditCardList, ["creditCardNo"], "index");'>
+							<fin-input type="dropdown" option-array="creditCardArr"
+								model="services.delinkCreditCardModel.selectedCardNumber"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.CREDIT_CARD.PH_CARD_NO}}"
+								validation-flag='pageErrorArr["services.delinkCreditCardModel.selectedCardNumber"]'>
+							</fin-input>
+							<fin-input type="textarea" class="text_area" display-row="full"
+								model="services.delinkCreditCardModel.remarks"
+								validation-flag="pageErrorArr['services.delinkCreditCardModel.remarks']"
+								placeholder="{{appLiterals.APP.SERVICES.CREDIT_CARD.PH_NOTE_OPTIONAL}}">
+							</fin-input>							
+						</div>
+						<section class="
+								button-wrapper" layout="row" layout-align="center center"
+								layout-wrap> 
+								<md-button type="submit" id="delinkCreditCardSubmit" class=" md-raised btn--primary-btn">
+							{{appLiterals.APP.COMMON.BUTTON.CONTINUE}} 
+							</md-button>
+							</section>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

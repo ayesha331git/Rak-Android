@@ -1,0 +1,28 @@
+<div class="confirmation-content-container">
+	<div class="message-box-new">
+		<div class="conf-txt-title" id="logoutConfirmationPage1">
+			{{appLiterals.APP.COMMON.BUTTON.LOGOUT}}</div>
+		<p class="conf-txt-label" id="logoutConfirmationPage2">
+			{{appLiterals.APP.COMMON.BUTTON.LOGOUT_CONFIRM}}
+		</p>
+	
+		<section class="button-wrapper" layout="row"
+			layout-align="center center" layout-wrap>
+			<md-button type="button" class=" md-raised btn--secondary-btn  "
+				id="logoutConfirmationPageNo"
+				ng-click='setGlobalEvent("onLogoutClickOK")'>
+			&nbsp;{{appLiterals.APP.COMMON.BUTTON.YES}} &nbsp; </md-button>
+			<md-button type="button" class="md-raised btn--primary-btn"
+				id="logoutConfirmationPageYes"
+				ng-click='showLogoutConfirmationHide();'>
+			&nbsp; {{appLiterals.APP.COMMON.BUTTON.NO}}  &nbsp;</md-button>
+
+		</section>
+	</div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+
+<div class="finacle-container"
+	ng-init="services.creditCardLimitChange.successInit(successResponse.responsesList[0]);formatAmountCrn('services.creditCardLimitChange.newLimitSuccess','services.homeCurrency')">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+			<div class="dashboard-pad full-height">
+				<div class="dashboard-item-body full-height">
+
+					<fin-success
+						success-banner="{{appLiterals.APP.SERVICES.CHNG_CCLSUCC.HEADER}}"
+						success-message="{{services.creditCardLimitChange.creditcardChangeLimitResponse}}"
+						cross-click="setEvent('onCancelClick')"></fin-success>
+						
+						<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="chngCCLSuccLimHead">{{appLiterals.APP.SERVICES.CHNG_CCLSUCC.CHNGE_CRDLIM}}
+			{{appLiterals.APP.SERVICES.CHNG_CCLSUCC.TXT_FR}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="chngCCLSuccLimVal">{{services.creditCardLimitChange.cardNoSuccess}}</span>
+						</div>
+					</div>
+					
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="chngCCLSuccNewLimHead">{{appLiterals.APP.SERVICES.CHNG_CCLSUCC.NEW_LIM}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="chngCCLSuccNewLimVal">{{services.creditCardLimitChange.newLimitSuccess}}</span>
+						</div>
+					</div>
+					
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="chngCCLSuccNoteHead">{{appLiterals.APP.SERVICES.CHNG_CCLSUCC.NOTE}}</span>
+						<div class="sucs-right-color">
+							<span class="display-inline-block" id="chngCCLSuccNoteVal">{{services.creditCardLimitChange.remarksSuccess}}</span>
+						</div>
+					</div>
+	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,167 @@
+
+
+		<div class="rak-home-header">
+			<i class="homeCorner"  ng-click="setGlobalEvent('onDashboardClick');"></i>
+		</div>
+<div class="finacle-container" ng-init="rakPayee.isBackClicked=false;rakPayee.payeeModel.editBnfFlag=false; rakPayee.resetPayeeModule(); rakPayee.resetBillerModule(); rakPayee.payeeModel.resetPayeeModel();rakPayee.loadPayeeList(successResponse);resetPageError();rakSendMoney.clearTab();rakSendMoney.benfTab=true;rakSendMoney.mobileCash.clearFields();">
+<div class="account-page">
+<div class="col-sm-11">
+<div class="app-title-wrapper">
+<div class="form-block">
+
+<ng-include  src="'./navigation/rakSendMoney/resources/RakSendMoneyTabPage.html'"> </ng-include>
+
+<div class="tab-links" ng-show="rakHome.userTypeIDValue!='CORPORATE'">
+         <ul>
+            <li  ng-class="{ 'active': rakPayee.payeeModel.addBankBnfFlag }"
+                 ng-click="rakPayee.payeeModel.resetPayeeModel();rakPayee.selectedPayeeType=rakPayee.payeeTypes.BANK;rakPayee.payeeModel.addBankBnfFlag=true;rakPayee.common.fromAuthPage=false;rakPayee.bankbnftype='';setGlobalEvent('onPayeeClick');">
+                	<span>{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BANK}}</span>
+           </li>
+
+            <li   ng-show="rakHome.userTypeIDValue!='CORPORATE'" ng-class="{ 'active': rakPayee.payeeModel.addMobCashBnfFlag }"
+                 ng-click="rakPayee.payeeModel.resetPayeeModel();rakPayee.selectedPayeeType=rakPayee.payeeTypes.MOBCASH;rakPayee.payeeModel.addMobCashBnfFlag=true;rakPayee.common.fromAuthPage=false;rakPayee.bankbnftype=rakPayee.payeeTypes.MOBCASH;setGlobalEvent('onPayeeClick');">
+                	<span>{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_MOBCASH}}</span></li>
+                	
+           <!-- <li  ng-class="{'active':rakPayee.payeeModel.confirmPayeeTab}"
+                 ng-click="rakPayee.payeeModel.resetPayeeModel();rakPayee.common.fromAuthPage=false;rakPayee.payeeModel.confirmPayeeTab=true;setGlobalEvent('onRAKConfirmPayeeClick');">
+                	<span>{{appLiterals.APP.RAKBURGER.CONFIRMPAYEE}}</span></li> -->
+          </ul>
+        </div>
+
+
+ <div>
+	<!-- <button type="button" class="btn--primary-btn" ng-click="rakPayee.payeeModel.resetPayeeModel();rakPayee.addBnfEvent(rakPayee.selectedPayeeType);setEvent('onPopoverAddBeneficiarySameBankClick');"> {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_TXT_ADDNEWPAYE}} </button>-->
+	<button ng-if="rakPayee.payeeModel.addBankBnfFlag" type="button" class="btn--special-btn btn-middle rak-button-half-red-left " ng-click="rakPayee.payeeModel.resetCebuanaModel();rakPayee.payeeModel.resetPayeeModel();rakPayee.isUserNavigatingBack=false;rakPayee.selectedPayeeType=rakPayee.payeeTypes.BANK;rakPayee.payeeModel.addBankBnfFlag=true;rakPayee.common.fromAuthPage=false;setEvent(rakPayee.addBnfEvent(rakPayee.selectedPayeeType));"> {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_TXT_ADDNEWPAYE}} </button>	
+	<button ng-if="rakPayee.payeeModel.addMobCashBnfFlag" type="button" class="btn--special-btn btn-middle rak-button-half-red-left " ng-click="rakPayee.payeeModel.resetCebuanaModel();rakPayee.payeeModel.resetPayeeModel();rakPayee.getDisclaimerForAddBenf();rakPayee.selectedPayeeType=rakPayee.payeeTypes.MOBCASH;rakPayee.payeeModel.addMobCashBnfFlag=true;rakPayee.common.fromAuthPage=false;setEvent(rakPayee.addBnfEvent(rakPayee.selectedPayeeType));"> {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_TXT_ADDNEWPAYE}} </button>
+	 <button  ng-if="rakPayee.payeeModel.addMobCashBnfFlag" type="button" class="btn--special-btn btn-middle rak-button-half-red-right" ng-click="rakPayee.payeeModel.addMobCashBnfFlag=true;setGlobalEvent('onRAKConfirmPayeeClick');"> {{appLiterals.APP.RAKBURGER.CONFIRMPAYEE}} </button>
+	 <button  ng-if="rakPayee.payeeModel.addBankBnfFlag" type="button" class="btn--special-btn btn-middle rak-button-half-red-right" ng-click="rakPayee.payeeModel.addBankBnfFlag=true;setGlobalEvent('onRAKConfirmPayeeClick');"> {{appLiterals.APP.RAKBURGER.CONFIRMPAYEE}} </button>
+  </div>
+
+	 <div class="raksearch-field-wrap" ng-show="(rakPayee.payeeModel.addBankBnfFlag && rakPayee.beneficiaryList.length > 0 ) || (rakPayee.payeeModel.addMobCashBnfFlag && rakPayee.mobCashBeneficiaryList.length > 0)">
+      <p class="search-field"><span class="rakGlyphicon glyphicon-search"> </span>
+        <input type="text" input-restricted-special-character placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.SEARCH_BNFS}}" ng-model="searchText" class="raksearch-txt">
+      </p>
+    </div>
+    
+      	<div ng-if="rakPayee.payeeModel.addBankBnfFlag && (rakPayee.beneficiaryList.length == 0 || rakPayee.beneficiaryList.length =='' || rakPayee.beneficiaryList == undefined )">
+
+							<div class="summary-ServiceReq">
+								<div class="iconDivNorecord">
+									<span class="infoIcon"></span><span class="success">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.NO_FUNDTNSFR_BNFS}}</span>
+								</div>
+							</div>
+		</div>
+		
+		 	<div ng-if="rakPayee.payeeModel.addMobCashBnfFlag && (rakPayee.mobCashBeneficiaryList.length == 0 || rakPayee.mobCashBeneficiaryList.length== '' || rakPayee.mobCashBeneficiaryList == undefined )">
+
+							<div class="summary-ServiceReq">
+								<div class="iconDivNorecord">
+									<span class="infoIcon"></span><span class="success">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.NO_BNFS}}</span>
+								</div>
+							</div>
+		</div>
+    
+	
+	  <div class="nano movemoney-scroll" ng-show="(rakPayee.payeeModel.addBankBnfFlag && rakPayee.beneficiaryList.length > 0 ) || (rakPayee.payeeModel.addMobCashBnfFlag && rakPayee.mobCashBeneficiaryList.length > 0)">
+	    <div class="mm-content1 nano-content">
+  <div class="bg-color rakSubScrollDiv rak-cont-paddingvh">
+			<div class="row" >
+		
+<!-- Bank Bnfs -->
+<!-- <div class="ng-hide" ng-if="rakPayee.doShowAlertMessage" ng-init='showAlert("The selected rakPayee is deleted successfully");rakPayee.doShowAlertMessage=false;rakPayee.bankbnftype="";setGlobalEvent("onPayeeClick");'></div> -->
+
+	  <div class="" ng-show="rakPayee.payeeModel.addBankBnfFlag">
+
+
+		<div class="rakGreyRow" ng-show="rakPayee.beneficiaryList.length > 0"
+		ng-repeat="beneficiary in rakPayee.beneficiaryList | filter:searchText"
+		ng-click="rakPayee.payeeSelected=beneficiary; rakPayee.selectedPayeeIndex=beneficiary.beneficiaryIndex;rakPayee.isBackClicked=false;" >
+			<div class="people-details">
+			  <div class="rakPeopleNameRowBenf">
+				{{beneficiary.beneficiaryNickname}}
+			</div>
+			<div class="rakPeopleNameRowBank">
+					{{beneficiary.beneficiaryBankName}}</div>
+			</div>
+
+			<!-- Sindhu -->
+   <!-- Prasenjeet Modified for quick view -->
+		   <div class="rakRelative">
+		   <span class="rakPullDown" ng-click="rakHome.handlePullDown($event);"></span>
+		  <ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+		     <li ng-hide='beneficiary.beneficiaryAccountCurrency==rakPayCards.BuySellGoldTypeConstant.DEFAULTCURRENCY'><a href="" ng-click="rakPayee.selectedPayeeIndex=beneficiary.beneficiaryId;rakPayee.payeeSelected=beneficiary;rakSendMoney.sendMoney.isBenfFlow=true;rakSendMoney.sendMoney.initFromBenfPage($index);">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_SENDMONEY}}</a></li>
+		    <li><a href="" ng-click="rakPayee.isEditBeneficiaryMode=true;rakPayee.selectedPayeeIndex=beneficiary.beneficiaryIndex;rakPayee.payBill.editIconFlag=false;rakPayee.isCashPayOutEnabled('onEditBeneficiaryClick')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_EDIT}}</a></li>
+		    <li><a href="" ng-click="rakPayee.isDeleteBeneficiaryMode=true;rakPayee.selectedPayeeIndex=beneficiary.beneficiaryIndex;rakPayee.payeeModel.txnType=rakPayee.constants.TXNTYPEBNF;rakPayee.isCashPayOutEnabled('onDeleteBeneficiaryClick')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_DELETE}}</a></li>
+		    <li><a href="" ng-click="rakPayee.isBeneficiaryHistoryMode=true;
+		     rakPayee.selectedPayeeIndex=beneficiary.beneficiaryIndex;
+		     rakSendMoney.txnHistory.directView='PayeeTxnView';
+		     rakSendMoney.txnHistory.selectedTxnType='All';
+		     rakSendMoney.txnHistory.clearSearchHistory();
+		     rakSendMoney.txnHistory.setInitialDate();
+		     setEvent('onCompleteViewSearchClick')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_VIEWHST}}</a></li>
+		  </ul>
+		</div>
+		<!-- Sindhu -->
+		  </div>
+
+		  <div ng-if="rakPayee.beneficiaryList == undefined || rakPayee.beneficiaryList.length == 0">
+			 <div class="error-details">
+				  <div>
+					 <span class="error-details-txt">
+						{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.NO_FUNDTNSFR_BNFS}}
+					 </span>
+					</div>
+			 </div>
+		</div>
+
+		</div>
+		<!-- Mob cash bnfs -->
+		<div class="" ng-show="rakPayee.payeeModel.addMobCashBnfFlag">
+
+
+		<div class="rakGreyRow" ng-show="rakPayee.mobCashBeneficiaryList.length > 0"
+		ng-repeat="mobbeneficiary in rakPayee.mobCashBeneficiaryList | filter:searchText"
+		ng-click="rakPayee.payeeSelected=mobbeneficiary; rakPayee.selectedPayeeIndex=mobbeneficiary.beneficiaryIndex;rakPayee.isBackClicked=false;" >
+			<div class="people-details">
+			  <div class="rakPeopleNameRowBenf"> 
+				{{mobbeneficiary.beneficiaryName}}			
+			</div>			
+				<div class="rakPeopleNameRowBank">
+					{{mobbeneficiary.beneficiaryAccountNumber}}</div>								
+			</div>
+
+			<div class="rakRelative">
+		   <span class="rakPullDown" ng-click="rakHome.handlePullDown($event);"></span>
+		  <ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+		    <li><a href="" ng-click="rakSendMoney.mobileCash.isBenfTypeSelected=true;rakPayee.payeeSelected=mobbeneficiary;rakPayee.selectedPayeeIndex=mobbeneficiary.beneficiaryIndex;rakSendMoney.mobileCash.initFromBenfPage();rakSendMoney.mobileCash.selectedBenfType='Benf';rakSendMoney.mobileCash.fromBenfScreen=true;setEvent('onInitiateMobileCashBenfTransfer')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_SENDMONEY}}</a></li>
+		    <li><a href="" ng-click="rakPayee.isEditBeneficiaryMode=true;rakPayee.selectedPayeeIndex=mobbeneficiary.beneficiaryIndex;rakPayee.payBill.editIconFlag=false;setEvent('onEditBeneficiaryClick')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_EDIT}}</a></li>
+		    <li><a href="" ng-click="rakPayee.isDeleteBeneficiaryMode=true;rakPayee.selectedPayeeIndex=mobbeneficiary.beneficiaryIndex;rakPayee.payeeModel.txnType='MCB';setEvent('onDeleteMCBBeneficiaryClick')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_DELETE}}</a></li>
+			<!--  Rak : Prasenjeet ommented the View history as the same is not present in eBanking dated 23-03-16 -->
+			<!--
+			<li><a href="" ng-click="rakPayee.isBeneficiaryHistoryMode=true;rakPayee.selectedPayeeIndex=mobbeneficiary.beneficiaryIndex;rakSendMoney.mobileCashHistory.clearSearchHistory();setGlobalEvent('onRakSendMoneyMobileCashHistoryTabClick');">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_VIEWHST}}</a></li>
+			-->
+		  </ul>
+		</div>
+		  </div>
+		  <div ng-if="rakPayee.mobCashBeneficiaryList==undefined || rakPayee.mobCashBeneficiaryList.length == 0">
+			 <div class="error-details">
+				  <div>
+					 <span class="error-details-txt">
+						{{appLiterals.APP.PAYEE.LANDLIST_PAGE.NO_BILLER}}
+					 </span>
+					</div>
+			 </div>
+		</div>
+		</div>
+
+	</div>
+	</div>
+
+	  </div>
+	</div>
+
+	</div>
+	</div>
+	</div>
+	</div>
+</div>

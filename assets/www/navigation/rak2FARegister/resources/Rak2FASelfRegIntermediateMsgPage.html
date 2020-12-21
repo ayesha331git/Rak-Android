@@ -1,0 +1,82 @@
+
+<div class="account-page">
+	<div class="col-sm-11">
+
+		<div class="finacle-container"
+			ng-init="setSingleStepRealmAuthFailure();rak2FARegister.RegistrationModel.initSuccess(successResponse.responsesList);rak2FARegister.initiateRegistrationForAuth('onsetupClick');">
+			<div >
+			<div class="row">
+				<div class="col-sm-1 rakDblheight"></div>
+				<div class="login-form">
+
+
+					<div class="center rakFont10">
+						<div class="rak-logintab"
+							ng-click="setGlobalEvent('onLoginClick');">
+							<span class="rak-black-color login-label">
+								{{appLiterals.APP.RAK_LOGIN_PAGE.LOGIN}} </span>
+						</div>
+
+
+						<div class="rak-logintab  border-left"
+							ng-show="rak2FARegister.RegistrationModel.isRegisterClicked">
+							<span class="login-label rak-color border-bottom">
+								{{appLiterals.APP.RAK_LOGIN_PAGE.TOKEN_REGISTER}}</span>
+						</div>
+
+
+
+
+					</div>
+
+					<div class="selfReg-main-form-heading margin-top10px">
+						<div>
+						<span class="rak-black-color login-label-selfReg">{{appLiterals.APP.RAK_2FA_MESSAGES.NEWREG_TXT}}</span>
+
+
+							<ul class="process-steps">
+								<li></li>
+								<li></li>
+								<li></li>
+								<li class="active"></li>
+								<li ></li>
+								<li ></li>
+							</ul>
+
+						</div>
+					</div>
+
+
+					<div class="rakWidth100Percent rakNicknameScroll rak-cont-paddingvh">
+						<div class="">
+
+						<div class="rak-selfReg-lable">
+								<p>{{appLiterals.APP.RAK_2FA_MESSAGES.UNDER_PROCESS_MSG}}</p>
+							</div>
+
+
+							<div>
+
+
+
+</div>
+
+
+							<div class="label-wrap">
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small btn--back "
+									ng-click="setGlobalEvent('onLoginClick');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CANCEL}}</button>
+
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small "
+									ng-click="rak2FARegister.common.flag='false';rak2FARegister.initPayLoadGeneration(rak2FARegister.EzComToken.payLoadGenerationReceivedData);">
+									{{appLiterals.APP.RAKCOMMONLITERALS.PROCEED}}</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+	</div>

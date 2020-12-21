@@ -1,0 +1,77 @@
+
+   <!--  <div class="rak-back-header">
+    <i class="rak-back-img" ng-click="rakPayee.common.fromAuthPage=true;setEvent('onRakChooseBnfTypeClick');"></i>
+  </div> -->
+  
+  <div class="rak-back-header" ng-if="!rakPayee.payeeModel.addBankBnfFlag">
+    <i class="rak-back-img" ng-click="rakPayee.selectedPayeeType=rakPayee.payeeTypes.BANK;rakPayee.common.fromAuthPage=true;setEvent('onRakChooseTypeBackClick');"></i>
+  </div>
+    <div class="rak-back-header" ng-if="rakPayee.payeeModel.addMobCashBnfFlag">
+    <i class="rak-back-img" ng-click="rakPayee.selectedPayeeType=rakPayee.payeeTypes.MOBCASH;rakPayee.common.fromAuthPage=true;setEvent('onRakChooseTypeBackClick');"></i>
+  </div> 
+
+
+  <div class="nano menu-scroll">
+	<div class="nano-content">
+	<div class="finacle-container" ng-init="resetPageError();rakPayee.selectedPayee = successResponse.responsesList || rakPayee.selectedPayee;rakPayee.getPayeeInitForBankType(rakPayee.selectedPayee);rakSendMoney.clearTab();rakSendMoney.benfTab=true;">
+	 <div class="account-page">
+		<div class="col-sm-11">
+		  <div class="app-title-wrapper">
+
+		  <div class="form-block">
+		   <ng-include  src="'./navigation/rakSendMoney/resources/RakSendMoneyTabPage.html'"> </ng-include>
+		    <!-- <div class="main-form-heading-payee"> 
+		      <h2 >{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAKCHOOSEBNF}}</h2>		
+		  </div> -->
+		  <div class="main-form-heading-payee"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_TXT_ADDNEWPAYE}}
+				      <span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1}} : {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAKCHOOSEBNF}}</span>		     
+				      </h2>		       
+		 </div>
+			
+
+	    
+  	<div class="rakScrollNewDiv">
+          <div class="rakBnfBlocks rakSrchVisible" ng-repeat="bnf in rakPayee.rakBnfBankTypeList | filter:searchText" ng-click="rakPayee.selectedPayeeType=bnf.value;rakPayee.isBackClicked=false;rakPayee.payeeModel.resetPayeeModel();rakPayee.getDisclaimerForAddBenf();setEvent('onRakChooseBnfTypeClick');">	
+	  
+			<div  ng-if="bnf.imageFlag" ng-class="bnf.imageFlag ">
+			
+			  <div class="addBenfLink line10" ng-show="bnf.value=='CASH'">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.CASH}} </div>
+			  <div class="addBenfLink" ng-show="bnf.value=='RMC' && rakHome.userTypeIDValue!='CORPORATE' ">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RMC}} </div>	
+			  <div class="addBenfLink" ng-show="bnf.value=='UBF'">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.UBF}} </div>
+			  <div class="addBenfLink" ng-show="bnf.value=='RBF'">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RBF}} </div>
+			  <div class="addBenfLink" ng-show="bnf.value=='OBF'">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.OBF}} </div>	
+			 		 
+
+			</div>	
+			</div>
+			
+			
+			
+			<div class="disclaimer" ng-show="rakHome.chkUserType=='1'">
+							<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+											<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+							</div>
+
+							<div class="disclaimer3" ng-show="rakDisclaimerFlag">
+											<div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCEBNEW"></div>
+							</div>
+			</div>
+			<div class="fin-txt"></div>
+			<div class="fin-txt"></div>
+			<div class="fin-txt"></div>
+			<div class="fin-txt"></div>
+			
+			</div>
+
+		
+		  </div>
+
+          </div>
+       </div>
+       </div>
+       </div>
+    </div>
+		</div>
+</div>
+</div>

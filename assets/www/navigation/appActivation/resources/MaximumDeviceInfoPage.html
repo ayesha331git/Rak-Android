@@ -1,0 +1,28 @@
+<div class="finacle-container">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div class="item-title text-uppercase" id="activationMaxDeviceInfoHeader">{{appLiterals.APP.REGISTER.MAX_DEV_INFO.HEADER}}</div>
+					</div>
+					<p class="col-sm-12 fut-txt1 lh13" id="activationMaxDeviceInfoTxt">{{appLiterals.APP.REGISTER.MAX_DEV_INFO.TEXT1}}
+						{{ appActivation.maxDeviceCount }}
+						{{appLiterals.APP.REGISTER.MAX_DEV_INFO.TEXT2}}</p>
+					<br> <br> <br>
+					<section layout="row" layout-align="center center"
+						class="btn-wrap button-wrapper">
+						<md-button id="registerOtpCancel" type="button"
+							class=" md-raised btn--secondary-btn"
+							ng-click="setGlobalEvent('onLoginClick')">
+						{{appLiterals.APP.COMMON.BUTTON.NO}} </md-button>
+						<md-button type="button" id="registerOtpSubmit"
+							class=" md-raised btn--primary-btn"
+							ng-click="appActivation.setMaxDevice();setEvent('onMaxDeactivate');myProfile.maxDevicelimit= true;">
+						{{appLiterals.APP.COMMON.BUTTON.YES}}</md-button>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

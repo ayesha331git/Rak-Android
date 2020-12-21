@@ -1,0 +1,86 @@
+<div class="app app-arrow2 title-right-dash" id="requestDebitCarPinBack"
+	ng-click="setEvent('onRequestDebitCardPinCancelClick')"></div>
+<div class="finacle-container"
+	ng-init="services.debitCardCommonData.initDebitCardData(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase">
+							<span id="pageTitle">
+								{{appLiterals.APP.SERVICES.REQ_DC_PIN.TXT_REQ_DC_PIN}} </span>
+						</div>
+					</div>
+					<!--  -->
+					<form
+						ng-submit="corpInit.corpModel.resetCorpInitDetails();setEvent('onRequestDebitCardPinContinueClick')">
+						<div class="avail-bal-wrap"
+							ng-init='accountsListArray = createDropDownOptionAccountArray(services.debitCardCommonData.accountsList,["accountNickname", "-", "accountNumber"], "accountIndex");'>
+							<fin-input type="dropdown"
+								model="services.debitCardCommonData.accountNumber"
+								on-change="setEvent('onRequestDebitCardPINAccountNumberSelect');"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.REQ_DC_PIN.PH_ACC_NO}}"
+								validation-flag='pageErrorArr["services.debitCardCommonData.accountNumber"]'
+								option-array="accountsListArray"></fin-input>
+						</div>
+						<div class="col-sm-12">
+							<div class="transaction-info">
+								<p class="fut-txt1 lh13" id="TXT_CARD_NO">{{appLiterals.APP.SERVICES.REQ_DC_PIN.TXT_CARD_NO}}</p>
+								
+							</div>
+						</div>
+						<div>							
+							<div class="col-sm-3 card_no">
+								<fin-input type="number_card"
+									model="services.debitCardCommonData.ccNo1" display-row="full"
+									placeholder=""
+									validation-flag='pageErrorArr["services.debitCardCommonData.ccNo1"]'
+									max-length="4"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="number_card"
+									model="services.debitCardCommonData.ccNo2" display-row="full"
+									placeholder=""
+									validation-flag='pageErrorArr["services.debitCardCommonData.ccNo2"]'
+									max-length="4"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="number_card"
+									model="services.debitCardCommonData.ccNo3" display-row="full"
+									placeholder=""
+									validation-flag='pageErrorArr["services.debitCardCommonData.ccNo3"]'
+									max-length="4"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="number_card"
+									model="services.debitCardCommonData.ccNo4" display-row="full"
+									placeholder=""
+									validation-flag='pageErrorArr["services.debitCardCommonData.ccNo4"]'
+									max-length="4"></fin-input>
+							</div>
+						</div>
+						<p class="valid-no"
+							ng-show='pageErrorArr["services.debitCardCommonData.ccNo1"]!=null || pageErrorArr["services.debitCardCommonData.ccNo2"]!=null || pageErrorArr["services.debitCardCommonData.ccNo3"]!=null || pageErrorArr["services.debitCardCommonData.ccNo4"]!=null'>{{appLiterals.APP.COMMON.TEXT.ENTER_CARD_NO}}</p>
+
+						<div
+							ng-init='reasonsListArray = createDropDownOptionArray(services.debitCardCommonData.reasonsList,["reasonDescription"], "reasonIndex");'>
+							<fin-input type="dropdown" ng-show="reasonsListArray.length>0"
+								model="services.debitCardCommonData.reason" display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.REQ_DC_PIN.PH_REASON}}"
+								validation-flag='pageErrorArr["services.debitCardCommonData.reason"]'
+								option-array="reasonsListArray"></fin-input>
+							<fin-input type="text"
+								model="services.debitCardCommonData.remarks" display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.BLOCK_CREDCARD.PH_REM}}"
+								validation-flag='pageErrorArr["services.debitCardCommonData.remarks"]'></fin-input>
+						</div>
+						<md-button id="requestDebitCardPinPageSubmit" type="submit"
+							class="md-raised btn--primary-btn">{{appLiterals.APP.COMMON.BUTTON.CONTINUE}}</md-button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

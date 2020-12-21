@@ -1,0 +1,107 @@
+<div class="app app-arrow2 title-right-dash" id="carLoanPreviewBack"
+	ng-click="services.applyCarLoanModel.isBack=true;services.convertToNumber();setEvent('onPrevServiceClick')"></div>
+<div class="finacle-container"
+	ng-init="services.initCarLoanPreview(successResponse.responsesList);formatAmountCrn('services.applyCarLoanModel.previewResponse.userEnteredAmount','services.applyCarLoanModel.previewResponse.userChosenCurrencyDesc')">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div class="item-title text-uppercase">
+							<span id="pageTitle">
+								{{appLiterals.APP.SERVICES.CARLOAN_PREV.HEADER}} </span>
+						</div>
+					</div>
+					<!--  end of title -->
+					<!-- <p class="left-txt text-center" id="loanPreviewPageHeading">{{appLiterals.APP.SERVICES.CARLOAN_PREV.TXT_APPCARLOAN}}
+						{{appLiterals.APP.SERVICES.CARLOAN_PREV.TXT_FR}}</p> -->
+					<div class="col-sm-12">
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtAmount">
+								{{appLiterals.APP.COMMON.TEXT.AMOUNT}} </strong> <span class="dash-ac-id"
+								id="amount">
+								{{services.applyCarLoanModel.previewResponse.userChosenCurrencyDesc}}
+								{{services.applyCarLoanModel.previewResponse.userEnteredAmount}}
+							</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtStartDate">
+								{{appLiterals.APP.SERVICES.CARLOAN_PREV.LOAN_STRT_DATE}} </strong> <span
+								class="dash-ac-id" id="accId"> <fin-Date
+									date-value='{{services.applyCarLoanModel.previewResponse.loanStartDate}}'></fin-Date>
+							</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtIntRate">
+								{{appLiterals.APP.SERVICES.CARLOAN_PREV.INT_RATE}} </strong> <span
+								class="dash-ac-id" id="intRate">
+								{{services.applyCarLoanModel.previewResponse.interestRateValue}}
+							</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtLoanPurp">
+								{{appLiterals.APP.SERVICES.CARLOAN_PREV.PURP_LOAN}} </strong> <span
+								class="dash-ac-id" id="loanPurp">
+								{{services.applyCarLoanModel.previewResponse.purpose}} </span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtDisburseMode">
+								{{appLiterals.APP.SERVICES.CARLOAN_PREV.DISBUR_MODE}} </strong> <span
+								class="dash-ac-id" id="disburseMode">
+								{{services.applyCarLoanModel.previewResponse.disbursementModeDesc}}
+							</span>
+						</div>
+						<div
+							ng-show="services.applyCarLoanModel.previewResponse.disbursementModeDesc == 'Account'"
+							class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtAccNo">
+								{{appLiterals.APP.SERVICES.CARLOAN_PREV.ACC_NO}} </strong> <span
+								class="dash-ac-id" id="userChoseAcc">
+								{{services.applyCarLoanModel.previewResponse.userChosenAccid}} </span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtPaymode">
+								{{appLiterals.APP.SERVICES.CARLOAN_PREV.PRIN_PAYMODE}} </strong> <span
+								class="dash-ac-id" id="paymodeDesc">
+								{{services.applyCarLoanModel.previewResponse.principalPayModeDesc}}
+							</span>
+						</div>
+						<div
+							ng-show="services.applyCarLoanModel.previewResponse.principalPayModeDesc == 'Account'"
+							class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtprinAccNo">
+								{{appLiterals.APP.SERVICES.CARLOAN_PREV.ACC_NO}} </strong> <span
+								class="dash-ac-id" id="prinAccNo">
+								{{services.applyCarLoanModel.previewResponse.prinPayAcc}} </span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtIntPayMode">
+								{{appLiterals.APP.SERVICES.CARLOAN_PREV.INT_PAYMODE}} </strong> <span
+								class="dash-ac-id" id="intPayMode">
+								{{services.applyCarLoanModel.previewResponse.interestPayModeDesc}}
+							</span>
+						</div>
+						<div
+							ng-if="services.applyCarLoanModel.previewResponse.interestPayModeDesc == 'Account'"
+							class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtIntAccNo">
+								{{appLiterals.APP.SERVICES.CARLOAN_PREV.ACC_NO}} </strong> <span
+								class="dash-ac-id" id="intAccNo">
+								{{services.applyCarLoanModel.previewResponse.intPayAcc}} </span>
+						</div>
+					</div>
+					<form
+						ng-submit="corpInit.corpModel.getSelectedRoleDetailsAsString();services.applyCarLoanModel.unFormatNumbers();setEvent('onLoanSuccessClick');">
+						<div
+							ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+							<approval-input></approval-input>
+						</div>
+						<fin-Stepauth></fin-Stepauth>
+						<md-button type="submit" class="md-raised btn--primary-btn">
+						{{appLiterals.APP.SERVICES.CARLOAN_PREV.BTN_SUBTORM}}</md-button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

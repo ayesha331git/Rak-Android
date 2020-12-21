@@ -1,0 +1,80 @@
+<div class="app app-arrow2 title-right-dash" id="delinkCreditCardConfirmback"
+	ng-click="services.delinkCreditCardModel.isBack = true;setEvent('onPrevServiceClick')"></div>
+<div class="finacle-container"
+	ng-init="services.delinkCreditCardConfirm(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+
+						<div class="item-title text-uppercase">
+							<span id="pageTitle"> {{appLiterals.APP.COMMON.TITLE.CONF_AUTH}}</span>
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtCardNo">
+								{{appLiterals.APP.SERVICES.CREDIT_CARD.DE_LINK_HEADER}}
+								{{appLiterals.APP.COMMON.TEXT.FOR}} </strong> <span class="dash-ac-id" id="cardNo">
+								{{services.delinkCreditCardModel.selectedCardNumber}} </span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtRemark">
+								{{appLiterals.APP.COMMON.TEXT.NOTE}} </strong> <span class="dash-ac-id" id="remarks">
+								{{services.delinkCreditCardModel.remarks}} </span>
+						</div>
+					</div>
+					<div ng-if="services.delinkCreditCardModel.authMode.length!=0">
+						<form
+							ng-submit="corpInit.corpModel.getSelectedRoleDetailsAsString();setEvent('onSuccessClick')">
+							<div
+								ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+								<approval-input></approval-input>
+							</div>
+							<fin-Stepauth></fin-Stepauth>
+							<md-button type="submit" id="delinkCreditCardConfirmAuthSuccess"
+								class=" md-raised btn--primary-btn"
+								ng-show="services.delinkCreditCardModel.authMode.length!=0">
+							{{appLiterals.APP.COMMON.BUTTON.SUBMIT}} &nbsp;
+							{{appLiterals.APP.COMMON.BUTTON.TO}} &nbsp;
+							{{appLiterals.APP.COMMON.BUTTON.RM}} </md-button>
+							<md-button type="submit"
+								id="delinkCreditCardConfirmOnAuthSuccess"
+								class=" md-raised btn--primary-btn"
+								ng-show="services.delinkCreditCardModel.authMode.length==0">
+							{{appLiterals.APP.COMMON.BUTTON.SUBMIT}} &nbsp;
+							{{appLiterals.APP.COMMON.BUTTON.TO}} &nbsp;
+							{{appLiterals.APP.COMMON.BUTTON.RM}} </md-button>
+						</form>
+					</div>
+					<div ng-if="services.delinkCreditCardModel.authMode.length==0">
+						<form
+							ng-submit="corpInit.corpModel.getSelectedRoleDetailsAsString();setEvent('onNoAuthSuccessClick')">
+							<div
+								ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+								<approval-input></approval-input>
+							</div>
+							<fin-Stepauth></fin-Stepauth>
+							<md-button type="submit" id="delinkCreditCardConfirmAuthSuccess"
+								class=" md-raised btn--primary-btn"
+								ng-show="services.delinkCreditCardModel.authMode.length!=0">
+							{{appLiterals.APP.COMMON.BUTTON.SUBMIT}} &nbsp;
+							{{appLiterals.APP.COMMON.BUTTON.TO}} &nbsp;
+							{{appLiterals.APP.COMMON.BUTTON.RM}} </md-button>
+							<md-button type="submit"
+								id="delinkCreditCardConfirmOnAuthSuccess"
+								class=" md-raised btn--primary-btn"
+								ng-show="services.delinkCreditCardModel.authMode.length==0">
+							{{appLiterals.APP.COMMON.BUTTON.SUBMIT}} &nbsp;
+							{{appLiterals.APP.COMMON.BUTTON.TO}} &nbsp;
+							{{appLiterals.APP.COMMON.BUTTON.RM}} </md-button>
+						</form>
+					</div>
+
+					<!--  -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

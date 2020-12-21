@@ -1,0 +1,131 @@
+<div class="full-height"
+	ng-init="register.onlineContinueModel.CVV= '';register.responseRegisterOnlineContinue(successResponse)">
+	<div class="account-page full-height">
+		<div class="full-height ">
+			<div class="full-height">
+				<div class="dashboard-item-body full-height">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20"
+						layout="row" layout-align="center center" layout-wrap>
+						<h2 class="item-title md-headline"
+							id="registerCCHeader" layout="row" layout-align="center center"
+							layout-wrap>{{appLiterals.APP.REGISTER.REGON_AUTH.HEADER}}</h2>
+					</div>
+					<div class="stage_wrap">
+						<div class="stage-sucs3">
+							<p class="staging-sucs1">
+								<span class="app app-icon-check"> </span>
+							</p>
+						</div>
+						<div class="stage-line line-small"></div>
+						<div class="stage3">
+							<p class="staging" id="registerCCTickCircle2">
+								{{appLiterals.APP.REGISTER.REG_CHAN_SEL.NO2}}</p>
+						</div>
+						<div class="stage-line line-small"></div>
+						<div class="next-stage">
+							<p class="staging" id="registerCCTickCircle3">
+								{{appLiterals.APP.REGISTER.REG_CHAN_SEL.NO3}}</p>
+						</div>
+						<div class="stage-line line-small"></div>
+						<div class="next-stage">
+							<p class="staging" id="registerCCTickCircle4">
+								{{appLiterals.APP.REGISTER.REG_CHAN_SEL.NO4}}</p>
+						</div>
+					</div>
+					<div class="col-sm-12 lh13">
+						<div class="col-sm-12">
+							<p class="fut-txt1 " id="registerCCMsg">
+								{{appLiterals.APP.REGISTER.REGON_AUTH.SENT1}} <br>
+								{{appLiterals.APP.REGISTER.REGON_AUTH.SENT2}}
+							</p>
+						</div>
+					</div>
+					<div class="col-sm-12 lh13">
+						<div class="col-sm-12">
+							<p class="fut-txt1" id="registerCCNumber">{{appLiterals.APP.REGISTER.REGON_AUTH.CARD_NO}}</p>
+						</div>
+					</div>
+
+					<form
+						ng-submit="register.validateDCAndCC();register.validateCVV();setEvent('onOnlineCCAuthClick');">
+						<div class="col-sm-12 avail-bal-wrap" layout="row" layout-align="center center" layout-wrap>
+							<div class="col-sm-3 card_no">
+								<fin-input type="number_card"
+									model="register.onlineContinueModel.card1" display-row="full"
+									placeholder="XXXX"
+									validation-flag='pageErrorArr["register.onlineContinueModel.card1"]'
+									max-length="4"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="number_card"
+									model="register.onlineContinueModel.card2" display-row="full"
+									placeholder="XXXX"
+									validation-flag='pageErrorArr["register.onlineContinueModel.card2"]'
+									max-length="4"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="number_card"
+									model="register.onlineContinueModel.card3" display-row="full"
+									placeholder="XXXX"
+									validation-flag='pageErrorArr["register.onlineContinueModel.card3"]'
+									max-length="4"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="number_card"
+									model="register.onlineContinueModel.card4" display-row="full"
+									placeholder="XXXX"
+									validation-flag='pageErrorArr["register.onlineContinueModel.card4"]'
+									max-length="4"></fin-input>
+							</div>
+						</div>
+						<div class="col-sm-12 lh13">
+							<div class="col-sm-12">
+							<p class="fut-txt1" id="registerCCExpiryDate">{{appLiterals.APP.REGISTER.REGON_AUTH.EXP_DTE}}</p>
+							</div>
+						</div>
+						<div class="col-sm-12">
+							<div class="clear-all col-sm-12">
+								<div class="col-xs-3 padding-zero"
+									ng-init='monthArr = createDropDownOptionArray(register.months, ["index"], "value")'>
+									<fin-input type="dropdown"
+										model="register.onlineContinueModel.expMonth"
+										display-row="half1" placeholder="MM"
+										validation-flag='pageErrorArr["register.onlineContinueModel.expMonth"]'
+										option-array="monthArr"></fin-input>
+								</div>
+								<div class="col-xs-9 off_user_name"
+									ng-init='yearArr = createDropDownOptionArray(register.years,
+										["index"], "value")'>
+									<fin-input type="dropdown"
+										model="register.onlineContinueModel.expYear"
+										display-row="half2" placeholder="YYYY"
+										validation-flag='pageErrorArr["register.onlineContinueModel.expYear"]'
+										option-array="yearArr"></fin-input>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12">
+							<div class="clear-all avail-bal-wrap col-sm-12">
+								<fin-input type="password_num"
+									model="register.onlineContinueModel.CVV" display-row="half1"
+									placeholder="CVV"
+									validation-flag='pageErrorArr["register.onlineContinueModel.CVV"]'
+									max-length="3"></fin-input>
+							</div>
+						</div>
+						<section layout="row" layout-align="center center"
+							class="button-wrapper sticky-footer-block">
+							<md-button id="registerCreditCardCancel" type="button"
+								class=" md-raised btn--secondary-btn"
+								ng-click="setGlobalEvent('onLoginClick');">
+							{{appLiterals.APP.COMMON.BUTTON.CANCEL}} </md-button>
+							<md-button id="registerCreditCardSubmit" type="submit"
+								class=" md-raised btn--primary-btn">
+							{{appLiterals.APP.REGISTER.REGON_AUTH.BTN_PROCD}}</md-button>
+						</section>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

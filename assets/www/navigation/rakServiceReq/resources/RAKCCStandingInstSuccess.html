@@ -1,0 +1,71 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRAKCCStandingInstSuccess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+			
+		
+
+
+
+<div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakServiceReq.RakCCStandingInstModel.successMessage}}</span>
+                        </div>
+                  </div>
+            <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CC_STANDING_INST}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>                 
+                              </h2>              
+</div>
+
+		<div class="bg-color rak-cont-padding rak-scroll-success">
+			<div class="">
+				<div class="">
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKCCSTANDINGINST.CREDIT_CARD}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakCCStandingInstModel.CreditCardList[rakServiceReq.RakCCStandingInstModel.selectedCreditCard].cardNumber}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKCCSTANDINGINST.MONTHLY_PMT_PER}}&nbsp;</span>
+							<span class="rak-sum-label black" ng-show="rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt=='{{appLiterals.APP.RAKCCSTANDINGINST.CURR_STMT_BAL}}'">
+							{{rakServiceReq.RakCCStandingInstModel.perOfCurrentStatementBal}}{{rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt}}</span>
+							<span class="rak-sum-label black" ng-show="rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt=='{{appLiterals.APP.RAKCCSTANDINGINST.MIN_AMT_DUE}}'">
+							{{rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt}}</span>
+							<span class="rak-sum-label black" ng-show="rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt=='{{appLiterals.APP.RAKCCSTANDINGINST.FLAT_AMT}}'">
+							{{rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt}}</span>
+						</p>
+						
+						<p class="rak-sum-txt" ng-show="rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt=='{{appLiterals.APP.RAKCCSTANDINGINST.FLAT_AMT}}'">
+							<span class="rak-sum-label">{{rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt}}</span>
+							<span class="rak-sum-label black">{{appLiterals.APP.RAKCCSTANDINGINST.FLAT_AMT_CURR}} {{rakServiceReq.RakCCStandingInstModel.flatAmountDisp}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKCCSTANDINGINST.SI_DATE}}&nbsp;</span>
+							<span class="rak-sum-label black" ng-show="rakServiceReq.RakCCStandingInstModel.isDOMorPmtDueDt=='{{appLiterals.APP.RAKCCSTANDINGINST.DOM}}'">
+							{{rakServiceReq.RakCCStandingInstModel.selectedDateOfMonth}} {{rakServiceReq.RakCCStandingInstModel.isDOMorPmtDueDt}}</span>
+							<span class="rak-sum-label black" ng-show="rakServiceReq.RakCCStandingInstModel.isDOMorPmtDueDt=='{{appLiterals.APP.RAKCCSTANDINGINST.PMT_DUE_DATE}}'">
+							{{rakServiceReq.RakCCStandingInstModel.isDOMorPmtDueDt}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKCCSTANDINGINST.OPR_ACC}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakCCStandingInstModel.OprAccList[rakServiceReq.RakCCStandingInstModel.selectedOprAcc].acctTypeDesc}} {{rakServiceReq.RakCCStandingInstModel.OprAccList[rakServiceReq.RakCCStandingInstModel.selectedOprAcc].accountId}} {{rakServiceReq.RakCCStandingInstModel.OprAccList[rakServiceReq.RakCCStandingInstModel.selectedOprAcc].currencyCode}}</span>
+						</p>
+
+				<div class="label-wrap">
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-right"
+						ng-click='rakServiceReq.resetRakCCStandingInstData();setEvent("onRAKCCStandingInstSuccessOkClick");'>
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+				</div>
+
+				<div class="col-sm-10"></div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

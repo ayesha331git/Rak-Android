@@ -1,0 +1,91 @@
+<div class="rak-back-header">
+			<i class="rak-back-img" ng-click="setEvent('onBackClick')"></i>
+		</div>
+<div class="finacle-container"
+ ng-init="rakSendMoney.txnHistory.initCompltTransferListPage(successResponse.responsesList);" >
+  <div class="account-page">
+  <div class="col-sm-11">
+	<div class="app-title-wrapper">
+	
+	 
+		
+	<div class="form-block">
+       
+         <ng-include
+								src="'./navigation/rakSendMoney/resources/RakSendMoneyTabPage.html'">
+							</ng-include>
+
+
+							<div class="tab-links">
+								<ul>																		
+									<li class="active"><span class="active">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_HISTORY}}</span></li>
+									<li ng-click="rakSendMoney.clearTab();rakSendMoney.common.clearSearchData();rakSendMoney.schedule.clearScheduleTransferData();rakSendMoney.history=true;rakSendMoney.txnHistory.setFutureDate();setGlobalEvent('onRakHistoryTabClick')"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_SCHEDULE}}</span></li>
+									<li ng-hide="rakHome.userTypeIDValue=='CORPORATE'"ng-click="rakSendMoney.mobileCashHistory.clearSearchHistory();rakSendMoney.mobileCashHistory.setInitialDate();setGlobalEvent('onRakSendMoneyMobileCashHistoryTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_MOBILECASH_HISTORY}}</span></li>
+								</ul>
+							</div>  
+  		
+      </div>
+     
+      <div class="bg-color rak-cont-padding rak-scroll">
+        <div class="row" >             
+
+            <div class="nano scroll-height3" >
+             
+              <div class="nano-content">              
+
+                <div class="rakGreyRow rakListHeight" ng-repeat="transfers in rakSendMoney.txnHistory.scheduleList" >
+                  <div class="rakwidthSplitLeft">
+                    <div class="trans-no">
+                      {{transfers.txnDate}}
+                    </div>
+                    <span class="rak-swipe-acctText">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.DATE}}</span>
+					<div class="rakSpaceHorizontal"></div>
+                    <div class="trans-date">
+                      {{transfers.toAccount}}
+                    </div>
+                     <span class="rak-swipe-acctText">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.BENFNAME}}</span>
+                     <div class="rakSpaceHorizontal"></div>
+                     <span class="amt-rs">{{transfers.txnCurrency}} {{transfers.txnAmount}} </span>   
+                     <span class="rak-swipe-acctText">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.AMOUNT}}</span> 
+                  </div>
+                  
+                  
+                  <!-- <div class="rakwidthSplitRight">
+                  	
+                  <span class="amt-rs"> {{transfers.transAmount}} </span>   
+                   <span class="rak-swipe-acctText">Amount</span>  
+                   <div class="rakSpaceHorizontal"></div> 
+                   
+                   <span class="amt-rs"> {{transfers.billBeneficiaryName}} </span>   
+                   <span class="rak-swipe-acctText">Beneficiary</span>      
+                   
+                  </div> -->
+                  
+                  <div class="pull-right">
+   	<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+	  <ul class="rakPullDownMenu">
+	    <li><a href="" ng-click="rakSendMoney.txnHistory.searchFrom ='Schedule';rakSendMoney.txnHistory.selectedCompltTxn = transfers;rakSendMoney.txnHistory.selectedTxnIndex=$index;setEvent('onCompltTxnSelectClick')">
+	    {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW}}</a></li>
+	    <li><a href="" ng-click="rakSendMoney.txnHistory.searchFrom ='Schedule';rakSendMoney.txnHistory.selectedCompltTxn = transfers;setEvent('onPaymentInitiateTransferFromSearchClick')">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.PAYAGAIN}}</a></li>       
+	        
+	  </ul>
+</div>
+                  
+                   </div>                           
+                   
+                  </div>
+				 
+           <div class="col-sm-1"> </div>
+           
+           
+        </div>
+				
+           
+            
+        </div> 
+      </div>
+    </div>
+    </div>
+    </div>  
+  </div>
+</div>

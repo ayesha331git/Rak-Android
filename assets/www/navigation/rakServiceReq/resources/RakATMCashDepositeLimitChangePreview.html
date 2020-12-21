@@ -1,0 +1,141 @@
+
+	  <div class="finacle-container"
+		ng-init="rakServiceReq.ATMCashDepositeLimitChangeReq.previewACDLimitChange(successResponse.responsesList);">
+		<div class="account-page">
+			<div class="col-sm-11">
+				
+				
+			<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.ACD_LIMIT_CHANGE}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>		     
+				      </h2>		       
+		 		</div>
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+				
+
+		<div class="rakDupliSRChkMsgImg" ng-show='rakServiceReq.ATMCashDepositeLimitChangeReq.message'>
+      						<span class='rakAlertForDupStmt'></span> <span class="rakDupliSRChkMsg-block">{{rakServiceReq.ATMCashDepositeLimitChangeReq.message}}</span>
+						</div>
+						
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_ACD_LIMIT_CHANGE.ACD_ACCNO}}</span> <span class="rak-sum-label black">{{rakServiceReq.ATMCashDepositeLimitChangeReq.fromAccountNumbers[rakServiceReq.ATMCashDepositeLimitChangeReq.selectedfromAccountNumber].accountNumber}}</span>
+					</p>
+						
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_ACD_LIMIT_CHANGE.SAME_CURTRF_LIMIT}}</span> <span class="rak-sum-label black">{{rakServiceReq.ATMCashDepositeLimitChangeReq.sameCurrencyTransferLimit}}</span>
+					</p>
+					
+					<p class="rak-sum-txt" ng-show="rakServiceReq.ATMCashDepositeLimitChangeReq.remarks">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_ACD_LIMIT_CHANGE.ACD_REMARKS}}</span> <span class="rak-sum-label black">{{rakServiceReq.ATMCashDepositeLimitChangeReq.remarks}}</span>
+					</p>
+
+				
+                 <div class="label-wrap" ng-show='rakServiceReq.ATMCashDepositeLimitChangeReq.isAuthSet'>
+			      
+			<div ng-show='rakServiceReq.ATMCashDepositeLimitChangeReq.isFirstAuthMode'>
+			<fin-input type="password_text" model="rakServiceReq.ATMCashDepositeLimitChangeReq.firstAuthModeValue" 
+			display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXN_PWD}}" 
+			validation-flag='pageErrorArr["rakServiceReq.ATMCashDepositeLimitChangeReq.firstAuthModeValue"]' 
+			ng-show="rakServiceReq.ATMCashDepositeLimitChangeReq.authType==rakServiceReq.ATMCashDepositeLimitChangeReq.TransactionPassword"> </fin-input>
+			
+			
+			
+			<div ng-show="rakServiceReq.ATMCashDepositeLimitChangeReq.authType==rakServiceReq.ATMCashDepositeLimitChangeReq.OTP">
+			<div ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+			<fin-input type="password_num" model="rakServiceReq.ATMCashDepositeLimitChangeReq.firstAuthModeValue" 
+			display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}" 
+			validation-flag='pageErrorArr["rakServiceReq.ATMCashDepositeLimitChangeReq.firstAuthModeValue"]' > </fin-input>
+		</div> 
+		<div class="rakwidth28 rakModeDropdown" ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+			
+				<fin-input type="dropdown" option-array="toModeArray" model="rakHome.otpModel.otpModeSelected" display-row="full" placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+				<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+			
+			</div>    
+		<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>   
+		</div>
+			
+			</div>
+			
+			<div ng-show='rakServiceReq.ATMCashDepositeLimitChangeReq.isSecAuthMode'>
+			<fin-input type="password_text" model="rakServiceReq.ATMCashDepositeLimitChangeReq.secAuthModeValue" 
+			display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_ACD_PWD}}" 
+			validation-flag='pageErrorArr["rakServiceReq.ATMCashDepositeLimitChangeReq.secAuthModeValue"]' 
+			ng-show="rakServiceReq.ATMCashDepositeLimitChangeReq.secAuthType==rakServiceReq.ATMCashDepositeLimitChangeReq.TransactionPassword"> </fin-input>
+			
+			
+			<div ng-show="rakServiceReq.ATMCashDepositeLimitChangeReq.secAuthType==rakServiceReq.ATMCashDepositeLimitChangeReq.OTP">
+			<div ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+			<fin-input type="password_num" model="rakServiceReq.ATMCashDepositeLimitChangeReq.firstAuthModeValue" 
+			display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_ACD_OTP}}" 
+			validation-flag='pageErrorArr["rakServiceReq.ATMCashDepositeLimitChangeReq.secAuthModeValue"]' > </fin-input>
+		</div>   
+		<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0'  ng-show='rakHome.otpModel.otpModesList.length>0' ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+			
+				<fin-input type="dropdown" option-array="toModeArray" model="rakHome.otpModel.otpModeSelected" display-row="full" placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+				<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+			
+			</div>  
+		<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>   
+		</div>
+	
+			</div>
+			</div>
+                 <!-- Auth -->
+
+					<!-- <div class="label-wrap"
+						ng-show="rakServiceReq.RakUnblockCreditCardBlock.authStatus">
+
+						<fin-input type="password_text"
+							model="rakServiceReq.RakUnblockCreditCardBlock.txnPwd"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+							validation-flag='pageErrorArr["rakServiceReq.RakUnblockCreditCardBlock.txnPwd"]'
+							ng-show="rakServiceReq.RakUnblockCreditCardBlock.authMode==txnpwdString">
+						</fin-input>
+						-->
+
+<!--  CHANGES FOR RESEND OTP START -->
+<!-- <div ng-show="rakServiceReq.RakUnblockCreditCardBlock.authMode==otpString">
+<div class="rakwidth65">
+<fin-input type="password_num" model="rakServiceReq.RakUnblockCreditCardBlock.txnPwd"
+display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+validation-flag='pageErrorArr["rakServiceReq.RakUnblockCreditCardBlock.txnPwd"]'>
+</fin-input>
+</div>
+<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> Resend OTP </button>
+</div>-->
+<!--  CHANGES FOR RESEND OTP END -->
+					</div>
+
+
+
+					<div class="label-wrap">
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small btn--back"
+							ng-click="setEvent('onBackClick');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small"
+							ng-click="setEvent('onATMCashDepositeLimitSubmitClick');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONFIRM}}</button>
+					</div>
+					<div class="col-sm-1"></div>
+					
+					<div class="disclaimer">
+                                   <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                   <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                   </div>
+
+                                   <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                                   <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCHANGEFTDAILYLIMIT_CONF"></div>
+                                   </div>
+                   </div>
+					
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>

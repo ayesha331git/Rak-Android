@@ -1,0 +1,142 @@
+<!-- <div ng-if="(rakPayee.billersList.length === 0)">
+		
+			  <div class='rakOverlay' >
+			 <div class="full-page-screen"  ></div>
+
+			<div class="confirmation-content-container">
+			   
+			    <div class="message-box-new">
+			    	 <div>
+			            <p class="round-icon-new">
+			            <span class="app app-alert pop-alert-icon rak-color"></span>
+			            </p>
+			
+			            <div class="conf-txt-title rak-black-color">
+			            </div>
+			        </div>
+			        
+			
+			        <div class="conf-txt-label rak-black-color">
+			          {{appLiterals.APP.PAYEE.LANDLIST_PAGE.NO_PAYEE}}
+			        </div>
+					
+			
+				    <div class="conf-btn-wrap">
+			        	<button type="button" class="btn--confpri-btn rak-grey-color rak-border btn--middle" ng-click="rakPayee.selectedPayeeType=rakPayee.payeeTypes.BILLER;setEvent('onPopoverAddBillerClick')"> &nbsp; {{appLiterals.APP.PAYEE.LANDLIST_PAGE.ADD_PAYEE}} &nbsp; </button>
+						<button type="button" class="btn--confpri-btn rak-grey-color rak-border btn--middle" ng-click='setEvent("backToOverview")'> &nbsp; {{appLiterals.APP.PAYEE.LANDLIST_PAGE.HOME}} &nbsp; </button>
+						
+			        </div>
+			      
+		        </div>
+		        
+			    </div>
+			</div>
+		</div> -->
+		
+<div class="rak-home-header">
+    <i class="homeCorner" ng-click="setGlobalEvent('onDashboardClick');"></i>
+</div>
+<div class="finacle-container" ng-init="rakPayee.payeeModel.editBnfFlag=false;rakPayee.isBackClicked=false; rakPayee.resetPayeeModule(); rakPayee.resetBillerModule(); rakPayee.loadPayeeList(successResponse);resetPageError();rakPayee.billsTab=true;">
+<div class="account-page">
+<div class="col-sm-11">
+<div class="app-title-wrapper">
+<div class="form-block">
+
+		<ng-include  src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>	  
+         
+ 
+    
+   <div>	
+	<button type="button" class="btn--special-btn btn-middle rak-button-half-red-left" ng-click="rakPayee.selectedPayeeType=rakPayee.payeeTypes.BILLER;setEvent('onPopoverAddBillerClick')"> {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_TXT_ADDBILLER}} </button>
+	 <button type="button" class="btn--special-btn btn-middle rak-button-half-red-right" ng-click="rakPayee.payeeModel.resetPayeeModel();rakPayee.selectedPayeeType=rakPayee.payeeTypes.BILLER;setGlobalEvent('onRAKConfirmPayeeClick');"> {{appLiterals.APP.RAKBURGER.CONFIRMBILER}} </button>
+  </div>  
+  
+  
+  	<div ng-if="rakPayee.billersList == undefined || rakPayee.billersList.length == 0">
+
+							<div class="summary-ServiceReq">
+								<div class="iconDivNorecord">
+									<span class="infoIcon"></span><span class="success">{{appLiterals.APP.PAYEE.LANDLIST_PAGE.NO_BNFS_BILLPAYEE}}</span>									
+								</div>
+							</div>
+		</div>
+  
+  
+	  <div class="raksearch-field-wrap" ng-show ="(rakPayee.billersList.length >0)">
+      <p class="search-field"><span class="rakGlyphicon glyphicon-search"> </span>
+        <input type="text" input-restricted-special-character placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.SEARCH_PAYEE}}" ng-model="searchText" class="raksearch-txt">
+      </p>
+    </div>
+    
+	  <div class="nano movemoney-scroll" ng-show ="(rakPayee.billersList.length >0)">
+	    <div class="mm-content1 nano-content">
+  <div class="bg-color rakSubScrollDiv rak-cont-paddingvh">
+			<div class="row" >
+			
+
+<!-- <div class="ng-hide" ng-if="rakPayee.doShowAlertMessage" ng-init='showAlert("The selected rakPayee is deleted successfully");rakPayee.doShowAlertMessage=false;setGlobalEvent("onPayBillsClick");'></div> -->
+
+	  <div class="">
+		 
+		
+		<div class="rakGreyRow rakSrchVisible" ng-repeat="biller in rakPayee.billersList | filter:searchText" ng-click="rakPayee.payeeSelected=biller;rakPayee.selectedBillerIndex=biller.billerIndex;rakPayee.isBackClicked=false;">	
+	  
+			<div class="people-details rakBillerImage rakwidth81"  ng-class="biller.imageFlag">
+			
+			  <div class="rakPeopleNameRowBenf">{{biller.billerNickName}} </div>			 
+				<div class="rakPeopleNameRowBank"> 
+				 {{biller.serviceType}} | {{biller.consumerCodeDisplay}} 
+				</div>				
+			
+			</div>			
+   
+   <div class="rakRelative">
+   	<span class="rakPullDown" ng-click="rakHome.handlePullDown($event);"></span>
+	  <ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+	   
+ 		<li><a href="" ng-click="rakPayee.payBill.fromOutStandingPage=false;rakPayee.common.fromAuthPage=false;rakPayee.common.clearBalance();rakPayee.payBill.clearPayBillData();rakPayee.payeeSelected=biller;rakPayee.selectedBillerIndex=biller.billerIndex;rakPayee.getDisclaimerForBillPmt();setEvent('onPaymentInitiateTransferClick')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_PAY}}</a></li>	    	       
+	    <li><a href="" ng-click="rakPayee.isEditBillerMode=true;rakPayee.selectedBillerIndex=biller.billerIndex;rakPayee.payBill.editIconFlag=false;rakPayee.common.fromAuthPage=false;setEvent('onEditBillerClick')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_EDIT}}</a></li>       
+	    <li><a href="" ng-click="rakPayee.isDeleteBillerMode=true;rakPayee.selectedBillerIndex=biller.billerIndex;rakPayee.common.fromAuthPage=false;setEvent('onDeleteBillerClick')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_DELETE}}</a></li> 
+	    <!-- <li><a href="" ng-click="setEvent('onRAKViewTxnHistoryClick');">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_VIEWHST}}</a></li>     -->
+	    <!-- Pay Bills Beneficiary -->
+	    <li><a href="" ng-click="rakPayee.common.fromAuthPage=false;rakPayee.payBill.fromSearchResult=true;	
+	    	 rakPayee.selectedPayeeIndex=biller.billerIndex;
+		     rakSendMoney.txnHistory.directView='BillTxnView';
+		     rakSendMoney.txnHistory.selectedTxnType='PMT';
+		     rakSendMoney.txnHistory.setInitialDate();rakPayee.billsTab=false;rakPayee.billHistoryTab=true;
+	    setEvent('onCompleteViewSearchClick');">
+	    {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_VIEWHST}}</a></li> 
+	   <!--  rakPayee.payBill.setFromToDate(); -->
+	    
+	  </ul>
+</div>
+
+		  </div>	
+		  
+		 		  		
+	</div>		
+	
+</div>
+	  		<div class="disclaimer">
+							<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+											<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+							</div>
+
+							<div class="disclaimer3" ng-show="rakDisclaimerFlag">
+											<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_ADDPAYEE"></span>
+							</div>
+			</div>
+	
+</div>
+</div>
+	
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 

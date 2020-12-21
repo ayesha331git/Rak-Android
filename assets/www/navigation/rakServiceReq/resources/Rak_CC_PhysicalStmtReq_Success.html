@@ -1,0 +1,57 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.CCardStmtReq.initRakCSRSucessData(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+
+
+<div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakServiceReq.CCardStmtReq.successMessage}}</span>
+                        </div>
+                  </div>
+            <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.RAK_CC_PHY_STMT_REQ}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>                 
+                              </h2>              
+</div>
+                  
+
+			
+
+
+
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+				<div class="row">
+					<div class="">
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CC_PHY_STMT_REQ.CARDNO}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.CCardStmtReq.selectedCardNumber}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CC_PHY_STMT_REQ.STMT_FROM}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.CCardStmtReq.selectedFromMonthDesc}}, {{rakServiceReq.CCardStmtReq.selectedFromYearDesc}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CC_PHY_STMT_REQ.STMT_TO}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.CCardStmtReq.selectedToMonthDesc}}, {{rakServiceReq.CCardStmtReq.selectedToYearDesc}}</span>
+						</p>
+						
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click='setEvent("onRakCSROkClick");'>
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+
+						</div>
+						<div class="col-sm-10"></div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>

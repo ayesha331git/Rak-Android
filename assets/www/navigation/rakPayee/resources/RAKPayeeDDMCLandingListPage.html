@@ -1,0 +1,101 @@
+<div class="rak-back-header">
+    <i class="rak-back-img" ng-click="setEvent('onAddBeneficiaryPageCloseClick');"></i>
+  </div>
+<div class="finacle-container" ng-init="rakPayee.ddmcBenfTab=true;rakPayee.isBackClicked=false;rakPayee.resetPayeeModule();rakPayee.resetBillerModule();rakPayee.payeeModel.resetPayeeModel();rakPayee.loadPayeeList(successResponse);resetPageError();">
+<div class="account-page">
+<div class="col-sm-11">
+<div class="app-title-wrapper">
+<div class="form-block">
+		
+                   <!-- <div class="">
+					  <div class="rak-ddmc-title ">
+					   {{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DD_MCHQ}}</div>
+
+					</div> -->
+					
+				<div class="main-form-heading-ServiceReq rakdd-noborder"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DD_MCHQ}}				    		     
+				      </h2>		       
+		 		</div>
+				
+
+
+
+   <div>
+	<button  type="button" class="btn--special-btn btn-middle rak-button-half-red-left" ng-click="rakPayee.common.fromAuthPage=false;rakPayee.payeeModel.resetPayeeModel();rakPayee.selectedPayeeType=rakPayee.payeeTypes.MCHQ;setEvent(rakPayee.addBnfEvent(rakPayee.selectedPayeeType));"> {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_TXT_ADDNEWPAYE}} </button>
+	<button  type="button" class="btn--special-btn btn-middle rak-button-half-red-right" ng-click="rakPayee.common.fromAuthPage=false;rakPayee.payeeModel.resetPayeeModel();rakPayee.selectedPayeeType=rakPayee.payeeTypes.MCHQ;setGlobalEvent('onRAKConfirmPayeeClick');">{{appLiterals.APP.RAKBURGER.CONFIRMPAYEE}}</button>
+	<!-- <button ng-show="rakPayee.selectedPayeeType==rakPayee.payeeTypes.MCHQ" type="button" class="btn--special-btn btn-middle rak-button-full-red" ng-click="rakPayee.payeeModel.resetPayeeModel();rakPayee.selectedPayeeType=rakPayee.payeeTypes.MCHQ;setEvent(rakPayee.addBnfEvent(rakPayee.selectedPayeeType));"> {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_TXT_ADDNEWPAYE}} </button> -->
+  </div>
+    <div class="raksearch-field-wrap">
+      <p class="search-field"><span class="rakGlyphicon glyphicon-search"> </span>
+        <input type="text" input-restricted-special-character placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_DDMCHQ_SEARCHBNF}}" ng-model="searchText" class="raksearch-txt">
+      </p>
+    </div>
+
+
+	  <div class="nano movemoney-scroll">
+	    <div class="mm-content1 nano-content">
+  <div class="bg-color rakSubScrollDiv rak-cont-padding ">
+			<div class="row" >
+
+
+	  <div class="">
+
+
+		<div class="rakGreyRow" ng-show="rakPayee.ddmchqBeneficiaryList.length > 0"
+		ng-repeat="ddmcbeneficiary in rakPayee.ddmchqBeneficiaryList | filter:searchText"
+		ng-click="rakPayee.payeeSelected=ddmcbeneficiary;rakPayee.selectedPayeeIndex=ddmcbeneficiary.beneficiaryIndex; rakPayee.isBackClicked=false;rakPayee.bankbnftype=ddmcbeneficiary.bnfType" >
+			<div class="people-details">
+			  <div class="rakPeopleNameRowBenf">
+				{{ddmcbeneficiary.beneficiaryNickname}}
+			</div>
+			 <div class="rakPeopleNameRowBank">
+					{{ddmcbeneficiary.beneficiaryBankName}}</div>
+			</div>
+
+			<!-- Sindhu -->
+
+   <div class="rakRelative">
+   <span class="rakPullDown" ng-click="rakHome.handlePullDown($event);"></span>
+  <ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+      <li><a href="" ng-click="rakPayee.isEditBeneficiaryMode=true;rakPayee.selectedPayeeIndex=ddmcbeneficiary.beneficiaryIndex;rakPayee.payBill.editIconFlag=false;setEvent('onEditBeneficiaryClick')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_EDIT}}</a></li>
+    <li><a href="" ng-click="rakPayee.isDeleteBeneficiaryMode=true;rakPayee.selectedPayeeIndex=ddmcbeneficiary.beneficiaryIndex;rakPayee.payeeModel.txnType=rakPayee.constants.TXNTYPEBNF;setEvent('onDeleteBeneficiaryClick')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_DELETE}}</a></li>
+    <li><a href="" ng-click="rakServiceReq.RakOperativeDDCheque.isInitiatedMode=true;
+    				rakPayee.selectedPayeeIndex=ddmcbeneficiary.beneficiaryIndex;
+    				rakPayee.payeeModel.txnType=rakPayee.constants.TXNTYPEBNF;
+    				rakServiceReq.resetRAKOprDDData();
+    				setEvent('onRAKOprDDChequeRequestClick')">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_INITIATE}}</a></li>
+
+
+    <!-- <li><a href="" ng-click="setEvent('onRAKViewTxnHistoryClick');">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_VIEWHST}}</a></li> -->
+  </ul>
+</div>
+<!-- Sindhu -->
+		  </div>
+
+
+
+		   <div ng-show="rakPayee.ddmchqBeneficiaryList.length == 0 ">
+			 <div class="error-details">
+				  <div>
+					 <span class="error-details-txt">
+						{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.NO_BNFS}}
+					 </span>
+					</div>
+			 </div>
+		</div>
+
+
+		</div>
+
+	</div>
+	</div>
+	  <div class="col-sm-1"> </div>
+	  </div>
+	</div>
+
+	</div>
+	</div>
+	</div>
+	</div>
+</div>

@@ -1,0 +1,52 @@
+<!-- <div class="full-page-screen"></div>
+
+<div class="confirmation-content-container">
+    <div class="message-box-new">
+        <div>
+            <p class="round-icon-new">
+            <span class="app app-alert pop-alert-icon rak-color"></span>
+            </p>
+
+           <div class="conf-txt-title rak-black-color"> {{confirmationObj.title}}</div>
+           <div class="conf-txt-label rak-black-color"> {{confirmationObj.message}}</div>
+        </div>
+        <div class="conf-btn-wrap">
+        	<button type="button" class="btn--confpri-btn rak-grey-color rak-border" ng-click='setGlobalEvent("onLogoutClickOK")'> &nbsp; YES &nbsp; </button>
+			<button type="button" class="btn--confsec-btn rak-black-color rak-border" ng-click='setGlobalEvent("onLogoutClickCancel")'> &nbsp; NO &nbsp; </button>
+			<button type="button" class="btn--confpri-btn" ng-click='setGlobalEvent("onLogoutClickOK")'> &nbsp; {{confirmationObj.okText}} &nbsp; </button>
+			<button type="button" class="btn--confsec-btn" ng-click='setGlobalEvent("onLogoutClickCancel")'> &nbsp; {{confirmationObj.cancelText}} &nbsp; </button>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- page has been modified for rak customization -->
+<div class="full-page-screen rakfullpageScreenBackground"></div>
+
+<div class="confirmation-content-container">
+    <div class="message-box-new rakConfirmBoxShadow">
+        <div>
+            <div  class="rakConfirmHeader">
+           <span class="rakConfirmLogouttext rakAlertIcon ng-binding">{{appLiterals.APP.RAK_COMMON.LOGOUTMSG}}</span>
+         <!--  <span class="logoutMsg"> {{appLiterals.APP.RAK_COMMON.LOGOUTMSG}}</span> -->
+          </div>
+
+
+         <div  class="sessionTimeOutLabel">
+           <span class="rakLabelValue">{{appLiterals.APP.RAK_COMMON.LOGOUTCONFIRMMESSAGE}}</span>
+          </div>
+
+
+
+
+        <div class="conf-btn-wrap rakWidth100Percent">
+
+			<button  type="button"  class="btn--confsec-btn rakButtonGreyColor rak-border rakWhiteFont" ng-click='callInProgress=false;setGlobalEvent("onLogoutClickOK")'>{{appLiterals.APP.RAK_COMMON.LOGOUTOKBTN}}</button>
+
+
+				<button type="button"  class="btn--confpri-btn rakButtonGreyColor rak-border rakWhiteFont" ng-click='callInProgress=false;setGlobalEvent("onLogoutClickCancel");' >{{appLiterals.APP.RAK_COMMON.LOGOUTCANCEL}}</button>
+
+        </div>
+    </div>
+</div>
+</div>

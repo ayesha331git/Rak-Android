@@ -1,0 +1,80 @@
+<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onRakCCCashBkRedemInitBackClick');"></i>
+	</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.fetchRAKCCCashBkRedemData(successResponse.responsesList);">
+			<div class="account-page ">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+
+					<div class="main-form-heading-ServiceReq">
+			                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CC_CASH_BACK_REDEM}}
+			                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>
+			                 </h2>
+					</div>
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="">
+
+
+									<div
+										ng-init='CrCardArr = createDropDownOptionArray(rakServiceReq.RakCCCashBkRedemModel.CreditCardList, ["creditcardDesc","-","creditcardNumber"],"creditcardIndex");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RakCCCashBkRedemModel.selectedCreditCard"
+										display-row="full"
+										on-change="setEvent('onRakCCCashBkRedemCCDetailsFetch');"
+										placeholder="{{appLiterals.APP.RAKCCCASHBKREDEM.CCB_SEL_CARD_NO}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakCCCashBkRedemModel.selectedCreditCard"]'
+										option-array="CrCardArr"> </fin-input>
+
+										<div ng-show="rakServiceReq.RakCCCashBkRedemModel.isCCDetailsFetched">
+
+										<p class="rak-parent-txt">
+											<span class="rak-sum-label ServiceReqNormalLable">{{appLiterals.APP.RAKCCCASHBKREDEM.CCB_CARD_TYPE}}</span> <span
+												class="rak-sum-label ServiceReqNormalLable blackRight">{{rakServiceReq.RakCCCashBkRedemModel.cardType}}</span>
+										</p>
+
+										<p class="rak-parent-txt" ng-show="rakServiceReq.RakCCCashBkRedemModel.showCashBackAvailable">
+											<span class="rak-sum-label ServiceReqNormalLable">{{appLiterals.APP.RAKCCCASHBKREDEM.CCB_CASH_BACK_AVL}}</span> <span
+												class="rak-sum-label ServiceReqNormalLable blackRight">{{rakServiceReq.RakCCCashBkRedemModel.cashBackAvailableAmt}}</span>
+										</p>
+
+
+									<fin-input type="number_card"
+										model="rakServiceReq.RakCCCashBkRedemModel.userEnteredRedeemAmount"
+										display-row="full" placeholder="{{appLiterals.APP.RAKCCCASHBKREDEM.CCB_REDEEM_AMT}}"
+										ng-show="rakServiceReq.RakCCCashBkRedemModel.showRedeemAmount"
+										validation-flag='pageErrorArr["rakServiceReq.RakCCCashBkRedemModel.userEnteredRedeemAmount"]'></fin-input>
+
+									<div class="label-wrap">
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-small btn--back"
+											ng-click="setEvent('onRakCCCashBkRedemInitBackClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-right"
+											ng-click="setEvent('onRakCCCashBkRedemContinueClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+									</div>
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
+								<div class="disclaimer" >
+                                              <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                              <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                              </div>
+
+                                              <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+												<span ng-click="rakServiceReq.fetchDisclaimer('CreditCardServiceRequestsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCASHBACKREDEM_INITPAGE"></span>
+												<span ng-click="rakServiceReq.fetchDisclaimer('CreditCardServiceCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCASHBACKREDEM_INITPAGECONT"></span>
+											</div>
+                                     </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

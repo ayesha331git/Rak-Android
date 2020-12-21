@@ -1,0 +1,115 @@
+
+<div class="container-fluid padding-zero"
+	ng-init="rak2FARegister.RegistrationModel.otp='';">
+
+
+
+	<div class="row">
+
+		<div class="col-sm-1 rakDblheight"></div>
+
+		<div class="col-sm-11 login-form">
+		
+		
+		<div class="center rakFont10">
+					<div class="rak-logintab"
+						ng-click="rak2FARegister.registerSuccess();">
+						<span class="rak-black-color login-label">
+							{{appLiterals.APP.RAK_LOGIN_PAGE.LOGIN}} </span>
+					</div>
+
+					
+					<div class="rak-logintab  border-left">
+						<span class="login-label rak-color border-bottom">
+							{{appLiterals.APP.RAK_LOGIN_PAGE.CORP_2FA_INIT}}</span>
+					</div>
+
+				
+		
+				
+		</div>
+		
+		<div>
+			<div class="selfReg-main-form-heading margin-top10px">
+				<div>
+					<span class="rak-black-color login-label-selfReg ">{{appLiterals.APP.RAK_2FA_MESSAGES.NEWREG_TXT}}</span>
+					<ul class="process-steps">
+						<li ></li>
+						<li class="active"></li>
+						<li></li>
+						<li></li>
+						
+					</ul>
+					</div>
+					
+						
+			</div>
+		</div>
+		
+		</div>
+
+
+
+		</br> </br>
+
+
+
+		<div class="bg-color">
+			<div class=" col-sm-11  row">
+				<div ng-hide="rak2FARegister.RegistrationModel.isProceedClicked">
+					<div class="fin-txt"></div>
+					<div class="rak-selfReg-lable">
+						<p ng-bind-html="appLiterals.APP.RAKSELFREG.ENETRE_MOBL_TXT"></p>
+					</div>
+				</div>
+				<div class="">
+					<p class="rak-parent-txt">
+						<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.RAKSELFREG.MOBILENO}}</span>
+						<span class="rak-sum-label black labelCardsTemp">{{rak2FARegister.RegistrationModel.mobileNo}}</span>
+					</p>
+
+					<div>
+						<div class="label-wrap">
+							<div class="">
+								<p class="label-title-selfReg">{{appLiterals.APP.RAKSELFREG.PASSCODE_VALD}}</p>
+								<p class="label-txt"></p>
+							</div>
+
+
+							<div class="rakwidth65">
+								<fin-input type="password_num"
+									model="rak2FARegister.RegistrationModel.otp" display-row="full"
+									placeholder="OTP" max-length="8"
+									validation-flag='pageErrorArr["rak2FARegister.RegistrationModel.otp"]'>
+								</fin-input>
+							</div>
+
+
+
+
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+								ng-click="rak2FARegister.regenerateOtp('on2FACorpRegGenerateOTPClick');">
+								{{appLiterals.APP.RAK_COMMON.RESEND_OTP}}</button>
+						</div>
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back "
+								ng-click="rak2FARegister.registerSuccess();">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CANCEL}}</button>
+
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small "
+								ng-click='rak2FARegister.EzComToken.isFromNonLoginFlow=true;rak2FARegister.RegistrationModel.isProceedClicked=true;rak2FARegister.initiateTxnRegistrationForAuth("onCorp2FAOTPSubmitClick");'>{{appLiterals.APP.RAKCOMMONLITERALS.PROCEED}}</button>
+						</div>
+
+					</div>
+
+			
+
+
+				</div>
+			</div>
+		</div>
+
+	</div>

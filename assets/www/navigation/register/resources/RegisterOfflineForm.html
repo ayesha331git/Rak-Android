@@ -1,0 +1,142 @@
+<div class="full-height"
+	ng-init="register.responseOfflineContinue(successResponse);setSingleStepRealmAuthFailure();">
+	<div class="account-page full-height">
+		<form class="dashboard-item-body full-height "
+			ng-submit="register.validateAccNoAndCustID()=== false ? setEvent('validateRegiterationForm'): 
+								(register.isOnline ? setEvent('onOTPAuthPage') : setEvent('onRegisterOfflineSuccessClick'))">
+			<div class="sticky-footer">
+
+				<div class="dashboard-item-title col-sm-12" layout="row"
+					layout-align="center center" layout-wrap>
+					<h2 class="item-title md-headline text-uppercase"
+						id="registerFormHeader" layout="row" layout-align="center center"
+						layout-wrap>{{appLiterals.APP.REGISTER.REG_OFFORM.HEADER}}</h2>
+				</div>
+				<div class="stage_wrap" ng-show="register.isOnline">
+					<div class="stage3">
+						<p class="staging" id="registerFormTxt1">
+							{{appLiterals.APP.REGISTER.REG_CHAN_SEL.NO1}}</p>
+					</div>
+					<div class="stage-line line-small"></div>
+					<div class="next-stage">
+						<p class="staging" id="registerFormTxt2">
+							{{appLiterals.APP.REGISTER.REG_CHAN_SEL.NO2}}</p>
+					</div>
+					<div class="stage-line line-small"></div>
+					<div class="next-stage">
+						<p class="staging" id="registerFormTxt3">
+							{{appLiterals.APP.REGISTER.REG_CHAN_SEL.NO3}}</p>
+					</div>
+					<div class="stage-line line-small"></div>
+					<div class="next-stage">
+						<p class="staging" id="registerFormTxt4">
+							{{appLiterals.APP.REGISTER.REG_CHAN_SEL.NO4}}</p>
+					</div>
+				</div>
+				<div class="stage_wrap" ng-show="!register.isOnline">
+					<div class="stage3">
+						<p class="staging" id="registerFormTxt21">
+							{{appLiterals.APP.REGISTER.REG_CHAN_SEL.NO1}}</p>
+					</div>
+					<div class="stage-line line-small"></div>
+					<div class="next-stage">
+						<p class="staging" id="registerFormTxt22">
+							{{appLiterals.APP.REGISTER.REG_CHAN_SEL.NO2}}</p>
+					</div>
+				</div>
+				<div class="col-sm-12">
+
+					<div class="clear-all avail-bal-wrap">
+						<fin-input type="text" model="register.offlineModel.custmerId"
+							display-row="full"
+							placeholder="{{appLiterals.APP.REGISTER.REG_OFFORM.PH_USERID}}"
+							max-length="64"></fin-input>
+					</div>
+					<div class="special-txt" id="registerFormOrTxt" layout="row"
+						layout-align="center center" layout-wrap>
+						<span>{{appLiterals.APP.REGISTER.REGSELF_ENROL.OR}}</span>
+					</div>
+
+					<div class="clear-all avail-bal-wrap">
+						<fin-input type="text" model="register.offlineModel.accountNo"
+							display-row="full"
+							placeholder="{{appLiterals.APP.REGISTER.REG_OFFORM.PH_ACCNO}}"
+							max-length="32"></fin-input>
+					</div>
+
+					<div class="two-input-wrapper"
+						ng-init='titleArr = createDropDownOptionArray(register.title, ["content"], "value")'>
+						<fin-input type="dropdown" model="register.offlineModel.title"
+							display-row="half1"
+							placeholder="{{appLiterals.APP.REGISTER.REG_OFFORM.PH_SALU}}"
+							on-change='register.updateGender();'
+							validation-flag='pageErrorArr["register.offlineModel.title"]'
+							option-array="titleArr"></fin-input>
+					</div>
+
+					<div class="avail-bal-wrap">
+						<fin-input type="text" model="register.offlineModel.firstName"
+							display-row="full"
+							placeholder="{{appLiterals.APP.REGISTER.REG_OFFORM.PH_FRSTNAM}}"
+							validation-flag='pageErrorArr["register.offlineModel.firstName"]'
+							max-length="32"></fin-input>
+					</div>
+
+					<div class="clear-all avail-bal-wrap">
+						<fin-input type="text" model="register.offlineModel.midName"
+							display-row="full"
+							placeholder="{{appLiterals.APP.REGISTER.REG_OFFORM.PH_MIDLNAM}}"
+							max-length="32"></fin-input>
+					</div>
+					<div class="clear-all avail-bal-wrap">
+						<fin-input type="text" model="register.offlineModel.lastName"
+							display-row="full"
+							placeholder="{{appLiterals.APP.REGISTER.REG_OFFORM.PH_LSTNAM}}"
+							validation-flag='pageErrorArr["register.offlineModel.lastName"]'
+							max-length="32"></fin-input>
+					</div>
+					<div class="clear-all two-input-wrapper">
+						<fin-input type="date" model="register.offlineModel.dob"
+							display-row="half1"
+							validation-flag='pageErrorArr["register.offlineModel.dob"]'
+							placeholder="{{appLiterals.APP.REGISTER.REG_OFFORM.PH_DTEOFBRTH}}"
+							on-change='register.selectDob()'></fin-input>
+					</div>
+					<div
+						ng-init='genderArr = createDropDownOptionArray(register.genderList, ["content"], "value")'>
+					</div>
+					<div class="clear-all avail-bal-wrap">
+							<fin-input type="phone" model="register.offlineModel.mobile"
+							display-row="full"
+							placeholder="{{appLiterals.APP.REGISTER.REG_OFFORM.PH_MBLNO}}"
+							min="0"
+							validation-flag='pageErrorArr["register.offlineModel.mobile"]'
+							max-length="20"></fin-input>
+					</div>
+					<div class="clear-all avail-bal-wrap">
+						<fin-input type="mail_Id" model="register.offlineModel.email"
+							display-row="full"
+							placeholder="{{appLiterals.APP.REGISTER.REG_OFFORM.PH_EMAILID}}"
+							validation-flag='pageErrorArr["register.offlineModel.email"]'></fin-input>
+					</div>
+				</div>
+			</div>
+			<section layout="row" layout-align="center center"
+				class="btn-wrap button-wrapper sticky-footer-block">
+				<md-button type="button" id="registerFormBtnCancel"
+					class=" md-raised btn--secondary-btn  md-raised btn--primary-three-btn"
+					ng-click="setGlobalEvent('onLoginClick')">{{appLiterals.APP.COMMON.BUTTON.CANCEL}}
+				</md-button>
+
+				<md-button type="submit" id="registerOfflineFormSubmit"
+					class=" md-raised btn--primary-btn  md-raised btn--primary-three-btn"
+					ng-show='!register.isOnline'>
+				{{appLiterals.APP.REGISTER.REG_OFFORM.BTN_PCD}} </md-button>
+				<md-button type="submit" id="registerOnlineFormSubmit"
+					class=" md-raised btn--primary-btn  md-raised btn--primary-three-btn"
+					ng-show='register.isOnline'>
+				{{appLiterals.APP.REGISTER.REG_OFFORM.BTN_PCD}} </md-button>
+			</section>
+		</form>
+	</div>
+</div>

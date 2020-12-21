@@ -1,0 +1,53 @@
+<div class="finacle-container ng-scope" ng-init="(rakPayee.processBillerAuthInitResponse(successResponse.responsesList));
+						rakPayee.authMode.firstAuthModeValue = '';rakPayee.authMode.secAuthModeValue = '';rakHome.AuthPageData.firstAuthModeValue='';rak2FARegister.RegistrationModel.resendAuthMode(successResponse.responsesList);">
+
+	<div class="account-page">
+    <div class="col-sm-11">
+				<div class="app-title-wrapper">
+						<ng-include  src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>
+
+		   <div class="rak-scroll">
+	        <div class="main-form-heading-payee" >
+                <h2>{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_MODIFY_BILLER}}<span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2}} :{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2_TXT1}} </span></h2>
+            </div>
+
+			  <div class="bg-color rak-cont-padding">
+				<div class="" >
+				 <div class="">
+
+<!-- <div class="ng-hide" ng-if="rakPayee.isShowAlert" ng-init="(rakPayee.isAlertAnError == true) ? showErrorPopup(rakPayee.billerAuthStatusMessage) : showAlert(rakPayee.billerAuthStatusMessage);rakPayee.isBillerAuthSent=false;rakPayee.isShowAlert=false; setEvent(rakPayee.getBillerAuthPopupEvent())"></div> -->
+
+			<!-- Name -->
+               <p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BIL_NAME}}</span>
+					<span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.payeeModel.editBnfFlag==true,'black':rakPayee.payeeModel.editBnfFlag==false}">{{rakPayee.billerModel.displayName}}</span>
+				</p>
+
+           <div ng-repeat="fields in rakPayee.billerModel.labels">
+				<p class="rak-sum-txt" ng-if="fields.consumerCode!=''">
+					<span class="rak-sum-label">{{fields.field}}</span>
+					<span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.payeeModel.editBnfFlag==true,'black':rakPayee.payeeModel.editBnfFlag==false}">{{fields.consumerCode}}</span>
+				</p>
+			</div>
+                   <!-- NickName -->
+                <p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BIL_NICKNAME}}</span>
+					<span  ng-show="rakPayee.payeeModel.editBnfFlag" class="rak-sum-label black rakeditText">{{rakPayee.billerModel.nickName}}</span>
+					<span ng-hide="rakPayee.payeeModel.editBnfFlag" class="rak-sum-label black">{{rakPayee.billerModel.nickName}}</span>
+				</p>
+
+				<fin-dynamicbenfauthresend></fin-dynamicbenfauthresend>
+		
+		   <div ng-show="rakPayee.isEditBillerMode" class="label-wrap">
+		        <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="setEvent('onEditBillerPageCloseClick');"> {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_BACK}} </button>
+                <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakPayee.isBillerAuthSent = true; rakPayee.isBackClicked=false;rakHome.AuthPageData.fetchOtp('onEditBillerAuthConfirmClick')">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_EDIT_DELETE_CONT}}</button>
+            </div>
+		   <div class="col-sm-1"> </div>
+		   </div>
+	  </div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</div>

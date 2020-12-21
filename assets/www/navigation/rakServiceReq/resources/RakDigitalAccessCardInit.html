@@ -1,0 +1,82 @@
+<div class="rak-back-header">
+	<i class="rak-back-img"
+		ng-click="setEvent('onDigitalAccessCardHomeBackClick');"></i>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container" ng-init="rakServiceReq.rakDigitalAccessCardBlock.rakDigitalAccessCardInit(successResponse.responsesList);">
+			
+			<div class="account-page">
+				<div class="col-sm-11">
+
+					<div class="form-block">
+
+
+						<div class="main-form-heading-ServiceReq">
+							<h2 class="rakBenfHeader">
+								{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DACINIT}} <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}
+								</span>
+							</h2>
+						</div>
+
+						<div class="bg-color rak-cont-padding rak-scroll">
+							<div class="row">
+							
+							<div class="summary-ServiceReq" ng-if='rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest && rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest=="P" && rakServiceReq.rakDigitalAccessCardBlock.selectedPinIssuanceCard'> 
+									<div class="iconDiv">
+										<span class="infoIcon"></span><span class="success">{{appLiterals.APP.RAK_CC_DC_PIN_REISSUE.OTP_MESSAGE}}</span>
+									</div>
+								</div>
+
+								<div
+									ng-if='rakServiceReq.rakDigitalAccessCardBlock.isSignatory=="Y"'>
+									<div
+										ng-init='dacReq = createDropDownOptionArray(rakServiceReq.rakDigitalAccessCardBlock.digitalAccessCardListSignatory, ["dacFullAccessDesc"], "dacFullAccessCode");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest"
+										on-change="rakServiceReq.rakDigitalAccessCardBlock.resetOnDACSRChange()"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DAC_REQUEST}}"
+										validation-flag='pageErrorArr["rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest"]'
+										option-array="dacReq"> </fin-input>
+								</div>
+
+								<div
+									ng-if='rakServiceReq.rakDigitalAccessCardBlock.isSignatory=="N"'>
+									<div
+										ng-init='dacReq = createDropDownOptionArray(rakServiceReq.rakDigitalAccessCardBlock.digitalAccessCardListNonSignatory, ["dacEnquiryDesc"], "dacFullAccessCode");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest"
+										on-change="rakServiceReq.rakDigitalAccessCardBlock.resetOnDACSRChange()"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DAC_REQUEST}}"
+										validation-flag='pageErrorArr["rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest"]'
+										option-array="dacReq"> </fin-input>
+								</div>
+
+								
+								<ng-include
+									ng-if='rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest && rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest=="B"'
+									src="'./navigation/rakServiceReq/resources/RakBlockDigitalAccessCardInit.html'">
+								</ng-include>
+								
+								<ng-include
+									ng-if='rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest && rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest=="A"'
+									src="'./navigation/rakServiceReq/resources/RakIssuanceDigitalAccessCardInit.html'">
+								</ng-include>
+								
+								<ng-include
+									ng-if='rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest && rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest=="P"'
+									src="'./navigation/rakServiceReq/resources/RakDACPinReissueInitPage.html'">
+								</ng-include>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

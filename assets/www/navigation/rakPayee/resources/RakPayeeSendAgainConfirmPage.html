@@ -1,0 +1,144 @@
+<div
+	ng-init="rakPayee.payBill.txnPwd='';rakHome.AuthPageData.firstAuthModeValue='';rakPayee.payBill.initAuthPage(successResponse.responsesList);rakCorpInit.corpModel.processCorpInit(successResponse.responsesList);" >
+	<div ng-if="rakPayee.payBill.balCheck== 'true'">
+		<div class="full-page-screen"></div>
+		<div class="confirmation-content-container">
+			<div class="message-box-new">
+				<div>
+					<p class="round-icon-new">
+						<span class="app app-alert pop-alert-icon rak-color"></span>
+					</p>
+					<div class="conf-txt-title rak-black-color"></div>
+				</div>
+				<div class="conf-txt-label rak-black-color">
+					{{rakPayee.payBill.poolBalMsg}}</div>
+				<div class="conf-btn-wrap rakpaddingBottom15">
+					<button type="button"class="btn--special-btn btn-middle rak-button-small btn--back"
+						ng-click='setEvent("onTransfersAuthBackClick")'>&nbsp;
+						{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.BTN_CNL}}
+						&nbsp;</button>
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-small"
+						ng-click='rakPayee.payBill.balCheck="false";setEvent("onPoolBalanceConfirmation")'>
+						&nbsp;
+						{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.BTN_YES}}
+						&nbsp;</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="finacle-container ng-scope"
+	ng-init="rakPayee.schedule.txnPwd='';rakPayee.schedule.initAuthPage(successResponse.responsesList)" >
+	<div class="account-page">
+    <div class="col-sm-11">
+	  <div class="app-title-wrapper">		
+		
+		<ng-include  src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>
+		
+        <div class="rak-scroll">
+      <div class="main-form-heading">
+                    	<h2>{{appLiterals.APP.RAK_COMMON.SUMMARY_HEADER}}<span>{{appLiterals.APP.RAK_COMMON.SUMMARY_REVIEW}}</span></h2>
+            </div>
+	
+	 
+		<div class="bg-color rak-cont-padding">      
+		 
+			<div class="row" >
+			  <div class="">
+									
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.PAY_TO}}</span>
+				<span class="rak-sum-label black">{{rakPayee.schedule.selectedPayee}} - {{rakPayee.schedule.service}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.PLCHOLDER_FROM}}</span>
+				
+					<span ng-if="rakPayee.schedule.fromAccounts[rakPayee.schedule.selectedFromAccount].accountType='CCD'" class="rak-sum-label black">{{rakPayee.schedule.fromAccounts[rakPayee.schedule.selectedFromAccount].accountNumberDisplay}}</span>
+					<span ng-hide="rakPayee.schedule.fromAccounts[rakPayee.schedule.selectedFromAccount].accountType='CCD'" class="rak-sum-label black">{{rakPayee.schedule.fromAccounts[rakPayee.schedule.selectedFromAccount].accountNumber}}</span>
+					
+				</p>
+			<p class="rak-sum-txt" ng-show="rakPayee.schedule.consumerNo">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.CONSUMERNO}}</span>
+					<span class="rak-sum-label black">{{rakPayee.schedule.consumerNo}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakPayee.schedule.amountType=='2'">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.AMOUNT}}</span>
+					<span class="rak-sum-label black">{{rakPayee.schedule.outAmount}}</span>
+				
+						 	
+				<p class="rak-sum-txt" ng-show="rakPayee.schedule.amountType=='1'">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.AMOUNT}}</span>
+					<span class="rak-sum-label black">{{rakPayee.schedule.amountDisp}} AED</span>
+				</p>
+				
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.WHEN}}</span>
+					<span class="rak-sum-label black">{{rakPayee.schedule.displayDate}}</span>
+				</p>
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.FREQ}}</span>
+					<span class="rak-sum-label black">{{rakPayee.schedule.recFreq}}</span>
+				</p> 
+				
+				
+				
+				<p class="rak-sum-txt" ng-show="rakPayee.schedule.selectedFrequency!='O' && rakPayee.schedule.selectedFrequency!='undefined'">
+					<span  class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.NOOFTRANSFERS}}</span>
+					<span class="rak-sum-label black">{{rakPayee.schedule.noOfTransfer}}</span>
+				</p>
+				
+				<!-- added for workflow -->
+
+							 <corpapproval-input></corpapproval-input>
+							
+		
+						
+				<!-- added for workflow -->
+				<fin-dynamicauth></fin-dynamicauth>
+
+		<!-- 		<fin-input type="password_text" model="rakPayee.schedule.txnPwd"
+					display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+					validation-flag='pageErrorArr["rakPayee.schedule.txnPwd"]'
+				ng-show="rakPayee.schedule.authFlag==txnpwdString">
+					</fin-input>
+
+
+				<div ng-show="rakPayee.schedule.authFlag==otpString">
+
+				<div ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+							<fin-input type="password_num" model="rakPayee.schedule.txnPwd"
+							display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+							validation-flag='pageErrorArr["rakPayee.schedule.txnPwd"]' > </fin-input>
+							</div>
+
+							<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0' ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+
+								<fin-input type="dropdown" option-array="toModeArray" model="rakHome.otpModel.otpModeSelected" display-row="full" placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+								<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+
+							</div>
+				<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>
+				</div>
+ -->
+<!-- Dynamic Component used for authorization END -->
+				<div class="label-wrap">
+
+				 <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back"
+				 ng-click="rakPayee.schedule.fromAuthPage=true;rakPayee.schedule.txnPwd='';setEvent('onPayBillAuthBackClick');">  {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.BTN_BACK}} </button>
+				  <button type="button"  class="btn--special-btn btn-middle rak-button-small"
+				 ng-click="rakHome.AuthPageData.fetchOtp('onPayBillNowSubmit');">  {{appLiterals.APP.PAYEE.PAY_BILL.BTN_CONFIRM}} </button>
+
+			  </div>
+          <div class="col-sm-1"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>

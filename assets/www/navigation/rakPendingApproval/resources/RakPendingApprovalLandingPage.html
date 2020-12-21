@@ -1,0 +1,1103 @@
+<div class="rak-back-header">
+	<!-- <i class="rak-back-img" ng-click="setEvent('onPendingApprovalBackClick');"></i> -->
+	<i class="rak-back-img" ng-click="rakPendingApproval.pendingApprovalTab='PMA';setGlobalEvent('onPendingApprovalsCountClick');"></i>
+</div>
+
+<div class="finacle-container"
+	ng-init="resetPageError();rakPendingApproval.approvalReasonDesc='';rakPendingApproval.approveAuthModel.backFlag='';rakCorpInit.corpModel.resetCorpInitDetails();rakPendingApproval.approvalCount(successResponse.responsesList);rakPendingApproval.responsePendingApproval(successResponse.responsesList);">
+	<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+		<ng-include  src="'./navigation/rakPendingApproval/resources/RakPendingApprovalsHeaderTabPage.html'"> </ng-include>
+		<!-- <ng-include  src="'./navigation/rakPendingApproval/resources/RakSearchPendingApproval.html'"> </ng-include> -->
+			
+
+<div class="bg-color rak-cont-padding">
+
+				<div class="rakTxnSearch" ng-init='rakPendingApproval.pendingList.length == 0? rakTxnSearch=true : rakTxnSearch=false;'>
+								<div class="rakTxnSearch1 rakTxnSearchIcon" ng-class="{'rakTxnSearchIconExpnd':rakTxnSearch}"
+									ng-click="rakTxnSearch=!rakTxnSearch">
+									<h3 class="rakTxnSearch2">{{appLiterals.APP.RAK_COMMON.SEARCH}}</h3>
+								</div>								
+								<div class="rakTxnSearch3" ng-show="rakTxnSearch">
+									
+									<div
+										ng-init='txnTypeArray=createDropDownOptionArray(rakPendingApproval.txnTypeList, ["txnTypeDesc"],"txnTypeCode")'>
+										<fin-input type="dropdown" option-array="txnTypeArray"
+											model="rakPendingApproval.selectedTxnType" display-row="full"
+											placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.TRANSACTION_TYPE}}" validation-flag='pageErrorArr["rakPendingApproval.selectedTxnType"]' > </fin-input>
+									</div>
+									<!-- <div class=""> 
+										<span class="fieldLabelLeft" >{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.TRANSACTION_TYPE}}</span>
+									</div> -->
+									<div
+										ng-init='OprAcctArr = createDropDownOptionArray(rakPendingApproval.accIdList, ["acctTypeDesc","-","accountId"," ","currencyCode"], "accountIndex");'></div>
+										<fin-input type="dropdown"
+										model="rakPendingApproval.selectedAccId"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.ACCOUNT_ID}}"
+										validation-flag='pageErrorArr["rakPendingApproval.selectedAccId"]'
+										option-array="OprAcctArr"> </fin-input>
+									<!-- <div class=""> 
+										<span class="fieldLabelLeft" >{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.ACCOUNT_ID}}</span>
+									</div> -->
+									<div ng-if="rakPendingApproval.pendingApprovalTab=='PIA'"
+										ng-init='txnStatusArray=createDropDownOptionArray(rakPendingApproval.txnStatusList, ["txnStatusDesc"],"txnStatusCode")'>
+										<fin-input type="dropdown" option-array="txnStatusArray"
+											model="rakPendingApproval.selectedTxnStatus" display-row="full"
+											placeholder="{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.TXN_STATUS}}" validation-flag='pageErrorArr["rakPendingApproval.selectedTxnStatus"]' > </fin-input>
+									</div> 
+			 					<!-- 	<div class="" ng-if="rakPendingApproval.pendingApprovalTab=='PIA'">
+										<span class="fieldLabelLeft" >{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.TXN_STATUS}}</span>
+									</div>  -->
+									
+									<fin-input type="date" model="rakPendingApproval.searchFromDate"
+										display-row="half1" placeholder="{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.FROM_DATE}}"
+										validation-flag='pageErrorArr["rakPendingApproval.searchFromDate"]'></fin-input>
+
+									<fin-input type="date" model="rakPendingApproval.searchToDate"
+										display-row="half2" placeholder="{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.TO_DATE}}"
+										validation-flag='pageErrorArr["rakPendingApproval.searchToDate"]'></fin-input>
+
+						
+							 <div class=""> 
+								<span class="fieldLabelLeft" >{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.FROM_DATE}}</span> 
+								<span class="fieldLabelRight rak42" >{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.TO_DATE}}</span> 
+							</div> 
+							
+							<div ng-if="rakPendingApproval.pendingApprovalTab!='PIA'">
+							<button type="button" class="btn--special-btn btn-middle rak-button-full-black"
+									ng-click="rakPendingApproval.setFromToDate();rakPendingApproval.backClickFlag='N';rakPendingApproval.fromSearch=true;setEvent('onApprUnapprSearchClick')">{{appLiterals.APP.RAK_COMMON.SEARCH}}
+							</button>
+							</div>
+							<div ng-if="rakPendingApproval.pendingApprovalTab=='PIA'">
+							<button type="button" class="btn--special-btn btn-middle rak-button-full-black"
+									ng-click="rakPendingApproval.setFromToDate();rakPendingApproval.backClickFlag='N';rakPendingApproval.fromSearch=true;setEvent('onPendingIncompleteTxnsSearchClick')">{{appLiterals.APP.RAK_COMMON.SEARCH}}
+							</button>
+							</div>
+							</div>
+					</div>
+							
+
+
+
+
+<div class="rakScrollDivHistory rak-cont-paddingvh" ng-class="{'pendingApproval':rakTxnSearch, 'pendingApprovalIncomplete':rakPendingApproval.pendingApprovalTab=='PIA' && rakTxnSearch}"
+ng-init="rakPendingApproval.isFromLandingPage=true; rakPendingApproval.approvalListToggleXFR(20000); rakPendingApproval.approvalListTogglePMT(20000); rakPendingApproval.approvalListTogglePCD(20000);rakPendingApproval.approvalListToggleRCM(20000);">
+	<div ng-if="rakPendingApproval.pendingList.length > 0 ">
+		<div ng-if="rakPendingApproval.pendingListXFR.length > 0">
+			<div class="main-form-heading-Approval">
+                <h2 class="rakBenfHeader rakRed">{{appLiterals.APP.RAKPENDINGAPPROVAL.SUBHEADERS.XFR}}
+                </h2>
+			</div>
+			
+				<div class="">
+					<div class=""
+							
+							id="moveMoneyPALPListClick{{$index}}" ng-click="rakPendingApproval.approvalListToggleXFR($index);">
+                    	<div >
+                    	
+                    	
+                    	<div class="money-block rakBottomZero">
+						         <ul>
+						            <li  class="active rak30 rakPaddingPoint8em" >{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.BENF}}
+						            </li> 
+						            <!-- <li  class="active rak30 rakPaddingPoint8em" >{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.REF_ID}}
+						            </li>  -->
+						           <li ng-show="rakPendingApproval.pendingApprovalTab!='PIA'" class="active rak30 ">
+						           {{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.REQ_BY}}</li>
+						             <li  ng-show="rakPendingApproval.pendingApprovalTab=='PIA'" class="active rak30 ">{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.STATUS}}
+						          </li>
+						            <li class="active rak30 ">
+						            {{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.AMT}}</li>
+						            <li class="active rak10 ">&nbsp;</li>
+						         </ul>
+						 </div>
+                    
+                    	
+                    		<div >
+					          
+
+
+									<div class="trans-detail rakGreyRow" ng-repeat='item in rakPendingApproval.pendingListXFR'>
+
+					                  
+
+					              
+					                  <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em pull-left">
+					                    <div>
+					                    <!-- CR -->
+					                     <div class="trans-no rakTextCenter rakFont1em " >
+					                    {{item.benfName}}
+					                    </div> 
+					                  <!--   <div class="trans-no rakTextCenter rakFont1em " >
+					                    {{item.txnReferenceId}}
+					                    </div> -->
+					                  </div>
+					                   </div>
+									<div  ng-show="rakPendingApproval.pendingApprovalTab!='PIA'" class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em ">
+					                   		<div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                   {{item.requestedBy}}
+					                    </div>
+					                    </div>
+
+					                    </div>
+					                 
+									   <div  ng-show="rakPendingApproval.pendingApprovalTab=='PIA'" class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em ">
+					                   		<div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                   {{item.txnStatus}}
+					                    </div>
+					                    </div>
+
+					                    </div>
+									      <div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em" >
+					                  <div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                     {{item.txnCurrency}} {{item.txnAmount}}
+					                    </div>
+					               </div>
+					                  </div>
+
+					                  <div class="pull-right rakPaddingPoint5em" style="width:10%">
+										   	<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											  <ul ng-if="rakPendingApproval.pendingApprovalTab=='PMA'" class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											     <li><a href="" ng-click="rakPendingApproval.pendingItem=item;rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.isBack=false;setEvent(rakPendingApproval.getListPageEvent(item.txnType))">
+											  											    View Details</a></li>
+											  											    <li><a href="" ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='APPR';rakPendingApproval.approveAuthModel.backFlag='N'; rakPendingApproval.isBack=false;rakPendingApproval.resetPendingModel();rakPendingApproval.pendingItem=item; setEvent('onPendingSwipePaymentApproveClick');">
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.APPROVE}}</a></li>
+											  											    <li><a href="" ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='REJ';rakPendingApproval.approveAuthModel.backFlag='N';rakPendingApproval.pendingItem=item;rakPendingApproval.isBack=false;rakPendingApproval.resetPendingModel();setEvent(rakPendingApproval.getSwipeRejectEvent());">
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.REJECT}}</a></li>
+											  											    <li><a href="" ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='SFR'; rakPendingApproval.pendingItem=item;rakPendingApproval.isBack=false;setEvent('onSendForRepairLandingPgClick');">
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.SEND_FOR_REPAIR}}</a></li>
+											  											  
+											  											   
+
+											  </ul>
+											  
+											   <ul ng-if="rakPendingApproval.pendingApprovalTab=='PCA'" class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											      <li><a href="" ng-click="rakPendingApproval.pendingItem=item;rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.isBack=false;setEvent(rakPendingApproval.getListPageEvent(item.txnType))">
+											  											     View Details</a></li>
+											  											    <li><a href="" ng-click='rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.isBack=false;rakCorpInit.corpModel.backFlag="N";rakPendingApproval.clickedEvent="CHAPPR"; 
+								rakPendingApproval.pendingItem=item; rakPendingApproval.apprRoleId=""; rakPendingApproval.reason="";rakPendingApproval.resetPendingModel();rakPendingApproval.backFlag="N";
+								setEvent("rakUpdateNxtApprClick");'>
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.CHANGE_APPROVER}}</a></li>
+											  											    <li><a href=""  ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='RECALL'; rakPendingApproval.pendingItem=item;rakPendingApproval.isBack=false;setEvent('rakUnApprTxnRecallConfirmClick');">
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.RECALL}}</a></li>
+											  											  
+											  											  
+											  											   
+
+											  </ul>
+											  	    <ul ng-if="rakPendingApproval.pendingApprovalTab=='PIA'" class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											   <li><a href="" ng-click="rakPendingApproval.pendingItem=item;rakPendingApproval.isBack=false;setEvent(rakPendingApproval.getListPageEvent(item.txnType))">
+											  											     View Details</a></li>
+											  					<li><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.isBack=false;rakSendMoney.schedule.schTxnListSubmitBtn='SUBMIT';rakCorpInit.corpModel.eventName='XFRSUBMIT';rakCorpInit.corpModel.backFlag='N';
+											  					rakSendMoney.common.exchangeRateCall=false;rakSendMoney.txnHistory.txnType=item.txnType;rakSendMoney.schedule.selectedTxn = item;rakSendMoney.schedule.selectedTxnIndex = item.txnIndex;rakSendMoney.schedule.setBenType();rakSendMoney.common.fromAuthPage=false;setEvent('onRakSendMoneySubmitClick')">
+											  											     {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.SUBMIT}}</a></li>
+											  					<li><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.isBack=false;rakSendMoney.schedule.schTxnListSubmitBtn='MODIFY';rakCorpInit.corpModel.backFlag='N';
+											  					rakSendMoney.common.exchangeRateCall=false;rakSendMoney.txnHistory.txnType=item.txnType;rakSendMoney.schedule.selectedTxn = item;rakSendMoney.schedule.selectedTxnIndex = item.txnIndex;rakSendMoney.schedule.setBenType();rakSendMoney.sendMoney.clearBenfResidentDetails();rakSendMoney.common.fromAuthPage=false;setEvent('onRakSendMoneyEditClick')">
+											  											     {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.MODIFY}}</a></li>
+											  					<li><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.isBack=false;setEvent('onDeleteTxnClick')">
+											  											     {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.DELETE}}</a></li>										  
+											  											 
+											  											  
+											  											   
+
+											  </ul>
+										</div>
+					                </div>
+					              </div>
+                   
+					
+					
+					
+											
+					
+					</div>
+				</div>
+			</div>
+		
+	</div>
+	
+	<div ng-if="rakPendingApproval.pendingListPMT.length > 0">
+			<div class="main-form-heading-Approval">
+                <h2 class="rakBenfHeader rakRed">{{appLiterals.APP.RAKPENDINGAPPROVAL.SUBHEADERS.PMT}}
+                </h2>
+			</div>
+			<!-- <div class=""> -->
+				<div class="">
+					<div class=""
+							
+							id="moveMoneyPALPListClick{{$index}}" ng-click="rakPendingApproval.approvalListTogglePMT($index);">
+						<div >
+                    	
+                    	
+                    	
+				       	<div class="money-block rakBottomZero">
+						         <ul>
+						          <li  class="active rak30 rakPaddingPoint8em" >{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.PAYEE}}
+						            </li>
+						          <!--   <li  class="active rak30 rakPaddingPoint8em" >{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.REF_ID}}
+						            </li> -->
+						           <li class="active rak30 " ng-show="rakPendingApproval.pendingApprovalTab!='PIA'">
+						          {{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.REQ_BY}}</li>
+						            <li  ng-show="rakPendingApproval.pendingApprovalTab=='PIA'" class="active rak30 ">{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.STATUS}}
+						          </li>
+						            <li class="active rak30 ">
+						            {{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.AMT}}</li>
+						            <li class="active rak10 ">&nbsp;</li>
+						         </ul>
+						 </div>
+						 
+						 
+						 <div  >
+					          
+
+
+									<div class="trans-detail rakGreyRow" ng-repeat='item in rakPendingApproval.pendingListPMT'>
+
+					                  
+
+					              
+					                  <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em pull-left">
+					                    <div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                    {{item.benfName}}
+					                    </div> 
+					                    </div>
+					                   <!--  <div class="trans-no rakTextCenter rakFont1em " >
+					                    {{item.txnReferenceId}}
+					                    </div>
+					                   -->
+
+					                  </div>
+					                  
+					                  	<div ng-show="rakPendingApproval.pendingApprovalTab!='PIA'" class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em ">
+					                   		<div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                   {{item.requestedBy}}
+					                    </div>
+					                    </div>
+
+					                    </div>
+					                    
+					                       <div  ng-show="rakPendingApproval.pendingApprovalTab=='PIA'" class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em ">
+					                   		<div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                   {{item.txnStatus}}
+					                    </div>
+					                    </div>
+
+					                    </div>
+									  
+									      <div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em" >
+					                  <div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                     {{item.txnCurrency}} {{item.txnAmount}}
+					                    </div>
+					               </div>
+					                  </div>
+
+					                  <div class="pull-right rakPaddingPoint5em" style="width:10%">
+										   	<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											  <ul ng-if="rakPendingApproval.pendingApprovalTab=='PMA'" class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											   <li ng-show="item.txnEntries=='1'"><a href="" ng-click="rakPendingApproval.pendingItem=item;rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.isBack=false;setEvent(rakPendingApproval.getListPageEvent(item.txnType))">
+											  											     View Details</a></li>
+											  											     
+											  											       <li ng-show="item.txnEntries >'1'"><a href="" ng-click="rakPendingApproval.pendingItem=item;rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.isBack=false;setEvent('onMutiplePayClick')">
+											  											     View Details</a></li>
+											  											    <li ng-show="item.txnEntries=='1'"><a href="" ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='APPR';rakPendingApproval.approveAuthModel.backFlag='N';rakPendingApproval.isBack=false;rakPendingApproval.resetPendingModel();rakPendingApproval.pendingItem=item; setEvent('onPendingSwipePaymentApproveClick');">
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.APPROVE}}</a></li>
+											  											    
+											  											     <li ng-show="item.txnEntries >'1'"><a href="" ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='APPR';rakPendingApproval.multiclickedEvent='MULTIPLE';rakPendingApproval.approveAuthModel.backFlag='N';rakPendingApproval.isBack=false;rakPendingApproval.resetPendingModel();rakPendingApproval.pendingItem=item; setEvent('onPendingSwipeMultiplePaymentApproveClick');">
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.APPROVE}}</a></li>
+											  											    
+											  											    <li ng-show="item.txnEntries=='1'"><a href="" ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.approveAuthModel.backFlag='N';rakPendingApproval.clickedEvent='REJ'; rakPendingApproval.pendingItem=item; rakPendingApproval.isBack=false;rakPendingApproval.resetPendingModel();setEvent(rakPendingApproval.getSwipeRejectEvent());">
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.REJECT}}</a></li>
+											  											    
+											  											     <li ng-show="item.txnEntries >'1'"><a href="" ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.approveAuthModel.backFlag='N';rakPendingApproval.clickedEvent='REJ'; rakPendingApproval.pendingItem=item; rakPendingApproval.isBack=false;rakPendingApproval.resetPendingModel();setEvent('onPendingMultiplePaymentRejectClick');">
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.REJECT}}</a></li>
+											  											    
+											  											    <li  ng-show="item.txnEntries=='1'" ><a href="" ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='SFR'; rakPendingApproval.pendingItem=item;rakPendingApproval.isBack=false;setEvent('onSendForRepairLandingPgClick');">
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.SEND_FOR_REPAIR}}</a></li>
+											  											    
+											  											      <li  ng-show="item.txnEntries >'1'"><a href="" ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='SFR'; rakPendingApproval.pendingItem=item;rakPendingApproval.isBack=false;setEvent('onSendForRepairMultipleBillClick');">
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.SEND_FOR_REPAIR}}</a></li>
+											  											  
+											  											   
+
+											  </ul>
+											  
+											   <ul ng-if="rakPendingApproval.pendingApprovalTab=='PCA'" class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											      <li  ng-show="item.txnEntries=='1'"><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.isBack=false;setEvent(rakPendingApproval.getListPageEvent(item.txnType))">
+											  											     View Details</a></li>
+											  											     <li  ng-show="item.txnEntries >'1'"><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.isBack=false;setEvent('onMutiplePayClick')">
+											  											     View Details</a></li>
+											  											    <li  ng-show="item.txnEntries=='1'" ><a href="" ng-click='rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.isBack=false;rakCorpInit.corpModel.backFlag="N";rakPendingApproval.clickedEvent="CHAPPR"; 
+								rakPendingApproval.pendingItem=item; rakPendingApproval.apprRoleId=""; rakPendingApproval.reason="";rakPendingApproval.resetPendingModel();rakPendingApproval.backFlag="N";
+								setEvent("rakUpdateNxtApprClick");'>
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.CHANGE_APPROVER}}</a></li>
+											  											    
+											  											     <li  ng-show="item.txnEntries >'1'" ><a href="" ng-click='rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.isBack=false;rakCorpInit.corpModel.backFlag="N";rakPendingApproval.clickedEvent="CHAPPRMULBIL"; 
+								rakPendingApproval.pendingItem=item; rakPendingApproval.apprRoleId=""; rakPendingApproval.reason="";rakPendingApproval.resetPendingModel();rakPendingApproval.backFlag="N";
+								setEvent("rakUpdateNxtMultipleBillApprClick");'>
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.CHANGE_APPROVER}}</a></li>
+											  											    
+											  											    <li  ng-show="item.txnEntries=='1'" ><a href=""  ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='RECALL'; rakPendingApproval.pendingItem=item;rakPendingApproval.isBack=false;setEvent('rakUnApprTxnRecallConfirmClick');">
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.RECALL}}</a></li>
+											  											    
+											  											    <li  ng-show="item.txnEntries >'1'" ><a href=""  ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='RECALL'; rakPendingApproval.pendingItem=item;rakPendingApproval.isBack=false;setEvent('rakUnApprTxnRecallMultipleBillConfirmClick');">
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.RECALL}}</a></li>
+											  											  
+											  											  
+											  											   
+
+											  </ul>
+											  
+											    <ul ng-if="rakPendingApproval.pendingApprovalTab=='PIA'" class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											   <li ng-show="item.txnEntries=='1'"><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.isBack=false;setEvent(rakPendingApproval.getListPageEvent(item.txnType))">
+											  											     View Details</a></li>
+											  											         <li ng-show="item.txnEntries > '1'"><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.isBack=false;setEvent('onMutiplePayClick')">
+											  											     View Details</a></li>
+															  	<li ng-if="item.toAccount!='Multiple'"><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.isBack=false;rakPayee.payBill.clearPayBillData();rakPayee.payBill.isBackfromConfirmPage=false;rakPayee.schedule.schTxnListSubmitBtn='SUBMIT';rakCorpInit.corpModel.eventName='PMTSUBMIT';rakCorpInit.corpModel.backFlag='N';
+															  	rakPayee.schedule.selectedTxn = item;rakPayee.schedule.selectedTxnIndex = item.txnIndex;rakPayee.schedule.selectedPayee = item.toAccount;rakPayee.schedule.selectedID=item.destAccountID;rakPayee.payBill.fromUpdateBtn=false; setEvent('onRakPayeeSubmitClick')">
+											  											     {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.SUBMIT}}</a></li>
+											  					<li ng-if="item.toAccount=='Multiple'"><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.isBack=false;rakPayee.payBill.clearPayBillData();rakPayee.payBill.isBackfromConfirmPage=false;rakPayee.schedule.schTxnListSubmitBtn='SUBMIT';rakCorpInit.corpModel.eventName='MPMTSUBMIT';rakCorpInit.corpModel.backFlag='N';
+															  	rakPayee.schedule.selectedTxn = item;rakPayee.schedule.selectedTxnIndex = item.txnIndex;rakPayee.schedule.selectedPayee = item.toAccount;rakPayee.schedule.selectedID=item.destAccountID;rakPayee.payBill.fromUpdateBtn=false; setEvent('onRakPayeeMultipleSubmitClick')">
+											  											     {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.SUBMIT}}</a></li>
+											  					<li ng-if="item.toAccount!='Multiple' && item.effTxnType=='IBP'"><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.isBack=false;rakPayee.payBill.clearPayBillData();rakPayee.payBill.isBackfromConfirmPage=false;rakPayee.schedule.schTxnListSubmitBtn='MODIFY';rakPayee.schedule.selectedTxn = item;rakCorpInit.corpModel.backFlag='N';
+											  					rakPayee.schedule.selectedTxnIndex = item.txnIndex;rakPayee.schedule.selectedPayee = item.toAccount;rakPayee.schedule.selectedID=item.destAccountID;rakPayee.payBill.fromUpdateBtn=false; setEvent('onRakPayeeEditClick')">
+											  											     {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.MODIFY}}</a></li>
+											  					<li ng-if="item.toAccount!='Multiple' && item.effTxnType=='PMT'"><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.isBack=false;rakPayee.payBill.clearPayBillData();rakPayee.payBill.isBackfromConfirmPage=false;rakPayee.schedule.schTxnListSubmitBtn='MODIFY';rakPayee.schedule.selectedTxn = item;rakCorpInit.corpModel.backFlag='N';
+											  					rakPayee.schedule.selectedTxnIndex = item.txnIndex;rakPayee.schedule.selectedPayee = item.toAccount;rakPayee.schedule.selectedID=item.destAccountID;rakPayee.payBill.fromUpdateBtn=false; setEvent('onRakQuickPayeeEditClick')">
+											  											     {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.MODIFY}}</a></li>						     
+											  					<li ng-if="item.toAccount=='Multiple'"><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.isBack=false;rakPayee.payBill.clearPayBillData();rakPayee.payBill.isBackfromConfirmPage=false;rakPayee.schedule.schTxnListSubmitBtn='MODIFY';rakPayee.schedule.selectedTxn = item;rakCorpInit.corpModel.backFlag='N';
+											  					rakPayee.schedule.selectedTxnIndex = item.txnIndex;rakPayee.schedule.selectedPayee = item.toAccount;rakPayee.schedule.selectedID=item.destAccountID;rakPayee.payBill.fromUpdateBtn=false;rakPayee.payBill.editMultiBillFlag=true; setEvent('onMultiplePayClick')">
+											  											     {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.MODIFY}}</a></li>
+											  					<li><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.isBack=false;setEvent('onDeleteTxnClick')">
+											  											     {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.DELETE}}</a></li>										     
+											  
+											  											 
+											  											  
+											  											   
+
+											  </ul>
+										</div>
+					                </div>
+					              </div>
+					
+					
+					
+					
+					  
+						
+											
+					</div>
+				</div>
+			</div>
+		
+	</div>
+		
+		<div ng-if="rakPendingApproval.pendingListPCD.length > 0">
+			<div class="main-form-heading-Approval">
+                <h2 class="rakBenfHeader rakRed">{{appLiterals.APP.RAKPENDINGAPPROVAL.SUBHEADERS.PCD}}
+                </h2>
+			</div>
+			
+				<div class="">
+					<div class=""
+							
+							id="moveMoneyPALPListClick{{$index}}" ng-click="rakPendingApproval.approvalListTogglePCD($index);">
+						<div >
+                    	
+                    	
+				    
+						 <div class="money-block rakBottomZero">
+						         <ul>
+						          <li  class="active rak30 rakPaddingPoint8em" >{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.PAYEE}}
+						            </li>
+						        <!--     <li  class="active rak30 rakPaddingPoint8em" >{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.REF_ID}}
+						           </li> -->
+						           <li class="active rak30 " ng-show="rakPendingApproval.pendingApprovalTab!='PIA'">
+						            {{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.REQ_BY}}</li>
+						              <li  ng-show="rakPendingApproval.pendingApprovalTab=='PIA'" class="active rak30 ">{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.STATUS}}
+						          </li>
+						            <li class="active rak30 ">
+						            {{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.AMT}}</li>
+						            <li class="active rak10 ">&nbsp;</li>
+						         </ul>
+						 </div>
+						 
+						 
+						 <div >
+					          
+
+
+									<div class="trans-detail rakGreyRow" ng-repeat='item in rakPendingApproval.pendingListPCD'>
+
+					                
+					              
+					                  <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em pull-left">
+					                    <div>
+					                    <div class="trans-no rakTextCenter rakFont1em ">
+					                    {{item.benfName}}
+					                    </div> 
+					                    <!-- <div class="trans-no rakTextCenter rakFont1em " >
+					                    {{item.txnReferenceId}}
+					                    </div> -->
+					                  </div>
+
+					                  </div>
+					                  
+					                 
+					                    	<div  ng-show="rakPendingApproval.pendingApprovalTab!='PIA'" class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em ">
+					                   		<div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                   {{item.requestedBy}}
+					                    </div>
+					                    </div>
+
+					                    </div>
+					                    
+					                    <div  ng-if="rakPendingApproval.pendingApprovalTab=='PIA'" class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em ">
+					                   		<div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                   {{item.txnStatus}}
+					                    </div>
+					                    </div>
+
+					                    </div>
+					                  
+									  
+									      <div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em" >
+					                  <div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                     {{item.txnCurrency}} {{item.txnAmount}}
+					                    </div>
+					               </div>
+					                  </div>
+
+					                  <div class="pull-right rakPaddingPoint5em" style="width:10%">
+										   	<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											  <ul ng-if="rakPendingApproval.pendingApprovalTab=='PMA'" class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											     <li><a href="" ng-click="rakPendingApproval.pendingItem=item;rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.isBack=false;setEvent(rakPendingApproval.getListPageEvent(item.txnType));">
+											  											     View Details</a></li>
+											  											    <li><a href="" ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='APPR';rakPendingApproval.approveAuthModel.backFlag='N'; rakPendingApproval.isBack=false;rakPendingApproval.resetPendingModel();rakPendingApproval.pendingItem=item; setEvent('onPendingSwipePaymentApproveClick');">
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.APPROVE}}</a></li>
+											  											    <li><a href="" ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='REJ';rakPendingApproval.approveAuthModel.backFlag='N';rakPendingApproval.pendingItem=item;rakPendingApproval.isBack=false;rakPendingApproval.resetPendingModel();setEvent(rakPendingApproval.getSwipeRejectEvent());">
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.REJECT}}</a></li>
+											  											    <li><a href="" ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='SFR'; rakPendingApproval.pendingItem=item;rakPendingApproval.isBack=false;setEvent('onSendForRepairLandingPgClick');">
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.SEND_FOR_REPAIR}}</a></li>
+											  											  
+											  											   
+
+											  </ul>
+											  
+											   <ul ng-if="rakPendingApproval.pendingApprovalTab=='PCA'" class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											     <li><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.isBack=false;setEvent(rakPendingApproval.getListPageEvent(item.txnType));">
+											  											     View Details</a></li>
+											  											    <li><a href="" ng-click='rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.isBack=false;rakCorpInit.corpModel.backFlag="N";rakPendingApproval.clickedEvent="CHAPPR"; 
+								rakPendingApproval.pendingItem=item; rakPendingApproval.apprRoleId=""; rakPendingApproval.reason="";rakPendingApproval.resetPendingModel();rakPendingApproval.backFlag="N";
+								setEvent("rakUpdateNxtApprClick");'>
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.CHANGE_APPROVER}}</a></li>
+											  											    <li><a href=""  ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='RECALL'; rakPendingApproval.pendingItem=item;rakPendingApproval.isBack=false;setEvent('rakUnApprTxnRecallConfirmClick');">
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.RECALL}}</a></li>
+											  											  
+											  											  
+											  											   
+
+											  </ul>
+											  
+											  	    <ul ng-if="rakPendingApproval.pendingApprovalTab=='PIA'" class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											   <li><a href="" ng-click="rakPendingApproval.pendingItem=item;rakPendingApproval.isBack=false; setEvent(rakPendingApproval.getListPageEvent(item.txnType))">
+											  											     View Details</a></li>
+											  	<li><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.isBack=false;rakPayCards.schedule.schTxnListSubmitBtn='SUBMIT';rakCorpInit.corpModel.eventName='PCDSUBMIT';rakCorpInit.corpModel.backFlag='N';
+											  					rakPayCards.common.fromAuthPage=false;rakPayCards.common.exchangeRateCall=false;rakPayCards.schedule.selectedTxn = item;rakPayCards.schedule.selectedTxnIndex = item.txnIndex;rakPayCards.ownCards.selectedCardBenfType = item.effTxnType;rakPayCards.ownCards.isModified=false;setEvent('onRakPayCardsSubmitClick')">
+											  											     {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.SUBMIT}}</a></li>
+											  					<li><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.isBack=false;rakPayCards.schedule.schTxnListSubmitBtn='MODIFY';rakCorpInit.corpModel.backFlag='N';
+											  					rakPayCards.common.fromAuthPage=false;rakPayCards.common.exchangeRateCall=false;rakPayCards.schedule.selectedTxn = item;rakPayCards.schedule.selectedTxnIndex = item.txnIndex;rakPayCards.ownCards.selectedCardBenfType = item.effTxnType;rakPayCards.ownCards.isModified=false;setEvent('onRakPayCardsEditClick')">
+											  											     {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.MODIFY}}</a></li>
+											  					<li><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.isBack=false;setEvent('onDeleteTxnClick')">
+											  											     {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.DELETE}}</a></li>										     
+											  											 
+											  											  
+											  											   
+
+											  </ul>
+										</div>
+					                </div>
+					              </div>
+						 
+						 
+					   
+						
+											
+					</div>
+				</div>
+			</div>
+		<!-- </div> -->
+	</div>
+					
+	<div ng-if="rakPendingApproval.pendingListRCM.length > 0">
+			<div class="main-form-heading-Approval">
+                <h2 class="rakBenfHeader rakRed">{{appLiterals.APP.RAKPENDINGAPPROVAL.SUBHEADERS.RCM}}
+                </h2>
+			</div>
+			<!-- <div class=""> -->
+				<div class="">
+					<div class=""
+							
+							id="moveMoneyPALPListClick{{$index}}" ng-click="rakPendingApproval.approvalListToggleRCM($index);">
+						<div class="">
+                    
+                    	 <div class="money-block rakBottomZero">
+						         <ul>
+						          <li  class="active rak30 rakPaddingPoint8em" >{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.BENF}}
+						            </li>
+						          <!--   <li  class="active rak30 rakPaddingPoint8em" >
+						            {{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.REF_ID}}</li> -->
+						           <li  ng-show="rakPendingApproval.pendingApprovalTab!='PIA'" class="active rak30 ">{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.REQ_BY}}
+						          </li>
+						           <li  ng-show="rakPendingApproval.pendingApprovalTab=='PIA'" class="active rak30 ">{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.STATUS}}
+						          </li>
+						            <li class="active rak30 ">
+						            {{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.AMT}}</li>
+						            <li class="active rak10 ">&nbsp;</li>
+						         </ul>
+						 </div>
+				     
+					
+					  <div >
+					          <div class="trans-detail rakGreyRow" ng-repeat='item in rakPendingApproval.pendingListRCM'>
+  					<div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em pull-left" >
+					                    <div>
+					                    <div class="trans-no rakTextCenter rakFont1em"  >
+					                    {{item.benfName}}
+					                    </div> 
+					                    <!-- <div class="trans-no rakTextCenter rakFont1em " >
+					                    {{item.txnReferenceId}}
+					                    </div> -->
+					                  </div>
+
+					                  </div>
+									  
+
+									
+
+					                  	<div ng-show="rakPendingApproval.pendingApprovalTab!='PIA'" class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em ">
+					                   		<div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                    {{item.requestedBy}}
+					                    </div>
+					                    </div>
+
+					                    </div>
+
+					               
+					                    <div  ng-show="rakPendingApproval.pendingApprovalTab=='PIA'" class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em ">
+					                   		<div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                   {{item.txnStatus}}
+					                    </div>
+					                    </div>
+
+					                    </div>
+					                
+									      <div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em" >
+					                  <div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                     {{item.txnCurrency}} {{item.txnAmount}}
+					                    </div>
+					               </div>
+					                  </div>
+
+					                  <div class="pull-right rakPaddingPoint5em"  style="width:10%">
+										   	<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											  <ul ng-if="rakPendingApproval.pendingApprovalTab=='PMA'" class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											  
+											  											    <li><a href="" ng-click="rakPendingApproval.clickedEvent='APPRCM';rakPendingApproval.approveAuthModel.backFlag='N';  rakPendingApproval.pendingItem=item; setEvent(rakPendingApproval.getSwipeApproveEvent(RCM));">
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.APPROVE}}</a></li>
+											  											    <li><a href="" ng-click="rakPendingApproval.clickedEvent='REJRCM'; rakPendingApproval.pendingItem=item;rakPendingApproval.isBack=false;rakPendingApproval.resetPendingModel();rakPendingApproval.approveAuthModel.backFlag='N';setEvent(rakPendingApproval.getSwipeRejectEvent(RCM));">
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.REJECT}}</a></li>
+											  											  
+											  											  
+											  											   
+
+											  </ul>
+											  
+											   <ul ng-if="rakPendingApproval.pendingApprovalTab=='PCA'" class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											  											    <li><a href="" ng-click='rakPendingApproval.isBack=false;rakCorpInit.corpModel.backFlag="N";rakPendingApproval.clickedEvent="CHAPPR"; 
+								rakPendingApproval.pendingItem=item; rakPendingApproval.apprRoleId=""; rakPendingApproval.reason="";rakPendingApproval.resetPendingModel();rakPendingApproval.backFlag="N";
+								setEvent("rakUpdateNxtApprClick");'>
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.CHANGE_APPROVER}}</a></li>
+											  											    <li><a href=""  ng-click="rakPendingApproval.clickedEvent='RECALL'; rakPendingApproval.pendingItem=item;rakPendingApproval.isBack=false;setEvent('rakUnApprTxnRecallConfirmClick');">
+											  											    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.RECALL}}</a></li>
+											  											  
+											  											  
+											  											   
+
+											  </ul>
+											  	    <ul ng-if="rakPendingApproval.pendingApprovalTab=='PIA'" class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											   					<li><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.isBack=false;setEvent(rakPendingApproval.getListPageEvent(item.txnType))">
+											  											     {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.VIEW}}</a></li>
+											  					<li><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.isBack=false;setEvent(rakPendingApproval.getListPageEvent(item.txnType))">
+											  											     {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.SUBMIT}}</a></li>
+											  					<li><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.isBack=false;setEvent(rakPendingApproval.getListPageEvent(item.txnType))">
+											  											     {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.MODIFY}}</a></li>
+											  					<li><a href="" ng-click="rakPendingApproval.pendingItem=item; rakPendingApproval.isBack=false;setEvent('onDeleteTxnClick')">
+											  											     {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.DELETE}}</a></li>
+											  											 
+											  											  
+											  											   
+
+											  </ul>
+										</div>
+					                </div>
+					              </div>
+						
+											
+					</div>
+				</div>
+			</div>
+	
+	</div>
+	
+	
+	
+	<div ng-if="rakPendingApproval.pendingListMOBCASH.length > 0 && rakPendingApproval.pendingApprovalTab=='PMA'" >
+			<div class="main-form-heading-Approval">
+                <h2 class="rakBenfHeader rakRed">{{appLiterals.APP.RAKPENDINGAPPROVAL.SUBHEADERS.MOBCASH}}
+                </h2>
+			</div>
+			
+				<div class="">
+					<div class=""
+							
+							id="moveMoneyPALPListClick{{$index}}" ng-click="rakPendingApproval.approvalListToggleMOBCASH($index);">
+                    	<div >
+                    	
+                    	
+                    	<div class="money-block rakBottomZero">
+						         <ul>
+						            <li  class="active rak30 rakPaddingPoint8em" >{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.BENF}}
+						            </li> 
+						            <!-- <li  class="active rak30 rakPaddingPoint8em" >{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.REF_ID}}
+						            </li>  -->
+						           <li ng-show="rakPendingApproval.pendingApprovalTab!='PIA'" class="active rak30 ">
+						           {{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.REQ_BY}}</li>
+						            
+						            <li class="active rak30 ">
+						            {{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.AMT}}</li>
+						            <li class="active rak10 ">&nbsp;</li>
+						         </ul>
+						 </div>
+                    
+                    	
+                    		<div >
+					          
+
+
+									<div class="trans-detail rakGreyRow"  ng-repeat='item in rakPendingApproval.pendingListMOBCASH'>
+
+					                  
+
+					              
+					                  <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em pull-left">
+					                    <div>
+					                    <!-- CR -->
+					                   <div class="trans-no rakTextCenter rakFont1em " >
+					                    {{item.benfName}}
+					                    </div> 
+					                   <!--  <div class="trans-no rakTextCenter rakFont1em " >
+					                    {{item.txnReferenceId}}
+					                    </div> -->
+					                  </div>
+					                   </div>
+									<div  ng-show="rakPendingApproval.pendingApprovalTab!='PIA'" class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em ">
+					                   		<div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                   {{item.requestedBy}}
+					                    </div>
+					                    </div>
+
+					                    </div>
+					                 
+									
+									      <div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em" >
+					                  <div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                     {{item.txnCurrency}} {{item.txnAmount}}
+					                    </div>
+					               </div>
+					                  </div>
+
+					                  <div class="pull-right rakPaddingPoint5em" style="width:10%">
+										   	<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											  <ul ng-if="rakPendingApproval.pendingApprovalTab=='PMA'" class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2" >
+											  			<li><a href="" ng-click="rakPendingApproval.pendingItem=item;rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.isBack=false;setEvent(rakPendingApproval.getListPageEvent(item.txnType))">
+																{{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.VIEW}}</a></li>											  
+											  		<li><a href="" ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='APPR';rakPendingApproval.approveAuthModel.backFlag='N'; rakPendingApproval.isBack=false;rakPendingApproval.resetPendingModel();rakPendingApproval.pendingItem=item; setEvent('onPendingSwipePaymentApproveClick');">
+											  					 {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.APPROVE}}</a></li>
+											  		<li><a href="" ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='REJ';rakPendingApproval.approveAuthModel.backFlag='N';rakPendingApproval.pendingItem=item;rakPendingApproval.isBack=false;rakPendingApproval.resetPendingModel();setEvent(rakPendingApproval.getSwipeRejectEvent());">
+											  			{{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.REJECT}}</a></li>
+											  	</ul>
+											  
+										</div>
+					                </div>
+					              </div>
+                   
+					
+					
+					
+											
+					
+					</div>
+				</div>
+			</div>
+		
+	</div>
+	
+	<!--Changes for DDS Payment START -->
+
+								<div
+									ng-if="rakPendingApproval.pendingListDDS.length > 0 && rakPendingApproval.pendingApprovalTab=='PMA'">
+									<div class="main-form-heading-Approval">
+										<h2 class="rakBenfHeader rakRed">{{appLiterals.APP.RAKPENDINGAPPROVAL.SUBHEADERS.DDS}}
+										</h2>
+									</div>
+
+									<div class="">
+										<div class="" id="moveMoneyPALPListClick{{$index}}"
+											ng-click="rakPendingApproval.approvalListToggleDDS($index);">
+											<div>
+
+
+												<div class="money-block rakBottomZero">
+													<ul>
+														<li class="active rak30 rakPaddingPoint8em">{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.DDS_UTILPROV}}
+														</li>
+
+														<li ng-show="rakPendingApproval.pendingApprovalTab!='PIA'"
+															class="active rak30 ">
+															{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.REQ_BY}}</li>
+
+														<li class="active rak30 ">
+															{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.AMT}}</li>
+														<li class="active rak10 ">&nbsp;</li>
+													</ul>
+												</div>
+												<div>
+
+
+
+													<div class="trans-detail rakGreyRow"
+														ng-repeat='item in rakPendingApproval.pendingListDDS'>
+
+
+
+
+														<div
+															class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em pull-left">
+															<div>
+																
+																<div class="trans-no rakTextCenter rakFont1em ">
+																	{{item.benfName}}</div>
+																
+															</div>
+														</div>
+														<div
+															ng-show="rakPendingApproval.pendingApprovalTab!='PIA'"
+															class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em ">
+															<div>
+																<div class="trans-no rakTextCenter rakFont1em">
+																	{{item.requestedBy}}</div>
+															</div>
+
+														</div>
+
+
+														<div
+															class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em">
+															<div>
+																<div class="trans-no rakTextCenter rakFont1em">
+																	{{item.txnCurrency}} {{item.txnAmount}}</div>
+															</div>
+														</div>
+
+														<div class="pull-right rakPaddingPoint5em"
+															style="width: 10%">
+															<span class="rakPullDownNew"
+																ng-click="rakHome.handlePullDown($event);"></span>
+															<ul ng-if="rakPendingApproval.pendingApprovalTab=='PMA'"
+																class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+																<li><a href=""
+																	ng-click="rakPendingApproval.pendingItem=item;rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.isBack=false;setEvent(rakPendingApproval.getListPageEvent(item.txnType))">
+																		{{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.VIEW}}</a></li>
+
+																<li><a href=""
+																	ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='APPR';rakPendingApproval.approveAuthModel.backFlag='N'; rakPendingApproval.isBack=false;rakPendingApproval.resetPendingModel();rakPendingApproval.pendingItem=item; setEvent('onPendingSwipePaymentApproveClick');">
+																		{{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.APPROVE}}</a></li>
+																<li><a href=""
+																	ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='REJ';rakPendingApproval.approveAuthModel.backFlag='N';rakPendingApproval.pendingItem=item;rakPendingApproval.isBack=false;rakPendingApproval.resetPendingModel();setEvent(rakPendingApproval.getSwipeRejectEvent());">
+																		{{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.REJECT}}</a></li>
+															</ul>
+
+														</div>
+													</div>
+												</div>
+
+
+
+
+
+
+											</div>
+										</div>
+									</div>
+
+								</div>
+
+								<!--Changes for DDS Payment END  -->
+								
+								<!--Changes for WPS Payment START -->
+
+								<div
+									ng-if="rakPendingApproval.pendingListWPS.length > 0 && rakPendingApproval.pendingApprovalTab=='PMA'">
+									<div class="main-form-heading-Approval">
+										<h2 class="rakBenfHeader rakRed">{{appLiterals.APP.RAKPENDINGAPPROVAL.SUBHEADERS.WPS}}
+										</h2>
+									</div>
+
+									<div class="">
+										<div class="" id="moveMoneyPALPListClick{{$index}}"
+											ng-click="rakPendingApproval.approvalListToggleWPS($index);">
+											<div>
+
+
+												<div class="money-block rakBottomZero">
+													<ul>														
+														<li class="active rak30 rakPaddingPoint8em">{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.DATE}}
+														</li>
+
+														<li ng-show="rakPendingApproval.pendingApprovalTab!='PIA'"
+															class="active rak30 ">
+															{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.REQ_BY}}</li>
+
+														<li class="active rak30 ">
+															{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.AMT}}</li>
+														<li class="active rak10 ">&nbsp;</li>
+													</ul>
+												</div>
+												<div>
+
+
+
+													<div class="trans-detail rakGreyRow"
+														ng-repeat='item in rakPendingApproval.pendingListWPS'>
+
+
+
+
+														
+														<div
+															class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em pull-left">
+															<div>
+																
+																<div class="trans-no rakTextCenter rakFont1em ">
+																	{{item.txnDate}}</div>
+																
+															</div>
+														</div>
+														<div
+															ng-show="rakPendingApproval.pendingApprovalTab!='PIA'"
+															class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em ">
+															<div>
+																<div class="trans-no rakTextCenter rakFont1em">
+																	{{item.requestedBy}}</div>
+															</div>
+
+														</div>
+
+
+														<div
+															class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em">
+															<div>
+																<div class="trans-no rakTextCenter rakFont1em">
+																	 {{item.txnAmount}}</div>
+															</div>
+														</div>
+
+														<div class="pull-right rakPaddingPoint5em"
+															style="width: 10%">
+															<span class="rakPullDownNew"
+																ng-click="rakHome.handlePullDown($event);"></span>
+															<ul ng-if="rakPendingApproval.pendingApprovalTab=='PMA'"
+																class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+																<li><a href=""
+																	ng-click="rakPendingApproval.pendingItem=item;rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.isBack=false;setEvent(rakPendingApproval.getListPageEvent(item.txnType))">
+																		{{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.VIEW}}</a></li>
+
+																<li><a href=""
+																	ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='APPR';rakPendingApproval.approveAuthModel.backFlag='N'; rakPendingApproval.isBack=false;rakPendingApproval.resetPendingModel();rakPendingApproval.pendingItem=item; setEvent('onPendingSwipePaymentApproveClick');">
+																		{{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.APPROVE}}</a></li>
+																<li><a href=""
+																	ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='REJ';rakPendingApproval.approveAuthModel.backFlag='N';rakPendingApproval.pendingItem=item;rakPendingApproval.isBack=false;rakPendingApproval.resetPendingModel();setEvent(rakPendingApproval.getSwipeRejectEvent());">
+																		{{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.REJECT}}</a></li>
+															</ul>
+
+														</div>
+													</div>
+												</div>
+
+
+
+
+
+
+											</div>
+										</div>
+									</div>
+
+								</div>
+
+								<!--Changes for WPS Payment END  -->
+	<div
+									ng-if="rakPendingApproval.pendingListNPS.length > 0 && rakPendingApproval.pendingApprovalTab=='PMA'">
+									<div class="main-form-heading-Approval">
+										<h2 class="rakBenfHeader rakRed">{{appLiterals.APP.RAKPENDINGAPPROVAL.SUBHEADERS.WPS}}
+										</h2>
+									</div>
+
+									<div class="">
+										<div class="" id="moveMoneyPALPListClick{{$index}}"
+											ng-click="rakPendingApproval.approvalListToggleNPS($index);">
+											<div>
+
+
+												<div class="money-block rakBottomZero">
+													<ul>														
+														<li class="active rak30 rakPaddingPoint8em">{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.DATE}}
+														</li>
+
+														<li ng-show="rakPendingApproval.pendingApprovalTab!='PIA'"
+															class="active rak30 ">
+															{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.REQ_BY}}</li>
+
+														<li class="active rak30 ">
+															{{appLiterals.APP.RAKPENDINGAPPROVAL.ITEMTEXTS.AMT}}</li>
+														<li class="active rak10 ">&nbsp;</li>
+													</ul>
+												</div>
+												<div>
+
+
+
+													<div class="trans-detail rakGreyRow"
+														ng-repeat='item in rakPendingApproval.pendingListNPS'>
+
+
+
+
+														
+														<div
+															class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em pull-left">
+															<div>
+																
+																<div class="trans-no rakTextCenter rakFont1em ">
+																	{{item.txnDate}}</div>
+																
+															</div>
+														</div>
+														<div
+															ng-show="rakPendingApproval.pendingApprovalTab!='PIA'"
+															class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em ">
+															<div>
+																<div class="trans-no rakTextCenter rakFont1em">
+																	{{item.requestedBy}}</div>
+															</div>
+
+														</div>
+
+
+														<div
+															class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em">
+															<div>
+																<div class="trans-no rakTextCenter rakFont1em">
+																	 {{item.txnAmount}}</div>
+															</div>
+														</div>
+
+														<div class="pull-right rakPaddingPoint5em"
+															style="width: 10%">
+															<span class="rakPullDownNew"
+																ng-click="rakHome.handlePullDown($event);"></span>
+															<ul ng-if="rakPendingApproval.pendingApprovalTab=='PMA'"
+																class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+																<li><a href=""
+																	ng-click="rakPendingApproval.pendingItem=item;rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.isBack=false;setEvent(rakPendingApproval.getListPageEvent(item.txnType))">
+																		{{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.VIEW}}</a></li>
+
+																<li><a href=""
+																	ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='APPR';rakPendingApproval.approveAuthModel.backFlag='N'; rakPendingApproval.isBack=false;rakPendingApproval.resetPendingModel();rakPendingApproval.pendingItem=item; setEvent('onPendingSwipePaymentApproveClick');">
+																		{{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.APPROVE}}</a></li>
+																<li><a href=""
+																	ng-click="rakPendingApproval.approvalReasonDesc=item.approvalReasonDesc;rakPendingApproval.clickedEvent='REJ';rakPendingApproval.approveAuthModel.backFlag='N';rakPendingApproval.pendingItem=item;rakPendingApproval.isBack=false;rakPendingApproval.resetPendingModel();setEvent(rakPendingApproval.getSwipeRejectEvent());">
+																		{{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.REJECT}}</a></li>
+															</ul>
+
+														</div>
+													</div>
+												</div>
+
+
+
+
+
+
+											</div>
+										</div>
+									</div>
+
+								</div>
+	
+	
+	
+					
+					</div>
+					<div ng-if="rakPendingApproval.pendingList.length == 0 ">
+					 <div class="">
+						  <div ng-if="rakPendingApproval.pendingApprovalTab=='PMA'">
+							 	<div class="summary-ServiceReq">
+								<div class="iconDivNorecord">
+									<span class="infoIcon"></span><span class="success">{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.NO_RECORDS}}</span>
+								</div>
+							</div>
+						  </div>
+						  <div ng-if="rakPendingApproval.pendingApprovalTab=='PCA'">
+							 	<div class="summary-ServiceReq">
+								<div class="iconDivNorecord">
+									<span class="infoIcon"></span><span class="success">{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.NO_RECORDS}}</span>
+								</div>
+							</div>
+						  </div>
+						  <div ng-if="rakPendingApproval.pendingApprovalTab=='PIA'">
+								<div class="summary-ServiceReq">
+								<div class="iconDivNorecord">
+									<span class="infoIcon"></span><span class="success">{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.NO_RECORDS}}</span>
+								</div>
+							</div>
+						  </div>
+					 </div>
+					</div>
+					<div class="col-sm-1"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

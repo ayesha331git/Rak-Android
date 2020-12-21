@@ -1,0 +1,53 @@
+
+  <div class="finacle-container">
+	   <div class="account-page">
+     <div class="col-sm-11">
+
+ 		 <div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{successResponse.responsesList[0].successMessage}}</span>
+				</div>
+			</div>
+		<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.ADVSALARY}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+				      </h2>		       
+		 </div>
+
+
+	<div class="bg-color rak-cont-padding rak-scroll-success" >
+
+	    <div class="row" >
+	      <div class="">
+
+		
+
+		<p class="rak-sum-txt">
+		<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_ADVANCE_SALARY.ACCOUNTNUMBER}}</span>
+		<span class="rak-sum-label black">{{rakServiceReq.AdvanceSalaryData.accountNumberList[rakServiceReq.AdvanceSalaryData.accountNumber].accountNumber}}-{{rakServiceReq.AdvanceSalaryData.accountNumberList[rakServiceReq.AdvanceSalaryData.accountNumber].accountName}}-{{rakServiceReq.AdvanceSalaryData.accountNumberList[rakServiceReq.AdvanceSalaryData.accountNumber].currencyCode}}</span>
+		</p>
+
+			<!-- CHANGES SHOWING ELIGIBEL AMOUNT IN COMMAS START -->
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_ADVANCE_SALARY.ELIGIBLE}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.AdvanceSalaryData.eligibleAmountDisplay}}</span></p>
+			<!-- CHANGES SHOWING ELIGIBEL AMOUNT IN COMMAS END -->
+
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_ADVANCE_SALARY.ADVANCE_SALARY}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.AdvanceSalaryData.currencycode}} {{rakServiceReq.AdvanceSalaryData.advanceSalary}}</span></p>
+
+			<div class="label-wrap">
+		<!-- 	<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="setEvent('AdvanceSalaryDoneClick')">  {{appLiterals.APP.RAK_SERVICES.ADVANCE_SALARY.BACK}}
+</button> -->
+<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakServiceReq.AdvanceSalaryData.clearAdvanceSalaryData();setEvent('AdvanceSalaryDoneClick')">{{appLiterals.APP.RAKCOMMONLITERALS.DONE}}
+</button>
+   </div>
+          <div class="col-sm-1"> </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</div>

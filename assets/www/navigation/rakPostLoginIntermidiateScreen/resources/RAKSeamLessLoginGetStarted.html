@@ -1,0 +1,48 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container"
+			ng-init='successResponse.invocationResult=successResponse.hasOwnProperty("responsesList")?successResponse.responsesList[0]:successResponse.invocationResult;
+			rakSeamLessLogin.fetchRakSeamLessLoginData(successResponse.invocationResult);'>
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="">
+									<div class="col-sm-1"></div>
+
+									<p class="rak-parent-txt">
+										<span class="rak-sum-label-special">Hello {{rakSeamLessLogin.RakSeamLessLoginModel.UserName}},</span>
+									</p>
+
+									<p class="rak-parent-txt">
+										<span class="rak-sum-label-special">We have upgraded RAKBANK Online and Mobile Banking. Now you will be able to:</span>
+									</p>
+
+									<p class="rak-sum-txt">
+										<span class="rak-sum-label-special">Use one USER ID and one Password to access RAKBANK Online and Mobile Banking</span>
+									</p>
+
+									<p class="rak-sum-txt">
+										<span class="rak-sum-label-special">Find all your existing beneficiaries and payees in one view on any device</span>
+									</p>
+									<p class="rak-sum-txt">
+										<span class="rak-sum-label-special">Experience unified, seamless and safer banking any time, any place</span>
+									</p>
+									<p class="rak-parent-txt">
+										<span class="rak-sum-label-special">Lets get started with set up of your common USER ID and Password in a few simple steps.</span>
+									</p>
+
+									<div class="label-wrap">
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-small"
+											ng-click="rakServiceReq.branchIdValidationRqdCheck();rakServiceReq.sendFormattedDate();setEvent('onRakOprAccDupStmtConfirmClick');">Get Started</button>
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

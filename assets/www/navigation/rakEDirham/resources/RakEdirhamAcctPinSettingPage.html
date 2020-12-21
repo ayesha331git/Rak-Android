@@ -1,0 +1,74 @@
+ <div class="rak-back-header">
+	<i class="rak-back-img" ng-click="setEvent('onBackClick');"></i>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div ng-init='rakEDirham.initUpdateEdirham(successResponse.responsesList[0]);rakEDirham.eDirhamDetails.accountModel=""'  class="finacle-container">
+			<div class="account-page">
+			
+					<div class="app-title-wrapper">
+						<div class="form-block">						
+						
+			<div class="eDirham-acct-block margn-5-5-0-5">
+						<div  class="bg-color rak-cont-padding rak-scroll eDirham-acct-block">
+							<div class="">
+					           <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.EDIRHAM.EDIRHAM_UPDATE_CHHOSE_ACCT_HEADER}}
+                                            
+                              </h2>              
+						</div>	
+					             <div>
+					            <h3 class="setPin-msg">
+									{{appLiterals.APP.EDIRHAM.CHOOSE_ACCT_MSG}}
+									</h3>	
+					            </div>
+					            	
+								<div class="e-dirham-wlcm-block">
+								
+									<p class="rak-sum-txt mb-15">
+										<span  class="rak-sum-label txt-align-left">{{appLiterals.APP.EDIRHAM.EDIRHAM_ACCT_ID_TXT}}</span>
+										<span class="rak-sum-label black">{{rakEDirham.eDirhamSettings.edAccountId}}</span>
+									</p>
+								
+									<div class="loginFirstDiv" ng-init='chooseAcctArray=createDropDownOptionArray(rakEDirham.eDirhamDetails.accountArr , ["subAcctType","-","acctNo", "-", "accountCurrencyCode"],"index")'>
+									
+										<fin-input type="dropdown" option-array="chooseAcctArray"
+											model="rakEDirham.eDirhamDetails.accountModel"
+											display-row="full" on-change="rakHome.onCustomerTypeChange()"
+											placeholder="{{appLiterals.APP.EDIRHAM.EDIRHAM_SELECT_PLC_HLDR}}"
+											
+											validation-flag='pageErrorArr["rakEDirham.eDirhamDetails.accountModel"]'>
+										</fin-input>
+									
+										
+											
+										</div>
+								</div>
+							</div>
+							<div class="label-wrap">
+
+										<!-- CHANGES AS FIX OF PROUAT-1503 START-->
+											<!-- <button type="button"
+												class="btn--special-btn btn-middle rak-button-right"
+												ng-click="rakPayee.quickPay.setquickPayDate();rakPayee.quickPay.populateConsumerCodes();setEvent('onquickPayNowSend')";>
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_SEND}}
+											</button> -->
+											
+											<button type="button"
+												class="btn--special-btn btn-middle rak-button-right proceed-btn top-30"
+												ng-click="rakEDirham.validateFundingAccount();">
+												{{appLiterals.APP.EDIRHAM.UPDATE_BTN}}
+											</button>
+										<!-- CHANGES AS FIX OF PROUAT-1503 END-->
+
+										</div>
+						</div>
+						
+									
+						</div>
+					</div>
+				</div>
+			
+		</div>
+	</div>
+	</div>

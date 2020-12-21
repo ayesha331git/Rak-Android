@@ -1,0 +1,99 @@
+<div class="rak-back-header">
+			<i class="rak-back-img"
+				ng-click="setEvent('onDiscAndapplyBackClicked');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.rakFFDepositCLoseNewTermInit(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+				
+					<div class="form-block">
+						 <div class="main-form-heading-ServiceReq"> 
+			                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CLOSE_FIXED_FLEXI_DEP}}
+			                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+			                 </h2>              
+						</div>
+						<div class="bg-color rak-cont-padding rak-scroll">
+							<div class="row">
+								
+								<div
+									ng-init='oprArr = createDropDownOptionArray(rakServiceReq.RakFFDepositCloseNewTermReq.oprList, ["productCatDesc","-","accountId","-","currency"], "accountIndex");'></div>
+								<fin-input type="dropdown"
+									model="rakServiceReq.RakFFDepositCloseNewTermReq.accNo"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_CLOSE_NEW.ACCT_NO}}"									
+									validation-flag='pageErrorArr["rakServiceReq.RakFFDepositCloseNewTermReq.accNo"]'
+									option-array="oprArr"
+									on-change="rakServiceReq.rakFFDepositCloseNewTermHideOtherfields();setEvent('RAKonFetchBalanceClick');"> </fin-input>
+									
+									
+									
+							<div ng-show="rakServiceReq.RakFFDepositCloseNewTermReq.isDetailsFetched =='Y'">
+								
+								<p class="rak-parent-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_CLOSE_NEW.BALANCE_AMOUNT}}</span>
+									<span class="rak-sum-label black">{{rakServiceReq.RakFFDepositCloseNewTermReq.balanceAmount}}</span>
+										
+								</p>
+								
+								
+					
+				<div class="fin-txt"></div>
+								
+				<!-- <div class="disclaimer3" >
+						
+						<span ng-click='rakServiceReq.fetchPdf("https://rakbank.ae/wps/wcm/connect/021eabaa-9e43-4e4e-970d-ca13a37e9e9f/%28A%29+J00781+RAK++Debit+Card+-+Personal+Account+A4-T%26C-New+Guide-EN%26AR%28withe+out+cashback%29.pdf?MOD=AJPERES");' class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+						<span ng-bind-html="appLiterals.APP.DISCLAIMER.FFD_TERMS_CONDITION"></span>
+					
+										
+								<div class="check-boxsLeft">
+				                    <input id="termsFlag"  class="checkbox-custom-new"  type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" ng-model='rakServiceReq.acceptTermscondition' >
+				                    <label for="termsFlag" class="checkbox-custom-label termsCheck smallCheck" ng-bind-html="appLiterals.APP.DISCLAIMER.FFD_AGREE"></label>
+				                </div>										
+				</div> -->
+	
+								
+							
+								<div class="label-wrap">								
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small"
+										ng-click="setEvent('onRAKFFDepositNewTermConfirmClick');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+								</div>
+								
+								
+								
+								
+								
+								
+							</div>
+								
+								
+								<div class="col-sm-1"></div>
+					<!-- 			
+						<div class="disclaimer">
+                              <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                              <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                              </div>
+                              
+                             		<div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+                              			<span ng-click='rakServiceReq.fetchPdf("https://rakbank.ae/wps/portal/retail-banking/accounts/deposit/recurring-deposit");' class="hyperLinkBlue">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+										<span ng-bind-html="appLiterals.APP.DISCLAIMER.FFD_FEATURESLINK"></span>
+                              			<span ng-bind-html="appLiterals.APP.DISCLAIMER.FFD_THRESHOLD"></span>
+										<span ng-bind-html="appLiterals.APP.DISCLAIMER.FFD_MONTH"></span>										
+									</div>
+              			</div> -->
+								
+						
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

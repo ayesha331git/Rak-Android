@@ -1,0 +1,50 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRakApplyCCSuccess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+			<div class="main-form-heading">
+				<h2 class="success">
+					{{appLiterals.APP.RAKCOMMONLITERALS.REQSTATUS}} <span class="ng-binding"
+						style="white-space: initial;">{{rakServiceReq.RakApplyCCModel.successMessage}}</span>
+				</h2>
+			</div>
+
+		<div class="bg-color rak-cont-padding rak-scroll-success">
+			<div class="">
+				<div class="">
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKAPPLYCC.CUST_NAME}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakApplyCCModel.CustomerName}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKAPPLYCC.MOB_NO}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakApplyCCModel.MobileNo}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKAPPLYCC.EMAIL_ID}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakApplyCCModel.EmailId}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKAPPLYCC.REMARKS}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakApplyCCModel.Remarks}}</span>
+						</p>
+
+				<div class="label-wrap">
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-right"
+						ng-click='rakServiceReq.resetRakApplyCCData();setEvent("onRakApplyCCSuccessOkClick");'>
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+				</div>
+
+				<div class="col-sm-10"></div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

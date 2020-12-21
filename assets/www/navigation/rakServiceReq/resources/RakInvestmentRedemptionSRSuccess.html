@@ -1,0 +1,65 @@
+<div class="finacle-container" ng-init="rakServiceReq.investmentRedemptionRq.successInvestmentRedemptionRq(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+			<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.investmentRedemptionRq.investmentRedmptionSuccessMsg}}</span>
+				</div>
+			</div>
+		<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.INVESTMENT_REDEMPTION}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+				      </h2>		       
+		 </div>
+
+			
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+
+				<div class="">
+					<div class="">
+					<div class="col-sm-1"></div>
+						<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.INV_ID}}</span> <span class="rak-sum-label black">{{rakServiceReq.investmentRedemptionRq.invAccountId}}</span>
+					</p>
+
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.INV_NAME}}</span> <span class="rak-sum-label black">{{rakServiceReq.investmentRedemptionRq.investmentProductName}}</span>
+					</p>
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.INV_AMOUNT}}</span> <span class="rak-sum-label black">{{rakServiceReq.investmentRedemptionRq.amountDisplayName}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-show="rakServiceReq.investmentRedemptionRq.amount==rakServiceReq.investmentRedemptionRqConstants.ALLNOMINALAMOUNT">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.INV_ALLNOM_AMOUNT}}</span> <span class="rak-sum-label black">{{rakServiceReq.investmentRedemptionRq.allNominalAmountDisp}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-show="rakServiceReq.investmentRedemptionRq.amount==rakServiceReq.investmentRedemptionRqConstants.PARTNOMINALAMOUNT">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.INV_PART_NOM_AMOUNT}}</span> <span class="rak-sum-label black">{{rakServiceReq.investmentRedemptionRq.allNominalCurrency}} {{rakServiceReq.investmentRedemptionRq.partNominalAmount}}</span>
+					</p>
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.NO_OF_UNITS}}</span> <span class="rak-sum-label black">{{rakServiceReq.investmentRedemptionRq.noOfUnitsDisplayName}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-show="rakServiceReq.investmentRedemptionRq.noOfUnits==rakServiceReq.investmentRedemptionRqConstants.ALLUNITS">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.ALL_UNITS}}</span> <span class="rak-sum-label black">{{rakServiceReq.investmentRedemptionRq.allUnits}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-show="rakServiceReq.investmentRedemptionRq.noOfUnits==rakServiceReq.investmentRedemptionRqConstants.PARTUNITS">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.PARTIAL_UNITS}}</span> <span class="rak-sum-label black">{{rakServiceReq.investmentRedemptionRq.partialUnits}}</span>
+					</p>
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.CREDITACCT}}</span> <span class="rak-sum-label black">{{rakServiceReq.investmentRedemptionRq.oprAccIdDisplayName}}</span>
+					</p>	
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakServiceReq.investmentRedemptionRq.resetInvestmentRedemptionRqModel();setEvent('onRakServiceHomeClick')">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>

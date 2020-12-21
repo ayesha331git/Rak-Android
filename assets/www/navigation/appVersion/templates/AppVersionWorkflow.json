@@ -1,0 +1,40 @@
+{
+    "pageNavigation": [
+        {  
+                "LandingPageAppVersion": [
+	                { 
+                 	"eventName" : "closeAppVersion",
+                 	 "action" : "RefreshAccountDetailsService",
+			         "actionType":"service",
+			         "parameters": {
+                         "jsessionid": "fields.finacleUserSessionId",
+                		 "mbparam": "fields.finacleMbParam",
+                		 "USER_TYPE": "dashboard.userType"
+                     },
+			         "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserDashboardPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                    },
+			        { "eventName" : "closeWithoutLoginAppVersion",
+			          "action" : "navigation",
+			          "actionType":"navigation",
+			          "successPage" : {
+			          		  "subFeature": "RetailUserLogin",
+			                  "pageName": "RetailUserLoginPage"
+			                  },
+			          "errorPage" : {
+			          		  "subFeature": "RetailUserLogin",
+			                  "pageName": "RetailUserLoginPage"
+			                }
+			        }
+                ]		
+       }
+    ],
+    "subFeatureName": "AppVersion",
+    "startPage": "LandingPageAppVersion"
+}

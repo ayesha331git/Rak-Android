@@ -1,0 +1,116 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="rak-back-header">
+			<i class="rak-back-img" ng-click="setEvent('onRakValuationBackBtnClicked');"></i>
+		</div>
+		<div class="finacle-container"
+			ng-init="rakAccounts.rakValuationUpgradeValuationFetchPackageList(successResponse.responsesList);">
+			<div class="account-page ">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+							<div class="money-block">
+								<ul>
+									<li ng-click="setEvent('onRakValuationClick');">
+										{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.ENROLL}}</li>
+									<li class="active">
+										{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.UPGRADE}}</li>
+
+								</ul>
+							</div>
+ 				<!-- Heading fix-start -->
+ 					<div class="main-form-heading-ServiceReq"> 
+			                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAKBURGER.RAK_VALUE_COLLECTION}}
+			                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+			                 </h2>
+					</div>
+ 				<!-- Heading fix-end -->
+
+
+			<div class="bg-color rak-cont-padding rakScrollDiv rakScrollDiv_RVC_iPh5">
+							<p class="rak-sum-txt"
+								ng-show="rakAccounts.RakValuationUpgradeValuation.accountType=='ODA'">
+								<span class="rak-sum-label rak35Width left-align">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.AC_NO}}
+									</span> <span class="rak-sum-label black rak65">{{rakAccounts.RakValuationUpgradeValuation.accountNumber}}</span>
+							</p>
+
+							<p class="rak-sum-txt"
+								ng-show="rakAccounts.RakValuationUpgradeValuation.accountType=='CCD'">
+								<span class="rak-sum-label rak35Width left-align">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CCD_NO}}
+									</span> <span class="rak-sum-label black rak65">{{rakAccounts.RakValuationUpgradeValuation.accountNumber}}</span>
+							</p>
+
+							<div
+								ng-init='packArr = createDropDownOptionArray(rakAccounts.RakValuationUpgradeValuation.packageList, ["packageName","-","amount"], "index");'>
+							<fin-input type="dropdown"
+								model="rakAccounts.RakValuationUpgradeValuation.packageItem"
+								display-row="full"
+								placeholder="{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.PACKAGE}}"
+								validation-flag='pageErrorArr["rakAccounts.RakValuationUpgradeValuation.packageItem"]'
+								option-array="packArr"> </fin-input>
+								</div>
+					<!-- please dont remove fin-txt -->
+							<div class="fin-txt"></div>
+							
+						
+						<div class="disclaimer3" ng-if="rakAccounts.RakValuationUpgradeValuation.oprAccSel && rakHome.chkUserType=='1'">                            
+                             <span ng-click="rakServiceReq.fetchTermsUrl('RVC_Enroll_Acc_Features.pdf');" class="hyperLinkRed">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CLICK}}</span>
+                             <span ng-bind-html="appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CLICK1"></span>  
+						</div>
+						
+						<div class="disclaimer3" ng-if="rakAccounts.RakValuationUpgradeValuation.oprAccSel && rakHome.chkUserType=='2'">                            
+                             <span ng-click="rakServiceReq.fetchTermsUrl('RVC_Enroll_Acc_SME_Features.pdf');" class="hyperLinkRed">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CLICK}}</span>
+                             <span ng-bind-html="appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CLICK1"></span>  
+						</div>
+						
+						<div class="disclaimer3" ng-if="rakAccounts.RakValuationUpgradeValuation.ccdAccSel">                            
+                             <span ng-click="rakServiceReq.fetchTermsUrl('RAKvalue_CC.pdf');" class="hyperLinkRed">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CLICK}}</span>
+                             <span ng-bind-html="appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CLICK1"></span>  
+						</div>
+						
+						
+						<div class="disclaimer3">                            
+                             <span ng-click="rakServiceReq.fetchTermsUrl('RVC_Enroll_Acc_TnC.pdf');" class="hyperLinkRed">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CLICK}}</span>
+                             <span ng-bind-html="appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.CLICK2"></span>  
+						</div>
+							
+
+
+							<div class="rakTCDiv">
+								<input type="checkbox" class="rakTCCheckBoxStyle"
+									ng-model="rakAccounts.RakValuationUpgradeValuation.acceptTermsCheck1"
+									ng-true-value="'Y'" ng-false-value="'N'"> <span
+									class="rakTCCheckBoxLabel">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.TC1}}</span>
+							</div>
+
+							<div class="rakTCDiv">
+								<input type="checkbox" class="rakTCCheckBoxStyle"
+									ng-model="rakAccounts.RakValuationUpgradeValuation.acceptTermsCheck2"
+									ng-true-value="'Y'" ng-false-value="'N'"> <span
+									class="rakTCCheckBoxLabel">{{appLiterals.APP.RAK_ACCOUNTS.RAK_VALUATION.TC2}}</span>
+							</div>
+
+
+
+							<div class="rakTCDiv"></div>
+
+
+
+
+							<div class="label-wrap">
+
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small"
+									ng-click="rakAccounts.RakValuationUpgradeValuation.resetRakValuationUpgradeConfirm();setEvent('onRakValuationUpgradeValuationConfirmationClick');">
+									{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+							</div>
+							<div class="col-sm-1"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>

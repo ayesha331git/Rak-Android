@@ -1,0 +1,945 @@
+<div class="rak-back-header" >
+        <i class="rak-back-img" ng-click="setGlobalEvent('onDashboardClick');"></i>
+</div>
+<div class="finacle-container ng-scope"
+	ng-init="rakTradeFinance.rakTradeFinanceInquiry.initTradeFinanceDashboard(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+
+			<div class="main-form-heading">
+				<h2>
+					{{appLiterals.APP.TRADE_FIN_PAGE.TRADE_FIN_INQ}}
+				</h2>
+			</div>
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+					<div class="">
+					<div>
+					<div class="money-block rakBottomZero">
+						<ul>
+						<li ng-class="{'active':rakTradeFinance.rakTradeFinanceInquiry.selectedTrade=='IMFN','':rakTradeFinance.rakTradeFinanceInquiry.selectedTrade!='IMFN'}"
+							ng-click='rakTradeFinance.rakTradeFinanceInquiry.clickImportFinanceTab();'>
+							{{appLiterals.APP.TRADE_FIN_PAGE.IMPORT_FIN}}</li>
+
+						<li ng-class="{'active':rakTradeFinance.rakTradeFinanceInquiry.selectedTrade=='GUAT','':rakTradeFinance.rakTradeFinanceInquiry.selectedTrade!='GUAT'}"
+							ng-click='rakTradeFinance.rakTradeFinanceInquiry.clickGuaranteesTab();'>
+							{{appLiterals.APP.TRADE_FIN_PAGE.GUARANTEE}}</li>
+
+						<li ng-class="{'active':rakTradeFinance.rakTradeFinanceInquiry.selectedTrade=='EXPT','':rakTradeFinance.rakTradeFinanceInquiry.selectedTrade!='EXPT'}"
+							ng-click='rakTradeFinance.rakTradeFinanceInquiry.clickExportTab();'>
+							{{appLiterals.APP.TRADE_FIN_PAGE.EXPORT}}</li>
+
+						<li ng-class="{'active':rakTradeFinance.rakTradeFinanceInquiry.selectedTrade=='INTF','':rakTradeFinance.rakTradeFinanceInquiry.selectedTrade!='INTF'}"
+							ng-click='rakTradeFinance.rakTradeFinanceInquiry.clickInlandTradeFinancesTab();'>
+							{{appLiterals.APP.TRADE_FIN_PAGE.INLAND_TRADE_FIN}}</li>
+						</ul>
+					</div>
+			<!-- <div  ng-if="!rakTradeFinance.rakTradeFinanceInquiry.showListFlag"> -->
+					<div ng-if='rakTradeFinance.rakTradeFinanceInquiry.selectedTrade=="IMFN"'
+						ng-init='importfinlist = createDropDownOptionArray(rakTradeFinance.rakTradeFinanceInquiry.importFinList,["importFinDesc"],"importFinCode");'>
+
+						<fin-input type="dropdown"
+							model="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode"
+							display-row="full"
+							placeholder="{{appLiterals.APP.TRADE_FIN_PAGE.IMPORT_FIN}}"
+							on-change="rakTradeFinance.rakTradeFinanceInquiry.selectFlag='SEL';rakTradeFinance.tradeFlag(rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode);"
+							validation-flag='pageErrorArr["rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode"]'
+							option-array="importfinlist" ></fin-input>
+					</div>
+					<div ng-if='rakTradeFinance.rakTradeFinanceInquiry.selectedTrade=="GUAT"'
+						ng-init='guaranteelist = createDropDownOptionArray(rakTradeFinance.rakTradeFinanceInquiry.guaranteeList,["guaranteeDesc"],"guaranteeCode");'>
+
+						<fin-input type="dropdown"
+							model="rakTradeFinance.rakTradeFinanceInquiry.selectedGuaranteeCode"
+							display-row="full"
+							placeholder="{{appLiterals.APP.TRADE_FIN_PAGE.GUARANTEE}}"
+							on-change="rakTradeFinance.rakTradeFinanceInquiry.selectFlag='SEL';rakTradeFinance.tradeFlag(rakTradeFinance.rakTradeFinanceInquiry.selectedGuaranteeCode);"
+							validation-flag='pageErrorArr["rakTradeFinance.rakTradeFinanceInquiry.selectedGuaranteeCode"]'
+							option-array="guaranteelist" ></fin-input>
+					</div>
+					<div ng-if='rakTradeFinance.rakTradeFinanceInquiry.selectedTrade=="EXPT"'
+						ng-init='exportlist = createDropDownOptionArray(rakTradeFinance.rakTradeFinanceInquiry.exportList,["exportDesc"],"exportCode");'>
+
+						<fin-input type="dropdown"
+							model="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode"
+							display-row="full"
+							placeholder="{{appLiterals.APP.TRADE_FIN_PAGE.EXPORT}}"
+							on-change="rakTradeFinance.rakTradeFinanceInquiry.selectFlag='SEL';rakTradeFinance.tradeFlag(rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode);"
+							validation-flag='pageErrorArr["rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode"]'
+							option-array="exportlist" ></fin-input>
+					</div>
+					<div ng-if='rakTradeFinance.rakTradeFinanceInquiry.selectedTrade=="INTF"'
+						ng-init='inlandtradefinlist = createDropDownOptionArray(rakTradeFinance.rakTradeFinanceInquiry.inlandTradeFinList,["inlandTradeFinDesc"],"inlandTradeFinCode");'>
+
+						<fin-input type="dropdown"
+							model="rakTradeFinance.rakTradeFinanceInquiry.selectedInlandTradeCode"
+							display-row="full"
+							placeholder="{{appLiterals.APP.TRADE_FIN_PAGE.INLAND_TRADE_FIN}}"
+							on-change="rakTradeFinance.rakTradeFinanceInquiry.selectFlag='SEL';rakTradeFinance.tradeFlag(rakTradeFinance.rakTradeFinanceInquiry.selectedInlandTradeCode);"
+							validation-flag='pageErrorArr["rakTradeFinance.rakTradeFinanceInquiry.selectedInlandTradeCode"]'
+							option-array="inlandtradefinlist" ></fin-input>
+					</div>
+			<!-- </div> -->
+			</div>
+
+			<!-- displaying lists -->
+			
+			
+
+			
+			<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.showListFlag">
+			<div class="main-form-heading-ServiceReq">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Import Finances xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='ILC'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.ILC}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='PAD'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.PAD}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='ACP'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.ACP}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='LTR'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.LTR}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='IND'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.IND}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='SHG'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.SHG}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='SLC'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.SLC}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='LCD'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.LCD}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='STL'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.STL}}</h2>
+				</div>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Guarantees xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedGuaranteeCode=='IGT'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.IGT}}</h2>
+				</div>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Export xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode=='FEL'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.FEL}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode=='OBC'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.OBC}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode=='ELC'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.ELC}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode=='EAC'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.EAC}}</h2>
+				</div>
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode=='FOB'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.FOB}}</h2>
+				</div>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Inland Trade Finances xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+				<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.selectedInlandTradeCode=='LAI'">
+					<h2 class="rakBenfHeader">{{appLiterals.APP.TRADE_FIN_PAGE.LAI}}</h2>
+				</div>
+			</div>
+<!-- 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 -->
+				 <div ng-init="rakTradeFinance.customTradeSelected(successResponse.responsesList);">
+					<div ng-if="rakTradeFinance.rakTradeFinanceInquiry.submitFlag=='SUB'">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Import Finances xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+					<div ng-if="rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray == 0 ">
+				 				<div class="summary-ServiceReq">
+												<div class="iconDivNorecord">
+													<span class="infoIcon"></span><span class="success">{{rakTradeFinance.rakTradeFinanceInquiry.NoTFRecordsMsg}}</span>
+												</div>
+											</div>
+						</div>
+
+							<div ng-if="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='ILC'">
+								<!-- Import Finances :: Letter of Credits -->
+							<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray != 0 ">	
+							<div class="money-block rakBottomZero">
+					         <ul>
+					            <li class="active rak30 rakPaddingPoint8emTopBot" >{{appLiterals.APP.TRADE_FIN_PAGE.LC_REF}}</li>
+					         <!--   	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.BENF_NAME}}</li> -->
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.LC_CCY}}</li>
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.LC_AMT}}</li>
+					           <!-- 	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.LC_AMT_AED}}</li> -->
+					            <li class="active rak10">&nbsp;</li>
+					         </ul>
+						 	</div>
+							<div class="rak-cont-paddingvh" ng-class="{'rak-history-paddingvh':rakTxnSearch}">
+								<div class="">
+									<div class="trans-detail rakGreyRow" ng-repeat="x in rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray | limitTo:rakTradeFinance.rakTradeFinanceInquiry.displayOne">
+										<div class="trans-dash-right rakPeopleNameRow1  rak35TradeFinance  rakPaddingPoint8emTopBot pull-left">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityID}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.benfName}}</div></div>
+										</div> -->
+										<div class="trans-dash-left rakPeopleNameRow1  rak20Imp pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityCurrency}}</div></div>
+										</div>
+										<div class="trans-dash-left rakPeopleNameRow1  rak35TradeFinance pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityValue}}</div></div>
+										</div>
+									<!-- 	<div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.loanAmountAED}}</div></div>
+										</div> -->
+										<div class="pull-right rakPaddingPoint5em" style="width: 10%">
+											<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											<ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+												<li><a href="" ng-click="setEvent('onSubmitOfSelectedColumn');rakTradeFinance.rakTradeFinanceInquiry.selIndex = {{x.selectedIndex}};">
+														{{appLiterals.APP.RAK_PAYEE.HISTORY.VIEW}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<span  class="forgotRAKTokenPIN" ng-show="rakTradeFinance.rakTradeFinanceInquiry.displayOne < rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray.length" ng-click="rakTradeFinance.rakTradeFinanceInquiry.incrementDisplayCounter('ONE');">{{appLiterals.APP.TRADE_FIN_PAGE.SHOW_MORE}}</span>
+								</div>
+								<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.GRAND_TOTAL}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.grandTotalAmt}}</span>
+							</p>
+							</div>
+							
+							</div>
+							</div>
+							<div ng-if="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='PAD'">
+								<!-- Import Finances :: Payment against Document -->
+						<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray != 0 ">	
+							<div class="money-block rakBottomZero">
+					         <ul>
+					            <li class="active rak30 rakPaddingPoint8emTopBot" >{{appLiterals.APP.TRADE_FIN_PAGE.LC_REF}}</li>
+					           <!-- 	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_REF_NUM}}</li> -->
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.PAD_CCY}}</li>
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.PAD_AMT}}</li>
+					          <!--  	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.PAD_AMT_AED}}</li> -->
+					            <li class="active rak10">&nbsp;</li>
+					         </ul>
+						 	</div>
+							<div class="rak-cont-paddingvh" ng-class="{'rak-history-paddingvh':rakTxnSearch}">
+								<div class="">
+									<div class="trans-detail rakGreyRow" ng-repeat="x in rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray | limitTo:rakTradeFinance.rakTradeFinanceInquiry.displayTwo">
+										<div class="trans-dash-right rakPeopleNameRow1  rak35TradeFinance  rakPaddingPoint8emTopBot pull-left">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityID}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.otherRefNum}}</div></div>
+										</div> -->
+										<div class="trans-dash-left rakPeopleNameRow1  rak20Imp pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityCurrency}}</div></div>
+										</div>
+										<div class="trans-dash-left rakPeopleNameRow1  rak35TradeFinance pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityValue}}</div></div>
+										</div>
+									<!-- 	<div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.loanBalanceWithCrn}}</div></div>
+										</div> -->
+										<div class="pull-right rakPaddingPoint5em" style="width: 10%">
+											<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											<ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+												<li><a href="" ng-click="setEvent('onSubmitOfSelectedColumn');rakTradeFinance.rakTradeFinanceInquiry.selIndex = {{x.selectedIndex}};">
+														{{appLiterals.APP.RAK_PAYEE.HISTORY.VIEW}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<span  class="forgotRAKTokenPIN" ng-show="rakTradeFinance.rakTradeFinanceInquiry.displayTwo < rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray.length" ng-click="rakTradeFinance.rakTradeFinanceInquiry.incrementDisplayCounter('TWO');">{{appLiterals.APP.TRADE_FIN_PAGE.SHOW_MORE}}</span>
+								</div>
+								<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.GRAND_TOTAL}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.grandTotalAmt}}</span>
+							</p>
+							</div>
+							
+							</div>
+							
+							</div>
+							<div ng-if="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='ACP'">
+								<!-- Import Finances :: Acceptances -->
+							<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray != 0 ">	
+							<div class="money-block rakBottomZero">
+					         <ul>
+					            <li class="active rak30 rakPaddingPoint8em" >{{appLiterals.APP.TRADE_FIN_PAGE.LC_REF}}</li>
+					          <!--  	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_REF_NUM}}</li> -->
+					           <!--  <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.BENF_NAME}}</li> -->
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_CCY}}</li>
+					           	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_AMT}}</li>
+					           	<!-- <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_AMT_AED}}</li> -->
+					            <li class="active rak10">&nbsp;</li>
+					         </ul>
+						 	</div>
+							<div class="rak-cont-paddingvh" ng-class="{'rak-history-paddingvh':rakTxnSearch}">
+								<div class="">
+									<div class="trans-detail rakGreyRow" ng-repeat="x in rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray | limitTo:rakTradeFinance.rakTradeFinanceInquiry.displayThree">
+										<div class="trans-dash-right rakPeopleNameRow1  rak35TradeFinance  rakPaddingPoint8emTopBot pull-left">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityID}}</div></div>
+										</div>
+									<!-- 	<div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.otherRefNum}}</div></div>
+										</div> -->
+									<!-- 	<div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.bankName}}</div></div>
+										</div> -->
+										<div class="trans-dash-left rakPeopleNameRow1  rak20Imp pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityCurrency}}</div></div>
+										</div>
+										<div class="trans-dash-left rakPeopleNameRow1  rak35TradeFinance pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityValue}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.loanBalanceWithCrn}}</div></div>
+										</div> -->
+										<div class="pull-right rakPaddingPoint5em" style="width: 10%">
+											<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											<ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+												<li><a href="" ng-click="setEvent('onSubmitOfSelectedColumn');rakTradeFinance.rakTradeFinanceInquiry.selIndex = {{x.selectedIndex}};">
+														{{appLiterals.APP.RAK_PAYEE.HISTORY.VIEW}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<span  class="forgotRAKTokenPIN" ng-show="rakTradeFinance.rakTradeFinanceInquiry.displayThree < rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray.length"  ng-click="rakTradeFinance.rakTradeFinanceInquiry.incrementDisplayCounter('THREE');">{{appLiterals.APP.TRADE_FIN_PAGE.SHOW_MORE}}</span>
+								</div>
+								<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.GRAND_TOTAL}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.grandTotalAmt}}</span>
+							</p>
+							</div>
+							
+							</div>
+							</div>
+							<div ng-if="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='LTR'">
+								<!-- Import Finances :: Loan Against Trust Receipts -->
+						<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray != 0 ">	
+							<div class="money-block rakBottomZero">
+					         <ul>
+					            <li class="active rak30 rakPaddingPoint8em" >{{appLiterals.APP.TRADE_FIN_PAGE.REF_NUM}}</li>
+					           	<!-- <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.BENF_NAME}}</li> -->
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.TR_TYPE}}</li>
+					           <!--  <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.TR_BAL}}</li> -->
+					           	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.TR_BAL_AED}}</li>
+					            <li class="active rak10">&nbsp;</li>
+					         </ul>
+						 	</div>
+							<div class="rak-cont-paddingvh" ng-class="{'rak-history-paddingvh':rakTxnSearch}">
+								<div class="">
+									<div class="trans-detail rakGreyRow" ng-repeat="x in rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray | limitTo:rakTradeFinance.rakTradeFinanceInquiry.displayFour">
+										<div class="trans-dash-right rakPeopleNameRow1  rak35TradeFinance  rakPaddingPoint8emTopBot pull-left">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityID}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.benfName}}</div></div>
+										</div> -->
+										<div class="trans-dash-left rakPeopleNameRow1  rak20Imp pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.category}}</div></div>
+										</div>
+									<!-- 	<div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.otherAmount}}</div></div>
+										</div> -->
+										<div class="trans-dash-left rakPeopleNameRow1  rak35TradeFinance pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.otherAmountAED}}</div></div>
+										</div>
+										<div class="pull-right rakPaddingPoint5em" style="width: 10%">
+											<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											<ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+												<li><a href="" ng-click="setEvent('onSubmitOfSelectedColumn');rakTradeFinance.rakTradeFinanceInquiry.selIndex = {{x.selectedIndex}};">
+														{{appLiterals.APP.RAK_PAYEE.HISTORY.VIEW}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<span  class="forgotRAKTokenPIN"  ng-show="rakTradeFinance.rakTradeFinanceInquiry.displayFour < rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray.length" ng-click="rakTradeFinance.rakTradeFinanceInquiry.incrementDisplayCounter('FOUR');">{{appLiterals.APP.TRADE_FIN_PAGE.SHOW_MORE}}</span>
+								</div>
+								<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.GRAND_TOTAL}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.grandTotalAmt}}</span>
+							</p>
+							</div>
+							
+							</div>
+							</div>
+							<div ng-if="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='IND'">
+								<!-- Import Finances :: Inward Document Collection -->
+							<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray != 0 ">	
+							<div class="money-block rakBottomZero">
+					         <ul>
+					            <li class="active rak30 rakPaddingPoint8em" >{{appLiterals.APP.TRADE_FIN_PAGE.REF}}</li>
+					           	<!-- <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.DRAWER_NAME}}</li> -->
+					           <!--  <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.COLLECT_TYPE}}</li> -->
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.COLLECT_CCY}}</li>
+					           	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.COLLECT_AMT}}</li>
+					           	<!-- 	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.COLLECT_AMT_AED}}</li> -->
+					            <li class="active rak10">&nbsp;</li>
+					         </ul>
+						 	</div>
+							<div class="rak-cont-paddingvh" ng-class="{'rak-history-paddingvh':rakTxnSearch}">
+								<div class="">
+									<div class="trans-detail rakGreyRow" ng-repeat="x in rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray | limitTo:rakTradeFinance.rakTradeFinanceInquiry.displayFive">
+										<div class="trans-dash-right rakPeopleNameRow1  rak35TradeFinance  rakPaddingPoint8emTopBot pull-left">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityID}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.benfName}}</div></div>
+										</div> -->
+										<!-- <div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.category}}</div></div>
+										</div> -->
+										<div class="trans-dash-left rakPeopleNameRow1  rak20Imp pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityCurrency}}</div></div>
+										</div>
+										<div class="trans-dash-left rakPeopleNameRow1  rak35TradeFinance pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityValue}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.loanBalanceWithCrn}}</div></div>
+										</div> -->
+										<div class="pull-right rakPaddingPoint5em" style="width: 10%">
+											<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											<ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+												<li><a href="" ng-click="setEvent('onSubmitOfSelectedColumn');rakTradeFinance.rakTradeFinanceInquiry.selIndex = {{x.selectedIndex}};">
+														{{appLiterals.APP.RAK_PAYEE.HISTORY.VIEW}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<span  class="forgotRAKTokenPIN"  ng-show="rakTradeFinance.rakTradeFinanceInquiry.displayFive < rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray.length"  ng-click="rakTradeFinance.rakTradeFinanceInquiry.incrementDisplayCounter('FIVE');">{{appLiterals.APP.TRADE_FIN_PAGE.SHOW_MORE}}</span>
+								</div>
+								<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.GRAND_TOTAL}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.grandTotalAmt}}</span>
+							</p>
+							</div>
+							
+							</div>
+							</div>
+							<div ng-if="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='SHG'">
+								<!-- Import Finances :: Shipping Guarantee -->
+							<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray != 0 ">	
+							<div class="money-block rakBottomZero">
+					         <ul>
+					            <li class="active rak30 rakPaddingPoint8em" >{{appLiterals.APP.TRADE_FIN_PAGE.GUA_REF}}</li>
+					         <!--   	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.TR_REF}}</li> -->
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.GUA_CCY}}</li>
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.GUA_AMT}}</li>
+					           <!-- 	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.GUA_AMT_AED}}</li> -->
+					            <li class="active rak10">&nbsp;</li>
+					         </ul>
+						 	</div>
+							<div class="rak-cont-paddingvh" ng-class="{'rak-history-paddingvh':rakTxnSearch}">
+								<div class="">
+									<div class="trans-detail rakGreyRow" ng-repeat="x in rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray | limitTo:rakTradeFinance.rakTradeFinanceInquiry.displaySix">
+										<div class="trans-dash-right rakPeopleNameRow1  rak35TradeFinance  rakPaddingPoint8emTopBot pull-left">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.otherRefNum}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityID}}</div></div>
+										</div> -->
+										<div class="trans-dash-left rakPeopleNameRow1  rak20Imp pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityCurrency}}</div></div>
+										</div>
+										<div class="trans-dash-left rakPeopleNameRow1  rak35TradeFinance pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityValue}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.loanBalanceWithCrn}}</div></div>
+										</div> -->
+										<div class="pull-right rakPaddingPoint5em" style="width: 10%">
+											<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											<ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+												<li><a href="" ng-click="setEvent('onSubmitOfSelectedColumn');rakTradeFinance.rakTradeFinanceInquiry.selIndex = {{x.selectedIndex}};">
+														{{appLiterals.APP.RAK_PAYEE.HISTORY.VIEW}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<span  class="forgotRAKTokenPIN"  ng-show="rakTradeFinance.rakTradeFinanceInquiry.displaySix < rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray.length" ng-click="rakTradeFinance.rakTradeFinanceInquiry.incrementDisplayCounter('SIX');">{{appLiterals.APP.TRADE_FIN_PAGE.SHOW_MORE}}</span>
+								</div>
+									<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.GRAND_TOTAL}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.grandTotalAmt}}</span>
+							</p>
+							</div>
+						
+							</div>
+							</div>
+							<div ng-if="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='SLC'">
+								<!-- Import Finances :: Standby LC -->
+							<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray != 0 ">	
+							<div class="money-block rakBottomZero">
+					         <ul>
+					            <li class="active rak30 rakPaddingPoint8em" >{{appLiterals.APP.TRADE_FIN_PAGE.LC_REF}}</li>
+					           	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.LC_CCY}}</li>
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.LC_AMT}}</li>
+					          <!--   <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.LC_AMT_AED}}</li>
+					           	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.ISSUE_DATE}}</li> -->
+					            <li class="active rak10">&nbsp;</li>
+					         </ul>
+						 	</div>
+							<div class="rak-cont-paddingvh" ng-class="{'rak-history-paddingvh':rakTxnSearch}">
+								<div class="">
+									<div class="trans-detail rakGreyRow" ng-repeat="x in rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray | limitTo:rakTradeFinance.rakTradeFinanceInquiry.displaySeven">
+										<div class="trans-dash-right rakPeopleNameRow1  rak35TradeFinance  rakPaddingPoint8emTopBot pull-left">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityID}}</div></div>
+										</div>
+										<div class="trans-dash-right rakPeopleNameRow1  rak20Imp pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityCurrency}}</div></div>
+										</div>
+										<div class="trans-dash-left rakPeopleNameRow1  rak35TradeFinance pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityValue}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityValueWithCrn}}</div></div>
+										</div>
+										<div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.opendate}}</div></div>
+										</div> -->
+										<div class="pull-right rakPaddingPoint5em" style="width: 10%">
+											<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											<ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+												<li><a href="" ng-click="setEvent('onSubmitOfSelectedColumn');rakTradeFinance.rakTradeFinanceInquiry.selIndex = {{x.selectedIndex}};">
+														{{appLiterals.APP.RAK_PAYEE.HISTORY.VIEW}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<span  class="forgotRAKTokenPIN"  ng-show="rakTradeFinance.rakTradeFinanceInquiry.displaySeven < rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray.length" ng-click="rakTradeFinance.rakTradeFinanceInquiry.incrementDisplayCounter('SEVEN');">{{appLiterals.APP.TRADE_FIN_PAGE.SHOW_MORE}}</span>
+								</div>
+								<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.GRAND_TOTAL}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.grandTotalAmt}}</span>
+							</p>
+							</div>
+							
+							</div>
+							</div>
+							<div ng-if="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='LCD'">
+								<!-- Import Finances :: Local Cheque Discounting -->
+							<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray != 0 ">	
+							<div class="money-block rakBottomZero">
+					         <ul>
+					            <li class="active rak30 rakPaddingPoint8emTopBot" >{{appLiterals.APP.TRADE_FIN_PAGE.REF_NUM}}</li>
+					          <!--  	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.DRAWEE_NAME}}</li> -->
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.CHQ_NUM}}</li>
+					           <!--  <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.CHQ_CCY}}</li> -->
+					           	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.CHQ_AMT}}</li>
+					            <li class="active rak10">&nbsp;</li>
+					         </ul>
+						 	</div>
+							<div class="rak-cont-paddingvh" ng-class="{'rak-history-paddingvh':rakTxnSearch}">
+								<div class="">
+									<div class="trans-detail rakGreyRow" ng-repeat="x in rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray | limitTo:rakTradeFinance.rakTradeFinanceInquiry.displayEight">
+										<div class="trans-dash-right rakPeopleNameRow1  rak35TradeFinance  rakPaddingPoint8emTopBot pull-left">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityID}}</div></div>
+										</div>
+									<!-- 	<div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.benfName}}</div></div>
+										</div> -->
+										<div class="trans-dash-left rakPeopleNameRow1  rak20Imp pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.otherRefNum}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityCurrency}}</div></div>
+										</div> -->
+										<div class="trans-dash-left rakPeopleNameRow1  rak35TradeFinance pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityValueWithCrn}}</div></div>
+										</div>
+										<div class="pull-right rakPaddingPoint5em" style="width: 10%">
+											<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											<ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+												<li><a href="" ng-click="setEvent('onSubmitOfSelectedColumn');rakTradeFinance.rakTradeFinanceInquiry.selIndex = {{x.selectedIndex}};">
+														{{appLiterals.APP.RAK_PAYEE.HISTORY.VIEW}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<span  class="forgotRAKTokenPIN"  ng-show="rakTradeFinance.rakTradeFinanceInquiry.displayEight < rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray.length" ng-click="rakTradeFinance.rakTradeFinanceInquiry.incrementDisplayCounter('EIGHT');">{{appLiterals.APP.TRADE_FIN_PAGE.SHOW_MORE}}</span>
+								</div>
+							</div>
+							</div>
+							</div>
+							<div ng-if="rakTradeFinance.rakTradeFinanceInquiry.selectedImportFinCode=='STL'">
+								<!-- Import Finances :: Short Term Loan against Invoice -->
+							<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray != 0 ">	
+							<div class="money-block rakBottomZero">
+					         <ul>
+					            <li class="active rak30 rakPaddingPoint8emTopBot" >{{appLiterals.APP.TRADE_FIN_PAGE.REF_NO}}</li>
+					           <!-- 	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.BENF_NAME}}</li> -->
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.PAY_AMT}}</li>
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.STL_AMT_AED}}</li>
+					          <!--  	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.BAL_AED}}</li> -->
+					            <li class="active rak10">&nbsp;</li>
+					         </ul>
+						 	</div>
+							<div class="rak-cont-paddingvh" ng-class="{'rak-history-paddingvh':rakTxnSearch}">
+								<div class="">
+									<div class="trans-detail rakGreyRow" ng-repeat="x in rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray | limitTo:rakTradeFinance.rakTradeFinanceInquiry.displayNine">
+										<div class="trans-dash-right rakPeopleNameRow1  rak35TradeFinance  rakPaddingPoint8emTopBot pull-left">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityID}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.bankName}}</div></div>
+										</div> -->
+										<div class="trans-dash-left rakPeopleNameRow1  rak20Imp pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityValue}}</div></div>
+										</div>
+										<div class="trans-dash-left rakPeopleNameRow1  rak35TradeFinance pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.loanAmountAED}}</div></div>
+										</div>
+									<!-- 	<div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.otherAmountAED}}</div></div>
+										</div> -->
+										<div class="pull-right rakPaddingPoint5em" style="width: 10%">
+											<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											<ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+												<li><a href="" ng-click="setEvent('onSubmitOfSelectedColumn');rakTradeFinance.rakTradeFinanceInquiry.selIndex = {{x.selectedIndex}};">
+														{{appLiterals.APP.RAK_PAYEE.HISTORY.VIEW}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<span  class="forgotRAKTokenPIN"  ng-show="rakTradeFinance.rakTradeFinanceInquiry.displayNine < rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray.length" ng-click="rakTradeFinance.rakTradeFinanceInquiry.incrementDisplayCounter('NINE');">{{appLiterals.APP.TRADE_FIN_PAGE.SHOW_MORE}}</span>
+								</div>
+							</div>
+							</div>
+							</div>
+							
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Guarantees xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+							<div ng-if="rakTradeFinance.rakTradeFinanceInquiry.selectedGuaranteeCode=='IGT'">
+								<!-- Guarantees :: Letter of Guarantee -->
+							<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray != 0 ">	
+							<div class="money-block rakBottomZero">
+					         <ul>
+					            <li class="active rak30 rakPaddingPoint8emTopBot" >{{appLiterals.APP.TRADE_FIN_PAGE.GUA_REF}}</li>
+					           <!-- 	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.BENF_NAME}}</li> -->
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.CURR}}</li>
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.AMT}}</li>
+					           	<!-- <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.AMT_AED}}</li> -->
+					            <li class="active rak10">&nbsp;</li>
+					         </ul>
+						 	</div>
+							<div class="rak-cont-paddingvh" ng-class="{'rak-history-paddingvh':rakTxnSearch}">
+								<div class="">
+									<div class="trans-detail rakGreyRow" ng-repeat="x in rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray | limitTo:rakTradeFinance.rakTradeFinanceInquiry.displayTen">
+										<div class="trans-dash-right rakPeopleNameRow1  rak35TradeFinance  rakPaddingPoint8emTopBot pull-left">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityID}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.benfName}}</div></div>
+										</div> -->
+										<div class="trans-dash-left rakPeopleNameRow1  rak20Imp pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityCurrency}}</div></div>
+										</div>
+										<div class="trans-dash-left rakPeopleNameRow1  rak35TradeFinance pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityValue}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.loanBalanceWithCrn}}</div></div>
+										</div> -->
+										<div class="pull-right rakPaddingPoint5em" style="width: 10%">
+											<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											<ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+												<li><a href="" ng-click="setEvent('onSubmitOfSelectedColumn');rakTradeFinance.rakTradeFinanceInquiry.selIndex = {{x.selectedIndex}};">
+														{{appLiterals.APP.RAK_PAYEE.HISTORY.VIEW}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<span  class="forgotRAKTokenPIN"  ng-show="rakTradeFinance.rakTradeFinanceInquiry.displayTen < rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray.length" ng-click="rakTradeFinance.rakTradeFinanceInquiry.incrementDisplayCounter('TEN');">{{appLiterals.APP.TRADE_FIN_PAGE.SHOW_MORE}}</span>
+								</div>
+								<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.GRAND_TOTAL}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.grandTotalAmt}}</span>
+							</p>
+							</div>
+							
+							</div>
+							</div>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Export xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+							<div ng-if="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode=='FEL'">
+								<!-- Export :: Export Finance Under LC -->
+								<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray != 0 ">	
+							<div class="money-block rakBottomZero">
+					         <ul>
+					            <li class="active rak30 rakPaddingPoint8emTopBot" >{{appLiterals.APP.TRADE_FIN_PAGE.OUR_LC_REF}}</li>
+					           <!-- 	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_REF_NUM}}</li> -->
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.DISC_CCY}}</li>
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.DISC_AMT}}</li>
+					           <!-- 	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.DISC_AMT_AED}}</li> -->
+					            <li class="active rak10">&nbsp;</li>
+					         </ul>
+						 	</div>
+							<div class="rak-cont-paddingvh" ng-class="{'rak-history-paddingvh':rakTxnSearch}">
+								<div class="">
+									<div class="trans-detail rakGreyRow" ng-repeat="x in rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray | limitTo:rakTradeFinance.rakTradeFinanceInquiry.displayEleven">
+										<div class="trans-dash-right rakPeopleNameRow1  rak35TradeFinance  rakPaddingPoint8emTopBot pull-left">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityID}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.otherRefNum}}</div></div>
+										</div> -->
+										<div class="trans-dash-left rakPeopleNameRow1  rak20Imp pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityCurrency}}</div></div>
+										</div>
+										<div class="trans-dash-left rakPeopleNameRow1  rak35TradeFinance pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityValue}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.loanBalanceWithCrn}}</div></div>
+										</div> -->
+										<div class="pull-right rakPaddingPoint5em" style="width: 10%">
+											<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											<ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+												<li><a href="" ng-click="setEvent('onSubmitOfSelectedColumn');rakTradeFinance.rakTradeFinanceInquiry.selIndex = {{x.selectedIndex}};">
+														{{appLiterals.APP.RAK_PAYEE.HISTORY.VIEW}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<span  class="forgotRAKTokenPIN"  ng-show="rakTradeFinance.rakTradeFinanceInquiry.displayEleven < rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray.length" ng-click="rakTradeFinance.rakTradeFinanceInquiry.incrementDisplayCounter('ELEVEN');">{{appLiterals.APP.TRADE_FIN_PAGE.SHOW_MORE}}</span>
+								</div>
+								<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.GRAND_TOTAL}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.grandTotalAmt}}</span>
+							</p>
+							</div>
+							
+							</div>
+							</div>
+							<div ng-if="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode=='OBC'">
+								<!-- Export :: Outward Bill for Collection -->
+								<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray != 0 ">	
+							<div class="money-block rakBottomZero">
+					         <ul>
+					            <li class="active rak30 rakPaddingPoint8emTopBot" >{{appLiterals.APP.TRADE_FIN_PAGE.OBC_REF}}</li>
+					           <!-- 	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.DRAWEE_NAME}}</li> -->
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.COLLECT_CCY}}</li>
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.COLLECT_AMT}}</li>
+					           <!-- 	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.COLLECT_AMT_AED}}</li> -->
+					            <li class="active rak10">&nbsp;</li>
+					         </ul>
+						 	</div>
+							<div class="rak-cont-paddingvh" ng-class="{'rak-history-paddingvh':rakTxnSearch}">
+								<div class="">
+									<div class="trans-detail rakGreyRow" ng-repeat="x in rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray | limitTo:rakTradeFinance.rakTradeFinanceInquiry.displayTwelve">
+										<div class="trans-dash-right rakPeopleNameRow1  rak35TradeFinance  rakPaddingPoint8emTopBot pull-left">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityID}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.benfName}}</div></div>
+										</div> -->
+										<div class="trans-dash-left rakPeopleNameRow1  rak20Imp pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityCurrency}}</div></div>
+										</div>
+										<div class="trans-dash-left rakPeopleNameRow1  rak35TradeFinance pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityValue}}</div></div>
+										</div>
+									<!-- 	<div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.loanBalanceWithCrn}}</div></div>
+										</div> -->
+										<div class="pull-right rakPaddingPoint5em" style="width: 10%">
+											<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											<ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+												<li><a href="" ng-click="setEvent('onSubmitOfSelectedColumn');rakTradeFinance.rakTradeFinanceInquiry.selIndex = {{x.selectedIndex}};">
+														{{appLiterals.APP.RAK_PAYEE.HISTORY.VIEW}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<span  class="forgotRAKTokenPIN" ng-show="rakTradeFinance.rakTradeFinanceInquiry.displayTwelve < rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray.length"  ng-click="rakTradeFinance.rakTradeFinanceInquiry.incrementDisplayCounter('TWELVE');">{{appLiterals.APP.TRADE_FIN_PAGE.SHOW_MORE}}</span>
+								</div>
+								<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.GRAND_TOTAL}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.grandTotalAmt}}</span>
+							</p>
+							</div>
+							
+							</div>
+							</div>
+							<div ng-if="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode=='ELC'">
+								<!-- Export :: Export Letter of Credits -->
+								<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray != 0 ">	
+							<div class="money-block rakBottomZero">
+					         <ul>
+					          <!--   <li class="active rak30 rakPaddingPoint8emTopBot" >{{appLiterals.APP.TRADE_FIN_PAGE.REFNUM}}</li> -->
+					           	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.LC_REF_NO}}</li>
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.LC_CCY}}</li>
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.LC_AMT}}</li>
+					          <!--  	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.LC_AMT_AED}}</li> -->
+					            <li class="active rak10">&nbsp;</li>
+					         </ul>
+						 	</div>
+							<div class="rak-cont-paddingvh" ng-class="{'rak-history-paddingvh':rakTxnSearch}">
+								<div class="">
+									<div class="trans-detail rakGreyRow" ng-repeat="x in rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray | limitTo:rakTradeFinance.rakTradeFinanceInquiry.displayThirteen">
+									<!-- 	<div class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8emTopBot pull-left">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityID}}</div></div>
+										</div> -->
+										<div class="trans-dash-right rakPeopleNameRow1  rak35TradeFinance pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.otherRefNum}}</div></div>
+										</div>
+										<div class="trans-dash-left rakPeopleNameRow1  rak20Imp pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityCurrency}}</div></div>
+										</div>
+										<div class="trans-dash-left rakPeopleNameRow1  rak35TradeFinance pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityValue}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.loanBalanceWithCrn}}</div></div>
+										</div> -->
+										<div class="pull-right rakPaddingPoint5em" style="width: 10%">
+											<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											<ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+												<li><a href="" ng-click="setEvent('onSubmitOfSelectedColumn');rakTradeFinance.rakTradeFinanceInquiry.selIndex = {{x.selectedIndex}};">
+														{{appLiterals.APP.RAK_PAYEE.HISTORY.VIEW}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<span  class="forgotRAKTokenPIN"  ng-show="rakTradeFinance.rakTradeFinanceInquiry.displayThirteen < rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray.length" ng-click="rakTradeFinance.rakTradeFinanceInquiry.incrementDisplayCounter('THIRTEEN');">{{appLiterals.APP.TRADE_FIN_PAGE.SHOW_MORE}}</span>
+								</div>
+								<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.GRAND_TOTAL}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.grandTotalAmt}}</span>
+							</p>
+							</div>
+							
+							</div>
+							</div>
+							<div ng-if="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode=='EAC'">
+								<!-- Export :: Export Acceptances -->
+							<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray != 0 ">	
+							<div class="money-block rakBottomZero">
+					         <ul>
+					            <li class="active rak30 rakPaddingPoint8emTopBot" >{{appLiterals.APP.TRADE_FIN_PAGE.LC_REF_NO}}</li>
+					           	<!-- <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_REF_NUM}}</li> -->
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_CCY}}</li>
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_AMT}}</li>
+					           <!-- 	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.BILL_AMT_AED}}</li> -->
+					            <li class="active rak10">&nbsp;</li>
+					         </ul>
+						 	</div>
+							<div class="rak-cont-paddingvh" ng-class="{'rak-history-paddingvh':rakTxnSearch}">
+								<div class="">
+									<div class="trans-detail rakGreyRow" ng-repeat="x in rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray | limitTo:rakTradeFinance.rakTradeFinanceInquiry.displayFourteen">
+										<div class="trans-dash-right rakPeopleNameRow1  rak35TradeFinance  rakPaddingPoint8emTopBot pull-left">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityID}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.otherRefNum}}</div></div>
+										</div> -->
+										<div class="trans-dash-left rakPeopleNameRow1  rak20Imp pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityCurrency}}</div></div>
+										</div>
+										<div class="trans-dash-left rakPeopleNameRow1  rak35TradeFinance pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityValue}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.loanBalanceWithCrn}}</div></div>
+										</div> -->
+										<div class="pull-right rakPaddingPoint5em" style="width: 10%">
+											<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											<ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+												<li><a href="" ng-click="setEvent('onSubmitOfSelectedColumn');rakTradeFinance.rakTradeFinanceInquiry.selIndex = {{x.selectedIndex}};">
+														{{appLiterals.APP.RAK_PAYEE.HISTORY.VIEW}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<span  class="forgotRAKTokenPIN"  ng-show="rakTradeFinance.rakTradeFinanceInquiry.displayFourteen < rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray.length" ng-click="rakTradeFinance.rakTradeFinanceInquiry.incrementDisplayCounter('FOURTEEN');">{{appLiterals.APP.TRADE_FIN_PAGE.SHOW_MORE}}</span>
+								</div>
+							</div>
+							</div>
+							</div>
+							<div ng-if="rakTradeFinance.rakTradeFinanceInquiry.selectedExportCode=='FOB'">
+								<!-- Export :: Export Finance Under Collection -->
+							<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray != 0 ">	
+							<div class="money-block rakBottomZero">
+					         <ul>
+					            <li class="active rak30 rakPaddingPoint8emTopBot" >{{appLiterals.APP.TRADE_FIN_PAGE.REF_NO}}</li>
+					          <!--  	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.DRAWEE_NAME}}</li> -->
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.DISC_CCY}}</li>
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.DISC_AMT}}</li>
+					           	<!-- <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.DISC_AMT_AED}}</li> -->
+					            <li class="active rak10">&nbsp;</li>
+					         </ul>
+						 	</div>
+							<div class="rak-cont-paddingvh" ng-class="{'rak-history-paddingvh':rakTxnSearch}">
+								<div class="">
+									<div class="trans-detail rakGreyRow" ng-repeat="x in rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray | limitTo:rakTradeFinance.rakTradeFinanceInquiry.displayFifteen">
+										<div class="trans-dash-right rakPeopleNameRow1  rak35TradeFinance  rakPaddingPoint8emTopBot pull-left">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityID}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.benfName}}</div></div>
+										</div> -->
+										<div class="trans-dash-left rakPeopleNameRow1  rak20Imp pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityCurrency}}</div></div>
+										</div>
+										<div class="trans-dash-left rakPeopleNameRow1  rak35TradeFinance pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityValue}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.loanBalanceWithCrn}}</div></div>
+										</div> -->
+										<div class="pull-right rakPaddingPoint5em" style="width: 10%">
+											<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											<ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+												<li><a href="" ng-click="setEvent('onSubmitOfSelectedColumn');rakTradeFinance.rakTradeFinanceInquiry.selIndex = {{x.selectedIndex}};">
+														{{appLiterals.APP.RAK_PAYEE.HISTORY.VIEW}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<span  class="forgotRAKTokenPIN"  ng-show="rakTradeFinance.rakTradeFinanceInquiry.displayFifteen < rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray.length" ng-click="rakTradeFinance.rakTradeFinanceInquiry.incrementDisplayCounter('FIFTEEN');">{{appLiterals.APP.TRADE_FIN_PAGE.SHOW_MORE}}</span>
+								</div>
+								<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.TRADE_FIN_PAGE.GRAND_TOTAL}}</span>
+								<span class="rak-sum-label black">{{rakTradeFinance.rakTradeFinanceInquiry.grandTotalAmt}}</span>
+							</p>
+							</div>
+							
+							</div>
+							</div>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Inland Trade Finances xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+							<div ng-if="rakTradeFinance.rakTradeFinanceInquiry.selectedInlandTradeCode=='LAI'">
+								<!-- Inland Trade Finances :: Loan against Invoices -->
+								<div ng-show="rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray != 0 ">	
+							<div class="money-block rakBottomZero">
+					         <ul>
+					            <li class="active rak30 rakPaddingPoint8emTopBot" >{{appLiterals.APP.TRADE_FIN_PAGE.REF_NUM}}</li>
+					           <!-- 	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.BUYER_NAME}}</li> -->
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.LOAN_CCY}}</li>
+					            <li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.LOAN_AMOUNT}}</li>
+					           <!-- 	<li class="active rak30">{{appLiterals.APP.TRADE_FIN_PAGE.LOAN_BAL}}</li> -->
+					            <li class="active rak10">&nbsp;</li>
+					         </ul>
+						 	</div>
+							<div class="rak-cont-paddingvh" ng-class="{'rak-history-paddingvh':rakTxnSearch}">
+								<div class="">
+									<div class="trans-detail rakGreyRow" ng-repeat="x in rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray | limitTo:rakTradeFinance.rakTradeFinanceInquiry.displaySixteen">
+										<div class="trans-dash-right rakPeopleNameRow1  rak35TradeFinance  rakPaddingPoint8emTopBot pull-left">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityID}}</div></div>
+										</div>
+										<!-- <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.benfName}}</div></div>
+										</div> -->
+										<div class="trans-dash-left rakPeopleNameRow1  rak20Imp pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityCurrency}}</div></div>
+										</div>
+										<div class="trans-dash-left rakPeopleNameRow1  rak35TradeFinance pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.entityValue}}</div></div>
+										</div>
+									<!-- 	<div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8emTopBot">
+											<div><div class="trans-no rakTextCenter rakFont1em">{{x.loanBalance}}</div></div>
+										</div> -->
+										<div class="pull-right rakPaddingPoint5em" style="width: 10%">
+											<span class="rakPullDownNew" ng-click="rakHome.handlePullDown($event);"></span>
+											<ul class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+												<li><a href="" ng-click="setEvent('onSubmitOfSelectedColumn');rakTradeFinance.rakTradeFinanceInquiry.selIndex = {{x.selectedIndex}};">
+														{{appLiterals.APP.RAK_PAYEE.HISTORY.VIEW}}</a></li>
+											</ul>
+										</div>
+										</div>
+										<span  class="forgotRAKTokenPIN" ng-show="rakTradeFinance.rakTradeFinanceInquiry.displaySixteen < rakTradeFinance.rakTradeFinanceInquiry.tradeTestArray.length"  ng-click="rakTradeFinance.rakTradeFinanceInquiry.incrementDisplayCounter('SIXTEEN');">{{appLiterals.APP.TRADE_FIN_PAGE.SHOW_MORE}}</span>
+									</div>
+								</div>
+								</div>
+							</div>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+						</div>
+					</div>
+<!-- 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>

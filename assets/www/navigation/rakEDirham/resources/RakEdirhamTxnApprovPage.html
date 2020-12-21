@@ -1,0 +1,95 @@
+
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container" ng-init="rakEDirham.initTxnApprove()">
+			<div class="">
+			
+					<div class="app-title-wrapper">
+						<div class="form-block">						 
+							
+							<div class="bg-color rak-cont-padding eDirham-scroll">
+							<div class="paybils-block-top w-100">
+					            	
+					            <div>
+					           <img class="eDirham-icon" src="images/EDirham.PNG">	
+					            </div>	            
+					            
+					        </div>
+								<div class="">
+									
+										
+									<div class="eDirham-payment_msg"
+										ng-init=''>
+										<div class="setPin-msg rakTextCenter">
+										{{appLiterals.APP.EDIRHAM.APPRV_TXN_MSG}}
+											
+									</div>	
+										
+
+									</div>	
+									<div>
+									<div class="eDirham-txn-apprv-label">
+									 {{appLiterals.APP.EDIRHAM.MERCHANT_NM_LBL}}
+									</div>
+									<div class="eDirham-txn-approve-val">
+									{{rakEDirham.eDirhamTokenGeneration.txnPollingDetails.merchantName}}
+									</div>
+									</div>
+									
+									
+								<div>
+									<div class="eDirham-txn-apprv-label">
+									 {{appLiterals.APP.EDIRHAM.AMOUNT_LABL}}
+									</div>
+									<div class="eDirham-txn-approve-val">
+									{{rakEDirham.eDirhamTokenGeneration.txnPollingDetails.finTxnAMount}}
+									</div>
+									</div>
+									
+									<div class="label-wrap margin-top-thirtypx bold-timer-label">
+										<span class="timer-min mr-4">min </span><span class="font-24 font-bold-family">	{{rakEDirham.eDirhamTokenGeneration.authCountdown  | counter | date:'mm:ss'}}</span></span><span class="timer-sec"> sec</span>
+
+									</div>
+								<div class="margin-top-thirtypx">
+
+											
+										<button type="button"
+												class="btn--special-btn btn-middle generate-token-btn mrgn-left-31Per"
+												ng-click="rakEDirham.eDirhamTokenGeneration.approvalStatus='A';setEvent('onEdirhamTxnApproveClick')">
+												 {{appLiterals.APP.EDIRHAM.APPROVE_BTN}}
+												
+											</button>
+											
+											
+
+								</div>
+								<div class="margin-top-thirtypx">
+								<button type="button"
+												class="btn--special-btn btn-middle go-overview-btn mrgn-left-31Per"
+												ng-click="rakEDirham.eDirhamTokenGeneration.approvalStatus='R';setEvent('onEdirhamTxnRejectClick')">
+												 {{appLiterals.APP.EDIRHAM.REJECT_BTN}}
+												
+											</button>
+								</div>
+								
+								<!-- <div class="disclaimer" ng-init="rakDisclaimerFlag=false">
+						                         <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+						                                         <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+						                         </div>
+						
+						                         <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+						                                         <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKMULTIPLEBILLS"></div>
+						                         </div>
+						         </div> -->
+																		
+										
+									
+								</div>
+										
+							</div>
+					</div>
+				</div>
+			
+		</div>
+	</div>
+	</div>

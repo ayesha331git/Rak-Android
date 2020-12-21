@@ -1,0 +1,41 @@
+<div ng-init='rakHome.resetAuthPageData();rakHome.AuthPageData.corp2FAauthMode(HardTokenModel)'>
+		
+		<div class="label-wrap" ng-show='rakHome.AuthPageData.authStatus'>
+		<div ng-show='rakHome.AuthPageData.isFirstAuthMode'>
+		
+			
+
+		<fin-input type="password_num" model="rakHome.AuthPageData.firstAuthModeValue"
+			display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_HARDTOKEN}}"
+			validation-flag='pageErrorArr["rakHome.AuthPageData.firstAuthModeValue"]'
+			ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.HardToken">
+			 </fin-input>
+			<span  class="forgotRAKTokenPIN" ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.HardToken" ng-click="rakServiceReq.fetchDisclaimer('ForgotRAKTokenPINCorporate.html');">{{appLiterals.APP.RAK_2FA_MESSAGES.CLICK_HERE}}</span> 
+			
+			
+			<fin-input type="password_num"
+				model="rakHome.AuthPageData.firstAuthModeValue" display-row="full"
+				placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SOFTTOKEN}}"
+				validation-flag='pageErrorArr["rakHome.AuthPageData.firstAuthModeValue"]'
+				max-length="{{rak2FARegister.constants.PINLENGTH}}"
+				ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.SoftToken">
+			</fin-input>
+		 	<span  class="forgotRAKTokenPIN" ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.SoftToken" ng-click="rakServiceReq.fetchDisclaimer('ForgotRAKTokenPINCorporate.html');">{{appLiterals.APP.RAKCOMMONLITERALS.TOKEN_FORGOT_PIN}}</span> 
+			
+
+			
+			<fin-input type="password_num"
+				model="rakHome.AuthPageData.firstAuthModeValue" display-row="full"
+				placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OFFLINEOTP}}"
+				validation-flag='pageErrorArr["rakHome.AuthPageData.firstAuthModeValue"]'
+				max-length="16"
+				ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.OfflineOtp">
+			</fin-input>
+			<span  class="forgotRAKTokenPIN" ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.OfflineOtp" ng-click="rakServiceReq.fetchDisclaimer('ForgotRAKTokenPINCorporate.html');">{{appLiterals.APP.RAKCOMMONLITERALS.TOKEN_DEADLOCK}}</span>
+		
+		</div>
+
+		
+	</div>
+
+</div>

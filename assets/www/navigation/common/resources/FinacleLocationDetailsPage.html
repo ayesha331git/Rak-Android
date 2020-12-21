@@ -1,0 +1,114 @@
+
+<!-- The following is included for maps -->
+  <div ng-show="loadMapFlag">
+    <div class="full-page-screen"></div>
+ 
+	<div class="confirmation-content-container">
+	  <div class="message-box">                  
+					  <p class="round-icon load-icon">
+					  	<svg xmlns="http://www.w3.org/2000/svg" width="120" height="30" viewBox="0 0 120 30" fill="#fff">
+						    <circle cx="15" cy="15" r="14.7232">
+						        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"/>
+						        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"/>
+						    </circle>
+						    <circle cx="60" cy="15" r="9.27682" fill-opacity="0.3">
+						        <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"/>
+						        <animate attributeName="fill-opacity" from="0.5" to="0.5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"/>
+						    </circle>
+						    <circle cx="105" cy="15" r="14.7232">
+						        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"/>
+						        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"/>
+						    </circle>
+						</svg>
+					  </p>            
+				  <p class="desc-text ls">
+				   {{appLiterals.APP.COMMON.FINLOC_DETPAGE.IMG_PROCESS}}
+				  </p>
+			  </div>
+	  </div>
+</div>  
+
+<div class="finacle-container map-header-gradient " ng-init='home.locateUs.getBranchDetails(successResponse.responsesList);'>
+
+
+    <div id="map-wrapper">
+        <fin-map id="map-wrapper" location="fields.selectedLocation"></fin-map>
+    </div>
+
+    <div class="map-back-wrap">
+        <div class="map-grad">
+        </div>
+        <div class="back-arrow-wrap" ng-hide='isUserLoggedIn'
+            ng-click='hideMarkerInfo();fields.isMapPage=true; MF.getCurrentLocation();fields.locationSearchText="";fields.isSearchInProgress=false; setGlobalEvent("onRakLocatorClick");'>
+            <span class="app app-arrow back-arrow"></span>
+        </div>
+        
+        <div class="back-arrow-wrap" ng-show='isUserLoggedIn'
+            ng-click='hideMarkerInfo();fields.isMapPage=true; MF.getCurrentLocation();fields.locationSearchText="";fields.isSearchInProgress=false; setGlobalEvent("onRakPostLocatorClick");'>
+            <span class="app app-arrow back-arrow"></span>
+        </div>
+    </div>
+
+    <div class="loc-info-wrap" ng-show="showMarkerInfoFlag" id="marker-info">
+
+        <div>
+            <div class="row info-detail-wrap">
+                <div ng-click="hideMarkerInfo();loadMapFlag=false;setGlobalEvent('onLocatorCrossClick');" class="app app-cancel title-right"></div>
+                <div class="col-sm-12 loc-km-wrap">
+                    <p class="info-bank"> {{fields.selectedLocation.bank_name}} </p>
+                    <p class="info-km"> {{fields.selectedLocation.distance.toFixed(2)}} KM </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row rakWidth100Percent">
+                <div class="col-sm-11">
+                    
+                    <div class="info-address-wrap">
+                    	<img src="{{markerImage}}" class="marker_image"/>
+                        <p class="info-address"> {{fields.selectedLocation.postal_address}} </p>
+                    </div>
+                </div>
+
+                <div ng-if="home.locateUs.branchName">
+                <div class="col-sm-12 clear">
+   					<span class="glyphicon glyphicon-time info-map-icon"></span> 
+   					<p class="view-branch" ng-click="home.handlePullDown($event);"> View Branch Timings </p>
+  						<ul class="PullDownMenu">
+  							<li><a ng-click="home.handlePullDown($event);" class="app app-cancel" style="float:right"></a></li>
+     						<li><strong style="margin-left:3em">Branch Timings</strong></li>
+     						<li><a>Sunday : {{home.locateUs.Sunday}}</a></li>
+    						<li><a>Monday : {{home.locateUs.Monday}}</a></li>    
+    						<li><a>Tuesday : {{home.locateUs.Tuesday}}</a></li>       
+    						<li><a>Wednesday : {{home.locateUs.Wednesday}}</a></li>
+    						<li><a>Thursday : {{home.locateUs.Thursday}}</a></li>    
+    						<li><a>Friday : {{home.locateUs.Friday}}</a></li>
+    						<li><a>Saturday : {{home.locateUs.Saturday}}</a></li>    
+  						</ul>
+				</div>
+				
+               
+			<div class="fin-txt"></div>
+           
+            <div class="help-line-wrap" ng-show="home.locateUs.ContactNumber || home.locateUs.Email">
+                <div  class="help-line" ng-show="home.locateUs.ContactNumber">
+                    <span class="glyphicon glyphicon-earphone phone-icon"></span>
+                    <span class="ph-no"><a ng-href="tel:{{home.locateUs.ContactNumber}}" > {{home.locateUs.ContactNumber}} </a></span>
+                </div>
+                <div class="ph-bar" ng-show="home.locateUs.ContactNumber && home.locateUs.Email">
+                    |
+                </div>
+                <div class="help-line" ng-show="home.locateUs.Email">
+                    <span class="glyphicon glyphicon-envelope phone-icon"></span>
+                    <span class="ph-no"><a ng-href="mailto:{{home.locateUs.Email}}" >{{home.locateUs.Email}}</a></span>
+                </div>
+            </div>
+            </div>
+           <!--  <div class="col-sm-12 clear">
+   			<p class="btn--primary-btn" ng-click="showDirections();" style="padding-top:0.5em"> Get Directions </p>
+   			</div> -->
+            
+        </div>
+    </div>
+
+</div>

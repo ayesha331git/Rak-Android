@@ -1,0 +1,260 @@
+{
+    "pageNavigation": [
+        {
+            
+ 			"RakRemittanceSummaryPre": [
+ 			 {
+                    "eventName": "onCardBackClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "rakPayee",
+                        "pageName": "RakPayeeViewCompleteTransfer"
+                    },
+                    "errorPage": {
+                        "pageName": "RakRemittanceSummaryPre"
+                    }
+                },
+ 			 {
+                    "eventName": "onBackClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "rakSendMoney",
+                        "pageName": "RakSendMoneyViewCompleteTransfer"
+                    },
+                    "errorPage": {
+                        "pageName": "RakRemittanceSummaryPre"
+                    }
+                },
+ 			
+ 			{
+			"eventName": "onRakSendMoneyRemitInitClick",
+			"action": "RakRemittanceSummaryInitService",
+			"actionType": "service",
+			"validation": "true",
+			"validationParams": [
+				"rakFundTfr.remitSummary.transferMode"
+			],
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"xyz_day":"rakFundTfr.remitSummary.toDay",
+				"xyz_month":"rakFundTfr.remitSummary.toMonth",
+				"xyz_year":"rakFundTfr.remitSummary.toYear",
+				"TFR_MODE":"rakFundTfr.remitSummary.transferMode"
+			},
+
+			"successPage": {
+				"subFeature": "rakFundTfr",
+				"pageName": "RakRemittanceSummaryInit"
+			},
+			"errorPage": {
+				"subFeature": "rakFundTfr",
+				"pageName": "RakRemittanceSummaryPre"
+			}
+		}, {
+			"eventName": "onRemittanceSummaryPreCloseClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakFundTfr",
+				"pageName": "RakRemittanceSummaryPre"
+			},
+			"errorPage": {
+				"subFeature": "rakFundTfr",
+				"pageName": "RakRemittanceSummaryPre"
+			}
+		},
+		 {
+                    "eventName": "onBackClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    "subFeature": "rakSendMoney",
+                        "pageName": "RakSendMoneyViewCompleteTransfer"
+                    },
+                    "errorPage": {
+                    "subFeature": "rakFundTfr",
+                        "pageName": "RakRemittanceSummaryPre"
+                    }
+                }
+		
+		],
+		
+		
+		"RakRemittanceSummaryInit": [{
+			"eventName": "onSelectForCancel",
+			"action": "RakRemittanceSummaryCancelService",
+			"actionType": "service",
+			"validation": "false",
+			"validationParams": [
+				"rakFundTfr.remitSummary.transferMode"
+			],
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"REMARKS":"rakFundTfr.remitSummary.remarks",
+				"REF_NO_ARRAY":"rakFundTfr.remitSummary.refNumSend",
+				"TXN_AMTAED":"rakFundTfr.remitSummary.amtAED",
+				"TXN_AMT":"rakFundTfr.remitSummary.txnAmt",
+				"TXN_TYPE_ARRAY":"rakFundTfr.remitSummary.txnType",
+				"TXN_CHANNEL":"rakFundTfr.remitSummary.channel",
+				"DEBIT_ACC_NUMBER":"rakFundTfr.remitSummary.debitAcc",
+				"PMT_STATUS_ARR":"rakFundTfr.remitSummary.status",
+				"TXN_CURRENCY":"rakFundTfr.remitSummary.currency",
+				"BENF_BANK_ARRAY":"rakFundTfr.remitSummary.benfbank",
+				"REQUESTED_DATE_ARRAY":"rakFundTfr.remitSummary.txnDate",
+				"BENF_NAME_ARRAY":"rakFundTfr.remitSummary.benfname",
+				"BENF_ACCOUNT_ARRAY":"rakFundTfr.remitSummary.benfacc"
+				
+			},
+			"successPage": {
+				"subFeature": "rakFundTfr",
+				"pageName": "RakRemittanceSummaryCancel"
+			},
+			"errorPage": {
+				"subFeature": "rakFundTfr",
+				"pageName": "RakRemittanceSummaryInit"
+			}
+		}, 
+		
+		{
+			"eventName": "onRemittanceSummaryInitCloseClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakFundTfr",
+				"pageName": "RakRemittanceSummaryPre"
+			},
+			"errorPage": {
+				"subFeature": "rakFundTfr",
+				"pageName": "RakRemittanceSummaryPre"
+			}
+		}],
+		
+		"RakRemittanceSummaryCancel": [
+		     {
+				"eventName": "onCorpGetLookUpClick",
+				"action": "RakCorpLookUpFetchService",
+				"actionType": "service",
+				"validation": "true",
+				"validationParams": [
+				"rakCorpInit.corpModel.selectedRuleDescription"
+					
+				],		
+				"parameters": {
+					"RULE_INDEX":"rakCorpInit.corpModel.index",
+					"TRAN_RULEID":"rakCorpInit.corpModel.selectedRuleId",
+					"LOOKUP_INDEX":"rakCorpInit.corpModel.loopCount",
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam"
+				},
+				"successPage": {
+					"subFeature": "common",
+					"pageName": "RakCorpSearchApproverLookUpPage"
+				},
+				"errorPage": {
+					
+					"pageName": "RakRemittanceSummaryCancel"
+				}
+			},
+		
+		{
+			"eventName": "onCancelConfirm",
+			"action": "RakRemittanceSummaryCancelSuccessService",
+			"actionType": "service",
+			"validation": "true",
+			"validationParams": [
+				"rakFundTfr.remitSummary.transactionPassword",
+				"rakFundTfr.remitSummary.remarksTemp",
+				"rakCorpInit.corpModel.selectedRuleId",
+				"rakCorpInit.corpModel.selectedRuleDescription"
+			],
+			"sensitiveFields": ["rakFundTfr.remitSummary.transactionPassword"],
+			"encryptionEnabled": true,
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"Mode": "rakFundTfr.remitSummary.transactionPassword",
+				"REMARKS":"rakFundTfr.remitSummary.remarks",
+				
+				"REF_NO_ARRAY":"rakFundTfr.remitSummary.refNumSend",
+				"WFRULEINDEX":"rakCorpInit.corpModel.selectedRuleId",
+					"ROLEDETAIL_ARRAY":"rakCorpInit.corpModel.apprRoleId"
+					
+				
+			},
+			"successPage": {
+				"subFeature": "rakFundTfr",
+				"pageName": "RakRemittanceSummaryCancelSuccess"
+			},
+			"errorPage": {
+				"subFeature": "rakFundTfr",
+				"pageName": "RakRemittanceSummaryCancel"
+			}
+		}, 
+		
+		
+		   {
+		                   "eventName": "onGenerateOtp",
+		                    "action": "RakResendOtpService",
+		                    "actionType": "serviceNoNavigation",
+		                    "validation": "false",
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam"
+		                        
+		                    },
+		                    "successPage": {
+		                      "pageName": "RakRemittanceSummaryCancel"
+		                    },
+		                    "errorPage": {
+		                        "pageName": "RakRemittanceSummaryCancel"
+		                    }
+                },
+		
+		{
+			"eventName": "onRemittanceSummaryCancelBackClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakFundTfr",
+				"pageName": "RakRemittanceSummaryInit"
+			},
+			"errorPage": {
+				"subFeature": "rakFundTfr",
+				"pageName": "RakRemittanceSummaryPre"
+			}
+		}],
+		
+		"RakRemittanceSummaryCancelSuccess": [{
+			"eventName": "onSuccessClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+						
+			"successPage": {
+				"subFeature": "rakFundTfr",
+				"pageName": "RakRemittanceSummaryPre"
+			},
+			"errorPage": {
+				"subFeature": "rakFundTfr",
+				"pageName": "RakRemittanceSummaryPre"
+			}
+		}]
+ 				
+          
+           
+        }
+    ],
+    
+    "subFeatureName": "rakFundTfr",
+    "startPage": "RakRemittanceSummaryPre"
+}

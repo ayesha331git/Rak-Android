@@ -1,0 +1,133 @@
+
+<!-- partial code start here-->
+<div class="finacle-container ng-scope"
+			ng-init="rakServiceReq.initApplyForPrepaidCardSuccess(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+			
+			<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.applyForPrepaidCard.prepaidCardSuccessMessage}}</span>
+				</div>
+			</div>
+			
+					<div class="main-form-heading-ServiceReq">
+				<h2 class="rakBenfHeader">
+					{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.APPLYPREPAIDCARD}}<span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP4}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>
+				</h2>
+			</div>
+			
+			
+			
+			
+
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+
+				<div class="row">
+					<div class="">
+					
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.FULL_TITLE_NAME}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.fullTitleName}}</span>
+						</p>
+						
+						
+						<p class="rak-sum-txt" ng-hide="rakServiceReq.applyForPrepaidCard.creditIndex">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.ACCOUNT_NUM}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.accountNumber}}</span>
+						</p>
+						<p class="rak-sum-txt" ng-hide="rakServiceReq.applyForPrepaidCard.accountIndex">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.CREDIT_NUM}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.creditCardNumber}}</span>
+						</p>
+						
+					<!-- 	<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.BALANCE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.balance}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.CASHBACK}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.cashBack}}</span>
+						</p> -->
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.MAILING_ADDRESS}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.mailingAddress}}</span>
+						</p>
+						
+<!--CHANGES DONE AS FIX OF PROUAT-2176 START-->
+	<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.POBOX}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.pobox}}</span>
+	</p>
+	
+	 <p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.EMIRATE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.emirateDesc}}</span>
+	</p>
+			
+<!--CHANGES DONE AS FIX OF PROUAT-2112 START-->
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.PHONE_NUMBER}}&nbsp;</span>
+							<!-- <span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.fullMobNum}}</span> -->
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.countryCode}}{{rakServiceReq.applyForPrepaidCard.mobileNumber}}</span>
+						</p>
+<!--CHANGES DONE AS FIX OF PROUAT-2112 END-->
+
+<p class="rak-sum-txt" ng-show='rakServiceReq.applyForPrepaidCard.officeNumber'>
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.OFFICENUMBER}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.countryCode}}{{rakServiceReq.applyForPrepaidCard.officeNumber}}</span>
+	</p>
+	
+	
+	<p class="rak-sum-txt" ng-show='rakServiceReq.applyForPrepaidCard.residentialNumber'>
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.RESNUMBER}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.countryCode}}{{rakServiceReq.applyForPrepaidCard.residentialNumber}}</span>
+	</p>
+	
+	
+	<p class="rak-sum-txt" ng-show='rakServiceReq.applyForPrepaidCard.faxNumber'>
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.FAXNUMBER}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.countryCode}}{{rakServiceReq.applyForPrepaidCard.faxNumber}}</span>
+	</p>
+	<!--CHANGES DONE AS FIX OF PROUAT-2176 END-->			
+
+<!-- CHANGES DONE AS FIX OF PROUAT-2177 START -->
+                      <p class="rak-sum-txt" ng-hide="rakServiceReq.applyForPrepaidCard.isEmiSelected">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.MODE_OF_DISPATCH}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.dispatchedMode}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.EMAIL_ADDRESS}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.emailAddress}}</span>
+						</p> 
+
+						<p class="rak-sum-txt" ng-show="rakServiceReq.applyForPrepaidCard.isEmiSelected">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.MODE_OF_DISPATCH}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.dispatchedMode}}{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.SEPERATOR}}{{rakServiceReq.applyForPrepaidCard.emiCategorizedBranchList[rakServiceReq.applyForPrepaidCard.selectedBranchId].branchCode}}</span>
+						</p>
+<!-- CHANGES DONE AS FIX OF PROUAT-2177 END -->
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_PREPAID_CARD.TYPE_OF_CARD}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.applyForPrepaidCard.selectedCard}}</span>
+						</p>
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small rak-button-right"
+								ng-click="rakServiceReq.resetApplyForPrepaidCard();rakServiceReq.setApplyForPrepaidCardSuccessHomeBtnClicked()">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+								<!-- ng-click="rakServiceReq.temporaryReleaseLetter.resetTemporaryReleaseLetter();setEvent('onTempReleaseLetterSuccessfulDoneClick')" -->
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+<!-- partial code end here-->

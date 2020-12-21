@@ -1,0 +1,46 @@
+<div class="container-fluid padding-auto">
+<div class="container-fluid padding-zero">
+
+		<div class="row" ng-init="rak2FARegister.RegistrationModel.pin='';">
+
+			<div class="col-sm-1 rakDblheight"></div>
+			
+	
+
+	
+	
+		</br> </br>
+
+
+
+		<div class="bg-color">
+			<div class="row">				
+				<div class="">
+				
+
+				
+
+					<fin-input type="password_num"
+						model="rak2FARegister.RegistrationModel.pin"
+					validation-flag='pageErrorArr["rak2FARegister.RegistrationModel.pin"]'	 display-row="full"
+						placeholder="{{appLiterals.APP.RAKSELFREG.PIN}}" max-length="8"></fin-input>
+
+
+
+					<div class="label-wrap">
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small btn--back "
+							ng-click="setGlobalEvent('onLoginClick');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CANCEL}}</button>
+
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small "
+							ng-click='rak2FARegister.EzComToken.isFromNonLoginFlow=true;setEvent("onSelfRegAuthenticatePINSubmitClick");'>{{appLiterals.APP.RAKCOMMONLITERALS.PROCEED}}</button>
+					</div>
+
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

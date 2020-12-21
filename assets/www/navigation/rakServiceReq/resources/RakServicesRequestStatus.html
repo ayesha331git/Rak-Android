@@ -1,0 +1,109 @@
+		<div class="rak-back-header"  ng-show='rakServiceReq.serviceRequestStatusModel.isSRorTF=="SR"'>
+
+			<i class="rak-back-img"
+				ng-click="setEvent('onServiceRequestStatusCancelClick');"></i>
+		</div>
+		
+		<div class="rak-back-header"  ng-show='rakServiceReq.serviceRequestStatusModel.isSRorTF=="TF"'>
+        <i class="rak-back-img" ng-click="setGlobalEvent('onDashboardClick');"></i>
+    </div>
+		
+	
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.showErrorMsg=false;rakServiceReq.serviceRequestStatusModel.serviceRequestInitService(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+
+				
+					
+						<div class="main-form-heading-ServiceReq"> 
+							      <h2 class="rakBenfHeader">{{rakServiceReq.serviceRequestStatusModel.isSRorTF=='SR' && appLiterals.APP.SERVICES.ACC_STM.SERVICES_HEADER || appLiterals.APP.RAK_SERVICES.STATUS_OF_REQ.TF_HEADER}}
+							   		     
+							      </h2>		       
+					 		</div>
+				
+
+				
+				 <div class="bg-color rak-cont-padding rak-scroll">
+						<div class="row">
+
+						<div class="raksearch-field-wrap">	
+						<!-- <div class="raksearch-field-wrap" ng-click="resetPageError();rakServiceReq.serviceRequestStatusModel.resetServiceRequestStatusSearchForm();setEvent('onServiceRequestStatusSearchClick')"> -->
+					      <p class="search-field"><span class="rakGlyphicon glyphicon-search" > </span>
+					        <input type="text" input-restricted-special-character placeholder="{{rakServiceReq.serviceRequestStatusModel.isSRorTF=='SR' && appLiterals.APP.SERVICES.ACC_STM.SERVICES_HEADER || appLiterals.APP.RAK_SERVICES.STATUS_OF_REQ.TF_HEADER}}" ng-model="searchText" class="raksearch-txt">
+					      </p>
+					    </div> 
+					    
+<div class="tab-links">
+								<ul>
+									<li class="active">
+									<span class="active apps-name"    ng-show='rakServiceReq.serviceRequestStatusModel.isSRorTF=="SR"'
+									ng-click="resetPageError();rakServiceReq.serviceRequestStatusModel.resetServiceRequestStatusSearchForm();setEvent('onServiceRequestStatusSearchClick')">
+									{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.ADVANCESEARCH}}</span>
+									<span class="active apps-name"    ng-show='rakServiceReq.serviceRequestStatusModel.isSRorTF=="TF"'
+                                    ng-click="resetPageError();rakServiceReq.serviceRequestStatusModel.resetServiceRequestStatusSearchForm();setEvent('onTFerviceRequestStatusSearchClick')">
+                                    {{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.ADVANCESEARCH}}</span>
+									</li>
+								</ul>
+</div>
+
+							<div class="nano service-scroll">
+
+								<!-- Content for Transactions -->
+								<div class="transaction-status nano-content">
+
+									<div class="trans-detail"
+										ng-if="!rakServiceReq.serviceRequestStatusModel.response.length">
+										{{appLiterals.APP.SERVICES.SERVICE_STATUS_REQUEST.NO_PENDING_REQUEST_MESSAGE}}
+									</div>
+
+									<div class="trans-detail"
+										ng-if="rakServiceReq.serviceRequestStatusModel.response.length"
+										ng-repeat="serviceRequestDeatils in filteredList =  (rakServiceReq.serviceRequestStatusModel.response  | filter:searchText)">
+										<!--  ng-repeat="mail in filteredList = (rakMails.inbox.inboxList | filter:searchText) -->
+										<div class="trans-info-left rakWidth70" ng-if="!(rakServiceReq.serviceRequestStatusModel.delinkedSR.includes(serviceRequestDeatils.requestId))"
+											ng-click="rakServiceReq.serviceRequestStatusModel.isFromSearchPage=false;rakServiceReq.serviceRequestStatusModel.selectedSR =serviceRequestDeatils; 
+											rakServiceReq.serviceRequestStatusModel.getEventName(rakServiceReq.serviceRequestStatusModel.selectedSR)">
+											<div class="toggle_txt reqColorLink txt-dec">
+												{{serviceRequestDeatils.referenceId}} -
+												{{serviceRequestDeatils.requestDescription}}</div>
+											<div class="trans-date reqColorLink">
+												{{serviceRequestDeatils.requestDate}}
+											</div>
+										</div>
+										<div class="trans-info-left rakWidth70" ng-if="(rakServiceReq.serviceRequestStatusModel.delinkedSR.includes(serviceRequestDeatils.requestId))">
+											<div class="toggle_txt reqColorLink">
+												{{serviceRequestDeatils.referenceId}} -
+												{{serviceRequestDeatils.requestDescription}}</div>
+											<div class="trans-date reqColorLink">
+												{{serviceRequestDeatils.requestDate}}
+											</div>
+										</div>
+										<div class="trans-info-right">
+											<span class="amt-rs">
+												{{serviceRequestDeatils.requestStatus}} </span>
+										</div>
+										<div class="app-hr1"></div>
+									</div>
+
+								</div>
+							</div>
+
+
+							<div class="col-sm-1"></div>
+						</div>
+
+					</div>
+
+				</div>
+				<div class="col-sm-1"></div>
+			</div>
+		</div>
+	
+	</div>
+</div>
+</div>
+</div>

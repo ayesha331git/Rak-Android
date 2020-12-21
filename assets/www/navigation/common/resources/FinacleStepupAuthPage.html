@@ -1,0 +1,116 @@
+<div
+	ng-init='successResponse.responsesList?StepupAuthenticate.initResponse(successResponse.responsesList):StepupAuthenticate.initResponse(successResponse)'>
+	<div ng-if="StepupAuthenticate.primaryAuthMode">
+		<div class="label-wrap">
+			<p class="label-title">{{appLiterals.APP.MOVE_MONEY.BILLPAY_AUTH_PAGE.TEXT_AUTHENTICATE}}</p>
+			<p class="label-txt"
+				ng-show='StepupAuthenticate.primaryAuthMode=="SMS OTP"'>
+				{{appLiterals.APP.MOVE_MONEY.BILLPAY_AUTH_PAGE.TEXT_CONFIRM_PAYMENT_OTP}}</p>
+			<p class="label-txt"
+				ng-show='StepupAuthenticate.primaryAuthMode=="Transaction Password"'>
+				{{appLiterals.APP.MOVE_MONEY.BILLPAY_AUTH_PAGE.TEXT_CONFIRM_PAYMENT_PASS}}</p>
+		</div>
+		<div class="avail-bal-wrap">
+			<fin-input type="password_text"
+				model="StepupAuthenticate.primaryAuthModeVal" display-row="full"
+				placeholder="{{appLiterals.APP.MOVE_MONEY.BILLPAY_AUTH_PAGE.PH_TRANSPASS}}"
+				validation-flag='pageErrorArr["StepupAuthenticate.primaryAuthModeVal"]'
+				ng-show="StepupAuthenticate.primaryAuthMode=='Transaction Password'"></fin-input>
+			<fin-input type="password_num"
+				model="StepupAuthenticate.primaryAuthModeVal" display-row="full"
+				placeholder="{{appLiterals.APP.COMMON.FINSETUP_AUTHPAGE.PH_OTP}}"
+				validation-flag='pageErrorArr["StepupAuthenticate.primaryAuthModeVal"]'
+				ng-show='StepupAuthenticate.primaryAuthMode=="SMS OTP"'></fin-input>
+			<div ng-show='StepupAuthenticate.primaryAuthMode=="SMS OTP"'>
+			<div
+				ng-show='StepupAuthenticate.otpLinkenable'
+				class="new_user balance-available "
+				ng-click="stepupAuthentication.SMS_OTP.smsOTP='';StepupAuthenticate.disablePrimaryOTPClick();setGlobalEvent('onGenerateOTPClick')">{{appLiterals.APP.STEPUP_AUTHENTICATION.REGENERATE_OTP}}</div>
+			<div  ng-show='!StepupAuthenticate.otpLinkenable'
+				class="new_user balance-available" style='color: grey'>{{appLiterals.APP.STEPUP_AUTHENTICATION.REGENERATE_OTP}}</div>
+				</div>
+		</div>
+		<!-- Configure stepupAuthentication.response.actionDetails[0].params.regenerateOTPTimeoutInSeconds -->
+
+		<!-- <div class="new_user"
+			ng-show='StepupAuthenticate.primaryAuthMode=="SMS OTP"'>{{appLiterals.APP.MOVE_MONEY.BILLPAY_AUTH_PAGE.TEXT_REGEN_OTP}}</div> -->
+
+	</div>
+	<div
+		ng-if='StepupAuthenticate.authorization_action == "SECURITY_QUESTIONS" ||
+	StepupAuthenticate.authorization_action == "RSA_SECURE_ID" ||  StepupAuthenticate.authorization_action == "SMS_OTP" || StepupAuthenticate.authorization_action == "Transaction Password"'>
+		<div class="app-title-wrapper">
+			<div class="title-left"></div>
+			<div class="title-center">{{appLiterals.APP.COMMON.FINSETUP_AUTHPAGE.STEPUP_AUTHORISATION}}</div>
+			<div class="title-right"></div>
+		</div>
+
+		<div class="highlight-color"></div>
+		<div
+			ng-if='StepupAuthenticate.authorization_action == "SECURITY_QUESTIONS"'>
+			<div class="fin-txt"></div>
+			<div class="fin-txt"></div>
+			<p class="special-txt">{{appLiterals.APP.COMMON.FINSETUP_AUTHPAGE.PLEASE_ANS_SEQ_QUES_BELOW}}</p>
+			<div class="fin-txt"></div>
+			<div class="fin-txt"></div>
+
+			<div class="padding-zero">
+				<div
+					ng-repeat="question in StepupAuthenticate.actionDetails[0].params.Questions">
+					<p class="special-txt">{{question.questionDescription}}</p>
+					<fin-input type="text" model="question.answer" display-row="full"
+						placeholder=""
+						validation-flag='pageErrorArr["StepupAuthenticate.actionDetails[0].params.Questions[" + {{$index}} +"]"]'></fin-input>
+					<div class="fin-txt"></div>
+				</div>
+			</div>
+		</div>
+		<div
+			ng-if='StepupAuthenticate.authorization_action == "RSA_SECURE_ID"'>
+			
+			<div class="label-wrap">
+				<p class="label-title">{{appLiterals.APP.COMMON.FINSETUP_AUTHPAGE.RSA_SECURE_ID}}</p>
+				<p class="label-txt">{{StepupAuthenticate.actionDetails[0].params.RSASecureIDMessage}}</p>
+			</div>
+			<fin-input type="password_text" model="StepupAuthenticate.RSAorOTP"
+				validation-flag='pageErrorArr["StepupAuthenticate.RSAorOTP"]'
+				display-row="full"
+				placeholder="{{appLiterals.APP.COMMON.FINSETUP_AUTHPAGE.PH_SECURE_ID}}"></fin-input>
+		</div>
+
+		<div ng-if='StepupAuthenticate.authorization_action == "SMS_OTP"'>
+			<div class="fin-txt"></div>
+			<div class="fin-txt"></div>
+			<div class="label-wrap">
+				<p class="label-title">{{appLiterals.APP.COMMON.FINSETUP_AUTHPAGE.OTP_AUTHORIZE}}</p>
+				<p class="label-txt">{{StepupAuthenticate.actionDetails[0].params.SMSOTPMessage}}</p>
+			</div>
+			<div class="avail-bal-wrap">
+				<fin-input type="password_num" model="StepupAuthenticate.RSAorOTP"
+					validation-flag='pageErrorArr["StepupAuthenticate.RSAorOTP"]'
+					display-row="full"
+					placeholder="{{appLiterals.APP.COMMON.FINSETUP_AUTHPAGE.PH_OTP}}"
+					max-length="10"></fin-input>
+				<div ng-show='StepupAuthenticate.otpLinkenable'
+					class="new_user balance-available "
+					ng-click="stepupAuthentication.SMS_OTP.smsOTP='';StepupAuthenticate.disableOTPClick();setGlobalEvent('onGenerateOTPClick')">{{appLiterals.APP.STEPUP_AUTHENTICATION.REGENERATE_OTP}}</div>
+				<!-- Configure stepupAuthentication.response.actionDetails[0].params.regenerateOTPTimeoutInSeconds -->
+				<div ng-show='!StepupAuthenticate.otpLinkenable'
+					class="new_user balance-available " style='color: grey'>{{appLiterals.APP.STEPUP_AUTHENTICATION.REGENERATE_OTP}}</div>
+			</div>
+		</div>
+		<div ng-if='StepupAuthenticate.authorization_action == "Transaction Password"'>
+                                                <div class="label-wrap">
+                                                <p class="label-txt"
+                                                                ng-show='StepupAuthenticate.authorization_action=="Transaction Password"'>
+                                                                {{appLiterals.APP.MOVE_MONEY.BILLPAY_AUTH_PAGE.TEXT_CONFIRM_PAYMENT_PASS}}</p>
+                                </div>
+                                <fin-input type="password_text"
+                                                model="StepupAuthenticate.RSAorOTP" display-row="full"
+                                                placeholder="{{appLiterals.APP.MOVE_MONEY.BILLPAY_AUTH_PAGE.PH_TRANSPASS}}"
+                                                validation-flag='pageErrorArr["StepupAuthenticate.RSAorOTP"]'
+                                ></fin-input>
+                                </div>
+		
+	</div>
+</div>

@@ -1,0 +1,73 @@
+<div class="finacle-container">
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="rakAccounts.backNavigation();"></i>
+	</div>
+	
+<div class="finacle-container" 
+     ng-init='rakAccounts.initFFDPage(successResponse.responsesList);'>
+    
+      
+<div class="account-page"> 
+    <div class="col-sm-11">    
+    
+    <div class="main-form-heading-ServiceReq"> 
+			                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.FFD_INFO}}
+			                             
+			                 </h2>              
+						</div> 
+      <div class="bg-color rak-cont-padding rak-scroll">
+          <div class="row">          
+
+              
+               <div class="rakTransactionAcc rakTxnSrchDiv" ng-init="">
+               
+               	<div class="col-sm-1"> </div>
+           
+                       	<div class="trans-detail rakGreyRow rakMoreActions"
+                  ng-repeat="ffd in rakAccounts.RAKAccountsModel.ffdList"> 
+                 
+ 				
+ 					<div class= "rak100 rakFFDGrey">
+ 					
+                    <div class="rakFFD-details rakFFDLeft">
+							 <span class="raktransno">{{ffd.depAccount}}</span>
+							<div class="trans-date rakFFDFont">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.FFD_DEP_ACC}}</div>
+						</div>
+						
+						<div class="rakFFD-details raktextRightAlign">
+							 <span class="raktransno">{{ffd.depAmount}}</span>
+							<div class="trans-date rakFFDFont">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.FFD_DEP_AMOUNT}}</div>
+						</div>
+						
+						<div class="rakFFD-details rakFFDLeft">
+							 <span class="raktransno">{{ffd.matDate}}</span>
+							<div class="trans-date rakFFDFont">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.FFD_MAT_DATE}}</div>
+						</div>
+						
+						<div class="rakFFD-details raktextRightAlign">
+							 <span class="raktransno">{{ffd.matAmount}}</span>
+							<div class="trans-date rakFFDFont">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.FFD_MAT_AMT}}</div>
+						</div>
+						
+						<div class="rakFFD-details rakFFDLeft">
+							 <span class="raktransno">{{ffd.intRate}} %</span>
+							<div class="trans-date rakFFDFont">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.INT_RATE}}</div>
+						</div>
+                  
+                 						
+						</div>							
+                
+					</div>
+			
+		            </div>
+		
+				
+					</div>	
+
+          	
+  			</div>
+		</div>
+ 	</div>
+  </div>
+</div>
+    

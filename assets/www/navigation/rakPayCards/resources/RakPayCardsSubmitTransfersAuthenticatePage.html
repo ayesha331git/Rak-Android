@@ -1,0 +1,300 @@
+<div class="rak-back-header" ng-if="rakPendingApproval.pendingApprovalTab!='PIA'">
+	<i class="rak-back-img" ng-click="rakPayCards.common.fromAuthPage=true; setEvent('onTransfersAuthBackClick');"></i>
+</div>
+
+<div class="rak-back-header" ng-if="rakPendingApproval.pendingApprovalTab=='PIA'">
+			<i class="rak-back-img" ng-click="rakPendingApproval.backClickFlag='Y';setGlobalEvent('onPendingIncompleteTxnsClick')"></i>
+</div>
+
+
+<div ng-init="rakHome.AuthPageData.firstAuthModeValue='';rakPayCards.ownCards.reSubmitAuth(successResponse.responsesList);rakPayCards.ownCards.initAuthPage(successResponse.responsesList);rakCorpInit.corpModel.processCorpInit(successResponse.responsesList);" >
+<div ng-show="rakPayCards.common.balCheck=='true' && rakCorpInit.corpModel.backFlag=='N' ">
+<div class="full-page-screen"></div>
+
+<div class="confirmation-content-container">
+    <div class="message-box-new rakTop25">
+        <div>
+            <p class="round-icon-new">
+            <span class="app app-alert pop-alert-icon rak-color"></span>
+            </p>
+
+           
+        </div>
+
+        <div class="conf-txt-label rak-black-color">
+          {{rakPayCards.common.message}}
+        </div>
+		<div class="conf-btn-wrap_alert rakpaddingBottom10" ng-if="rakPayCards.schedule.schTxnListSubmitBtn!='MODIFY'">
+
+
+
+
+
+            <button class="btn--special-btn btn-middle rak-button-small btn--back" ng-click='setEvent("onTransfersAuthBackClick")' >
+                 &nbsp; {{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.BTN_CNL}} &nbsp;
+            </button>
+
+
+
+            <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click='rakPayCards.common.balCheck=false;setEvent("onPoolBalanceConfirmation")' >
+                &nbsp; {{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.BTN_YES}} &nbsp;
+            </button>
+
+        </div>
+
+        <div class="conf-btn-wrap_alert rakpaddingBottom10" ng-if="rakPayCards.schedule.schTxnListSubmitBtn=='MODIFY'">
+
+
+
+             <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click='setEvent("onTransfersModifyAuthBackClick")' >
+                 &nbsp; {{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.BTN_CNL}} &nbsp;
+            </button>
+
+            <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click='rakPayCards.common.balCheck=false;setEvent("onPoolBalanceConfirmation")' >
+                &nbsp; {{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.BTN_YES}} &nbsp;
+            </button>
+
+        </div>
+
+
+
+
+    </div>
+</div>
+</div>
+</div>
+
+
+<div class="finacle-container ng-scope"
+	ng-show="rakPayCards.common.balCheck!='true' || rakCorpInit.corpModel.backFlag=='Y'">
+	<div class="account-page">
+    <div class="col-sm-11">
+	  <div class="app-title-wrapper">
+		
+
+        <div class="">
+      
+      <div class="main-form-heading">
+             <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_COMMON.SUBMIT_TRAN}}
+				      </h2>
+       	</div>
+  
+
+		<div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh">
+
+			<div class="" >
+			  <div class="">
+			  
+			  			
+				<p class="rak-sum-txt" ng-show="rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.PREPAIDCARDS">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.BNF_NAME}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.toDisplayString}}</span>
+               </p>
+               
+				<p class="rak-sum-txt" ng-show="rakPayCards.ownCards.selectedCardBenfType!=rakPayCards.TxnTypeConstant.PREPAIDCARDS">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.TXT_TO}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.toDisplayString}}</span>
+				</p>
+				
+				 
+               
+                <p class="rak-sum-txt" ng-show="rakPayCards.common.beneficaryName && rakPayCards.ownCards.selectedCardBenfType!=rakPayCards.TxnTypeConstant.PREPAIDCARDS">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.BNF_NAME}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.beneficaryName}}</span>
+               </p>
+				
+				<p class="rak-sum-txt" ng-show="rakPayCards.ownCards.selectedCardBenfType!=rakPayCards.TxnTypeConstant.PREPAIDCARDS">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.BENEFICIARYACCOUNT}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.beneficiaryAccountNumber}}</span>
+               </p>
+               
+               <p class="rak-sum-txt" ng-show="rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.PREPAIDCARDS">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.BENEFPPCARD}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.beneficiaryAccountNumber}}</span>
+               </p>
+               
+              
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.TXT_FROM}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.fromDisplayString}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.OUTSIDEUAE">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.RETCURR}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.remtCurr}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakPayCards.common.selpromocode">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.PROMO_CODE}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.selpromocode}}</span>
+                </p>
+
+
+				<p class="rak-sum-txt" ng-show="rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.OWNCARDS">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.PAYMENTDUEDATE}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.paymentDueDate}}</span>
+				</p>
+
+    		<div ng-show="rakPayCards.ownCards.selectedCardBenfType!=rakPayCards.TxnTypeConstant.RAKCARDS">			
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.PAYMENT_PAID}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.currency}} {{rakPayCards.schedule.selectedTxn.txnAmountDisp}}</span>
+				</p>
+
+				  <p class="rak-sum-txt" ng-show="rakPayCards.common.exchangeRate">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.EXCHANGERATE}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.exchangeRate}}</span>
+				</p>
+    
+    
+                 <p class="rak-sum-txt" ng-show="rakPayCards.common.convertedAmt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.TXT_DEBIT_AMOUNT}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.convertedAmt}}</span>
+				</p> 
+				
+			</div>
+				
+				<div ng-show="rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.RAKCARDS">            
+		                <p class="rak-sum-txt">
+		                    <span class="rak-sum-label">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.PAYMENT_PAID}}</span>
+		                    <span class="rak-sum-label black">{{rakPayCards.common.amount}}</span>
+		                </p>
+		          
+		          </div>	
+
+
+             	<p class="rak-sum-txt" ng-show="(rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.OUTSIDEUAE || rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.WITHINUAE) && rakPayCards.common.charges">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.CHARGES}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.charges}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="(rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.OUTSIDEUAE || rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.WITHINUAE) && rakPayCards.common.chargeAmt ">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.CHGAMT}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.chargeAmt}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="(rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.OUTSIDEUAE || rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.WITHINUAE) && rakPayCards.common.creditAmt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.CREDITAMT}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.creditAmt}}</span>
+				</p>
+
+
+				<p class="rak-sum-txt" ng-show="rakPayCards.ownCards.selectedCardBenfType!=rakPayCards.TxnTypeConstant.RAKCARDS">
+					<span  class="rak-sum-label">{{rakPayCards.ownCards.selectedFrequency=='O' ? appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.TXT_PAYDATE : appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.TXT_PAYDATE_REC }}</span>
+					<span class="rak-sum-label black">{{rakPayCards.schedule.selectedTxn.txnDate}}</span>
+				</p>
+				
+				
+
+				<p class="rak-sum-txt" ng-show="rakPayCards.common.freqType=='O' && rakPayCards.ownCards.selectedCardBenfType!=rakPayCards.TxnTypeConstant.RAKCARDS">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FREQ}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAK_PAYEE.HISTORY.ONCE}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakPayCards.common.freqType!='O' && rakPayCards.ownCards.selectedCardBenfType!=rakPayCards.TxnTypeConstant.RAKCARDS">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FREQ}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAK_PAYEE.HISTORY.REC}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakPayCards.common.freqType!='O' && rakPayCards.ownCards.selectedCardBenfType!=rakPayCards.TxnTypeConstant.RAKCARDS">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.FREQVALUE}}
+					</span> <span class="rak-sum-label black">{{rakPayCards.common.frequencyType}}</span>
+				</p>
+				<p class="rak-sum-txt" ng-show="rakPayCards.common.freqType!='O' && rakPayCards.ownCards.selectedCardBenfType!=rakPayCards.TxnTypeConstant.RAKCARDS">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.NO_OF_TRANS}}
+					</span> <span class="rak-sum-label black">{{rakPayCards.common.noOfTransfer}}</span>
+				</p>
+				
+								
+
+				<p class="rak-sum-txt" ng-show="rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.WITHINUAE && rakPayCards.ownCards.selectedPurposeDisp ">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.TXT_REASON}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.ownCards.selectedPurposeDisp}}</span>
+				</p>
+
+
+
+				<p class="rak-sum-txt" ng-show="(rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.OUTSIDEUAE || rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.PREPAIDCARDS || rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.RAKCARDS) && rakPayCards.common.selectedReason">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.TXT_REASON}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.selectedReason}}</span>
+				</p>
+
+
+
+				<p class="rak-sum-txt" ng-show="(rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.OUTSIDEUAE || rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.WITHINUAE) && rakPayCards.common.selectedReason1">
+					<span  class="rak-sum-label"></span>
+					<span class="rak-sum-label black">{{rakPayCards.common.selectedReason1}}</span>
+				</p>
+
+					<p class="rak-sum-txt" ng-show="(rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.OUTSIDEUAE || rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.WITHINUAE) && rakPayCards.common.selectedReason2">
+					<span  class="rak-sum-label"></span>
+					<span class="rak-sum-label black">{{rakPayCards.common.selectedReason2}}</span>
+				</p>
+
+					<p class="rak-sum-txt" ng-show="(rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.OUTSIDEUAE || rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.WITHINUAE) && rakPayCards.common.selectedReason3">
+					<span  class="rak-sum-label"></span>
+					<span class="rak-sum-label black">{{rakPayCards.common.selectedReason3}}</span>
+				</p>
+
+
+
+
+				<p class="rak-sum-txt" ng-show="(rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.OWNCARDS) && rakPayCards.common.selectedReason">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDSINITPAGE.REMARKS}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.selectedReason}}</span>
+				</p>
+				
+			
+		<!-- 	<div  ng-if="rakPendingApproval.pendingApprovalTab=='PIA'">	
+                <p class="rak-sum-txt" ng-show='rakPendingApproval.detailModel.selectedReason'>
+                    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.REASON}}</span>
+                    <span class="rak-sum-label black">{{rakPendingApproval.detailModel.selectedReason}}</span>
+                </p>
+				
+				<p class="rak-sum-txt" ng-show='rakPendingApproval.detailModel.selectedReason1'>
+                    <span class="rak-sum-label"></span>
+                    <span class="rak-sum-label black">{{rakPendingApproval.detailModel.selectedReason1}}</span>
+                </p>
+                <p class="rak-sum-txt" ng-show='rakPendingApproval.detailModel.selectedReason2'>
+                    <span class="rak-sum-label"></span>
+                    <span class="rak-sum-label black">{{rakPendingApproval.detailModel.selectedReason2}}</span>
+                </p>
+                <p class="rak-sum-txt" ng-show='rakPendingApproval.detailModel.selectedReason3'>
+                    <span class="rak-sum-label"></span>
+                    <span class="rak-sum-label black">{{rakPendingApproval.detailModel.selectedReason3}}</span>
+                </p>
+			</div>	 -->
+				
+				
+				<corpapproval-input></corpapproval-input>
+			
+				<fin-dynamicauth></fin-dynamicauth>
+
+				
+
+				<div class="label-wrap">
+					<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="rakPendingApproval.backClickFlag='Y';setGlobalEvent('onPendingIncompleteTxnsClick')">{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.BTN_BACK}}</button>
+				   <button type="button"  class="btn--special-btn btn-middle rak-button-small" ng-click='rakHome.AuthPageData.fetchOtp(rakPayCards.ownCards.getAuthConfirmEvent());'>  {{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.BTN_CNFIRM}} </button>
+			  </div>
+
+			
+			  
+			
+          <div class="col-sm-1"> </div>
+        </div>
+        
+             <div class="disclaimer">
+				<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+					<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+				</div>
+
+				<div class="disclaimer3" ng-show="rakDisclaimerFlag">
+					<div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKPAYCARDCONFIRMATIONPAGE"></div>
+				</div>
+			</div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>

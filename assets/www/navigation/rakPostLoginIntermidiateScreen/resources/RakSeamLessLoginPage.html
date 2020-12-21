@@ -1,0 +1,749 @@
+
+<div class="container-fluid padding-auto"
+	ng-init='rakSeamLessLogin.fetchRakSeamLessLoginData(stepupAuthentication.response.actionDetails[0]);rakSeamLessLogin.setRakSeamLessLoginValues();rakSeamLessLogin.detectWhetherIBandMBDiffAndBothAvl();
+			rakSeamLessLogin.detectIfEitherIBorMBAvl();rakSeamLessLogin.detectIfNeitherIBorMBAvl();rakSeamLessLogin.detectWhetherIBandMBSameAndAvl();rakSeamLessLogin.detectWhetherSingleChannelAvl();
+			rakSeamLessLogin.detectExistingOrNewPwdWhenNeitherIBMBAvl();rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd="";rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType="";
+			rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd=""; rakSeamLessLogin.initSuccess(successResponse.responsesList);'>
+
+
+<div class="container-fluid padding-zero">
+
+  <div class="row">
+
+     <div class="">
+      
+        <div class="app-title-wrapper">
+					
+				        <div class="banner-wrapper">
+				        	<img src="images/banner.jpg" width="100%">
+				        </div>
+			        	<div class="main-content-top-seamless">
+			            	<div class="comp-img">
+			                	
+			                </div>
+			                <div class="comp-text">
+			                	<h4 class="comp-text-magin">{{appLiterals.APP.RAK_SEAM_LESS.TXT_WELCOME_MSG}}</h4>
+			                </div>
+			            </div>
+			            	<div class="border_seam"></div>
+      
+        <div class="main-content-bottom" ng-show="rakSeamLessLogin.RakSeamLessLoginModel.infoPage==true">
+          <div class="swiper-container">
+              <div class="swiper-wrapper"  >
+                  <div class="swiper-slide" >
+                   <div id="tabs-1" >
+				       <div class="Box1">
+				<div class="BoxL"><span class="BoxOneImg"></span></div>
+				<div class="BoxR">
+				<span>{{appLiterals.APP.RAK_SEAM_LESS.TXT_ONE_USENAME_PASSWORD}}</span><br />
+				{{appLiterals.APP.RAK_SEAM_LESS.TXT_ONE_USENAME_PASSWORD_CONTENT}}
+				</div>
+				</div>
+			
+				</div>
+			</div>
+
+				<div class="swiper-slide" ng-swipe-right='rakSeamLessLogin.RakSeamLessLoginModel.tabValue="3"'>
+                   <div id="tabs-2" >
+				        <div class="Box1">
+				<div class="BoxL"><span class="BoxTwoImg"></span></div>
+				<div class="BoxR">
+				<span>{{appLiterals.APP.RAK_SEAM_LESS.TXT_UNIFIED}}</span><br />
+				{{appLiterals.APP.RAK_SEAM_LESS.TXT_UNIFIED_CONTENT}}
+				</div>
+				</div>
+	
+				</div>
+
+                    </div>
+                    
+                    
+            <div class="swiper-slide" ng-swipe-left='rakSeamLessLogin.RakSeamLessLoginModel.tabValue="4"' >
+                  <div id="tabs-3">
+				        <div class="Box1">
+				<div class="BoxL"><span class="BoxThreeImg"></span></div>
+				<div class="BoxR">
+				<span>{{appLiterals.APP.RAK_SEAM_LESS.TXT_APPROCH}}</span><br />
+				{{appLiterals.APP.RAK_SEAM_LESS.TXT_APPROCH_CONTENT}}
+				</div>
+				</div>
+	
+				</div>
+
+             </div>   
+             
+             
+               <div class="swiper-slide" ng-swipe-right='rakSeamLessLogin.seamLessSwipeControl();'>
+                 <div id="tabs-4" >
+				        <div class="Box1">
+				<div class="BoxL"><span class="BoxFourImg"></span></div>
+				<div class="BoxR">
+				<span>{{appLiterals.APP.RAK_SEAM_LESS.TXT_NEW_FEATURE}}</span><br />
+				{{appLiterals.APP.RAK_SEAM_LESS.TXT_NEW_FEATURE_CONTENT}}<br />
+				
+				</div>
+				<span class="touchidAndroidMsg">{{appLiterals.APP.RAK_SEAM_LESS.TXT_NEW_FEATURE_CONTENT_ANDROID}}</span>
+				</div>
+		
+				</div>
+
+             </div>   
+
+
+
+
+
+                </div>
+        </div>
+        <div class="swiper-pagination dot-padding" ></div>
+        <div style="clear: both;" ng-show="rakSeamLessLogin.RakSeamLessLoginModel.tabValue=='4'"></div>
+								
+									
+						<div class="label-wrap rakSwipeLstBtn ng-hide" >
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-full rak-back rak-btn-large-text"
+									
+									ng-click="rakSeamLessLogin.RakSeamLessLoginModel.infoPage=false">
+									{{appLiterals.APP.RAK_SEAM_LESS.CONTI_MOB_BANKING}}</button>
+						
+							</div>
+					
+					
+        
+        </div>
+        
+        
+        
+                	
+						<div class="main-content-bottom" ng-show="rakSeamLessLogin.RakSeamLessLoginModel.infoPage==false">
+							<div class="text-section">
+			                	<div class="text1" ng-class="{false:'selectedTab',true:'unselectedTab'}[rakSeamLessLogin.RakSeamLessLoginModel.detailsPage]">
+			                    	<p >{{appLiterals.APP.RAK_SEAM_LESS.TXT_SETUP_USERID}}</p>
+			                    </div>
+			                    <div class="text2" ng-class="{true:'selectedTab',false:'unselectedTab'}[rakSeamLessLogin.RakSeamLessLoginModel.detailsPage]">
+			                    	<p >{{appLiterals.APP.RAK_SEAM_LESS.TXT_SETUP_PWD}}</p>
+			                    </div>
+			                    <div class="text3">
+			                    	<p class='summaryTab'>{{appLiterals.APP.RAK_SEAM_LESS.TXT_COMPLETE}}</p>
+			                    </div>
+			                </div>
+			            	<div class="circular-border1" ng-if="!rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+			                	
+			                </div>
+			            	<div class="circular-border2" ng-if="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+			                	
+			                </div>
+            	
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx SCENARIO 1 : IB/MB Registered Only : START xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+							<div class="bg-color rak-cont-padding" ng-if="rakSeamLessLogin.RakSeamLessLoginModel.isSingleChannelAvl">
+								<div class="">
+									 
+									<p class="rak-parent-txt"  ng-if="!rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+										<span class="rak-sum-label-special">{{appLiterals.APP.RAK_SEAM_LESS.TXT_MSG_SCN1_CONT}}</span>
+									</p>
+										<p class="rak-parent-txt"  ng-if="!rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+											<span class="rak-sum-label-special">{{appLiterals.APP.RAK_SEAM_LESS.SINGLE_USERID_AVL}}</span>
+										</p>
+										<p class="rak-sum-txt table-header"  ng-if="!rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+											<span class="rak-sum-label-heading  row-border-left">{{appLiterals.APP.RAK_SEAM_LESS.TXT_USERID}}</span>
+											<span class="rak-sum-label-seamless ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_CHANNEL}}</span>
+										</p>
+										<p class="rak-sum-txt" ng-if='rakSeamLessLogin.RakSeamLessLoginModel.IsSingleChannel == "I" && !rakSeamLessLogin.RakSeamLessLoginModel.detailsPage'>
+											<span class="rak-sum-label-heading  row-border-left">{{rakSeamLessLogin.RakSeamLessLoginModel.ExistingIBId}}</span>
+											<span class="rak-sum-label-seamless ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_IB}}</span>
+										</p>
+										<p class="rak-sum-txt" ng-if='rakSeamLessLogin.RakSeamLessLoginModel.IsSingleChannel == "M" && !rakSeamLessLogin.RakSeamLessLoginModel.detailsPage'>
+											<span class="rak-sum-label-heading  row-border-left">{{rakSeamLessLogin.RakSeamLessLoginModel.ExistingMBId}}</span>
+											<span class="rak-sum-label-seamless ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_MB}}</span>
+										</p>
+										<p class="rak-parent-txt"  ng-if="!rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+											<span class="rak-sum-label-special"></span>
+										</p>
+									<div ng-if="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+										<p class="rak-parent-txt">
+											<span class="rak-sum-label-special">{{appLiterals.APP.RAK_SEAM_LESS.SINGLE_USERID_AVL}}</span>
+										</p>
+										<p class="rak-sum-txt table-header">
+											<span class="rak-sum-label-heading  row-border-left">{{appLiterals.APP.RAK_SEAM_LESS.TXT_USERID}}</span>
+											<span class="rak-sum-label-seamless ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_CHANNEL}}</span>
+										</p>
+										<p class="rak-sum-txt" ng-if='rakSeamLessLogin.RakSeamLessLoginModel.IsSingleChannel == "I"'>
+											<span class="rak-sum-label-heading  row-border-left">{{rakSeamLessLogin.RakSeamLessLoginModel.ExistingIBId}}</span>
+											<span class="rak-sum-label-seamless ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_IBMB}}</span>
+										</p>
+										<p class="rak-sum-txt" ng-if='rakSeamLessLogin.RakSeamLessLoginModel.IsSingleChannel == "M"'>
+											<span class="rak-sum-label-heading  row-border-left">{{rakSeamLessLogin.RakSeamLessLoginModel.ExistingMBId}}</span>
+											<span class="rak-sum-label-seamless ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_IBMB}}</span>
+										</p>
+									<p class="rak-parent-txt">
+										<span class="rak-sum-label-special" ng-if='rakSeamLessLogin.RakSeamLessLoginModel.IsSingleChannel == "I"'>{{appLiterals.APP.RAK_SEAM_LESS.TXT_MSG_SCN1_SELECTED_USERID_IB}}</span>
+										<span class="rak-sum-label-special" ng-if='rakSeamLessLogin.RakSeamLessLoginModel.IsSingleChannel == "M"'>{{appLiterals.APP.RAK_SEAM_LESS.TXT_MSG_SCN1_SELECTED_USERID_MB}}</span>
+									</p>
+									<div class="screen2-content">
+									<div class="setup-section">
+                     					<h5>{{appLiterals.APP.RAK_SEAM_LESS.TXT_SETUP_PWD_IB_MB}}</h5>
+                     				</div>
+                     				<div class="rakRow marginRadioSeam"  ng-if="rakRegister.RegistrationModel.requestType!='FPON' && rakSeamLessLogin.RakSeamLessLoginModel.IsSingleChannel == 'I'">
+									<div class="rak100">
+										<div>
+										
+											<div class="rakCstmRadioDiv rakRelative">
+												<input type="radio" value="EXISTINGPWD" id="radio1"
+															ng-model="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd" 
+															ng-click="resetPageError();"/>
+															<label for="radio1"><span><span></span></span>{{appLiterals.APP.RAK_SEAM_LESS.TXT_EXISTING_PWD}}</label>
+														
+											</div>
+											<div class="rakCstmRadioDiv rakRelative rakMargin20">
+												<input type="radio" value="NEWPWD" id="radio2"
+															ng-model="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd" 
+															ng-click="resetPageError();"/>
+															<label for="radio2"><span><span></span></span>{{appLiterals.APP.RAK_SEAM_LESS.TXT_NEW_PWD}}</label>
+													
+											</div>
+										</div>
+										 <div class="rakRadioErrSeamless" ng-hide='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SEAM_LESS.TXT_SETUP_PWD_IB_MB}}</div>
+									</div>
+									</div>
+									</div>
+									<div ng-init="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd='';rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType='';" 
+									ng-if="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd=='EXISTINGPWD' && rakRegister.RegistrationModel.requestType!='FPON' && rakSeamLessLogin.RakSeamLessLoginModel.IsSingleChannel == 'I'">
+									<fin-input type="password_text"  
+										model="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_ENTER_EXISTING_PWD}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"]'></fin-input>
+									<fin-input type="password_text" 
+										model="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_REENTER_EXISTING_PWD}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType"]'></fin-input>
+									</div>
+									<div ng-init="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd='';rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType='';" 
+									ng-if="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd=='NEWPWD' || rakRegister.RegistrationModel.requestType=='FPON' || rakSeamLessLogin.RakSeamLessLoginModel.IsSingleChannel == 'M'">
+									<fin-input type="password_text" 
+										model="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_ENTER_NEW_PWD}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"]'></fin-input>
+									<fin-input type="password_text" 
+										model="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_REENTER_NEW_PWD}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType"]'></fin-input>
+									</div>
+									</div>
+									<div class="screen1-btn" ng-if="!rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+										<button type="button" class="proceed-btn"
+											ng-click="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage=true;rakSeamLessLogin.resetRadioOnProceedClick();">{{appLiterals.APP.RAK_SEAM_LESS.TXT_PROCEED}}</button>
+									</div>
+									<div class="fin-txt"></div>
+									<div class="label-wrap seam-both-btn" ng-if="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+										<button type="button"
+											class=" btn-middle rak-button-small btn--back seam-margin-btn"
+											ng-click="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage=false;">
+											{{appLiterals.APP.RAK_SEAM_LESS.TXT_BACK}}</button>
+										<button type="button"
+											class=" btn-middle btn--back  btn--back rak-button-small seam-margin-btn seam-btn"
+											ng-click="rakSeamLessLogin.ifExistingOrNewPwdValRqd2();rakSeamLessLogin.detectPreLoginOrPostLogin();setEvent(rakSeamLessLogin.RakSeamLessLoginModel.preOrPostLoginClick);">{{appLiterals.APP.RAK_SEAM_LESS.TXT_PROCEED}}</button>
+									</div>
+									
+									 
+								</div>
+							</div>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx SCENARIO 1 : IB/MB Registered Only : END xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx SCENARIO 2 : IB & MB (Same User ID) : START xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+							<div class="bg-color rak-cont-padding  rak-scroll" ng-if="rakSeamLessLogin.RakSeamLessLoginModel.isIBandMBSameAndAvl">
+								<div class="">
+									 
+										<p class="rak-sum-txt table-header">
+											<span class="rak-sum-label-heading  row-border-left">{{appLiterals.APP.RAK_SEAM_LESS.TXT_USERID}}</span>
+											<span class="rak-sum-label-seamless ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_CHANNEL}}</span>
+										</p>
+										<p class="rak-sum-txt">
+											<span class="rak-sum-label-heading  row-border-left">{{rakSeamLessLogin.RakSeamLessLoginModel.ExistingIBId}}</span>
+											<span class="rak-sum-label-seamless ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_IBMB}}</span>
+										</p>
+										<p class="rak-parent-txt"  ng-if="!rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+											<span class="rak-sum-label-special">{{appLiterals.APP.RAK_SEAM_LESS.TXT_MSG_SCN2}}</span>
+										</p>
+										<div ng-if="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+									<div class="screen2-content">
+									<div class="setup-section">
+                     					<h5>{{appLiterals.APP.RAK_SEAM_LESS.TXT_SETUP_PWD_IB_MB}}</h5>
+                     				</div>
+                     				<div class="rakRow marginRadioSeam" ng-if="rakRegister.RegistrationModel.requestType!='FPON'">
+									<div class="rak100">
+										<div>
+										
+										
+											<div class="rakCstmRadioDiv rakRelative">
+												<input type="radio" value="EXISTINGPWD" id="radio3"
+															ng-model="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd"
+															ng-click="resetPageError();" />
+															<label for="radio3"><span><span></span></span>{{appLiterals.APP.RAK_SEAM_LESS.TXT_EXISTING_PWD}}</label>
+														
+											</div>
+											<div class="rakCstmRadioDiv rakRelative rakMargin20">
+												<input type="radio" value="NEWPWD" id="radio4"
+															ng-model="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd" 
+															ng-click="resetPageError();"/>
+															<label for="radio4"><span><span></span></span>{{appLiterals.APP.RAK_SEAM_LESS.TXT_NEW_PWD}}</label>
+														
+											</div>
+										</div>
+										<div class="rakRadioErrSeamless" ng-hide='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SEAM_LESS.TXT_SETUP_PWD_IB_MB}}</div>
+									</div>
+									</div>
+									</div>
+									<div ng-init="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd='';rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType='';" 
+									ng-if="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd=='EXISTINGPWD' && rakRegister.RegistrationModel.requestType!='FPON'">
+									<fin-input type="password_text" 
+										model="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_ENTER_EXISTING_PWD}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"]'></fin-input>
+									<fin-input type="password_text" 
+										model="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_REENTER_EXISTING_PWD}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType"]'></fin-input>
+									</div>
+									<div ng-init="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd='';rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType='';" 
+									ng-if="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd=='NEWPWD' || rakRegister.RegistrationModel.requestType=='FPON'">
+									<fin-input type="password_text" 
+										model="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_ENTER_NEW_PWD}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"]'></fin-input>
+									<fin-input type="password_text" 
+										model="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_REENTER_NEW_PWD}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType"]'></fin-input>
+									</div>
+									</div>
+									<div class="screen1-btn" ng-if="!rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+										<button type="button" class="proceed-btn"
+											ng-click="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage=true;rakSeamLessLogin.resetRadioOnProceedClick();">{{appLiterals.APP.RAK_SEAM_LESS.TXT_PROCEED}}</button>
+									</div>
+									<div class="fin-txt"></div>
+									<div class="label-wrap seam-both-btn" ng-if="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+										<button type="button"
+											class=" btn-middle rak-button-small btn--back seam-margin-btn"
+											ng-click="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage=false;">
+											{{appLiterals.APP.RAK_SEAM_LESS.TXT_BACK}}</button>
+										<button type="button"
+											class=" btn-middle  btn--back rak-button-small seam-margin-btn seam-btn"
+											ng-click="rakSeamLessLogin.ifExistingOrNewPwdValRqd1();rakSeamLessLogin.detectPreLoginOrPostLogin();setEvent(rakSeamLessLogin.RakSeamLessLoginModel.preOrPostLoginClick);">{{appLiterals.APP.RAK_SEAM_LESS.TXT_PROCEED}}</button>
+									</div>
+									</div>
+									 
+								</div>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx SCENARIO 2 : IB & MB (Same User ID) : END xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx SCENARIO 3 : IB & MB (Different User ID) : START xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+							<div class="bg-color rak-cont-padding rak-scroll" ng-if="rakSeamLessLogin.RakSeamLessLoginModel.isIBandMBDiffAndBothAvl">
+								<div class="">
+									 
+										<p class="rak-parent-txt"  ng-if="!rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+											<span class="rak-sum-label-special">{{appLiterals.APP.RAK_SEAM_LESS.TXT_MSG_SCN3}}</span>
+										</p>
+											<div  class="seam-padding-topfive" ng-if="!rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+											<div class="screen5-grey-section">
+							                	<div class="grey-first"><p>{{appLiterals.APP.RAK_SEAM_LESS.TXT_SELECT}}</p></div>
+							                    <div class="grey-second"><p>{{appLiterals.APP.RAK_SEAM_LESS.TXT_USERID}}</p></div>
+							                    <div class="grey-third"><p>{{appLiterals.APP.RAK_SEAM_LESS.TXT_MEDIUM}}</p></div>
+							                    <div class="grey-four"><p>{{appLiterals.APP.RAK_SEAM_LESS.TXT_AVAIL}}</p></div>
+							                </div>
+							                <div class="scren5-deatils-section">
+							                	<div class="deatils-first">
+							                    	<div class="rakCstmRadioDiv rakRelative">
+							                    	
+														<input  type="radio" id="radio5" name="1" value="{{rakSeamLessLogin.RakSeamLessLoginModel.ExistingIBId}}"
+								                    	ng-model="rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSend"
+								                    	ng-click="resetPageError();"> 
+								                    	<label for="radio5"><span><span></span></span></label>
+							                    	</div>
+							                    </div>
+							                    <div class="deatils-second"><p>{{rakSeamLessLogin.RakSeamLessLoginModel.ExistingIBId}}</p></div>
+							                    <div class="deatils-third"><p>{{appLiterals.APP.RAK_SEAM_LESS.TXT_IB}}</p></div>
+							                    <div class="deatils-four"><p>Yes</p></div>
+							                </div>
+							                <div class="scren5-deatils-section">
+							                	<div class="deatils-first">
+							                	
+							                	<div class="rakCstmRadioDiv rakRelative">
+							                			<input  type="radio" name="1" id="radio6" value="{{rakSeamLessLogin.RakSeamLessLoginModel.ExistingMBId}}"
+							                    			ng-model="rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSend"
+							                    			ng-click="resetPageError();">
+							                    			<label for="radio6"><span><span></span></span></label>
+							                   
+							                    	</div>
+							                    	
+							                    </div>
+							                    <div class="deatils-second"><p>{{rakSeamLessLogin.RakSeamLessLoginModel.ExistingMBId}}</p></div>
+							                    <div class="deatils-third"><p>{{appLiterals.APP.RAK_SEAM_LESS.TXT_MB}}</p></div>
+							                    <div class="deatils-four"><p>Yes</p></div>
+							                </div>
+							                <div class="rakRadioErr" ng-hide='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSend"]==null'>{{appLiterals.APP.RAK_SEAM_LESS.RADIO_SELECTION}}</div>
+							                </div>
+ 										<div ng-if="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+ 										<p class="rak-parent-txt">
+											<span class="rak-sum-label-special"></span>
+										</p>
+										<p class="rak-sum-txt table-header">
+											<span class="rak-sum-label-heading  row-border-left">{{appLiterals.APP.RAK_SEAM_LESS.TXT_USERID}}</span>
+											<span class="rak-sum-label-seamless ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_CHANNEL}}</span>
+										</p>
+										<p class="rak-sum-txt">
+											<span class="rak-sum-label-heading  row-border-left">{{rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSend}}</span>
+											<span class="rak-sum-label-seamless ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_IBMB}}</span>
+										</p>
+										<p class="rak-parent-txt seamless-padding-top">
+											<span class="rak-sum-label-special">{{appLiterals.APP.RAK_SEAM_LESS.TXT_THANKS_FOR_SETTING_USERID}}</span>
+										</p>
+									<div class="screen2-content">
+									<div class="setup-section">
+                     					<h5>{{appLiterals.APP.RAK_SEAM_LESS.TXT_SETUP_PWD_IB_MB}}</h5>
+                     				</div>
+                     				<div class="rakRow marginRadioSeam" ng-if="rakRegister.RegistrationModel.requestType!='FPON'">
+									<div class="rak100">
+										<div>
+										
+										
+											<div class="rakCstmRadioDiv rakRelative">
+												<input type="radio" value="EXISTINGPWD" id="radio7"
+															ng-model="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd" 
+															ng-click="resetPageError();"/>
+															<label for="radio7"><span><span></span></span>{{appLiterals.APP.RAK_SEAM_LESS.TXT_EXISTING_PWD}}</label>
+													
+											</div>
+											<div class="rakCstmRadioDiv rakRelative rakMargin20" >
+												<input type="radio" value="NEWPWD" id="radio8"
+															ng-model="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd" 
+															ng-click="resetPageError();"/>
+															<label for="radio8"><span><span></span></span>{{appLiterals.APP.RAK_SEAM_LESS.TXT_NEW_PWD}}</label>
+													
+											</div>
+										</div>
+										<div class="rakRadioErrSeamless" ng-hide='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SEAM_LESS.TXT_SETUP_PWD_IB_MB}}</div>
+									</div>
+									</div>
+									</div>
+									<div class="password-seam" ng-init="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd='';rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType='';" 
+									ng-if="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd=='EXISTINGPWD' && rakRegister.RegistrationModel.requestType!='FPON'">
+									<fin-input type="password_text" 
+										model="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_ENTER_EXISTING_PWD}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"]'></fin-input>
+									<fin-input type="password_text" 
+										model="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_REENTER_EXISTING_PWD}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType"]'></fin-input>
+									</div>
+									<div ng-init="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd='';rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType='';" 
+									ng-if="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd=='NEWPWD' || rakRegister.RegistrationModel.requestType=='FPON'">
+									<fin-input type="password_text" 
+										model="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_ENTER_NEW_PWD}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"]'></fin-input>
+									<fin-input type="password_text" 
+										model="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_REENTER_NEW_PWD}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType"]'></fin-input>
+									</div>
+									</div>
+									<div class="screen1-btn" ng-if="!rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+										<button type="button" class="proceed-btn"
+											ng-click="rakSeamLessLogin.resetRadioOnProceedClick();setEvent('onRakRqdValidateUserIdSel');rakSeamLessLogin.validateUserID();">{{appLiterals.APP.RAK_SEAM_LESS.TXT_PROCEED}}</button>
+									</div>
+									<div class="fin-txt"></div>
+									<div class="label-wrap seam-both-btn" ng-if="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+										<button type="button"
+											class=" btn-middle rak-button-small btn--back seam-margin-btn"
+											ng-click="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage=false;">
+											{{appLiterals.APP.RAK_SEAM_LESS.TXT_BACK}}</button>
+										<button type="button"
+											class=" btn-middle btn--back rak-button-small seam-margin-btn seam-btn"
+											ng-click="rakSeamLessLogin.ifExistingOrNewPwdValRqd1();rakSeamLessLogin.detectPreLoginOrPostLogin();setEvent(rakSeamLessLogin.RakSeamLessLoginModel.preOrPostLoginClick);">{{appLiterals.APP.RAK_SEAM_LESS.TXT_PROCEED}}</button>
+									</div>
+									</div>
+									 
+								</div>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx SCENARIO 3 : IB & MB (Different User ID) : END xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- xxxxxxxxxxxxxxxxxxxxx SCENARIO 4 : IB & MB (Different User ID, but one is not available on one channel) : START xxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+							<div class="bg-color rak-cont-padding rak-scroll" ng-if="rakSeamLessLogin.RakSeamLessLoginModel.isEitherIBorMBAvl">
+								<div class="">
+									 
+										<p class="rak-parent-txt" ng-if='rakSeamLessLogin.RakSeamLessLoginModel.IsMBUserIdAvailable == "N"'>
+											<span class="rak-sum-label-special">{{appLiterals.APP.RAK_SEAM_LESS.TXT_MSG_SCN4}}</span>
+										</p>
+										<p class="rak-parent-txt" ng-if='rakSeamLessLogin.RakSeamLessLoginModel.IsIBUserIdAvailable == "N"'>
+											<span class="rak-sum-label-special">{{appLiterals.APP.RAK_SEAM_LESS.TXT_MSG_SCN4_IB}}</span>
+										</p>
+										<p class="rak-sum-txt table-header">
+											<span class="rak-sum-label33 ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_USERID}}</span>
+											<span class="rak-sum-label33 ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_CHANNEL}}</span>
+											<span class="rak-sum-label33 ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_AVAIL}}</span>
+										</p>
+										<p class="rak-sum-txt">
+											<span class="rak-sum-label33 ">{{rakSeamLessLogin.RakSeamLessLoginModel.ExistingIBId}}</span>
+											<span class="rak-sum-label33 ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_IB}}</span>
+											<span class="rak-sum-label33 ">{{rakSeamLessLogin.RakSeamLessLoginModel.IsIBUserIdAvailableShow}}</span>
+										</p>
+										<p class="rak-sum-txt">
+											<span class="rak-sum-label33 ">{{rakSeamLessLogin.RakSeamLessLoginModel.ExistingMBId}}</span>
+											<span class="rak-sum-label33 ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_MB}}</span>
+											<span class="rak-sum-label33 ">{{rakSeamLessLogin.RakSeamLessLoginModel.IsMBUserIdAvailableShow}}</span>
+										</p>
+										<p class="rak-parent-txt">
+											<span class="rak-sum-label-special">{{appLiterals.APP.RAK_SEAM_LESS.TXT_MSG_SCN4_CONTINUE}}</span>
+										</p>
+										<p class="rak-sum-txt table-header">
+											<span class="rak-sum-label-heading  row-border-left">{{appLiterals.APP.RAK_SEAM_LESS.TXT_USERID}}</span>
+											<span class="rak-sum-label-seamless ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_CHANNEL}}</span>
+										</p>
+										<p class="rak-sum-txt" ng-if='rakSeamLessLogin.RakSeamLessLoginModel.IsMBUserIdAvailable == "N"'>
+											<span class="rak-sum-label-heading  row-border-left">{{rakSeamLessLogin.RakSeamLessLoginModel.ExistingIBId}}</span>
+											<span class="rak-sum-label-seamless ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_IB}}</span>
+										</p>
+										<p class="rak-sum-txt" ng-if='rakSeamLessLogin.RakSeamLessLoginModel.IsIBUserIdAvailable == "N"'>
+											<span class="rak-sum-label-heading  row-border-left">{{rakSeamLessLogin.RakSeamLessLoginModel.ExistingMBId}}</span>
+											<span class="rak-sum-label-seamless ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_MB}}</span>
+										</p>
+										<p class="rak-parent-txt">
+											<span class="rak-sum-label-special"></span>
+										</p>
+									<div ng-if="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+									<div class="screen2-content">
+									<div class="setup-section">
+                     					<h5>{{appLiterals.APP.RAK_SEAM_LESS.TXT_SETUP_PWD_IB_MB}}</h5>
+                     				</div>
+                     				<div class="rakRow marginRadioSeam" ng-if="rakRegister.RegistrationModel.requestType!='FPON'">
+									<div class="rak100">
+										<div>
+										
+										
+											<div class="rakCstmRadioDiv rakRelative">
+												<input type="radio" value="EXISTINGPWD" id="radio9"
+															ng-model="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd"
+															ng-click="resetPageError();" />
+															<label for="radio9"><span><span></span></span>{{appLiterals.APP.RAK_SEAM_LESS.TXT_EXISTING_PWD}}</label>
+													
+											</div>
+											<div class="rakCstmRadioDiv rakRelative rakMargin20">
+												<input type="radio" value="NEWPWD" id="radio10"
+															ng-model="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd"
+															ng-click="resetPageError();" />
+															<label for="radio10"><span><span></span></span>{{appLiterals.APP.RAK_SEAM_LESS.TXT_NEW_PWD}}</label>
+													
+											</div>
+										</div>
+										<div class="rakRadioErrSeamless" ng-hide='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SEAM_LESS.TXT_SETUP_PWD_IB_MB}}</div>
+									</div>
+									</div>
+									</div>
+									<div ng-init="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd='';rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType='';" 
+									ng-if="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd=='EXISTINGPWD' && rakRegister.RegistrationModel.requestType!='FPON'">
+									<fin-input type="password_text" 
+										model="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_ENTER_EXISTING_PWD}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"]'></fin-input>
+									<fin-input type="password_text" 
+										model="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_REENTER_EXISTING_PWD}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType"]'></fin-input>
+									</div>
+									<div ng-init="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd='';rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType='';" 
+									ng-if="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd=='NEWPWD' || rakRegister.RegistrationModel.requestType=='FPON'">
+									<fin-input type="password_text" 
+										model="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_ENTER_NEW_PWD}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"]'></fin-input>
+									<fin-input type="password_text" 
+										model="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_REENTER_NEW_PWD}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType"]'></fin-input>
+									</div>
+									</div>
+									<div class="screen1-btn" ng-if="!rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+										<button type="button" class="proceed-btn"
+											ng-click="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage=true;rakSeamLessLogin.resetRadioOnProceedClick();">{{appLiterals.APP.RAK_SEAM_LESS.TXT_PROCEED}}</button>
+									</div>
+									<div class="fin-txt"></div>
+									<div class="label-wrap seam-both-btn" ng-if="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+										<button type="button"
+											class=" btn-middle rak-button-small btn--back seam-margin-btn"
+											ng-click="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage=false;">
+											{{appLiterals.APP.RAK_SEAM_LESS.TXT_BACK}}</button>
+										<button type="button"
+											class=" btn-middle btn--back rak-button-small seam-margin-btn seam-btn"
+											ng-click="rakSeamLessLogin.ifExistingOrNewPwdValRqd1();rakSeamLessLogin.detectPreLoginOrPostLogin();setEvent(rakSeamLessLogin.RakSeamLessLoginModel.preOrPostLoginClick);">{{appLiterals.APP.RAK_SEAM_LESS.TXT_PROCEED}}</button>
+									</div>
+									</div>
+									 
+								</div>
+<!-- xxxxxxxxxxxxxxxxxxxxx SCENARIO 4 : IB & MB (Different User ID, but one is not available on one channel) : END xxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- xxxxxxxxxxxxxxxxxxxxx SCENARIO 5 : IB & MB (Different User ID, but both are not available) : START xxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+							<div class="bg-color rak-cont-padding rak-scroll" 
+							ng-init="rakSeamLessLogin.resetOnCondition();"
+							ng-if="rakSeamLessLogin.RakSeamLessLoginModel.isNeitherIBorMBAvl">
+								<div class="">
+									 
+										<p class="rak-parent-txt" ng-if="rakSeamLessLogin.RakSeamLessLoginModel.IsSingleChannel != 'M' && !rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+											<span class="rak-sum-label-special">{{appLiterals.APP.RAK_SEAM_LESS.TXT_MSG_SCN5}}</span>
+										</p>
+										<p class="rak-parent-txt" ng-if="rakSeamLessLogin.RakSeamLessLoginModel.IsSingleChannel == 'M' && !rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+											<span class="rak-sum-label-special">{{appLiterals.APP.RAK_SEAM_LESS.TXT_MSG_SCN5_MB_ONLY}}</span>
+										</p>
+										
+									<fin-input type="text" 
+										model="rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSend"
+										ng-if="!rakSeamLessLogin.RakSeamLessLoginModel.detailsPage"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_ENTER_NEW_USERID}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSend"]'></fin-input>
+									<fin-input type="text"  
+										model="rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSendReEnter"
+										ng-if="!rakSeamLessLogin.RakSeamLessLoginModel.detailsPage"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_REENTER_NEW_USERID}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSendReEnter"]'></fin-input>
+										
+									<p class="rak-sum-txt table-header" ng-if="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+										<span class="rak-sum-label-heading  row-border-left">{{appLiterals.APP.RAK_SEAM_LESS.TXT_USERID}}</span>
+										<span class="rak-sum-label-seamless ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_CHANNEL}}</span>
+									</p>									
+									<p class="rak-sum-txt" ng-if="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+										<span class="rak-sum-label-heading  row-border-left">{{rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSend}}</span>
+										<span class="rak-sum-label-seamless ">{{appLiterals.APP.RAK_SEAM_LESS.TXT_IBMB}}</span>
+									</p>
+										<p class="rak-parent-txt">
+											<span class="rak-sum-label-special"></span>
+										</p>
+									<div ng-if="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+									<div class="screen2-content">
+									<div class="setup-section">
+                     					<h5>{{appLiterals.APP.RAK_SEAM_LESS.TXT_SETUP_PWD_IB_MB}}</h5>
+                     				</div>
+                     				<div class="rakRow marginRadioSeam" ng-if="rakRegister.RegistrationModel.requestType!='FPON' && !rakSeamLessLogin.RakSeamLessLoginModel.isNewPwdForNeitherIBMBAvl">
+									<div class="rak100">
+										<div>
+										
+										
+											<div class="rakCstmRadioDiv rakRelative">
+												<input type="radio" value="EXISTINGPWD" id="radio11"
+															ng-model="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd" 
+															ng-click="resetPageError();"/>
+															<label for="radio11"><span><span></span></span>{{appLiterals.APP.RAK_SEAM_LESS.TXT_EXISTING_PWD}}</label>
+														
+											</div>
+											<div class="rakCstmRadioDiv rakRelative rakMargin20">
+												<input type="radio" value="NEWPWD" id="radio12"
+															ng-model="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd" 
+															ng-click="resetPageError();"/>
+															<label for="radio12"><span><span></span></span>{{appLiterals.APP.RAK_SEAM_LESS.TXT_NEW_PWD}}</label>
+													
+											</div>
+										</div>
+										<div class="rakRadioErrSeamless" ng-hide='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SEAM_LESS.TXT_SETUP_PWD_IB_MB}}</div>
+									</div>
+									</div>
+									</div>
+									<div ng-init="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd='';rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType='';" 
+									ng-if="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd=='EXISTINGPWD' && rakRegister.RegistrationModel.requestType!='FPON' && !rakSeamLessLogin.RakSeamLessLoginModel.isNewPwdForNeitherIBMBAvl">
+									<fin-input type="password_text"  
+										model="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_ENTER_EXISTING_PWD}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"]'></fin-input>
+									<fin-input type="password_text"  
+										model="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_REENTER_EXISTING_PWD}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType"]'></fin-input>
+									</div>
+									<div ng-init="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd='';rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType='';" 
+									ng-if="rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd=='NEWPWD' || rakRegister.RegistrationModel.requestType=='FPON' || rakSeamLessLogin.RakSeamLessLoginModel.isNewPwdForNeitherIBMBAvl">
+									<fin-input type="password_text" 
+										model="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_ENTER_NEW_PWD}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"]'></fin-input>
+									<fin-input type="password_text" 
+										model="rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType"
+										display-row="full" placeholder="{{appLiterals.APP.RAK_SEAM_LESS.TXT_REENTER_NEW_PWD}}"
+										validation-flag='pageErrorArr["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType"]'></fin-input>
+									</div>
+									</div>
+									<div class="screen1-btn" ng-if="!rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+										<button type="button" class="proceed-btn"
+											ng-click="rakSeamLessLogin.RakSeamLessLoginModel.isBack=true;rakSeamLessLogin.resetRadioOnProceedClick();setEvent('checkUserIdAvailability');">{{appLiterals.APP.RAK_SEAM_LESS.TXT_PROCEED}}</button>
+									</div>
+									<div class="fin-txt"></div>
+									
+										<p class="rak-parent-txt left-align-text" ng-if="!rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+											<span class="rak-sum-label-special">{{appLiterals.APP.RAK_SEAM_LESS.TXT_NEW_USER_PROCEED}}</span>
+										</p>
+										
+									<div class="label-wrap seam-both-btn" ng-if="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage">
+										<button type="button"
+											class=" btn-middle rak-button-small btn--back seam-margin-btn"
+											ng-click="rakSeamLessLogin.RakSeamLessLoginModel.detailsPage=false;rakSeamLessLogin.RakSeamLessLoginModel.isBack=true;">
+											{{appLiterals.APP.RAK_SEAM_LESS.TXT_BACK}}</button>
+										<button type="button"
+											class=" btn-middle btn--back rak-button-small seam-margin-btn seam-btn"
+											ng-click="rakSeamLessLogin.ifExistingOrNewPwdValRqd3();rakSeamLessLogin.detectPreLoginOrPostLogin();setEvent(rakSeamLessLogin.RakSeamLessLoginModel.preOrPostLoginClick);">{{appLiterals.APP.RAK_SEAM_LESS.TXT_PROCEED}}</button>
+									</div>
+									</div>
+									 
+								</div>
+<!-- xxxxxxxxxxxxxxxxxxxxx SCENARIO 5 : IB & MB (Different User ID, but both are not available) : START xxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+								</div>
+								
+							
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>
+
+
+
+
+
+
+
+
+		</div>
+		  <div >
+
+	
+
+		  </div>
+
+		  </div>
+    </div>
+    <div class="col-sm-1"> </div>
+  </div>
+
+</div>
+
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        onTouchMove:function(){
+            console.log("On prev end");
+        	jQuery(".rakSwipeLstBtn").addClass("ng-hide");
+        },
+        onReachEnd:function(){
+            console.log("On last");
+        	setTimeout(function(){jQuery(".rakSwipeLstBtn").removeClass("ng-hide");},200);
+        }
+    });
+    </script>

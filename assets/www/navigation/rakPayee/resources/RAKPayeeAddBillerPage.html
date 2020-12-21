@@ -1,0 +1,120 @@
+  <div class="rak-back-header">
+    <i class="rak-back-img" ng-click="setEvent('onAddBillerPageBackClick');"></i>
+  </div>
+  <div class="nano menu-scroll">
+	<div class="nano-content">
+	<div class="finacle-container" ng-init="resetPageError();rakPayee.getPayeeInitForBillerType(successResponse.responsesList);">
+	<div class="account-page">
+	<div class="col-sm-11">
+	<div class="app-title-wrapper">
+			<div class="form-block">
+					<ng-include  src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>
+			 <div class="rak-scroll">
+			<div class="">
+				 <div class="main-form-heading-payee">
+		           <h2 >{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.CREATE_PAYEE}}
+		           <span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2}} : {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1_TXTBNF}} </span>
+		           </h2>
+		        </div>
+
+
+		<div class="bg-color rak-cont-padding rakScrollDiv">
+				<div class="" >
+				
+
+					<!-- Name -->
+            <!-- <fin-input type="text" model="rakPayee.billerModel.displayName" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BIL_NAME}}" validation-flag='pageErrorArr["rakPayee.billerModel.displayName"]' readonly> </fin-input> -->
+				<div class="rak-parent-txt-new" >
+						<p  class="rak-sum-label-new"> {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BILLER_NAME}}</p>
+						<p  class="rak-sum-label-new black"> {{rakPayee.billerModel.displayName}}</p>
+				</div>
+          
+           <!-- Dynamic fields -->
+          <div ng-repeat="label in rakPayee.billerModel.labels">
+              <fin-input ng-if="label.payeeLabelType.toLowerCase() === 'numeric'" type="number_card" model="rakPayee.billerModel.consumercode{{$index}}" display-row="full" placeholder="{{label.payeeLabelName}}" max-Length="{{label.payeeInputSize}}" validation-flag='pageErrorArr["rakPayee.billerModel.consumerCodeflds[{{$index}}].value"]'> </fin-input>
+
+
+           <!--   <fin-input ng-if="label.payeeLabelType.toLowerCase() === 'alphanumeric'&& label.isReadOnly" type="text" model="rakPayee.billerModel.consumercode{{$index}}" display-row="full" placeholder="{{label.payeeLabelName}}" ng-keypress="validateMaxLength($event,label.payeeLabelValue,label.payeeInputSize);"   max-length="{{label.payeeInputSize}}" validation-flag='pageErrorArr["rakPayee.billerModel.consumerCodeflds[{{$index}}].value"]' readonly> </fin-input> -->
+
+              <div class="rak-parent-txt-new" ng-if="label.payeeLabelType.toLowerCase() === 'alphanumeric'&& label.isReadOnly" >
+						<p  class="rak-sum-label-new "> {{label.payeeLabelName}}</p>
+						<p  class="rak-sum-label-new black"> {{rakPayee.getLabelName($index)}}</p>
+				</div>
+
+               <div ng-if="label.payeeLabelType.toLowerCase() === 'alphanumeric'&& !label.isReadOnly && label.payeefieldIsRequired && label.payeePattern.indexOf('[0-9]')!=-1">
+              	<fin-input  type="number_card" model="rakPayee.billerModel.consumercode{{$index}}" display-row="full" placeholder="{{label.payeeLabelName}}" ng-keypress="validateMaxLength($event,label.payeeLabelValue,label.payeeInputSize);"  max-length="{{label.payeeInputSize}}" validation-flag='pageErrorArr["rakPayee.billerModel.consumerCodeflds[{{$index}}].value"]'> </fin-input>
+              </div>
+              <div ng-if="label.payeeLabelType.toLowerCase() === 'alphanumeric'&& !label.isReadOnly && label.payeefieldIsRequired && label.payeePattern.indexOf('[0-9]')==-1">
+              	<fin-input  type="text" model="rakPayee.billerModel.consumercode{{$index}}" display-row="full" placeholder="{{label.payeeLabelName}}" ng-keypress="validateMaxLength($event,label.payeeLabelValue,label.payeeInputSize);"  max-length="{{label.payeeInputSize}}" validation-flag='pageErrorArr["rakPayee.billerModel.consumerCodeflds[{{$index}}].value"]'> </fin-input>
+              </div>
+
+              <div ng-if="rakPayee.billerModel.isDynDropDownDisplay">
+              <fin-input ng-if="label.payeeLabelType.toLowerCase() === 'alphanumeric'&& !label.isReadOnly && !label.payeefieldIsRequired" type="text" model="rakPayee.billerModel.consumercode{{$index}}" display-row="full" placeholder="{{label.payeeLabelName}}" ng-keypress="validateMaxLength($event,label.payeeLabelValue,label.payeeInputSize);"  max-length="{{label.payeeInputSize}}" validation-flag='pageErrorArr["rakPayee.billerModel.consumerCodeflds[{{$index}}].value"]'> </fin-input>
+               </div>
+
+		       <div  ng-if="label.payeeLabelType.toLowerCase() === 'dropdown'"
+		             ng-init='rakPayeeDropArr = createDropDownOptionArray(label.dropdown, ["payeeLabelDesc"], "payeeLabelValue");'>
+
+		      <fin-input type="dropdown" model="rakPayee.billerModel.consumercode{{$index}}" on-change="rakPayee.billerModel.getDynamicOptionalFieldForBiller({{$index}});" display-row="full"  validation-flag='pageErrorArr["rakPayee.billerModel.consumerCodeflds[{{$index}}].value"]'
+		           placeholder="{{label.payeeLabelName}}"
+		           option-array="rakPayeeDropArr" >
+		      </fin-input>
+
+		       </div>
+
+         </div>
+         
+          <!-- NickName -->
+            <fin-input type="text_restrictedSpecialCharacter" model="rakPayee.billerModel.nickName" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BILLER_NICKNAME}}" validation-flag='pageErrorArr["rakPayee.billerModel.nickName"]' max-length="64"> </fin-input>
+         
+
+             <!-- Dynamic fields -->
+
+              <!-- Auto pay date is renamed to subscription date in the API layer -->
+            	 <!-- <fin-input type="date" model="rakPayee.billerModel.autoPayStartDate" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_SUB_DATE}}" validation-flag='pageErrorArr["rakPayee.billerModel.autoPayStartDate"]' on-change='rakPayee.billerModel.parseAutoPayDate()'> </fin-input> -->
+
+
+
+
+						<!-- The same button handles edit biller use case and add biller use case -->
+			<div class="label-wrap">
+
+			<button type="button"
+										class="btn--special-btn btn-middle rak-button-small btn--back"
+										ng-click="setEvent('onAddBillerPageBackClick');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+						<!-- <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="(rakPayee.isEditBillerMode) ? setEvent('onEditBillerPageBackClick'): setEvent('onAddBillerPageBackClick');" >{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_BACK}}</button> -->
+						<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakPayee.selectedPayeeType=rakPayee.payeeTypes.PAYBILLS;rakPayee.setupBillerLabels();rakPayee.billerModel.getConsumerCodeListForBiller();setEvent(rakPayee.getAddPayeeEventDetails());" >{{appLiterals.APP.PAYEE.ADDBILL_PAGE.BTN_CONTINUE}}</button>
+
+            </div>
+
+
+			<div class="col-sm-1"> </div>
+				 <div class="disclaimer" >
+								<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+									<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+								</div>
+
+								<div class="disclaimer3" ng-show="rakDisclaimerFlag">
+									<div ng-bind-html="rakPayee.disclaimerTextForAddBiller">
+								</div>
+				</div>
+			</div>
+
+
+			</div>
+
+
+			</div>
+			</div>
+		</div>
+		</div>
+		</div>
+
+
+</div>
+
+	</div>
+</div>
+</div>
+</div>

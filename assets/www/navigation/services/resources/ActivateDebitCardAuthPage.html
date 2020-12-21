@@ -1,0 +1,52 @@
+<!-- Cancel button <div class="app app-cancel title-right" ng-click="setEvent('onActivateDebitCardAuthCancelClick')"></div> -->
+<div class="app app-arrow2 title-right-dash" id="activateDebitCardAuthBack"
+	ng-click="services.debitCardCommonData.onBackBtnClick();setEvent('onActivateDebitCardAuthBackClick')"></div>
+<div class="finacle-container"
+	ng-init="services.debitCardCommonData.initDebitCardConfirmData(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div class="item-title text-uppercase" >
+							<span id="pageTitle"> {{appLiterals.APP.COMMON.TITLE.CONF_AUTH}} </span>
+						</div>
+					</div>
+					<!--  end of title  -->
+					<div class="col-sm-12">
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtAccNo">
+								{{appLiterals.APP.SERVICES.COMMON.ACC_NO}} </strong> <span
+								class="dash-ac-id" id="accNo">
+								{{services.debitCardCommonData.authResponceList.accountNickName}}-{{services.debitCardCommonData.authResponceList.accountNumber}}
+							</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtDebitCardNo">
+								{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD_AUTH.TXT_DEBIT_CARD_NO}}
+							</strong> <span class="dash-ac-id" id="debitCardNo">
+								{{services.debitCardCommonData.authResponceList.debitCardNumber}}
+							</span>
+						</div>
+					</div>
+					<form
+						ng-submit="corpInit.corpModel.getSelectedRoleDetailsAsString();setEvent('onActivateDebitCardOffAuthConfirmClick')">
+						<div
+							ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+							<approval-input></approval-input>
+						</div>
+						<div ng-if="services.debitCardCommonData.auth!=''">
+							<fin-Stepauth></fin-Stepauth>
+						</div>
+						<md-button id="activateDebitCardAuthPageSubmit" type="submit"
+							ng-if='services.debitCardCommonData.isOnline == true'
+							class="md-raised btn--primary-btn">{{appLiterals.APP.COMMON.BUTTON.SUBMIT}}</md-button>
+						<md-button id="activateDebitCardAuthPageSubmitToRM" type="submit"
+							ng-if='services.debitCardCommonData.isOnline == false'
+							class="md-raise btn--primary-btn">{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD_AUTH.BTN_SUBMIT_TO_RM}}</md-button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

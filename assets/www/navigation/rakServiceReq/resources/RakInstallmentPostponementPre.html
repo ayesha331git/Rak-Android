@@ -1,0 +1,62 @@
+		<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onInstallmentPostponementPreCloseClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+
+<div class="finacle-container"
+	ng-init="rakServiceReq.installmentPostponement.preInstallmentPostponement(successResponse.responsesList);">
+
+	<div class="account-page ">
+		<div class="col-sm-11">
+		
+		<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.INSTALL_POSTPONE}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+				      </h2>		       
+		 		</div>
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+					
+
+					<div
+						ng-init='loanaccountnumberlist = createDropDownOptionArray(rakServiceReq.installmentPostponement.loanAccountNumberList,["accountName","-","accountNumber"],"accountNumber");'
+						 >
+																													<!-- ["accountName","-","accountNumber"],"index") -->
+						<fin-input type="dropdown"
+							model="rakServiceReq.installmentPostponement.accountNumber"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.LOAN_ACC_NUMBER}}"
+
+							validation-flag='pageErrorArr["rakServiceReq.installmentPostponement.accountNumber"]'
+							option-array="loanaccountnumberlist" ></fin-input>
+					</div>
+
+
+
+
+						<div class="label-wrap">
+
+							<button type="button"
+							class="btn--special-btn btn-middle rak-button-small rak-button-right"
+							ng-click="setEvent('onSubmitOfDetailsToFetch');">
+							{{appLiterals.APP.RAK_SERVICES.RAK_INSTALLMENT_POSTPONE.SUBMIT_TO_FETCH}}</button>
+
+						</div>
+
+
+
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+</div>

@@ -1,0 +1,88 @@
+
+<div class="rak-back-header" ng-click="setEvent('onRakPersonalFolderMailBack');">
+	<i class="rak-back-img"></i>
+</div>
+
+
+<div class="nano menu-scroll">
+
+
+	<div class="nano-content">
+		<div class="finacle-container"
+			ng-init="rakMails.initDetailsPage(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+
+							<div class="">
+
+
+							<div class="col-sm-1"></div>
+								<div>
+								<span class="rakIBHeading"><h2>Personal</h2></span>
+								
+												
+								</div>
+
+								<div class="settings-block">
+									
+
+								</div>
+								<div class="bg-color rak-cont-padding rak-scroll">
+									<div class="">
+
+
+
+									<!-- 	<div class="indication-mail active">
+											<div class="date-label">{{rakMails.mailDate}}</div>
+											<div class="subjet-label">{{rakMails.mailSubject}}</div>
+											<div class="short-discription-label">{{rakMails.mailBody}}</div>
+
+										</div> -->
+
+										<div class="full-mail open">
+											<div class="center">
+												<img src="images/mail-arrow.png" alt="arrow"
+													class="mailArrow" />
+											</div>
+											<div class="full-mail-top">
+
+												<div class="rakMailDet">
+													<div>
+														<span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.FROM}}:</span>
+														<span>{{rakMails.mailFromId}}</span>
+													</div>
+													<div>
+														<span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.TO}}:</span>
+														<span>{{rakMails.mailToId}}</span>
+													</div>
+													<div>
+														<span>Subject:</span> <span>{{rakMails.mailSubject}}</span>
+													</div>
+													<div>
+														<span>{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.DATE}}:</span>
+														<span>{{rakMails.mailDate}}</span>
+													</div>
+												</div>
+
+											</div>
+											<div class="full-mail-bottom">
+												<pre>{{rakMails.mailBody}}</pre>
+											</div>
+										</div>
+
+
+
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-1"></div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

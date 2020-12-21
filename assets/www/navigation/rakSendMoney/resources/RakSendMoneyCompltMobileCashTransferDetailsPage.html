@@ -1,0 +1,113 @@
+ <div class="rak-back-header">
+			<i class="rak-back-img" ng-click="rakSendMoney.mobileCashHistory.selectedIndex='';setEvent('onBackClick')"></i>
+		</div>
+		
+<div class="nano menu-scroll">
+	<div class="nano-content">
+<div class="finacle-container" >
+  <div class="account-page" ng-init="rakSendMoney.mobileCashHistory.historyDetail();">
+    <div class="col-sm-11">
+     <div class="app-title-wrapper">
+    
+		  
+		  <ng-include
+								src="'./navigation/rakSendMoney/resources/RakSendMoneyTabPage.html'">
+							</ng-include>
+
+
+							<div class="tab-links">
+								<ul>																		
+									<li ng-click="rakSendMoney.txnHistory.clearSearchHistory();rakSendMoney.txnHistory.setInitialDate();rakPayee.isBeneficiaryHistoryMode=false;setGlobalEvent('onRakSendMoneyHistoryTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_HISTORY}}</span></li>
+									<li ng-click="rakSendMoney.clearTab();rakSendMoney.common.clearSearchData();rakSendMoney.schedule.clearScheduleTransferData();rakSendMoney.history=true;rakSendMoney.txnHistory.setFutureDate();setGlobalEvent('onRakHistoryTabClick')"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_SCHEDULE}}</span></li>
+									<li class="active"><span class="active">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_MOBILECASH_HISTORY}}</span></li>
+								</ul>
+							</div>  
+		  
+		  <div class="rak-scroll">
+      <div class="main-form-heading-ServiceReq">
+                    	<h2 class="rakBenfHeader">{{appLiterals.APP.RAK_PAYEE.HISTORY.TXNDETAILS}}</h2>
+            </div>
+	
+	 
+		<div class="bg-color rakScrollDiv rak-cont-padding">      
+		 
+			<div class="" >
+			  <div class="">
+		
+				
+				 <!--  <p class="rak-sum-txt" ng-show='rakSendMoney.MOBILECASHHISTORYTXNTYPE.SELF==rakSendMoney.mobileCashHistory.selectedCompltTxn.txnType'>
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.NAME}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAK_PAYEE.HISTORY.SELF}}</span>
+				</p>
+				
+				  <p class="rak-sum-txt" ng-hide='rakSendMoney.MOBILECASHHISTORYTXNTYPE.SELF==rakSendMoney.mobileCashHistory.selectedCompltTxn.txnType'>
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.NAME}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCashHistory.scheduleList[rakSendMoney.mobileCashHistory.selectedIndex].benfName}}</span>
+				</p> -->
+				
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.NAME}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCashHistory.scheduleList[rakSendMoney.mobileCashHistory.selectedIndex].benfName}}</span>
+				</p>
+				
+						<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.AMOUNT}}</span>
+					<span class="rak-sum-label black"> {{rakSendMoney.mobileCashHistory.scheduleList[rakSendMoney.mobileCashHistory.selectedIndex].txnAmount}}</span>
+				</p>	
+				
+				
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.CONSUMER_NO}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCashHistory.scheduleList[rakSendMoney.mobileCashHistory.selectedIndex].mobileno}}</span>
+				</p>
+					
+					<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.OTPSTATUS}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCashHistory.scheduleList[rakSendMoney.mobileCashHistory.selectedIndex].txnStatus}}</span>
+				</p>
+				
+					<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.REF_NUM}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCashHistory.scheduleList[rakSendMoney.mobileCashHistory.selectedIndex].reqRefId}}</span>
+				</p>
+				
+			  <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FROM_ACCOUNT}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCashHistory.scheduleList[rakSendMoney.mobileCashHistory.selectedIndex].fromAccount}}</span>
+				</p>
+		
+					<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.DATE}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCashHistory.scheduleList[rakSendMoney.mobileCashHistory.selectedIndex].txnDate}}</span>
+				</p>	
+			 	
+					<p class="rak-sum-txt" ng-show="rakSendMoney.mobileCashHistory.requestedBy">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.REQUESTED_BY}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCashHistory.scheduleList[rakSendMoney.mobileCashHistory.selectedIndex].requestedBy}}</span>
+				</p>
+				
+				
+				<p class="rak-sum-txt" ng-show="rakSendMoney.mobileCashHistory.approvedBy">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.APPROVED_BY}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.mobileCashHistory.scheduleList[rakSendMoney.mobileCashHistory.selectedIndex].approvedBy}}</span>
+				</p>
+						
+				
+			
+				
+				
+			
+			  
+				
+	  
+								
+				
+      </div>
+    </div>
+  </div>
+		  </div>
+		</div>
+	</div>
+<div class="scroll-space"></div>
+		</div>
+<!-- partial code end here-->

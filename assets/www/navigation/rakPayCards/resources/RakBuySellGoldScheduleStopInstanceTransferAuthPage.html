@@ -1,0 +1,86 @@
+
+<div class="rak-back-header" ng-show="rakPayCards.rakInvGold.freqType!='O'">
+	<i class="rak-back-img" ng-click="rakPayCards.rakInvGold.stopBtnClicked=false;rakPayCards.rakInvGold.isBackclicked=true;setEvent('onBackClick');"></i>
+</div>
+<div ng-init="resetPageError();rakPayCards.rakInvGold.remarks='';rakPayCards.rakInvGold.mode='';rakPayCards.rakInvGold.initImmediateStopTransferAuth(successResponse.responsesList);">
+	<div class="account-page">
+	
+    <div class="col-sm-11">
+	  <div class="app-title-wrapper">		
+		
+					<ng-include
+								src="'./navigation/rakPayCards/resources/RakBuySellGoldTabPage.html'">
+							</ng-include>
+		 
+							<div class="tab-links">
+								<ul>
+									<li ng-click="rakPayCards.rakInvGold.clearTab();rakPayCards.txnHistory.setInitialDate();rakPayCards.rakInvGold.History=true;
+									rakPayCards.txnHistory.setInitialDate();setGlobalEvent('onrakBuySellGoldHistoryClick')"><span>{{appLiterals.APP.RAKPAYCARDS.RAKBUYSELLGOLD.GOLDHISTORY.HISTORY}}</span></li>
+									<li class="active"><span class="active">{{appLiterals.APP.RAKPAYCARDS.RAKBUYSELLGOLD.GOLDHISTORY.SCHTXNS}}</span></li>
+								</ul>
+							</div>  
+		
+		
+        <div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh">
+      <div class="main-form-heading">
+                    	<h2>{{appLiterals.APP.RAK_COMMON.SUMMARY_HEADER}}<span>{{appLiterals.APP.RAK_COMMON.SUMMARY_REVIEW}}</span></h2>
+            </div>
+	
+	 
+		<div class="">      
+		 
+				<div class="">
+
+			<div class="" >
+			  <div class="">
+			  
+			  <p class="rak-sum-txt" ng-repeat="instance in rakPayCards.rakInvGold.instanceListJson" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.PAYMENTDUE}}</span>
+					<span class="rak-sum-label black">{{instance.immediatePaymentDueOn}}</span>
+				</p>
+									
+				<!-- <textarea class="text_area" placeholder="Remarks"
+					ng-model='rakPayCards.rakInvGold.remarks' maxlength="25" ng-style='(pageErrorArr["rakPayCards.rakInvGold.remarks"] == null) ? {"border-bottom": "solid 0.1em #dbe3e7"} : {"border-bottom": "solid 0.1em red"}'></textarea>
+				<div ng-class="{&quot;bottom-line&quot;: !pageErrorArr[&quot;rakPayCards.rakInvGold.remarks&quot;], &quot;bottom-line-error&quot;:pageErrorArr[&quot;rakPayCards.rakInvGold.remarks&quot;]}" class="bottom-line-error"></div>
+				<div ng-hide="pageErrorArr[&quot;rakPayCards.rakInvGold.remarks&quot;]==null" class="rakErrorMsg"> {{appLiterals.APP.RAKERRORMSG.VALIDATORTYPEMSG.required}} </div> -->
+				
+					<div class="label-wrap" ng-show='rakPayCards.rakInvGold.authStatus'>
+						<fin-input type="password_text" model="rakPayCards.rakInvGold.mode"
+						display-row="full" placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.PH_TRANSPASS}}"
+						validation-flag='pageErrorArr["rakPayCards.rakInvGold.mode"]'
+						ng-show="rakPayCards.rakInvGold.authFlag==txnpwdString">
+						</fin-input>
+						<div ng-show="rakPayCards.rakInvGold.authFlag==otpString">
+					<div ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+			<fin-input type="password_num" model="rakPayCards.rakInvGold.mode"
+			display-row="full" placeholder="{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.PH_OTP}}"
+			validation-flag='pageErrorArr["rakPayCards.rakInvGold.mode"]' > </fin-input>
+			</div>
+			
+		
+			<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0' ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+			
+				<fin-input type="dropdown" option-array="toModeArray" model="rakHome.otpModel.otpModeSelected" display-row="full" placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+				<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+			
+			</div>
+							<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>
+						</div>
+					</div>
+				
+				
+				
+				<div class="label-wrap">	
+				 <button type="button"  class="btn--special-btn btn-middle rak-button-small" 
+				 ng-click="rakPayCards.rakInvGold.stopBtnClicked=true;setEvent(rakPayCards.rakInvGold.fetchSubmitEvent());">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.SUBMIT}}</button>
+			  </div>
+          <div class="col-sm-1"> </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+

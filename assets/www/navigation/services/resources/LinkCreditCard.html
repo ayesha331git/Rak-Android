@@ -1,0 +1,97 @@
+<div class="app app-arrow2 title-right-dash" id="linkCreditCardBackAction" 
+					ng-click="setEvent('onCancelClick')"></div>
+<div class="finacle-container"
+	ng-init="services.initLinkCreditCard(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase">
+							<span id="pageTitle">
+								{{appLiterals.APP.SERVICES.CREDIT_CARD.LINK_CC_HEADER}} </span>
+						</div>
+					</div>
+					<!-- end of title -->
+					<div class="col-sm-12">
+						<div class="transaction-info">
+							<div class="fut-txt1 lh13"  id="cardNo">
+								{{appLiterals.APP.SERVICES.CREDIT_CARD.PH_CARD_NO}}</div>
+						</div>
+					</div>
+					<form
+						ng-submit="corpInit.corpModel.resetCorpInitDetails();services.combineCardandAddress();setEvent('onConfirmClick')">
+						<div class="avail-bal-wrap">
+							<div class="col-sm-3 card_no">
+								<fin-input type="number_card"
+									model="services.linkCreditCardModel.ccNo1" display-row="full"
+									placeholder=""
+									validation-flag='pageErrorArr["services.linkCreditCardModel.ccNo1"]'
+									max-length="4"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="number_card"
+									model="services.linkCreditCardModel.ccNo2" display-row="full"
+									placeholder=""
+									validation-flag='pageErrorArr["services.linkCreditCardModel.ccNo2"]'
+									max-length="4"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="number_card"
+									model="services.linkCreditCardModel.ccNo3" display-row="full"
+									placeholder=""
+									validation-flag='pageErrorArr["services.linkCreditCardModel.ccNo3"]'
+									max-length="4"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="number_card"
+									model="services.linkCreditCardModel.ccNo4" display-row="full"
+									placeholder=""
+									validation-flag='pageErrorArr["services.linkCreditCardModel.ccNo4"]'
+									max-length="4"></fin-input>
+							</div>
+						</div>	
+						<p class="valid-no"
+							ng-show='pageErrorArr["services.linkCreditCardModel.ccNo1"]!=null || pageErrorArr["services.linkCreditCardModel.ccNo2"]!=null || pageErrorArr["services.linkCreditCardModel.ccNo3"]!=null || pageErrorArr["services.linkCreditCardModel.ccNo4"]!=null'>{{appLiterals.APP.COMMON.TEXT.ENTER_CARD_NO}}</p>
+						<div class="avail-bal-wrap clear-all">
+							<fin-input type="text" model="services.linkCreditCardModel.name"
+								display-row="full"
+								placeholder=" {{appLiterals.APP.SERVICES.CREDIT_CARD.PH_NAME}}"
+								validation-flag='pageErrorArr["services.linkCreditCardModel.name"]'></fin-input>
+							<fin-input type="text"
+								model="services.linkCreditCardModel.addrLn1" display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.CREDIT_CARD.PH_ADDRESS_LINE1}}"
+								validation-flag='pageErrorArr["services.linkCreditCardModel.addrLn1"]'></fin-input>
+							<fin-input type="text"
+								model="services.linkCreditCardModel.addrLn2" display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.CREDIT_CARD.PH_ADDRESS_LINE2}}"
+								validation-flag='pageErrorArr["services.linkCreditCardModel.addrLn2"]'></fin-input>
+							<fin-input type="text" model="services.linkCreditCardModel.city"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.CREDIT_CARD.PH_CITY}}"
+								validation-flag='pageErrorArr["services.linkCreditCardModel.city"]'></fin-input>
+						</div>
+						<div class="two-input-wrapper"
+							ng-init='countryArr = createDropDownOptionArray(services.linkCreditCard.countryList, ["content"], "content");'>
+							<fin-input type="postalCode"
+								model="services.linkCreditCardModel.postal" display-row="half1"
+								placeholder="{{appLiterals.APP.SERVICES.CREDIT_CARD.PH_POSTAL_CODE}}"
+								validation-flag='pageErrorArr["services.linkCreditCardModel.postal"]'></fin-input>
+
+							<fin-input type="dropdown"
+								model="services.linkCreditCardModel.selectedCountry"
+								display-row="half2"
+								placeholder="{{appLiterals.APP.SERVICES.CREDIT_CARD.PH_COUNTRY}}"
+								validation-flag='pageErrorArr["services.linkCreditCardModel.selectedCountry"]'
+								option-array="countryArr"></fin-input>
+
+						</div>
+						<md-button type="submit" id="BUTTON_CONTINUE" class="md-raised btn--primary-btn"
+							ng-click="">{{appLiterals.APP.COMMON.BUTTON.CONTINUE}}</md-button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

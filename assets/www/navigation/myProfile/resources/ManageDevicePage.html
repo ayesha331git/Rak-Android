@@ -1,0 +1,123 @@
+<div id="ManageActiveDeviceBackAction"
+	class="app app-arrow2 title-right" ng-if="isUserLoggedIn"
+	ng-click='setEvent("onCancelClick")'></div>
+<div class="finacle-container"
+	ng-init="myProfile.manageDevice.initManageDeviceDetails(successResponse.responsesList);resetPageError();">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase"
+							id="manageActiveDeviceHeader">
+							{{appLiterals.APP.MYPROFILE.MANAGE_AC_DEVICES.TITLE}}</div>
+					</div>
+					<div class="">
+						<md-radio-group ng-model="myProfile.manageDevice.selDeviceName">
+						<div class="col-sm-12 avail-bal-wrap">
+							<div
+								ng-repeat="deviceDetails in myProfile.manageDevice.deviceList">
+								<div ng-if='deviceDetails.isLoggedIn' class="">
+									<div id="manageActiveDeviceTxt1" class="fut-txt1">
+
+										{{appLiterals.APP.MYPROFILE.MANAGE_AC_DEVICES.CURRENT_USER}}</div>
+									<div class="trans-detail">
+										<div class="trans-info-left">
+											<div class="trans-date">{{appLiterals.APP.MYPROFILE.MANAGE_AC_DEVICES.PH_DEVICE_NAME}}</div>
+										</div>
+										<div class="">
+											<div class="trans-info-left">
+												<div class="trans-no" id="manageActiveDeviceName">{{deviceDetails.deviceName}}</div>
+											</div>
+											<div class="trans-info-right" layout="row"
+												layout-align="end end">
+												<div class="dash-ac-id" layout="row" layout-align="end end">
+													<md-radio-button class="margin-zero" value="{{deviceDetails}}"
+														aria-label="Label 1"> </md-radio-button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div></div>
+									<!-- <section layout="row" layout-align="center center"
+									class="btn-wrap button-wrapper col-sm-12">
+									<md-button type="button" id="manageActiveDeviceCancel1"
+										class=" md-raised btn--secondary-btn  md-raised btn--primary-three-btn"
+										ng-if="!isUserLoggedIn"
+										ng-click="setGlobalEvent('onLoginClick')">
+									{{appLiterals.APP.COMMON.BUTTON.CANCEL}} </md-button>
+									<md-button type="button" id="manageActiveDeviceDeactivate1"
+										class=" md-raised btn--primary-btn  md-raised btn--primary-three-btn"
+										ng-click="myProfile.isCurrentUser = true;myProfile.manageDevice.deactivateDevice(deviceDetails);
+								setEvent('onMngDLClick');">{{appLiterals.APP.MYPROFILE.MANAGE_AC_DEVICES.DE_ACT}}</md-button>
+									<md-button type="button" id="manageActiveDeviceEdit1"
+										ng-show='isUserLoggedIn'
+										class=" md-raised btn--primary-btn  md-raised btn--primary-three-btn"
+										ng-click="myProfile.manageDevice.editDeviceDetails(deviceDetails); setEvent('onMngEditClick')">
+									{{appLiterals.APP.COMMON.BUTTON.EDIT}} </md-button>
+								</section> -->
+								</div>
+							</div>
+							<div id="manageActiveDeviceTxt2" class="fut-txt1 margin-top-15">
+
+								{{appLiterals.APP.MYPROFILE.MANAGE_AC_DEVICES.OTHER_DEVICE}}</div>
+							<div
+								ng-repeat="deviceDetails in myProfile.manageDevice.deviceList ">
+								<!-- <div class="trans-no">
+								<b id="manageActiveDeviceTxt1">
+									{{appLiterals.APP.MYPROFILE.MANAGE_AC_DEVICES.CURRENT_USER}} </b>
+							</div> -->
+								<div class="trans-detail" ng-hide='deviceDetails.isLoggedIn'>
+									<div class="trans-info-left">
+										<div class="trans-date">{{appLiterals.APP.MYPROFILE.MANAGE_AC_DEVICES.PH_DEVICE_NAME}}</div>
+									</div>
+									<div>
+										<div class="trans-info-left">
+											<div class="trans-no" id="manageActiveDeviceName">{{deviceDetails.deviceName}}</div>
+										</div>
+										<div class="trans-info-right" layout="row"
+											layout-align="end end">
+											<div class="dash-ac-id" layout="row" layout-align="end end">
+												<md-radio-button class="margin-zero" value="{{deviceDetails}}"
+													aria-label="Label 1"> </md-radio-button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						</md-radio-group>
+					</div>
+					<div ng-hide='deviceDetails.isLoggedIn' class="col-sm-12">
+						<!-- <p class="view-bill-txt padding-zero" id="manageActiveDeviceName2">
+							<b> {{deviceDetails.deviceName}} </b>
+						</p> -->
+						<section layout="row" layout-align="center center"
+							class="btn-wrap button-wrapper col-sm-12">
+							<md-button type="button" id="manageActiveDeviceCancel2"
+								class=" md-raised btn--secondary-btn  md-raised btn--primary-three-btn"
+								ng-if="!isUserLoggedIn"
+								ng-click="setGlobalEvent('onLoginClick')">
+							{{appLiterals.APP.COMMON.BUTTON.CANCEL}} </md-button>
+							<md-button type="button" id="manageActiveDeviceDeactivate2"
+								ng-if='!isUserLoggedIn'
+								class=" md-raised btn--primary-btn  md-raised btn--primary-three-btn"
+								ng-click="myProfile.manageDevice.deactivateDevice(myProfile.manageDevice.selDeviceName);">
+							{{appLiterals.APP.MYPROFILE.MANAGE_AC_DEVICES.DE_ACT}}</md-button>
+							<md-button type="button" id="manageActiveDeviceDeactivate3"
+								ng-if='isUserLoggedIn'
+								class=" md-raised btn--primary-btn  md-raised btn--primary-three-btn"
+								ng-click="myProfile.isCurrentUser = true; myProfile.manageDevice.deactivateDevice(myProfile.manageDevice.selDeviceName);">
+							{{appLiterals.APP.MYPROFILE.MANAGE_AC_DEVICES.DE_ACT}}</md-button>
+							<md-button type="button" id="manageActiveDeviceEdit2"
+								ng-show='isUserLoggedIn'
+								class=" md-raised btn--primary-btn  md-raised btn--primary-three-btn"
+								ng-click="myProfile.manageDevice.editDeviceDetails(myProfile.manageDevice.selDeviceName);setEvent('onMngEditClick');">
+							{{appLiterals.APP.COMMON.BUTTON.EDIT}}</md-button>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

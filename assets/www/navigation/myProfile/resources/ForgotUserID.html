@@ -1,0 +1,83 @@
+<div id="forgotUserIdBackAction" class="app app-arrow2 title-right"
+	ng-click='setEvent("onBackClick")'></div>
+<div class="finacle-container"
+	ng-init="myProfile.forgotUserID.initForgotUID(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper"></div>
+			<div class="dashboard-item-body padding-zero full-height">
+				<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+					<div class="item-title text-uppercase" id="forgotUserIdHeader">{{appLiterals.APP.MYPROFILE.FP_UID.TXT_FORGOT_USER_ID}}</div>
+				</div>
+				<form
+					ng-submit="myProfile.forgotUserID.onClickFUID();setEvent('onForgotUserIDSubmitClick')">
+					<fin-input type="text"
+						model="myProfile.forgotUserID.firstName" display-row="full"
+						placeholder="{{appLiterals.APP.MYPROFILE.FP_UID.PH_FIRST_NAME}}"
+						max-length=32
+						validation-flag='pageErrorArr["myProfile.forgotUserID.firstName"]'></fin-input>
+					<fin-input type="text"
+						model="myProfile.forgotUserID.lastName" display-row="full"
+						placeholder="{{appLiterals.APP.MYPROFILE.FP_UID.PH_LAST_NAME}}"
+						max-length=32
+						validation-flag='pageErrorArr["myProfile.forgotUserID.lastName"]'></fin-input>
+					<fin-input type="date" model="myProfile.forgotUserID.birthDate"
+						display-row="full"
+						validation-flag='pageErrorArr["myProfile.forgotUserID.birthDate"]'
+						placeholder="{{appLiterals.APP.MYPROFILE.FP_UID.PH_DOB}}"></fin-input>
+					<fin-input type="accountId" model="myProfile.forgotUserID.accountID"
+						display-row="full"
+						placeholder=" {{appLiterals.APP.MYPROFILE.FP_UID.PH_ACC_ID}}"
+						validation-flag='pageErrorArr["myProfile.forgotUserID.accountID"]'></fin-input>
+					<fin-input type="text" model="myProfile.forgotUserID.address1"
+						display-row="full"
+						placeholder="{{appLiterals.APP.MYPROFILE.FP_UID.PH_ADDRESS1}}"
+						max-length=50
+						validation-flag='pageErrorArr["myProfile.forgotUserID.address1"]'></fin-input>
+					<fin-input type="text" model="myProfile.forgotUserID.address2"
+						display-row="full"
+						placeholder="{{appLiterals.APP.MYPROFILE.FP_UID.PH_ADDRESS2}} "
+						max-length=50
+						validation-flag='pageErrorArr["myProfile.forgotUserID.address2"]'></fin-input>
+					<fin-input type="text" model="myProfile.forgotUserID.city"
+						display-row="full"
+						placeholder="{{appLiterals.APP.MYPROFILE.FP_UID.PH_CITY}} "
+						max-length=20
+						validation-flag='pageErrorArr["myProfile.forgotUserID.city"]'></fin-input>
+					<fin-input type="text" model="myProfile.forgotUserID.state"
+						display-row="full"
+						placeholder="{{appLiterals.APP.MYPROFILE.FP_UID.PH_STATE}} "
+						max-length=20
+						validation-flag='pageErrorArr["myProfile.forgotUserID.state"]'></fin-input>
+					<div
+						ng-init='countrylist = createDropDownOptionArray(myProfile.forgotUserID.countrylist,["content"],"value");'>
+						<fin-input type="dropdown" model="myProfile.forgotUserID.country"
+							display-row="full"
+							placeholder="{{appLiterals.APP.MYPROFILE.FP_UID.PH_COUNTRY}}"
+							validation-flag='pageErrorArr["myProfile.forgotUserID.country"]'
+							option-array="countrylist"></fin-input>
+					</div>
+					<fin-input type="postalCode" model="myProfile.forgotUserID.postalCode"
+						display-row="full"
+						placeholder="{{appLiterals.APP.MYPROFILE.FP_UID.PH_ZIP_CODE}}"
+						validation-flag='pageErrorArr["myProfile.forgotUserID.postalCode"]'></fin-input>
+					<fin-input type="mail_Id" model="myProfile.forgotUserID.mailID"
+						display-row="full"
+						placeholder="{{appLiterals.APP.MYPROFILE.FP_UID.PH_EMAIL}}"
+						validation-flag='pageErrorArr["myProfile.forgotUserID.mailID"]'></fin-input>
+					<fin-input type="phone"
+						model="myProfile.forgotUserID.mobileNumber" display-row="full"
+						placeholder="{{appLiterals.APP.MYPROFILE.FP_UID.PH_MOB_NO}}"
+						max-length=20
+						validation-flag='pageErrorArr["myProfile.forgotUserID.mobileNumber"]'></fin-input>
+					<section class="button-wrapper" layout="row"
+						layout-align="center center" layout-wrap>
+						<md-button type="submit" id="forgotUserIdSubmit"
+							class=" md-raised btn--primary-btn">
+						{{appLiterals.APP.COMMON.BUTTON.SUBMIT}} </md-button>
+					</section>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

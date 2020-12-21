@@ -1,0 +1,88 @@
+
+<div class="rak-back-header">
+
+	<i class="rak-back-img" ng-click="setEvent('onCancelClick');"></i>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.RakBusinessEliteSubscribe.initRakBusinessEliteSubscribe(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+
+
+					<!-- <div class="main-form-heading-ServiceReq"> 
+		                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.SME_BUSINESS_ELITE_SUB}}
+		                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+		                 </h2>              
+					</div> -->
+
+					<div class="bg-color rak-cont-paddingvh rakNicknameScrollDashboard">
+						<div class="row">
+
+
+
+							<div class="">
+								<div class="special-txt rakColorWhite rakMarginRight">
+									<div id="termsConditions"></div>
+
+								</div>
+								<!-- <div class="fin-txt rakRedbottomBorder"></div> -->
+								
+								<!-- <div class="disclaimer1 rakSupplCardIco">
+									<h3 class="disclaimer2">{{appLiterals.APP.TERMS_CONDITION.ELITE_DECL}}</h3>
+								</div> -->
+								
+								<!-- <br>
+								<div>
+									<span class="custom_elite_Declaration ">{{appLiterals.APP.TERMS_CONDITION.ELITE_DECL}}</span>
+										
+								</div>
+
+
+								<div class="check-boxs rakPositionStatic">
+									<input id="01" value="01" class="checkbox-custom checkbox1"
+										type="checkbox" ng-model="rakServiceReq.acceptTermscondition"
+										ng-true-value="'Y'" ng-false-value="'N'"> <label
+										for="01" class="checkbox-custom-label rakChkBox custom_business_elite_termsNCondition">{{appLiterals.APP.TERMS_CONDITION.ELITE_AGREMENT}}</label>
+								</div> -->
+							</div>
+							
+							<div class="label-wrap">
+								<button type="button"									
+									class="btn--special-btn btn-middle rak-button-small rak-button-right " 
+									ng-click="rakServiceReq.RakBusinessEliteSubscribe.setTermsnConditionsFlag(rakServiceReq.acceptTermscondition);">
+									{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>								
+									
+
+							</div>
+
+
+
+
+							
+
+							
+
+						</div>
+
+					</div>
+					<div class="col-sm-1"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<script type="text/javascript">
+jQuery('.label-wrap button.btn-middle').attr('disabled','true');
+function EliteFieldEnableDisable(){
+	if(jQuery("[name='TERMS_AND_COND_FLAG']:checked").val()=="chk"){
+		jQuery('.label-wrap button.btn-middle').removeAttr('disabled');
+	}else{
+		jQuery('.label-wrap button.btn-middle').attr('disabled','true');
+	}
+}
+</script>

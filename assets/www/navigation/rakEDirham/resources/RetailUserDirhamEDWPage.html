@@ -1,0 +1,111 @@
+ <div class="rak-back-header">
+	<i class="rak-back-img" ng-click="setEvent('onBackClick');"></i>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container">
+			<div class="account-page">
+			
+					<div class="app-title-wrapper">
+						<div class="form-block">						 
+							
+							<div ng-if="rakEDirham.eDirhamDetails.pinFlag" class="bg-color rak-cont-padding rak-scroll margn-5-5-0-5">
+							<div class="paybils-block-top w-100">
+					            <div class="">
+					              <div class="entr-edirham-pin-txt black-txt dashboard-item-title">{{appLiterals.APP.EDIRHAM.ENTR_EDW_PIN}}</div>
+					              
+					            </div>	
+					            <div>
+					            <div class="setPin-msg">
+									{{appLiterals.APP.EDIRHAM.REGSTR_EDW_TXT1}}
+								
+									{{appLiterals.APP.EDIRHAM.REGSTR_EDW_TXT2}}
+									</div>	
+					            </div>	            
+					            
+					        </div>
+								<div class="">
+									
+										
+									<div class="setPin"
+										ng-init=''>
+											<fin-input flex="100" type="number" model="rakEDirham.eDirhamDetails.pin" required
+											display-row="full"  placeholder="{{appLiterals.APP.EDIRHAM.ENTR_PIN_PLCHOLDER}}"  max-length="4" validation-flag='pageErrorArr["rakEDirham.eDirhamDetails.pin"]'>
+											</fin-input>
+										
+
+									</div>	
+																		
+										<div class="label-wrap">
+
+											
+											<button type="button"
+												class="btn--special-btn btn-middle rak-button-right proceed-btn"
+												ng-click="setEvent('onEdirhamEnterPinNextClick');rakEDirham.eDirhamDetails.pinFlag=false;rakEDirham.eDirhamDetails.acctFlag=true;">
+												{{appLiterals.APP.EDIRHAM.NEXT_BTN}}
+											</button>
+										<!-- CHANGES AS FIX OF PROUAT-1503 END-->
+
+										</div>
+									
+								</div>
+										
+							</div>
+					
+					<div ng-if="rakEDirham.eDirhamDetails.acctFlag" class="eDirham-acct-block">
+						<div  class="bg-color rak-cont-padding eDirham-scroll margn-5-5-0-5">
+							<div class="paybils-block-top w-100">
+					            <div class="">
+					             <div class="entr-edirham-pin-txt black-txt">{{appLiterals.APP.EDIRHAM.CHOOSE_ACCT_TXT}}</div>
+					              
+					            </div>	
+					            <div>
+					            <h3 class="setPin-msg">
+									{{appLiterals.APP.EDIRHAM.CHOOSE_ACCT_MSG}}
+									</h3>	
+					            </div>	
+								<div class="e-dirham-wlcm-block">
+								
+									<div class="loginFirstDiv" ng-init='chooseAcctArray=createDropDownOptionArray(rakEDirham.eDirhamDetails.accountArr , ["accountNickName"],"accountIndex")'>
+									
+										<fin-input type="dropdown" option-array="chooseAcctArray"
+											model="rakEDirham.eDirhamDetails.accountModel"
+											display-row="full" on-change="rakHome.onCustomerTypeChange()"
+											placeholder="{{appLiterals.APP.EDIRHAM.EDIRHAM_SELECT_PLC_HLDR}}"
+											
+											validation-flag='pageErrorArr["rakEDirham.eDirhamDetails.accountModel"]'>
+										</fin-input>
+									
+										
+											
+										</div>					
+										
+									
+								</div>
+							</div>
+								<div class="label-wrap">
+
+											
+											<button type="button"
+												class="btn--special-btn btn-middle rak-button-right proceed-btn top-30"
+												ng-click="rakEDirham.eDirhamSettings.acctFlag=false;rakEDirham.eDirhamDetails.pinFlag=true;setEvent('onEdirhamSuccClick');">
+												{{appLiterals.APP.EDIRHAM.NEXT_BTN}}
+											</button>
+										<!-- CHANGES AS FIX OF PROUAT-1503 END-->
+
+										</div>
+							
+						</div>
+					
+									
+						</div>
+					
+					
+					
+						</div>
+					</div>
+				</div>
+			
+		</div>
+	</div>
+	</div>

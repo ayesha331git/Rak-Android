@@ -1,0 +1,66 @@
+<div ng-init="rakServiceReq.rakDigitalAccessCardBlock.rakrakDigitalAccessCardPinIssuanceInit(successResponse.responsesList);">	
+	<div ng-init='dacCardArr = createDropDownOptionArray(rakServiceReq.rakDigitalAccessCardBlock.digitalAccessCardPinIssuance, ["cardCustName","-","dacCardNo"], "index");'></div>
+	<fin-input type="dropdown"
+		ng-if="rakServiceReq.rakDigitalAccessCardBlock.digitalAccessCardPinIssuance.length>0"
+		model="rakServiceReq.rakDigitalAccessCardBlock.selectedPinIssuanceCard"
+		display-row="full"
+		on-change="setEvent('onRakDACPinReissueFetchOTPClick');"
+		placeholder="{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DAC}}"
+		validation-flag='pageErrorArr["rakServiceReq.rakDigitalAccessCardBlock.selectedPinIssuanceCard"]'
+		option-array="dacCardArr"> 
+	</fin-input>
+	
+	<div class="bg-color rak-cont-padding"
+		ng-if="rakServiceReq.rakDigitalAccessCardBlock.selectedPinIssuanceCard">
+		<fin-input type="password_num"
+			model="rakServiceReq.rakDigitalAccessCardBlock.enteredOTP"
+			display-row="full"
+			placeholder="{{appLiterals.APP.RAK_CC_DC_PIN_REISSUE.OTP}}"
+			validation-flag='pageErrorArr["rakServiceReq.rakDigitalAccessCardBlock.enteredOTP"]'></fin-input>
+	
+		<fin-input type="password_num"
+			model="rakServiceReq.rakDigitalAccessCardBlock.enteredCVV"
+			display-row="full"
+			max-length="3"
+			placeholder="{{appLiterals.APP.RAK_CC_DC_PIN_REISSUE.CVV}}"
+			validation-flag='pageErrorArr["rakServiceReq.rakDigitalAccessCardBlock.enteredCVV"]'></fin-input>
+	
+		<div>
+			<fin-input type="date"
+				model="rakServiceReq.rakDigitalAccessCardBlock.dateOfBirth"
+				validation-flag='pageErrorArr["rakServiceReq.rakDigitalAccessCardBlock.dateOfBirth"]'
+				placeholder="{{appLiterals.APP.RAK_CC_DC_PIN_REISSUE.DOB}}"
+				display-row="full"> </fin-input>
+		</div>
+		<div>
+			<p class="dateLabelLeft">{{appLiterals.APP.RAK_CC_DC_PIN_REISSUE.DOB}}</p>
+		</div>
+
+		<!-- <div class="check-boxsLeft">
+			<input id="termsFlag" class="checkbox-custom-new" type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" ng-model='rakServiceReq.rakDigitalAccessCardBlock.acceptTermscondition'>
+			<label for="termsFlag" class="checkbox-custom-label termsCheck smallCheck"><span ng-bind-html="appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DAC_UNDERTAKING1"></span><span ng-click="rakServiceReq.fetchDisclaimer('AcntAndDebitCardSrvcRqstsCutoffTime_CORP.html');" class="hyperLinkBlue">{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DAC_UNDERTAKING2}}</span><span ng-bind-html="appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DAC_UNDERTAKING3"></span></label>
+		</div> -->
+
+		<div class="label-wrap">
+			<!-- <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button> -->
+			<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakServiceReq.rakDigitalAccessCardBlock.rakPinIssuanceDigitalAccessCardClick();">
+				{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+		</div>
+		<div class="col-sm-1"></div>
+		
+		<div class="disclaimer">
+			<div class="disclaimer1 rakSupplCardIco"
+				ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"
+				ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+				<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+			</div>
+		
+			<div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+				<span ng-bind-html="appLiterals.APP.DISCLAIMER.BLOCK_DC_INIT"></span>
+			</div>
+		
+		</div>
+	
+	</div>
+</div>
+

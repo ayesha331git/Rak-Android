@@ -1,0 +1,95 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRAKOprAcctBalConfReqSucess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+			<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.RAKOprAcctBalConfReq.successMessage}}</span>
+				</div>
+			</div>
+		<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.BALCONFLINK}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+				      </h2>		       
+		 </div>
+		
+		
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+				<div class="row">
+				
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.BAL_CONF_DATE}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKOprAcctBalConfReq.previewDateOne}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.FORACC}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKOprAcctBalConfReq.selectedForAccountNo}}
+							</span>
+						</p>
+						
+	
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.LANG}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKOprAcctBalConfReq.selectedLang}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.ADDRESSEDTO}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKOprAcctBalConfReq.addressdTo}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.ADDRESS}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKOprAcctBalConfReq.address}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.DISPATCHMODE}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKOprAcctBalConfReq.selectedDelMode}}</span>
+						</p>
+
+						<p class="rak-sum-txt"
+							ng-show="rakServiceReq.RAKOprAcctBalConfReq.selectedDelMode=='{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.COLLECTBRANCH}}'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKOprAcctBalConfReq.emiSelDesc}}</span>
+						</p>
+						<p class="rak-sum-txt"
+							ng-show="rakServiceReq.RAKOprAcctBalConfReq.selectedDelMode=='{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.COLLECTBRANCH}}'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.BRANCHNAME}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKOprAcctBalConfReq.selectedBranchDesc}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.CONTACTMOBNO}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKOprAcctBalConfReq.mobileNoString}}</span>
+						</p>
+
+						<p class="rak-sum-txt"
+							ng-hide="rakServiceReq.RAKOprAcctBalConfReq.notes==''">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.NOTES}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKOprAcctBalConfReq.notes}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.DEBTACCT}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKOprAcctBalConfReq.selectedAccountNumber}}
+							</span>
+						</p>
+
+					<div class="label-wrap">
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small"
+							ng-click='setEvent("onRAKOprAcctBalConfReqOkClick");'>
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+					</div>
+
+					
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

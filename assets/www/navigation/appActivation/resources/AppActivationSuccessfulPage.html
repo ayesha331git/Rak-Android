@@ -1,0 +1,28 @@
+<div class="finacle-container"
+	ng-init="setSingleStepRealmAuthFailure();appActivation.initAppActivationSuccessPage(successResponse.responsesList);appActivation.checkTouchIDStatus();appActivation.checkResignedActivationStatus();">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+			<div class="dashboard-pad full-height">
+				<div class=" dashboard-item-body full-height" ng-if="isUserLoggedIn && appActivation.touchIdEnable">
+					<fin-success
+						success-banner=""
+						success-message="{{appActivation.message}}"
+						cross-click="isTouchIDLogin = true;setEvent('onAppActivationSuccessClickGotoDashboard')"></fin-success>
+				</div>
+				<div class=" dashboard-item-body full-height" ng-if="isUserLoggedIn && !appActivation.touchIdEnable">
+					<fin-success
+						success-banner=""
+						success-message="{{appActivation.message}}"
+						cross-click="setEvent('onAppActivationSuccessClick')"></fin-success>
+				</div>
+				<div class=" dashboard-item-body full-height"
+					ng-if="!isUserLoggedIn">
+					<fin-success
+						success-banner=""
+						success-message="{{appActivation.message}}"
+						cross-click="appActivation.clearMPINData();setEvent('onAppActivationSuccessLoginClick')"></fin-success>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

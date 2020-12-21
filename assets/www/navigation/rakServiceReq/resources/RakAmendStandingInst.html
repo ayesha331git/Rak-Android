@@ -1,0 +1,301 @@
+<!-- <span ng-show="rakServiceReq.amendStandingInst.StandingInsDisplay==true" class="rakOverlay">
+		<span  class="ng-binding rakPopUpDisplay">
+		CHANGES DONE AS FIX OF 1995 START
+			<span class="rakFullRmrksTxt">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.TXT_SI_MSG}}</span>
+			<button  class="btn--special-btn btn-middle rak-button-small rakRightButtonInPopUp" ng-click="rakServiceReq.RakCCStandingInstModel.selectedCreditCard=rakServiceReq.amendStandingInst.ccSelected;rakServiceReq.RakCCStandingInstModel.isNotAlreadyStandingInst=true;setEvent('onRAKCCStandingInstInitClick');">{{appLiterals.APP.RAKCCSTANDINGINST.BUTTON_OK}}</button>
+			<button  class="btn--special-btn btn-middle rak-button-small btn--back rakLeftButtonInPopUp" ng-click="rakServiceReq.amendStandingInst.StandingInsDisplay=false;rakServiceReq.amendStandingInst.isDetailsFetched='N'">{{appLiterals.APP.RAKCCSTANDINGINST.BUTTON_CANCEL}}</button>
+		CHANGES DONE AS FIX OF 1995 END
+		</span>
+	</span> -->
+	
+	
+	
+<div ng-show="rakServiceReq.amendStandingInst.StandingInsDisplay==true">
+<div class="full-page-screen"  ></div>
+
+<div class="confirmation-content-container">
+    <div class="message-box-new rakTop25">
+        <div>
+            <p class="round-icon-new">
+            <span class="app app-alert pop-alert-icon rak-color"></span>
+            </p>
+
+        </div>
+
+        <div class="conf-txt-label rak-black-color">
+          {{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.TXT_SI_MSG}}
+        </div>
+		<div class="conf-btn-wrap_alert rakpaddingBottom10 ">
+
+
+
+
+
+            <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="rakServiceReq.amendStandingInst.StandingInsDisplay=false;rakServiceReq.amendStandingInst.isDetailsFetched='N'" >
+                 &nbsp; {{appLiterals.APP.RAKCCSTANDINGINST.BUTTON_CANCEL}}&nbsp;
+            </button>
+
+            <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakServiceReq.RakCCStandingInstModel.selectedCreditCard=rakServiceReq.amendStandingInst.ccSelected;rakServiceReq.RakCCStandingInstModel.isNotAlreadyStandingInst=true;setEvent('onRAKCCStandingInstInitClick');" >
+                &nbsp; {{appLiterals.APP.RAKCCSTANDINGINST.BUTTON_OK}} &nbsp;
+            </button>
+
+        </div>
+
+
+
+
+    </div>
+</div>
+</div>	
+
+<div class="rak-back-header">
+
+		<i class="rak-back-img"
+			ng-click="setEvent('onAmendStandingInstCloseClick');"></i>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.amendStandingInst.initAmendStandingInst(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+				
+			<div class="main-form-heading-ServiceReq"> 
+                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.AMEND_SI}}
+                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+                 </h2>              
+			</div>
+
+					<div class="bg-color rak-cont-padding rak-scroll">
+						<div class="row">
+						
+<!-- CHANGES DONE AS FIX OF PROUAT-1995 AND 1991 START -->
+					 <div ng-init='ccArr = createDropDownOptionArray(rakServiceReq.amendStandingInst.ccList, ["creditCardDesc","-","creditCardNo"], "index")'>
+					  <fin-input type="dropdown" model="rakServiceReq.amendStandingInst.ccSelected" display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_CREDCRDNO}}" validation-flag='pageErrorArr["rakServiceReq.amendStandingInst.ccSelected"]' on-change="rakServiceReq.RakamendStandingInstHideFields();setEvent('RakFetchASIDetails');" option-array="ccArr" ></fin-input>
+					  </div>
+<!-- CHANGES DONE AS FIX OF PROUAT-1995 AND 1991 END -->
+			
+
+				 <div ng-show="rakServiceReq.amendStandingInst.isDetailsFetched =='Y'">  
+
+
+<!--CHANGES DONE AS FIX OF PRCU-1478  START  -->
+					  <div class="rakRow">
+								<div class="rak100 rakWidth100 rakMarginTop12px">
+									{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_PYMT_PER}}</div>
+								<div class="rak100 rakWidth100">
+									<div>
+										<div class="rakCstmRadioDiv rak100 rakTop1em">
+											<input type="radio" value="P" class=""
+											ng-click="rakServiceReq.amendStandingInst.numberCheckFlag=true"	
+											id="radio1"
+											ng-model="rakServiceReq.amendStandingInst.paymentPercentage" />
+											<!-- <span class="rakRadioLabel-SR rakMarginTop7px">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_PER_CURR_BAL}}</span> -->
+											<label for="radio1"><span><span></span></span>
+															{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_PER_CURR_BAL}}</label>
+										</div>
+										
+										<div class="rakCstmRadioDiv rak100 rakTop1em">
+											<input type="radio" value="M" class=""
+											    id="radio2"
+												ng-model="rakServiceReq.amendStandingInst.paymentPercentage" />
+											<!-- <span class="rakRadioLabel-SR rakMarginTop7px">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_MIN_AMT_DUE}}</span> -->
+											<label for="radio2"><span><span></span></span>
+															{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_MIN_AMT_DUE}}</label>
+										</div>
+										
+										<div class="rakCstmRadioDiv rak100 rakTop1em">
+											<input type="radio" value="F" class=""
+											    id="radio3"
+												ng-model="rakServiceReq.amendStandingInst.paymentPercentage" />
+											<!-- <span class="rakRadioLabel-SR rakMarginTop7px">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_FLAT_AMT}}</span> -->
+											<label for="radio3"><span><span></span></span>
+															{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_FLAT_AMT}}</label>
+										</div>
+									</div>
+									<div class="rakRadioErr rakmarginem" ng-hide='pageErrorArr["rakServiceReq.amendStandingInst.paymentPercentage"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_PYMT_PER}}</div>
+									
+								</div>
+								
+						</div>
+<!--CHANGES DONE AS FIX OF PRCU-1478  END  -->
+
+						<fin-input type="number_card"
+									ng-show="rakServiceReq.amendStandingInst.paymentPercentage =='P'"
+									model="rakServiceReq.amendStandingInst.perentageCurrBal"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.TXT_PERCENTAGE}}"
+									validation-flag='pageErrorArr["rakServiceReq.amendStandingInst.perentageCurrBal"]'>
+						</fin-input>
+						
+							<fin-input type="money"
+									ng-show="rakServiceReq.amendStandingInst.paymentPercentage =='F'"
+									model="rakServiceReq.amendStandingInst.flatAmount"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_FLAT_AMT_CURR}}"
+									validation-flag='pageErrorArr["rakServiceReq.amendStandingInst.flatAmount"]'>
+						</fin-input>
+
+
+
+                    <!--CHANGES DONE AS FIX OF PRCU-1478 START-->
+						<div class="rakRow">
+								<div class="rak100 rakWidth100 rakMarginTop12px">
+									{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_CNGE_SI_DATE}}</div>
+								<div class="rak100 rakWidth100">
+									<div>
+										<div class="rakCstmRadioDiv rak35 rakTop1em">
+											<input type="radio" value="N" class=""
+											    id="radio4"
+												ng-model="rakServiceReq.amendStandingInst.changeSIDate" />
+											<!-- <span class="rakRadioLabel-SR rakMarginTop7px">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_DAYS_DATE}}</span> -->
+											<label for="radio4"><span><span></span></span>
+															{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_DAYS_DATE}}</label>
+										</div>
+										<div class="rakCstmRadioDiv rak60 rakTop1em">
+											<input type="radio" value="Y" class=""
+											    id="radio5"
+												ng-model="rakServiceReq.amendStandingInst.changeSIDate" />
+											<!-- <span class="rakRadioLabel-SR rakMarginTop7px">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_PYMT_DUE_DATE}}</span> -->
+											<label for="radio5"><span><span></span></span>
+															{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_PYMT_DUE_DATE}}</label>
+										</div>
+
+									</div>
+<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.amendStandingInst.changeSIDate"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_CNGE_SI_DATE}}</div>
+								</div>
+									
+								</div>
+						
+
+						<div	ng-init='datelist = createDropDownOptionArray(rakServiceReq.amendStandingInst.dateDaysList,["dayDesc"],"dayCode");'>
+									<fin-input type="dropdown"
+										model="rakServiceReq.amendStandingInst.selectedDate"
+										ng-show="rakServiceReq.amendStandingInst.changeSIDate =='N'"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_DAYS_OF_MONTH}}"
+										validation-flag='pageErrorArr["rakServiceReq.amendStandingInst.selectedDate"]'
+										option-array="datelist"></fin-input>
+						</div>
+
+
+
+
+						<div ng-init='debitchargelist = createDropDownOptionArray(rakServiceReq.amendStandingInst.debitChargeList,["productCatDesc","-", "debAccNumber","-","currencyCode"],"index");'>
+									<fin-input type="dropdown"
+										model="rakServiceReq.amendStandingInst.debitAccSelected"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_DEB_ACC}}"
+										validation-flag='pageErrorArr["rakServiceReq.amendStandingInst.debitAccSelected"]'
+										option-array="debitchargelist"></fin-input>
+						</div>
+						
+						
+							<div ng-init='holdSIList = createDropDownOptionArray(rakServiceReq.amendStandingInst.holdSI,["holdDesc"],"holdCode");'>
+									<fin-input type="dropdown"
+										model="rakServiceReq.amendStandingInst.holdSISelected"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.HOLD_SI}}"
+										validation-flag='pageErrorArr["rakServiceReq.amendStandingInst.holdSISelected"]'
+										option-array="holdSIList"></fin-input>
+						</div>
+
+<!--CHANGES DONE AS FIX OF PRCU-1478 START-->
+					<!-- 	<div class="rakRow">
+								<div class="rak100 rakWidth100 rakMarginTop12px">
+									{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_TEMP_HOLD}}</div>
+								<div class="rak100">
+									<div>
+										<div class="rakCstmRadioDiv rak35 rakTop1em">
+											<input type="radio" value="T" class=""
+											 id="radio6"
+												ng-model="rakServiceReq.amendStandingInst.tempHold" />
+											<span class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_YES}}</span>
+											<label for="radio6"><span><span></span></span>
+															{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_YES}}</label>
+										</div>
+										<div class="rakCstmRadioDiv rak60 rakTop1em">
+											<input type="radio" value="N" class=""
+											 id="radio7"
+												ng-model="rakServiceReq.amendStandingInst.tempHold" />
+											<span class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_NO}}</span>
+											<label for="radio7"><span><span></span></span>
+															{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_NO}}</label>
+										</div>
+
+									</div>
+										<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.amendStandingInst.tempHold"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_TEMP_HOLD}}</div>
+								</div>
+								
+								</div> -->
+								
+								
+								
+								
+								
+								<div ng-show="rakServiceReq.amendStandingInst.holdSISelected == 'T'">
+							<fin-input type="date"
+														model="rakServiceReq.amendStandingInst.fromDate"
+														display-row="half1" value="future3MonthsOnly"
+														validation-flag='pageErrorArr["rakServiceReq.amendStandingInst.fromDate"]'>
+													</fin-input>
+					
+													<fin-input type="date"
+														model="rakServiceReq.amendStandingInst.toDate"
+														display-row="half2" value="future3MonthsOnly"
+														validation-flag='pageErrorArr["rakServiceReq.amendStandingInst.toDate"]'>
+													</fin-input>
+													
+						
+						</div> 
+						</div>
+<!--CHANGES DONE AS FIX OF PRCU-1478 END-->
+
+					<!-- 	<div
+						ng-if="rakServiceReq.amendStandingInst.tempHold == 'Y'"
+						ng-init='monthsArr = createDropDownOptionArray(rakServiceReq.amendStandingInst.noOfMonthsList, ["numdesc"], "numCode")'>
+					  		<fin-input type="dropdown" model="rakServiceReq.amendStandingInst.noOfMonths" display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_AMEND_SI.PH_NUM_MONTH}}" validation-flag='pageErrorArr["rakServiceReq.amendStandingInst.noOfMonths"]' option-array="monthsArr" ></fin-input>
+					 	</div> -->
+
+
+
+
+
+</div>
+
+
+						<div class="label-wrap" ng-show="rakServiceReq.amendStandingInst.isDetailsFetched =='Y'">
+
+							<button type="button"
+										class="btn--special-btn btn-middle rak-button-small rak-button-right"
+										ng-click="rakServiceReq.releaseLetterContinue();rakServiceReq.rakAmmendSINewTermDate();setEvent('onAmendStandingInstConfirmClick');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}
+							</button>
+
+						</div>
+						
+						<!-- <div class="disclaimer"  ng-if="rakServiceReq.amendStandingInst.isDetailsFetched =='Y'">
+                                        <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                        <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                        </div>
+                                                
+                                        <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+												<span ng-bind-html="appLiterals.APP.DISCLAIMER.NOTE"></span>
+												<span ng-click="rakServiceReq.fetchDisclaimer('Credit_Card_Service_Request.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKAMENDSI_INITPAGE"></span>									
+											</div>
+                             </div> -->
+
+							</div>
+
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

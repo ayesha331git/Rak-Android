@@ -1,0 +1,133 @@
+
+            
+            <div class="finacle-container">
+			<div class="account-page">
+			<div class="col-sm-11">
+					
+		<div class="summary-ServiceReq">
+			<div class="iconDiv">
+				<span class="infoIcon"></span><span class="success">{{successResponse.responsesList[0].SuccessMsg}}</span>
+			</div>
+		</div>
+		<div class="main-form-heading-ServiceReq"> 
+		      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DD_MCHQ_INIT}}
+		      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+		      </h2>		       
+		 </div>
+
+			
+			 <div class="bg-color rak-cont-padding rak-scroll-success">
+
+			<div class="row" >
+
+          <div class="">
+		<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRDD_SELECT_FROM_ACCOUNTS}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.selectedOprAcctCn}}</span>
+					</p>
+					<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPR_REQ}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.RakSelectedRequestIDModel}}</span>
+					</p>
+					<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_NAME}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.selectedBnfNameCn}}</span>
+					</p>
+					<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_BANK_NAME}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.bnfBankNameCn}}</span>
+					</p>
+					<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_COUNTRY}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.bnfCountryNameCn}}</span>
+					</p>
+				
+					
+					<p class="rak-sum-txt" ng-show="{{rakServiceReq.RakOperativeDDCheque.txnbenfTypeNewArr[rakServiceReq.RakOperativeDDCheque.selectedBnf].beneficiaryAccountNumber}}">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_ACC_NUMBER}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.txnbenfTypeNewArr[rakServiceReq.RakOperativeDDCheque.selectedBnf].beneficiaryAccountNumber}}</span>
+					</p>
+					
+					<div ng-if="rakServiceReq.RakOperativeDDCheque.txnbenfTypeNewArr[rakServiceReq.RakOperativeDDCheque.selectedBnf].bnfBankCountry =='IN' 
+										&& rakServiceReq.RakOperativeDDCheque.requestList[rakServiceReq.RakOperativeDDCheque.selectedReq].code == 'DD' ">
+										
+						<p class="rak-sum-txt">
+					   	<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.CORS_BANK}}</span>
+					   	<span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.correspondingBankList[rakServiceReq.RakOperativeDDCheque.selectedCorrsBank].bankDesc}}</span>
+						</p>
+						
+						<p class="rak-sum-txt " ng-show="rakServiceReq.RakOperativeDDCheque.selectedCityCn">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.CITY}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.selectedCityCn}}</span>
+						</p>				
+					</div>
+					
+					<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_CURRENCY}}</span>
+					
+					  <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.selBeneficiaryAccountCurrency}}</span>
+					</p>
+		
+					<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_AMOUNT}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.amount}}</span>
+					</p>
+					
+						<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_PURPOSE}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.selectedPurposeCn}}</span>
+					</p>
+					
+					<!-- Added Radio button to enabled courier option by Kamesh: START -->
+				 	<p class="rak-sum-txt" ng-if="rakServiceReq.RakOperativeDDCheque.isDelModeBranchVisible">
+							
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.emiSelDesc}}</span>
+					</p> 
+					<p class="rak-sum-txt " ng-if="rakServiceReq.RakOperativeDDCheque.isDelModeBranchVisible">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_BRANCH}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.benfTypeCn}}</span>
+					</p>
+					<p class="rak-sum-txt " ng-if="!rakServiceReq.RakOperativeDDCheque.isDelModeBranchVisible">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.REG_ADD}}</span>
+						<span	class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.registeredAddress}}</span>
+					</p>
+					<!-- Added Radio button to enabled courier option by Kamesh: END -->
+					
+					<div ng-hide="rakServiceReq.RakOperativeDDCheque.authorize == false">
+					<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.NAME_AUTH}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.authorizeNameCn}}</span>
+					</p>
+					<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.CONTACT}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.contactCn}}</span>
+					</p>
+					<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.VALID_ID}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.selectedValidIdCn}}</span>
+					</p>
+					
+						<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.ID_NUM}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.idNumberCn}}</span>
+					</p>
+					</div>
+				
+
+		<div class="label-wrap">
+				<button type="button" class="btn--special-btn btn-middle rak-button-right"
+				ng-click="rakServiceReq.resetRAKOprDDData();setEvent('onRakOPRDDChequeHomeClick')">
+				{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}} </button>
+			</div>
+
+         	</div>
+         	</div>
+
+          </div>
+          <div class="col-sm-1"> </div>
+        </div>
+      </div>
+    </div>
+
+

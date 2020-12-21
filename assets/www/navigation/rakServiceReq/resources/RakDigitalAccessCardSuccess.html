@@ -1,0 +1,127 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.rakDigitalAccessCardBlock.rakDigitalAccessCardSuccess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+
+			<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.rakDigitalAccessCardBlock.successMessage}}</span>
+				</div>
+			</div>
+			<div class="main-form-heading-ServiceReq">
+				<h2 class="rakBenfHeader" ng-if='rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest && rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest=="B"'>
+					{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DAC_BLOCK_CONFIRM}}
+					<span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}}
+					</span>
+				</h2>
+				<h2 class="rakBenfHeader" ng-if='rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest && rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest=="A"'>
+					{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DAC_APPLY_CONFIRM}}
+					<span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}}
+					</span>
+				</h2>
+				<h2 class="rakBenfHeader" ng-if='rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest && rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest=="P"'>
+					{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DAC_PIN_CONFIRM}}
+					<span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}}
+					</span>
+				</h2>
+			</div>
+
+
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+				<div class="row">
+
+
+						<div ng-if='rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest && rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest=="B"'>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.SERVICE_TYPE}}</span>
+								<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DAC_BLOCK_CONFIRM}}</span>
+							</p>
+							</div>
+						<div ng-if='rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest && rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest=="A"'>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.SERVICE_TYPE}}</span>
+								<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DAC_APPLY_CONFIRM}}</span>
+							</p>
+							</div>
+
+					<div ng-if='rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest && rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest=="P"'>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.SERVICE_TYPE}}</span>
+								<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DAC_PIN_CONFIRM}}</span>
+							</p>
+							</div>
+							
+							
+						<div ng-if='rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest && rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest=="B"'>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.CARDNO}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.rakDigitalAccessCardBlock.dacCardNumberBlockConfirm}}</span>
+							</p>
+	
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_TEMP_BLK_CREDITCARD.REASON}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.rakDigitalAccessCardBlock.reason}}</span>
+							</p>
+	
+							<p ng-show="rakServiceReq.rakDigitalAccessCardBlock.reason=='Others'" class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.DACOTHERS}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.rakDigitalAccessCardBlock.other}}</span>
+							</p>
+						</div>
+						
+						<div ng-if='rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest && rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest=="A"'>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.CARD_HOLDERS_NAME}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.rakDigitalAccessCardBlock.dacIssuanceName}}</span>
+							</p>
+	
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.CARD_HOLDERS_CIF}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.rakDigitalAccessCardBlock.dacIssuanceCif}}</span>
+							</p>
+	
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.EMBOSSING_NAME}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.rakDigitalAccessCardBlock.embossingName}}</span>
+							</p>
+						</div>
+						
+						<div ng-if='rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest && rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest=="P"'>
+							<p class="rak-sum-txt ">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.CARDNO}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.rakDigitalAccessCardBlock.dacCardNumberPinIssue}}</span>
+							</p>
+							<p class="rak-sum-txt ">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKDACBLOCK.CARD_HOLDERS_NAME}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.rakDigitalAccessCardBlock.dacCardNamePinIssue}}</span>
+							</p>
+							<p class="rak-sum-txt " ng-hide="rakServiceReq.rakDigitalAccessCardBlock.status=='Fail'">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_CC_DC_PIN_REISSUE.NEW_PIN}}</span>
+								<!-- <span class="rak-sum-label black">{{rakServiceReq.RAKCCDCPinReissueModel.newpin}}</span> -->
+								<img class="rakDecodedImageStyle" src="data:image/jpg;base64,{{rakServiceReq.rakDigitalAccessCardBlock.newpin}}"/>
+							</p>
+							<p class="rak-sum-txt ">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_CC_DC_PIN_REISSUE.DOB}}</span>
+								<span class="rak-sum-label black">{{rakServiceReq.rakDigitalAccessCardBlock.dateOfBirthDisp}}</span>
+							</p>
+						</div>
+
+					<div class="label-wrap">
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small"
+							ng-click='rakServiceReq.rakDigitalAccessCardBlock.resetDACList();setEvent("onDigitalAccessCardSuccessOkClick");'>
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+
+
+					</div>
+					<div class="col-sm-10"></div>
+
+
+
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>

@@ -1,0 +1,55 @@
+<div id="backArrow" class="app app-arrow2 title-right-dash"
+	ng-click="setEvent('onCancelClick')"></div>
+
+<div class="finacle-container"
+	ng-init="services.creditCardLimitChange.init(successResponse.responsesList[0]);formatAmountCrn('services.creditCardLimitChange.newLimitAmt','services.homeCurrency')">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase">
+							{{appLiterals.APP.SERVICES.CHNG_CCLIMPAG.HEADER}}</div>
+					</div>
+
+					<form
+						ng-submit="corpInit.corpModel.resetCorpInitDetails();services.creditCardLimitChange.unFormatNumbers();services.creditCardLimitChange.newLimitAmtString=services.creditCardLimitChange.newLimitAmt.toString();
+				setEvent('onConfirmClick')">
+
+						<div class="avail-bal-wrap"
+							ng-init='ccArr = createDropDownOptionArray(services.creditCardLimitChange.ccList, ["creditCardNo"], "index")'>
+
+							<fin-input type="dropdown"
+								model="services.creditCardLimitChange.ccSelected"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.CHNG_CCLIMPAG.PH_CREDCRDNO}} "
+								validation-flag='pageErrorArr["services.creditCardLimitChange.ccSelected"]'
+								option-array="ccArr"></fin-input>
+
+						</div>
+
+						<div class="avail-bal-wrap">
+							<fin-input type="money"
+								model="services.creditCardLimitChange.newLimitAmt"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.CHNG_CCLIMPAG.PH_NEWLIM}}"
+								validation-flag='pageErrorArr["services.creditCardLimitChange.newLimitAmt"]'
+								related-field="services.homeCurrency"></fin-input>
+						</div>
+
+						<div class="avail-bal-wrap">
+							<fin-input type="textarea" class="text_area"
+								model="services.creditCardLimitChange.note" max-length="50"
+								placeholder="{{appLiterals.APP.SERVICES.CHNG_CCLIMPAG.PH_NTE}}"
+								validation-flag='pageErrorArr["services.creditCardLimitChange.note"]'></fin-input>
+						</div>
+						<md-button type="submit" class="md-raised btn--primary-btn">
+						{{appLiterals.APP.SERVICES.CHNG_CCLIMPAG.BTN_CONT}}</md-button>
+
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

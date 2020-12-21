@@ -1,0 +1,57 @@
+<div id="stepupAuthenticateQuestionConfirm"
+	class="app app-arrow2 title-right"
+	ng-click="setEvent('onStepupAuthenticateQuestionConfirmBackClick')"></div>
+<div class="finacle-container">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper">
+			<!-- 	<div class="title-left app app-arrow"
+					ng-click="setEvent('onStepupAuthenticateQuestionConfirmBackClick')"></div>
+				<div class="title-center">
+					{{appLiterals.APP.STEPUP_AUTH.QUE_CONFIRM_PAGE.TITLE}}</div>
+				<div class="title-right app app-cancel"
+					ng-click="setEvent('onStepupAuthenticateQuestionConfirmCancelClick')"></div> -->
+			</div>
+
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12  margin-bottom-20">
+						<div id="questPageTitle" class="item-title text-uppercase">{{appLiterals.APP.STEPUP_AUTH.QUE_CONFIRM_PAGE.TITLE}}</div>
+					</div>
+
+					<div class="col-sm-12">
+						<p id="secQues" class="special-txt">{{appLiterals.APP.STEPUP_AUTH.QUE_CONFIRM_PAGE.TXT_SEQ_QUES}}</p>
+
+						<p id="name" class="left-txt">{{appLiterals.APP.STEPUP_AUTH.QUE_CONFIRM_PAGE.TXT_MOTHER_MAIDEN_NAME}}</p>
+						<p id="ans" class="left-txt">{{appLiterals.APP.STEPUP_AUTH.QUE_CONFIRM_PAGE.TXT_ANS}}</p>
+						<p id="gfName" class="left-txt">{{appLiterals.APP.STEPUP_AUTH.QUE_CONFIRM_PAGE.TXT_FIRST_GF_NAME}}</p>
+						<p id="ans1" class="left-txt">{{appLiterals.APP.STEPUP_AUTH.QUE_CONFIRM_PAGE.TXT_ANS}}</p>
+
+						<div class="label-wrap">
+							<p id="auth" class="label-title">{{appLiterals.APP.STEPUP_AUTH.OTP_PAGE.TXT_AUTHENTICATE}}</p>
+							<p id="otp" class="label-txt">{{appLiterals.APP.STEPUP_AUTH.QUE_CONFIRM_PAGE.TXT_ENTER_OTP_SENT_REG_MOB_NO}}</p>
+						</div>
+						<form
+						ng-submit="setEvent('onStepupAuthenticateQuestionConfirmClick')">
+						<fin-input type="password_text" model="varTemp"
+							validation-flag='testFlag' display-row="full"
+							placeholder="{{appLiterals.APP.STEPUP_AUTH.QUE_CONFIRM_PAGE.PH_TXN}}"></fin-input>
+
+						<!-- <button type="button" class="btn--primary-btn"
+							ng-click="setEvent('onStepupAuthenticateQuestionConfirmClick')">
+							{{appLiterals.APP.COMMON.BUTTON.CONFIRM}}</button> -->
+							
+						<section class="clear-all button-wrapper" layout="row"
+							layout-align="center center" layout-wrap>
+							<md-button id="quesConfirmContinue" type="submit"
+								class=" md-raised btn--primary-btn">
+							{{appLiterals.APP.COMMON.BUTTON.CONFIRM}}</md-button>
+						</section>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

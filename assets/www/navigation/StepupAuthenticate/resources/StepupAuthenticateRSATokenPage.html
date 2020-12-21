@@ -1,0 +1,48 @@
+<div id="stepupAuthenticateRSATokenPage"
+	class="app app-arrow2 title-right"
+	ng-click="setEvent('onStepupAuthenticateRSATokenCancelClick')"></div>
+<div class="finacle-container" ng-init="stepupAuthentication.HARD_TOKEN.hardToken='';StepupAuthenticate.initResponse(successResponse.invocationResult)>
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper">
+				<!-- 		<div class="title-left"></div>
+				<div class="title-center">
+					{{appLiterals.APP.STEPUP_AUTH.QUE_PAGE.TXT_SEQ_QUE}}</div>
+				<div class="title-right app app-cancel"
+					ng-click="setEvent('onStepupAuthenticateRSATokenCancelClick')"></div> -->
+			</div>
+
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12  margin-bottom-20">
+						<div id="primaryTitle" class="item-title text-uppercase">{{appLiterals.APP.STEPUP_AUTH.QUE_PAGE.TXT_SEC_ID}}</div>
+					</div>
+
+					<!--<div class="col-sm-12">
+						 <div class="label-wrap">
+							<p class="label-title">{{appLiterals.APP.STEPUP_AUTH.SETUP_AUTH_RSA_TOKEN.TXT_SEC_ID}}</p>
+							<p class="label-txt">{{appLiterals.APP.STEPUP_AUTH.SETUP_AUTH_RSA_TOKEN.TXT_ENT_SEC_ID}}</p>
+						</div> -->
+					<form ng-submit="setEvent('onStepupAuthenticateRSASubmitClick')">
+						<div class="avail-bal-wrap">
+							<fin-input type="password_text" model="stepupAuthentication.HARD_TOKEN.hardToken"
+								validation-flag='testFlag' display-row="full"
+								placeholder="{{appLiterals.APP.STEPUP_AUTH.RSA_TOKEN_PAGE.PH_SEC_ID}}"></fin-input>
+						</div>
+						<!-- <button type="button" class="btn--primary-btn"
+							ng-click="setEvent('onStepupAuthenticateRSATokenSubmitClick')">
+							{{appLiterals.APP.COMMON.BUTTON.SUBMIT}}</button> -->
+
+						<section class="button-wrapper" layout="row"
+							layout-align="center center" layout-wrap>
+							<md-button id="rsaContinue" type="submit"
+								class=" md-raised btn--primary-btn">
+							{{appLiterals.APP.COMMON.BUTTON.SUBMIT}}</md-button>
+						</section>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

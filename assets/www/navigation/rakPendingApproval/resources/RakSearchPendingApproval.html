@@ -1,0 +1,67 @@
+
+
+							<div class="rakTxnSearch" ng-init='rakPendingApproval.pendingList.length == 0? rakTxnSearch=true : rakTxnSearch=false;'>
+								<div class="rakTxnSearch1 rakTxnSearchIcon" ng-class="{'rakTxnSearchIconExpnd':rakTxnSearch}"
+									ng-click="rakTxnSearch=!rakTxnSearch">
+									<h3 class="rakTxnSearch2">{{appLiterals.APP.RAK_COMMON.SEARCH}}</h3>
+								</div>								
+								<div class="rakTxnSearch3" ng-show="rakTxnSearch">
+									
+									<div
+										ng-init='txnTypeArray=createDropDownOptionArray(rakPendingApproval.txnTypeList, ["txnTypeDesc"],"txnTypeCode")'>
+										<fin-input type="dropdown" option-array="txnTypeArray"
+											model="rakPendingApproval.selectedTxnType" display-row="full"
+											placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.TRANSACTION_TYPE}}" validation-flag='pageErrorArr["rakPendingApproval.selectedTxnType"]' > </fin-input>
+									</div>
+									<div class=""> 
+										<span class="fieldLabelLeft" >{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.TRANSACTION_TYPE}}</span>
+									</div>
+									<div
+										ng-init='OprAcctArr = createDropDownOptionArray(rakPendingApproval.accIdList, ["acctTypeDesc","-","accountId"," ","currencyCode"], "accountIndex");'></div>
+										<fin-input type="dropdown"
+										model="rakPendingApproval.selectedAccId"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.ACCOUNT_ID}}"
+										validation-flag='pageErrorArr["rakPendingApproval.selectedAccId"]'
+										option-array="OprAcctArr"> </fin-input>
+									<div class=""> 
+										<span class="fieldLabelLeft" >{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.ACCOUNT_ID}}</span>
+									</div>
+									<div ng-if="rakPendingApproval.pendingApprovalTab=='PIA'"
+										ng-init='txnStatusArray=createDropDownOptionArray(rakPendingApproval.txnStatusList, ["txnStatusDesc"],"txnStatusCode")'>
+										<fin-input type="dropdown" option-array="txnStatusArray"
+											model="rakPendingApproval.selectedTxnStatus" display-row="full"
+											placeholder="{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.ACCOUNT_ID}}" validation-flag='pageErrorArr["rakPendingApproval.selectedTxnStatus"]' > </fin-input>
+									</div> 
+			 						<div class="" ng-if="rakPendingApproval.pendingApprovalTab=='PIA'">
+										<span class="fieldLabelLeft" >{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.TXN_STATUS}}</span>
+									</div> 
+									
+									<fin-input type="date" model="rakPendingApproval.searchFromDate"
+										display-row="half1" placeholder="{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.FROM_DATE}}"
+										validation-flag='pageErrorArr["rakPendingApproval.searchFromDate"]'></fin-input>
+
+									<fin-input type="date" model="rakPendingApproval.searchToDate"
+										display-row="half2" placeholder="{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.TO_DATE}}"
+										validation-flag='pageErrorArr["rakPendingApproval.searchToDate"]'></fin-input>
+
+						
+							 <div class=""> 
+								<span class="fieldLabelLeft" >{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.FROM_DATE}}</span> 
+								<span class="fieldLabelRight rak42" >{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.TO_DATE}}</span> 
+							</div> 
+							
+							<div ng-if="rakPendingApproval.pendingApprovalTab!='PIA'">
+							<button type="button" class="btn--special-btn btn-middle rak-button-full-black"
+									ng-click="rakPendingApproval.setFromToDate();setEvent('onApprUnapprSearchClick')">{{appLiterals.APP.RAK_COMMON.SEARCH}}
+							</button>
+							</div>
+							<div ng-if="rakPendingApproval.pendingApprovalTab=='PIA'">
+							<button type="button" class="btn--special-btn btn-middle rak-button-full-black"
+									ng-click="rakPendingApproval.setFromToDate();setEvent('onPendingIncompleteTxnsSearchClick')">{{appLiterals.APP.RAK_COMMON.SEARCH}}
+							</button>
+							</div>
+							</div>
+					</div>
+							
+				

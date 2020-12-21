@@ -1,0 +1,123 @@
+<div class="rak-back-header">
+    <i class="rak-back-img" ng-click="setEvent(rakPayee.onRakIFSCSearchBackClickEvent());"></i>
+  </div>
+    	<div class="finacle-container" ng-init="rakPayee.payeeModel.ifscBankName='';rakPayee.payeeModel.ifscBankBranch='';rakPayee.payeeModel.ifscCode='';rakPayee.isIFSCSearchInProgress = true;rakPayee.searchIFSCLoad(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+			<div class="app-title-wrapper">	
+					 
+			   <div class="form-block">
+	<div class="">
+			<div class="main-form-heading-payee rakSearchBorder"> 
+		      <h2 >{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.IFSCLOOKUP}}
+		      <!-- <span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.IFSC_SEARCH}}</span> -->		     
+		      </h2>		       
+		  </div>		 
+					
+	<div class="rakTxnSearch" ng-init='(rakPayee.bankDetails==undefined || rakPayee.bankDetails.length == 0)? rakTxnSearch=true : rakTxnSearch=false;'>
+			<div class="rakTxnSearch1 rakTxnSearchIcon" ng-class="{'rakTxnSearchIconExpnd':rakTxnSearch}"
+				ng-click="rakTxnSearch=!rakTxnSearch">
+				<h3 class="rakTxnSearch2">{{appLiterals.APP.RAK_COMMON.SEARCH}}</h3> 
+			</div>
+					
+		<div class="rakTxnSearch3" ng-show="rakTxnSearch">
+			  
+			  	<fin-input  type="text" model="rakPayee.payeeModel.ifscBankName" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_BANK}}" validation-flag='pageErrorArr["rakPayee.payeeModel.bankBranch"]'> </fin-input>
+	            <fin-input  type="text" model="rakPayee.payeeModel.ifscBankBranch" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.IFSC_BRANCHNAME}}" validation-flag='pageErrorArr["rakPayee.payeeModel.bankBranch"]'> </fin-input>
+	            <fin-input  type="text" model="rakPayee.payeeModel.ifscCode" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.IFSC_CODE}}" validation-flag='pageErrorArr["rakPayee.payeeModel.bankBranch"]'> </fin-input>
+					
+				<div class="label-wrap">
+		        	<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="rakPayee.payeeModel.ifscBankName='';rakPayee.payeeModel.ifscBankBranch='';rakPayee.payeeModel.ifscCode='';"> {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.IFSC_CLEAR}}</button>
+		        	<button type="button" class="btn--special-btn btn-middle rak-button-small rak-button-right" ng-click="setEvent('onSearchIFSCGetListClick')"> {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.IFSC_SEARCH}}</button>       
+		       	</div>   
+       
+       </div>
+	</div>
+							    
+         <div class="fin-txt"></div>
+         <div class="bg-color rak-cont-padding">         
+          <div class="money-block" ng-if="rakPayee.bankDetails.length> 0">              
+						         <ul>
+						            <li  class="active rak25" >
+						            {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_BANK}}</li>						        
+						           <li class="active rak25">
+						            {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.IFSC_BRANCHNAME}}</li>
+						            <li class="active rak25">
+						           {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.IFSC_CITY}}</li>
+						            <li class="active rak25">
+						           {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.IFSC_CODE}}</li>
+						            
+						         </ul>
+						 	</div>
+          			<div class="rakScrollDivHistory rak-cont-paddingvh" ng-class="{'rakScrollDivHistorySmall':rakTxnSearch}" ng-if="rakPayee.bankDetails.length> 0">    
+					            <div class="" >
+					       
+					               
+									<div class="trans-detail rakGreyRow" ng-repeat="bank in rakPayee.bankDetails">
+									<!--  <div ng-click="rakPayee.payeeModel.selectedRoutingNumber=bank.bankRoutingNo;setEvent(rakPayee.getRakSearchEvent());" ng-model="rakPayee.payeeModel.selectedRoutingNumber"> -->
+					                  	<div class="trans-dash-right rakPeopleNameRow1 rak25  rakPaddingPoint8em pull-left">					                   		
+					                   		<div> 
+					                    <div class="trans-no rakFont1em">   
+					                   {{bank.bankName}}                  
+					                    </div>
+					                    </div>
+					                                  
+					                    </div>
+					                    
+					                  <div class="trans-dash-right rakPeopleNameRow1 rak25 pull-left rakPaddingPoint8em" >					                
+					                  <div> 
+					                    <div class="trans-no rakFont1em">   
+					                        {{bank.bankBranch}}             
+					                    </div>
+					               </div> 
+					                  </div>
+					                    
+					                    
+					                  <div class="trans-dash-left rakPeopleNameRow1 rak25 pull-left rakPaddingPoint8em">					                  
+					                    <div> 
+					                    <div class="trans-no rakFont1em"> 
+					                         {{bank.bankCityZipCode}}            
+					                    </div>
+					                  </div> 
+					                        
+					                  </div>
+					                  
+					                  <div class="trans-dash-left rakPeopleNameRow1 rak25 pull-left rakPaddingPoint8em">					                  
+					                    <div> 
+					                    <div class="trans-no rakFont1em"> 
+					                 {{bank.bankRoutingNo}}  <div class="raknew_user" ng-click="rakPayee.payeeModel.selectedRoutingNumber=bank.bankRoutingNo;rakPayee.payeeModel.bankBranch=bank.bankBranch;rakPayee.payeeModel.bankCity=bank.bankCityZipCode;rakPayee.payeeModel.selectedBank=bank.bankName;setEvent(rakPayee.getRakSearchEvent());" ng-model="rakPayee.payeeModel.selectedRoutingNumber">select</div>                 
+					                    </div>
+					                  </div> 
+					                        
+					                  </div>
+				
+					        <!--      </div> -->
+					             </div>
+					              </div> 
+					              			
+			
+			</div>
+			
+			<div class="disclaimer" ng-if="rakPayee.bankDetails == undefined">
+							<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+											<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+							</div>
+
+							<div class="disclaimer3" ng-show="rakDisclaimerFlag">
+											<div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.ADDBENF_IFSC"></div>
+							</div>
+			</div>
+              
+						</div>
+						
+				</div>		
+		
+						
+			
+          </div>
+         
+     
+   </div>
+</div>
+</div>
+</div>

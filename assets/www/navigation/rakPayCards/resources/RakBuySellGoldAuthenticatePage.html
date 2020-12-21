@@ -1,0 +1,226 @@
+
+<div ng-init="rakPayCards.common.authValue='';rakPayCards.rakInvGold.initAuthPage(successResponse.responsesList)" >
+<div ng-show="rakPayCards.common.balCheck=='true'">
+<div class="full-page-screen"  ></div>
+
+<div class="confirmation-content-container">
+    <div class="message-box-new">
+        <div>
+            <p class="round-icon-new">
+            <span class="app app-alert pop-alert-icon rak-color"></span>
+            </p>
+
+            <div class="conf-txt-title rak-black-color">
+            </div>
+        </div>
+
+        <div class="conf-txt-label rak-black-color">
+          {{rakPayCards.common.message}}
+        </div>
+		<div class="rakGold-conf-btn-wrap">
+
+
+
+
+
+            <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click='setEvent("onTransfersAuthBackClick")' >
+                 &nbsp; {{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.BTN_CNL}} &nbsp;
+            </button>
+
+            <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click='rakPayCards.common.balCheck=false;setEvent("onPoolBalanceConfirmation")' >
+                &nbsp; {{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.BTN_YES}} &nbsp;
+            </button>
+
+        </div>
+
+
+
+
+    </div>
+</div>
+</div>
+</div>
+
+
+<div class="finacle-container ng-scope"
+	ng-show="rakPayCards.common.balCheck!='true'">
+	  <div class="rak-back-header" ng-if="!(rakPayCards.rakInvGold.schTxnListSubmitBtn=='MODIFY')">
+			<i class="rak-back-img"
+					ng-click="rakPayCards.common.fromAuthPage=true; setGlobalEvent(rakPayCards.txnHistory.getEventForGoldsBack());"></i>
+		</div>
+	
+	
+	 <div class="rak-back-header"  ng-if="rakPayCards.rakInvGold.schTxnListSubmitBtn=='MODIFY'">
+				<i class="rak-back-img"
+				ng-click="rakPayCards.common.fromAuthPage=true; setEvent('onGoldAuthBackClick');"></i>
+		</div>
+
+	<div class="account-page">
+    <div class="col-sm-11">
+	  <div class="app-title-wrapper">
+
+
+		<ng-include
+				src="'./navigation/rakPayCards/resources/RakBuySellGoldTabPage.html'">
+		</ng-include>
+
+
+        <div class="">
+      <div class="main-form-heading">
+                    	<h2>{{appLiterals.APP.RAK_COMMON.SUMMARY_HEADER}}<span>{{appLiterals.APP.RAK_COMMON.SUMMARY_REVIEW}}</span></h2>
+            </div>
+
+
+		<div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh">
+
+			<div class="" >
+			  <div class="">
+
+				<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.TXT_FROM}}</span>
+				<span class="rak-sum-label black">{{rakPayCards.common.fromDisplayString}}</span>
+				</p>
+
+
+
+
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.TXT_TO}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.toDisplayString}}</span>
+				</p>
+
+
+
+
+
+
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.QUANTITY}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.amount}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakPayCards.rakInvGold.txnType==rakPayCards.BuySellGoldTypeConstant.BUY" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.BUYRATE}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.effectiveRate}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakPayCards.rakInvGold.txnType==rakPayCards.BuySellGoldTypeConstant.SELL">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.SELLRATE}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.effectiveRate}}</span>
+				</p>
+
+			<p class="rak-sum-txt" ng-show="rakPayCards.rakInvGold.txnType==rakPayCards.BuySellGoldTypeConstant.BUY">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.PURCHASEVAL}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.valueAmount}}</span>
+				</p>
+			
+				
+				<p class="rak-sum-txt" ng-show="rakPayCards.rakInvGold.txnType==rakPayCards.BuySellGoldTypeConstant.SELL && rakPayCards.common.valueAmount">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.SELLVAL}} </span>
+					<span class="rak-sum-label black">{{rakPayCards.common.valueAmount}}</span>
+				</p>
+				
+				
+				<p class="rak-sum-txt" ng-show="rakPayCards.common.creditAmount">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.NETAMOUNT}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.creditAmount}}</span>
+				</p>
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.EQTXAU}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.eqtXAU}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span  class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.DATE}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.transactionDate}}</span>
+				</p>
+				<p class="rak-sum-txt" ng-show="rakPayCards.rakInvGold.selectedFrequency!='O'" >
+					<span  class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.FREQUENCY}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.frequencyType}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="rakPayCards.rakInvGold.selectedFrequency=='O'">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.FREQUENCY}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.FREQ}}</span>
+				</p>
+
+			 	<p class="rak-sum-txt" ng-show="rakPayCards.rakInvGold.selectedFrequency!='O'">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.NOOFTRANSFERS}}</span>
+					<span class="rak-sum-label black">{{rakPayCards.common.noOfTransfer}}</span>
+				</p>
+
+
+
+
+
+
+
+
+
+				<div class="label-wrap" ng-show='rakPayCards.common.isAuthSet'>
+
+
+				<fin-input type="password_text" model="rakPayCards.common.authValue"
+					display-row="full" placeholder="{{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.PH_TRANSPASS}}"
+					validation-flag='pageErrorArr["rakPayCards.common.authValue"]'
+					ng-show="rakPayCards.common.authType==rakPayCards.authMode.TransactionPassword">
+					</fin-input>
+				<div class="label-wrap" ng-show='rakPayCards.common.isAuthSet'>
+                       <div ng-show="rakPayCards.common.authType==rakPayCards.authMode.OTP">
+						<div ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+			                   <fin-input type="password_num" model="rakPayCards.common.authValue" display-row="full" placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.PH_OTP}}"
+			                          validation-flag='pageErrorArr["rakPayCards.common.authValue"]' > </fin-input>
+			             </div>
+			
+		
+			<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0' ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+			
+				<fin-input type="dropdown" option-array="toModeArray" model="rakHome.otpModel.otpModeSelected" display-row="full" placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+				<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+			
+			</div>
+									
+									
+									<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>
+          </div>
+
+					</div>
+
+					</div>
+
+
+
+			<!--  CHANGES FOR NAVIGATING TO PROPER APGE ON CLICK OF BACK START -->
+				<div class="label-wrap">
+				   <!-- <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="rakPayCards.common.fromAuthPage=true; setEvent('onTransfersAuthBackClick');">   {{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.BACK}}  </button> -->
+				   
+				   <button type="button" ng-if="rakPayCards.rakInvGold.schTxnListSubmitBtn=='MODIFY'" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="rakPayCards.common.fromAuthPage=true;setEvent('onGoldAuthBackClick');">   {{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.BACK}}  </button>
+				   <button type="button" ng-if="!(rakPayCards.rakInvGold.schTxnListSubmitBtn=='MODIFY')" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="rakPayCards.common.fromAuthPage=true; setGlobalEvent(rakPayCards.txnHistory.getEventForGoldsBack());">   {{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.BACK}}  </button>
+				   
+				   <button type="button"  class="btn--special-btn btn-middle rak-button-small" ng-click='setEvent(rakPayCards.rakInvGold.getEventForGoldsSubmit())'>  {{appLiterals.APP.RAKBUYSELLGOLD.RAKBUYSELLGOLDAUTHPAGE.CONFIRM}} </button>
+			  </div>
+		 <!--  CHANGES FOR NAVIGATING TO PROPER APGE ON CLICK OF BACK END -->
+          <div class="col-sm-1"> </div>
+        </div>
+      </div>
+      
+      	<div class="disclaimer" ng-init='rakDisclaimerFlag=false;' >
+				<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+					<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+				</div>
+		
+				<div class="disclaimer3" ng-show="rakDisclaimerFlag" >
+					<div class="disclaimer3" ng-bind-html="appLiterals.APP.DISCLAIMER.RAKBUYGOLD_CONFIRMATIONPAGE"></div>
+				</div>
+				
+				
+			</div>
+      
+      
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,151 @@
+
+<div class="rak-back-header" >
+        <i class="rak-back-img" ng-click="rakServiceReq.backNavigation();"></i>
+    </div>
+
+
+
+
+<div class="finacle-container bg-color" ng-init="resetPageError();">
+	<div class="rakServiceReqList rakScrollDiv">	
+	
+		<div class="LandingPage-main-form-heading">
+						<div>
+							<span class="rak-black-color upd-label ">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.SERVICE_LANDING}}</span>
+								
+						</div>
+					</div>
+		<ul class="rak-accordianUL landing-top-margin" ng-init="rakServiceReq.expandSpecificMenu();">	
+		
+		<!-- RAK:OperativeAccountsRequests-Start -->	
+			<li ng-init="menuTypeOpr=dashboard.userType=='1'?'RAKSROPRACC':'RAKUSER2SROPRACC';" class="rak-accordianList landing-top-margin" ng-hide="(menuProfile.menuItems.menuUserAccessList | filterMultiple:{parentMenuId:menuTypeOpr}).length == 0"
+				ng-click="rakServiceReq.expandMenu($event);" id="OprFlag"><span>{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.TXT_OPERACC}}</span>
+				<ul class="reqSubMenu" id="srId">
+				
+				
+             <li  ng-repeat="item in menuProfile.menuItems.menuUserAccessList   | filterMultiple:{menuAccessibility:['LGN'],parentMenuId:menuTypeOpr}| orderBy:'menuSeqNumber'" 
+				ng-click="menuProfile.menuItems.getClickProperties(item);setEvent(item.event.eventname,item.event.timeout)">
+			   <span>{{menuProfile.menuItems.getMenuName(item)}}</span>
+			   <!-- <div class="service-hr" ng-hide="$last"></div> --></li> 
+
+				</ul></li>
+
+		<!-- RAK:OperativeAccountsRequests-End -->
+		
+	
+      <!-- RAK:DebitCardRequests-Start -->
+
+			<li ng-init="menuTypeDebt=dashboard.userType=='1'? 'RAKSRDEBITCARDS': 'RAKUER2SRDEBITCARDS';" class="rak-accordianList" ng-hide="((menuProfile.menuItems.menuUserAccessList | filterMultiple:{parentMenuId:menuTypeDebt}).length == 0)"
+				ng-click="rakServiceReq.expandMenu($event);"><span>
+					{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DEBT_CRD}} </span>
+				<ul class="reqSubMenu" id="srId">
+				  
+				  <li  ng-repeat="item in menuProfile.menuItems.menuUserAccessList   | filterMultiple:{menuAccessibility:['LGN'],parentMenuId:menuTypeDebt}| orderBy:'menuSeqNumber'" 
+				ng-click="rakServiceReq.serviceRequestStatusModel.cardFlag='Debit';menuProfile.menuItems.getClickProperties(item);setEvent(item.event.eventname,item.event.timeout)">
+			   <span>{{menuProfile.menuItems.getMenuName(item)}}</span>
+			   <!-- <div class="service-hr" ng-hide="$last"></div> --></li> 			   
+
+				</ul></li>
+				
+	 <!-- RAK:DebitCardRequests-End -->
+	 
+	 <!-- RAK:CreditCardRequests-Start -->
+			<li ng-init="menuTypeCred=dashboard.userType=='1'?'RAKSRCREDITCARDS':'RAKUSER2SRCREDITCARDS';"  class="rak-accordianList" ng-show="dashboard.userType=='1' && !((menuProfile.menuItems.menuUserAccessList | filterMultiple:{parentMenuId:menuTypeCred}).length == 0)"
+				ng-click="rakServiceReq.expandMenu($event);" id="CreFlag"><span>{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CRED_CRD}}</span>
+				<ul class="reqSubMenu" id="srId">
+				
+				
+				 <li  ng-repeat="item in menuProfile.menuItems.menuUserAccessList   | filterMultiple:{menuAccessibility:['LGN'],parentMenuId:menuTypeCred}| orderBy:'menuSeqNumber'" 
+				ng-click="rakServiceReq.serviceRequestStatusModel.cardFlag='Credit';menuProfile.menuItems.getClickProperties(item);setEvent(item.event.eventname,item.event.timeout)">
+			   <span>{{menuProfile.menuItems.getMenuName(item)}}</span>
+			   <!-- <div class="service-hr" ng-hide="$last"></div> --></li> 					
+					
+				</ul>
+			</li>
+    <!-- RAK:CreditCardRequests-End -->
+
+	
+
+     <!--RAK:LoanFinance-Start-->
+
+			<li ng-init="menuTypeLoan=dashboard.userType=='1'?'RAKSRLOANFIN':'RAKSRUSER2LOANFIN';" class="rak-accordianList"  ng-hide="(menuProfile.menuItems.menuUserAccessList | filterMultiple:{parentMenuId:menuTypeLoan}).length == 0"
+				ng-click="rakServiceReq.expandMenu($event);" id="LonFlag"><span>{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.LOANFIN}}</span>
+				<ul class="reqSubMenu" id="srId">
+				
+				<li   ng-repeat="item in menuProfile.menuItems.menuUserAccessList   | filterMultiple:{menuAccessibility:['LGN'],parentMenuId:menuTypeLoan}| orderBy:'menuSeqNumber'" 
+				ng-click="menuProfile.menuItems.getClickProperties(item);setEvent(item.event.eventname,item.event.timeout)">
+			   <span>{{menuProfile.menuItems.getMenuName(item)}}</span>
+			   <!-- <div class="service-hr" ng-hide="$last"></div> --></li> 	
+				</ul>
+			</li>
+
+	<!--RAK:LoanFinance-End-->
+	
+		<!-- RAK:DepositAccountsRequests-Start -->		
+
+			<li ng-init="menuTypeDep=dashboard.userType=='1'?'RAKSRDEPACC':'RAKUSER2SRDEPACC';" class="rak-accordianList" ng-hide="(menuProfile.menuItems.menuUserAccessList | filterMultiple:{parentMenuId:menuTypeDep}).length == 0"
+				ng-click="rakServiceReq.expandMenu($event);" id="DepFlag"><span>{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DEP_ACC}}</span>
+				<ul class="reqSubMenu" id="srId">
+
+             <li   ng-repeat="item in menuProfile.menuItems.menuUserAccessList   | filterMultiple:{menuAccessibility:['LGN'],parentMenuId:menuTypeDep}| orderBy:'menuSeqNumber'" 
+				ng-click="menuProfile.menuItems.getClickProperties(item);setEvent(item.event.eventname,item.event.timeout)">
+			   <span>{{menuProfile.menuItems.getMenuName(item)}}</span>
+			   <!-- <div class="service-hr" ng-hide="$last"></div> --></li> 			   
+				</ul>
+			</li>
+			
+      <!-- RAK:DepositAccountsRequests-End -->
+			
+	<!--RAK:InvestmentRequests-Start-->
+
+			<li ng-init="menuTypeInv=dashboard.userType=='1'?'RAKSRINVESTMENT':'RAKUSER2SRINVESTMENT';" class="rak-accordianList" ng-hide="(menuProfile.menuItems.menuUserAccessList | filterMultiple:{parentMenuId:menuTypeInv}).length == 0"
+				ng-click="rakServiceReq.expandMenu($event);" id="InvFlag"><span>{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.TXT_INV_ACC}}</span>
+				<ul class="reqSubMenu" id="srId">
+				
+				
+				<li   ng-repeat="item in menuProfile.menuItems.menuUserAccessList   | filterMultiple:{menuAccessibility:['LGN'],parentMenuId:menuTypeInv}| orderBy:'menuSeqNumber'" 
+				ng-click="menuProfile.menuItems.getClickProperties(item);setEvent(item.event.eventname,item.event.timeout)">
+			   <span>{{menuProfile.menuItems.getMenuName(item)}}</span>
+			   <!-- <div class="service-hr" ng-hide="$last"></div> --></li> 
+			   
+
+				</ul></li>
+   <!--RAK:InvestmentRequests-End-->
+   
+   <!-- RAK:GeneralRequests-Start -->
+
+			<li ng-init="menuTypeGen=dashboard.userType=='1'?'RAKSRGENREQ':'RAKUSER2SRGENREQ';" class="rak-accordianList" ng-hide="(menuProfile.menuItems.menuUserAccessList | filterMultiple:{parentMenuId:menuTypeGen}).length == 0"
+				ng-click="rakServiceReq.expandMenu($event);"><span>{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.RAKGENREQ}}</span>
+				<ul class="reqSubMenu" id="srId">
+				
+				<li  ng-repeat="item in menuProfile.menuItems.menuUserAccessList   | filterMultiple:{menuAccessibility:['LGN'],parentMenuId:menuTypeGen}| orderBy:'menuSeqNumber'" 
+				ng-click="menuProfile.menuItems.getClickProperties(item);setEvent(item.event.eventname,item.event.timeout)">
+			   <span>{{menuProfile.menuItems.getMenuName(item)}}</span>
+			   <!-- <div class="service-hr" ng-hide="$last"></div> --></li> 	
+			   <li 	ng-click="setGlobalEvent('onRakEdirhamTokenInitClick')">
+			   <span>{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.EDIRHAM_TOKEN_RQST}}</span>
+			   </li> 	   			
+	   	     
+											
+				</ul>
+			</li>	
+     <!-- RAK:GeneralRequests-End -->
+
+			<li class="rak-accordianList"
+				ng-click='rakServiceReq.serviceRequestStatusModel.resetServiceRequestStatusModel();rakServiceReq.serviceRequestStatusModel.requestType="All";rakServiceReq.serviceRequestStatusModel.isSRorTF="SR";setEvent("onServiceRequestStatusClick");'><span>{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.SERVICE_REQ_STAT}}</span>
+
+			</li>
+			
+	<!-- 		
+			<li class="rak-accordianList"
+				ng-click='rakServiceReq.TLUpload.resetTLUpload();setEvent("onTLUploadInit");'><span>{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.TL_UPLOAD}}</span>
+
+			</li> -->
+
+   
+
+
+
+		</ul>
+	</div>
+</div>

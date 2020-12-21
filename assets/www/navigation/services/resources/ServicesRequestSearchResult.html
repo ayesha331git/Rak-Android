@@ -1,0 +1,69 @@
+<div class="app app-arrow2 title-right-dash"
+	id="serviceRequestSearchResultBack"
+	ng-click="services.serviceRequestStatusModel.isBackClick=true;setEvent('onServicesRequestSearchResultBackClick')"></div>
+<div class="finacle-container"
+	ng-init="services.serviceRequestStatusModel.displayMessage();services.serviceRequestStatusModel.serviceRequestSearchResultService(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase">
+							<span id="pageTitle">
+								{{appLiterals.APP.SERVICES.ACC_STM.SERVICES_HEADER}} </span>
+						</div>
+					</div>
+					<!--  end of title -->
+					<div class="app-future-results">
+						<div class="fut-result"
+							ng-if="!services.serviceRequestStatusModel.dateFieldSelected"
+							id="TXT_SHOWING">
+							{{appLiterals.APP.SERVICES.SERVICE_REQ_SEARCH_RESULT.TXT_SHOWING}}
+							<b> {{ services.serviceRequestStatusModel.messageString }} </b>
+						</div>
+						<div class="fut-result" id="SERVICE_REQ_SEARCH_RESULTTXT_SHOWING"
+							ng-if="services.serviceRequestStatusModel.dateFieldSelected">
+							{{appLiterals.APP.SERVICES.SERVICE_REQ_SEARCH_RESULT.TXT_SHOWING}}
+							<b>{{ services.serviceRequestStatusModel.messageString }} |
+								{{appLiterals.APP.COMMON.TEXT.TXT_FROM}} <fin-Date
+									date-value='{{services.serviceRequestStatusModel.displayFromDate}}'></fin-Date>
+								{{appLiterals.APP.COMMON.TEXT.TO}} <fin-Date
+									date-value='{{services.serviceRequestStatusModel.displayToDate}}'></fin-Date>
+							</b>
+						</div>
+						 <div class="app app-cancel result-close"
+							ng-click="services.serviceRequestStatusModel.isCloseClick=true;setEvent('onServicesRequestSearchResultCloseClick')"></div>
+					</div>
+					<div class="col-sm-12">
+						<div class="nano-content"
+							ng-if="!services.serviceRequestStatusModel.searchResponse.length">
+							<p class="no-detail" id="NO_SEARCH_RESULT_MESSAGE">
+								{{appLiterals.APP.SERVICES.SERVICE_STATUS_REQUEST.NO_SEARCH_RESULT_MESSAGE}}
+							</p>
+						</div>
+					<div class="nano-content"
+							ng-if="services.serviceRequestStatusModel.searchResponse.length">
+							<div class="trans-detail"
+								ng-repeat="serviceRequestDeatils in services.serviceRequestStatusModel.searchResponse">
+								<div class="trans-dash-left">
+									<div class="trans-no" id="date{{$index}}">
+										<fin-Date date-value='{{serviceRequestDeatils.requestDate}}'></fin-Date>
+									</div>
+								</div>
+								<div class="trans-dash-right">
+									<span class="amt-rs" id="requestStatus{{$index}}">
+										{{serviceRequestDeatils.requestStatus}}</span>
+								</div>
+								<div class="trans-date"
+									id="referenceIdrequestDescription{{$index}}">{{serviceRequestDeatils.referenceId}}
+									- {{serviceRequestDeatils.requestDescription}}</div>
+							</div>
+
+						</div>  
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,91 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container" ng-init="rakServiceReq.transactionLimitChangeRq.initTransactionLimit(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="">
+						<div class="">
+						 <div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.TXN_LIMIT_CHANGE}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+				      </h2>		       
+		 		</div>
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="">
+																	
+										
+										
+										<fin-input type="money"
+									               model="rakServiceReq.transactionLimitChangeRq.sameCurrencyTransferLimit"
+									               display-row="full"
+									               validation-flag='pageErrorArr["rakServiceReq.transactionLimitChangeRq.sameCurrencyTransferLimit"]'
+									               placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_TXN_LIMIT_CHANGE.SAME_CURTRF_LIMIT}}">
+								       </fin-input>
+										
+										<!-- </div></div> -->
+										<!--<fin-input type="money"									               
+									               model="rakServiceReq.transactionLimitChangeRq.crossCurrencyTransferLimit"
+									               display-row="full"
+									               validation-flag='pageErrorArr["rakServiceReq.transactionLimitChangeRq.crossCurrencyTransferLimit"]'
+									               placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_TXN_LIMIT_CHANGE.CROSS_CURTRF_LIMIT}}">
+								       </fin-input>-->
+										
+					<div class="fin-txt"></div>
+					
+
+
+					<div class="disclaimer3" >
+						<!-- <span ng-show="dashboard.userType=='1'" ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_DAILY_LIMI_UPDATE_RET"></span> -->
+						<span  ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_DAILY_LIMI_UPDATE_RET_UNDERTAKE"></span>
+						<span>{{rakServiceReq.transactionLimitChangeRq.disclaimerTxt}}</span>	
+						<!-- <span ng-show="dashboard.userType=='2'" ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_DAILY_LIMI_UPDATE_CORP"></span> -->
+
+
+								<div class="check-boxsLeft">
+				                    <input id="termsFlag"  class="checkbox-custom-new"  type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" ng-model='rakServiceReq.acceptTermscondition' >
+				                    <label for="termsFlag" class="checkbox-custom-label termsCheck smallCheck" ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_DAILY_LIMIT_CHECK"></label>
+				                </div>		
+				                
+				                
+				                						
+					</div>
+									
+
+									<div class="label-wrap">
+										<button type="button"
+											    class="btn--special-btn btn-middle rak-button-small btn--back margin-top-sixtypx"
+											    ng-click="setEvent('onBackClick');">
+											    {{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+										<button type="button"
+											    class="btn--special-btn btn-middle rak-button-right margin-top-sixtypx"
+											    ng-click="setEvent('onRakTxnLimitChangeContinueClick');">
+											    {{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+									</div>
+									
+									<div class="col-sm-1"></div>
+									<div class="col-sm-1"></div>
+									
+									
+									<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAK_DAILY_LIMI_UPDATE_CONT"></span>		
+								</div>
+								
+								 <div class="disclaimer">
+                                               <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                               <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                               </div>
+                                               
+                                               <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+												
+												<span ng-click="rakServiceReq.fetchDisclaimer('AcntAndDebitCardSrvcRqstsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCHANGEFTDAILYLIMIT_INITPAGE"></span>														
+											</div>
+                                                   
+                                 </div>
+								
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

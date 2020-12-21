@@ -1,0 +1,68 @@
+
+<div class="finacle-container" ng-init="rakEDirham.initRAKDirhamRegSuccess(successResponse.responsesList);">
+<div class="account-page">
+<div class="app-title-wrapper">
+<div class="form-block">
+
+		
+		   <div class="">		   		
+			
+		                
+		   <div class="bg-color eDirham-scroll margn-5-5-0-5">  	     
+		   	<div class="paybils-block-top w-100">
+		   	<div class="summary-ServiceReq mb-2em">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakEDirham.common.sucMsg}}</span>
+				</div>
+			</div>
+					            	
+					            <div class="main-form-heading-ServiceReq success-pb">
+             <h2 class="rakBenfHeader">{{appLiterals.APP.EDIRHAM.CHOOSE_ACCT_TXT_MAIN_HEADER}} - {{appLiterals.APP.EDIRHAM.EDIRHAM_SUCCESS_HEADER_SUB_HEADER}}
+             <!--  <span>{{appLiterals.APP.EDIRHAM.EDIRHAM_SUCCESS_HEADER_SUB_HEADER}} </span> -->
+				      </h2>
+       	</div>
+					            <div>
+					            <h3 class="setPin-msg">
+									{{appLiterals.APP.EDIRHAM.EDIRHAM_SUSC_MSG}}
+									</h3>	
+									<!-- <h3 class="setPin-msg" ng-if="rakEDirham.eDirhamSettings.isRegistered=='N'">
+									{{appLiterals.APP.EDIRHAM.EDIRHAM_REG_SUSC_FAIL_MSG}}
+									</h3> -->	
+					            </div>	            
+					            
+			</div>
+	    <!--      <div class="margin-top-thirtypx">
+		     <button type="button" class="btn--special-btn btn-middle go-overview-btn"
+									ng-click="setEvent('onEdirhamOverviewClick');rakEDirham.clearTab();">{{appLiterals.APP.EDIRHAM.GO_OVERVIEW_BTN}}
+									</button>
+									 <button type="button" class="btn--special-btn btn-middle generate-token-btn"
+									ng-click="setEvent('onAuthClick');rakEDirham.clearTab();"> {{appLiterals.APP.EDIRHAM.GENERATE_TOKEN_BTN}} 
+									</button>
+			
+		     </div> -->
+		     
+		     <div class="margin-top-thirtypx">
+		    					 <button type="button"class="btn--special-btn btn-middle block-unblock-btn"
+									ng-click="setEvent('onEdirhamOverviewClick');rakEDirham.clearTab();">
+												{{appLiterals.APP.EDIRHAM.NEXT_BTN}}
+											</button>
+											<!--  <button type="button"class="btn--special-btn btn-middle block-unblock-btn" ng-if="rakEDirham.eDirhamSettings.isRegistered=='N'"
+									ng-click="setEvent('onEdirhamRegClick');rakEDirham.clearTab();">
+												{{appLiterals.APP.EDIRHAM.NEXT_BTN}}
+											</button> -->
+							
+			
+		     					</div>
+            
+			</div>
+    
+		   
+		     
+    
+	
+
+</div>
+</div>
+</div>
+</div>
+</div>

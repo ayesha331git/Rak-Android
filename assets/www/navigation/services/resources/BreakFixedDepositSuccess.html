@@ -1,0 +1,53 @@
+<!-- <div class="col-sm-10">
+		<button type="button" class="btn--special-btn1"
+			ng-click="setEvent('onCancelClick')">
+			{{appLiterals.APP.SERVICES.BRKFIX_DEPSUCC.BTN_DONE}}</button>
+	</div> -->
+<div class="finacle-container"
+	ng-init="services.breakFDSuccesspageInit(successResponse.responsesList);formatAmountCrn('services.breakFixedDepositModel.amountBroken','services.breakFixedDepositModel.depositAccountCrn')">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+			<div class="dashboard-pad full-height">
+				<div class="dashboard-item-body full-height">
+					<fin-success
+						success-banner="{{appLiterals.APP.COMMON.MSG.SUCCESS}}"
+						success-message="{{services.breakFixedDepositModel.responseText}}"
+						cross-click="setEvent('onCancelClick')">
+					</fin-success>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="HEADER">
+							{{appLiterals.APP.SERVICES.BRKFIX_DEPSUCC.HEADER}}
+							{{appLiterals.APP.SERVICES.BRKFIX_DEPSUCC.TXT_FOR}}</span> <span
+							class="sucs-right-color" id="depositAccount">
+							{{services.breakFixedDepositModel.depositAccount}} </span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtAmmount">
+							{{appLiterals.APP.COMMON.TEXT.AMOUNT}} </span> <span
+							class="sucs-right-color" id="TXT_INR">
+							{{appLiterals.APP.SERVICES.BRKFIX_DEPSUCC.TXT_INR}}
+							{{services.breakFixedDepositModel.amountBroken}} </span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="TXT_TRANSFTO">
+							{{appLiterals.APP.SERVICES.BRKFIX_DEPSUCC.TXT_TRANSFTO}}</span> <span
+							class="sucs-right-color" id="transferType">
+							{{services.breakFixedDepositModel.transferType}} </span>
+					</div>
+					<div class="sucs-left-txt" ng-show="services.breakFixedDepositModel.transferType == 'account'">
+						<span class="sucs-left-color" id="txtACC_NO">
+							{{appLiterals.APP.SERVICES.BRKFIX_DEPSUCC.ACC_NO}}</span> <span
+							class="sucs-right-color" id="initorID">
+							{{services.breakFixedDepositModel.initorID}}</span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="TXT_DATE">
+							{{appLiterals.APP.SERVICES.BRKFIX_DEPSUCC.TXT_DATE}}</span> <span
+							class="sucs-right-color" id="date"> <fin-Date
+								date-value='{{services.breakFixedDepositModel.date}}'></fin-Date></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,344 @@
+ <div class="rak-back-header" ng-if="rakPayee.payBill.fromOutStandingPage==true">
+	<i class="rak-back-img" ng-click="rakPayee.payBill.isBackfromInitPage=true;setEvent('onBackToMultipleClick');"></i>
+</div>
+
+
+ <div class="rak-back-header" ng-if="rakPayee.payBill.fromOutStandingPage!=true;">
+	<i class="rak-back-img" ng-click="rakPayee.common.fromAuthPage=true;setEvent('onBackClick');"></i>
+</div>
+
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container"
+			ng-init="rakCorpInit.corpModel.resetCorpInitDetails();rakPayee.payBill.initPayNowPage(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+
+							<ng-include
+								src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'">
+							</ng-include>
+
+							<div class="bg-color rak-cont-padding rak-scroll">
+							
+							<div class="main-form-heading">
+					             <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_COMMON.PAYBILL}}
+									      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAK_COMMON.STEP1_TXTBNF}}</span></h2>
+					       </div>
+								<div class="row">
+									<div class="col-sm-1"></div>
+
+
+									
+									
+						<div class="rak-parent-txt paymentLabel">
+                             <p class="rak-sum-label  labelCardsTemp rak25">{{appLiterals.APP.PAYEE.PAY_BILL.PAY_TO}}  </p>
+                             <p class="rak-sum-label black labelCardsTemp rak70">{{rakPayee.payeeSelected.billerNickName}} - {{rakPayee.payeeSelected.serviceType}}</p>
+                     	</div>
+                     
+                     			<div
+										ng-init='fromAccountArray=createDropDownOptionArray(rakPayee.payBill.fromAccounts, ["subAccountTypeDesc","-","accountNumberDisplay", "-", "accountCurrency"],"accountIndex")'>
+										<fin-input type="dropdown" option-array="fromAccountArray"
+											model="rakPayee.payBill.selectedFromAccount"
+											display-row="full" 	on-change="rakPayee.common.updateBal(rakPayee.payBill.getBalanceEvent());"
+											placeholder="{{appLiterals.APP.PAYEE.PAY_BILL.PLCHOLDER_FROM}}"
+											validation-flag='pageErrorArr["rakPayee.payBill.selectedFromAccount"]'>
+										</fin-input>
+
+									</div>
+
+											<div>
+											
+											<p class="balance-available2"
+												ng-show="rakPayee.payBill.fromAccounts.length > 0 && rakPayee.payBill.selectedFromAccount!='' && rakPayee.quickPay.ccCombinedLimitFlag && rakPayee.payBill.fromAccounts[rakPayee.payBill.selectedFromAccount].accountType== 'CCD'">
+												{{appLiterals.APP.RAK_COMMON.RAK_COMBINED_AVL_LIMIT}}
+												<span class="rs-color">
+													{{rakPayee.common.availBal}}
+													</span>
+											</p>
+											<p class="balance-available2"
+												ng-show="rakPayee.payBill.fromAccounts.length > 0  && rakPayee.payBill.selectedFromAccount!='' && !rakPayee.quickPay.ccCombinedLimitFlag && rakPayee.payBill.fromAccounts[rakPayee.payBill.selectedFromAccount].accountType== 'CCD'">
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_BALANCE}}
+												<span class="rs-color">
+													{{rakPayee.common.availBal}}</span>
+											</p>
+											<p  class="balance-available2"
+												ng-show="rakPayee.payBill.fromAccounts.length > 0  && rakPayee.payBill.selectedFromAccount!='' && rakPayee.payBill.fromAccounts[rakPayee.payBill.selectedFromAccount].accountType != 'CCD'">
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_BALANCE}}
+												<span class="rs-color">
+													{{rakPayee.common.availBal}}</span>
+											</p>
+
+											<p class="balance-available2"
+												ng-show="rakPayee.payBill.subAccountTypeDesc=='Credit'">
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_ELGIBLEAMT}}
+												<span class="rs-color">
+													{{rakPayee.common.availBal}}</span>
+											</p>
+										</div>
+									
+								
+								
+									<div  ng-if="rakPayee.payBill.amountSelectionRqd">
+									<div class="rakRow">
+											<div class="radio-biller rak100 rakWidth100 rakRadioBottom labelCardsTemp " ng-init="rakPayee.payBill.billerType='Y'">
+												{{appLiterals.APP.PAYEE.PAY_BILL.AMOUNTAED}}</div>
+											<div class="rak100">
+												<div>
+
+													<div class="rakCstmRadioDiv rak53 " ng-if="rakPayee.payBill.outAmountRadioDisableFlag">
+														<input type="radio" value="2" ng-value="2"
+															id="radio1" disabled
+															ng-model="rakPayee.payBill.amountType" />
+															<label for="radio1"><span class="backGrey"><span></span></span>
+															{{appLiterals.APP.PAYEE.PAY_BILL.PAYOUTSTANDING}}</label>
+
+													</div>
+													<div class="rakCstmRadioDiv rak53" ng-if="!rakPayee.payBill.outAmountRadioDisableFlag">
+														<input type="radio" value="2" ng-value="2"
+															id="radio1"
+															ng-model="rakPayee.payBill.amountType" />
+															<label for="radio1"><span><span></span></span>
+															{{appLiterals.APP.PAYEE.PAY_BILL.PAYOUTSTANDING}}</label>
+
+													</div>
+													<div class="rakCstmRadioDiv rak47Right ">
+														<input type="radio" value="1" ng-value="1"
+															id="radio2"
+															ng-model="rakPayee.payBill.amountType" />
+															<label for="radio2"><span><span></span></span>{{appLiterals.APP.PAYEE.PAY_BILL.CUSTOM}}</label>
+
+													</div>
+												</div>
+
+											</div>
+										</div>
+
+										<!-- <p  class="balance-available2"
+												ng-show="rakPayee.payBill.amountType=='2' && rakPayee.payBill.fromOutStandingPage==true">
+
+												<span class="rs-color">
+													{{rakPayee.payBill.multipleTotalSelectedAmount}}</span>
+											</p>
+
+											<p  class="balance-available2"
+												ng-show="rakPayee.payBill.amountType=='2' && rakPayee.payBill.fromOutStandingPage!=true &&
+												rakPayee.payBill.displayOutAmt != 'AED 0.00' && rakPayee.payBill.displayOutAmt != 'AED -0.00'">
+
+												 <span class="rs-color">
+													{{rakPayee.payBill.displayOutAmt}}</span>
+											</p> -->
+
+										<div ng-show="rakPayee.payBill.amountType=='1'">
+											<fin-input type="money" model="rakPayee.payBill.amount"
+												display-row="full"
+												placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.ENTERAMT}}"
+												validation-flag='pageErrorArr["rakPayee.payBill.amount"]'>
+											</fin-input>
+										</div>
+
+										</div>
+
+								<div ng-if="!rakPayee.payBill.amountSelectionRqd"  ng-init="rakPayee.payBill.amountType='1'">
+
+											<fin-input type="money"
+												model="rakPayee.payBill.amount"
+												display-row="full"
+												on-change="rakPayee.payBill.updateCharges();"
+												placeholder="{{appLiterals.APP.PAYEE.PAY_BILL.AMOUNTAED}}"
+												validation-flag='pageErrorArr["rakPayee.payBill.amount"]'>
+											</fin-input>
+									</div>
+									
+									<div class="rak-parent-txt paymentLabel" ng-if="rakPayee.payBill.amountDue != '' && rakPayee.payBill.amountDue != 'AED 0.00' && rakPayee.payBill.amountDue != 'AED -0.00') && rakPayee.payBill.amtDueFlag=='Y' ">
+									 
+
+
+							<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.AMT_DUE}}</span>
+								<span class="rak-sum-label black labelCardsTemp">{{rakPayee.payBill.amountDue}}</span>
+
+
+						</div>
+						
+					<div class="rak-parent-txt paymentLabel" ng-if="rakPayee.payBill.outStandingAmtFlag=='Y' && (rakPayee.payBill.renewalAmt=='' || rakPayee.payBill.renewalAmt=='AED 0.00') && rakPayee.payBill.outAmount">
+
+
+							<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.PAYOUTSTANDING}}</span>
+							<span class="rak-sum-label black labelCardsTemp">{{rakPayee.payBill.outAmount}}</span>
+
+
+						</div>
+						<div class="rak-parent-txt paymentLabel" ng-if="(rakPayee.payBill.amountDue == '' || rakPayee.payBill.amountDue == 'AED 0.00' || rakPayee.payBill.amountDue == 'AED -0.00') && rakPayee.payBill.amtDueFlag=='Y' ">
+
+							<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.AMT_DUE}}</span>
+								<span class="rak-sum-label black labelCardsTemp">{{rakPayee.payBill.outAmount}}</span>
+
+
+						</div>
+											<div class="rak-parent-txt paymentLabel" ng-if="rakPayee.payBill.availableAmtFlag=='Y'">
+
+
+							<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.AVAILABLEAMT}}</span>
+							
+							<!-- Added for RAKToll CR -->
+							<span class="rak-sum-label black labelCardsTemp" ng-if="rakPayee.payBill.availBillAmt">{{rakPayee.payBill.availBillAmt}}</span>
+							<span class="rak-sum-label black labelCardsTemp" ng-if="rakPayee.payBill.freeBalAmt && rakPayee.payBill.RAKBILLER==rakPayee.constants.RAKTOLL">{{rakPayee.payBill.freeBalAmt}}</span>
+							<!-- Added for RAKToll CR -->
+
+
+						</div>
+									<div class="rak-parent-txt paymentLabel" ng-if="rakPayee.payBill.minAmount != 'AED 0.00' && rakPayee.payBill.minMaxAmtFlag=='Y'">
+
+
+							<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.MIN_AMT_DISP}}</span>
+							<span class="rak-sum-label black labelCardsTemp">{{rakPayee.payBill.minAmount}}</span>
+
+
+						</div>
+
+					<div class="rak-parent-txt paymentLabel" ng-if="rakPayee.payBill.maxAmount != 'AED 0.00' && rakPayee.payBill.minMaxAmtFlag=='Y'">
+
+
+							<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.MAX_AMT_DISP}}</span>
+								<span class="rak-sum-label black labelCardsTemp">{{rakPayee.payBill.maxAmount}}</span>
+
+
+						</div>
+
+						<div class="rak-parent-txt paymentLabel" ng-if="rakPayee.payBill.renewalAmtFlag=='Y'">
+
+
+							<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.RENEWALAMT}}</span>
+							<span class="rak-sum-label black labelCardsTemp">{{rakPayee.payBill.renewalAmt}}</span>
+
+
+						</div>
+						
+						<!-- Added for RakToll CR Start -->
+						
+						<div ng-if='rakPayee.payeeSelected.serviceType==rakPayee.constants.RAKTOLLTOPUP && rakPayee.payBill.chargesFlag=="Y"'>
+							<div class="rak-parent-txt paymentLabel" ng-if="rakPayee.payBill.amount && rakPayee.payBill.selectedFromAccount">
+								<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.CHARGEAMOUNT}}</span>
+								<span class="rak-sum-label black labelCardsTemp">AED {{rakPayee.payBill.chargesRakToll}}</span>
+							</div>
+							<div class="rakRow margin-top" ng-if="rakPayee.payBill.amount && rakPayee.payBill.selectedFromAccount">
+								<div class="radio-biller rak100 rakWidth100 rakRadioBottom labelCardsTemp " ng-init="rakPayee.payBill.billerType='Y'">
+									{{appLiterals.APP.PAYEE.PAY_BILL.CHARGES}}</div>
+								<div class="rak100">
+									<div>
+
+										<div class="rakCstmRadioDiv rak53">
+											<input type="radio" value="Y"
+												id="radio5"
+												ng-model="rakPayee.payBill.amountChargesRadio" />
+												<label for="radio5"><span><span></span></span>
+												{{appLiterals.APP.PAYEE.PAY_BILL.INCLUDE_CHARGES}}</label>
+
+										</div>
+										<div class="rakCstmRadioDiv rak47Right">
+											<input type="radio" value="N"
+												id="radio6"
+												ng-model="rakPayee.payBill.amountChargesRadio" />
+												<label for="radio6"><span><span></span></span>{{appLiterals.APP.PAYEE.PAY_BILL.EXCLUDE_CHARGES}}</label>
+
+										</div>
+									</div>
+									
+									<div class="rakRadioErr"
+									ng-hide='pageErrorArr["rakPayee.payBill.amountChargesRadio"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.PAYEE.PAY_BILL.CHARGES}}</div>
+
+								</div>
+							</div>
+							<div class="rak-parent-txt paymentLabel" ng-if="rakPayee.payBill.amountChargesRadio=='Y'">
+								<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.TOPUP_AMOUNT}}</span>
+								<span class="rak-sum-label black labelCardsTemp">AED {{rakPayee.payBill.topUpAmount}}</span>
+							</div>
+							<div class="rak-parent-txt paymentLabel" ng-if="rakPayee.payBill.amountChargesRadio=='Y'">
+								<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.TOTAL_AMOUNT}}</span>
+								<span class="rak-sum-label black labelCardsTemp">AED {{rakPayee.payBill.amountRakToll}}</span>
+							</div>
+							<div class="rak-parent-txt paymentLabel" ng-if="rakPayee.payBill.amountChargesRadio=='N'">
+								<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.TOPUP_AMOUNT}}</span>
+								<span class="rak-sum-label black labelCardsTemp">AED {{rakPayee.payBill.amountRakToll}}</span>
+							</div>
+							<div class="rak-parent-txt paymentLabel" ng-if="rakPayee.payBill.amountChargesRadio=='N'">
+								<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.PAY_BILL.TOTAL_AMOUNT}}</span>
+								<span class="rak-sum-label black labelCardsTemp">AED {{rakPayee.payBill.totalAmount}}</span>
+							</div>
+						</div>
+						
+						<!-- Added for RakToll CR End -->
+										
+
+
+									
+										<div>
+											<fin-input type="date"
+												model="rakPayee.common.displayDate"
+												value="futureDatesOnly"
+												placeholder="{{appLiterals.APP.PAYEE.PAY_BILL.WHEN}}"
+												display-row="full"> </fin-input>
+										</div>
+								
+
+										<div
+											ng-init='frequencyArray=createDropDownOptionArray(rakPayee.payBill.frequencyType, ["frequencyTypeDesc"],"frequencyTypeCode")'>
+											<fin-input type="dropdown" option-array="frequencyArray"
+												model="rakPayee.payBill.selectedFrequency"
+												display-row="full"
+												placeholder="{{appLiterals.APP.PAYEE.PAY_BILL.FREQ}}"
+												validation-flag='pageErrorArr["rakPayee.payBill.selectedFrequency"]'>
+											</fin-input>
+
+										</div>
+
+										<!-- <div
+											ng-show="rakPayee.payBill.selectedFrequency!='O' && rakPayee.payBill.selectedFrequency!='undefined'"> -->
+										<div
+											ng-hide="rakPayee.payBill.selectedFrequency=='O' || rakPayee.payBill.selectedFrequency=='undefined' || rakPayee.payBill.selectedFrequency== ''">
+											<fin-input type="number_card"
+												model="rakPayee.payBill.noOfTransfer"
+												display-row="full"
+												max-length="5"
+												placeholder="{{appLiterals.APP.PAYEE.PAY_BILL.NOOFTRANSFERS}}"
+												validation-flag='pageErrorArr["rakPayee.payBill.noOfTransfer"]'>
+											</fin-input>
+										</div>
+
+										
+
+										<div class="label-wrap">
+											<button type="button" ng-if="rakPayee.payBill.fromOutStandingPage==true" class="btn--special-btn btn-middle rak-button-small btn--back"
+				 							ng-click="rakPayee.payBill.isBackfromInitPage=true;setEvent('onBackToMultipleClick');">  {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.BACK}} </button>
+				 							<button type="button" ng-if="rakPayee.payBill.fromOutStandingPage!=true;" class="btn--special-btn btn-middle rak-button-small btn--back"
+				 							ng-click="rakPayee.common.fromAuthPage=true;setEvent('onBackClick');">  {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.BACK}} </button>
+											<button type="button" ng-disabled="(!rakPayee.payBill.chargesFlagBoolean) && rakPayee.payeeSelected.serviceType==rakPayee.constants.RAKTOLLTOPUP"
+												class="btn--special-btn btn-middle rak-button-right"
+												ng-click="rakPayee.payBill.setPayBillDate();rak2FARegister.RegistrationModel.resolveEventFor2FA('BILLPMT');rakCorpInit.corpModel.eventName='BILLPMT';setEvent(rakPayee.payBill.getEventForPayement());rakCorpInit.corpModel.backFlag='N'";>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_PROCEED}}
+											</button>
+
+										</div>
+
+								<div class="disclaimer" ng-if="rakPayee.disclaimerText!=null && rakPayee.disclaimerText!=''" ng-init="rakDisclaimerFlag=false;">
+									<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+										<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+									</div>
+
+									<div class="disclaimer3" ng-show="rakDisclaimerFlag">
+										<div ng-bind-html="rakPayee.disclaimerText">
+									</div>
+								</div>
+
+								</div>
+
+
+							</div>
+							<div class="col-sm-1"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

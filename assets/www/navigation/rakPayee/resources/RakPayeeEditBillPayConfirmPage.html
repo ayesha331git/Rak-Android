@@ -1,0 +1,146 @@
+<div
+	ng-init="rakHome.AuthPageData.firstAuthModeValue='';rakPayee.schedule.initAuthPage(successResponse.responsesList);rakCorpInit.corpModel.processCorpInit(successResponse.responsesList);">
+	<div ng-if="rakPayee.payBill.balCheck== 'true'">
+		<div class="full-page-screen"></div>
+		<div class="confirmation-content-container">
+			<div class="message-box-new rakTop25">
+				<div>
+					<p class="round-icon-new">
+						<span class="app app-alert pop-alert-icon rak-color"></span>
+					</p>
+					
+				</div>
+				<div class="conf-txt-label rak-black-color">
+					{{rakPayee.payBill.poolBalMsg}}</div>
+				<div class="conf-btn-wrap_alert rakpaddingBottom10">
+					<button type="button"class="btn--special-btn btn-middle rak-button-small btn--back"
+						ng-click='setEvent("onTransfersAuthBackClick")'>&nbsp;
+						{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.BTN_CNL}}
+						&nbsp;</button>
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-small"
+						ng-click='rakPayee.payBill.balCheck="false";setEvent("onPoolBalanceConfirmation")'>
+						&nbsp;
+						{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.BTN_YES}}
+						&nbsp;</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="finacle-container ng-scope"
+	ng-init="" >
+	<div class="account-page">
+    <div class="col-sm-11">
+	  <div class="app-title-wrapper">
+
+		<ng-include ng-if="rakPendingApproval.pendingApprovalTab!='PIA'" src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>
+
+        <div class="rak-scroll">
+      		<div class="main-form-heading" ng-if="rakPendingApproval.pendingApprovalTab!='PIA'">
+                    	<h2>{{appLiterals.APP.RAK_COMMON.SUMMARY_HEADER}}<span>{{appLiterals.APP.RAK_COMMON.SUMMARY_REVIEW}}</span></h2>
+            </div>
+            
+            <div class="main-form-heading-ServiceReq" ng-if="rakPendingApproval.pendingApprovalTab=='PIA'"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_COMMON.MODIFY_TRAN}}				     	     
+				      </h2>		       
+			</div>
+
+
+		<div class="bg-color rak-cont-padding">
+
+			<div class="row" >
+			  <div class="">
+
+				<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.PAY_TO}}</span>
+				<span class="rak-sum-label black">{{rakPayee.schedule.selectedPayee}} - {{rakPayee.schedule.service}}</span>
+				</p>
+
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.PLCHOLDER_FROM}}</span>
+					<span class="rak-sum-label black">{{rakPayee.schedule.fromAccounts[rakPayee.schedule.selectedFromAccount].accountNumber}}</span>
+				</p>
+				
+			<p class="rak-sum-txt" ng-show="rakPayee.schedule.consumerNo">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.CONSUMERNO}}</span>
+					<span class="rak-sum-label black">{{rakPayee.schedule.consumerNo}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakPayee.schedule.amountType=='2'">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.AMOUNT}}</span>
+					<span class="rak-sum-label black">{{rakPayee.schedule.outAmount}}</span>
+
+
+				<p class="rak-sum-txt" ng-show="rakPayee.schedule.amountType=='1' && rakPayee.payeeSelected.serviceType!=rakPayee.constants.RAKTOLLTOPUP">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.AMOUNT}}</span>
+					<span class="rak-sum-label black">{{rakPayee.schedule.amountDisp}} AED</span>
+				</p>
+				
+				<div ng-if='rakPayee.payeeSelected.serviceType==rakPayee.constants.RAKTOLLTOPUP'>
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.CHARGES}}</span>
+						<span class="rak-sum-label black">AED {{rakPayee.payBill.chargesRakToll}} <span ng-if="rakPayee.payBill.amountChargesRadio=='Y'">({{appLiterals.APP.PAYEE.PAY_BILL.INCLUDE_CHARGES}})</span><span ng-if="rakPayee.payBill.amountChargesRadio=='N'">({{appLiterals.APP.PAYEE.PAY_BILL.EXCLUDE_CHARGES}})</span></span>
+					</p>
+					<p class="rak-sum-txt" ng-if="rakPayee.payBill.amountChargesRadio=='Y'">
+						<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.TOPUP_AMOUNT}}</span>
+						<span class="rak-sum-label black">AED {{rakPayee.payBill.topUpAmount}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-if="rakPayee.payBill.amountChargesRadio=='Y'">
+						<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.TOTAL_AMOUNT}}</span>
+						<span class="rak-sum-label black">AED {{rakPayee.payBill.amountRakToll}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-if="rakPayee.payBill.amountChargesRadio=='N'">
+						<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.TOPUP_AMOUNT}}</span>
+						<span class="rak-sum-label black">AED {{rakPayee.payBill.amountDisp}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-if="rakPayee.payBill.amountChargesRadio=='N'">
+						<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.TOTAL_AMOUNT}}</span>
+						<span class="rak-sum-label black">AED {{rakPayee.payBill.totalAmount}}</span>
+					</p>
+				</div>
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.WHEN}}</span>
+					<span class="rak-sum-label black">{{rakPayee.schedule.displayDate}}</span>
+				</p>
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.FREQ}}</span>
+					<span class="rak-sum-label black">{{rakPayee.schedule.recFreq}}</span>
+				</p>
+
+
+
+				<p class="rak-sum-txt" ng-show="rakPayee.schedule.selectedFrequency!='O' && rakPayee.schedule.selectedFrequency!='undefined'">
+					<span  class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.NOOFTRANSFERS}}</span>
+					<span class="rak-sum-label black">{{rakPayee.schedule.noOfTransfer}}</span>
+				</p>
+<!-- added for workflow -->
+
+							 <corpapproval-input></corpapproval-input>
+							
+		
+		
+
+			<fin-dynamicauth></fin-dynamicauth>
+
+				<div class="label-wrap">
+
+				 <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back"
+				 ng-click="rakPayee.schedule.fromAuthPage=true;rakHome.AuthPageData.firstAuthModeValue='';setEvent('onPayBillAuthBackClick');">  {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.BTN_BACK}} </button>
+				 <button type="button"  class="btn--special-btn btn-middle rak-button-small" ng-if="rakPendingApproval.pendingApprovalTab!='PIA'"
+				 ng-click="rakHome.AuthPageData.fetchOtp('onModifyPayBillNowSubmit');">  {{appLiterals.APP.PAYEE.PAY_BILL.BTN_CONFIRM}} </button>
+				 <button type="button"  class="btn--special-btn btn-middle rak-button-small" ng-if="rakPendingApproval.pendingApprovalTab=='PIA'"
+				 ng-click="rakHome.AuthPageData.fetchOtp('onModifyIncompPayBillNowSubmit');">  {{appLiterals.APP.PAYEE.PAY_BILL.BTN_CONFIRM}} </button>
+
+			  </div>
+          <div class="col-sm-1"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>

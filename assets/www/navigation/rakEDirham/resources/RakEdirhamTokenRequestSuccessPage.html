@@ -1,0 +1,58 @@
+
+<div class="finacle-container" ng-init="rakEDirham.requestOtpInit(successResponse.responsesList);">
+<div class="account-page">
+<div class="app-title-wrapper">
+<div class="form-block">
+
+		
+		   <div class="">		   		
+			
+		                
+		   <div class="bg-color eDirham-scroll margn-5-5-0-5">  	     
+		   	<div class="paybils-block-top w-100">
+		   	<div class="summary-ServiceReq mb-2em">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakEDirham.common.sucMsg}}</span>
+				</div>
+			</div>
+					            <div class="">
+					              <div class="entr-edirham-pin-txt black-txt dashboard-item-title">{{appLiterals.APP.EDIRHAM.EDIRHAM_TOKEN_REQ_TXT}} - {{appLiterals.APP.EDIRHAM.EDIRHAM_SUCCESS_HEADER_SUB_HEADER}}</div>
+					              <p class="rak-sum-txt">
+											<span  class="rak-sum-label"> {{appLiterals.APP.EDIRHAM.SETTING_FUNDING_ACCT}}</span>
+											<span class="rak-sum-label black">{{rakEDirham.tokenRequest.selectedAccount}}</span>
+										</p>
+					              
+					            </div>	
+					                        
+					            
+			</div>
+	     <!--     <div class="margin-top-thirtypx">
+		     <button type="button" class="btn--special-btn btn-middle go-overview-btn"
+									ng-click="setEvent('onEdirhamOverviewClick');rakEDirham.clearTab();">{{appLiterals.APP.EDIRHAM.GO_OVERVIEW_BTN}}
+									</button>
+									 <button type="button" class="btn--special-btn btn-middle generate-token-btn"
+									ng-click="setEvent('onAuthClick');rakEDirham.clearTab();"> {{appLiterals.APP.EDIRHAM.GENERATE_TOKEN_BTN}} 
+									</button>
+			
+		     </div> -->
+		       <div class="margin-top-thirtypx">
+		    					 <button type="button"class="btn--special-btn btn-middle block-unblock-btn"
+									ng-click="setGlobalEvent('onDashboardClick');rakEDirham.clearTab();">
+												{{appLiterals.APP.EDIRHAM.DONE_BTN}}
+											</button>
+							
+			
+		     					</div>
+            
+			</div>
+    
+		   
+		     
+    
+	
+
+</div>
+</div>
+</div>
+</div>
+</div>

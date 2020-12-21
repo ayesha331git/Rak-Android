@@ -1,0 +1,169 @@
+		<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onRAKEarlyCardRenewalBackClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.initRAKEarlyCardRenewal(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+						
+						<div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.ECR}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+                              </h2>              
+						</div>
+						
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="row">
+								
+
+									<div
+										ng-init='ccArr = createDropDownOptionArray(rakServiceReq.RAKEarlyCardRenewal.cardNoList, ["cardDesc","-", "cardId"], "ccIndex");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RAKEarlyCardRenewalModel.selectedCCNo"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAKECR.TXT_CARDNO}}"
+										on-change="rakServiceReq.onCardChange();setEvent('onRAKGoBtnlick');"
+										validation-flag='pageErrorArr["rakServiceReq.RAKEarlyCardRenewalModel.selectedCCNo"]'
+										option-array="ccArr"> </fin-input>
+
+
+									</br>
+									<p></p>
+									<div
+										ng-show="rakServiceReq.RAKEarlyCardRenewalModel.isGoBtnClicked">
+
+										<div class="rak-parent-txt">
+											<p class="rak-sum-label  ServiceReqNormalLable">{{appLiterals.APP.RAK_SERVICES.RAKECR.TXT_EXPIRYDATE}}</p>
+												<p class="rak-sum-label blackRight ServiceReqNormalLable">{{rakServiceReq.RAKEarlyCardRenewalModel.expiryDate}}</p>
+										</div>
+
+									
+										<div
+											ng-init='reasonArr = createDropDownOptionArray(rakServiceReq.RAKEarlyCardRenewal.reasonList, ["reasonDesc"], "reasonCode");'></div>
+										<fin-input type="dropdown"
+											model="rakServiceReq.RAKEarlyCardRenewalModel.selectedReason"
+											on-change="rakServiceReq.getOtherFlag();"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAK_SERVICES.RAKECR.TXT_REASON}}"
+											validation-flag='pageErrorArr["rakServiceReq.RAKEarlyCardRenewalModel.selectedReason"]'
+											option-array="reasonArr"> </fin-input>
+
+
+<fin-input type="text"
+									model="rakServiceReq.RAKEarlyCardRenewalModel.others"
+									display-row="full"
+									ng-show="rakServiceReq.RAKEarlyCardRenewalModel.selectedReason=='Others'"
+									validation-flag='pageErrorArr["rakServiceReq.RAKEarlyCardRenewalModel.others"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_CHEQ_REQ.OTHERS}}">
+								</fin-input> 
+
+
+										<div class="rakRow">
+											<div class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px "
+												ng-init="rakServiceReq.RAKEarlyCardRenewalModel.isBranchOptionSelected = true">
+												{{appLiterals.APP.RAK_SERVICES.RAKECR.TXT_DELCHANNEL}}</div>
+											<div class="rak90">
+												<div>
+													<div class="rakCstmRadioDiv rak50 rakTop2emLeft3">
+														<input type="radio" ng-value="true" id="radio1"
+															ng-model="rakServiceReq.RAKEarlyCardRenewalModel.isBranchOptionSelected" />
+														<label for="radio1"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAKECR.TXT_BRANCH}}</label>
+													</div>
+													<div class="rakCstmRadioDiv rak47 rakTop2emLeft3 ">
+														<input type="radio" ng-value="false"  id="radio2"
+															ng-model="rakServiceReq.RAKEarlyCardRenewalModel.isBranchOptionSelected" />
+														<label for="radio2"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAKECR.TXT_COURIER}}</label>
+														
+													</div>
+												</div>
+											</div>
+										</div>
+									
+							<div
+								ng-init='cardArrEmi = createDropDownOptionArray(rakServiceReq.RAKEarlyCardRenewal.emirateList, ["codeDesc"], "code");'
+								
+								>
+							<fin-input type="dropdown"
+								model="rakServiceReq.RAKEarlyCardRenewalModel.emirateSeletected"
+								display-row="full"
+								ng-show="rakServiceReq.RAKEarlyCardRenewalModel.isBranchOptionSelected"
+								placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}"
+								on-change="rakServiceReq.RAKEarlyCardRenewalOptionChange();"
+								validation-flag='pageErrorArr["rakServiceReq.RAKEarlyCardRenewalModel.emirateSeletected"]'
+								option-array="cardArrEmi"> </fin-input>
+							</div>
+							
+							
+							<div class="fin-input-container"
+								ng-show="rakServiceReq.RAKEarlyCardRenewalModel.isBranchOptionSelected && rakServiceReq.RAKEarlyCardRenewalModel.isEmiSelected">
+								<div
+									ng-class="{'left-line': !pageErrorArr['rakServiceReq.RAKEarlyCardRenewalModel.selectedBranch'], 'left-line-error':pageErrorArr['rakServiceReq.RAKEarlyCardRenewalModel.selectedBranch']}"
+									class="left-line"></div>
+								<div class="input-body">
+									<div class="input-body2 input-body2-dropdown">
+										<select dropdownpicker title="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}"  class="fin-input fin-select"
+											ng-model="rakServiceReq.RAKEarlyCardRenewalModel.selectedBranch"
+											ng-style="{{rakServiceReq.RAKEarlyCardRenewalModel.selectedBranch}} == '' ? {'font-size': '14px'} : {'color': 'initial'}">
+											<option class="place-holder-select" value=""
+												ng-selected="rakServiceReq.RAKEarlyCardRenewalModel.selectedBranch== null"
+												ng-show="rakServiceReq.RAKEarlyCardRenewalModel.selectedBranch== null">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}</option>
+											<option
+												ng-repeat="option in rakServiceReq.RAKEarlyCardRenewal.emiCategorizedBranchList"
+												ng-selected="option.value=={{rakServiceReq.RAKEarlyCardRenewalModel.selectedBranch}}"
+												value="{{option.branchIndex}}">{{option.branchName}}</option>
+										</select>
+									</div>
+									<div
+										ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.RAKEarlyCardRenewalModel.selectedBranch'], 'bottom-line-error':pageErrorArr['rakServiceReq.RAKEarlyCardRenewalModel.selectedBranch']}"
+										class="bottom-line"></div>
+									<div
+										ng-hide='pageErrorArr["rakServiceReq.RAKEarlyCardRenewalModel.selectedBranch"]==null'
+										class="rakErrorMsg">
+										{{pageErrorArr['rakServiceReq.RAKEarlyCardRenewalModel.selectedBranch']}}</div>
+
+								</div>
+							</div>
+
+
+												
+										
+										
+										
+										<div class="label-wrap">
+
+											<button type="button"
+												class="btn--special-btn btn-middle rak-button-small rak-button-right"
+												ng-click="rakServiceReq.setBranchIndex();setEvent('onRAKEarlyCardRenewalConfirmClick');">
+												{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+										</div>
+									</div>
+
+								</div>
+								
+								<div class="disclaimer"  ng-show="rakServiceReq.RAKEarlyCardRenewalModel.isGoBtnClicked">
+                                             <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                             <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                             </div>
+                                             
+                                             <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+												<span ng-click="rakServiceReq.fetchDisclaimer('CreditCardServiceRequestsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKEARLYCARDRENEWAL_INITPAGE"></span>									
+											</div>
+                                     </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-1"></div>
+			</div>
+			<div class="scroll-space"></div>
+		</div>
+	</div>
+</div>

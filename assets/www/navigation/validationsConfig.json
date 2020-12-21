@@ -1,0 +1,6679 @@
+{
+    "fields.finacleCorporateId": [
+        {
+        "validationType": "conditionalRequired",
+            "conditionVar": "rakHome.corpFlagValue"
+           
+        }
+    ],   
+    
+    "rakHome.typeOfCustomer": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+    "fields.finacleUserCorporateId": [
+        {
+            "validationType": "required"
+        },
+         {
+            "validationType": "maxLength",
+            "maxLengthValue": 32
+        }
+    ],
+    "fields.finacleUserPassword": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "myProfile.oldPassword": [
+        {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "myProfile.password.changeLoginPassword"
+        }
+    ],
+    "myProfile.newPassword": [
+        {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "myProfile.password.changeLoginPassword"
+        }
+    ],
+    "myProfile.confirmPassword": [
+        {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "myProfile.password.changeLoginPassword"
+        }
+    ],
+    "myProfile.txnOldPassword": [
+        {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "myProfile.password.changeTransactionPassword"
+        }
+    ],
+    "myProfile.txnNewPassword": [
+        {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "myProfile.password.changeTransactionPassword"
+        }
+    ],
+    "myProfile.txnConfirmPassword": [
+        {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "myProfile.password.changeTransactionPassword"
+        },
+        {
+            "validationType": "stringEquals",
+            "newPassword": "myProfile.txnNewPassword"
+        }        
+    ],
+    "myProfile.userID": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "moveMoney.common.remarks": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "myProfile.authenticateOTP": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "myProfile.oldForceLoginPassword": [
+        {
+            "validationType": "conditionalRequiredForForcePassword",
+            "conditionVar": "myProfile.loginPwdExp"
+        }
+    ],
+    "myProfile.newForceLoginPassword": [
+        {
+            "validationType": "conditionalRequiredForForcePassword",
+            "conditionVar": "myProfile.loginPwdExp"
+        }
+    ],
+    "myProfile.confirmForceLoginPassword": [
+        {
+            "validationType": "conditionalRequiredForForcePassword",
+            "conditionVar": "myProfile.loginPwdExp"
+        }
+    ],
+    "myProfile.oldForceTxnPassword": [
+        {
+            "validationType": "conditionalRequiredForForcePassword",
+            "conditionVar": "myProfile.txnPwdExp"
+        }
+    ],
+    "myProfile.newForceTxnPassword": [
+        {
+            "validationType": "conditionalRequiredForForcePassword",
+            "conditionVar": "myProfile.txnPwdExp"
+        }
+    ],
+    "myProfile.confirmForceTxnPassword": [
+        {
+            "validationType": "conditionalRequiredForForcePassword",
+            "conditionVar": "myProfile.txnPwdExp"
+        }
+    ],
+    "myProfile.referAndShare.fullName": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "spclCharacterValidator"
+            
+        }
+    ],
+    "myProfile.referAndShare.number": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "lengthEquals",
+            "length": 10
+        },
+        {
+            "validationType": "startValueValidator",
+            "conditionVar": "mobileRecharge.mobileValidateValue"
+        }
+    ],
+    "myProfile.updateNickname.nickname": [
+        {
+            "validationType": "validateBasedOnIndex",
+            "data":"myProfile.updateNickname.selectedIndexArray"
+        }
+    ],
+    "myProfile.updateNickname.transactionPassword": [
+        {
+           "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "myProfile.updateNickname.authStatus"
+        }
+    ],
+    "myProfile.forgotUserID.firstName":[
+    	{
+    		"validationType": "required"
+    	},
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 32
+        }
+    ],
+    "myProfile.forgotUserID.lastName":[
+    	{
+    		"validationType": "required"
+    	},
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 32
+        }
+    ],
+    "myProfile.forgotUserID.birthDate":[
+    	{
+    		"validationType": "required"
+    	},
+    	{
+            "validationType": "actualDateLessThan",
+            "dateLessThanVar": "myProfile.forgotUserID.currentDate"
+        },
+    	{
+        	"validationType":"stringDateYearLimit"
+        }
+    ],
+    "myProfile.forgotUserID.accountID":[
+    	{
+    		"validationType": "required"
+    	}
+    ],
+    "myProfile.forgotUserID.address1":[
+    	{
+    		"validationType": "required"
+    	},
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 50
+        }
+    ],
+    "myProfile.forgotUserID.address2":[
+    	{
+    		"validationType": "required"
+    	},
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 50
+        }
+    ],
+     "myProfile.forgotUserID.city":[
+    	{
+    		"validationType": "required"
+    	},
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 20
+        }
+    ],
+     "myProfile.forgotUserID.state":[
+    	{
+    		"validationType": "required"
+    	},
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 20
+        }
+    ],
+    "myProfile.forgotUserID.country":[
+    	{
+            "validationType": "required"
+        }
+     ],
+     "myProfile.forgotUserID.postalCode":[
+    	{
+    		"validationType": "required"
+    	}
+    ],
+     "myProfile.forgotUserID.mailID":[
+     	{
+    		"validationType": "required"
+    	},
+    	{
+    		 "validationType": "isEmail"
+    	},
+    	{
+    		 "validationType": "hasSpace"
+    	}
+    ],
+     "myProfile.forgotUserID.mobileNumber":[
+    	{
+            "validationType": "required"
+        },
+        {
+            "validationType": "textWithoutZero"
+        },
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 20
+        }
+    ],
+    "fields.trxnSearchByDateOption": [
+        {
+            "validationType": "conditionalRequiredNotOne",
+            "conditionVar": "fields.txnSrcLatestNoOfTxns,fields.txnSrcMinAmt,fields.byTrnxChoice"
+        }
+    ],
+    "fields.txnSrcLatestNoOfTxns":[
+    	{
+    		"validationType": "ifValuethanNumber"
+    	}
+    ],
+	"fields.trxnSearchByDate1": [
+	 	{
+            "validationType": "required"
+        },
+        {
+        	"validationType":"stringDateYearLimit"
+        }
+    ],
+    "fields.trxnSearchByDate2": [
+  		{
+            "validationType": "required"
+        },       
+        {
+        	"validationType":"stringDateYearLimit"
+        }
+    ],
+    "fields.txnSrcMinAmt": [
+        {
+            "validationType": "lessThanOptional",
+            "lessThanOptional": "fields.txnSrcMaxAmt"
+        }
+    ],
+    "fields.selectedSFTFromAccountIndex": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "fields.selectedSFTToAccountIndex": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "fields.selectedSFTCurrency": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "fields.selectedSFTAmount": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "fields.transMode": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "fields.locationSearchText": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "minLength",
+            "minLengthValue": 1
+        }
+    ],
+ 
+  
+  
+
+    "appActivation.userId": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "appActivation.authenticateOTP": [
+        {
+            "validationType": "required"
+        },
+        {	
+        	"validationType":"isNumericPassword" 
+        }
+    ],
+     "appActivation.userMPIN": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "appActivation.oldMPIN": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "appActivation.confirmMPIN": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "stringEquals",
+            "newPassword": "appActivation.userMPIN"
+        }
+    ],
+    "appActivation.deviceName": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 15
+        },
+        {	
+        	"validationType":"isAlphaNumericWithUnderScore"
+        }
+    ],
+    "appActivation.cardNumber1": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "minLength",
+            "minLengthValue":4
+        }
+    ],
+     "appActivation.cardNumber2": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "minLength",
+            "minLengthValue":4
+        }
+    ],
+     "appActivation.cardNumber3": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "minLength",
+            "minLengthValue":4
+        }
+    ],
+    "appActivation.cardNumber4": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "minLength",
+            "minLengthValue":4
+        }
+    ],
+    "appActivation.atmPin": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "pinAndCVVMinLength",
+            "minLengthValue":"appActivation.CVVAndPinMaxLength"
+        },
+        {	
+        	"validationType":"isNumericPassword" 
+        }
+    ],
+    "appActivation.cardExpiryMonth": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "appActivation.cardExpiryYear": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "appActivation.cardName": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "myProfile.manageAlert.transactionPassword":[
+    	{
+    		"validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "myProfile.manageAlert.isAuth" 
+    	}
+    ],
+    "myProfile.manageAlert.frequencyAlert":[
+        {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "myProfile.manageAlert.validateFrequencyAlert" 
+        }
+    ],
+    "myProfile.manageAlert.numberOfDays": [
+        {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "myProfile.manageAlert.showNumberOfDays" 
+        },
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 2
+        }
+    ],
+    "myProfile.manageAlert.accountNumber":[
+    	{
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "myProfile.manageAlert.showAccountAlert" 
+        }
+    ],
+     "myProfile.manageAlert.amount": [
+        {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "myProfile.manageAlert.showAmountAlert" 
+        },
+        {
+            "validationType": "NonZeroifValueConditionally",
+            "conditionVar": "myProfile.manageAlert.showAmountAlert" 
+        },
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 6
+        },
+        {
+            "validationType": "requiredNonZero"
+        }
+    ],
+    "myProfile.manageAlert.weeklyFirstDate": [
+        {
+            "validationType": "atleatOneFieldSelected",
+            "secondFieldName": "myProfile.manageAlert.weeklySecondDate",
+            "selectedStatus":"myProfile.manageAlert.weeklySelected"
+        }
+      ],
+       "myProfile.manageAlert.monthlyFirstDate": [
+        {
+            "validationType": "atleatOneFieldSelected",
+            "secondFieldName": "myProfile.manageAlert.monthlySecondDate",
+            "selectedStatus":"myProfile.manageAlert.monthlySelected"
+        }
+      ],
+       "myProfile.manageAlert.yearDate1": [
+        {
+            "validationType": "atleatOneYearFieldSelected",
+            "yearMonth1": "myProfile.manageAlert.yearMonth1",
+            "yearDate2": "myProfile.manageAlert.yearDate2",
+            "yearMonth2": "myProfile.manageAlert.yearMonth2",
+            "yearDate3": "myProfile.manageAlert.yearDate3",
+            "yearMonth3": "myProfile.manageAlert.yearMonth3",
+            "yearDate4": "myProfile.manageAlert.yearDate4",
+            "yearMonth4": "myProfile.manageAlert.yearMonth4",
+            "yearDate5": "myProfile.manageAlert.yearDate5",
+            "yearMonth5": "myProfile.manageAlert.yearMonth5",
+            "yearDate6": "myProfile.manageAlert.yearDate6",
+            "yearMonth6": "myProfile.manageAlert.yearMonth6",
+            "selectedStatus":"myProfile.manageAlert.yearlySelected"
+        }
+      ],
+      
+   		"rakPendingApproval.approveAuthModel.authPwd": [
+	        {
+	            "validationType": "required"
+	        }
+   		],
+   		"rakPendingApproval.reason": [
+	        {
+	            "validationType": "required"
+	        }
+   		],
+   		"stepupAuthentication.SMS_OTP.smsOTP": [
+	        {
+	            "validationType": "required"
+	        }
+   		],
+   		
+   		"stepupAuthentication.HARD_TOKEN.hardToken": [
+	        {
+	            "validationType": "required"
+	        }
+   		],
+   	
+
+    "StepupAuthenticate.actionDetails[0].params.Questions": [
+        {
+            "validationType": "arrayBasedOnKey",
+            "key":"StepupAuthenticate.answers",
+            "stepUpAuthString":"StepupAuthenticate.authorization_action",
+            "selectedQuestions":"StepupAuthenticate.selectedQuestions",
+            "questions":"StepupAuthenticate.actionDetails[0].params.Questions"
+        }
+    ],
+    "StepupAuthenticate.RSAorOTP": [
+	        {
+	            "validationType": "stepUpRequired",
+	            "stepUpAuthString":"StepupAuthenticate.authorization_action"
+	        }
+   	]
+	,
+   		
+            "stepupAuthentication.PASSWORD_CHALLENGE.strPasswordChallenge": [{
+               "validationType": "required"
+            }],
+            "StepupAuthenticate.primaryAuthModeVal": [{
+               "validationType": "required",
+               "conditionVar": "StepupAuthenticate.primaryAuthModeValidation"
+            }],
+	    
+	     "RAKServices.newCreditCardModel.name": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+   
+    
+       "RAKServices.newCreditCardModel.email": [
+        {
+            "validationType": "required",
+            "validationType": "isEmail"
+        }
+    ],
+      "RAKServices.newCreditCardModel.phone": [
+        {
+            "validationType": "required",
+             "validationType":"isMobNumberNotReqValidator"
+        }
+    ],
+   
+    "RAKServices.newCreditCardModel.selectedIncome": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+    "rakAccounts.RAKAccountsModel.selectedOperativeAccount": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakAccounts.RAKAccountsModel.selectedAccount": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "RAKServices.newCreditCardModel.selectedOccupation": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "RAKServices.newCreditCardModel.selectedCardType": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "RAKServices.newCreditCardModel.address1": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "RAKServices.newCreditCardModel.city": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "RAKServices.newCreditCardModel.dateOfBirth": [
+        {
+            "validationType": "required"
+        },
+        {
+        	"validationType":"stringDateYearLimit"
+        }
+    ],
+    "RAKServices.newCreditCardModel.postalCode": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "lengthEquals",
+            "length": 6
+        }
+    ],
+    "RAKServices.newCreditCardModel.selectedCountry": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "RAKServices.newCreditCardModel.transactionPwd": [
+        {
+            "validationType": "conditionalRequiredNull",
+            "conditionVar": "services.newCreditCardModel.auth"
+        }
+    ],
+ 
+    
+    
+    
+     "rakSendMoney.sendMoney.rakBenfResidentCountry": [
+            {
+             "validationType": "conditionalRequired",
+            "conditionVar": "rakSendMoney.sendMoney.showResidentCountryField=='Y' || rakSendMoney.sendMoney.showUBFResidentCountry=='YES'"
+            }           
+    ],
+    
+     "rakPayCards.ownCards.rakBenfResidentCountry": [
+            {
+             "validationType": "conditionalRequired",
+            "conditionVar": "rakPayCards.ownCards.showResidentCountryField=='Y' || rakPayCards.ownCards.showUBFResidentCountry=='YES'"
+            }           
+    ],
+    
+    "rakSendMoney.sendMoney.selectedBenType": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakSendMoney.sendMoney.selectedToAccount": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakSendMoney.sendMoney.selectedToBenAccount": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakSendMoney.sendMoney.selectedFromAccount": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakSendMoney.sendMoney.selectedFromAccountNew":[
+    	 {
+            "validationType": "required"
+        }
+    ],
+    
+    
+    "rakSendMoney.sendMoney.selectedCurrency": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakSendMoney.sendMoney.selectedFrequency": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakSendMoney.common.displayDate": [
+        {
+            "validationType": "dateValid"
+        }
+    ],
+    
+    "rakSendMoney.sendMoney.selectedReason":[
+    {
+    "validationType": "required"
+    }
+    ],
+     "rakSendMoney.sendMoney.noOfTransfer": [
+        {
+            "validationType": "required"
+        },
+        
+         {
+            "validationType": "isNumericPassword"
+        }
+    ],
+     "rakSendMoney.sendMoney.amount": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakSendMoney.sendMoney.selectedCharges": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakSendMoney.sendMoney.selectedPurpose": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakSendMoney.sendMoney.selectedRCurr": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+      "rakSendMoney.sendMoney.remitCurrency": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+   
+     "rakSendMoney.common.authValue": [
+        {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+			"conditionVar": "rakSendMoney.common.isAuthSet"
+        }
+    ],
+     "rakSendMoney.sendMoney.selectedTransferType": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakSendMoney.rakMoney.selectedBenType": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakSendMoney.rakMoney.selectedToAccount": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakSendMoney.rakMoney.selectedToBenAccount": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakSendMoney.rakMoney.selectedFromAccount": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+    
+    "rakSendMoney.rakMoney.selectedCurrency": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakSendMoney.rakMoney.selectedFrequency": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakSendMoney.rakMoney.selectedPurpose": [
+        {        
+	    	"validationType": "conditionalRequiredValidatorForTrueCondition",
+	    	"conditionVar":"rakSendMoney.rakMoney.benAccounts[rakSendMoney.rakMoney.selectedToBenAccount]['beneficiaryCountry'].toString() != 'PH'"
+		}
+    ],	
+    
+    "rakSendMoney.rakMoney.selectedReason":[
+    {
+    "validationType": "required"
+    }
+    ],
+     "rakSendMoney.rakMoney.noOfTransfer": [
+        {
+            "validationType": "required"
+        },
+            {
+            "validationType": "isNumericPassword"
+        }
+    ],
+     "rakSendMoney.rakMoney.amount": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakSendMoney.rakMoney.selectedCharges": [
+        {
+            "validationType": "required"
+        }
+    ],
+ 
+      "rakSendMoney.rakMoney.selectedRCurr": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+      "rakSendMoney.rakMoney.remitCurrency": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakSendMoney.rakMoney.selectedRoutingNumber": [
+        {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakSendMoney.common.isIFSC"
+        }
+    ],
+    
+    
+    "rakSendMoney.schedule.fromAccount": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakSendMoney.schedule.selectedTxnType": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakSendMoney.common.searchFromDate": [
+        {
+            "validationType": "required"
+        },
+        {"validationType":"stringDateYearLimit"}
+    ],
+    "rakSendMoney.common.searchToDate": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "dateGreaterThanVar",
+            "dateGreaterThanVar": "rakSendMoney.common.searchFromDate"
+        },
+        {"validationType":"stringDateYearLimit"}
+    ],
+    
+	
+	    "rakServiceReq.common.initDate":[
+    	{
+            "validationType": "dateValid"
+        },
+        {
+            "validationType": "dateLessThanNow"
+        }    
+    ],
+        "rakServiceReq.common.initDate":[
+    	{
+            "validationType": "dateValid"
+        },
+        {
+            "validationType": "dateGreaterThanNow"
+        }    
+    ],
+    
+    "rakServiceReq.RAKAlertPrefModel.txnPwd":[
+    	{
+	    	"validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RAKAlertPrefModel.authStatus"
+	    }
+    ],
+    
+    "rakServiceReq.RAKAlertPrefModel.selectedDnd1FromDesc":[
+    	{
+	    	"validationType": "rakDNDTimeConditionalRequired",
+	     	"conditionVar":"rakServiceReq.RAKAlertPrefModel.selectedDnd1ToDesc"
+	    },
+    	{
+	    	"validationType": "dndTime",
+	     	"conditionVar":"rakServiceReq.RAKAlertPrefModel.selectedDnd1ToDesc"
+	    },
+	    {
+	    	"validationType": "rakDNDTimeValueClash",
+	     	"conditionVar1":"rakServiceReq.RAKAlertPrefModel.selectedDnd2FromDesc",
+	     	"conditionVar2":"rakServiceReq.RAKAlertPrefModel.selectedDnd3FromDesc",
+	     	"conditionVar3":"rakServiceReq.RAKAlertPrefModel.selectedDnd4FromDesc"
+	    }
+    ],
+    "rakServiceReq.RAKAlertPrefModel.selectedDnd1ToDesc":[
+    	{
+	    	"validationType": "rakDNDTimeConditionalRequired",
+	     	"conditionVar":"rakServiceReq.RAKAlertPrefModel.selectedDnd1FromDesc"
+	    },
+	    {
+	    	"validationType": "rakDNDTimeValueClash",
+	     	"conditionVar1":"rakServiceReq.RAKAlertPrefModel.selectedDnd2ToDesc",
+	     	"conditionVar2":"rakServiceReq.RAKAlertPrefModel.selectedDnd3ToDesc",
+	     	"conditionVar3":"rakServiceReq.RAKAlertPrefModel.selectedDnd4ToDesc"
+	    }
+    ],
+    
+    "rakServiceReq.RAKAlertPrefModel.selectedDnd2FromDesc":[
+    	{
+	    	"validationType": "rakDNDTimeConditionalRequired",
+	     	"conditionVar":"rakServiceReq.RAKAlertPrefModel.selectedDnd2ToDesc"
+	    }
+    ],
+    "rakServiceReq.RAKAlertPrefModel.selectedDnd2ToDesc":[
+    	{
+	    	"validationType": "rakDNDTimeConditionalRequired",
+	     	"conditionVar":"rakServiceReq.RAKAlertPrefModel.selectedDnd2FromDesc"
+	    }
+    ],
+    "rakServiceReq.RAKAlertPrefModel.selectedDnd3FromDesc":[
+    	{
+	    	"validationType": "rakDNDTimeConditionalRequired",
+	     	"conditionVar":"rakServiceReq.RAKAlertPrefModel.selectedDnd3ToDesc"
+	    }
+    ],
+    "rakServiceReq.RAKAlertPrefModel.selectedDnd3ToDesc":[
+    	{
+	    	"validationType": "rakDNDTimeConditionalRequired",
+	     	"conditionVar":"rakServiceReq.RAKAlertPrefModel.selectedDnd3FromDesc"
+	    }
+    ],
+    "rakServiceReq.RAKAlertPrefModel.selectedDnd4FromDesc":[
+    	{
+	    	"validationType": "rakDNDTimeConditionalRequired",
+	     	"conditionVar":"rakServiceReq.RAKAlertPrefModel.selectedDnd4ToDesc"
+	    }
+    ],
+    "rakServiceReq.RAKAlertPrefModel.selectedDnd4ToDesc":[
+    	{
+	    	"validationType": "rakDNDTimeConditionalRequired",
+	     	"conditionVar":"rakServiceReq.RAKAlertPrefModel.selectedDnd4FromDesc"
+	    }
+    ],
+    
+	
+    "rakServiceReq.RAKOprAcctBalConfReq.addressdTo":[
+       {
+            "validationType": "required"
+       },
+       {
+	    	"validationType": "containsSpecialChar"
+	   } 
+    ],
+    
+    "rakServiceReq.RAKOprAcctBalConfReq.address":[
+       {
+            "validationType": "required"
+        },
+    	
+	    {
+	    	"validationType": "rakRestrictedSpecialCharValidator"
+	   }
+    ],
+
+	"rakServiceReq.RAKOprAcctBalConfReq.notes":[
+		{
+	    	"validationType": "containsSpecialChar"
+	        
+	    },
+	    {
+            "validationType": "maxLength",
+            "maxLengthValue": 50
+        }
+    ],
+    
+    "rakServiceReq.RAKOprAcctBalConfReq.mobile":[
+    	{
+            "validationType": "required"
+        }
+     ], 
+	"rakServiceReq.RAKOprAcctBalConfReq.mobileNoString":[    	
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 10
+        }
+     ],	 
+    
+     
+     "rakServiceReq.RAKOprAcctBalConfReq.selectedAcctNo":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     "rakServiceReq.RAKOprAcctBalConfReq.selectedForAcc":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     
+     "rakServiceReq.RAKOprAcctBalConfReq.selectedbranch":[
+     	{
+     		 "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKOprAcctBalConfReq.isSelectedDelModeBranch"
+     	}
+     ],
+      "rakServiceReq.RAKOprAcctBalConfReq.txnPwd":[
+     	{
+     		 "validationType": "conditionalRequired",
+     		 "conditionVar":"rakServiceReq.RAKOprAcctBalConfReq.authStatus"
+     	}
+     ],
+     
+     
+     "rakServiceReq.RAKLoanPreClosureModel.selectedLoanAcct":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     "rakServiceReq.RAKLoanPreClosureModel.selectedDebitAcct":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     "rakServiceReq.RAKLoanPreClosureModel.txnPwd":[
+     	{
+     		 "validationType": "conditionalRequired",
+     		 "conditionVar":"rakServiceReq.RAKLoanPreClosureModel.authStatus"
+     	}
+     ],
+     
+     "rakServiceReq.RAKDirRegReqModel.txnPwd":[
+     	{
+     		 "validationType": "conditionalRequired",
+     		 "conditionVar":"rakServiceReq.RAKDirRegReqModel.authStatus"
+     	}
+     ],
+	 "rakServiceReq.RAKEarlyCardRenewalModel.selectedCCNo":[
+    	{
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RAKEarlyCardRenewalModel.selectedReason":[
+    	{
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RAKEarlyCardRenewalModel.selectedBranch":[
+    	{
+    		"validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKEarlyCardRenewalModel.isBranchOptionSelected"
+        }
+    ],
+    
+    "rakServiceReq.RAKEarlyCardRenewalModel.txnPwd":[
+    	{
+            "validationType": "conditionalRequired",
+     		"conditionVar":"rakServiceReq.RAKEarlyCardRenewalModel.authStatus"
+        }
+    ],	
+	
+	
+     
+    "rakPayee.payeeModel.name": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 64
+        }
+    ],
+    "rakPayee.payeeModel.accountNumber": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakHome.textModelWithSpace":[
+    {
+     
+			 "validationType": "conditionalRequired",
+             "conditionVar": "rakPayee.payeeModel.isAccIban==rakPayee.constants.IBAN"
+        
+    }
+    ],
+    "rakPayee.payeeModel.nickName": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 64
+        }
+    ],
+    "rakPayee.payeeModel.ifscCode": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakPayee.payeeModel.payeeNotificationEmail": [
+        {
+            "validationType": "isEmail"
+        }
+    ],
+    "rakPayee.payeeModel.payeeNotificationMobile": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "lengthEquals",
+            "length": 10
+        }
+    ],
+    "rakPayee.payeeModel.accountType": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakPayee.payeeModel.currency": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakPayee.payeeModel.networkType": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakPayee.payeeModel.transactionPassword": [
+        {
+			 "validationType": "conditionalRequiredValidatorForTrueCondition",
+             "conditionVar": "rakPayee.authMode.isTransactionPwd"
+        }
+    ],
+    "rakPayee.payeeModel.smsOtp": [
+        {
+			 "validationType": "conditionalRequiredValidatorForTrueCondition",
+             "conditionVar": "rakPayee.authMode.isSmsOtp"
+        }
+    ],
+    "rakPayee.billerModel.nickName": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 64
+        }
+    ],
+     "rakPayee.billerModel.autoPayPaymentType": [
+        {
+            "validationType": "required"
+        }
+    ],
+     
+     "rakPayee.billerModel.selectedAccountNickName": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakPayee.billerModel.isBillerThresholdAmt": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakPayee.quickPay.consumerCodeValues": [
+        {
+            "validationType": "quickPayCustomfieldValue",
+            "field":"label",
+            "value":"value",
+            "length": "payeeInputSize",
+            "pattern":"pattern",
+            "patternFlag":"patternFlag",
+            "isRequired":"payeefieldIsRequired",
+            "type":"payeeLabelType"
+            
+        }      
+    ],      
+    
+        "rakPayee.billerModel.consumerCodeflds": [
+        {
+            "validationType": "customfieldValue",
+            "field":"label",
+            "value":"value",
+            "length": "payeeInputSize",
+            "pattern":"pattern",
+            "patternFlag":"patternFlag",
+            "isRequired":"payeefieldIsRequired",
+            "type":"payeeLabelType"
+            
+        }      
+    ],        
+    "rakPayee.payeeModel.creditCardNumber": [
+            {
+                "validationType": "required"
+            },
+              {
+                "validationType": "lengthEqualsMax",
+                "maxLengthValue": 16
+            }
+        ],
+          "rakPayee.payeeModel.creditCardNumberAmex": [
+            {
+                "validationType": "required"
+            },
+              {
+                "validationType": "lengthEqualsMax",
+                "maxLengthValue": 15
+            }
+        ],
+        "rakPayee.payeeModel.mobileNumber": [
+            {
+                "validationType": "required"
+            },
+            {
+                "validationType": "maxLength",
+                "maxLengthValue": 15
+            }
+    ],
+       "rakPayee.payeeModel.countryCode": [
+            {
+                "validationType": "required"
+            },
+            {
+                "validationType": "maxLength",
+                "maxLengthValue": 3
+            }
+    ],    
+    "rakPayee.rakSelfConfirmationPayeeListFetch.model.remarks": [
+            {
+                "validationType": "required"
+            }           
+    ],    
+    "rakPayee.payeeModel.rakBnfCountry": [
+            {
+                "validationType": "conditionalRequired",
+                "conditionVar": "rakPayee.selectedPayeeType==rakPayee.payeeTypes.DD"
+            }           
+    ],    
+        "rakPayee.payeeModel.rakBenfResidentCountry": [
+            {
+                "validationType": "required"                
+            }           
+    ],      
+
+     "rakPayee.payeeModel.rakBnkCode": [
+            {
+                "validationType": "required"
+            }           
+    ],
+    "rakPayee.payeeModel.rakInterMedBank": [
+            {
+                "validationType": "required"
+            }           
+    ],
+     "rakPayee.payeeModel.swiftCode": [
+            {
+                "validationType": "required"
+            },
+            {
+	            "validationType": "maxLength",
+	            "maxLengthValue": 11
+	        }           
+    ],
+     "rakPayee.payeeModel.isAccIban": [
+            {
+                "validationType": "required"
+            }           
+    ],
+     "rakPayee.payeeModel.selectedRoutingNumber": [
+            {
+             "validationType": "conditionalRequired",
+            "conditionVar": "rakPayee.payeeModel.isIndiaFlg && dashboard.userType=='1'"
+            }           
+    ],
+     "rakPayee.payeeModel.selectedBank": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "!rakPayee.payeeModel.isIndiaFlg"
+        }
+    ],
+     "rakPayee.payeeModel.bankBranch": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "!rakPayee.payeeModel.isIndiaFlg"
+        }
+    ],
+     "rakPayee.payeeModel.bankCity": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "!rakPayee.payeeModel.isIndiaFlg"
+        }
+    ],
+    "rakPayee.rakSelfConfirmationPayeeListFetch.model.authenticationPassword": [
+        {
+			 "validationType": "conditionalRequired",
+             "conditionVar": "rakPayee.authMode.isTransactionPwd"
+        }
+    ],
+    "rakPayee.rakSelfConfirmationPayeeListFetch.model.smsOtp": [
+        {
+			 "validationType": "conditionalRequired",
+             "conditionVar": "rakPayee.authMode.isSmsOtp"
+        }
+    ],
+    "rakPayee.selectedPayeeType": [
+         {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.openActOnlineEvantage.emiratesIdExpDate": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "dateLessThanNow"
+        },       
+        {
+        	"validationType":"stringDateYearLimit"
+        }
+    ],
+    "rakServiceReq.openActOnlineEvantage.selectedFromAccount": [
+        {
+            "validationType": "required"
+        }     
+    ],
+    "rakServiceReq.openActOnlineEvantage.selectedAccountCurrency": [
+        {
+            "validationType": "required"
+        }     
+    ],
+     "rakServiceReq.openActOnlineEvantage.isDebitCardRequired": [
+        {
+            "validationType": "required"
+        }     
+    ],
+    "rakServiceReq.openActOnlineEvantage.emiratesId": [
+        {
+            "validationType": "required"
+        }     
+    ],
+     "rakServiceReq.openActOnlineEvantage.emiratesIdExpDate": [
+        {
+            "validationType": "required"
+        }     
+    ],
+    "rakServiceReq.openActOnlineEvantage.isInterest": [
+        {
+            "validationType": "required"
+        }     
+    ],
+    "rakServiceReq.RAKLoanRepayAccList.loanAcctId":[
+    {
+    "validationType": "required"
+    }
+    ],
+    "rakServiceReq.RAKLoanRepayAccList.selectedOpr":[
+    {
+    "validationType": "required"
+    }
+    ],
+	 "rakServiceReq.RAKLoanRepayAccList.txnPwd":[
+    {
+			"validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKLoanRepayAccList.authStatus"
+    }
+    ],
+    "rakServiceReq.RAKLoanRepayAccList.amount":[
+    {
+    "validationType": "required"
+    }
+    ],
+    "rakServiceReq.RAKLoanRepayAccList.payType":[
+    {
+    "validationType": "required"
+    }
+    ],
+	
+	 "rakServiceReq.blockCreditCardModel.selectedReason": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.blockCreditCardModel.selectDate": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "dateGreaterThanNow"
+        }
+    ],
+    "rakServiceReq.blockCreditCardModel.place": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.blockCreditCardModel.remarks": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.blockCreditCardModel.blockCreditCardNumber": [
+        {
+            "validationType": "required"
+        }
+    ],
+	"rakServiceReq.blockCreditCardModel.transactionPassword": [
+        {
+            "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakServiceReq.blockCreditCardModel.auth"
+        }
+    ],
+	    "rakServiceReq.RakClosureTermDepositModel.transactionPassword": [
+        {
+             "validationType": "conditionalRequiredNull",
+             "conditionVar": "rakServiceReq.RakClosureTermDepositModel.auth"
+        }
+    ],
+    "rakServiceReq.RakClosureTermDepositModel.selectedCreditAccount": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakClosureTermDepositModel.upliftmentInstructions=='I'"
+        }
+    ],
+     "rakServiceReq.RakClosureTermDepositModel.upliftmentInstructions": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RakClosureTermDepositModel.depositAccount": [
+        {
+            "validationType": "required"
+        }
+    ],
+   
+    "rakServiceReq.RakEarlDebitCardRenewal.transactionPassword": [
+        {
+            "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakServiceReq.RakEarlDebitCardRenewal.auth"
+        }
+    ],
+    "rakServiceReq.RakEarlDebitCardRenewal.selecteddebcard": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RakEarlDebitCardRenewal.selectedReason": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RakEarlDebitCardRenewal.delieveryChannel": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RakEarlDebitCardRenewal.selectedBranch": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakEarlDebitCardRenewal.boolBranch"
+
+        }
+    ],
+     "rakServiceReq.RakEarlDebitCardRenewal.emirateSelected": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakEarlDebitCardRenewal.boolBranch"
+
+        }
+    ],
+     "rakMyProfile.oldPassword": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakMyProfile.newPassword": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakMyProfile.confirmPassword": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "stringEquals",
+            "newPassword": "rakMyProfile.newPassword"
+        } 
+    ],
+    "rakMyProfile.txnOldPassword": [
+         {
+            "validationType": "required"
+        }
+    ],
+    "rakMyProfile.txnNewPassword": [
+         {
+            "validationType": "required"
+        }
+    ],
+    "rakMyProfile.txnConfirmPassword": [
+        {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "rakMyProfile.password.changeTransactionPassword"
+        },
+        {
+            "validationType": "stringEquals",
+            "newPassword": "rakMyProfile.txnNewPassword"
+        }        
+    ],
+    "rakMyProfile.userID": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "moveMoney.common.remarks": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakMyProfile.authenticateOTP": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakMyProfile.oldForceLoginPassword": [
+        {
+            "validationType": "conditionalRequiredForForcePassword",
+            "conditionVar": "rakMyProfile.loginPwdExp"
+        }
+    ],
+    "rakMyProfile.newForceLoginPassword": [
+        {
+            "validationType": "conditionalRequiredForForcePassword",
+            "conditionVar": "rakMyProfile.loginPwdExp"
+        }
+    ],
+    "rakMyProfile.confirmForceLoginPassword": [
+        {
+            "validationType": "conditionalRequiredForForcePassword",
+            "conditionVar": "rakMyProfile.loginPwdExp"
+        }
+    ],
+    "rakMyProfile.oldForceTxnPassword": [
+        {
+            "validationType": "conditionalRequiredForForcePassword",
+            "conditionVar": "rakMyProfile.txnPwdExp"
+        }
+    ],
+    "rakMyProfile.newForceTxnPassword": [
+        {
+            "validationType": "conditionalRequiredForForcePassword",
+            "conditionVar": "rakMyProfile.txnPwdExp"
+        }
+    ],
+    "rakMyProfile.confirmForceTxnPassword": [
+        {
+            "validationType": "conditionalRequiredForForcePassword",
+            "conditionVar": "rakMyProfile.txnPwdExp"
+        }
+    ],
+	 "rakMyProfile.updateNickname.nickname": [
+        {
+            "validationType": "validateBasedOnIndexSpecialCharCheck",
+            "data":"rakMyProfile.updateNickname.selectedIndexArray"
+        }
+    ],
+    
+	"rakMyProfile.updateIdModel.transactionPwD": [
+        {
+        "validationType": "conditionalRequiredNull",
+		"conditionVar": "rakMyProfile.updateIdModel.auth"
+        }
+    ],
+	 "rakMyProfile.updateIdModel.Userid": [
+        {
+            "validationType": "validateBasedOnIndex",
+            "data": "rakMyProfile.updateIdModel.UserIndex"
+        }
+    ],
+    "rakMyProfile.updatePersonalProfile.transactionPassword": [
+        {
+            "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.auth"
+        }
+    ],
+     "rakMyProfile.updatePersonalProfile.homeNumber": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.boolHomeOne"
+
+        },
+         {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.homeNumberInit"
+
+        }
+    ],
+    "rakMyProfile.updatePersonalProfile.homeCountrycode": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.boolHomeOne_CC"
+
+        },
+         {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.homeNumberInit"
+
+        }
+    ],
+    
+    
+    "rakMyProfile.updatePersonalProfile.homeNumberTwo": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.boolHomeTwo"
+
+        },
+         {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.homeNumberTwoInit"
+
+        }
+    ],
+     "rakMyProfile.updatePersonalProfile.homeTwoCountrycode": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.boolHomeTwo_CC"
+
+        },
+         {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.homeNumberTwoInit"
+
+        }
+    ],
+    "rakMyProfile.updatePersonalProfile.offNumber": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.boolOfficeOne"
+
+        },
+            {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.offNumberInit"
+
+        }
+    ],
+    "rakMyProfile.updatePersonalProfile.OffCountrycode": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.boolOfficeOne_CC"
+
+        },
+            {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.offNumberInit"
+
+        }
+    ],
+    "rakMyProfile.updatePersonalProfile.offNumberTwo": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.boolOfficeTwo"
+
+        },
+         {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.offNumberTwoInit"
+
+        }
+    ],
+    
+    "rakMyProfile.updatePersonalProfile.OffTwoCountrycode": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.boolOfficeTwo_CC"
+
+        },
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.offNumberTwoInit"
+
+        }
+    ],
+    
+    "rakMyProfile.updatePersonalProfile.faxHome": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.boolHomeFax"
+
+        },
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.faxHomeInit"
+
+        }
+    ],
+    
+      "rakMyProfile.updatePersonalProfile.faxHome_CC": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.boolHomeFax_CC"
+
+        },
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.faxHomeInit"
+
+        }
+    ],
+    "rakMyProfile.updatePersonalProfile.faxOffOne": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.boolOffFaxOne"
+
+        },
+        {
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakMyProfile.updatePersonalProfile.userTypeValue=='2'"            
+        },
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.faxOffOneInit"
+
+        }
+    ],
+     "rakMyProfile.updatePersonalProfile.faxOffOne_CC": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.boolOffFaxOne_CC"
+
+        },
+         {
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakMyProfile.updatePersonalProfile.userTypeValue=='2'"            
+        },
+          {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.faxOffOneInit"
+
+        }
+    ],
+    
+    
+    
+    "rakMyProfile.updatePersonalProfile.faxOffTwo": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.boolOffFaxTwo"
+
+        },
+           {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.faxOffTwoInit"
+
+        }
+    ],
+    
+    "rakMyProfile.updatePersonalProfile.faxOffTwo_CC": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.boolOffFaxTwo_CC"
+
+        },
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakMyProfile.updatePersonalProfile.faxOffTwoInit"
+
+        }
+    ],
+    
+    
+    "rakMyProfile.updatePersonalProfile.preferredAddressType": [
+        {
+             "validationType": "required"
+
+        }
+    ],
+    
+    "rakMyProfile.updatePersonalProfile.address1": [
+    	{
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakMyProfile.updatePersonalProfile.userTypeValue!='2'"            
+        },
+        {
+             "validationType": "rakUPDSpecialCharValidator"
+
+        }
+    ],
+      "rakMyProfile.updatePersonalProfile.offaddress1": [
+      
+      
+        {
+             "validationType": "rakUPDSpecialCharValidator"
+
+        }
+    ],
+    
+     "rakMyProfile.updatePersonalProfile.street": [
+      
+      
+        {
+             "validationType": "rakUPDSpecialCharValidator"
+
+        }
+    ],
+    
+    
+    				
+     "rakMyProfile.updatePersonalProfile.head_offaddress1": [
+      
+      
+        {
+             "validationType": "rakUPDSpecialCharValidator"
+
+        }
+    ],
+    
+    "rakMyProfile.updatePersonalProfile.head_offaddress3": [
+       {
+             "validationType": "rakUPDSpecialCharValidator"
+
+        }
+    ],
+   
+      "rakMyProfile.updatePersonalProfile.head_offaddress2": [
+      
+       {
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakMyProfile.updatePersonalProfile.userTypeValue=='2'"            
+        },
+      
+        {
+             "validationType": "rakUPDSpecialCharValidator"
+
+        }
+    ],
+    
+    "rakMyProfile.updatePersonalProfile.head_offcity": [
+        {
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakMyProfile.updatePersonalProfile.userTypeValue=='2'"            
+        }
+    ],
+       "rakMyProfile.updatePersonalProfile.head_offcountry": [
+        {
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakMyProfile.updatePersonalProfile.userTypeValue=='2'"            
+        }
+    ],
+    
+     "rakMyProfile.updatePersonalProfile.offaddress3": [
+       {
+             "validationType": "rakUPDSpecialCharValidator"
+
+        }
+    ],
+   
+      "rakMyProfile.updatePersonalProfile.offaddress2": [
+      
+       {
+             "validationType": "required"
+
+        },
+      
+        {
+             "validationType": "rakUPDSpecialCharValidator"
+
+        }
+    ],
+    "rakMyProfile.updatePersonalProfile.address3": [
+       
+        
+        {
+            "validationType": "rakUPDSpecialCharValidator"
+        }
+    ],
+   
+ 
+    "rakMyProfile.updatePersonalProfile.address2": [
+       
+        
+        {
+            "validationType": "rakUPDSpecialCharValidator"
+        }
+    ],
+  "rakMyProfile.updatePersonalProfile.citySearchText": [
+       {
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakMyProfile.updatePersonalProfile.userTypeValue!='2'"            
+        }
+    ],
+  "rakMyProfile.updatePersonalProfile.city": [
+        {
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakMyProfile.updatePersonalProfile.userTypeValue!='2'"            
+        }
+    ],
+    "rakMyProfile.updatePersonalProfile.country": [
+       {
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakMyProfile.updatePersonalProfile.userTypeValue!='2'"            
+        }
+    ],
+    
+     "rakMyProfile.updatePersonalProfile.offcity": [
+        {
+            "validationType": "required"
+        }
+    ],
+       "rakMyProfile.updatePersonalProfile.offcountry": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+      "rakMyProfile.updatePersonalProfile.OffCountrycode": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+      "rakMyProfile.updatePersonalProfile.offNumber": [
+        {
+            "validationType": "required"
+        }
+      ],
+        "rakMyProfile.updatePersonalProfile.emirateID": [
+        {
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakMyProfile.updatePersonalProfile.userTypeValue!='2'"            
+        }
+      ],
+      
+      
+    
+    
+    
+	
+	 "rakMyProfile.updatePersonalProfile.pobox": [
+        {
+            "validationType": "isAlphaNumeric"
+        }
+    ],
+	
+	 "rakServiceReq.serviceRequestStatusModel.referenceID": [
+        {
+            "validationType": "isAlphaNumeric"
+        },
+        {
+            "validationType": "ifValuethanNumber"
+        },
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 10
+        }
+    ],
+    "rakServiceReq.serviceRequestStatusModel.fromDate": [
+        {
+        	"validationType":"stringDateYearLimit"
+        },
+        {
+            "validationType": "dateGreaterThanFromDateNow"
+        },
+        {
+            "validationType": "actualDateLessThan",
+            "dateLessThanVar": "rakServiceReq.serviceRequestStatusModel.toDate"
+        }
+    ],
+    "rakServiceReq.serviceRequestStatusModel.toDate": [
+        {
+            "validationType": "dateGreaterThanToDateNow"
+        }, 
+        {
+        	"validationType":"stringDateYearLimit"
+        }
+    ],
+    
+    "rakServiceReq.creditCardLimitChange.ccSelected": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.creditCardLimitChange.newLimitAmt": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.creditCardLimitChange.requestTo": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.creditCardLimitChange.limitChange": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.creditCardLimitChange.noOfMonths": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.creditCardLimitChange.boolTemp"
+
+        }
+    ],
+    
+  
+    "rakServiceReq.creditCardLimitChange.auth": [
+        {
+            "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakServiceReq.creditCardLimitChange.authTypeContinue"
+        }
+    ],
+    
+    "rakMyProfile.updateNickName.transactionPassword": [
+        {
+            "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakMyProfile.updateNickname.auth"
+        }
+    ],
+    
+     "rakServiceReq.stopCheques.model.pageUserInputs.reasonCode": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.stopCheques.model.pageUserInputs.accountNumber": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.stopCheques.model.pageUserInputs.singleChequeNumber": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.stopCheques.model.pageUserInputs.fromChequeNumber": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.stopCheques.model.pageUserInputs.toChequeNumber": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "numericValueGreaterthan",
+            "numericValue":"cm.stopCheques.model.pageUserInputs.fromChequeNumber"
+        }
+    ],
+    
+     "rakServiceReq.amendStandingInst.ccSelected": [
+        {
+            "validationType": "required"
+        }
+    ],
+	
+	"rakServiceReq.amendStandingInst.transactionPassword": [
+        {
+           "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakServiceReq.amendStandingInst.auth"
+        }
+    ],
+    
+     "rakServiceReq.RakDebitReportCaptureModel.selectedCCNo": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RakDebitReportCaptureModel.delieveryMode": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RakDebitReportCaptureModel.selectedBranch": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakDebitReportCaptureModel.boolBranch"
+        }
+    ],
+     "rakServiceReq.RakDebitReportCaptureModel.selectedCapture": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RakDebitReportCaptureModel.atmBranchName": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RakDebitReportCaptureModel.bankName": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakDebitReportCaptureModel.captureFlag"
+        }
+    ],
+    
+     "rakServiceReq.RakDebitReportCaptureModel.transactionPassword": [
+        {
+            "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakServiceReq.RakDebitReportCaptureModel.auth"
+        }
+    ],
+    
+    
+	 "rakServiceReq.temporaryReleaseLetter.transactionPassword": [
+        {
+            "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakServiceReq.temporaryReleaseLetter.auth"
+        }
+    ],
+    
+    "rakServiceReq.temporaryReleaseLetter.loanAgreementNumber": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.temporaryReleaseLetter.travelCountry": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.temporaryReleaseLetter.debitAccSelected": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.temporaryReleaseLetter.selectedBranch": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.temporaryReleaseLetter.contNumber": [
+        {
+            "validationType": "required"
+        },
+         {
+            "validationType": "isNumericPassword"
+        },
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 15
+        }
+    ],
+     "rakServiceReq.temporaryReleaseLetter.dateReturn": [
+        {
+            "validationType": "required"
+        },
+         {
+            "validationType": "dateValid"
+        }
+    ],
+     "rakServiceReq.temporaryReleaseLetter.noOfDays": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.temporaryReleaseLetter.dateTravel": [
+        {
+            "validationType": "required"
+        },
+         {
+            "validationType": "dateValid"
+        }
+    ],
+	
+	   "rakServiceReq.checkBookRequest.model.authenticationPassword": [
+        {
+            "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakServiceReq.checkBookRequest.model.authMode"
+        }
+    ],
+   
+    "rakServiceReq.checkBookRequest.model.selectedCheque": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.checkBookRequest.model.selectedfromAccountNumber": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.chequeBookRequest.isDispatchModeSet": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.chequeBookRequest.isDeliveryAddSet": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "!rakServiceReq.checkBookRequest.model.boolDispatch"
+
+        }
+    ],
+     "rakServiceReq.chequeBookRequest.isAuthorizedPersonSet": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "!rakServiceReq.checkBookRequest.model.boolDispatch"
+
+        }
+    ],
+    
+    "rakServiceReq.checkBookRequest.model.seletedBranch": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.checkBookRequest.model.boolDispatch"
+
+        }
+    ],
+    "rakServiceReq.checkBookRequest.model.selectedAddress1": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.checkBookRequest.model.boolAddress"
+        }
+    ],
+    "rakServiceReq.checkBookRequest.model.selectedAddress2": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.checkBookRequest.model.boolAddress"
+        }
+    ],
+    "rakServiceReq.checkBookRequest.model.selectedAddress3": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.checkBookRequest.model.boolAddress"
+        }
+    ],
+    "rakServiceReq.checkBookRequest.model.selectedCountry": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.checkBookRequest.model.boolAddress"
+        }
+    ],
+    "rakServiceReq.checkBookRequest.model.contactNumber": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.checkBookRequest.model.boolAuthPersion"
+        }
+    ],
+    "rakServiceReq.checkBookRequest.model.recipientName": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.checkBookRequest.model.boolAuthPersion"
+        }
+    ],
+     "rakServiceReq.chequeBookRequest.isDeliveryDetSet": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.chequeBookRequest.isDeliveryAddSet=='Registered Address'"
+           
+           
+        }
+    ],
+     "rakServiceReq.checkBookRequest.model.AuthName": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.checkBookRequest.model.boolAuthName"
+        }
+    ],
+    "rakServiceReq.checkBookRequest.model.AuthMobile": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.checkBookRequest.model.boolAuthMobile"
+        }
+    ],
+    "rakServiceReq.checkBookRequest.model.AuthEid": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.checkBookRequest.model.boolAuthEid"
+        }
+    ],
+    "rakServiceReq.checkBookRequest.model.mobilePrefix": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.checkBookRequest.model.boolMobilePrefix"
+        }
+    ],
+	"rakServiceReq.EvantageData.EvaAccountNumber": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.EvantageData.accountNumber": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.EvantageData.balance": [
+        {
+            "validationType": "required"
+        }
+    ],
+        "rakServiceReq.EvantageData.transactionPassword": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.EvantageData.authStatus"
+        }
+    ],
+	"rakServiceReq.AdvanceSalaryData.accountNumber": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+       "rakServiceReq.AdvanceSalaryData.transactionPassword": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "!rakServiceReq.AdvanceSalaryData.authStatus"
+        }
+        
+        
+    ],
+     "rakServiceReq.ReplacementDCData.debitcardNumber": [
+        {
+            "validationType": "required"
+        }
+     
+    ],
+    
+     "rakServiceReq.ReplacementDCData.mobileNo": [
+        {
+            "validationType": "required"
+        },
+     	{
+            "validationType": "isNumericPassword"
+        }
+     
+    ],
+    
+      "rakServiceReq.ReplacementDCData.authorizedRecipient": [
+        {
+             "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.ReplacementDCData.AuthrizedPerson"
+            
+        }
+     
+    ],
+    
+    
+         "rakServiceReq.ReplacementDCData.branchName": [
+        {
+            "validationType": "required"
+           
+        }
+     
+    ],
+       "rakServiceReq.ReplacementDCData.otherAddress": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "!rakServiceReq.ReplacementDCData.isDeliveryAddSet"
+            
+        }
+     
+    ],
+      "rakServiceReq.ReplacementDCData.transactionPassword": [
+        {
+           "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.ReplacementDCData.authStatus"
+        }
+        
+        
+    ],
+     "rakServiceReq.ReplacementDCData.authContactNumber": [
+        {
+          "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.ReplacementDCData.AuthrizedPerson"
+            
+        }
+        
+        
+    ],
+    "rakServiceReq.ReplacementCCData.isDispatchModeSet":[
+      {
+            "validationType": "required"
+        }
+    ],
+    
+     "rakServiceReq.ReplacementCCData.creditCardNumber": [
+        {
+            "validationType": "required"
+        } 
+        ],
+     "rakServiceReq.ReplacementCCData.isDeliveryAddSet": [
+        {
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakServiceReq.ReplacementCCData.isDispatchModeSet=='false'"    
+        }  
+      ],   
+    "rakServiceReq.ReplacementCCData.AuthrizedPerson": [
+        {
+        
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakServiceReq.ReplacementCCData.isDispatchModeSet=='false'"
+            
+        }  
+     
+    ],
+    
+     "rakServiceReq.ReplacementCCData.mobileNo": [
+        {
+            "validationType": "required"
+        },
+         {
+            "validationType": "isNumericPassword"
+        },
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 15
+        }
+     
+    ],
+    
+      "rakServiceReq.ReplacementCCData.authorizedRecipient": [
+        {
+             "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.ReplacementCCData.AuthrizedPerson"
+            
+        }
+     
+    ],
+         "rakServiceReq.ReplacementCCData.branchName": [
+        {
+            "validationType": "required"
+           
+        }
+     
+    ],
+    
+     
+       "rakServiceReq.ReplacementCCData.otherAddress": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "!rakServiceReq.ReplacementCCData.isDeliveryAddSet"
+            
+        }
+     
+    ],
+      "rakServiceReq.ReplacementCCData.transactionPassword": [
+        {
+           "validationType": "conditionalRequired",
+           "conditionVar": "rakServiceReq.ReplacementCCData.authStatus"
+        }
+        
+        
+    ],
+     "rakServiceReq.ReplacementCCData.authContactNumber": [
+        {
+          "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.ReplacementCCData.AuthrizedPerson"
+            
+        },
+         {
+            "validationType": "isNumericPassword"
+        },
+         {
+            "validationType": "maxLength",
+            "maxLengthValue": 15
+        }
+        
+        
+    ],
+    
+     "rakServiceReq.BlockedCreditCardData.creditCardNum": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+    
+     "rakServiceReq.BlockedCreditCardData.reasonName": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+     "rakServiceReq.BlockedCreditCardData.displayDate": [
+        {
+            "validationType": "dateGreaterThanNowValidator"
+        }
+    ],
+    
+      "rakServiceReq.BlockedCreditCardData.transactionPassword": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "!rakServiceReq.BlockedCreditCardData.authStatus"
+        }
+    ],
+    
+      "rakServiceReq.rakTempDebitCardBlock.selectedCard":[
+    {
+    "validationType": "required"
+    }
+    ],
+    "rakServiceReq.rakTempDebitCardBlock.reason":[
+    {
+    "validationType": "required"
+    }
+    ],
+	"rakServiceReq.rakTempDebitCardBlock.txnPwd":[
+    {
+	     "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.rakTempDebitCardBlock.authStatus"
+    }
+    ],
+  
+     "rakServiceReq.rakTempDebitCardBlock.other":[
+    {
+              "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.rakTempDebitCardBlock.otherMandatory"
+    }
+    ],
+     "rakServiceReq.rakTempDebitCardBlock.expDate":[
+    {
+    "validationType": "dateValid"
+    }
+    ],
+         "rakServiceReq.rakUnblockDebitCardBlock.selectedCard":[
+    {
+    "validationType": "required"
+    }
+    ],
+    "rakServiceReq.rakUnblockDebitCardBlock.reason":[
+    {
+    "validationType": "required"
+    }
+    ],
+  
+     "rakServiceReq.rakUnblockDebitCardBlock.other":[
+    {
+                "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.rakUnblockDebitCardBlock.otherMandatory"
+    }
+    ],
+     "rakServiceReq.rakUnblockDebitCardBlock.expDate":[
+    {
+    "validationType": "required"
+    }
+    ],
+	  "rakServiceReq.rakUnblockDebitCardBlock.txnPwd":[
+    {
+			"validationType": "conditionalRequired",
+     		 "conditionVar": "rakServiceReq.rakUnblockDebitCardBlock.authStatus"
+    }
+    ],
+     "rakServiceReq.RAKOprSavingAcctOpenReq.selectedRefNo":[
+     	{
+     		 "validationType": "conditionalRequired",
+     		 "conditionVar": "rakServiceReq.RAKOprSavingAcctOpenReq.hasOperAccounts"
+     	}
+     ],  
+     
+     "rakServiceReq.RAKOprSavingAcctOpenReq.selectedDate":[
+     	{
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakServiceReq.common.EmiratesIdAvailable=='Y'"            
+        }
+     ],
+        
+     "rakServiceReq.RAKOprSavingAcctOpenReq.EmiratesId":[
+     	{
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakServiceReq.common.EmiratesIdAvailable=='Y'"            
+        }
+     ],
+     "rakServiceReq.RAKOprSavingAcctOpenReq.selectedCrn":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     "rakServiceReq.RAKOprSavingAcctOpenReq.selectedBranch":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     "rakServiceReq.RAKOprSavingAcctOpenReq.txnPwd":[
+     	{
+     		 "validationType": "conditionalRequiredNull",
+     		 "conditionVar": "rakServiceReq.RAKOprSavingAcctOpenReq.authFlag"
+     	}
+     ],
+    "rakServiceReq.RAKOprEvantageAcctOpenReq.selectedRefNo":[
+     	{
+     		 "validationType": "conditionalRequired",
+     		 "conditionVar": "rakServiceReq.RAKOprEvantageAcctOpenReq.hasOperAccounts"
+     	}
+     ],   
+     
+     "rakServiceReq.RAKOprEvantageAcctOpenReq.selectedDate":[
+     	{
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakServiceReq.common.EmiratesIdAvailable=='Y'"            
+        }
+     ],  
+     "rakServiceReq.RAKOprEvantageAcctOpenReq.EmiratesId":[
+     	{
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakServiceReq.common.EmiratesIdAvailable=='Y'"            
+        }
+     ],
+     "rakServiceReq.RAKOprEvantageAcctOpenReq.selectedBranch":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     "rakServiceReq.RAKOprEvantageAcctOpenReq.txnPwd":[
+     	{
+     		 "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakServiceReq.RAKOprEvantageAcctOpenReq.authFlag"
+     	}
+     ],
+     "rakServiceReq.RAKOprEvantageAcctOpenReq.debitCardRqd":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     "rakServiceReq.RAKOprEvantageAcctOpenReq.operationMode":[
+     	{
+     		 "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKOprEvantageAcctOpenReq.isJointORAccount"
+     	}
+     ],
+     
+     "rakServiceReq.RAKOprFSAcctOpenReq.selectedRefNo":[
+     	{
+     		 "validationType": "conditionalRequired",
+     		 "conditionVar": "rakServiceReq.RAKOprFSAcctOpenReq.hasOperAccounts"
+     	}
+     ],  
+       
+     "rakServiceReq.RAKOprFSAcctOpenReq.selectedDate":[
+     	 {
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakServiceReq.common.EmiratesIdAvailable=='Y'"            
+        }	
+     ], 
+     "rakServiceReq.RAKOprFSAcctOpenReq.EmiratesId":[
+     	{
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakServiceReq.common.EmiratesIdAvailable=='Y'"            
+        }
+     ],
+     "rakServiceReq.RAKOprFSAcctOpenReq.selectedBranch":[
+     	{
+     		 "validationType": "conditionalRequired",
+            "conditionVar": "!rakServiceReq.RAKOprFSAcctOpenReq.hasOperAccounts"
+     	}
+     ],
+     
+       "rakServiceReq.RAKOprFSAcctOpenReq.emirateSeletected": [
+        {
+             "validationType": "conditionalRequired",
+            "conditionVar": "!rakServiceReq.RAKOprFSAcctOpenReq.hasOperAccounts"
+           
+        }
+       ],
+     "rakServiceReq.RAKOprFSAcctOpenReq.txnPwd":[
+     	{
+     		 "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakServiceReq.RAKOprFSAcctOpenReq.authFlag"
+     	}
+     ],
+     "rakServiceReq.RAKOprFSAcctOpenReq.debitCardRqd":[
+     	{
+     		  "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKOprFSAcctOpenReq.isAEDSelected"
+     	}
+     ],
+     "rakServiceReq.RAKOprFSAcctOpenReq.operationMode":[
+     	{
+     		  "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKOprFSAcctOpenReq.isJointORAccount"
+     	}
+     ],
+      "rakServiceReq.RAKOprFSAcctOpenReq.selectedCrn":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+	   "rakServiceReq.RakUnblockCreditCardBlock.selectedCard":[
+    {
+    "validationType": "required"
+    }
+    ],
+	        "rakServiceReq.RakUnblockCreditCardBlock.txnPwd":[
+    {
+			"validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakUnblockCreditCardBlock.authStatus"
+    }
+    ],
+    "rakServiceReq.RakUnblockCreditCardBlock.reason":[
+    {
+    "validationType": "required"
+    }
+    ],
+  
+     "rakServiceReq.RakUnblockCreditCardBlock.other":[
+    {
+               "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakUnblockCreditCardBlock.otherMandatory"
+    }
+    ],
+     "rakServiceReq.RakUnblockCreditCardBlock.expDate":[
+    {
+    "validationType": "required"
+    }
+    ],
+	
+	 "rakServiceReq.RAKOprCurrentAcctOpenReq.selectedRefNo":[
+     	{
+     		 "validationType": "conditionalRequired",
+     		 "conditionVar": "rakServiceReq.RAKOprCurrentAcctOpenReq.hasOperAccounts"
+     	}
+     ],    
+     
+      "rakServiceReq.RAKOprCurrentAcctOpenReq.visaExpiryDate":[
+     	{
+     		 "validationType": "conditionalRequired",
+     		 "conditionVar": "rakServiceReq.RAKOprCurrentAcctOpenReq.isUaeResident"
+     	}
+     ], 
+     
+       
+     
+      "rakServiceReq.RAKOprCurrentAcctOpenReq.selectedDate":[
+     	{
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakServiceReq.common.EmiratesIdAvailable=='Y'"            
+        }
+     ],
+     "rakServiceReq.RAKOprCurrentAcctOpenReq.EmiratesId":[
+     {
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakServiceReq.common.EmiratesIdAvailable=='Y'"            
+        },
+     	{
+            "validationType": "maxLength",
+            "maxLengthValue": 15
+        }
+     ],
+     "rakServiceReq.RAKOprCurrentAcctOpenReq.selectedCrn":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     "rakServiceReq.RAKOprCurrentAcctOpenReq.selectedBranch":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     "rakServiceReq.RAKOprCurrentAcctOpenReq.txnPwd":[
+     	{
+     		 "validationType": "conditionalRequiredNull",
+     		 "conditionVar": "rakServiceReq.RAKOprCurrentAcctOpenReq.authFlag"
+     	}
+     ],
+     "rakServiceReq.RAKOprCurrentAcctOpenReq.uaeResident":[
+     	{
+     		 "validationType": "conditionalRequired",
+     		 "conditionVar": "rakServiceReq.RAKOprCurrentAcctOpenReq.hasOperAccounts"
+     	}
+     ],
+     "rakServiceReq.RAKOprCurrentAcctOpenReq.chkBookRqd":[
+     	{
+     		 "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKOprCurrentAcctOpenReq.isChqBookRqd"
+     	}
+     ],
+     "rakServiceReq.RAKOprCurrentAcctOpenReq.intrstRAKValue":[
+     	{
+     		 "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKOprCurrentAcctOpenReq.isIntrstRAKValueRqd"
+     	}
+     ],
+     
+      
+    "rakServiceReq.RAKOprIslamicAcctOpenReq.selectedRefNo":[
+     	{
+     		 "validationType": "conditionalRequired",
+     		 "conditionVar": "rakServiceReq.RAKOprIslamicAcctOpenReq.hasOperAccounts"
+     	}
+     ],     
+     
+      "rakServiceReq.RAKOprIslamicAcctOpenReq.selectedDate":[
+     	{
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakServiceReq.common.EmiratesIdAvailable=='Y'"            
+        }
+     ],
+     "rakServiceReq.RAKOprIslamicAcctOpenReq.EmiratesId":[
+     	{
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakServiceReq.common.EmiratesIdAvailable=='Y'"            
+        }
+     ],
+     "rakServiceReq.RAKOprIslamicAcctOpenReq.selectedBranch":[
+     	{
+     		 "validationType": "conditionalRequired",
+            "conditionVar": "!rakServiceReq.RAKOprIslamicAcctOpenReq.hasOperAccounts"
+     	}
+     ],
+       "rakServiceReq.RAKOprIslamicAcctOpenReq.emirateSeletected": [
+        {
+             "validationType": "conditionalRequired",
+            "conditionVar": "!rakServiceReq.RAKOprIslamicAcctOpenReq.hasOperAccounts"
+           
+        }
+       ],
+     "rakServiceReq.RAKOprIslamicAcctOpenReq.txnPwd":[
+     	{
+     		 "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakServiceReq.RAKOprIslamicAcctOpenReq.authFlag"
+     	}
+     ],
+     "rakServiceReq.RAKOprIslamicAcctOpenReq.debitCardRqd":[
+     	{
+     		  "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKOprIslamicAcctOpenReq.isAEDSelected"
+     	}
+     ],
+     "rakServiceReq.RAKOprIslamicAcctOpenReq.operationMode":[
+     	{
+     		  "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKOprIslamicAcctOpenReq.isJointORAccount"
+     	}
+     ],
+	 
+	   "rakMails.compose.toId": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+      "rakPayee.payBill.selectedFromAccount":[
+     	{
+     		  "validationType": "required"
+     	}
+     ],
+     "rakPayee.payBill.amountType":[
+     	{     		 
+     		"validationType": "conditionalRequired",
+            "conditionVar": "rakPayee.payBill.amountSelectionRqd"
+     	}
+     ],
+     
+     "rakPayee.payBill.amount":[
+     	{
+     		 "validationType": "conditionalRequired",
+            "conditionVar": "rakPayee.payBill.amountToBeEntered"
+     	}
+     ],
+     
+     "rakPayee.common.displayDate":[
+     	{
+            "validationType": "dateValid"
+        },
+         {
+        	"validationType": "dateGreaterThanNowAndEqual" 
+        },
+        {
+        "validationType":"stringDateYearLimit"
+        }
+     ],
+     "rakPayee.payBill.noOfTransfer":[
+     	{
+     		 "validationType": "conditionalRequired",
+            "conditionVar": "rakPayee.payBill.recFrequencySelected"
+     	},
+     	    {
+            "validationType": "isNumericPassword"
+        }
+     ],
+     "rakPayee.payBill.txnPwd":[
+     	{
+     		 "validationType": "conditionalRequired",
+     		 "conditionVar":"rakPayee.payBill.authStatus"
+     	}
+     ],
+	 
+	     "rakServiceReq.applyForPrepaidCard.transactionPassword": [
+        {
+            "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakServiceReq.applyForPrepaidCard.auth"
+        }
+    ],
+    "rakServiceReq.applyForPrepaidCard.accountIndex": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.applyForPrepaidCard.boolAccount"
+        }
+    ],
+    "rakServiceReq.applyForPrepaidCard.creditIndex": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.applyForPrepaidCard.boolCredit"
+        }
+    ],
+    "rakServiceReq.applyForPrepaidCard.salutationCode": [
+        {
+            "validationType": "required"
+           
+        }
+    ],
+    
+    "rakServiceReq.applyForPrepaidCard.address1": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+    
+    "rakServiceReq.applyForPrepaidCard.address2": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+    
+    "rakServiceReq.applyForPrepaidCard.address3": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+   
+	"rakServiceReq.applyForPrepaidCard.emirateCode": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+	"rakServiceReq.applyForPrepaidCard.country": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+	"rakServiceReq.applyForPrepaidCard.countryCode": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+	"rakServiceReq.applyForPrepaidCard.mobilePrefix": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+	"rakServiceReq.applyForPrepaidCard.mobileNumber": [
+        {
+            "validationType": "required"
+            
+        },
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 9
+        }
+    ],
+    "rakServiceReq.applyForPrepaidCard.residentialNumber": [
+        {
+            "validationType": "required"
+            
+        },
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 9
+        }
+    ],
+	 "rakServiceReq.applyForPrepaidCard.officeNumber": [
+        {
+            "validationType": "required"
+            
+        },
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 9
+        }
+    ],
+     "rakServiceReq.applyForPrepaidCard.faxNumber": [
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 9
+        }
+    ],
+	"rakServiceReq.applyForPrepaidCard.emailAddress": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+	"rakServiceReq.applyForPrepaidCard.isDispatchModeSet": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+	"rakServiceReq.applyForPrepaidCard.isSelectYourCardSet": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+      "rakServiceReq.RAKInvRedeemGoldAcctModel.txnPwd": [
+        {
+	    	"validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RAKInvRedeemGoldAcctModel.authStatus"
+        }
+    ],
+      "rakServiceReq.RAKInvRedeemGoldAcctModel.selectedGoldAcct": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RAKInvRedeemGoldAcctModel.emirateSeletected": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RAKInvRedeemGoldAcctModel.selectedBranchId": [
+      
+        {
+        	"validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RAKInvRedeemGoldAcctModel.selectedBranchId"
+          
+        }
+    ],
+      "rakServiceReq.RAKInvRedeemGoldAcctModel.selectedKilo": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RAKInvRedeemGoldAcctModel.selectedGram": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RAKInvRedeemGoldAcctModel.selectedChargeAcct": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+      "rakServiceReq.RAKLoanMortgageAmalHomeFinModel.txnPwd": [
+        {
+	    	"validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RAKLoanMortgageAmalHomeFinModel.authStatus"
+        }
+    ],
+      "rakServiceReq.RAKLoanMortgageAmalHomeFinModel.isMortgageLoanSelected": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RAKLoanMortgageAmalHomeFinModel.ApplicantName": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedMaritalStat": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RAKLoanMortgageAmalHomeFinModel.isUAEResident": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RAKLoanMortgageAmalHomeFinModel.LengthOfStayinUAE": [
+        {
+            "validationType": "required"
+        },
+         {
+        "validationType": "isNumericPassword"
+        },
+          {
+            "validationType": "maxLength",
+            "maxLengthValue": 3
+        }
+    ],
+      "rakServiceReq.RAKLoanMortgageAmalHomeFinModel.POBox": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedEmirate": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedEmpType": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RAKLoanMortgageAmalHomeFinModel.GrossFixedSalMonth": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RAKLoanMortgageAmalHomeFinModel.AgeOfBusiMonth": [
+        {
+            "validationType": "required"
+        },
+        {
+        "validationType": "isNumericPassword"
+        }
+    ],
+      "rakServiceReq.RAKLoanMortgageAmalHomeFinModel.ProfShareLastYr": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RAKLoanMortgageAmalHomeFinModel.NameOfProp": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedLocOfProp": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedDev": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RAKLoanMortgageAmalHomeFinModel.TotLnFinRqd": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RAKLoanMortgageAmalHomeFinModel.PerOfLnFinYr": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 3
+        }
+    ],
+      "rakServiceReq.RAKLoanMortgageAmalHomeFinModel.selectedOthBankLnFin": [
+        {
+            "validationType": "required"
+        }
+    ],
+	
+	"rakPayee.quickPay.selectedFromAccount":[
+     	{
+     		  "validationType": "required"
+     	}
+     ],
+     "rakPayee.quickPay.selectedBiller":[
+     	{
+     		  "validationType": "required"
+     	}
+     ],
+     "rakPayee.quickPay.billerNickname":[
+     	{
+     		  "validationType": "required"
+     	},
+     	{
+            "validationType": "maxLength",
+            "maxLengthValue": 64
+        }
+     ],
+     
+     "rakPayee.quickPay.amount":[
+     	{
+     		  "validationType": "required"
+     	}
+     ],
+     
+     "rakPayee.common.displayDate":[
+     	{
+            "validationType": "dateValid"
+        },
+         {
+        	"validationType": "dateGreaterThanNowAndEqual" 
+        },
+        {
+        "validationType":"stringDateYearLimit"
+        }
+     ],
+     "rakPayee.quickPay.noOfTransfer":[
+     	{
+     		 "validationType": "conditionalRequired",
+            "conditionVar": "rakPayee.quickPay.recFrequencySelected"
+     	},
+     	    {
+            "validationType": "isNumericPassword"
+        }
+     ],    
+     "rakPayee.quickPay.txnPwd":[
+     	{
+     		 "validationType": "conditionalRequired",
+     		 "conditionVar":"rakPayee.quickPay.authStatus"
+     	}
+     ],
+      "rakServiceReq.RakOprAccDupStmtModel.selectedOprAcct": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RakOprAccDupStmtModel.selectedBranchId": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakOprAccDupStmtModel.isBranchIdValidationRqd"
+        }
+    ],
+      "rakServiceReq.RakOprAccDupStmtModel.isBranchOrAddress": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RakOprAccDupStmtModel.fromDatePeriod": [
+        {
+            "validationType": "dateValid"
+        }
+    ],
+      "rakServiceReq.RakOprAccDupStmtModel.toDatePeriod": [
+        {
+            "validationType": "dateValid"
+        }
+    ],
+   
+      "rakServiceReq.RakOprAccDupStmtModel.txnPwd": [
+        {
+	    	"validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RakOprAccDupStmtModel.authStatus"
+		}
+    ],
+          "rakAccounts.RAKAccountsModel.monthSelected": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakAccounts.RAKAccountsModel.yearSelected": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RakDCApplyModel.selectedOprAcct": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RakDCApplyModel.selectedBranchId": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakDCApplyModel.isBranchIdValidationRqd"
+        }
+    ],
+      "rakServiceReq.BlockedCreditCardData.other": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.BlockedCreditCardData.otherFlag"
+        }
+    ],
+
+      "rakServiceReq.RakDCApplyModel.mailingAddress": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakDCApplyModel.isAddressValidationRqd"
+        }
+    ],
+      "rakServiceReq.RakDCApplyModel.txnPwd": [
+        {
+	    	"validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RakDCApplyModel.authStatus"
+        }
+    ],
+	 "rakServiceReq.installmentPostponement.accountNumber": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+    "rakServiceReq.installmentPostponement.postponeCode": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.installmentPostponement.transactionPassword": [
+        {
+            "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakServiceReq.installmentPostponement.auth"
+        }
+    ],
+    "rakServiceReq.installmentPostponement.mobileNumber": [
+        {
+            "validationType": "required"
+        },
+         {
+            "validationType": "maxLength",
+            "maxLengthValue": 15
+        }
+    ],
+    
+     "rakServiceReq.installmentPostponement.mobileNumberString": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 15
+        }
+    ],
+      "rakAccounts.RAKAccountsModel.yearSelected": [
+        {
+            "validationType": "required"
+        }
+],
+
+      "rakServiceReq.RakLoanFinPRLModel.selectedLonAcct": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RakLoanFinPRLModel.selectedDrAcct": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakLoanFinPRLModel.isDrAcctValidationRqd"
+        }
+    ],
+      "rakServiceReq.RakLoanFinPRLModel.selectedBranchId": [
+        {
+            "validationType": "required"
+        }
+    ],
+         "rakServiceReq.RakLoanFinPRLModel.selectedBranch": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RakLoanFinPRLModel.MobileNo": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RakLoanFinPRLModel.txnPwd": [
+        {
+	    	"validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RakLoanFinPRLModel.authStatus"
+        }
+    ],
+     "rakServiceReq.RAKAmmendDeposit.selectedDepAccNo": [
+        {
+           "validationType": "required"
+        }
+    ],
+   
+     "rakServiceReq.GenericAuthorizationVariable.transactionPassword": [
+        {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.GenericAuthorizationVariable.authStatus"
+        }
+    ],
+     "rakServiceReq.RAKAmmendIslamicDeposit.selectedDepAccNo": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RAKAmmendIslamicDeposit.selectedDebitOprAccNo": [
+        {
+         "validationType": "conditionalRequired",
+          "conditionVar": "rakServiceReq.RAKAmmendIslamicDeposit.instructions"  
+        }
+    ],
+     "rakServiceReq.RAKAmmendIslamicDeposit.instructions": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RAKAmmendDeposit.instructions": [
+        {
+            "validationType": "required"
+        }
+    ],
+   
+    "rakServiceReq.RAKAmmendDeposit.selectedDebitOprAccNo": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKAmmendDeposit.creditFlag"
+        }
+    ],
+    "rakServiceReq.RAKAmmendDeposit.increaseamtdepval": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKAmmendDeposit.increaseflag"
+        }
+    ],
+    "rakServiceReq.RAKAmmendDeposit.selecteddebitopraccountListincrease": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKAmmendDeposit.increaseflag"
+        }
+    ],
+     "rakServiceReq.RAKAmmendDeposit.decreaseamtdepval": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKAmmendDeposit.decreaseflag"
+        }
+    ],
+     "rakServiceReq.RAKAmmendDeposit.selecteddebitopraccountListdecrease": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKAmmendDeposit.decreaseflag"
+        }
+    ],
+     "rakServiceReq.RAKAmmendDeposit.regularperiodvalue": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKAmmendDeposit.changetenureflag"
+        }
+    ],
+     "rakServiceReq.RAKAmmendDeposit.selectedperiod": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKAmmendDeposit.changetenureperiodflag"
+        }
+    ],
+    "rakServiceReq.RAKAmmendDeposit.toDate": [
+       {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKAmmendDeposit.regularperiodvalue == 'Date'"
+        }
+    
+    ],
+   "rakServiceReq.GenericAuthorizationVariable.transactionPassword": [
+        {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.GenericAuthorizationVariable.authStatus"
+        }
+    ],
+     "rakServiceReq.RAKAmmendIslamicDeposit.selectedDepAccNo": [
+        {
+            "validationType": "required"
+        }
+    ],
+ 
+    "rakServiceReq.RAKAmmendDeposit.selectedDepAccNo": [
+        {
+           "validationType": "required"
+        }
+    ],
+     
+    
+     "rakServiceReq.RakOprEvantageMailChqReq.benName":[
+    {
+    "validationType": "required"
+    }
+    ],
+    
+    "rakServiceReq.RakOprEvantageMailChqReq.quantity":[
+    {
+    "validationType": "required"
+    }
+    ],
+     "rakServiceReq.RakOprEvantageMailChqReq.reason":[
+    {
+    "validationType": "required"
+    }
+    ],
+     "rakServiceReq.RakOprEvantageMailChqReq.amtWords":[
+	    {
+	            "validationType": "conditionalRequired",
+		     	"conditionVar":"rakServiceReq.RakOprEvantageMailChqReq.amtNum != ''"
+	    },
+	    {	
+        	"validationType":"isAlphaNumericWithSpace" 
+        }
+    ],
+     "rakServiceReq.RakOprEvantageMailChqReq.amtNum":[
+    	{
+	            "validationType": "conditionalRequired",
+		     	"conditionVar":"rakServiceReq.RakOprEvantageMailChqReq.amtWords != ''"
+	    }
+    
+    ],
+       "rakServiceReq.RakOprEvantageMailChqReq.txnPwd":[
+    {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RakOprEvantageMailChqReq.authStatus"
+    }
+    
+    ],
+    "rakServiceReq.RakOprEvantageMailChqReq.others":[
+	    {
+	               "validationType": "conditionalRequired",
+	            "conditionVar": "rakServiceReq.RakOprEvantageMailChqReq.reason == 'Others'"
+	    }
+    ] ,
+    "rakServiceReq.RakOprEvantageMailChqReq.counter":[
+    {
+               "validationType": "checkForFlagValue",
+            "conditionVar": "rakServiceReq.RakOprEvantageMailChqReq.counterCheck"
+    }],
+     "rakServiceReq.RAKRenewalTermDeposit.selectedDepAccNo": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RAKRenewalTermDeposit.renewalamount": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RAKRenewalTermDeposit.interesttobecapitalized": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RAKRenewalTermDeposit.selectedcurrency": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RAKRenewalTermDeposit.renewalperiod": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RAKRenewalTermDeposit.selectedperiod": [
+         {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKRenewalTermDeposit.periodflag"
+        }
+    ],
+   "rakServiceReq.RAKRenewalTermDeposit.fromDate": [
+         {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKRenewalTermDeposit.dateflag"
+        }
+       
+    ],
+    "rakServiceReq.RAKRenewalTermDeposit.toDate": [
+         {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKRenewalTermDeposit.dateflag"
+        }
+    ],
+    "rakServiceReq.RAKRenewalTermDeposit.selectedMaturityOprAccNo": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKRenewalTermDeposit.proceedtomyaccountflag"
+        }
+    ],
+    "rakServiceReq.RAKRenewalTermDeposit.interesthandling": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKRenewalTermDeposit.autoflag"
+        }
+    ],
+    "rakServiceReq.RAKRenewalTermDeposit.selectedIAOprAccNo": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKRenewalTermDeposit.creditinteresthandlingaccountflag"
+        }
+    ],
+     "rakServiceReq.RAKRenewalTermDeposit.selectedDebitOprAccNo": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RAKRenewalTermDeposit.onamturityradiobtn": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+    "rakPayee.payBill.amountChargesRadio":[
+    	{
+            "validationType": "conditionalRequired",
+            "conditionVar":"rakPayee.payeeSelected.serviceType==rakPayee.constants.RAKTOLLTOPUP"
+        }
+    ],
+	
+    "rakRegister.RegistrationModel.pwdTypeFlag":[
+    	{
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakRegister.RegistrationModel.requestType=='FPON'"            
+        }
+    ],
+    "rakRegister.RegistrationModel.selectedNoType": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakRegister.RegistrationModel.enteredAcctNo":[
+    	{
+            "validationType": "required"
+        },
+        {
+          "validationType": "acctNumberLength",
+          "conditionVar": "rakRegister.RegistrationModel.selectedNoType"            
+        }
+    ],
+    "rakRegister.RegistrationModel.mobileNo":[
+    	{
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakRegister.RegistrationModel.isShowMobileNo=='true'"            
+        },
+    	{
+          "validationType": "acctNumberLength",
+          "conditionVar": "rakRegister.RegistrationModel.isShowMobileNo"            
+        }  
+    ],
+    "rakRegister.RegistrationModel.otp": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakRegister.RegistrationModel.passportNo":[
+    	{
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakRegister.RegistrationModel.isSme=='true'"            
+        }
+    ],
+    "rakRegister.RegistrationModel.dob":[
+	{
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakRegister.RegistrationModel.isSme=='true'"            
+        },
+    	{
+            "validationType": "requiredNonZero"
+        },
+        {
+            "validationType": "dateGreaterThanNow"
+        }
+    ],
+    "rakRegister.RegistrationModel.pin":[
+        {
+            "validationType": "required"
+        },
+         {
+			"validationType": "maxLength",
+			 "maxLengthValue": 4
+		 },
+		 {
+            "validationType": "minLength",
+            "minLengthValue": 4
+        }
+    ],
+    "rakRegister.LoginTxnPwdModel.userId":[
+    	{
+          "validationType": "conditionalRequiredForORONReqField",
+          "conditionVar": "rakRegister.RegistrationModel.requestType=='ORON'"            
+        },
+        {
+        "validationType": "conditionalMinLength",
+            "minLengthValue":6,
+           "conditionVar": "rakRegister.RegistrationModel.requestType=='ORON'" 
+         },
+        {
+            "validationType": "conditionalMaxLength",
+            "maxLengthValue": 20,
+            "conditionVar": "rakRegister.RegistrationModel.requestType=='ORON'" 
+        }
+    ],
+    "rakRegister.LoginTxnPwdModel.email":[
+    	{
+          "validationType": "conditionalRequired",
+          "conditionVar": "rakRegister.RegistrationModel.requestType=='ORON'"            
+        },
+        {
+            "validationType": "conditionalMaxLength",
+            "maxLengthValue": 40,
+            "conditionVar": "rakRegister.RegistrationModel.requestType=='ORON'" 
+        },
+          {
+            "validationType": "conditionalIsEmail",
+            "conditionVar": "rakRegister.RegistrationModel.requestType=='ORON'" 
+      
+        }
+    ],
+    "rakRegister.LoginTxnPwdModel.loginPwd":[
+    	  {
+          "validationType": "conditionalRequiredForPasswordField",
+          "conditionVar1": "rakRegister.RegistrationModel.requestType"
+                               
+        },
+    	{
+            "validationType": "maxLength",
+            "maxLengthValue": 16
+        },
+        {
+            "validationType": "minLength",
+             "minLengthValue": 8
+
+        }
+    ],
+    "rakRegister.LoginTxnPwdModel.txnPwd":[
+    	{
+            "validationType": "maxLength",
+            "maxLengthValue": 16
+        },
+        {
+          "validationType": "conditionalRequiredForPasswordField",
+          "conditionVar1": "rakRegister.RegistrationModel.requestType"
+                              
+        }
+    ],
+    "rakRegister.LoginTxnPwdModel.loginPwdConfirm":[
+   		
+    	{
+          "validationType": "conditionalRequiredForPasswordField",
+          "conditionVar1": "rakRegister.RegistrationModel.requestType"
+                          
+        },
+         {
+            "validationType": "maxLength",
+            "maxLengthValue": 16
+        },
+        {
+            "validationType": "minLength",
+            "minLengthValue": 8
+        },
+    	{
+            "validationType": "stringEquals",
+            "newPassword": "rakRegister.LoginTxnPwdModel.loginPwd"
+        }
+    ],
+    "rakRegister.LoginTxnPwdModel.txnPwdConfirm":[
+    	{
+            "validationType": "stringEquals",
+            "newPassword": "rakRegister.LoginTxnPwdModel.txnPwd"
+        }
+    ],
+	"rakPayee.payCard.searchFromDate": [        
+    	{
+        "validationType": "required"
+     	},
+    	{
+    	"validationType":"stringDateYearLimit"
+    	}
+        
+    ],
+      "rakPayee.payCard.searchToDate": [
+       	{
+            "validationType": "required"
+        },
+        {
+            "validationType": "dateGreaterThanVar",
+            "dateGreaterThanVar": "rakPayee.payCard.searchFromDate"
+        },
+        {
+        	"validationType":"stringDateYearLimit"
+        }
+    ],
+    "rakPayee.payCard.selectedCardType": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+       "rakPayCards.ownCards.selectedToBenAccount": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakPayCards.ownCards.selectedOwnCard": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakPayCards.ownCards.selectedFromAccount": [
+        {
+            "validationType": "required"
+        }
+    ],
+       "rakPayCards.ownCards.selectedBenfCard": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+    
+    "rakPayCards.ownCards.selectedCurrency": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakPayCards.ownCards.selectedFrequency": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakPayCards.common.displayDate": [
+        {
+            "validationType": "dateValid"
+        }
+    ],
+    
+    "rakPayCards.ownCards.selectedReason":[
+    {
+    "validationType": "required"
+    }
+    ],
+     "rakPayCards.ownCards.noOfTransfer": [
+        {
+            "validationType": "required"
+        },
+            {
+            "validationType": "isNumericPassword"
+        }
+    ],
+     "rakPayCards.ownCards.amount": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakPayCards.ownCards.selectedCharges": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakPayCards.ownCards.selectedPurpose": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakPayCards.ownCards.selectedRCurr": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+      "rakPayCards.ownCards.remitCurrency": [
+        {
+            "validationType": "required"
+        }
+    ],
+         "rakPayCards.ownCards.ownamount": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakPayCards.ownCards.othAmtTab"
+            
+        }
+   ],
+     "rakPayCards.ownCards.selectedTransferType": [
+        {
+            "validationType": "required"
+        }
+    ],
+   
+     "rakPayCards.common.authValue": [
+        {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+			"conditionVar": "rakPayCards.common.isAuthSet"
+        }
+    ],
+     "rakPayCards.ownCards.selectedTransferType": [
+        {
+            "validationType": "required"
+        }
+    ],
+	      "rakServiceReq.lcOrNlc.isRequestFor": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.lcOrNlc.isSelectAccount": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.lcOrNlc.loanFinAcc": [
+        {
+             "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.lcOrNlc.boolLoan"
+        }
+    ],
+    "rakServiceReq.lcOrNlc.creditCardNumber": [
+        {
+             "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.lcOrNlc.boolCredit"
+        }
+    ],
+     "rakServiceReq.lcOrNlc.isLanguage": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.lcOrNlc.addressedTo": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.lcOrNlc.debitOprAcc": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.lcOrNlc.branchName": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+    "rakServiceReq.lcOrNlc.mobileNumber": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 15
+        },
+        {
+            "validationType": "isNumericPassword"
+        }
+    ],
+	
+	"rakPayee.payBill.searchFromDate": [        
+    	{
+        "validationType": "required"
+     	},
+    	{
+    	"validationType":"stringDateYearLimit"
+    	}
+        
+    ],
+      "rakPayee.payBill.searchToDate": [
+       	{
+            "validationType": "required"
+        },
+        {
+            "validationType": "dateGreaterThanVar",
+            "dateGreaterThanVar": "rakPayee.payBill.searchFromDate"
+        },
+        {
+        	"validationType":"stringDateYearLimit"
+        }
+    ],
+    "rakPayee.payBill.selectedBillerType": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+    "rakSendMoney.txnHistory.searchFromDate": [        
+    	{
+        "validationType": "required"
+     	},
+    	{
+    	"validationType":"stringDateYearLimit"
+    	}
+        
+    ],
+      "rakSendMoney.txnHistory.searchToDate": [
+       	{
+            "validationType": "required"
+        },
+        {
+            "validationType": "dateGreaterThanVar",
+            "dateGreaterThanVar": "rakSendMoney.txnHistory.searchFromDate"
+        },
+        {
+        	"validationType":"stringDateYearLimit"
+        }
+    ],
+    "rakSendMoney.txnHistory.selectedTxnType": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RakInvOpenGoldAccModel.isTnCCheckBoxTicked": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RakInvOpenGoldAccModel.selectedOprAcct": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RakInvOpenGoldAccModel.isSingleOrJoint": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RakInvOpenGoldAccModel.txnPwd": [
+        {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RakInvOpenGoldAccModel.authStatus"
+        }
+    ],
+	"rakLocateUs.RAKLocateUsSearchData.selectedEmr": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakLocateUs.RAKLocateUsSearchData.selectedArea": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.blockCreditCardModel.lostDate": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "dateGreaterThanNow"
+        }
+    ],
+    
+      "rakServiceReq.common.displayDate": [
+        {
+            "validationType": "dateValid"
+        }
+    ],
+    
+ "rakServiceReq.RAKRenewalTermDeposit.minrenewalamount": [
+        {
+            "validationType": "lessThanOptionalNonZero",
+            "lessThanOptional": "rakServiceReq.RAKRenewalTermDeposit.renewalamount"
+        }
+    ],
+      "rakServiceReq.AdvanceSalaryData.advanceSalary": [
+      	{
+            "validationType": "required"
+        }
+      ],
+       "rakMails.mailSubjectSelected": [
+        {
+            "validationType": "required"
+        }
+    ],
+       "rakPayCards.ownCards.selectedToBenAccount": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakPayCards.ownCards.selectedOwnCard": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakPayCards.ownCards.selectedFromAccount": [
+        {
+            "validationType": "required"
+        }
+    ],
+       "rakPayCards.ownCards.selectedBenfCard": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+    
+    "rakPayCards.ownCards.selectedCurrency": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakPayCards.ownCards.selectedFrequency": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakPayCards.common.displayDate": [
+        {
+            "validationType": "dateValid"
+        },
+         
+        {
+        "validationType":"stringDateYearLimit"
+        }
+    ],
+    
+    "rakPayCards.ownCards.selectedReason":[
+    {
+    "validationType": "required"
+    }
+    ],
+     "rakPayCards.ownCards.noOfTransfer": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakPayCards.ownCards.selectedFrequency!='O'"
+        },
+            {
+            "validationType": "isNumericPassword"
+        }
+    ],
+     "rakPayCards.ownCards.amount": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "rakConditionalAmountMulitpleof10",
+            "conditionVar": "rakPayCards.ownCards.selectedCardBenfType==rakPayCards.TxnTypeConstant.PREPAIDCARDS"
+        }
+    ],
+     "rakPayCards.ownCards.selectedCharges": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakPayCards.ownCards.selectedPurpose": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakPayCards.ownCards.selectedRCurr": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+      "rakPayCards.ownCards.remitCurrency": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+     "rakPayCards.ownCards.ownamount": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakPayCards.ownCards.othAmtTab"
+            
+        }
+   ],
+     
+     "rakPayCards.ownCards.selectedTransferType": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakPayCards.ownCards.selectedPPCard": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+     "rakServiceReq.RakDCCashBkRedemModel.txnPwd": [
+        {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RakDCCashBkRedemModel.authStatus"
+        }
+    ],
+     "rakServiceReq.RakDCCashBkRedemModel.userEnteredRedeemAmount": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RakDCCashBkRedemModel.selectedDebitCard": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakMails.mailSubjectSelected": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakPayee.authMode.firstAuthModeValue": [
+        {
+			 "validationType": "conditionalRequiredValidatorForTrueCondition",
+             "conditionVar": "rakPayee.authMode.isFirstAuthMode"
+        }
+    ],
+     "rakPayee.authMode.secAuthModeValue": [
+        {
+			 "validationType": "conditionalRequiredValidatorForTrueCondition",
+             "conditionVar": "rakPayee.authMode.isSecAuthMode"
+        }
+    ],
+     "rakServiceReq.RakGenRqEStmtModel.txnPwd": [
+        {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RakGenRqEStmtModel.authStatus"
+        }
+    ],
+     "rakServiceReq.RakGenRqEStmtModel.isAdviceRemitSelected": [
+        {
+             "validationType": "checkForFlagValue",
+            "conditionVar": "rakServiceReq.RakGenRqEStmtModel.isRestOfPageRqdToBeShown"
+        }
+    ],
+     "rakServiceReq.RakGenRqEStmtModel.isAdviceDepositSelected": [
+        {
+             "validationType": "checkForFlagValue",
+            "conditionVar": "rakServiceReq.RakGenRqEStmtModel.isRestOfPageRqdToBeShown"
+        }
+    ],
+     "rakServiceReq.RakGenRqEStmtModel.isStmtCreditCardSelected": [
+        {
+             "validationType": "checkForFlagValue",
+            "conditionVar": "rakServiceReq.RakGenRqEStmtModel.isEitherAccOrCCSelected"
+        }
+    ],
+     "rakServiceReq.RakGenRqEStmtModel.isStmtAccountsSelected": [
+        {
+             "validationType": "checkForFlagValue",
+            "conditionVar": "rakServiceReq.RakGenRqEStmtModel.isEitherAccOrCCSelected"
+        }
+    ],
+     "rakServiceReq.RakGenRqEStmtModel.primaryEmail": [
+        {
+             "validationType": "isEmail"
+            
+        },
+        {
+	            "validationType": "required"
+        }
+    ],
+       "rakServiceReq.RakGenRqEStmtModel.secondaryEmail": [
+            {
+                 "validationType": "isEmail"
+                
+            }
+            
+    ],
+     "rakServiceReq.RakGenRqEStmtModel.faxNo": [
+        {
+             "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakGenRqEStmtModel.faxSelected"
+        }
+    ],
+    "rakSendMoney.mobileCash.selectedFromAccount": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakSendMoney.mobileCash.amount": [
+        {
+            "validationType": "required"
+        },
+         {
+            "validationType": "requiredManadtoryNonZero"
+        },
+          
+        {
+            "validationType": "rakAmountMulitpleof100"
+        }
+    ],   
+     "rakSendMoney.mobileCash.txnPwd": [
+       {
+            "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakSendMoney.mobileCash.authFlag"
+        }
+    ],
+    "rakServiceReq.RakClosureTermDepositModel.actionDate": [
+        {
+            "validationType": "conditionalGreaterDate",
+            "conditionVar":  "rakServiceReq.RakClosureTermDepositModel.dateFlag"
+        },
+        {
+        "validationType": "dateValid"
+     	}
+    ],
+    "rakSendMoney.mobileCashHistory.searchFromDate": [        
+    	{
+        "validationType": "required"
+     	},
+    	{
+    	"validationType":"stringDateYearLimit"
+    	}
+        
+    ],
+      "rakSendMoney.mobileCashHistory.searchToDate": [
+       	{
+            "validationType": "required"
+        },
+        {
+            "validationType": "dateGreaterThanVar",
+            "dateGreaterThanVar": "rakSendMoney.mobileCashHistory.searchFromDate"
+        },
+        {
+        	"validationType":"stringDateYearLimit"
+        }
+    ],
+            "rakContactUs.contact.wsFromMailID": [
+        {
+            "validationType": "required"
+        },
+        {
+        	"validationType": "isEmail"
+        }
+    ],
+     "rakContactUs.contact.wsMailContent": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakContactUs.contact.wsCallBackDate": [
+        {
+            "validationType": "required"
+        },
+        {
+        	"validationType":"stringDateYearLimit"
+        },
+        {
+            "validationType": "dateLessThanNow"
+        }
+    ],
+     "rakContactUs.contact.wsPreferredTime": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "rakTimeValidator"
+        }    
+    ],
+     "rakServiceReq.RakGenRqEStmtModel.faxNo": [
+        {
+             "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakGenRqEStmtModel.faxSelected"
+        }
+    ],
+    "rakServiceReq.RAKChangeReportCaptureModel.selectedCCNo": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RAKChangeReportCaptureModel.delieveryMode": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RAKChangeReportCaptureModel.selectedBranch": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKChangeReportCaptureModel.boolBranch"
+        }
+    ],
+     "rakServiceReq.RAKChangeReportCaptureModel.selectedCapture": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RAKChangeReportCaptureModel.atmBranchName": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RAKChangeReportCaptureModel.bankName": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKChangeReportCaptureModel.captureFlag"
+        }
+    ],
+	  "rakFundTfr.remitSummary.transferMode": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakFundTfr.remitSummary.transactionPassword": [
+        {
+            "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakFundTfr.remitSummary.auth"
+        }
+    ],
+      "rakServiceReq.RAKChangeBillDateData.creditCardNum": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RAKChangeBillDateData.dueDate": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RAKChangeBillDateData.selectedPeriod": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+         "rakPayCards.rakInvGold.selectedGoldAccount": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+     "rakPayCards.rakInvGold.selectedToBenAccount": [
+        {
+           "validationType": "conditionalRequired",
+           "conditionVar": "rakPayCards.rakInvGold.selectedBenType!='OWNACT'"
+        }
+    ],
+    "rakPayCards.rakInvGold.selectedToAccount":[
+       {
+           "validationType": "conditionalRequired",
+           "conditionVar": "rakPayCards.rakInvGold.selectedBenType==='OWNACT'"
+        }
+    ],
+     "rakPayCards.rakInvGold.selectedFromAccount": [
+        {
+            "validationType": "required"
+        }
+    ],
+      
+    
+    
+    "rakPayCards.rakInvGold.selectedFrequency": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+    
+    
+  
+     "rakPayCards.rakInvGold.noOfTransfer": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakPayCards.rakInvGold.selectedFrequency!='O'"
+        },
+            {
+            "validationType": "isNumericPassword"
+        }
+    ],
+     "rakPayCards.rakInvGold.quantity": [
+        {
+            "validationType": "required"
+        },      
+        {
+            "validationType": "requiredNonZero"
+        }, 
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 9
+        }
+    ],
+    
+     "rakPayCards.rakInvGold.authValue": [
+        {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+			"conditionVar": "rakPayCards.common.isAuthSet"
+        }
+    ],
+     "rakSendMoney.stopTxn.remarks": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakSendMoney.schedule.txnPwd":[
+    	 {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakSendMoney.schedule.authStatus"
+        }
+    ],
+	"rakServiceReq.CCardStmtReq.selectedCardIndex":[
+    	{
+            "validationType": "required"
+        }
+    ],    
+	"rakServiceReq.CCardStmtReq.selectedFromMonth":[
+		{
+            "validationType": "required"
+        }
+	],
+	"rakServiceReq.CCardStmtReq.selectedToMonth":[
+		{
+            "validationType": "required"
+        }
+	],
+	"rakServiceReq.CCardStmtReq.selectedToYear":[
+		{
+            "validationType": "required"
+        },
+        {
+            "validationType": "fromDateGreaterThanToDate",
+            "conditionVar1": "rakServiceReq.CCardStmtReq.selectedFromYear",
+            "conditionVar2": "rakServiceReq.CCardStmtReq.selectedFromMonth",
+            "conditionVar3": "rakServiceReq.CCardStmtReq.selectedToMonth"
+        }
+	],
+	"rakServiceReq.CCardStmtReq.selectedFromYear":[
+		{
+            "validationType": "required"
+        }
+	],	
+	
+	"rakServiceReq.CCardStmtReq.txnPwd":[
+		{
+	    	"validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.CCardStmtReq.authStatus"
+	    }
+	],
+	
+	     "rakServiceReq.investmentSubscription.transactionPassword": [
+        {
+            "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakServiceReq.investmentSubscription.auth"
+        }
+    ],
+    "rakServiceReq.investmentSubscription.mobilePrefix": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+	"rakServiceReq.investmentSubscription.mobileNumber": [
+        {
+            "validationType": "required"
+            
+        },
+        {	
+        	"validationType":"isNumericPassword" 
+        }
+    ],
+     "rakServiceReq.RakCCStandingInstModel.txnPwd": [
+        {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RakCCStandingInstModel.authStatus"
+        }
+    ],
+     "rakServiceReq.RakCCStandingInstModel.selectedCreditCard": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RakCCStandingInstModel.selectedOprAcc": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RakCCStandingInstModel.perOfCurrentStatementBal": [
+        {
+             "validationType": "conditionalRequired",
+             "conditionVar": "rakServiceReq.RakCCStandingInstModel.isPerOfCurrentStatementBalSelected"
+        }
+    ],
+     "rakServiceReq.RakCCStandingInstModel.flatAmount": [
+        {
+             "validationType": "conditionalRequired",
+             "conditionVar": "rakServiceReq.RakCCStandingInstModel.isFlatAmountSelected"
+        }
+    ],
+     "rakServiceReq.RakCCStandingInstModel.selectedDateOfMonth": [
+        {
+             "validationType": "conditionalRequired",
+             "conditionVar": "rakServiceReq.RakCCStandingInstModel.isDOMSelected"
+        }
+    ],
+     "rakServiceReq.RakApplyCCModel.txnPwd": [
+        {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RakApplyCCModel.authStatus"
+        }
+    ],
+     "rakServiceReq.RakApplyCCModel.MobileNo": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RakApplyCCModel.EmailId": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "isEmail"
+        }
+    ],
+     "rakServiceReq.RakApplyCCModel.CustomerName": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+    "rakServiceReq.RakCreditCardBalanceTransfer.balanceTransferAmt" : [
+        {
+            "validationType": "required"
+        }
+        
+    ],
+    "rakServiceReq.RakCreditCardBalanceTransfer.selectedCard": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RakCreditCardBalanceTransfer.bnkType": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+    "rakServiceReq.RakCreditCardBalanceTransfer.bankName": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RakCreditCardBalanceTransfer.otherBnkCC": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 16
+        },
+        {
+               "validationType": "checkForFlagValue",
+            "conditionVar": "rakServiceReq.RakCreditCardBalanceTransfer.isOtherBnkCC"
+    }
+    ],
+ 
+  
+     "rakServiceReq.RakCreditCardBalanceTransfer.deliveryChannel":[
+    {
+               "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakCreditCardBalanceTransfer.isUaeftElig"
+    }
+    ],
+  
+   "rakServiceReq.RakCreditCardBalanceTransfer.branch":[
+    {
+               "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakCreditCardBalanceTransfer.isBranchChecked"
+    }
+    ],
+  
+     "rakServiceReq.RakCreditCardBalanceTransfer.managerChq":[
+    {
+               "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakCreditCardBalanceTransfer.isManChqMandatory"
+    }
+    ],
+    "rakServiceReq.RakCreditCardBalanceTransfer.balanceTransfer": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RakCreditCardBalanceTransfer.txnPwd": [
+        {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RakCreditCardBalanceTransfer.authStatus"
+        }
+    ],
+    "rakServiceReq.lcOrNlc.transactionPassword": [
+        {
+            "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakServiceReq.lcOrNlc.auth"
+        }
+    ],
+    "rakServiceReq.RakCCTxnDisputeSR.txnPwd": [
+        {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RakCCTxnDisputeSR.authStatus"
+        }
+    ],
+    "rakServiceReq.RakCCTxnDisputeSR.txnSel": [
+        {
+            "validationType": "required"
+        }
+    ],
+   
+    "rakServiceReq.RakCCTxnDisputeSR.selectedCard": [
+        {
+            "validationType": "required"
+        }
+    ],
+      "rakServiceReq.RakCCTxnDisputeSR.toDate": [
+        {
+            "validationType": "dateValid"
+        },
+        
+        {
+            "validationType": "actualDateGreaterThan",
+             "dateGreaterThanVar": "rakServiceReq.RakCCTxnDisputeSR.fromDate"
+        }
+       
+    ],
+   
+    "rakServiceReq.RakCCTxnDisputeSR.fromDate": [
+        {
+            "validationType": "dateValid"
+        }
+    ],
+    
+      "rakSendMoney.txnHistory.authField": [
+        {
+           "validationType": "conditionalRequired",
+	     	"conditionVar":"rakSendMoney.txnHistory.authStatus"
+        }
+    ],
+     "rakSendMoney.txnHistory.reason": [
+        {
+            "validationType": "required"
+        }
+    ],
+
+	"rakPayee.payeeModel.serviceProvider": [
+        {
+			  "validationType": "required"
+        }
+    ],
+    "rakPayee.payeeModel.utilityService": [
+        {
+			  "validationType": "required"
+        }
+    ],
+     "rakPayee.payeeModel.accountNumberdds": [
+        {
+			"validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "rakPayee.payeeModel.isAcctFlag"
+        }
+    ],
+     "rakPayee.payeeModel.creditCardNumberdds": [
+        {
+			"validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "rakPayee.payeeModel.isCredCardFlag"
+        }
+    ],
+    "rakPayee.payeeModel.issuedFor": [
+        {
+			  "validationType": "required"
+        },
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 50
+        }
+    ],
+    "rakPayee.payeeModel.paymentFrequencyIndex": [
+        {
+			  "validationType": "required"
+        }
+    ],
+    "rakPayee.payeeModel.expiryDate": [
+        {
+			  "validationType": "required"
+        },
+        {
+            "validationType": "actualDateGreaterThan",
+            "dateGreaterThanVar": "rakPayee.payeeModel.commenceDate"
+        },
+        {
+            "validationType": "actualDateGreaterThan",
+            "dateGreaterThanVar": "rakPayee.common.initDate"
+        }
+        
+    ],
+    "rakPayee.payeeModel.commenceDate": [
+        {
+			  "validationType": "required"
+        },
+        {
+            "validationType": "actualDateLessThan",
+            "dateLessThanVar": "rakPayee.payeeModel.expiryDate"
+        },
+        {
+            "validationType": "actualDateGreaterThan",
+            "dateGreaterThanVar": "rakPayee.common.initDate"
+        },
+         {
+			"validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "rakPayee.payeeModel.isCommenceDateFlg"
+        }
+    ],
+    "rakPayee.payeeModel.definedDays": [
+        {
+			"validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "rakPayee.payeeModel.isDefinedDaysFlg"
+        },
+        {
+            "validationType": "rakMaxValue",
+            "maxValue": 999
+        }
+    ],
+     "rakPayee.payeeModel.fixedAmount": [
+        {
+			"validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "rakPayee.payeeModel.isFixedFlg"
+        }
+    ],
+     "rakPayee.payeeModel.variableMaxAmount": [
+        {
+			"validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "rakPayee.payeeModel.isVariableFlg"
+        }
+    ],
+    "rakPayee.payeeModel.variableMinAmount": [
+        {
+			"validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "rakPayee.payeeModel.isVariableFlg"
+        }
+    ],
+    "rakPayee.payeeModel.ddsCancelReason":[
+        {
+			"validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "rakPayee.payeeModel.isDeleteDdsPayee"
+        }
+    ],
+    "rakPayee.payeeModel.utilityNumber":[
+         {
+			  "validationType": "required"
+        },
+         {
+	    	"validationType": "rakContainsPipeChar"
+	   } 
+    ],
+    "rakPayee.payeeModel.expiryDateDdsTxn": [
+        {
+			  "validationType": "required"
+        },
+        {
+            "validationType": "actualDateGreaterThan",
+            "dateGreaterThanVar": "rakPayee.payeeModel.commenceDateDdsTxn"
+        },        
+         {
+            "validationType": "actualDateLessThan",
+            "dateLessThanVar": "rakPayee.common.initDate"
+        }
+        
+    ],
+    "rakPayee.payeeModel.commenceDateDdsTxn": [
+        {
+			  "validationType": "required"
+        },
+        {
+            "validationType": "actualDateLessThan",
+            "dateLessThanVar": "rakPayee.payeeModel.expiryDateDdsTxn"
+        }               
+    ],
+
+     "rakServiceReq.RakCCChequeRequestSR.benName": [
+        {
+            "validationType": "required"
+        }
+    ],
+	 "rakServiceReq.RakCCChequeRequestSR.selectedCard": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RakCCChequeRequestSR.emirateSeletected": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakCCChequeRequestSR.isBranchMandatory"
+           
+        }
+     ],
+	 "rakServiceReq.RakCCChequeRequestSR.amount": [
+        {
+            "validationType": "required"
+        }
+    ],
+	 "rakServiceReq.RakCCChequeRequestSR.txnPwd": [
+        {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RakCCChequeRequestSR.authStatus"
+        }
+    ],
+	 "rakServiceReq.RakCCChequeRequestSR.delivChannel": [
+        {
+            "validationType": "required"
+        }
+    ],
+	 "rakServiceReq.RakCCChequeRequestSR.selectedPop": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RakCCChequeRequestSR.others":[
+    {
+               "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakCCChequeRequestSR.isOthersMandatory"
+    }
+    ],
+	"rakServiceReq.RakCCChequeRequestSR.selectedBranch":[
+    {
+               "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakCCChequeRequestSR.isBranchMandatory"
+    }
+    ],
+    
+    
+    "rakServiceReq.RakEarlDebitCardRenewal.otherDesc":[
+    {
+              "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakEarlDebitCardRenewal.isOthersMandatory"
+    }
+    ],
+    
+  
+     "rakPayee.payBill.fromAccount": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+    "rakPayee.schedule.selectedFromAccount": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakPayee.schedule.amountType":[
+     	{     		 
+     		"validationType": "conditionalRequired",
+            "conditionVar": "rakPayee.schedule.amountSelectionRqd"
+     	}
+     ],
+     
+     "rakPayee.schedule.amount":[
+     	{
+     		 "validationType": "conditionalRequired",
+            "conditionVar": "rakPayee.schedule.amountToBeEntered"
+     	}
+     ],
+      "rakPayee.schedule.txnPwd":[
+    	 {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakPayee.schedule.authStatus"
+        }
+    ],
+     "rakPayee.schedule.noOfTransfer":[
+     	{
+     		 "validationType": "conditionalRequired",
+            "conditionVar": "rakPayee.schedule.recFrequencySelected"
+     	},
+     	    {
+            "validationType": "isNumericPassword"
+        }
+     ],
+	 "rakAccounts.RakValuationEnroll.acceptTermsCheck1":[
+    {
+    "validationType": "checkForFlagValue",
+  "conditionVar": "rakAccounts.RakValuationEnroll.isTermsAccepted"
+    }
+    ],
+     "rakAccounts.RakValuationEnroll.acceptTermsCheck2":[
+    {
+    "validationType": "checkForFlagValue",
+  "conditionVar": "rakAccounts.RakValuationEnroll.isTermsAccepted"
+    }
+    ],
+    
+    "rakAccounts.RakValuationEnroll.accountId": [
+		{
+			"validationType":"rakValConditionalRequired",
+			"conditionVar1":"rakAccounts.RakValuationEnroll.isBothType",
+			"conditionVar2":"rakAccounts.RakValuationEnroll.clicked"
+		}
+	],
+	"rakAccounts.RakValuationEnroll.clicked": [
+		{
+			"validationType": "conditionalRequiredValidatorForTrueCondition",
+			"conditionVar": "rakAccounts.RakValuationEnroll.isEligibleToEnroll"
+		}
+	],
+    "rakAccounts.RakValuationEnroll.packageItem": [
+        {
+            "validationType": "required"
+        }
+    ],
+"rakAccounts.RakValuationEnroll.txnPwd": [
+        {
+             "validationType": "conditionalRequired",
+            "conditionVar": "rakAccounts.RakValuationEnroll.authStatus"
+        }
+    ],
+    "rakAccounts.RakValuationUpgradeValuation.ccdAccSel":[
+    {
+    "validationType": "checkForFlagValue",
+  "conditionVar": "rakAccounts.RakValuationUpgradeValuation.isRadioClick"
+    }
+    ],
+    "rakAccounts.RakValuationUpgradeValuation.oprAccSel":[
+    {
+    "validationType": "checkForFlagValue",
+  "conditionVar": "rakAccounts.RakValuationUpgradeValuation.isRadioClick"
+    }
+    ],
+    "rakAccounts.RakValuationUpgradeValuation.acceptTermsCheck1":[
+    {
+    "validationType": "checkForFlagValue",
+  "conditionVar": "rakAccounts.RakValuationUpgradeValuation.isTermsAccepted"
+    }
+    ],
+     "rakAccounts.RakValuationUpgradeValuation.acceptTermsCheck2":[
+    {
+    "validationType": "checkForFlagValue",
+  "conditionVar": "rakAccounts.RakValuationUpgradeValuation.isTermsAccepted"
+    }
+    ],
+    "rakAccounts.RakValuationUpgradeValuation.packageItem": [
+        {
+            "validationType": "required"
+        }
+    ],
+"rakAccounts.RakValuationUpgradeValuation.txnPwd": [
+        {
+             "validationType": "conditionalRequired",
+            "conditionVar": "rakAccounts.RakValuationUpgradeValuation.authStatus"
+        }
+    ],
+     "rakPayee.stopTxn.remarks": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSend": [
+        {
+             "validationType": "required"
+        }
+    ],
+     "rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSendReEnter": [
+        {
+             "validationType": "required"
+        },
+        {
+            "validationType": "rakValue1SameAsValue2Validator",
+            "otherVal": "rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSend"
+        }
+    ],
+    "rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "rakValue1SameAsValue2Validator",
+            "otherVal": "rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd"
+        }
+    ],
+     "rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd": [
+        {
+             "validationType": "conditionalRequired",
+            "conditionVar": "rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwdValRqd"
+        }
+    ],
+	"rakServiceReq.CCConvertionEmi.creditIndex": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+    
+     "rakServiceReq.CCConvertionEmi.tranStartDate": [
+        {
+            "validationType": "dateValid"
+            
+        }
+    ],
+	"rakServiceReq.CCConvertionEmi.tranEndDate": [
+        {
+            "validationType": "dateValid"
+            
+        }
+    ],
+    "rakServiceReq.CCConvertionEmi.selectedData": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+    
+    "rakServiceReq.CCConvertionEmi.merchantCode": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+	"rakServiceReq.CCConvertionEmi.chargeTypeCode": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+    "rakServiceReq.CCConvertionEmi.tenorCode": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+     "rakServiceReq.CCConvertionEmi.merchantOthers": [
+        {
+             "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.CCConvertionEmi.boolMerchant"
+        }
+    ],
+     "rakServiceReq.CCConvertionEmi.transactionPassword": [
+        {
+            "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakServiceReq.CCConvertionEmi.auth"
+        }
+    ],
+    "rakPayee.payeeModel.expiryDateDdsEdit": [
+        {
+			  "validationType": "required"
+        },
+        {
+            "validationType": "actualDateGreaterThan",
+            "dateGreaterThanVar": "rakPayee.payeeModel.commenceDateDdsEdit"
+        },        
+         {
+            "validationType": "actualDateGreaterThan",
+            "dateLessThanVar": "rakPayee.common.initDate"
+        }
+        
+    ],
+    "rakPayee.payeeModel.commenceDateDdsEdit": [
+        {
+			  "validationType": "required"
+        },
+        {
+            "validationType": "actualDateLessThan",
+            "dateLessThanVar": "rakPayee.payeeModel.expiryDateDdsEdit"
+        }               
+    ],
+    
+     "rakPayCards.ownCards.selectedCardBenfType": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakPayCards.common.searchFromDate": [
+        {
+            "validationType": "required"
+        },
+        {"validationType":"stringDateYearLimit"}
+    ],
+    "rakPayCards.common.searchToDate": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "dateGreaterThanVar",
+            "dateGreaterThanVar": "rakPayCards.common.searchFromDate"
+        },
+        {"validationType":"stringDateYearLimit"}
+    ],
+    
+    "rakPayCards.stopTxn.remarks": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+    "rakServiceReq.RakDepositOpenNewTermReq.accNo": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RakDepositOpenNewTermReq.period": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakDepositOpenNewTermReq.depPeriodSelection=='DPV'"
+        }
+    ],
+    
+    
+    
+     "rakServiceReq.amendStandingInst.fromDate": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.amendStandingInst.holdSISelected == 'Y'"
+        },
+        {
+        	"validationType":"stringDateYearLimit"
+        },
+
+        {
+        	"validationType": "conditionalDateValid",
+            "conditionVar": "rakServiceReq.amendStandingInst.holdSISelected == 'T'"
+        }
+    ],
+    "rakServiceReq.amendStandingInst.toDate": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.amendStandingInst.holdSISelected == 'T'"
+        },
+       
+        {
+        	"validationType":"stringDateYearLimit"
+        },
+
+       {
+        	"validationType": "conditionalDateValid",
+            "conditionVar": "rakServiceReq.amendStandingInst.holdSISelected == 'T'"
+        }
+    ],
+    "rakServiceReq.RakDepositOpenNewTermReq.fromDate": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakDepositOpenNewTermReq.depPeriodSelection=='DPD'"
+        },
+        {
+        	"validationType":"stringDateYearLimit"
+        },
+
+        {
+        	"validationType": "conditionalDateValid",
+            "conditionVar": "rakServiceReq.RakDepositOpenNewTermReq.depPeriodSelection=='DPD'"
+        }
+    ],
+    "rakServiceReq.RakDepositOpenNewTermReq.toDate": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakDepositOpenNewTermReq.depPeriodSelection=='DPD'"
+        },
+       
+        {
+        	"validationType":"stringDateYearLimit"
+        },
+
+       {
+        	"validationType": "conditionalDateValid",
+            "conditionVar": "rakServiceReq.RakDepositOpenNewTermReq.depPeriodSelection=='DPD'"
+        }
+    ],
+    
+    "rakServiceReq.RakDepositOpenNewTermReq.currency": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+    "rakServiceReq.RakDepositOpenNewTermReq.amount": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+     "rakServiceReq.RakDepositOpenNewTermReq.matAccount": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakDepositOpenNewTermReq.maturity=='OMA'"
+        }
+    ],
+    
+    "rakServiceReq.RakDepositOpenNewTermReq.intHandlingAccount": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakDepositOpenNewTermReq.maturity=='OMR' && rakServiceReq.RakDepositOpenNewTermReq.interestHandling=='IHA'"
+        }
+    ],
+	"rakServiceReq.RakDepositOpenNewTermReq.txnPwd": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakDepositOpenNewTermReq.authStatus"
+        }
+    ],
+    
+     "rakServiceReq.RakIslamicDepositOpenNewTermReq.accNo": [
+        {
+            "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RakIslamicDepositOpenNewTermReq.period": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakIslamicDepositOpenNewTermReq.depPeriodSelection=='DPV'"
+        }
+    ],
+    "rakServiceReq.RakIslamicDepositOpenNewTermReq.fromDate": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakIslamicDepositOpenNewTermReq.depPeriodSelection=='DPD'"
+        },
+        {
+        	"validationType":"stringDateYearLimit"
+        },
+        {
+        	"validationType": "conditionalDateValid",
+            "conditionVar": "rakServiceReq.RakIslamicDepositOpenNewTermReq.depPeriodSelection=='DPD'"
+        }
+    ],
+    "rakServiceReq.RakIslamicDepositOpenNewTermReq.toDate": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakIslamicDepositOpenNewTermReq.depPeriodSelection=='DPD'"
+        },
+        
+        {"validationType":"stringDateYearLimit"},
+        {
+        	"validationType": "conditionalDateValid",
+            "conditionVar": "rakServiceReq.RakIslamicDepositOpenNewTermReq.depPeriodSelection=='DPD'"
+        }
+    ],
+    
+    "rakServiceReq.RakIslamicDepositOpenNewTermReq.currency": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+    "rakServiceReq.RakIslamicDepositOpenNewTermReq.amount": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+     "rakServiceReq.RakIslamicDepositOpenNewTermReq.matAccount": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakIslamicDepositOpenNewTermReq.maturity=='OMA'"
+        }
+    ],
+    
+    "rakServiceReq.RakIslamicDepositOpenNewTermReq.intHandlingAccount": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakIslamicDepositOpenNewTermReq.maturity=='OMR' && rakServiceReq.RakIslamicDepositOpenNewTermReq.interestHandling=='IHA'"
+        }
+    ],
+    
+    "rakServiceReq.RakIslamicDepositOpenNewTermReq.intHandlingAccount": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakIslamicDepositOpenNewTermReq.maturity=='OMR' && rakServiceReq.RakIslamicDepositOpenNewTermReq.interestHandling=='IHA'"
+        }
+    ],
+	"rakServiceReq.RakIslamicDepositOpenNewTermReq.txnPwd": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakIslamicDepositOpenNewTermReq.authStatus"
+        }
+    ],
+     "rakServiceReq.RakOperativeDDCheque.selectedOprAcct": [
+        {
+            "validationType": "required"
+        }
+    ],
+        "rakServiceReq.RakOperativeDDCheque.selectedReq": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+        "rakServiceReq.RakOperativeDDCheque.selectedBnf": [
+        {
+            "validationType": "required"
+        }
+    ],
+        "rakServiceReq.RakOperativeDDCheque.amount": [
+        {
+            "validationType": "required"
+        }
+    ],    
+    "rakServiceReq.RakOperativeDDCheque.selectedPurpose": [
+        {
+            "validationType": "required"
+        }
+    ],
+        "rakServiceReq.RakOperativeDDCheque.selectedBranch": [
+        {
+           "validationType": "conditionalRequiredValidatorForTrueCondition",
+           "conditionVar": "rakServiceReq.RakOperativeDDCheque.isDelModeBranchVisible"
+        }
+    ],
+     
+    "rakServiceReq.RakOperativeDDCheque.name": [
+        {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "rakServiceReq.RakOperativeDDCheque.authorize"
+        }
+    ],
+       "rakServiceReq.RakOperativeDDCheque.contact": [
+        {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "rakServiceReq.RakOperativeDDCheque.authorize"
+        }
+    ],
+       "rakServiceReq.RakOperativeDDCheque.selectedValidId": [
+        {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "rakServiceReq.RakOperativeDDCheque.authorize"
+        }
+    ],
+       "rakServiceReq.RakOperativeDDCheque.idNumber": [
+        {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "rakServiceReq.RakOperativeDDCheque.authorize"
+        }
+    ],
+    "rakSendMoney.mobileCash.selectedBenf": [
+        {
+            "validationType": "required"
+        }],
+     "rakServiceReq.RAKCCDCPinReissueModel.selectedCCDCCard": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RAKCCDCPinReissueModel.enteredOTP": [
+        {
+            "validationType": "required"
+        },
+         {
+            "validationType": "maxLength",
+            "maxLengthValue": 6
+        }
+    ],
+     "rakServiceReq.RAKCCDCPinReissueModel.enteredCVV": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 3
+        }
+    ],
+            "rakServiceReq.RakOperativeDDCheque.selectedCorrsBank" :[
+   	 {
+    		"validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakOperativeDDCheque.requestList[rakServiceReq.RakOperativeDDCheque.selectedReq]['code'].toString()=='DD' && rakServiceReq.RakOperativeDDCheque.txnbenfTypeNewArr[rakServiceReq.RakOperativeDDCheque.selectedBnf].bnfBankCountry =='IN'"
+            }
+    ],
+         "rakServiceReq.RakOperativeDDCheque.selectedCity":[
+    {
+    		"validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakOperativeDDCheque.requestList[rakServiceReq.RakOperativeDDCheque.selectedReq]['code'].toString()=='DD' &&  rakServiceReq.RakOperativeDDCheque.txnbenfTypeNewArr[rakServiceReq.RakOperativeDDCheque.selectedBnf].bnfBankCountry =='IN'"
+     }
+    ],
+
+     "rakServiceReq.RAKCCDCPinReissueModel.dateOfBirth": [
+        {
+            "validationType": "dateValid"
+        }
+    ],
+     "rakServiceReq.RAKCCDCPinReissueModel.txnPwd": [
+        {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RAKCCDCPinReissueModel.authStatus"
+        }
+    ],
+	 "rakServiceReq.RakInvOpenAccSR.selectedAcc": [
+        {
+            "validationType": "required"
+        }
+    ],
+	 "rakServiceReq.RakInvOpenAccSR.invAmtNum": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RakInvOpenAccSR.invAmtCurr": [
+        {
+            "validationType": "required"
+        }
+    ],
+    
+	 "rakServiceReq.RakInvOpenAccSR.acceptTermsCheck": [
+        {
+             "validationType": "checkForFlagValue",
+            "conditionVar": "rakServiceReq.RakInvOpenAccSR.isTCMandatory"
+        }
+    ],
+
+	 "rakServiceReq.RakInvOpenAccSR.kyc1": [
+        {
+            "validationType": "required"
+        }
+    ],
+	 "rakServiceReq.RakInvOpenAccSR.kyc2": [
+        {
+            "validationType": "required"
+        }
+    ],
+	 "rakServiceReq.RakInvOpenAccSR.kyc3": [
+        {
+            "validationType": "required"
+        }
+    ],
+	 "rakServiceReq.RakInvOpenAccSR.kyc4": [
+        {
+            "validationType": "required"
+        }
+    ],
+	 "rakServiceReq.RakInvOpenAccSR.kyc5": [
+        {
+            "validationType": "required"
+        }
+    ],
+	 "rakServiceReq.RakInvOpenAccSR.mcq1": [
+        {
+            "validationType": "required"
+        }
+    ],
+	 "rakServiceReq.RakInvOpenAccSR.mcq2": [
+        {
+            "validationType": "required"
+        }
+    ],
+	 "rakServiceReq.RakInvOpenAccSR.mcq3": [
+        {
+            "validationType": "required"
+        }
+    ],
+	 "rakServiceReq.RakInvOpenAccSR.mcq9": [
+        {
+            "validationType": "required"
+        }
+    ],
+	 "rakServiceReq.RakInvOpenAccSR.mcq5": [
+        {
+            "validationType": "required"
+        }
+    ],
+	 "rakServiceReq.RakInvOpenAccSR.mcq6": [
+        {
+            "validationType": "required"
+        }
+    ],
+	 "rakServiceReq.RakInvOpenAccSR.mcq7": [
+        {
+            "validationType": "required"
+        }
+    ],
+	 "rakServiceReq.RakInvOpenAccSR.mcq8": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RakInvOpenAccSR.mcq9": [
+            {
+                "validationType": "required"
+            }
+    ],
+	 "rakServiceReq.RakInvOpenAccSR.txnPwd": [
+        {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RakInvOpenAccSR.authStatus"
+        }
+    ],
+     "rakServiceReq.RakCCCashBkRedemModel.txnPwd": [
+        {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RakCCCashBkRedemModel.authStatus"
+        }
+    ],
+     "rakServiceReq.RakCCCashBkRedemModel.selectedCreditCard": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RakCCCashBkRedemModel.userEnteredRedeemAmount": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakFundTfr.remitSummary.remarks": [
+        {
+            "validationType": "required"
+        }
+],
+     "rakFundTfr.remitSummary.remarksTemp": [
+        {
+            "validationType": "arrayAllRequired",
+            "key":"rakFundTfr.remitSummary.testArrayShow"
+        }
+],
+	 "rakServiceReq.stopChequeReq.operativeIndex": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+    
+     "rakServiceReq.stopChequeReq.tranStartDate": [
+        {
+            "validationType": "dateValid"
+            
+        }
+    ],
+	"rakServiceReq.stopChequeReq.tranEndDate": [
+        {
+            "validationType": "dateValid"
+            
+        }
+    ],
+     "rakServiceReq.stopChequeReq.transactionPassword": [
+        {
+            "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakServiceReq.stopChequeReq.auth"
+        }
+    ],
+     "rakMails.compose.subject": [
+        {
+            "validationType": "undefinedRequired"
+        }
+    ],
+    
+     "rakAccounts.RakValuationEnroll.accountType": [
+        {
+            "validationType": "required"
+           
+        }],
+        
+         "rakPayee.payCard.authField": [
+        {
+	    	"validationType": "conditionalRequired",
+	     	"conditionVar":"rakPayee.payCard.authStatus"
+	    }],
+          "rakPayee.payCard.reason": [
+        {
+            "validationType": "required"
+           
+        }],
+        "rakPayCards.rakInvGold.creditIndex": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+    
+     "rakPayCards.rakInvGold.searchFromDate": [        
+    	{
+        "validationType": "required"
+     	},
+    	{
+    	"validationType":"stringDateYearLimit"
+    	}
+        
+    ],
+      "rakPayCards.rakInvGold.searchToDate": [
+       	{
+            "validationType": "required"
+        },
+        {
+            "validationType": "dateGreaterThanVar",
+            "dateGreaterThanVar": "rakPayCards.rakInvGold.searchFromDate"
+        },
+        {
+        	"validationType":"stringDateYearLimit"
+        }
+    ],
+    
+    "rakPayCards.rakInvGold.selectedTxnType": [
+        {
+            "validationType": "required"
+           
+        }
+       ],
+    "rakPayee.payBill.multiplePayFromAcct": [
+        {
+			  "validationType": "required"
+        }
+    ],
+     "rakServiceReq.RakCCPinSetSR.selectedAcc": [
+        {
+            "validationType": "required"
+            
+        }
+    ],
+	"rakServiceReq.RakCCPinSetSR.numPin": [
+        {
+            "validationType": "required"
+            
+        },
+         {
+            "validationType": "maxLength",
+            "maxLengthValue": 4
+        },
+          {
+    "validationType": "checkForFlagValue",
+  "conditionVar": "rakServiceReq.RakCCPinSetSR.isPinMatch"
+    }
+    ],
+	"rakServiceReq.RakCCPinSetSR.numConfirmPin": [
+        {
+            "validationType": "required"
+            
+        },
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 4
+        },
+        {
+            "validationType": "stringEqualsPIN",
+            "newPassword": "rakServiceReq.RakCCPinSetSR.numPin"
+        } 
+    ],
+	"rakServiceReq.RakCCPinSetSR.txnPwd": [
+        {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RakCCPinSetSR.authStatus"
+        }
+    ],
+
+    "rakServiceReq.transactionLimitChangeRq.sameCurrencyTransferLimit": [
+        {
+			  "validationType": "required"
+        }
+    ],
+    "rakServiceReq.transactionLimitChangeRq.crossCurrencyTransferLimit": [
+        {
+			  "validationType": "required"
+        },
+        {
+            "validationType": "rakMaxValue",
+            "maxValue": 5000.00
+        }
+    ],
+     "rakServiceReq.transactionLimitChangeRq.firstAuthModeValue": [
+        {
+			 "validationType": "conditionalRequiredValidatorForTrueCondition",
+             "conditionVar": "rakServiceReq.transactionLimitChangeRq.isFirstAuthMode"
+        }
+    ],
+     "rakServiceReq.transactionLimitChangeRq.secAuthModeValue": [
+        {
+			 "validationType": "conditionalRequiredValidatorForTrueCondition",
+             "conditionVar": "rakServiceReq.transactionLimitChangeRq.isSecAuthMode"
+        }
+    ],
+    
+      "rakServiceReq.ATMCashDepositeLimitChangeReq.firstAuthModeValue": [
+        {
+			 "validationType": "conditionalRequiredValidatorForTrueCondition",
+             "conditionVar": "rakServiceReq.ATMCashDepositeLimitChangeReq.isFirstAuthMode"
+        }
+    ],
+     "rakServiceReq.ATMCashDepositeLimitChangeReq.secAuthModeValue": [
+        {
+			 "validationType": "conditionalRequiredValidatorForTrueCondition",
+             "conditionVar": "rakServiceReq.ATMCashDepositeLimitChangeReq.isSecAuthMode"
+        }
+    ],
+    
+    
+           "rakPayCards.rakInvGold.mode": [
+       {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakSendMoney.schedule.authStatus"
+        }
+
+    ],
+	 "rakServiceReq.RakKYCRenModel.txnPwd": [
+        {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.RakKYCRenModel.authStatus"
+        }
+    ],
+	 "rakServiceReq.RakKYCRenModel.totMonthlyCrCash": [
+        {
+            "validationType": "required"
+        }
+    ],
+	 "rakServiceReq.RakKYCRenModel.totMonthlyCrNonCash": [
+        {
+            "validationType": "required"
+        }
+    ],
+	 "rakServiceReq.RakKYCRenModel.totMonthlyCr": [
+        {
+            "validationType": "required"
+        }
+    ],
+	 "rakServiceReq.RakKYCRenModel.maxAmtExpctdCash": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "rakValue1LessThanValue2Validator",
+            "otherVal": "rakServiceReq.RakKYCRenModel.totMonthlyCr"
+        }
+    ],
+	 "rakServiceReq.RakKYCRenModel.maxAmtExpctdNonCash": [
+        {
+            "validationType": "required"
+        },
+        {
+            "validationType": "rakValue1LessThanValue2Validator",
+            "otherVal": "rakServiceReq.RakKYCRenModel.totMonthlyCr"
+        }
+    ],
+
+    "rakServiceReq.investmentRedemptionRq.investmentId": [
+        {
+			  "validationType": "required"
+        }      
+    ],
+    "rakServiceReq.investmentRedemptionRq.nameOfInvestment": [
+        {
+			  "validationType": "required"
+        }
+    ],
+     "rakServiceReq.investmentRedemptionRq.partNominalAmount":[    	
+    	 {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "rakServiceReq.investmentRedemptionRq.isPartNominalAmount"
+        },
+        {
+            "validationType": "numericValueLesserthan",
+            "numericValue": "rakServiceReq.investmentRedemptionRq.allNominalAmountTemp"
+        }
+    ],
+    "rakServiceReq.investmentRedemptionRq.partialUnits":[    	
+    	 {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "rakServiceReq.investmentRedemptionRq.isPartialUnits"
+        },
+        {
+            "validationType": "numericValueLesserthan",
+            "numericValue": "rakServiceReq.investmentRedemptionRq.allUnitsTemp"
+        }
+    ],
+    "rakServiceReq.investmentRedemptionRq.oprAcctId":[
+        {
+			  "validationType": "required"
+        }
+    ],
+     "rakServiceReq.investmentRedemptionRq.firstAuthModeValue": [
+        {
+			 "validationType": "conditionalRequiredValidatorForTrueCondition",
+             "conditionVar": "rakServiceReq.investmentRedemptionRq.isFirstAuthMode"
+        }
+    ],
+     "rakServiceReq.investmentRedemptionRq.secAuthModeValue": [
+        {
+			 "validationType": "conditionalRequiredValidatorForTrueCondition",
+             "conditionVar": "rakServiceReq.investmentRedemptionRq.isSecAuthMode"
+        }
+    ],
+       
+    "rakServiceReq.RakDiscApply.name":[
+    	{
+            "validationType": "required"
+        }
+    ],
+	
+	"rakServiceReq.RakDiscApply.mobileNo":[
+		{
+            "validationType": "required"
+        },
+         {
+                   "validationType": "maxLength",
+                   "maxLengthValue": 14
+         }		
+	],
+	
+	"rakServiceReq.RakDiscApply.email":[
+		 {
+             "validationType": "isEmail"
+            
+        },
+        {
+	            "validationType": "required"
+        }
+	],
+		
+	"rakServiceReq.RakDiscApply.selectedProd":[
+		{
+            "validationType": "required"
+        }
+	],
+	
+	"rakServiceReq.RakDiscApply.otp":[
+		{
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+	     	"conditionVar":"rakSendMoney.RakDiscApply.authStatus"
+        }],
+	"rakPayCards.schedule.remarks": [{
+		"validationType": "required"
+	}],
+	"rakPayCards.schedule.txnPwd": [{
+		"validationType": "required"
+	}],
+	"rakPayCards.rakInvGold.remarks": [{
+		"validationType": "required"
+	}],
+	"rakSendMoney.schedule.remarks": [{
+		"validationType": "required"
+	}],
+	
+	
+	  "rakSendMoney.mobileCashHistory.authField": [
+        {
+            "validationType": "conditionalRequiredNull",
+			"conditionVar": "rakSendMoney.mobileCashHistory.authFlag"
+        }
+    ],
+     "rakSendMoney.mobileCashHistory.reason": [
+        {
+            "validationType": "required"
+        }
+    ],
+ "rakServiceReq.ccSmartCashRq.firstAuthModeValue": [
+        {
+			 "validationType": "conditionalRequiredValidatorForTrueCondition",
+              "conditionVar": "rakServiceReq.ccSmartCashRq.isFirstAuthMode"
+        }
+    ],
+    "rakServiceReq.ccSmartCashRq.secAuthModeValue": [
+        {
+			 "validationType": "conditionalRequiredValidatorForTrueCondition",
+             "conditionVar": "rakServiceReq.ccSmartCashRq.isSecAuthMode"
+        }
+    ],
+    "rakServiceReq.ccSmartCashRq.ccAccountId": [
+        {
+			  "validationType": "required"
+        }
+    ],
+    "rakServiceReq.ccSmartCashRq.transferCashTo": [
+        {
+			  "validationType": "required"
+        }
+    ],
+    "rakServiceReq.ccSmartCashRq.iban":[    	
+    	 {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "rakServiceReq.ccSmartCashRq.isIban"
+        }
+    ],
+    "rakServiceReq.ccSmartCashRq.oprAcctId":[    	
+    	 {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "rakServiceReq.ccSmartCashRq.isRakAccount"
+        }        
+    ],
+    "rakServiceReq.ccSmartCashRq.smartCashAmount": [
+        {
+			  "validationType": "required"
+        }
+    ],
+    "rakPayCards.txnHistory.searchFromDate": [
+        {
+			  "validationType": "required"
+        }
+    ],
+    "rakPayCards.txnHistory.searchToDate": [
+        {
+			  "validationType": "required"
+        }
+    ],
+     "rakPayCards.txnHistory.selectedTransactionType": [
+        {
+			  "validationType": "required"
+        }
+    ],
+       
+     "rakServiceReq.checkBookRequest.emirateSeletected": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.checkBookRequest.model.boolDispatch"
+           
+        }
+       ],
+       "rakServiceReq.RAKChangeReportCapture.emirateSeletected": [
+        {
+             "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKChangeReportCaptureModel.boolBranch"
+           
+        }
+       ],
+       
+       "rakServiceReq.RakOprAccDupStmtModel.emirateSeletected": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakOprAccDupStmtModel.isBranchIdValidationRqd"
+           
+        }
+       ],
+        "rakServiceReq.RAKOprAcctBalConfReq.emirateSeletected": [
+        {
+             "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKOprAcctBalConfReq.isSelectedDelModeBranch"
+           
+        }
+       ],
+      
+        "rakServiceReq.RakDCApplyModel.emirateSeletected": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakDCApplyModel.isBranchIdValidationRqd"
+           
+        }
+       ],
+       
+        "rakServiceReq.temporaryReleaseLetter.emirateSeletected": [
+        {
+            "validationType": "required"
+           
+        }
+       ],
+       "rakServiceReq.RakOperativeDDCheque.emirateSeletected": [
+        {
+            "validationType": "conditionalRequiredValidatorForTrueCondition",
+            "conditionVar": "rakServiceReq.RakOperativeDDCheque.isDelModeBranchVisible"
+           
+        }
+       ],
+        "rakServiceReq.RakCCChequeRequestSR.emirateSeletected": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakCCChequeRequestSR.isBranchMandatory"
+           
+        }
+       ],
+       "rakServiceReq.ReplacementDCData.emirateSeletected": [
+        {
+            "validationType": "required"
+           
+        }
+       ],
+       
+       "rakServiceReq.RAKEarlyCardRenewalModel.emirateSeletected": [
+        {
+    		"validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKEarlyCardRenewalModel.isBranchOptionSelected"
+        }
+    ],
+    "rakServiceReq.RAKConnectModel.selectedAlertType": [
+        {
+			  "validationType": "required"
+        }
+    ],
+    "rakServiceReq.RAKConnectModel.selectedAccNum": [
+        {
+			  "validationType": "conditionalRequiredValidatorForTrueCondition",
+              "conditionVar": "rakServiceReq.RAKConnectModel.isAccValidatnRqd"
+        }
+    ],
+    "rakServiceReq.RAKConnectModel.selectedCCNum": [
+        {
+			  "validationType": "conditionalRequiredValidatorForTrueCondition",
+              "conditionVar": "rakServiceReq.RAKConnectModel.isCcValidatnRqd"
+        }
+    ],
+    "rakServiceReq.RAKConnectModel.selectedFreq": [
+        {
+			  "validationType": "conditionalRequiredValidatorForTrueCondition",
+              "conditionVar": "rakServiceReq.RAKConnectModel.isFreqValidatnRqd"
+        }
+    ],
+    "rakServiceReq.RAKConnectModel.selectedDom": [
+        {
+			  "validationType": "conditionalRequiredValidatorForTrueCondition",
+              "conditionVar": "rakServiceReq.RAKConnectModel.isDomValidatnRqd"
+        }
+    ],
+    "rakServiceReq.RAKConnectModel.dowArray": [
+        {
+			  "validationType": "rakValidateCheckBoxFlagValue",
+              "conditionVar": "rakServiceReq.RAKConnectModel.isDowValidatnRqd"
+        }
+    ],
+    "rakServiceReq.RAKConnectModel.selectedSubAlertFreqDesc": [
+        {
+			  "validationType": "conditionalRequiredValidatorForTrueCondition",
+              "conditionVar": "rakServiceReq.RAKConnectModel.isCustomFreqValidatnRqd"
+        }
+    ],
+    "rakServiceReq.RAKConnectModel.selectedSubDay": [
+        {
+			  "validationType": "conditionalRequiredValidatorForTrueCondition",
+              "conditionVar": "rakServiceReq.RAKConnectModel.isCustomDomValidatnRqd"
+        }
+    ],
+    "rakServiceReq.RAKConnectModel.dowArrayCustom": [
+        {
+			  "validationType": "rakValidateCheckBoxFlagValue",
+              "conditionVar": "rakServiceReq.RAKConnectModel.isCustomDowValidatnRqd"
+        }
+    ],
+    
+  
+    "rakMails.RakSearchMails.fromDate":[
+      {
+			  "validationType": "required"
+       }
+        ],
+     "rakMails.RakSearchMails.toDate":[
+      {
+			  "validationType": "required"
+       }
+        ],
+      "rakMails.RakSearchMails.selectedSubject":[
+      {
+			  "validationType": "required"
+       }
+        ],
+        
+        "rakServiceReq.amendStandingInst.perentageCurrBal":[
+         {
+			  "validationType": "conditionalRequired",
+              "conditionVar": "rakServiceReq.amendStandingInst.paymentPercentage =='P'"
+        },
+         {
+            "validationType": "conditionalIsNumericPassword",
+            "conditionVar": "rakServiceReq.amendStandingInst.paymentPercentage =='P'"
+        },
+         {
+        	  "validationType": "moreThanPercent" ,
+        	  "conditionVar": "rakServiceReq.amendStandingInst.paymentPercentage =='P'"            
+        	}
+       
+        
+        
+        ],
+        "rakServiceReq.amendStandingInst.paymentPercentage":[
+     	 {
+			  "validationType": "required"
+       	}
+        
+        ],
+          "rakServiceReq.amendStandingInst.changeSIDate":[
+      	{
+			  "validationType": "required"
+      	 }
+        
+        ],
+        
+         "rakServiceReq.amendStandingInst.tempHold":[
+      		{
+			  "validationType": "required"
+      	 	}
+        
+        ],
+        
+        
+         "rakServiceReq.amendStandingInst.ccSelected":[
+      		{
+			  "validationType": "required"
+      	 	}
+        
+        ],
+          "rakServiceReq.amendStandingInst.debitAccSelected":[
+      		{
+			  "validationType": "required"
+      	 	}
+        
+        ],
+        
+        
+         "rakServiceReq.amendStandingInst.flatAmount":[
+      		{
+			  "validationType": "conditionalRequired",
+              "conditionVar": "rakServiceReq.amendStandingInst.paymentPercentage =='F'"
+        }
+        
+        ],
+        
+         "rakServiceReq.amendStandingInst.selectedDate":[
+      		{
+			  "validationType": "conditionalRequired",
+              "conditionVar": "rakServiceReq.amendStandingInst.changeSIDate =='N'"
+        }
+        
+        ],
+          
+          "rakServiceReq.amendStandingInst.noOfMonths":[
+      		{
+			  "validationType": "conditionalRequired",
+              "conditionVar": "rakServiceReq.amendStandingInst.tempHold == 'Y'"
+        }
+        
+        ],
+       "rakServiceReq.RAKEarlyCardRenewalModel.others": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RAKEarlyCardRenewalModel.otherFlag"
+        }
+        ],
+         "rakServiceReq.RakCCChequeRequestSR.iban": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakCCChequeRequestSR.delivChannel == 'T'"
+        }
+        ],     
+	 "rakServiceReq.amendStandingInst.perentageCurrBal" : [
+        {
+			  "validationType": "rakNumericValueValidator",
+			  "numericValue": "rakServiceReq.amendStandingInst.checkPercVal"
+        }
+    ],
+    
+    "rakServiceReq.RakDebitReportCaptureModel.emirateSeletected": [
+        {
+             "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakDebitReportCaptureModel.boolBranch"
+           
+        }
+       ],
+       
+           
+       
+        "rakServiceReq.lcOrNlc.selectedBranchId": [
+        {
+           "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.lcOrNlc.isCollectFromBranch"
+        }
+       ],
+       
+        "stepupAuthentication.PASSWORD_CHALLENGE.strPasswordChallenge": [{
+               "validationType": "required"
+            }],
+            
+           
+       "rakServiceReq.applyForPrepaidCard.selectedBranchId": [
+        {
+           "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.applyForPrepaidCard.isEmiSelected"
+        }
+       ],
+       
+       "rakServiceReq.applyForPrepaidCard.emirateSeletected": [
+        {
+    		"validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.applyForPrepaidCard.isDispatchModeSet=='BR'"
+        }
+    	],
+     "rakServiceReq.TLUpload.transactionPassword": [
+        {
+            "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakServiceReq.TLUpload.auth"
+        }
+   	 ],
+   	 "rakMyProfile.userProfilePicTemp": [
+        {
+              "validationType": "required"
+        }
+   	 ],
+   	 
+   	 
+   	 "rak2FARegister.RegistrationModel.ezComAccountPin": [
+                                                        {
+                                                        "validationType": "required"
+                                                        }
+                                                        ],
+   	 
+    "rak2FARegister.RegistrationModel.pwdTypeFlag":[
+                                                    {
+                                                    "validationType": "conditionalRequired",
+                                                    "conditionVar": "rak2FARegister.RegistrationModel.requestType=='FPON'"
+                                                    }
+                                                    ],
+    "rak2FARegister.RegistrationModel.selectedNoType": [
+                                                        {
+                                                        "validationType": "required"
+                                                        }
+                                                        ],
+    "rak2FARegister.RegistrationModel.enteredAcctNo":[
+                                                      {
+                                                      "validationType": "required"
+                                                      },
+                                                      {
+                                                      "validationType": "acctNumberLength",
+                                                      "conditionVar": "rak2FARegister.RegistrationModel.selectedNoType"
+                                                      }
+                                                      ],
+    "rak2FARegister.RegistrationModel.mobileNo":[
+                                                 {
+                                                 "validationType": "conditionalRequired",
+                                                 "conditionVar": "rak2FARegister.RegistrationModel.isShowMobileNo=='true'"
+                                                 },
+                                                 {
+                                                 "validationType": "acctNumberLength",
+                                                 "conditionVar": "rak2FARegister.RegistrationModel.isShowMobileNo"
+                                                 }
+                                                 ],
+    "rak2FARegister.RegistrationModel.otp": [
+                                             {
+                                             "validationType": "required"
+                                             }
+                                             ],
+    "rak2FARegister.RegistrationModel.passportNo":[
+                                                   {
+                                                   "validationType": "conditionalRequired",
+                                                   "conditionVar": "rak2FARegister.RegistrationModel.isSme=='true'"            
+                                                   }
+                                                   ],
+    "rak2FARegister.RegistrationModel.dob":[
+                                            {
+                                            "validationType": "requiredNonZero"
+                                            },
+                                            {
+                                            "validationType": "dateGreaterThanNow"
+                                            }
+                                            ],
+    
+    "rak2FARegister.RegistrationModel.pin":[
+                                            {
+                                            "validationType": "required"
+                                            },
+                                            {
+									            "validationType": "maxLength",
+									            "maxLengthValue": 4
+									        },
+											 {
+												"validationType": "minLength",
+												"minLengthValue": 4
+											}
+                                            ],
+    
+    "rak2FARegister.RegistrationModel.setEzComAccountPin":[
+                                                {
+                                                "validationType": "maxLength",
+                                                "maxLengthValue": 6
+                                                },
+                                                {
+                                                "validationType": "minLength",
+                                                "minLengthValue": 6
+                                                },
+                                                 {
+		                                            "validationType": "required"
+		                                            }
+                                              
+                                                ],
+    
+    
+    
+ 
+    "rak2FARegister.RegistrationModel.setEzComAccountPinConfirm":[
+                                                         {
+			                                                "validationType": "maxLength",
+			                                                "maxLengthValue": 6
+			                                                },
+			                                                {
+			                                                "validationType": "minLength",
+			                                                "minLengthValue": 6
+			                                                },
+			                                                 {
+													              "validationType": "required"
+													        },
+                                                     
+                                                       {
+                                                       "validationType": "tokenPinEquals",
+                                                       "newPassword": "rak2FARegister.RegistrationModel.setEzComAccountPin"
+                                                       }
+                                                       ],
+						        "rakServiceReq.Rak2FADeRegModel.selectedReason": [
+        {
+              "validationType": "required"
+        }
+   	 ],
+	 "rakServiceReq.Rak2FADeRegModel.txnPwd": [
+        {
+            "validationType": "conditionalRequired",
+	     	"conditionVar":"rakServiceReq.Rak2FADeRegModel.authStatus"
+        }
+   	 ],   	 
+   	 "rakHome.AuthPageData.txnPwd":[
+     	{
+     		 "validationType": "conditionalRequired",
+     		 "conditionVar":"rakHome.AuthPageData.authStatus"
+     	}
+     ],
+     "rakHome.AuthPageData.firstAuthModeValue": [
+        {
+			 "validationType": "conditionalRequiredValidatorForTrueCondition",
+             "conditionVar": "rakHome.AuthPageData.isFirstAuthMode && rakPayee.payeeModel.confirmEvent!='CL'"
+        },
+                                                 {
+                                                 "validationType": "conditionalMaxLength",
+                                                 "maxLengthValue": "rak2FARegister.constants.PINLENGTH",
+                                                 "conditionVar": "rakHome.AuthPageData.authType==rakHome.AuthPageData.SoftToken"
+                                                 },
+                                                 
+         {
+            "validationType": "maxLength",
+            "maxLengthValue": 16
+        }
+     ],
+     
+      "rak2FARegister.transactionApproval.pin": [
+       	{
+              "validationType": "required"
+        },
+         {
+            "validationType": "maxLength",
+            "maxLengthValue": "rak2FARegister.constants.PINLENGTH"
+        }
+     ],
+     
+     "rakHome.AuthPageData.secAuthModeValue": [
+        {
+			 "validationType": "conditionalRequiredValidatorForTrueCondition",
+             "conditionVar": "rakHome.AuthPageData.isSecAuthMode"
+        }
+     ],
+     "rakHome.AuthPageData.secAuthModeValue": [
+        {
+			 "validationType": "conditionalRequiredValidatorForTrueCondition",
+             "conditionVar": "rakHome.AuthPageData.isSecAuthMode"
+        }
+   	 ],
+   	 "rakMyProfile.hardToken": [
+	        {
+	            "validationType": "required"
+	        }
+   		],
+   		"rakPendingApproval.approveAuthModel.userName":[
+   		{
+   		 "validationType": "conditionalRequiredValidatorForTrueCondition",
+             "conditionVar": "rakCorpInit.corpModel.validationReqd"
+   		}],
+			 "rakPendingApproval.apprRoleId": [
+        {
+              "validationType": "required"
+        }
+   	 ],
+   	 
+   	 
+   	 "rakCorpInit.corpModel.selectedRuleDescription":[
+   		{
+   		 "validationType": "conditionalRequiredValidatorForTrueCondition",
+             "conditionVar": "rakCorpInit.corpModel.lookUpvalidationReqd"
+   		}],
+   	 
+	 "rakTradeFinance.reason": [
+	    {
+			"validationType": "conditionalRequired",
+	        "conditionVar": "rakTradeFinance.tfsrApprRejClicked=='R'"
+	    }
+	],
+	 "rakPendingApproval.approveAuthModel.remarksTextRemit": [
+	    {
+			"validationType": "conditionalRequired",
+	        "conditionVar": "rakPendingApproval.clickedEvent=='REJRCM'"
+	    }
+	],
+	
+	
+	 "rakCorpInit.corpModel.selectedRuleId": [
+        {
+			 "validationType": "conditionalRequiredValidatorForTrueCondition",
+             "conditionVar": "rakCorpInit.corpModel.validationReqd"
+        }
+     ],
+        
+     	"rakServiceReq.rakBankRefLetter.addressdTo":[
+       {
+            "validationType": "required"
+       },
+       {
+	    	"validationType": "containsSpecialChar"
+	   } 
+    ],
+    
+    "rakServiceReq.rakBankRefLetter.address":[
+       {
+            "validationType": "required"
+        },
+    	
+	    {
+	    	"validationType": "rakRestrictedSpecialCharValidator"
+	   }
+    ],
+
+	"rakServiceReq.rakBankRefLetter.notes":[
+		{
+	    	"validationType": "containsSpecialChar"
+	        
+	    }
+    ],
+    
+    "rakServiceReq.rakBankRefLetter.mobile":[
+    	{
+            "validationType": "required"
+        }
+     ], 
+	"rakServiceReq.rakBankRefLetter.mobileNoString":[    	
+        {
+            "validationType": "maxLength",
+            "maxLengthValue": 10
+        }
+     ],	 
+    
+     
+     "rakServiceReq.rakBankRefLetter.selectedAcctNo":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     "rakServiceReq.rakBankRefLetter.selectedForAcc":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     
+     "rakServiceReq.rakBankRefLetter.selectedbranch":[
+     	{
+     		 "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.rakBankRefLetter.isSelectedDelModeBranch"
+     	}
+     ],
+      "rakServiceReq.rakBankRefLetter.txnPwd":[
+     	{
+     		 "validationType": "conditionalRequired",
+     		 "conditionVar":"rakServiceReq.rakBankRefLetter.authStatus"
+     	}
+     ],
+      "rakServiceReq.rakBankRefLetter.emirateSeletected": [
+        {
+             "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.rakBankRefLetter.isSelectedDelModeBranch"
+           
+        }
+        ],
+	"rakServiceReq.RakInvOpenGoldAccModel.quantity": [
+        {
+              "validationType": "required"
+        }
+   	 ],
+	"rakServiceReq.ReplacementCCData.other": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.ReplacementCCData.otherFlag"
+        }
+    ],
+    "rakServiceReq.ReplacementCCData.reasonName": [
+        {
+            "validationType": "required"
+        }
+    ],
+       "rakCorpInit.corpModel.index":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     
+     
+       "rakCorpInit.corpModel.loopCount":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+    
+      "rakServiceReq.rakBankRefLetter.emirateSeletected": [
+        {
+             "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.rakBankRefLetter.isSelectedDelModeBranch"
+           
+        }
+        ],
+        "rakServiceReq.acceptTermscondition":[
+		    {
+		    "validationType": "checkForFlagValue",
+		  	"conditionVar": "rakServiceReq.RakBusinessEliteSubscribe.acceptTermscondition"
+		    }
+		    ],
+   "rakServiceReq.RakBusinessEliteSubscribe.transactionPassword": [
+        {
+            "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakServiceReq.RakBusinessEliteSubscribe.auth"
+        }
+    ],
+      "rakServiceReq.RakBusinessEliteSubscribe.transactionPassword": [
+        {
+            "validationType": "conditionalRequiredNull",
+            "conditionVar": "rakServiceReq.RakBusinessEliteSubscribe.auth"
+        }
+    ],
+    "rakServiceReq.lcOrNlc.isDispatchMode": [
+        {
+            "validationType": "required"
+        }
+    ],
+     "rakServiceReq.lcOrNlc.selectedForAcc":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+      "rakServiceReq.lcOrNlc.emirateSeletected": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.lcOrNlc.isDispatchMode=='Collect from Branch'"
+        }
+    ],
+	"rakServiceReq.ATMCashDepositeLimitChangeReq.selectedfromAccountNumber":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     "rakServiceReq.ATMCashDepositeLimitChangeReq.sameCurrencyTransferLimit":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     "rakServiceReq.rakDigitalAccessCardBlock.selectedDACRequest":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     "rakServiceReq.rakDigitalAccessCardBlock.selectedBlockCard":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     "rakServiceReq.rakDigitalAccessCardBlock.reason":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     "rakServiceReq.rakDigitalAccessCardBlock.other":[
+	    {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.rakDigitalAccessCardBlock.otherMandatory"
+	    }
+    ],
+    "rakServiceReq.rakDigitalAccessCardBlock.enteredOTP":[
+	    {
+            "validationType": "required"
+	    }
+    ],
+    "rakServiceReq.rakDigitalAccessCardBlock.enteredCVV":[
+	    {
+            "validationType": "required"
+	    }
+    ],
+    "rakServiceReq.rakDigitalAccessCardBlock.dateOfBirth":[
+	    {
+            "validationType": "required"
+	    }
+    ],
+    "rakServiceReq.rakDigitalAccessCardBlock.emirateSeletected": [
+        {
+            "validationType": "conditionalRequired",
+            "conditionVar": "rakServiceReq.RakDCApplyModel.isBranchIdValidationRqd"
+           
+        }
+    ],
+    "rakServiceReq.rakDigitalAccessCardBlock.selectedUser":[
+	    {
+            "validationType": "required"
+	    }
+    ],
+    "rakServiceReq.rakDigitalAccessCardBlock.embossingName":[
+	    {
+            "validationType": "required"
+	    }
+    ],
+    "rakServiceReq.rakDigitalAccessCardBlock.selectedPinIssuanceCard":[
+	    {
+            "validationType": "required"
+	    }
+    ],
+     "rakEDirham.eDirhamDetails.rakTokenFlag":[
+     	{
+     		 "validationType": "required"
+     	}
+       ],
+            "rakEDirham.eDirhamDetails.pin":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+      "rakEDirham.eDirhamDetails.confirmPin":[
+      	{
+     		 "validationType": "required"
+     	}
+     ],
+     "rakEDirham.eDirhamDetails.accountModel":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     "rakEDirham.eDirhamTokenGeneration.pin":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     "rakEDirham.eDirhamDetails.rakTokenFlag":[
+     	{
+     		 "validationType": "required"
+     	}
+     ],
+     "rakEDirham.tokenRequest.acctModel":[
+     	{
+     		 "validationType": "required"
+     	}
+     ]
+}

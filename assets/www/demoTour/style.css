@@ -1,0 +1,103 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{ font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:0px; margin:0px;}
+body img{ border:none;}
+.BackgroundImg{ 
+	 background: url(../images/mainappbg.jpg) no-repeat top center;
+    background-size: contain;
+    opacity: 1 !important;
+    height: 100vh !important;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.container{ width:100%; margin:0px auto; padding:0;}
+.container1 {
+        width: 100% !important;
+        margin: 0px auto;
+        padding: 0;
+        background: url(../images/2bg.jpg) no-repeat top center;
+        height: 100vh !important;
+        background-size: contain !important;
+        vertical-align: top;
+        display: table;
+        position: fixed;
+        top: 0;
+        z-index: 99999;
+}
+.container2{ width:100%; margin:0px auto; padding:0; background:url(../images/3bg.jpg) no-repeat top center; height:100vh !important; background-size:contain !important; vertical-align:top; display:table;}
+.container3 {
+    width: 100% !important;
+    margin: 0px auto;
+    padding: 0;
+    background: url(../images/4bg.jpg) no-repeat top center;
+    height: 100vh !important;
+    background-size: contain !important;
+    vertical-align: top;
+    display: table;
+    position: fixed;
+    top: 0;
+    z-index: 99999;
+}
+.container4 {
+    width: 100% !important;
+    margin: 0px auto;
+    padding: 0;
+    background: url(../images/5bg.jpg) white no-repeat  center !important;
+    height: 100vh !important;
+    background-size: initial !important;
+    vertical-align: bottom;
+    display: table;
+    position: fixed;
+    background-position: center 12px !important;
+    top: 0;
+    z-index: 99999;
+}
+
+.Welcome{ width:98%; max-width:286px; background:#ffffff; border:2px #ffffff solid; top:0px;  -webkit-box-shadow: 0px 0px 113px -7px rgba(0,0,0,1); -moz-box-shadow: 0px 0px 113px -7px rgba(0,0,0,1);
+box-shadow: 0px 0px 113px -7px rgba(0,0,0,1); margin:7% auto 0px auto; position:absolute; left:0px; right:0px; border:2px #ffffff solid;}
+.WelcomeTop{ background:#ec1b23; padding:6px; text-align:center; font-size:12px; font-family:Arial, Helvetica, sans-serif; color:#ffffff;}
+.WelcomeBottom{ font-size:11px; color:#333333; font-family:Arial, Helvetica, sans-serif; padding:4% 3%; background:url(../images/screenbg.jpg) no-repeat right top; min-height:220px;}
+.WelcomeBottom span{ font-weight:bold; display:block; padding-bottom:0px; padding-top:5px;}
+.WelcomeBottom p{ max-width:159px; width:100%; line-height:14px; padding-bottom:9px;}
+.Next{ margin-left:25px;}
+
+.Product{ width:280px !important; max-width:320px; margin:0 auto; padding:15px 2% !important; color:#5d5d5d; font-size:11px; font-family:Arial, Helvetica, sans-serif; border-top:none}
+.Product1{ width:100%; max-width:413px; margin:1% 14px 0 6%; float:right; padding:3% 2%; color:#5d5d5d; font-size:13px; font-family:Arial, Helvetica, sans-serif; text-align:justify; border-top:none;}
+.ProMid{ padding:5px 0px;}
+
+.ProLeft{ width:49%; text-align:left; font-size:16px; color:#ea2127; font-weight:bold; display:inline-block; vertical-align:top; padding-bottom:0px;}
+.ProRight{ width:49%; text-align:right;  display:inline-block;}
+.ProRight ul { width:48%; float: right; padding:0px; margin:0px;}
+.ProRight ul li { list-style-type:none; display:inline-block; padding:0px;}
+.ProBotMain{ background:#ffffff; border-right:2px #acacac solid; border-left:2px #acacac solid; border-bottom:2px #acacac solid; padding:4%;}
+
+
+.ProBotMain1{ background:#ffffff; border-right:2px #acacac solid; border-left:2px #acacac solid; border-top:2px #acacac solid; padding:4%;}
+
+.ProBOt{ width:100%; padding-top:3%;}
+.ProbotL{ width:70%; display:inline-block;}
+.ProbotR{ width:28%; display:inline-block; color:#dc1a22; font-size:12px; text-align:right; vertical-align:top; text-decoration:underline; padding-top:10px;}
+.ProbotR a{  color:#dc1a22; font-size:12px;}
+.ProTopArrow { width:100%;}
+.ProTopArrow img{ width:100%;}
+.ProTopArrow1{ background:url(../images/p3toparrow.png) no-repeat right bottom; min-height:12px;}
+.ProTopArrow1 img{ width:100%;}
+.ProbotL1{ width:80%; display:inline-block;}
+.ProbotR1{ width:18%; display:inline-block; color:#dc1a22; font-size:12px; text-align:right; vertical-align:top; text-decoration:underline; padding-top:5px;}
+.ProbotR1 a{  color:#dc1a22; font-size:12px;}
+
+.Top{ margin-top:316px; float:inherit;}
+.Top1{ margin-top:361px; float:inherit;}
+.Top2{ margin-top:119px; float:inherit;}
+.Top3{ margin-top:25px; float:inherit;}
+
+@media screen and (width: 320px) and (height: 568px){
+    .container4{
+        background-size: cover !important;
+    }
+}
+

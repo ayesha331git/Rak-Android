@@ -1,0 +1,302 @@
+{
+	"pageNavigation": [{
+		"RakTradeFinanceInquiryInitPage": [{
+				"eventName": "onSubmitOfSelectedProduct",
+				"action": "RakTradeFinanceInquirySelectedService",
+				"actionType": "service",
+				"validation": "false",
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam",
+					"ENTITY_ID_SELECTED": "rakTradeFinance.rakTradeFinanceInquiry.selectedProductCode"
+				},
+				"successPage": {
+					"subFeature": "rakTradeFinance",
+					"pageName": "RakTradeFinanceInquiryInitPage"
+				},
+				"errorPage": {
+					"subFeature": "rakTradeFinance",
+					"pageName": "RakTradeFinanceInquiryInitPage"
+				}
+			},
+			{
+				"eventName": "onSubmitOfSelectedColumn",
+				"action": "navigation",
+				"actionType": "navigation",
+				"validation": "false",
+
+				"successPage": {
+					"subFeature": "rakTradeFinance",
+					"pageName": "RakTradeFinanceInquiryDisplay"
+				},
+				"errorPage": {
+					"subFeature": "rakTradeFinance",
+					"pageName": "RakTradeFinanceInquiryInitPage"
+				}
+			}
+		],
+		"RakTradeFinanceInquiryDisplay": [
+			{
+				"eventName": "onTFDisplayBackClick",
+				"action": "navigation",
+				"actionType": "navigation",
+				"validation": "false",
+
+				"successPage": {
+					"subFeature": "rakTradeFinance",
+					"pageName": "RakTradeFinanceInquiryInitPage"
+				},
+				"errorPage": {
+					"subFeature": "rakTradeFinance",
+					"pageName": "RakTradeFinanceInquiryDisplay"
+				}
+			}
+		],
+        "RakTFApprovalsCountPage": [
+        	{
+                "eventName": "onTFPendingApprovalSubListClick",
+                "action": "RakTFPendingApprovalSubListService",
+                "actionType": "service",
+                "validation": "false",
+                "parameters": {
+	                "jsessionid": "fields.finacleUserSessionId",
+	                "mbparam": "fields.finacleMbParam",
+	                "REQUEST_ID":"rakTradeFinance.tfsrItem.tfsrReqId"
+	                },
+                "successPage": {
+                    "subFeature":"rakTradeFinance",
+                    "pageName": "RakTFApprovalsLandingPage"
+                },
+                "errorPage": {
+                    "subFeature":"rakTradeFinance",
+                    "pageName": "RakTFApprovalsCountPage"
+                }
+            }
+        ],
+        "RakTFApprovalsLandingPage": [
+        	{
+				"eventName": "onRakTFServiceRequestDetailsFetch",
+				"action": "RakTFServiceRequestDetailsService",
+				"actionType": "service",
+				"validation": "false",
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam",
+					"REQUEST_ID":"rakTradeFinance.tfsrDetItem.tfsrReqId",
+					"REF_ID":"rakTradeFinance.tfsrDetItem.tfSrReqSerialNo"
+				},
+				"successPage": {
+					"subFeature": "rakTradeFinance",
+					"pageName": "RakTFServiceReqStatusDetailsSuccess"
+				},
+				"errorPage": {
+					"subFeature": "rakTradeFinance",
+					"pageName": "RakTFApprovalsLandingPage"
+				}
+			},
+			{
+				"eventName": "onTfSrApproveClick",
+				"action": "RakTfSrApproveService",
+				"actionType": "service",
+				"validation": "false",
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam",
+					"REQUEST_ID":"rakTradeFinance.tfsrDetItem.tfsrReqId",
+					"APPR_REJ":"rakTradeFinance.tfsrApprRejClicked",
+					"REF_ID":"rakTradeFinance.tfsrDetItem.tfSrReqSerialNo",
+	                "txnIndex": "rakTradeFinance.tfsrDetItem.tfSrIndex",
+	                "TransactionType":"rakTradeFinance.tfsrDetItem.tfsrReqId",
+	                "EffTransactionType":"rakTradeFinance.tfsrDetItem.tfsrReqId",
+	                "TXN_TYPE":"rakTradeFinance.tfsrDetItem.tfsrReqId"
+				},
+				"successPage": {
+					"subFeature": "rakTradeFinance",
+					"pageName": "RakTFServiceReqStatusDetailsSuccess"
+				},
+				"errorPage": {
+					"subFeature": "rakTradeFinance",
+					"pageName": "RakTFApprovalsLandingPage"
+				}
+			},
+				{
+				"eventName": "onTfSrRejectClick",
+				"action": "RakTfSrRejectService",
+				"actionType": "service",
+				"validation": "false",
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam",
+					"APPR_REJ":"rakTradeFinance.tfsrApprRejClicked",
+					"REQUEST_ID":"rakTradeFinance.tfsrDetItem.tfsrReqId",
+					"REF_ID":"rakTradeFinance.tfsrDetItem.tfSrReqSerialNo",
+	                "txnIndex": "rakTradeFinance.tfsrDetItem.tfSrIndex",
+	                "TransactionType":"rakTradeFinance.tfsrDetItem.tfsrReqId",
+	                "EffTransactionType":"rakTradeFinance.tfsrDetItem.tfsrReqId",
+	                "TXN_TYPE":"rakTradeFinance.tfsrDetItem.tfsrReqId"
+				},
+				"successPage": {
+					"subFeature": "rakTradeFinance",
+					"pageName": "RakTFServiceReqStatusDetailsSuccess"
+				},
+				"errorPage": {
+					"subFeature": "rakTradeFinance",
+					"pageName": "RakTFApprovalsLandingPage"
+				}
+			},
+			{
+                    "eventName": "onTFApprSearchClick",
+					"action": "navigation",
+					"actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"rakTradeFinance",
+                        "pageName": "RakTFApprovalsLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakTradeFinance",
+                        "pageName": "RakTFApprovalsLandingPage"
+                    }
+              }
+        ],
+        "RakTFServiceReqStatusDetailsSuccess": [
+          {
+		                   "eventName": "onGenerateOtp",
+		                    "action": "RakResendOtpService",
+		                    "actionType": "serviceNoNavigation",
+		                    "validation": "false",
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+		                        
+		                    },
+		                    "successPage": {
+		                      "pageName": "RakTFServiceReqStatusDetailsSuccess"
+		                    },
+		                    "errorPage": {
+		                        "pageName": "RakTFServiceReqStatusDetailsSuccess"
+		                    }
+                },
+                
+                {
+                "eventName": "onServicesRequestDetailsBackClick",
+                "action": "navigation",
+                "actionType": "navigation",
+                "validation": "false",
+                "successPage": {
+                    "subFeature": "rakServiceReq",
+                    "pageName": "RakServicesRequestStatus"
+                },
+                "errorPage": {
+                    "subFeature": "rakServiceReq",
+                    "pageName": "RakServicesRequestSearch"
+                }
+            },
+                {
+                "eventName": "onServicesRequestSearchBackClick",
+                "action": "navigation",
+                "actionType": "navigation",
+                "validation": "false",
+                "successPage": {
+                    "subFeature": "rakServiceReq",
+                    "pageName": "RakServicesRequestSearchResult"
+                },
+                "errorPage": {
+                    "subFeature": "rakServiceReq",
+                    "pageName": "RakServicesRequestSearch"
+                }
+            }, 
+                
+               
+                
+                 {
+				"eventName": "onCorpGetLookUpClick",
+				"action": "navigation",
+				"actionType": "navigation",
+				"validation": "false",				
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam"
+				},
+				"successPage": {
+					"subFeature": "common",
+					"pageName": "RakCorpSearchApproverLookUpPage"
+				},
+				"errorPage": {
+					
+					"pageName": "RakTFServiceReqStatusDetailsSuccess"
+				}
+			},
+        	{
+				"eventName": "onRakTfsrDetBackClick",
+				"action": "RakTFPendingApprovalSubListService",
+                "actionType": "service",
+                "validation": "false",
+                "parameters": {
+	                "jsessionid": "fields.finacleUserSessionId",
+	                "mbparam": "fields.finacleMbParam",
+	                "REQUEST_ID":"rakTradeFinance.tfsrItem.tfsrReqId"
+	                },
+                "successPage": {
+                    "subFeature":"rakTradeFinance",
+                    "pageName": "RakTFApprovalsLandingPage"
+                },
+                "errorPage": {
+                    "subFeature":"rakTradeFinance",
+                    "pageName": "RakTFServiceReqStatusDetailsSuccess"
+                }
+			},
+			  {
+				"eventName": "onCorpGetPendingLookUpClick",
+				"action": "navigation",
+				"actionType": "navigation",
+				"validation": "false",				
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam"
+				},
+				"successPage": {
+				
+					"pageName": "RakTFServiceRqApproverLookUpPage"
+				},
+				"errorPage": {
+					
+					"pageName": "RakTFServiceReqStatusDetailsSuccess"
+				}
+			},
+			{
+				"eventName": "onTfsrApproveRejectSuccesslick",
+				"action": "RakTfsrApproveRejectSuccessService",
+				"actionType": "service",
+				"validation": "true",
+				"validationParams": [
+					"rakHome.AuthPageData.firstAuthModeValue"
+				],
+				"encryptionEnabled": true,
+				"sensitiveFields": ["rakHome.AuthPageData.firstAuthModeValue"],
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam",
+					"REQUEST_ID":"rakTradeFinance.tfsrDetItem.tfsrReqId",
+					"REF_ID":"rakTradeFinance.tfsrDetItem.tfSrReqSerialNo",
+					"APPR_REJ":"rakTradeFinance.tfsrApprRejClicked",
+					"WFRULEINDEX":"rakCorpInit.corpModel.selectedRuleId",
+					"ROLEDETAIL_ARRAY":"rakCorpInit.corpModel.apprRoleId",
+					"REMARKS_REASON":"rakTradeFinance.reason",
+					"Mode": "rakHome.AuthPageData.firstAuthModeValue"
+				},
+				"successPage": {
+					"subFeature": "rakTradeFinance",
+					"pageName": "RakTfSrApprRejSuccessPage"
+				},
+				"errorPage": {
+					"subFeature": "rakTradeFinance",
+					"pageName": "RakTFServiceReqStatusDetailsSuccess"
+				}
+			}
+        ]
+	}],
+	"subFeatureName": "rakTradeFinance",
+	"startPage": "RakTradeFinanceInquiryInitPage"
+}

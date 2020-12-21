@@ -1,0 +1,229 @@
+
+<div class="view-container loginPageWrpper"
+	ng-init="resetSessionID();reinitialiseViewModel();appActivation.clearMPINData();myProfile.rememberUserID.initLoginPage(); myProfile.getBankId();appActivation.checkTouchIDStatus();appActivation.checkResignedActivationStatus();setEvent(home.getLoginEventForAppModeOnLoginLoad(isStubbedVersion),true); fields.finacleUserCorporateId = ''; fields.finacleUserPassword =''; myProfile.errorCheck(successResponse.responsesList);resetPageError();">
+	<div class="login-page-container">
+		<!-- <div class="container-fluid padding-auto" ng-init="myProfile.rememberUserID.initLoginPage();setEvent(home.getLoginEventForAppModeOnLoginLoad(isStubbedVersion),true); fields.finacleUserCorporateId = ''; fields.finacleUserPassword =''; myProfile.errorCheck(successResponse.responsesList);resetPageError();" > -->
+		<div class="befor-login-wrpper" ng-init="menuProfile.menuItems.processInit(menuList);">
+			<div class="login-banner-image">
+				<div class="login-logo-wrapper">
+					<div class="logo-wrapper">
+						<div class="login-logo"></div>
+					</div>
+
+				</div>
+
+			</div>
+			<div class="locate-contact-wrap">
+
+				<div class="contact-us-logo special-logo">
+					<!-- <md-button id="loginContactUs" class="md-fab md-raised"
+						aria-label="Contact Us"
+						ng-click="notifications.getAllNotification(fields.finacleUserCorporateId);setGlobalEvent('onNotifClick');active = !active">
+					<md-icon class="app app-notifications_selctd"></md-icon> </md-button> -->
+					<md-button id="loginContactUs" class="md-fab md-raised"
+						aria-label="Contact Us"
+						ng-click="reinitialiseViewModel(); contactUs.defaultStateCheck = true;contactUs.searchParameter=currentCity;resetPageError();setGlobalEvent('onContactUsClick');">
+					<md-icon class="app app-phone"></md-icon> </md-button>
+
+				</div>
+			</div>
+
+		</div>
+
+
+
+		<form autocomplete="off" class="login-form-container"
+			ng-submit="menuProfile.menulistnotInitialized=true;myProfile.saveCheckBoxStatus(myProfile.rememberUserID.rememberUserIDChk);
+			(isStubbedVersion == false && appVersionDetails.appConfigParams[1].BUILDTYPE == 'PWD' && !isTouchIDLogin)? 
+				setEvent(home.getLoginEventForAppMode(isStubbedVersion)):appActivation.clearMPINData();appActivation.loginUser();">
+
+			<div class="login-background finacle-container">
+
+
+				<!--  login for username and password area srtart here -->
+				<div ng-if="!isTouchIDLogin">
+					<div class="app-login-input-wrap">
+
+
+
+
+						<button class='ng-hide' id='dummy-btn'
+							ng-click="myProfile.rememberUserID.autoCompleteChk='0'"></button>
+						<button class='ng-hide' id='dummy2-btn'
+							ng-click="fields.finacleUserCorporateId =myProfile.rememberUserID.userID"></button>
+
+						<div class="text-box-wrapper">
+							<md-input-container class="full-width"> <label
+								class="login-input-label">{{appLiterals.APP.DASHBOARD.LOGIN_PAGE.USER_NAME_TXT}}</label>
+							<input id="FinacleUserCorporateId" autocomplete="off"
+								ng-cut="$event.preventDefault()"
+								ng-copy="$event.preventDefault()"
+								ng-paste="$event.preventDefault()"
+								ng-model="fields.finacleUserCorporateId"
+								class="login-input-style" type="text" id="login-form"
+								clear-warning="fields.finacleUserCorporateId"
+								ng-blur="myProfile.rememberUserID.focusShift();"
+								autocorrect="off" autocapitalize="none"
+								ng-change="(myProfile.rememberUserID.rememberUser.length==0 || (myProfile.rememberUserID.rememberUser | filter:fields.finacleUserCorporateId).length ==0)?
+							myProfile.rememberUserID.autoCompleteChk='0':fields.finacleUserCorporateId.length==0 ?
+							 myProfile.rememberUserID.autoCompleteChk='0':myProfile.rememberUserID.autoCompleteChk='1'"
+								maxlength="32" required md-no-asterisk> </md-input-container>
+							<ul ng-hide="myProfile.rememberUserID.autoCompleteChk=='0';  "
+								class="type-user-name">
+								<li class="user-name-list"
+									ng-focus="myProfile.rememberUserID.stayFocused=true"
+									ng-repeat="value in myProfile.rememberUserID.rememberUser | filter:fields.finacleUserCorporateId"
+									ng-click="fields.finacleUserCorporateId=value.name ;myProfile.rememberUserID.autoCompleteChk='0'">
+									<a class="user-name-txt"> {{value.name}} </a>
+								</li>
+							</ul>
+						</div>
+
+
+
+					</div>
+
+					<div class="app-login-input-wrap">
+
+
+
+
+						<div class="text-box-wrapper">
+							<!-- <input ng-model="fields.finacleUserPassword" ng-if="isStubbedVersion == true" ng-focus="myProfile.rememberUserID.autoCompleteChk='0'" class="login-input-style" type="password" ng-keypress="myProfile.spaceCheckInPassword(fields.finacleUserPassword)";  id="login-form" placeholder="{{appLiterals.APP.DASHBOARD.LOGIN_PAGE.PASSWORD_TXT}}" clear-warning="fields.finacleUserPassword"/> -->
+							<md-input-container class="full-width"> <label
+								ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'PWD'"
+								class="login-input-label">{{appLiterals.APP.DASHBOARD.LOGIN_PAGE.PASSWORD_TXT}}</label>
+							<label
+								ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'MPIN'"
+								class="login-input-label">{{appLiterals.APP.DASHBOARD.RETAIL_USER_LOGIN.MPIN}}</label>
+							<input id="FinacleUserPassword" autocomplete="off"
+								ng-model="fields.finacleUserPassword" onpaste="return false;"
+								ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'PWD'"
+								ng-focus="myProfile.rememberUserID.autoCompleteChk='0'"
+								class="login-input-style" type="password"
+								ng-keypress="myProfile.spaceCheckInPassword($event)"
+								;  id="login-form" clear-warning="fields.finacleUserPassword"
+								required md-no-asterisk novalidate /> <input autocomplete="off"
+								ng-model="fields.finacleUserPassword" onpaste="return false;"
+								ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'MPIN'"
+								ng-focus="myProfile.rememberUserID.autoCompleteChk='0'"
+								class="login-input-style" type="password"
+								ng-keypress="myProfile.spaceCheckInPassword($event)"
+								;  id="login-form" clear-warning="fields.finacleUserPassword"
+								required md-no-asterisk novalidate /> </md-input-container>
+							<!-- <label class="login-input-label">{{appLiterals.APP.DASHBOARD.LOGIN_PAGE.PASSWORD_TXT}}</label> -->
+							<div class="rem-wrap"></div>
+						</div>
+
+
+					</div>
+				</div>
+				<!--  login for username and password area end here -->
+
+				<!-- Touch ID Buttons start -->
+
+				<div ng-if="isTouchIDLogin" class="margin-top-20">
+					<div
+						class="col-sm-12 margin-top-20 display-inline-block full-width">
+						<div class="trans-date center">
+							{{appLiterals.APP.DASHBOARD.RETAIL_USER_LOGIN.TOUCH_ICON_TO_LOGIN}}
+						</div>
+						<div class="touch-press">
+							<div class="col-sm-12 center" ng-click="appActivation.touchId();">
+								<div class="touch-id-wrap">
+                                    <span class="app-icon-fingerprint app"></span>
+                                </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--  Touch ID Button end here -->
+
+
+				<div class="rem-wrap" ng-if="!isTouchIDLogin">
+					<md-checkbox id="RememberMe" class="rem-txt"
+						aria-label="Remember me"
+						ng-model='myProfile.rememberUserID.rememberUserIDChk'>
+					{{appLiterals.APP.DASHBOARD.RETAIL_USER_LOGIN.REMEMBER_USER_ID}} </md-checkbox>
+				</div>
+
+				<section class="button-wrapper login-button-wrap" layout="row"
+					layout-align="center center" layout-wrap>
+					<!--Stepup Authenticate Button-->
+
+
+					<md-button ng-if="!isTouchIDLogin" type="button"
+						class="btn--secondary-btn md-raised" id="stubLogin"
+						ng-click="reinitialiseViewModel();register.loginModel.userId ='';register.loginModel.password= '';setEvent('onRegisterClick')">
+					{{appLiterals.APP.DASHBOARD.RETAIL_USER_LOGIN.REGISTER}} </md-button>
+
+					<md-button type="submit" class="btn--primary-btn md-raised"
+						id="stubLogin1" ng-hide="true" ng-if="isStubbedVersion == true"
+						ng-click="setGlobalEvent(home.getLoginEventForAppMode(isStubbedVersion))">
+					{{appLiterals.APP.DASHBOARD.LOGIN_PAGE.PROCEED_BTN}} </md-button>
+
+
+					<md-button type="submit" class="btn--primary-btn md-raised"
+						ng-if="isStubbedVersion == true && !isTouchIDLogin"
+						ng-click="setGlobalEvent(home.getLoginEventForAppMode(isStubbedVersion))">
+					{{appLiterals.APP.DASHBOARD.LOGIN_PAGE.PROCEED_BTN}} </md-button>
+
+
+					<md-button id="PwdLoginButton" type="submit"
+						class="md-raised btn--primary-btn"
+						ng-if="isStubbedVersion == false && appVersionDetails.appConfigParams[1].BUILDTYPE == 'PWD' && !isTouchIDLogin">
+					{{appLiterals.APP.DASHBOARD.LOGIN_PAGE.PROCEED_BTN}}</md-button>
+
+
+					<md-button type="submit" class="btn--primary-btn md-raised"
+						ng-hide="true" id="PWDLogin"
+						ng-click="setEvent('onPwdLoginClickforTouchID')"></md-button>
+
+
+					<!-- Added for Touch id- password flow-->
+					<md-button type="submit" class="btn--primary-btn md-raised"
+						ng-hide="true" id="MPINLogin"
+						ng-click="setEvent('onMPINLoginClick')"></md-button>
+
+
+					<md-button id="mPinLoginBut" type="submit"
+						class="btn--primary-btn md-raised"
+						ng-if="isStubbedVersion == false && appVersionDetails.appConfigParams[1].BUILDTYPE == 'MPIN' && !isTouchIDLogin">
+					{{appLiterals.APP.DASHBOARD.LOGIN_PAGE.PROCEED_BTN}}</md-button>
+
+
+
+				</section>
+			</div>
+
+
+
+			<div id="AppVersionDetails" ng-if="isTouchIDLogin" class="center">
+				<p class="text_or">
+					<span class="or_text trans-date">{{appLiterals.APP.DASHBOARD.LOGIN_PAGE.OR}}</span>
+				</p>
+			</div>
+			<div class="subscript-text trans-date center" ng-if="isTouchIDLogin"
+				ng-click="resetTouchIDUser();isTouchIDLogin=false">{{appVersionDetails.appConfigParams[1].BUILDTYPE
+				== 'MPIN'? appLiterals.APP.DASHBOARD.RETAIL_USER_LOGIN.LOGIN_USING_MPIN : appLiterals.APP.DASHBOARD.RETAIL_USER_LOGIN.LOGIN_USING_PASSWORD}}</div>
+
+
+
+
+			<div class="forgot-user-pwd-wrap" ng-if="!isTouchIDLogin">
+
+				<div id="TroubleLoggingIn" class="forget_pwd"
+					ng-if="!isTouchIDLogin"
+					ng-click="fields.finacleUserCorporateId = '';fields.finacleUserPassword ='';myProfile.resetPwdFields();resetPageError();appActivation.clearMPINData();setEvent('onForgotMPINClick')">{{appLiterals.APP.DASHBOARD.RETAIL_USER_LOGIN.TROUBLE_LOGGING_IN}}</div>
+
+			</div>
+			<div
+					ng-init="setEvent('registerWithCampaignServer', noValue,false);"
+					ng-show='showCampaignFlag'>
+					<fin-Campaign></fin-Campaign>
+				</div>
+		</form>
+	</div>
+
+</div>
+

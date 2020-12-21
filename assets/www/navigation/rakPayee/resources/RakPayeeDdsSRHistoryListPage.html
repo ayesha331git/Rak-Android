@@ -1,0 +1,94 @@
+<div class="rak-back-header">
+    <i class="rak-back-img" ng-click="setEvent('onSRHistoryDDSBackClick');"></i>
+  </div>
+    	<div class="finacle-container" ng-init="resetPageError();rakPayee.payeeModel.processDdsServiceHistoryResponse(successResponse.responsesList);rakPayee.clearDDSTab();rakPayee.ddsPayeeTab=true;">
+	<div class="account-page">
+		<div class="col-sm-11">
+			<div class="app-title-wrapper">	
+				
+			   <div class="form-block">
+                        <ng-include  src="'./navigation/rakPayee/resources/RakDDSPayeeTabPage.html'"> </ng-include>	 
+			     <div class="main-form-heading-payee"> 
+		      <h2 >{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.HISTRQST}}		     	   
+		      </h2>		       
+		  </div>		 
+			</div>		
+
+         <div class="bg-color rak-cont-padding">   
+         
+         <div ng-show="rakPayee.payeeModel.serviceHistoryList.length== 0 ">
+										 <div class="error-details">
+											  <div>
+												 <span class="error-details-txt">
+													{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.NO_TXNS}}
+												 </span>
+												</div>
+										 </div>
+									</div>  
+		<!-- CHANGES FOR UI START  -->    
+          <div class="money-block rakBottomZero" ng-show="rakPayee.payeeModel.serviceHistoryList.length> 0">              
+						         <ul>
+						            <li  class="active rak15 ng-binding" >
+						            {{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.SLNO}}</li>						        
+						           <li class="active rak25 ng-binding">
+						            {{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.REQUESTDATE}}</li>
+						            <li class="active rak25 ng-binding">
+						           {{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.STATUS}}</li>
+						            <li class="active rak25 ng-binding">
+						           {{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.REMARKS}}</li>
+						            <li class="active rak10 ng-binding">&nbsp;</li>
+						         </ul>
+						 	</div>
+			<!-- CHANGES FOR UI END  -->			 	
+						 	
+          <div class="nano rakHalfScrollDiv rak-cont-padding" >    
+					            <div class="" >
+					       
+					               
+									<div class="trans-detail rakGreyRow" ng-repeat="serv in rakPayee.payeeModel.serviceHistoryList">
+					                  	<div class="trans-dash-right rakPeopleNameRow1 rak15  rakPaddingPoint8em pull-left">					                   		
+					                   		<div> 
+					                    <div class="trans-no rakFont1em">   
+					                   {{serv.index}}                  
+					                    </div>
+					                    </div>
+					                                  
+					                    </div>
+					                    
+					                  <div class="trans-dash-right rakPeopleNameRow1 rak25 pull-left rakPaddingPoint8em" >					                
+					                  <div> 
+					                    <div class="trans-no rakFont1em">   
+					                        {{serv.reqDate}}             
+					                    </div>
+					               </div> 
+					                  </div>
+					                    
+					                    
+					                  <div class="trans-dash-left rakPeopleNameRow1 rak25 pull-left rakPaddingPoint8em">					                  
+					                    <div> 
+					                    <div class="trans-no rakFont1em"> 
+					                         {{serv.status}}            
+					                    </div>
+					                  </div> 
+					                        
+					                  </div>
+					                  
+					                  <div class="trans-dash-left rakPeopleNameRow1 rak25 pull-left rakPaddingPoint8em">					                  
+					                    <div> 
+					                    <div class="trans-no rakFont1em"> 
+					                       {{serv.remarks}}                   
+					                    </div>
+					                  </div> 
+					                        
+					                  </div>									      
+					             </div>
+					              </div> 
+              
+						</div>
+          </div>
+         
+    
+   </div>
+</div>
+</div>
+</div>

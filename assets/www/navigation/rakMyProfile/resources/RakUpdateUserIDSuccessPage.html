@@ -1,0 +1,50 @@
+ <!-- partial code start here-->
+<div class="finacle-container" ng-init="rakMyProfile.initUpdateIdSuccesspage(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+			<!-- <div class="app-title-wrapper"> -->
+			<div class="main-form-heading">
+                    	<h2 class="success">Submit Successfully<span>{{rakMyProfile.updateIdModel.responseText}}</span></h2>
+            </div>
+
+
+			<div class="bg-color rak-cont-padding">
+
+				<div class="row">
+					<div class="">
+
+		<p class="rak-sum-txt">
+							<span class="rak-sum-label">Old User ID&nbsp;</span> <span
+								class="rak-sum-label black">{{rakMyProfile.updateIdModel.confirmResponse.masterId}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+								<span class="rak-sum-label">New User ID</span> <span
+									class="rak-sum-label black">{{rakMyProfile.updateIdModel.strUpdateIds}}</span>
+						</p>
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="setEvent('onCancelClick')">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+						</div>
+
+						<div class="disclaimer-bottom" >
+						                                                                <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+						                                                                                <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+						                                                                </div>
+
+						                                                                <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+						                                                                                <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER['CHANGEPASSWORDMESSAGE'+biometricType]"></div>
+						                                                                </div>
+                                  </div>
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+<!-- partial code end here-->

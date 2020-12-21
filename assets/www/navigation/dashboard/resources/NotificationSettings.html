@@ -1,0 +1,43 @@
+<div class="finacle-container" ng-init="resetPageError();">
+	<div class="account-page">
+		<div class="col-sm-10">
+			<div class="app-title-wrapper">
+				<div class="title-left app app-arrow"></div>
+				<div class="title-center">{{appLiterals.APP.DASHBOARD.NOTIFICATION_SETTINGS.TITLE}}</div>
+			</div>
+			<div class="highlight-color"></div>
+			<div class="bg-color">
+				<div class="row">
+					<div class="col-sm-10">
+						<div class="landingpage-list" ng-click="">
+							<div class="pull-left profile-txt">{{appLiterals.APP.DASHBOARD.NOTIFICATION_SETTINGS.MOBILE_NOTIFICATION}}</div>
+							<div class="pull-right set-arrow">
+								<div class="small-toggle">
+									<input type="checkbox" value="None" id="mobNoti" name="check"
+										checked /> <label for="mobNoti"></label>
+								</div>
+							</div>
+						</div>
+						<div class="service-hr"></div>
+						<div class="landingpage-list2" ng-click="">
+							<div class="pull-left profile-txt">{{appLiterals.APP.DASHBOARD.NOTIFICATION_SETTINGS.TABLET_NOTIFICATION}}</div>
+							<div class="pull-right set-arrow">
+								<div class="small-toggle">
+									<input type="checkbox" value="None" id="tabNoti" name="check"
+										checked /> <label for="tabNoti"></label>
+								</div>
+							</div>
+						</div>
+						<div class="service-hr"></div>
+						<div class="landingpage-list2" ng-click="">
+							<div class="pull-left profile-txt">{{appLiterals.APP.DASHBOARD.NOTIFICATION_SETTINGS.DESKTOP_NOTIFICATION}}</div>
+							<div class="pull-right set-arrow">
+								<div class="small-toggle">
+									<input type="checkbox" value="None" id="deskNoti" name="check"
+										checked /> <label for="deskNoti"></label>
+								</div>
+							</div>
+						</div>
+						<div class="service-hr"></div>
+					</div>
+				</div>

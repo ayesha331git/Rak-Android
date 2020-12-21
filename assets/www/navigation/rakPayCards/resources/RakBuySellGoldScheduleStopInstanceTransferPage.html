@@ -1,0 +1,85 @@
+
+<div class="rak-back-header" ng-show="rakPayCards.rakInvGold.freqType!='O'">
+	<i class="rak-back-img" ng-click="rakPayCards.common.fromAuthPage=true;setEvent('onBackClick');"></i>
+</div>
+	
+									<div class="rak-back-header" ng-show="rakPayCards.rakInvGold.stopBtnClicked==true">
+	<i class="rak-back-img" ng-click="setEvent('onBackToListClick');rakPayCards.common.fromAuthPage=true;"></i>
+</div>
+<div ng-init="resetPageError();rakPayCards.schedule.remarks='';rakPayCards.rakInvGold.dueDate='N';rakPayCards.schedule.remarks='';rakPayCards.rakInvGold.initImmediateStopTransfer(successResponse.responsesList);">
+	<div class="account-page">
+	
+    <div class="col-sm-11">
+	  <div class="app-title-wrapper">		
+				<ng-include
+								src="'./navigation/rakPayCards/resources/RakBuySellGoldTabPage.html'">
+							</ng-include>
+		 
+							<div class="tab-links">
+								<ul>
+									<li ng-click="rakPayCards.rakInvGold.clearTab();rakPayCards.txnHistory.setInitialDate();rakPayCards.rakInvGold.History=true;
+									rakPayCards.txnHistory.setInitialDate();setGlobalEvent('onrakBuySellGoldHistoryClick')"><span>{{appLiterals.APP.RAKPAYCARDS.RAKBUYSELLGOLD.GOLDHISTORY.HISTORY}}</span></li>
+									<li class="active"><span class="active">{{appLiterals.APP.RAKPAYCARDS.RAKBUYSELLGOLD.GOLDHISTORY.SCHTXNS}}</span></li>
+								</ul>
+							</div>  
+							
+							 <div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh">
+							 
+							  <div class="main-form-heading" ng-if="rakPayCards.rakInvGold.stopBtnClicked==true">
+                    	<h2 class="success">{{appLiterals.APP.RAK_SERVICES.RAK_GENERAL.SENT_MSG}}<span>{{rakPayCards.common.successMessage}}</span></h2>
+            </div>
+      <div class="main-form-heading">
+                    	<h2><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.STOPINSTANCEHEADING}}</span></h2>
+            </div>
+		
+        <div class="">
+
+		<div class="">      
+		 
+			<div class="row" >
+			  <div class="">
+			  
+			  
+			  
+			  	<div class="balance-columns-header-row">
+							<div class="rak-header-col rak10 rak10-row"><input type="checkbox" ng-model="rakPayCards.rakInvGold.selectAll"  ng-click="rakPayCards.rakInvGold.getCheckBoxStatus();" id="chkBox"   value="Y"></div>
+							<div class="rak-header-col rak90 rak90-row">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.PAYMENTDUE}}</div>
+						
+						</div>
+			  
+
+						
+						<div class="rakSubScrollDiv rak-cont-paddingvh">
+							<div ng-repeat="instance in rakPayCards.rakInvGold.instanceList" class="balance-columns-row" >
+								<div class="rak-header-col rak10 rak10-row">
+								
+									<input type="checkbox" ng-model='rakPayCards.rakInvGold.instanceList[$index].checkedFlag' id="chkBox" ng-click='rakPayCards.rakInvGold.selectAll=false'>
+									</div>
+									<div class="pull-left rak90 rak90-row">
+									{{instance.immediatePaymentDueOn}}
+									</div>
+								
+							
+								
+								
+							</div>
+												<div class="label-wrap">	
+				 <button type="button"  class="btn--special-btn btn-middle rak-button-small" 
+				 ng-click="rakPayCards.rakInvGold.isBackclicked=false;rakPayCards.rakInvGold.onStopSingleInstanceConfirm();">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.SUBMIT}}</button>
+			  </div>
+						
+			  </div>
+				
+				
+			
+          <div class="col-sm-1"> </div>
+      
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+

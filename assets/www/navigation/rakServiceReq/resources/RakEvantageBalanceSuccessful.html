@@ -1,0 +1,47 @@
+<div class="finacle-container">
+<div class="account-page">
+     <div class="col-sm-11">
+	 <div class="">
+
+		<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{successResponse.responsesList[0].evantageBalanceSuccessMessage}}</span>
+				</div>
+			</div>
+		<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.EVANTAGE_BALANCE}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+				      </h2>		       
+		 </div>
+		
+
+<div class="bg-color rak-cont-padding rak-scroll-success" >
+
+	    <div class="row" >
+	      <div class="">
+
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_EVANTAGE_BALANCE.EVA_ACCOUNT}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.EvantageData.EvaAccountsList[rakServiceReq.EvantageData.EvaAccountNumber].EvaAccountNumber}}</span></p>
+
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_EVANTAGE_BALANCE.ACCOUNT}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.EvantageData.accountNumberList[rakServiceReq.EvantageData.accountNumber].accountNumber}}</span>
+			</p>
+
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_EVANTAGE_BALANCE.BALANCE}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.EvantageData.balance}}</span></p>
+
+
+
+			<div class="label-wrap">
+			<!-- <button type="button" class="btn--special-btn1" ng-click="rakServiceReq.EvantageData.clearEvantageData();setEvent('EvantageBalanceDoneClick')"> {{appLiterals.APP.RAK_SERVICES.RAK_EVANTAGE_BALANCE.BTN_DNE}} </button> </div> -->
+			<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakServiceReq.EvantageData.clearEvantageData();setEvent('EvantageBalanceDoneClick')">{{appLiterals.APP.RAKCOMMONLITERALS.DONE}}</button> </div>
+</div>
+	<div class="col-sm-10"> </div>
+	</div>
+      </div>
+    </div>
+  </div>
+</div>

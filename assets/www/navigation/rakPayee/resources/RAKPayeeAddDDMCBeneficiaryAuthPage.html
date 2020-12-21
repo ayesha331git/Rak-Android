@@ -1,0 +1,96 @@
+
+  <div class="rak-back-header">
+    <i class="rak-back-img" ng-click="rakPayee.common.fromAuthPage=true;rakPayee.isUserNavigatingBack=true;setEvent(rakPayee.payeeModel.getEditBackEvent());"></i>
+  </div>
+  <div class="nano menu-scroll">
+	<div class="nano-content">
+<div class="finacle-container ng-scope" ng-init="rakPayee.ddmcBenfTab=true;rakPayee.isDeleteBeneficiaryMode?rakPayee.payeeModel.deleteDDMCBeneficiaryDetails(successResponse.responsesList):rakPayee.payeeModel.processDDBeneficiaryAuthResponse(successResponse.responsesList);rakPayee.authMode.firstAuthModeValue = '';rakPayee.authMode.secAuthModeValue = '';rakHome.AuthPageData.firstAuthModeValue='';rak2FARegister.RegistrationModel.resendAuthMode(successResponse.responsesList);">
+    <div class="account-page">
+		   <div class="col-sm-11">
+
+			<div class="app-title-wrapper">
+		
+		<div class="">
+			 <div class="main-form-heading-payee">
+	
+				<h2 ng-show="(!rakPayee.isDeleteBeneficiaryMode && !rakPayee.isEditBeneficiaryMode)&&(rakPayee.bankbnftype==rakPayee.payeeTypes.DD)">
+				{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_TXT_DDBNF}}
+				<span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2}} :{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2_TXT1}} </span>
+			</h2>
+			<h2 ng-show="(!rakPayee.isDeleteBeneficiaryMode && !rakPayee.isEditBeneficiaryMode)&&(rakPayee.bankbnftype==rakPayee.payeeTypes.MCHQ)">
+				{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_TXT_MCHQBNF}}
+				<span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2}} :{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2_TXT1}} </span>
+			</h2>
+				<h2 ng-show="rakPayee.isEditBeneficiaryMode"> {{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_EDIT_BNF}}<span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2}} :{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_EDIT_BNF}} </span> </h2>
+				<h2 ng-show="rakPayee.isDeleteBeneficiaryMode">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_DEL_BNF}}<span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2}} :{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_DEL_BNF}} </span> </h2>
+				</div>
+
+		  <div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh">
+			<div class="" >
+			  <div class="">
+
+			  <p class="rak-sum-txt">
+			    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NAME}}</span>
+				<span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.isEditBeneficiaryMode==true,'black':rakPayee.isEditBeneficiaryMode==false}">{{rakPayee.payeeModel.name}}</span>
+			  </p>
+
+			<p class="rak-sum-txt" >
+			    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NICKNAME}}</span>
+				<span  ng-show="rakPayee.isEditBeneficiaryMode" class="rak-sum-label black rakeditText">{{rakPayee.payeeModel.nickName}}</span>
+				<span  ng-hide="rakPayee.isEditBeneficiaryMode" class="rak-sum-label black">{{rakPayee.payeeModel.nickName}}</span>
+			</p>									
+				
+		     <p class="rak-sum-txt">
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_COUNTRY}}</span>
+		              <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.isEditBeneficiaryMode==true,'black':rakPayee.isEditBeneficiaryMode==false}" ng-show="rakPayee.isEditBeneficiaryMode||rakPayee.isDeleteBeneficiaryMode">{{rakPayee.payeeModel.rakBnfCountry}}</span>
+		              <span class="rak-sum-label black" ng-hide="rakPayee.isEditBeneficiaryMode||rakPayee.isDeleteBeneficiaryMode">{{rakPayee.payeeModel.rakBnfCountryDisplayName}}</span>
+		     </p>
+
+             <p class="rak-sum-txt">
+		       <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BANK_NAME}}</span>
+		       <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.isEditBeneficiaryMode==true,'black':rakPayee.isEditBeneficiaryMode==false}">{{rakPayee.payeeModel.selectedBank}}</span>
+		     </p>
+
+		     <p class="rak-sum-txt">
+			     <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_ACCNO_RADIO}}</span>
+			     <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.isEditBeneficiaryMode==true,'black':rakPayee.isEditBeneficiaryMode==false}">{{rakPayee.payeeModel.accountNumber}}</span>
+			</p>
+
+            <fin-dynamicbenfauthresend></fin-dynamicbenfauthresend>
+
+		    <div class="label-wrap">
+			    <!-- <button type="button"  class="btn--special-btn btn-middle rak-button-small btn--back " ng-click="rakPayee.common.fromAuthPage=true;rakPayee.isUserNavigatingBack=true;setEvent(rakPayee.payeeModel.getEditBackEvent());">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_BACK}}</button> -->
+			   
+			   <button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back"
+								ng-show="rakPayee.isEditBeneficiaryMode||rakPayee.isDeleteBeneficiaryMode"
+								ng-click="rakPayee.bankbnftype=rakPayee.constants.NETWORKTYPEDDMC;rakPayee.common.fromAuthPage=true;rakPayee.isUserNavigatingBack=true;setEvent(rakPayee.payeeModel.getEditBackEvent());">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+			    <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-show="rakPayee.isEditBeneficiaryMode||rakPayee.isDeleteBeneficiaryMode" ng-click="rakPayee.payeeModel.confirmEvent='CN';setEvent(rakPayee.getAddPayeeAuthConfirmEventDetails());">{{appLiterals.APP.PAYEE.ADDBENF_AUTHPAGE.BTN_CNFRM}}</button>
+			       
+			       <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-hide="rakPayee.isEditBeneficiaryMode||rakPayee.isDeleteBeneficiaryMode" ng-click="rakPayee.payeeModel.confirmEvent='CN';rakHome.AuthPageData.fetchOtp(rakPayee.getAddPayeeAuthConfirmEventDetails());">{{appLiterals.APP.PAYEE.ADDBENF_AUTHPAGE.BTN_CNFRM_NOW}}</button>
+			       <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-hide="rakPayee.isEditBeneficiaryMode||rakPayee.isDeleteBeneficiaryMode" ng-click="rakPayee.payeeModel.confirmEvent='CL';setEvent(rakPayee.getAddPayeeAuthConfirmEventDetails());">{{appLiterals.APP.PAYEE.ADDBENF_AUTHPAGE.BTN_CNFRM_LATER}}</button> 
+             </div>
+
+              <div class="col-sm-1"> </div>
+              <div class="disclaimer">
+							<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+											<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+							</div>
+
+							<div class="disclaimer3" ng-show="rakDisclaimerFlag">
+											<div  ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.OTP" class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.ADDDDMCBENF_AUTH"></div>
+                                            <div  ng-show="rakHome.AuthPageData.authType!=rakHome.AuthPageData.OTP" class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.ADDDDMCBENF_AUTH_RAKTOKEN"></div>
+							</div>
+			</div>
+              </div>
+		  </div>
+	  </div>
+	</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+

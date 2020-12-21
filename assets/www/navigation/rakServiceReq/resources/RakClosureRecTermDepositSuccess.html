@@ -1,0 +1,65 @@
+<div class="finacle-container" ng-init="rakServiceReq.initClosureTDSuccess(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+	
+            
+            <div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{successResponse.responsesList[0].successMessage}}</span>
+                        </div>
+                  </div>
+            
+            <div class="main-form-heading-ServiceReq"> 
+                      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CLOSE_FIXED_REC}}
+                      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}} </span>                
+                      </h2>              
+				</div>
+				
+				          
+		<div class="bg-color rak-cont-padding rak-scroll-success">
+
+				<div class="">
+					<div class="">
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_RD_NUM}} &nbsp;</span> <span
+								class="rak-sum-label black">{{rakServiceReq.RakClosureRecTermDepositModel.previewFDNumber}}</span>
+						</p>
+					
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_PRE_MAT_INTS_REC}}
+								&nbsp;</span> <span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_PRE_MAT_INT_RADIO}}</span>
+						</p>
+
+						<p class="rak-sum-txt" ng-show="rakServiceReq.RakClosureRecTermDepositModel.upliftmentInstructions">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_CREDIT_TO}}</span> <span
+								class="rak-sum-label black">{{rakServiceReq.RakClosureRecTermDepositModel.previewCreditAcc}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_ACTION_DATE}}</span> <span
+								class="rak-sum-label black">{{rakServiceReq.RakClosureRecTermDepositModel.previewActionDate}}</span>
+						</p>
+
+						
+
+						<p class="rak-sum-txt" ng-if="rakServiceReq.RakClosureRecTermDepositModel.remarks!=''">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.REMARKS}}</span> <span
+								class="rak-sum-label black">{{rakServiceReq.RakClosureRecTermDepositModel.remarks}}</span>
+						</p>
+
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakServiceReq.RakClosureRecTermDepositModel.resetRakClosureRecTermDepositModel();setEvent('onCancelClick')">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>

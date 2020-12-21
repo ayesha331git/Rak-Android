@@ -1,0 +1,24 @@
+// Minimum SDK Version
+if (!project.hasProperty('cdvMinSdkVersion') || cdvMinSdkVersion < '19') {
+    ext.cdvMinSdkVersion = '19';
+}
+
+// For Push SDK, SDK version must be at least 26
+if (!project.hasProperty('cdvCompileSdkVersion') || cdvCompileSdkVersion < 26) {
+    ext.cdvCompileSdkVersion = 26;
+}
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath 'com.google.gms:google-services:3.0.0'
+    }
+}
+// apply plugin: 'com.google.gms.google-services'
+// class must be used instead of id(string) to be able to apply plugin from non-root gradle file
+apply plugin: com.google.gms.googleservices.GoogleServicesPlugin

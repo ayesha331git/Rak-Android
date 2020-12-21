@@ -1,0 +1,79 @@
+   <div class="finacle-container">
+	   <div class="account-page">
+     <div class="col-sm-11">
+
+            
+            <div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{successResponse.responsesList[0].successMessage}}</span>
+                        </div>
+                  </div>
+            <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DEBITCARD_REPLACEMENT}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>                 
+                              </h2>              
+</div>
+                  
+            
+
+		<div class="bg-color rak-cont-padding rak-scroll-success" >
+	  <div class="row" >
+	      <div class="">
+
+
+
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label"> {{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.DEBITCARD}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.ReplacementDCData.debitcardNo}}</span>
+			</p>
+			
+
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">
+					{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.DISPATCH_HEADER}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.COURIER}}</span>
+			</p>
+
+
+				<div ng-if="rakServiceReq.ReplacementDCData.isDeliveryAddSet">
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.REGADD}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.ReplacementDCData.registeredAddress}}</span></p>
+			</div>
+			<div ng-if="!rakServiceReq.ReplacementDCData.isDeliveryAddSet">
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.OTHERADD}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.ReplacementDCData.otherAddress}}</span></p>
+
+			</div>
+
+		<div ng-if="rakServiceReq.ReplacementDCData.AuthrizedPerson">
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.AUTH_NAME}}</span>
+			 <span class="rak-sum-label black">{{rakServiceReq.ReplacementDCData.authorizedRecipient}}</span></p>
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.AUTH_CONTACT}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.ReplacementDCData.authContactNumber}}</span></p>
+			</div>
+			<div ng-if="!rakServiceReq.ReplacementDCData.AuthrizedPerson">
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEBIT_REPLACEMENT.CONTACTNUMBER}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.ReplacementDCData.contactNumber}}</span></p>
+			</div>
+
+
+
+
+
+
+
+			<div class="label-wrap">
+			<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakServiceReq.ReplacementDCData.clearReplacementDCData();setEvent('DCReplacementDoneClick')">{{appLiterals.APP.RAKCOMMONLITERALS.DONE}}
+			</button> </div>
+	<div class="col-sm-10"> </div>
+	</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

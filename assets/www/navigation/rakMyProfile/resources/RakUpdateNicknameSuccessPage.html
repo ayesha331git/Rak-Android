@@ -1,0 +1,91 @@
+ <!-- partial code start here-->
+<div class="finacle-container">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+			<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{successResponse.responsesList[0].successMessage}}</span>
+				</div>
+			</div>
+			<div class="main-form-heading-ServiceReq"> 
+					      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_MYPROFILE.RAK_PROFLANDPAGE.CHANGE_NICKNAME}}
+					      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+					      </h2>		       
+			 </div>
+		
+						
+
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+
+				<div class="row">
+					<div class="">
+					
+					<div
+							ng-repeat="accountDetails in rakMyProfile.updateNickname.submitNicknameDetails">
+						<p class="rak-sum-txt">
+								<span class="rak-sum-label" ng-if="accountDetails.AccountType !='CCD'">{{appLiterals.APP.RAK_MYPROFILE.RAK_UPDATENICKNAME.ACCCOUNT_NO}}&nbsp;</span>
+								<span class="rak-sum-label" ng-if="accountDetails.AccountType =='CCD'">{{appLiterals.APP.RAK_MYPROFILE.RAK_UPDATENICKNAME.CC_ACCCOUNT_NO}}&nbsp;</span> <span
+									class="rak-sum-label black">{{accountDetails.accountNumber}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_UPDATENICKNAME.ACCCOUNT_TYPE}}&nbsp;</span> 
+								<span class="rak-sum-label black">{{accountDetails.subAccountTypeDesc}}</span>
+							</p>
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label" ng-if="accountDetails.AccountType =='CCD'">{{appLiterals.APP.RAK_MYPROFILE.RAK_UPDATENICKNAME.CC_ACCOUNT_NICKNAME}}&nbsp;</span>
+								<span class="rak-sum-label" ng-if="accountDetails.AccountType !='CCD'">{{appLiterals.APP.RAK_MYPROFILE.RAK_UPDATENICKNAME.ACCOUNT_NICKNAME}}&nbsp;</span> <span
+									class="rak-sum-label black">{{accountDetails.accountNickName}}</span>
+							</p>
+							<div class="fin-txt"></div>
+						</div>
+												
+
+						<div class="label-wrap">
+						<!-- 	<div
+								ng-if="rakMyProfile.updateNickName.navigationType=='MyProfile'">
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small"
+									ng-click="rakMyProfile.updateNickname.clearNicknameDetails();setEvent('onUpdateNickNameSuccessClick')">
+									{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+							</div>
+
+							<div ng-if="rakMyProfile.updateNickName.navigationType=='RetailUserAccounts'">
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small"
+									ng-click="rakMyProfile.updateNickname.clearNicknameDetails();setEvent('onUpdateNickNameAccDetailsSuccessClick')">
+									{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+							</div>
+							
+							<div ng-if="rakMyProfile.updateNickName.navigationType=='RetailUserTransSearch'">
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small"
+									ng-click="rakMyProfile.updateNickname.clearNicknameDetails();setEvent('onUpdateNickNameAccDetailsSuccessClick')">
+									{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+							</div>
+							
+							<div ng-if="rakMyProfile.updateNickName.navigationType=='RetailUserAccDetails'">
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small"
+									ng-click="rakMyProfile.updateNickname.clearNicknameDetails();setEvent('onUpdateNickNameAccDetailsSuccessClick')">
+									{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+							</div>
+ -->
+ 
+ 							<div>
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small"
+									ng-click="rakMyProfile.updateNickname.clearNicknameDetails();setEvent('onUpdateNickNameAccDetailsSuccessClick')">
+									{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+<!-- partial code end here-->

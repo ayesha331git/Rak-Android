@@ -1,0 +1,78 @@
+<div class="finacle-container" ng-init="rakPayee.ddmcBenfTab=true;rakPayee.processPayeeSuccessResponse(successResponse.responsesList);">
+      <div class="account-page">   
+     <div class="col-sm-11">
+        <div class="app-title-wrapper" > 
+       
+                
+           <div class="rak-scroll">  
+           
+           <div class="summary-ServiceReq"> 
+        <div class="iconDiv" ng-hide="rakPayee.isEditBeneficiaryMode||rakPayee.isDeleteBeneficiaryMode">
+                    	<span  class="infoIcon"></span><span class="success">{{rakPayee.beneficiarySuccessDetails.addBeneficiaryResponse}}</span>
+        </div>
+        <div class="iconDiv" ng-show="rakPayee.isEditBeneficiaryMode">
+                    	<span  class="infoIcon"></span><span class="success">{{rakPayee.beneficiarySuccessDetails.editBeneficiaryResponse}}</span>
+        </div>
+         <div class="iconDiv" ng-show="rakPayee.isDeleteBeneficiaryMode">
+                    	<span  class="infoIcon"></span><span class="success">{{rakPayee.beneficiarySuccessDetails.deleteBeneficiaryResponse}}</span>
+        </div>
+         </div>
+          	<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.SUMMARY}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+				      </h2>		       
+		 </div>
+      <div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh" >
+      <div class="" >
+	      <div class="">    
+        
+       <p class="rak-sum-txt">
+           <span class="rak-sum-label" >{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NAME}}</span>
+          <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.isEditBeneficiaryMode==true,'black':rakPayee.isEditBeneficiaryMode==false}">{{rakPayee.payeeModel.name}}</span>
+        </p>
+       	<p class="rak-sum-txt" >
+			    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NICKNAME}}&nbsp;</span>
+				<span  ng-show="rakPayee.isEditBeneficiaryMode" class="rak-sum-label black rakeditText">{{rakPayee.payeeModel.nickName}}</span>
+				<span  ng-hide="rakPayee.isEditBeneficiaryMode" class="rak-sum-label black">{{rakPayee.payeeModel.nickName}}</span>
+			</p>                                         
+         <p class="rak-sum-txt">
+           <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BANK_NAME}}</span>
+          <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.isEditBeneficiaryMode==true,'black':rakPayee.isEditBeneficiaryMode==false}">{{rakPayee.payeeModel.selectedBank}}</span>
+        </p>             
+
+         <p class="rak-sum-txt">
+           <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_COUNTRY}}</span>
+          <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.isEditBeneficiaryMode==true,'black':rakPayee.isEditBeneficiaryMode==false}" ng-show="rakPayee.isEditBeneficiaryMode||rakPayee.isDeleteBeneficiaryMode">{{rakPayee.payeeModel.rakBnfCountry}}</span>
+          <span class="rak-sum-label black" ng-hide="rakPayee.isEditBeneficiaryMode||rakPayee.isDeleteBeneficiaryMode">{{rakPayee.payeeModel.rakBnfCountryDisplayName}}</span>
+        </p>   
+        
+          <p class="rak-sum-txt">
+           <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_ACCNO_RADIO}}</span>
+          <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.isEditBeneficiaryMode==true,'black':rakPayee.isEditBeneficiaryMode==false}">{{rakPayee.payeeModel.accountNumber}}</span>
+        </p>   
+    <!--  CHANGES REPLACED HOME BTN TO ADD MORE BENF START -->
+    
+   
+      <div class="label-wrap" ng-show=" rakPayee.isDeleteBeneficiaryMode || rakPayee.isEditBeneficiaryMode">  
+    <button type="button" class="btn--special-btn btn-middle rak-button-full rak-button-right" ng-click="rakPayee.common.fromAuthPage=false;rakPayee.isUserNavigatingBack=false;rakPayee.bankbnftype=rakPayee.constants.NETWORKTYPEDDMC;setGlobalEvent('onPayDDMCHClick')"> {{appLiterals.APP.RAK_PAYEE.SUCCESSFUL.DONE}}</button>    	  
+	  
+     </div>
+	
+    
+    <div class="label-wrap" ng-hide="rakPayee.isDeleteBeneficiaryMode || rakPayee.isEditBeneficiaryMode">  
+        	  
+	  <button type="button"  class="btn--special-btn btn-middle rak-button-full rak-button-right " ng-click="rakPayee.payeeModel.resetPayeeModel();rakPayee.payeeModel.successClickFlag=true;rakPayee.common.fromAuthPage=false;rakPayee.selectedPayeeType=rakPayee.payeeTypes.MCHQ;rakPayee.isUserNavigatingBack=false;rakPayee.bankbnftype=rakPayee.constants.NETWORKTYPEDDMC;setEvent('onDDMCHQSuccessClick')"> {{appLiterals.APP.RAK_PAYEE.SUCCESSFUL.ADD_DDMC}}</button>
+     </div>
+   <!--  CHANGES REPLACED HOME BTN TO ADD MORE BENF END --> 
+     
+<div class="col-sm-10"> </div> 
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+ </div>
+        

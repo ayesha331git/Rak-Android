@@ -1,0 +1,32 @@
+<div id="selectBuildType" class="app app-arrow2 title-right"
+	ng-click="setGlobalEvent('onSelectBankIdBackClick')"></div>
+<div class="finacle-container"
+	ng-init="myProfile.buildType='';setSingleStepRealmAuthFailure();myProfile.getBuildType();">
+	<div class="account-page">
+		<div class="col-sm-12">
+
+			<div class="dashboard-pad padding-bottom-zero full-height">
+				<div class="dashboard-item-body full-height">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div id="buildTypeTitle" class="item-title text-uppercase">Set Build Type</div>
+					</div>
+
+					<form ng-submit="myProfile.setBuildType();">
+						<div
+							ng-init='buildType = createDropDownOptionArray(mobileAppConfig.appConfigData.buildType, ["buildTypeDesc"], "buildTypeValue");'></div>
+						<fin-input type="dropdown" model="myProfile.buildType"
+							validation-flag='pageErrorArr["myProfile.buildType"]'
+							display-row="full" placeholder="BuildType"
+							option-array="buildType"></fin-input>
+
+						<section class="button-wrapper" layout="row"
+							layout-align="center center" layout-wrap>
+							<md-button id="setBuildType" type="submit"
+								class=" md-raised btn--primary-btn">SAVE</md-button>
+						</section>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

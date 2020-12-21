@@ -1,0 +1,131 @@
+		<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onBackClick');"></i>
+		</div>
+
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container" ng-init="rakServiceReq.investmentRedemptionRq.initInvestmentRedemptionRequest(successResponse.responsesList);">
+			<div class="account-page ">
+				<div class="col-sm-11">
+					<div class="">
+						<div class="">
+						
+						<div class="main-form-heading-ServiceReq"> 
+							      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.INVESTMENT_REDEMPTION}}
+							      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+							      </h2>		       
+					 		</div>
+						
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="">
+															
+										
+									 <div ng-init='invAcctArr = createDropDownOptionArray(rakServiceReq.investmentRedemptionRq.investmentAccList,["accountId"], "accountIndex");'>		
+                                        <fin-input type="dropdown" model="rakServiceReq.investmentRedemptionRq.investmentId" display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.INV_ID}}" 
+                                                   option-array="invAcctArr"  validation-flag='pageErrorArr["rakServiceReq.investmentRedemptionRq.investmentId"]' on-change="rakServiceReq.investmentRedemptionRq.nameOfInvestment='';rakServiceReq.investmentRedemptionRq.getAccountDetailsUtil();setEvent('onRakGetInvestmentDetailsClick')"></fin-input> 	
+		                            </div>
+		                            
+		                            <div ng-show="rakServiceReq.investmentRedemptionRq.investmentId!=''" ng-init='invNameArr = createDropDownOptionArray(rakServiceReq.investmentRedemptionRq.investmentNameList,["productName"], "accountIndex");'>		
+                                        <fin-input type="dropdown" model="rakServiceReq.investmentRedemptionRq.nameOfInvestment" display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.INV_NAME}}" 
+                                                   option-array="invNameArr"  validation-flag='pageErrorArr["rakServiceReq.investmentRedemptionRq.nameOfInvestment"]' on-change="rakServiceReq.investmentRedemptionRq.getInvestmentDetailsUtil();"></fin-input> 	
+		                            </div>
+		                         
+		                        <div ng-show="rakServiceReq.investmentRedemptionRq.nameOfInvestment!=''">  
+		                            <div class="rakRow"><!-- ng-show="rakServiceReq.investmentRedemptionRq.investmentProductType==rakServiceReq.investmentRedemptionRqConstants.BONDS" -->
+						                 <div class="radio-biller rak100 rakWidth100 ">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.INV_AMOUNT}}</div>
+							                 <div class="rak100">
+							
+									       <div class="rakCstmRadioDiv rak100 ">
+										       <input type="radio" id="radio1" ng-value="rakServiceReq.investmentRedemptionRqConstants.ALLNOMINALAMOUNT"  ng-click="rakServiceReq.investmentRedemptionRq.getInvestmentConfirmUtil();"
+														ng-model="rakServiceReq.investmentRedemptionRq.amount" />
+										       <label for="radio1"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.INV_ALLNOM_AMOUNT}}</label>
+									      </div>
+									      <div class="rakCstmRadioDiv rak100 marginTopTen">
+										       <input type="radio" id="radio2" ng-value="rakServiceReq.investmentRedemptionRqConstants.PARTNOMINALAMOUNT"  ng-click="rakServiceReq.investmentRedemptionRq.getInvestmentConfirmUtil();"
+														ng-model="rakServiceReq.investmentRedemptionRq.amount" />
+										      <label for="radio2"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.INV_PART_NOM_AMOUNT}}</label>
+									     </div>
+								
+							              </div>							             
+		                           </div>
+		                            <p class="rak-parent-txt" ng-if='rakServiceReq.investmentRedemptionRq.amount==rakServiceReq.investmentRedemptionRqConstants.ALLNOMINALAMOUNT'>
+										<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.INV_ALLNOM_AMOUNT}}</span> <span
+											class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.investmentRedemptionRq.allNominalAmountDisp}}</span>
+									</p>
+		                           
+		                         
+		                           
+		                           <div class="rak100" ng-show='rakServiceReq.investmentRedemptionRq.amount==rakServiceReq.investmentRedemptionRqConstants.PARTNOMINALAMOUNT'>
+		                           
+		                           <div class="">
+		                           	<span class="invRed-curr-label"> 
+										{{rakServiceReq.investmentRedemptionRq.allNominalCurrency}}</span>
+		                           </div>
+		                           
+		                           <div class="rak85" >
+		                           <fin-input  type="number" model="rakServiceReq.investmentRedemptionRq.partNominalAmount" display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.INV_PART_NOM_AMOUNT}}" validation-flag='pageErrorArr["rakServiceReq.investmentRedemptionRq.partNominalAmount"]'> </fin-input><!--  ng-show="rakServiceReq.investmentRedemptionRq.investmentProductType==rakServiceReq.investmentRedemptionRqConstants.BONDS"-->
+		                           </div>
+		                           
+		                           </div>
+		                           
+		                          									
+									
+		                           <div class="rakRow" >
+						                 <div class="radio-biller rak100 rakWidth100">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.NO_OF_UNITS}}</div>
+							                 <div class="rak100">
+							
+									       <div class="rakCstmRadioDiv rak50 rakTop2emLeft3">
+										       <input type="radio" id="radio3" ng-value="rakServiceReq.investmentRedemptionRqConstants.ALLUNITS"  ng-click="rakServiceReq.investmentRedemptionRq.getInvestmentConfirmUtil();"
+														ng-model="rakServiceReq.investmentRedemptionRq.noOfUnits" />
+										       <label for="radio3"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.ALL_UNITS}}</label>
+									      </div>
+									      <div class="rakCstmRadioDiv rak47 rakTop2emLeft3">
+										       <input type="radio" id="radio4" ng-value="rakServiceReq.investmentRedemptionRqConstants.PARTUNITS"  ng-click="rakServiceReq.investmentRedemptionRq.getInvestmentConfirmUtil();"
+														ng-model="rakServiceReq.investmentRedemptionRq.noOfUnits" />
+										      <label for="radio4"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.PARTIAL_UNITS}}</label>
+									     </div>
+								
+							              </div>
+							              
+		                           </div>
+		                         
+			                         <p class="rak-parent-txt" ng-if='rakServiceReq.investmentRedemptionRq.noOfUnits==rakServiceReq.investmentRedemptionRqConstants.ALLUNITS'>
+										<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.ALL_UNITS}}</span> <span
+											class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.investmentRedemptionRq.allUnits}}</span>
+									</p>
+		                          
+		                           <div  ng-if='rakServiceReq.investmentRedemptionRq.noOfUnits==rakServiceReq.investmentRedemptionRqConstants.PARTUNITS'>
+		                           <fin-input  type="number" model="rakServiceReq.investmentRedemptionRq.partialUnits" display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.PARTIAL_UNITS}}" validation-flag='pageErrorArr["rakServiceReq.investmentRedemptionRq.partialUnits"]'> </fin-input>
+		                           </div>
+		                          <div ng-init='oprAcctArr = createDropDownOptionArray(rakServiceReq.investmentRedemptionRq.oprAccountList,["productCatDesc","-","accountId","-","accountCurrency"], "accountIndex");'>		
+                                        <fin-input type="dropdown" model="rakServiceReq.investmentRedemptionRq.oprAcctId" display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_INV_REDEMPTION.CREDITACCT}}" 
+                                                   option-array="oprAcctArr"  validation-flag='pageErrorArr["rakServiceReq.investmentRedemptionRq.oprAcctId"]' on-change=""></fin-input> 	
+		                          </div>
+								
+										
+									
+
+									<div class="label-wrap">
+										<button type="button"
+											    class="btn--special-btn btn-middle rak-button-small btn--back"
+											    ng-click="setEvent('onBackClick');">
+											    {{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+										<button type="button"
+											    class="btn--special-btn btn-middle rak-button-right"
+											    ng-click="setEvent('onRakInvestmentRedemptionContinueClick');">
+											    {{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+									</div>
+									
+								</div>
+									
+									<div class="col-sm-1"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

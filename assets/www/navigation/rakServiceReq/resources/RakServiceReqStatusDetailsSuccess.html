@@ -1,0 +1,57 @@
+<div class="rak-back-header" ng-if="!rakServiceReq.serviceRequestStatusModel.isFromSearchPage">
+	<i class="rak-back-img" ng-click="rakServiceReq.serviceRequestStatusModel.isBackClick=true;setEvent('onServicesRequestDetailsBackClick');"></i>
+</div>
+<div class="rak-back-header" ng-if="rakServiceReq.serviceRequestStatusModel.isFromSearchPage">
+	<i class="rak-back-img" ng-click="rakServiceReq.serviceRequestStatusModel.isBackClick=true;setEvent('onServicesRequestSearchBackClick');"></i>
+</div>
+<div class="finacle-container"
+	ng-init="rakServiceReq.serviceRequestStatusModel.rakFetchSRStatusDetResponse(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+            <div class="main-form-heading-ServiceReq">
+                <h2 class="rakBenfHeader">{{rakServiceReq.serviceRequestStatusModel.detailModel.srHeader}}
+                </h2>              
+			</div>
+		<div class="bg-color rak-cont-padding rak-scroll">
+			<div class="" ng-hide="rakServiceReq.showErrorMsg" ng-repeat='item in rakServiceReq.serviceRequestStatusModel.detailModel.labelKeySetArr'>
+			<div ng-if="item.value">
+				<div class="fin-input-container rakTransfersexchangerate-block" ng-if="item.label=='SrStatusSubHeader'">
+					<p class="rakexchangevalue">{{item.value}}</p>
+				</div>
+				<p class="rak-sum-txt " ng-if="item.label!='SrStatusSubHeader'">
+					<span class="rak-sum-label">{{item.label}}</span>
+					<span class="rak-sum-label black">{{item.value}}</span>
+				</p>
+				</div>
+			
+			</div>
+			<div ng-show="rakServiceReq.showErrorMsg">
+								<div class="summary-ServiceReq">
+								<div class="iconDivErrorMsg">
+									<span class="infoIcon"></span><span class="success">{{appLiterals.APP.COMMON.MSG.MIGRATED_ERR_MSG}}</span>
+								</div>
+							</div>
+						  </div>
+			<div class="col-sm-10"></div>
+			<ng-include ng-if="rakServiceReq.serviceRequestStatusModel.selectedRequestId=='GRR'"
+								src="'./navigation/rakServiceReq/resources/RakInvRedeemGoldStatus.html'">
+							</ng-include>
+							<ng-include ng-if="rakServiceReq.serviceRequestStatusModel.selectedRequestId=='UOE'"
+								src="'./navigation/rakServiceReq/resources/RakOecdRequestStatus.html'">
+							</ng-include>
+			<div class="label-wrap" ng-if="!rakServiceReq.serviceRequestStatusModel.isFromSearchPage">
+				<button type="button"
+					class="btn--special-btn btn-middle rak-button-small btn--back"
+					ng-click="rakServiceReq.serviceRequestStatusModel.isBackClick=true;setEvent('onServicesRequestDetailsBackClick');">
+					{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+			</div>
+			<div class="label-wrap" ng-if="rakServiceReq.serviceRequestStatusModel.isFromSearchPage">
+				<button type="button"
+					class="btn--special-btn btn-middle rak-button-small btn--back"
+					ng-click="rakServiceReq.serviceRequestStatusModel.isBackClick=true;setEvent('onServicesRequestSearchBackClick');">
+					{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>

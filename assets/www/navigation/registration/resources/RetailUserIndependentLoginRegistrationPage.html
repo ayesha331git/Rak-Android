@@ -1,0 +1,33 @@
+<nav class="navbar navbar-default" role="navigation">
+	<div class="navbar-header">
+		<img class="banner" width=64px height=64px>
+		<p class="navbar-text">{{appLiterals.APP.REGISTRATION.REG_PAGE.HEADER}}</p>
+	</div>
+</nav>
+
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="centering text-center">
+			<h2>{{appLiterals.APP.REGISTRATION.REG_PAGE.TXT_REG}}</h2>
+			<br>
+			<p>{{appLiterals.APP.REGISTRATION.REG_PAGE.FEED_ID}}</p>
+			<form id="retUsrIndepLgnRegPageForm"
+				ng-submit="setEvent('onRegisterTouched')">
+				<div class="form-group">
+					<input type="text" class="form-control" id="customerID"
+						placeholder="{{appLiterals.APP.REGISTRATION.REG_PAGE.PH_CUSTID}}">
+				</div>
+				<div class="form-group">
+					<md-button id="retUsrIndepLgnRegPageBtnProceed" type="submit" class="btn md-raised btn-success">{{appLiterals.APP.REGISTRATION.REG_PAGE.BTN_PROC}}</md-button>
+				</div>
+				<md-button id="retUsrIndepLgnRegPageBtnForgotPwd" type="button" class="btn md-raised btn-link">{{appLiterals.APP.REGISTRATION.REG_PAGE.BTN_FORGPASS}}</md-button>
+			</form>
+		</div>
+	</div>
+</div>
+<footer class="navbar-default navbar-fixed-bottom">
+	<ul class="pager">
+		<li class="previous"><a href="#"><span aria-hidden="true">&larr;</span>{{appLiterals.APP.REGISTRATION.REG_PAGE.TXT_BACK}}</a></li>
+	</ul>
+</footer>

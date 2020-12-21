@@ -1,0 +1,74 @@
+<div class="finacle-container" ng-init="rakServiceReq.rakRecDepositOpenNewTermSuccess(successResponse.responsesList)">
+	<div class="account-page">   
+     	<div class="col-sm-11">
+	 		<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.RakRecDepositOpenNewTermReq.successMessage}}</span>
+				</div>
+			</div>
+		<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.OPEN_REC_FD}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+				      </h2>		       
+		 </div>
+		
+	 	
+     		<div class="bg-color rak-cont-padding rak-scroll rakHeight60" >	 
+		 		<div class="row" >		      	
+	      			
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_OPEN_NEW.FUND_ACC}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakRecDepositOpenNewTermReq.fromAccountId}}</span>
+			</p>
+       		
+       		<p class="rak-sum-txt" >
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_OPEN_NEW.TENOR}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakRecDepositOpenNewTermReq.selectedYear}} <span ng-if="rakServiceReq.RakRecDepositOpenNewTermReq.selectedMonth">and</span> {{rakServiceReq.RakRecDepositOpenNewTermReq.selectedMonth}}</span>
+			</p>
+			</div>
+					
+			<p class="rak-sum-txt" >
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_OPEN_NEW.DEP_AMT}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakRecDepositOpenNewTermReq.confirmAmt}}</span>
+			</p>
+			
+			<p class="rak-sum-txt" >
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_OPEN_NEW.TOTAL_AMT}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakRecDepositOpenNewTermReq.totalAmt}}</span>
+			</p>
+			
+		
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_OPEN_NEW.RATE}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RakRecDepositOpenNewTermReq.interestRate=='' ? "0.00" : rakServiceReq.RakRecDepositOpenNewTermReq.interestRate}}%</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_OPEN_NEW.MAT_AMT}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RakRecDepositOpenNewTermReq.matAmt}}</span>
+				</p>
+				
+			<p class="rak-sum-txt" >
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_FD_DEP_OPEN_NEW.DEB_ACC_ON}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakRecDepositOpenNewTermReq.selectedDate}}</span>
+			</p>
+			
+			<div class="label-wrap">
+	      				<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click='setEvent("onRAKOpenDepositNewTermBackClick");'> {{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}} </button>
+	      			
+ 						<!-- <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click=" setEvent('onSendAgainClick');">  {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_SUCCESSPAGE.SEND_AGAIN}}  </button>
+						<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click='rakSendMoney.sendMoney.clearSelfTransfersData(); rakSendMoney.utils.clearCommonData(); setEvent("onTransfersSuccessOkClick")'> {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_SUCCESSPAGE.HOME}} </button> -->
+					</div>
+			</div>	
+	      			
+					<div class="col-sm-10"> </div> 
+	      		
+	  
+      			
+        	
+      		</div>
+    	</div>
+    	    
+  	</div>
+	
+</div>

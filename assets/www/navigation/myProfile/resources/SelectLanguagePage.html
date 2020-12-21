@@ -1,0 +1,54 @@
+<div ng-show="!isUserLoggedIn" id="selectLanguagePage"
+	class="app app-arrow2 title-right"
+	ng-click="setGlobalEvent('onLoginClick')"></div>
+<div class="finacle-container">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper">
+			</div>
+
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div id="selectLangTitle" class="item-title text-uppercase">{{appLiterals.APP.MYPROFILE.SELECT_LANGUAGE.TITLE}}</div>
+					</div>
+
+					<div class="col-sm-12">
+						<div>&nbsp;</div>
+						<div class="channel-select"
+							ng-repeat='lang in mobileAppConfig.appConfigData.testLocale'
+							ng-init='setSingleStepRealmAuthFailure();lang.isChecked=(selectedLocale.locale==lang.locale);'>
+							<div id="lang" class="landingpage-list2"
+								ng-click='myProfile.updateLiterals(lang,$event)'>
+								<div id="language" class="pull-left profile-txt">{{lang.language}}</div>
+								<div class="pull-right set-arrow">
+									<span class="glyphicon glyphicon-ok unselect "
+										ng-class="{'select':lang.isChecked}"></span>
+								</div>
+							</div>
+							<div ng-hide='{{$last}}'>
+								<div class="service-hr"></div>
+							</div>
+						</div>
+
+
+						<section class="button-wrapper" layout="row"
+							layout-align="center center" layout-wrap>
+							<md-button ng-show='isUserLoggedIn'
+								ng-click="menuProfile.menulistnotInitialized=true;myProfile.addLocaleinLocalStorage(selectedLocale);setLocalizedLiteralsForLocale(selectedLocale);changeStyleforML();setGlobalEvent('onDashboardClick')"
+								id="selectLangProceedLoggedIn" type="button"
+								class=" md-raised btn--primary-btn">
+							{{appLiterals.APP.COMMON.BUTTON.PROCEED}}</md-button>
+
+							<md-button ng-hide='isUserLoggedIn'
+								ng-click="menuProfile.menulistnotInitialized=true;myProfile.addLocaleinLocalStorage(selectedLocale);setLocalizedLiteralsForLocale(selectedLocale);changeStyleforML();setGlobalEvent('onLoginClick')"
+								id="selectLangProceedNonLogin" type="button"
+								class=" md-raised btn--primary-btn">
+							{{appLiterals.APP.COMMON.BUTTON.PROCEED}}</md-button>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

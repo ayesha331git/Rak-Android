@@ -1,0 +1,223 @@
+
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onRAKOprEvantageMailChqConfirmBackClick');"></i>
+	</div>
+
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+
+<div class="finacle-container"
+	ng-init="rakServiceReq.RakOprEvantageMailChqReq.txnPwd='';rakServiceReq.rakOprEvantageMailChqReqConfirm(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+		 <div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.OPR_EV_MAILCHQ}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>		     
+				      </h2>		       
+		 </div>
+
+			<div class="bg-color rak-cont-padding rak-scroll rakMarginTop5">
+				<div class="row">
+					
+
+				<div class="rakDupliSRChkMsgImg" ng-show='rakServiceReq.common.message'>
+					<span class='rakAlertForDupStmt'></span> <span class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+				</div>
+				
+				
+				<!-- 	 Added as WorkAround to handle single record -->
+		  <p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_OPR_EVMAILCHQ.NAME}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.RakOprEvantageMailChqReq.nameArray[0]}}</span>
+			</p>
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_OPR_EVMAILCHQ.AMT_NUM}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.RakOprEvantageMailChqReq.amtArray[0]}}</span>
+			</p>
+			
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_OPR_EVMAILCHQ.AMT_TXT}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.RakOprEvantageMailChqReq.amtWrdsArray[0]}}</span>
+			</p>
+
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_OPR_EVMAILCHQ.QUANTITY}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.RakOprEvantageMailChqReq.quantityArray[0]}}</span>
+			</p>
+			
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_OPR_EVMAILCHQ.REASON}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.RakOprEvantageMailChqReq.reason}}</span>
+			</p>
+			
+	<!-- 		<p class="rak-sum-txt" ng-show='rakServiceReq.RakOprEvantageMailChqReq.others'>
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_OPR_EVMAILCHQ.QUANTITY}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.RakOprEvantageMailChqReq.others}}</span>
+			</p> -->
+				<!-- 	 Added as WorkAround to handle single record -->	
+			
+		
+				<!-- 	 Commented as WorkAround to handle single record -->	
+					
+					
+					
+					
+				<!-- 	<div class="balance-columns-header-row" >
+								<div class="balance-heade-col rak10 rakFloatLeft"></div>
+										<div class="balance-heade-col rak30">{{appLiterals.APP.RAK_SERVICES.RAK_OPR_EVMAILCHQ.NAME}}</div>
+										<div class="balance-heade-col rak30">{{appLiterals.APP.RAK_SERVICES.RAK_OPR_EVMAILCHQ.AMT}} {{appLiterals.APP.RAK_SERVICES.RAK_OPR_EVMAILCHQ.CURRENCY}}</div>
+										 <div class="balance-heade-col rak25">{{appLiterals.APP.RAK_SERVICES.RAK_OPR_EVMAILCHQ.QUANTITY}}</div>
+										  
+									
+						</div> -->
+					
+
+				<!-- 
+					<div class="rakColumnDiv"
+						ng-show="rakServiceReq.RakOprEvantageMailChqReq.counter>=1">
+						<div class="rak20EVantage"> 
+						<span  class="rakEvanEditDel"  ng-click="rakServiceReq.RakOprEvantageMailChqReq.EditOption='0';rakServiceReq.RakOprEvantageMailChqEditList();;">Edit</span><span> / </span>
+						<span  class="rakEvanEditDel"  ng-click="rakServiceReq.RakOprEvantageMailChqReq.removeOption='0';rakServiceReq.RakOprEvantageMailChqRemoveFromList();">Delete</span>
+						</div>
+						<span class="rakColumnLabel">{{rakServiceReq.RakOprEvantageMailChqReq.nameArray[0]}}</span>
+						<span class="rakColumnLabelwith20PercentageWidth">{{rakServiceReq.RakOprEvantageMailChqReq.amtArray[0]}}</span>
+						<span class="rakColumnLabel">{{rakServiceReq.RakOprEvantageMailChqReq.quantityArray[0]}}</span>
+
+					</div> 
+					
+					<div class="trans-detail rakGreyRowHeight rakMoreActions"
+						ng-show="rakServiceReq.RakOprEvantageMailChqReq.counter>=1">
+						<div class="rak15 rakFloatLeft"> 
+						<span  class="rakEvanEditDel"  ng-click="rakServiceReq.RakOprEvantageMailChqReq.EditOption='0';rakServiceReq.RakOprEvantageMailChqEditList();;">Edit</span><span> / </span>
+						<span  class="rakEvanEditDel"  ng-click="rakServiceReq.RakOprEvantageMailChqReq.removeOption='0';rakServiceReq.RakOprEvantageMailChqRemoveFromList();">Delete</span>
+						</div>
+						<span class="trans-date rakPaddingLeft10 rakPeopleNameRow1 rak30 rakPadding05 rakFont1em">{{rakServiceReq.RakOprEvantageMailChqReq.nameArray[0]}}</span>
+						<span class="trans-date rakPeopleNameRow1 rak30 rakPadding05 rakPaddingLeft20 rakFont1em">{{rakServiceReq.RakOprEvantageMailChqReq.amtArray[0]}}</span>
+						<span class="trans-date rakPeopleNameRow1 rak25 rakPadding05 rakPaddingLeft20 rakFont1em">{{rakServiceReq.RakOprEvantageMailChqReq.quantityArray[0]}}</span>
+
+					</div>
+
+
+					<div class="trans-detail rakGreyRowHeight rakMoreActions"
+						ng-show="rakServiceReq.RakOprEvantageMailChqReq.counter>=2">
+						<div class="rak15 rakFloatLeft"> 
+						<span  class="rakEvanEditDel" ng-click="rakServiceReq.RakOprEvantageMailChqReq.EditOption='1';rakServiceReq.RakOprEvantageMailChqEditList();">Edit</span><span> / </span>
+						<span class="rakEvanEditDel" ng-click="rakServiceReq.RakOprEvantageMailChqReq.removeOption='1';rakServiceReq.RakOprEvantageMailChqRemoveFromList();">Delete</span>
+						</div>
+						<span class="trans-date rakPaddingLeft10 rakPeopleNameRow1 rak30 rakPadding05 rakFont1em">{{rakServiceReq.RakOprEvantageMailChqReq.nameArray[1]}}</span>
+						<span class="trans-date rakPeopleNameRow1 rak30 rakPadding05 rakPaddingLeft20 rakFont1em">{{rakServiceReq.RakOprEvantageMailChqReq.amtArray[1]}}</span>
+						<span class="trans-date rakPeopleNameRow1 rak25 rakPadding05 rakPaddingLeft20 rakFont1em">{{rakServiceReq.RakOprEvantageMailChqReq.quantityArray[1]}}</span>
+
+					</div>
+
+					<div class="trans-detail rakGreyRowHeight rakMoreActions"
+						ng-show="rakServiceReq.RakOprEvantageMailChqReq.counter>=3">
+						<div class="rak15 rakFloatLeft"> 
+						<span class="rakEvanEditDel"   ng-click="rakServiceReq.RakOprEvantageMailChqReq.EditOption='2';rakServiceReq.RakOprEvantageMailChqEditList();">Edit</span><span> / </span>
+						<span  class="rakEvanEditDel"  ng-click="rakServiceReq.RakOprEvantageMailChqReq.removeOption='2';rakServiceReq.RakOprEvantageMailChqRemoveFromList();">Delete</span>
+						</div>
+						<span class="trans-date rakPaddingLeft10 rakPeopleNameRow1 rak30 rakPadding05 rakFont1em">{{rakServiceReq.RakOprEvantageMailChqReq.nameArray[2]}}</span>
+						<span class="trans-date rakPeopleNameRow1 rak30 rakPadding05 rakPaddingLeft20 rakFont1em">{{rakServiceReq.RakOprEvantageMailChqReq.amtArray[2]}}</span>
+						<span class="trans-date rakPeopleNameRow1 rak25 rakPadding05 rakPaddingLeft20 rakFont1em">{{rakServiceReq.RakOprEvantageMailChqReq.quantityArray[2]}}</span>
+
+					</div>
+
+					<div class="trans-detail rakGreyRowHeight rakMoreActions"
+						ng-show="rakServiceReq.RakOprEvantageMailChqReq.counter==4">
+						<div class="rak15 rakFloatLeft"> 
+						<span class="rakEvanEditDel"   ng-click="rakServiceReq.RakOprEvantageMailChqReq.EditOption='3';rakServiceReq.RakOprEvantageMailChqEditList();">Edit</span><span> / </span>
+						<span  class="rakEvanEditDel"  ng-click="rakServiceReq.RakOprEvantageMailChqReq.removeOption='3';rakServiceReq.RakOprEvantageMailChqRemoveFromList();">Delete</span>
+						</div>
+						<span class="trans-date rakPaddingLeft10 rakPeopleNameRow1 rak30 rakPadding05 rakFont1em">{{rakServiceReq.RakOprEvantageMailChqReq.nameArray[3]}}</span>
+						<span class="trans-date rakPeopleNameRow1 rak30 rakPadding05 rakPaddingLeft20 rakFont1em">{{rakServiceReq.RakOprEvantageMailChqReq.amtArray[3]}}</span>
+						<span class="trans-date rakPeopleNameRow1 rak25 rakPadding05 rakPaddingLeft20 rakFont1em">{{rakServiceReq.RakOprEvantageMailChqReq.quantityArray[3]}}</span>
+
+					</div>-->
+<!-- 	 Commented as WorkAround to handle single record -->
+<!-- CHANGES AS FIX OF PRCU-1448 END -->
+
+					<div class="label-wrap"
+						ng-show="rakServiceReq.RakOprEvantageMailChqReq.authStatus">
+
+						<fin-input type="password_text"
+							model="rakServiceReq.RakOprEvantageMailChqReq.txnPwd"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+							validation-flag='pageErrorArr["rakServiceReq.RakOprEvantageMailChqReq.txnPwd"]'
+							ng-show="rakServiceReq.RakOprEvantageMailChqReq.authMode==txnpwdString">
+						</fin-input>
+					
+						
+						<div
+								ng-show="rakServiceReq.RakOprEvantageMailChqReq.authMode==otpString">
+								<div
+									ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+									<fin-input type="password_num"
+										model="rakServiceReq.RakOprEvantageMailChqReq.txnPwd"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakOprEvantageMailChqReq.txnPwd"]'></fin-input>
+								</div>
+
+
+								<div class="rakwidth28 rakModeDropdown"
+									ng-show='rakHome.otpModel.otpModesList.length>0'
+									ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+
+									<fin-input type="dropdown" option-array="toModeArray"
+										model="rakHome.otpModel.otpModeSelected" display-row="full"
+										placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+									<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+
+								</div>
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+									ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');">
+									{{appLiterals.APP.RAK_COMMON.RESEND_OTP}}</button>
+
+							</div>
+
+
+					</div>
+
+
+
+					<div class="label-wrap">
+							<button type="button"
+						class="btn--special-btn btn-middle rak-button-small btn--back"
+						ng-click="setEvent('onRAKOprEvantageMailChqConfirmBackClick');">
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button> 
+
+				<!-- 		<button type="button"
+							class="btn--special-btn btn-middle rak-button-small btn--back"
+							ng-click="rakServiceReq.RakOprEvantageMailChqRemoveFromList();">
+							{{appLiterals.APP.RAK_SERVICES.RAK_OPR_EVMAILCHQ.REMOVE}}</button> -->
+
+
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small"
+							ng-click="rakServiceReq.RakOprEvantageMailChqCheckCounterValue();rakServiceReq.RakOprEvantageMailChqArrayaToString();setEvent('onRAKOprEvantageMailChqReqSubmitClick');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}</button>
+					</div>
+					<div class="col-sm-1"></div>
+					
+					<div class="disclaimer">
+                         <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                         <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                         </div>
+
+                         <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                         <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSERREQ_CONF"></div>
+                         </div>
+                 </div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+		</div>
+	</div>
+</div>

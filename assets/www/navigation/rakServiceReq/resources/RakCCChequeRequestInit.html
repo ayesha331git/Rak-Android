@@ -1,0 +1,221 @@
+		<div class="rak-back-header">
+			<i class="rak-back-img"
+				ng-click="setEvent('onRAKCCChequeReqBackClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.rakCCChequeRequestSRInit(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<!--  <div class="app-title-wrapper"> -->
+					<div class="form-block">
+						<div class="main-form-heading-ServiceReq"> 
+			                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_CC_CHEQ_REQ.CC_CHEQ}}
+			                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+			                 </h2>              
+					</div>
+						<div class="bg-color rak-cont-padding rak-scroll">
+							<div class="row">
+								
+
+								<div
+									ng-init='cardArr = createDropDownOptionArray(rakServiceReq.RakCCChequeRequestSR.cardList ,["creditCardDesc","-","creditCardNumber"], "creditIndex");'></div>
+								<fin-input type="dropdown"
+									model="rakServiceReq.RakCCChequeRequestSR.selectedCard"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_CHEQ_REQ.CC}}"
+									on-change="rakServiceReq.RakCCdefauldPOPset();rakServiceReq.RakCCHideOtherfields();setEvent('onRakCCLimitFetch');"
+									validation-flag='pageErrorArr["rakServiceReq.RakCCChequeRequestSR.selectedCard"]'
+									option-array="cardArr"> </fin-input>
+									
+							<div ng-show="rakServiceReq.RakCCChequeRequestSR.isLimitFetched =='Y'">	
+								<p class="rak-parent-txt" ng-if="rakServiceReq.RakCCChequeRequestSR.ccCombinedLimitFlag">
+									<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_COMMON.RAK_COMBINED_AVL_LIMIT}}</span> <span
+										class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RakCCChequeRequestSR.availCredLimit}}</span>
+								</p>
+								<p class="rak-parent-txt" ng-if="!rakServiceReq.RakCCChequeRequestSR.ccCombinedLimitFlag">
+									<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAK_CC_CHEQ_REQ.CRED_LIMIT}}</span> <span
+										class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RakCCChequeRequestSR.availCredLimit}}</span>
+								</p>
+								
+								<div
+									ng-init='popArr = createDropDownOptionArray(rakServiceReq.RakCCChequeRequestSR.popList, ["codeDesc"], "codeIndex");'></div>
+								<fin-input type="dropdown"
+								
+									model="rakServiceReq.RakCCChequeRequestSR.selectedPop"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_CHEQ_REQ.POP}}"
+									on-change="rakServiceReq.RakCCHideOtherfields();setEvent('onRAKCCRequestDetails');"
+									validation-flag='pageErrorArr["rakServiceReq.RakCCChequeRequestSR.selectedPop"]'
+									option-array="popArr"> </fin-input>
+
+								<div ng-show="rakServiceReq.RakCCChequeRequestSR.isDetailsFetched =='Y'">	
+									<p class="rak-parent-txt">
+										<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAK_CC_CHEQ_REQ.ELIG_LIM}}</span> <span
+											class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RakCCChequeRequestSR.eligLimit}}</span>
+									</p>
+								</div>
+							</div>
+								
+								
+									
+								
+
+
+					<div ng-show="rakServiceReq.RakCCChequeRequestSR.isDetailsFetched =='Y'">
+							
+						
+
+
+
+									
+							<!-- CHANGES DONE AS FIX OF PROUAT 2276 START -->		
+								 <fin-input type="text"
+									model="rakServiceReq.RakCCChequeRequestSR.others"
+									display-row="full"
+									ng-show="rakServiceReq.RakCCChequeRequestSR.popList[rakServiceReq.RakCCChequeRequestSR.selectedPop].codeDesc=='OTHERS'"
+									validation-flag='pageErrorArr["rakServiceReq.RakCCChequeRequestSR.others"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_CHEQ_REQ.OTHERS}}">
+								</fin-input> 
+							<!-- CHANGES DONE AS FIX OF PROUAT 2276 END -->
+									
+										<fin-input type="text"
+									model="rakServiceReq.RakCCChequeRequestSR.benName"
+									display-row="full"
+									validation-flag='pageErrorArr["rakServiceReq.RakCCChequeRequestSR.benName"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_CHEQ_REQ.BEN_NAME}}">
+								</fin-input>
+
+								<fin-input type="money"
+									model="rakServiceReq.RakCCChequeRequestSR.amount"
+									display-row="full"
+									validation-flag='pageErrorArr["rakServiceReq.RakCCChequeRequestSR.amount"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_CHEQ_REQ.AMOUNT}}">
+								</fin-input>
+
+
+
+							
+
+							
+								<div class="rakRow">
+									<div class="radio-biller rak100 rakWidth100 ">
+										{{appLiterals.APP.RAK_SERVICES.RAK_CC_CHEQ_REQ.DEL_CHAN}}</div>
+									<div class="rak100">
+										<div>
+											<div class="rakCstmRadioDiv rak50">
+												<input type="radio" value="B"  id="radio1"
+												    ng-click="rakServiceReq.RakCCChequeRequestSR.iban='';"
+													ng-model="rakServiceReq.RakCCChequeRequestSR.delivChannel" />
+													<label for="radio1"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_CC_CHEQ_REQ.BRANCH}}</label>
+											</div>
+											<div class="rakCstmRadioDiv rak50" >
+												<input type="radio" value="C" id="radio2"
+												    ng-click="rakServiceReq.RakCCChequeRequestSR.iban='';"
+													ng-model="rakServiceReq.RakCCChequeRequestSR.delivChannel" />
+												<label for="radio2"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_CC_CHEQ_REQ.COURIER}}</label>
+											</div>
+									<!-- 		<div class="rakCstmRadioDiv rak100 rakTop2emLeft3 marginTopTen">
+												<input type="radio" value="T" id="radio3"
+													ng-model="rakServiceReq.RakCCChequeRequestSR.delivChannel" />
+												<label for="radio3"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_CC_CHEQ_REQ.ACC}}</label>
+											</div> -->
+
+										</div>
+									</div>
+								</div>
+
+								
+							<div
+								ng-init='cardArrEmi = createDropDownOptionArray(rakServiceReq.RakCCChequeRequestSR.emirateList, ["codeDesc"], "code");'
+								
+								>
+							<fin-input type="dropdown"
+								model="rakServiceReq.RakCCChequeRequestSR.emirateSeletected"
+								display-row="full"
+								ng-show="rakServiceReq.RakCCChequeRequestSR.delivChannel=='B'"
+								placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}"
+								on-change="rakServiceReq.RakCCChequeRequestSROptionChange();"
+								validation-flag='pageErrorArr["rakServiceReq.RakCCChequeRequestSR.emirateSeletected"]'
+								option-array="cardArrEmi"> </fin-input>
+							</div>
+							
+							
+							<div class="fin-input-container"
+								ng-show="rakServiceReq.RakCCChequeRequestSR.delivChannel=='B' && rakServiceReq.RakCCChequeRequestSR.isEmiSelected">
+								<div
+									ng-class="{'left-line': !pageErrorArr['rakServiceReq.RakCCChequeRequestSR.selectedBranch'], 'left-line-error':pageErrorArr['rakServiceReq.RakCCChequeRequestSR.selectedBranch']}"
+									class="left-line"></div>
+								<div class="input-body">
+									<div class="input-body2 input-body2-dropdown">
+										<select dropdownpicker title="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}" class="fin-input fin-select"
+											ng-model="rakServiceReq.RakCCChequeRequestSR.selectedBranch"
+											ng-style="{{rakServiceReq.RakCCChequeRequestSR.selectedBranch}} == '' ? {'font-size': '14px'} : {'color': 'initial'}">
+											<option class="place-holder-select" value=""
+												ng-selected="rakServiceReq.RakCCChequeRequestSR.selectedBranch== null"
+												ng-show="rakServiceReq.RakCCChequeRequestSR.selectedBranch== null">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}</option>
+											<option
+												ng-repeat="option in rakServiceReq.RakCCChequeRequestSR.emiCategorizedBranchList"
+												ng-selected="option.value=={{rakServiceReq.RakCCChequeRequestSR.selectedBranch}}"
+												value="{{option.codeIndex}}">{{option.codeDesc}}</option>
+										</select>
+									</div>
+									<div
+										ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.RakCCChequeRequestSR.selectedBranch'], 'bottom-line-error':pageErrorArr['rakServiceReq.RakCCChequeRequestSR.selectedBranch']}"
+										class="bottom-line"></div>
+									<div
+										ng-hide='pageErrorArr["rakServiceReq.RakCCChequeRequestSR.selectedBranch"]==null'
+										class="rakErrorMsg">
+										{{pageErrorArr['rakServiceReq.RakCCChequeRequestSR.selectedBranch']}}</div>
+
+								</div>
+							</div>
+
+
+<!--CHANGES DONE AS FIX OF PROUAT-2278 START  -->
+<!--  <fin-input type="text"
+									model="rakServiceReq.RakCCChequeRequestSR.iban"
+									display-row="full"
+									ng-show="rakServiceReq.RakCCChequeRequestSR.delivChannel=='T'"
+									max-length="34"
+									validation-flag='pageErrorArr["rakServiceReq.RakCCChequeRequestSR.iban"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_CHEQ_REQ.IBAN}}">
+								</fin-input>  -->
+<!--CHANGES DONE AS FIX OF PROUAT-2278 END  -->
+
+					<!-- YADESH : Customization : End -->
+
+
+								<div class="label-wrap">
+
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small"
+										ng-click="rakServiceReq.RakCCChequeRequestSR.resetCCChequeRequestConfirm();rakServiceReq.RakCCChequeRequestSR.rakCCChequeRequestContinue();setEvent('onRakCCChequeReqConfirmClick');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+								</div>
+								<div class="col-sm-1"></div>
+								
+						<div class="disclaimer">
+                              <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                              <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                              </div>                           
+                              
+                              <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+									<span ng-click="rakServiceReq.fetchDisclaimer('CreditCardServiceRequestsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCREDITCARDREQ_INITPAGE"></span>
+									<span ng-click="rakServiceReq.fetchDisclaimer('CreditCardServiceCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCREDITCARDREQ_INITPAGECONT"></span>
+								</div>
+              			</div>
+								
+								</div>	
+								
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

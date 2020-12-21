@@ -1,0 +1,136 @@
+<div id="updateCommAddressLandingPage"
+	class="app app-arrow2 title-right" ng-click="setEvent('onCancelClick')"></div>
+<div class="finacle-container"
+	ng-init="myProfile.activeTab='comm';myProfile.initUpdateAddressDetails(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper">
+			</div>
+
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+
+					<div class="dashboard-item-title col-sm-12  margin-bottom-20">
+						<div id="commAddTitle" class="item-title text-uppercase">{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.COMM_ADDRESS}}</div>
+
+
+						 <md-menu class="title-right">
+						<md-button id="moreMenuComm" class="md-icon-button more-details"
+							ng-click='$mdOpenMenu($event)' aria-label="More"> <md-icon
+							class="app app-ellipses"> </md-icon> </md-button> <md-menu-content
+							class="fin-menu-content"> <md-menu-item>
+						<md-button id="workAddress" ng-click="setEvent('onHomeTabClick')">
+						{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.WRK_ADDRESS}} </md-button></md-menu-item> <md-divider></md-divider>
+						<md-menu-item> <md-button id="permAddress"
+							ng-click="setEvent('onPermanentTabClick')">
+						{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.PERMANENT_ADDRESS}} </md-button> </md-menu-item> </md-menu-content> </md-menu>
+						
+
+					</div>
+
+					<form
+						ng-submit="myProfile.updateAddressDetail();setEvent('onContinueClick');">
+
+						<div class="col-sm-12 margin-bottom-15">
+							<input id="commAddPreferred" type="checkbox"
+								ng-model="myProfile.updateAddressModel.prefferedAdd[1]"
+								ng-click="myProfile.checkAddressPreference('Mailing',1);">
+							<span id="communicationPref" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.PREFFERED}}
+							</span>
+						</div>
+
+						<div class="">
+							<div class="two-input-wrapper">
+								<fin-input type="text"
+									model="myProfile.updateAddressModel.firstName"
+									validation-flag='pageErrorArr["myProfile.updateAddressModel.firstName"]'
+									max-Length="65" display-row="half1"
+									placeholder="{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.F_NAME}}"></fin-input>
+								<fin-input type="text"
+									model="myProfile.updateAddressModel.lastName"
+									display-row="half2"
+									validation-flag='pageErrorArr["myProfile.updateAddressModel.lastName"]'
+									max-length="65"
+									placeholder="{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.L_NAME}}"></fin-input>
+							</div>
+
+
+							<fin-input type="text"
+								model="myProfile.updateAddressModel.communicationAddressLineOne"
+								validation-flag='pageErrorArr["myProfile.updateAddressModel.communicationAddressLineOne"]'
+								display-row="full"
+								placeholder="{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.AL1}}"></fin-input>
+
+
+							<fin-input type="text"
+								model="myProfile.updateAddressModel.communicationAddressLineTwo"
+								validation-flag='pageErrorArr["myProfile.updateAddressModel.communicationAddressLineTwo"]'
+								display-row="full"
+								placeholder="{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.AL2}}"></fin-input>
+
+
+							<fin-input type="text"
+								model="myProfile.updateAddressModel.communicationAddressLineThree"
+								validation-flag='pageErrorArr["myProfile.updateAddressModel.communicationAddressLineThree"]'
+								display-row="full"
+								placeholder="{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.AL3}}"></fin-input>
+
+							<div
+								ng-init='Country = createDropDownOptionArray(myProfile.updateAddressModel.cocdCountryCodes, ["content"], "value");'>
+								<fin-input type="dropdown"
+									on-change="setEvent('onCountrySelect')"
+									model="myProfile.updateAddressModel.communicationCountry"
+									display-row="full"
+									placeholder="{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.COUNTRY}}"
+									validation-flag='pageErrorArr["myProfile.updateAddressModel.communicationCountry"]'
+									option-array="Country"></fin-input>
+							</div>
+
+							<div
+								ng-init='StateArray = createDropDownOptionArray(myProfile.updateAddressModel.StateCodeComm, ["content"], "value");'>
+								<fin-input type="dropdown"
+									model="myProfile.updateAddressModel.communicationState"
+									display-row="full"
+									placeholder="{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.STATE}}"
+									validation-flag='pageErrorArr["myProfile.updateAddressModel.communicationState"]'
+									option-array="StateArray"></fin-input>
+							</div>
+
+
+							<fin-input type="text"
+								model="myProfile.updateAddressModel.communicationCity"
+								validation-flag='pageErrorArr["myProfile.updateAddressModel.communicationCity"]'
+								display-row="full"
+								placeholder="{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.City}}"></fin-input>
+
+
+							<fin-input type="postalCode"
+								model="myProfile.updateAddressModel.communicationPostalCode"
+								validation-flag='pageErrorArr["myProfile.updateAddressModel.communicationPostalCode"]'
+								display-row="full"
+								placeholder="{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.PINCODE}}"></fin-input>
+
+
+							<fin-input type="date"
+								model="myProfile.updateAddressModel.communicationAddressSince"
+								display-row="full"
+								placeholder="{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.ADD_SINCE}}"
+								validation-flag='pageErrorArr["myProfile.updateAddressModel.communicationAddressSince"]'></fin-input>
+
+							<div class="margin-bottom-20"></div>
+
+							<section class="button-wrapper" layout="row"
+								layout-align="center center" layout-wrap>
+								<md-button id="updateCommAddressProceed" type="submit"
+									class=" md-raised btn--primary-btn">
+								{{appLiterals.APP.MYPROFILE.UPDATEADDRESS.CONT_BTN}}</md-button>
+							</section>
+
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

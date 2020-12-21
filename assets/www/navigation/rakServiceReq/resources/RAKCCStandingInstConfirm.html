@@ -1,0 +1,129 @@
+<div class="finacle-container ng-scope"
+	ng-init="rakServiceReq.RakCCStandingInstModel.txnPwd = '';rakServiceReq.confirmRAKCCStandingInst(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+
+			<div class="main-form-heading-ServiceReq"> 
+                      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CC_STANDING_INST}}
+                      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>                
+                      </h2>              
+			</div>
+			
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="">
+					<div class="">
+					
+					<div class="rakDupliSRChkMsgImg" ng-show='rakServiceReq.common.message'>
+							<span class='rakAlertForDupStmt'></span> <span class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+						</div>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKCCSTANDINGINST.CREDIT_CARD}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakCCStandingInstModel.CreditCardList[rakServiceReq.RakCCStandingInstModel.selectedCreditCard].cardNumber}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKCCSTANDINGINST.MONTHLY_PMT_PER}}&nbsp;</span>
+							<span class="rak-sum-label black" ng-show="rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt=='{{appLiterals.APP.RAKCCSTANDINGINST.CURR_STMT_BAL}}'">
+							{{rakServiceReq.RakCCStandingInstModel.perOfCurrentStatementBal}}{{rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt}}</span>
+							<span class="rak-sum-label black" ng-show="rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt=='{{appLiterals.APP.RAKCCSTANDINGINST.MIN_AMT_DUE}}'">
+							{{rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt}}</span>
+							<span class="rak-sum-label black" ng-show="rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt=='{{appLiterals.APP.RAKCCSTANDINGINST.FLAT_AMT}}'">
+							{{rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt}}</span>
+						</p>
+						
+						<p class="rak-sum-txt" ng-show="rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt=='{{appLiterals.APP.RAKCCSTANDINGINST.FLAT_AMT}}'">
+							<span class="rak-sum-label">{{rakServiceReq.RakCCStandingInstModel.isCurrStmtBalOrMinAmtOrFlatAmt}}</span>
+							<span class="rak-sum-label black">{{appLiterals.APP.RAKCCSTANDINGINST.FLAT_AMT_CURR}} {{rakServiceReq.RakCCStandingInstModel.flatAmountDisp}}</span>
+						</p>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKCCSTANDINGINST.SI_DATE}}&nbsp;</span>
+							<span class="rak-sum-label black" ng-show="rakServiceReq.RakCCStandingInstModel.isDOMorPmtDueDt=='{{appLiterals.APP.RAKCCSTANDINGINST.DOM}}'">
+							{{rakServiceReq.RakCCStandingInstModel.selectedDateOfMonth}} {{rakServiceReq.RakCCStandingInstModel.isDOMorPmtDueDt}}</span>
+							<span class="rak-sum-label black" ng-show="rakServiceReq.RakCCStandingInstModel.isDOMorPmtDueDt=='{{appLiterals.APP.RAKCCSTANDINGINST.PMT_DUE_DATE}}'">
+							{{rakServiceReq.RakCCStandingInstModel.isDOMorPmtDueDt}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKCCSTANDINGINST.OPR_ACC}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakCCStandingInstModel.OprAccList[rakServiceReq.RakCCStandingInstModel.selectedOprAcc].acctTypeDesc}} {{rakServiceReq.RakCCStandingInstModel.OprAccList[rakServiceReq.RakCCStandingInstModel.selectedOprAcc].accountId}} {{rakServiceReq.RakCCStandingInstModel.OprAccList[rakServiceReq.RakCCStandingInstModel.selectedOprAcc].currencyCode}}</span>
+						</p>
+
+					<div class="label-wrap"
+						ng-show='rakServiceReq.RakCCStandingInstModel.authStatus'>
+
+						<fin-input type="password_text"
+							model="rakServiceReq.RakCCStandingInstModel.txnPwd"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+							validation-flag='pageErrorArr["rakServiceReq.RakCCStandingInstModel.txnPwd"]'
+							ng-show="rakServiceReq.RakCCStandingInstModel.authMode==txnpwdString">
+						</fin-input>
+					<!-- 	<fin-input type="password_num"
+							model="rakServiceReq.RakCCStandingInstModel.txnPwd"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+							validation-flag='pageErrorArr["rakServiceReq.RakCCStandingInstModel.txnPwd"]'
+							ng-show="rakServiceReq.RakCCStandingInstModel.authMode==otpString">
+						</fin-input>
+						 -->
+						
+						<div ng-show="rakServiceReq.RakCCStandingInstModel.authMode==otpString">
+									<div
+										ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+										<fin-input type="password_num" model="rakServiceReq.RakCCStandingInstModel.txnPwd"
+											display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}"
+											validation-flag='pageErrorArr["rakServiceReq.RakCCStandingInstModel.txnPwd"]'></fin-input>
+									</div>
+								
+								
+									<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0'
+										ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+								
+										<fin-input type="dropdown" option-array="toModeArray"
+											model="rakHome.otpModel.otpModeSelected" display-row="full"
+											placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+										<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+								
+									</div>
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+										ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}}</button>
+								
+								</div>
+						
+						
+					</div>
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back"
+								ng-click="rakServiceReq.common.fromAuthPage=true;setEvent('onRAKCCStandingInstConfirmBackClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakServiceReq.common.fromAuthPage=false;setEvent('onRAKCCStandingInstFinalSubmitClick');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}
+							</button>
+
+						</div>
+						<div class="col-sm-1"></div>
+						
+				<div class="disclaimer">
+                         <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                         <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                         </div>
+
+                         <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                         <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSERREQ_CONF"></div>
+                         </div>
+                 </div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

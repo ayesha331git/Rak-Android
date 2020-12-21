@@ -1,0 +1,48 @@
+<div class="finacle-container" >
+	<div class="account-page">
+    <div class="col-sm-10">
+	  <div class="app-title-wrapper">
+<div class="app-arrow title-left" ng-click="setEvent('onChequeSeriesPrevClick')"></div>
+<div class="title-center">{{appLiterals.APP.RAK_SERVICES.RAK_SERIES_AUTH.HEADER}}</div>
+<div class="app app-cancel title-right" ng-click='setEvent("onCancelClick");'></div>
+	  </div>
+	  <div class="highlight-color"> </div>       
+		  <div class="bg-color">
+			<div class="row" >
+			  <div class="col-sm-11"> 
+		<div class="border"></div>
+
+        <div class="row">
+          <div class="col-sm-1"> </div>
+          <div class="col-sm-11">
+			<div class="future cp_wrap" style="height: 3.7em;">
+				<div class="details det_container" ng-click="setEvent('onChequeSingleClick')">
+					<span class="trans-text detail detail_txt"> {{appLiterals.APP.RAK_SERVICES.RAK_SERIES_AUTH.TXT_SNGLE}} </span>
+				</div>
+			  <div class="trans-pad">
+			  </div>
+			  <div class="trans-wrapper cp_container">
+				<div class="trans-text tp_wrap" style="line-height: 2.2em;padding-top: 0;">  {{appLiterals.APP.RAK_SERVICES.RAK_SERIES_AUTH.TXT_SERIES}} </div>
+				<div class="trans-line tp_line">
+				</div>
+				  <div class="trans-tri" >
+				  </div>
+				</div>
+			</div>
+			<p class="add-mon-tops mob_txt_color">{{appLiterals.APP.RAK_SERVICES.RAK_SERIES_AUTH.ACC_NO}} &nbsp;<span class="mob_txt_clr">{{appLiterals.APP.RAK_SERVICES.RAK_SERIES_AUTH.ACC_NOVAL}}</span></p>
+			<p class="add-mon-tops mob_txt_color">{{appLiterals.APP.RAK_SERVICES.RAK_SERIES_AUTH.TXT_FRMCHEQ}}&nbsp;<span class="mob_txt_clr">{{appLiterals.APP.RAK_SERVICES.RAK_SERIES_AUTH.FRMCHEQ_VAL}}</span></p>
+			<p class="add-mon-tops mob_txt_color">{{appLiterals.APP.RAK_SERVICES.RAK_SERIES_AUTH.TXT_TOCHEQ}} &nbsp;<span class="mob_txt_clr">{{appLiterals.APP.RAK_SERVICES.RAK_SERIES_AUTH.TOCHEQ_VAL}}</span></p>
+			<p class="add-mon-tops mob_txt_color">{{appLiterals.APP.RAK_SERVICES.RAK_SERIES_AUTH.TXT_RSN}} &nbsp;<span class="mob_txt_clr">{{appLiterals.APP.RAK_SERVICES.RAK_SERIES_AUTH.RSN_VAL}}</span></p>
+			<hr class="hr" style="margin-top:1em;">
+		  <div class="label-wrap">
+				  <p class="label-title">{{appLiterals.APP.RAK_SERVICES.RAK_SERIES_AUTH.TXT_AUTH}}</p>
+				  <p class="label-txt"> {{appLiterals.APP.RAK_SERVICES.RAK_SERIES_AUTH.TXT_AUTHVAL}}</p>
+			  </div>
+			  <fin-input type="password_num" model="tempVar1" display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SERIES_AUTH.PH_TRANSPASS}}" min="0" validation-flag="testFlag"></fin-input>
+			
+			   <button type="button" class="btn—primary-btn" ng-click="setEvent('onSeriesSuccessClick')">
+{{appLiterals.APP.RAK_SERVICES.RAK_SERIES_AUTH.BTN_CNFRM}} </button>
+		  </div>
+		</div>
+</div>
+</div>

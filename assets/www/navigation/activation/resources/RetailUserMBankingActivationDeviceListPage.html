@@ -1,0 +1,36 @@
+<nav class="navbar navbar-default" role="navigation">
+	<div class="navbar-header">
+		<img class="banner" width=64px height=64px>
+		<p class="navbar-text">{{appLiterals.APP.ACTIVATION.DEVLIST_PAGE.HEADER}}</p>
+	</div>
+</nav>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div>
+			<h4>{{appLiterals.APP.ACTIVATION.DEVLIST_PAGE.ALRT_SENT1}}</h4>
+			<br>
+			<p>{{appLiterals.APP.ACTIVATION.DEVLIST_PAGE.ALRT_SENT2}}</p>
+			<div class="form-group">
+				<div class="media">
+					<div class="media-body">
+						{{appLiterals.APP.ACTIVATION.DEVLIST_PAGE.ALRT_SENT3}}</div>
+					<a class="media-right" href="#"> <img
+						data-src="holder.js/64x64"
+						src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjEzLjIyNjU2MjUiIHk9IjMyIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9nPjwvc3ZnPg=="
+						data-holder-rendered="true" style="width: 64px; height: 64px;">
+					</a>
+				</div>
+			</div>
+			<div class="form-group">
+				<button ng-click="setEvent('onActivationAddDeviceClicked')"
+					type="button" class="btn btn-success">{{appLiterals.APP.ACTIVATION.DEVLIST_PAGE.SENT_ADDEV}}</button>
+			</div>
+		</div>
+	</div>
+</div>
+<footer class="navbar-default navbar-fixed-bottom">
+	<ul class="pager">
+		<li class="previous"><a href="#"><span aria-hidden="true">&larr;</span>{{appLiterals.APP.ACTIVATION.DEVLIST_PAGE.TXT_BACK}}</a></li>
+	</ul>
+</footer>

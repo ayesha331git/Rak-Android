@@ -1,0 +1,164 @@
+<div
+	ng-init="rakHome.AuthPageData.firstAuthModeValue='';rakPayee.payBill.txnPwd='';rakPayee.payBill.initAuthPage(successResponse.responsesList);rakCorpInit.corpModel.processCorpInit(successResponse.responsesList);" >
+	<div ng-show="rakPayee.payBill.balCheck== 'true'  && rakCorpInit.corpModel.backFlag=='N'">
+		<div class="full-page-screen"></div>
+		<div class="confirmation-content-container">
+			<div class="message-box-new rakTop25">
+				<div>
+					<p class="round-icon-new">
+						<span class="app app-alert pop-alert-icon rak-color"></span>
+					</p>
+					
+				</div>
+				<div class="conf-txt-label rak-black-color">
+					{{rakPayee.payBill.poolBalMsg}}</div>
+				<div class="conf-btn-wrap_alert rakpaddingBottom10">
+					<button type="button"class="btn--special-btn btn-middle rak-button-small btn--back"
+						ng-click='rakPayee.payBill.isBackfromConfirmPage=true;setEvent("onBackClick")'>&nbsp;
+						{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.BTN_CNL}}
+						&nbsp;</button>
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-small"
+						ng-click='rakPayee.payBill.balCheck="false";setEvent("onPoolBalanceConfirmation")'>
+						&nbsp;
+						{{appLiterals.APP.RAKPAYCARDS.RAKPAYCARDS_AUTHPAGE.BTN_YES}}
+						&nbsp;</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="finacle-container ng-scope" ng-init="rakPayee.payBill.multiplePaymentConfirm(successResponse.responsesList);rakPayee.authMode.firstAuthModeValue = '';rakPayee.authMode.secAuthModeValue = '';">
+        <div class="rak-back-header" ng-if="rakPendingApproval.pendingApprovalTab=='PIA'">
+			<i class="rak-back-img" ng-click="rakPendingApproval.backClickFlag='Y';setGlobalEvent('onPendingIncompleteTxnsClick')"></i>
+		</div>
+
+    <div class="account-page">
+		 <div class="col-sm-11">
+			<div class="app-title-wrapper">
+				
+
+		<div class="rak-cont-padding rak-scroll">
+				<div class="main-form-heading">
+		             <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_COMMON.SUBMIT_TRAN}}
+						      </h2>
+		       	</div>
+
+		  <div class="bg-color">
+			<div class="rakWidth100Percent" >
+			  <div class="">
+
+			 <p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.PAYINGTO}}&nbsp;</span>
+				<span class="rak-sum-label black">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.MULTIPLEBILLPAYMENTS}}</span>
+			</p>
+
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_FRM_ACC}}&nbsp;</span>
+				<span class="rak-sum-label black">{{rakPayee.payBill.fromAccSubmit}}</span>
+			</p>
+
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.LB_AMT}}&nbsp;</span>
+				<span class="rak-sum-label black">{{rakPayee.schedule.selectedTxn.txnCurrency}} {{rakPayee.schedule.selectedTxn.txnAmountDisp}}</span>
+			</p>
+
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.WHEN}}&nbsp;</span>
+				<span class="rak-sum-label black">{{rakPayee.schedule.selectedTxn.txnDate}}</span>
+			</p>
+
+		
+				
+					  <div ng-init='rakBillerFlag=false;' class="col-sm-11">
+		  	<span class="rakCardIcoSuppli"  ng-class="{'rakCardIcoSuppliExpnd':rakBillerFlag}"  ng-click="rakBillerFlag=!rakBillerFlag" >{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.VIEW_BILLERS}}</span>
+		  </div>
+
+				<div ng-show='rakBillerFlag'>
+						<span class="rak-multiplepay-viewBillerHeading">{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.BILLERS_ADDED}}</span>
+							<div class="money-block rakBottomZero">
+						         <ul>
+						            <li  class="active rak30 rakPaddingPoint8em" >
+						           {{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.PAYEE}}</li>
+						           <li class="active rak30 ">
+						           {{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.CONSUMER_NUM}}</li>
+						            <li class="active rak30 ">
+						            {{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.AMT_PAYING}}</li>
+						            <li class="active rak10 ">&nbsp;</li>
+						         </ul>
+						 	</div>
+
+
+
+						 
+					            <div class="" >
+
+
+									<div class="trans-detail rakGreyRow" ng-repeat="biller in rakPayee.payBill.selectedOutStandingAmtListForSubmit">
+
+					                  	<div class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em pull-left">
+					                   		<div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                    {{biller.billerName}}
+					                    </div>
+					                    </div>
+
+					                    </div>
+
+					                  <div class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em" >
+					                  <div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                    {{biller.consumerNo}}
+					                    </div>
+					               </div>
+					                  </div>
+
+
+					                  <div class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em">
+					                    <div>
+					                    <div class="trans-no rakTextCenter rakFont1em">
+					                    {{biller.entryAmount}}
+					                    </div>
+					                  </div>
+
+					                  </div>
+				
+
+								</div>				           
+				           </div>				
+						</div>
+					</div>
+
+
+							 <corpapproval-input></corpapproval-input>
+							
+		
+				<fin-dynamicauth class="noFocus"></fin-dynamicauth>
+	
+
+            <div class="label-wrap" >
+			<button type="button" class="btn--special-btn btn-middle rak-button-right" ng-click="rakHome.AuthPageData.fetchOtp('onConfirmSubmitIncompTransferClick');">
+			{{appLiterals.APP.PAYEE.ADDBENF_AUTHPAGE.BTN_CNFRM}}</button>			
+            </div>
+
+            <div class="col-sm-1"> </div>
+            
+            <div class="disclaimer">
+                         <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                         <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                         </div>
+
+                         <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                         <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKMULTIPLEBILLS_CONF"></div>
+                         </div>
+                 </div>
+		  </div>
+	  </div>
+	
+	  </div>
+	</div>
+</div>
+</div>
+</div>
+</div>

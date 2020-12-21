@@ -1,0 +1,40 @@
+<div id="manageAlertPage" class="app app-arrow2 title-right"
+	ng-click="setEvent('onManageAlertCloseClick')"></div>
+<div class="finacle-container"
+	ng-init="myProfile.manageAlert.initFetchAlert(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper"></div>
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div id="title" class="item-title text-uppercase">{{appLiterals.APP.MYPROFILE.MANAGE_ALERT_DETAILS.TITLE}}</div>
+					</div>
+					<div class="col-sm-12"
+						ng-repeat="categories in myProfile.manageAlert.alertList | orderBy:'alertCategory'">
+						<div class="trans-detail"
+							ng-repeat="subCategories in categories.subAlerts | orderBy:'alertDescription'">
+							<div id="categoryDesc" class="fut-txt1 margin-bottom-15" ng-if="$first">
+								{{subCategories.alertCategoryDescription}}</div>
+							<!-- setEvent('onManageAlertDetailsClick') -->
+							<div id="manageAlert"
+								ng-click="myProfile.manageAlert.clearAlertFrequency();myProfile.manageAlert.isBack = false;myProfile.manageAlert.selectedIndex(myProfile.manageAlert.alertList.indexOf(categories),myProfile.manageAlert.alertList[myProfile.manageAlert.alertList.indexOf(categories)].subAlerts.indexOf(subCategories));setEvent('onManageAlertDetailsClick');">
+								<div class="trans-dash-left">
+									<div id="alertDesc" class="trans-no">{{subCategories.alertDescription}}</div>
+								</div>
+								<div class="trans-dash-right">
+									<span id="dndOn" class="amt-rs"
+										ng-if="subCategories.alertStatus == 'Subscribed'">{{appLiterals.APP.MYPROFILE.DND_SETTINGS.DND_ON}}</span>
+									<span id="dndOff" class="amt-rs"
+										ng-if="subCategories.alertStatus == 'Unsubscribed'">{{appLiterals.APP.MYPROFILE.DND_SETTINGS.DND_OFF}}</span>
+
+								</div>
+								<div id="account" ng-if="subCategories.accountAlert" class="trans-date">{{subCategories.maskedAccountNumber}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

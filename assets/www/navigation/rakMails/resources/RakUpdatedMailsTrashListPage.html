@@ -1,0 +1,57 @@
+ <div class="nano menu-scroll">
+	<div class="nano-content">
+<div class="finacle-container ng-scope" ng-init="rakMails.clearTab();rakMails.trashTab=true;rakMails.isDeleteClicked ? rakMails.trash.initAfterDelete(successResponse.responsesList) : rakMails.trash.initListPage(successResponse.responsesList)">
+  
+   
+    <div class="form-block">
+	<div class="account-page">
+		<div class="col-sm-11">
+
+        <div class="bg-color rak-cont-padding rak-scroll">
+			<div class="row" >
+			
+			<div
+					ng-init='mailTypeArray=createDropDownOptionArray(rakMails.mailOptions, ["mailOption"],"mailValue")'>
+					<fin-input type="dropdown" option-array="mailTypeArray"
+						model="rakMails.selectedMailType"
+						display-row="full"
+						placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_SELCT}}"
+						on-change="resetPageError();setGlobalEvent(rakMails.getMailEvent());"
+						validation-flag='pageErrorArr["rakMails.selectedMailType"]'>
+					</fin-input>
+				</div>
+			
+			
+
+		                   <!-- <ng-include
+								src="'./navigation/rakMails/resources/RakMailsTabPage.html'">
+							</ng-include> -->
+
+
+
+			  <div class="col-sm-1"> </div>
+      
+      <!-- CHANGES NOT TO SHOW ALERTS AT SECOND TIME START  -->
+					      <!-- <div class="ng-hide" ng-if='rakMails.trash.isTrashEmpty'
+									ng-init="showAlert(rakMails.successMessage); setEvent('onTrashEmptyOkClick')">
+							</div>
+							<div class="ng-hide" ng-if='rakMails.isMailDeleted'
+									ng-init="(rakMails.isStatusError) ? showErrorPopup(rakMails.successMessage) : showAlert(rakMails.successMessage); rakMails.isMailDeleted=false; rakMails.isDeleteClicked=false;setEvent('onDeleteOKClick')">
+							</div> -->
+							
+							<div class="ng-show" ng-if='rakMails.trash.isTrashEmpty'>
+							<span class="bnk_nm toggle_btn">{{rakMails.successMessage}}</span>
+							</div>  
+	   <!-- CHANGES NOT TO SHOW ALERTS AT SECOND TIME END  -->						
+					   
+					   </div>
+					 </div>
+				  </div>
+			</div>
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+</div>
+
+ 

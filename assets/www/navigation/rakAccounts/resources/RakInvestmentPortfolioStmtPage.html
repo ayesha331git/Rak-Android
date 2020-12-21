@@ -1,0 +1,135 @@
+	<div class="rak-back-header">
+		 <i class="rak-back-img"
+		 ng-click="rakAccounts.RakInvestmentPortfolioViewStmt.resetRakInvestmentPortfolioViewStmtData();setEvent('onStmtPageBackBtnClicked');"></i>
+			<!-- 	ng-click="setEvent('onRAKOprEvantageMailChqConfirmBackClick');"></i> -->
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+	
+
+		<div class="finacle-container"
+			ng-init="rakAccounts.RakInvestmentPortfolioViewStmt.initRakInvestmentPortfolioViewStmtData(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="main-form-heading">
+						<h2 class="noFloat center">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.INVST_STMT_DET}}</h2>
+					</div> 
+
+					<div class="rakScrollDiv rak-cont-padding" ng-focus="addMMIDFlag?addMMIDFlag=false:''">						
+						<div class="bg-color">
+							<div class="row">								
+								<div class="rakStmtDetWidth75"
+									ng-init='invtAccountArrayList=createDropDownOptionArray(rakAccounts.RAKAccountsModel.invtAccounts, ["subAccountTypeDesc","accountId","-","currency"],"accountIndex");'>
+									<fin-input type="dropdown" option-array="invtAccountArrayList"
+										model="rakAccounts.RAKAccountsModel.selectedAccount"
+										display-row="full" select-req="false" placeholder="{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.SELECT_ACCOUNT}}" on-change='rakAccounts.RakInvestmentPortfolioViewStmt.resetRakInvestmentPortfolioViewStmtData();setEvent("onInvAccountChangeClick");'>										
+									</fin-input>
+								</div>
+
+								<div class="rakStmtdetCustomer-wrapper rakHalfScrollDiv"> 
+									<div class="">
+										<!-- <div class="rakStmtdetAccounts-details">
+											<span>Standard Investment</span>
+										</div> -->
+										
+										<div class="rakStmtdetAccounts-details1">
+											<div  class="rakStmtDetRowLabel">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVESTMENT_PORTFOL_STMT.STMTDATE}}</div> 
+											<div class="rakStmtDetRow1">{{rakAccounts.RakInvestmentPortfolioViewStmt.stmtDate}}</div>
+										</div>
+
+										<div class="rakStmtdetAccounts-details1">
+											<div class="rakStmtDetRowLabel">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVESTMENT_PORTFOL_STMT.ACCTNO}}</div>
+											<div class="rakStmtDetRow1"> {{rakAccounts.RakInvestmentPortfolioViewStmt.acctNo}}</div>
+										</div>
+								
+										<!-- <div class="rakStmtdetAccounts-details">
+											<span class="rakStmtDetRowLabel">{{rakAccounts.RakInvestmentPortfolioViewStmt.addLine1}} {{rakAccounts.RakInvestmentPortfolioViewStmt.addLine2}}</span>
+										</div> -->
+										
+										<div class="rakStmtdetAccounts-details1">
+											<div class="rakStmtDetRowLabel">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVESTMENT_PORTFOL_STMT.ACCTTYPE}}</div><div class="rakStmtDetRow1"> {{rakAccounts.RakInvestmentPortfolioViewStmt.acctType}}</div>
+										</div>								
+										
+									<!-- 	<div class="rakStmtdetAccounts-details">
+											<span class="rakStmtDetRowLabel">{{rakAccounts.RakInvestmentPortfolioViewStmt.poBox}}, {{rakAccounts.RakInvestmentPortfolioViewStmt.city}}</p></span>
+										</div> -->
+										<div class="rakStmtdetAccounts-details1">
+											<span class="rakStmtDetRowLabel">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVESTMENT_PORTFOL_STMT.ACCTMGR}} </span><span class="rakStmtDetRow1">{{rakAccounts.RakInvestmentPortfolioViewStmt.acctMgr}}</span>
+										</div>
+									<!-- 	<div class="rakStmtdetAccounts-details">
+											<span class="rakStmtDetRowLabel">{{rakAccounts.RakInvestmentPortfolioViewStmt.country}}, {{rakAccounts.RakInvestmentPortfolioViewStmt.zip}}</span>											
+										</div>  -->
+											<div class="rakStmtdetAccounts-details1">
+									 		<div  class="rakStmtDetRowLabel">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVESTMENT_PORTFOL_STMT.ADDRESS}}</div> 
+											<div class="rakStmtDetRow1">{{rakAccounts.RakInvestmentPortfolioViewStmt.addLine1}} {{rakAccounts.RakInvestmentPortfolioViewStmt.addLine2}} {{rakAccounts.RakInvestmentPortfolioViewStmt.addLine3}} {{rakAccounts.RakInvestmentPortfolioViewStmt.poBox}} {{rakAccounts.RakInvestmentPortfolioViewStmt.city}} {{rakAccounts.RakInvestmentPortfolioViewStmt.poBox}} {{rakAccounts.RakInvestmentPortfolioViewStmt.city}}</div>
+											
+										</div> 
+									</div>
+								</div>
+
+<!--CHANGES DONE AS FIX OF PRCU-1513 START -->
+<div class="disclaimer-bottom">
+								<div class="rakStmtDetGreyRowPortfolio" ng-repeat="trans in rakAccounts.RakInvestmentPortfolioViewStmt.transList">
+									<div class="">
+										<div class="disclaimer1Portfolio rakSupplCardIco rakStmtDet-block" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">{{trans.prodName}}</div>
+										<div ng-if="trans.prodName!='Total'" ng-show="rakDisclaimerFlag">
+											<div class="">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVESTMENT_PORTFOL_STMT.DENOMINATION}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.denominationPerUnit}}</div>
+											</div>
+											<div class="">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVESTMENT_PORTFOL_STMT.NOOFUNITS}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.noOfUnits}}</div>
+	
+											</div>
+											<div class="">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVESTMENT_PORTFOL_STMT.TOTAMTINVT}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.totalAmtInvested}}</div>
+											</div>
+											<div class="">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVESTMENT_PORTFOL_STMT.MKTPRICE}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.marketPricePerUnit}}</div>
+											</div>
+											<div class="">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVESTMENT_PORTFOL_STMT.TOTMKTVAL}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.marketValue}}</div>
+											</div>
+											<div class="">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVESTMENT_PORTFOL_STMT.PROFLOSS}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.profitLoss}}</div>
+											</div>
+										</div>
+										<div ng-if="trans.prodName=='Total'" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+											<div class="" ng-show="rakDisclaimerFlag">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVESTMENT_PORTFOL_STMT.TOTAMTINVT}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.totalAmtInvested}}</div>
+											</div>
+											<div class="" ng-show="rakDisclaimerFlag">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVESTMENT_PORTFOL_STMT.TOTMKTVAL}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.marketValue}}</div>
+											</div>
+											<div class="" ng-show="rakDisclaimerFlag">
+												<div class="rakStmtDetRowLabel disclaimer1PortfolioBackground">{{appLiterals.APP.RAK_ACCOUNTS.RAK_INVESTMENT_PORTFOL_STMT.PROFLOSS}}</div>
+												<div class="rakStmtDetRow1 disclaimer1PortfolioBackground">{{trans.profitLoss}}</div>
+											</div>
+										</div>
+									</div>
+								</div>
+</div>								
+<!--CHANGES DONE AS FIX OF PRCU-1513 END-->
+
+							<!-- 	 <div class="label-wrap">
+									<button type="button"
+										class="btn--special-btn btn-middle rakStmtDet-button-small"
+										ng-click="rakAccounts.RakInvestmentPortfolioViewStmt.resetRakInvestmentPortfolioViewStmtData();setEvent('onStmtPageBackBtnClicked');">
+										Back</button>
+								</div>  -->
+								<div class="col-sm-1"></div>								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,69 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRakOprAccDupStmtConfirmSuccess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+		<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.RakOprAccDupStmtModel.successMessage}}</span>
+				</div>
+			</div>
+		<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.OPR_ACC_DUPLICATESTMT}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+				      </h2>		       
+		 </div>
+			
+			
+		<div class="bg-color rak-cont-padding rak-scroll-success">
+			<div class="">
+				<div class="">
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_CONF_OPR_ACCOUNTS}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakOprAccDupStmtModel.OprAcctList[rakServiceReq.RakOprAccDupStmtModel.selectedOprAcct].acctTypeDesc}} {{rakServiceReq.RakOprAccDupStmtModel.OprAcctList[rakServiceReq.RakOprAccDupStmtModel.selectedOprAcct].accountId}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_SELECT_PERIOD_FROM}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakOprAccDupStmtModel.previewDateOne}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_SELECT_PERIOD_TO}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakOprAccDupStmtModel.previewDateTwo}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_DISPATCH_MODE}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakOprAccDupStmtModel.isBranchOrAddress}}</span>
+						</p>
+						<p class="rak-sum-txt" ng-show="rakServiceReq.RakOprAccDupStmtModel.isBranchOrAddress=='{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_DISPATCH_BRANCH}}'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakOprAccDupStmtModel.emiSelDesc}}</span>
+						</p>
+
+						<p class="rak-sum-txt" ng-show="rakServiceReq.RakOprAccDupStmtModel.isBranchOrAddress=='{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_DISPATCH_BRANCH}}'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_CONF_BRANCH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakOprAccDupStmtModel.emiCategorizedBranchList[rakServiceReq.RakOprAccDupStmtModel.selectedBranchId].branchCode}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKOPRACCDUPSTMTSR.OPRACCDUPSTMT_REMARKS}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakOprAccDupStmtModel.remarks}}</span>
+						</p>
+
+				<div class="label-wrap">
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-right"
+						ng-click='rakServiceReq.resetRakOprAccDupStmtInitDetails();setEvent("onRakOprAccDupStmtSuccessOkClick");'>
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+				</div>
+
+				<div class="col-sm-10"></div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

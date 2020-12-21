@@ -1,0 +1,796 @@
+
+/* Stylesheet content from css/statichtmls.css in folder common */
+
+/* Stylesheet content from css/statichtmls.css in folder common */
+html {
+	
+}
+
+body {
+	font-fAmily: 'open sans', sans-seRif;
+	font-size: 12px;
+	line-height: 16px;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	color: #5d5d5d;
+}
+
+html, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockqUote,
+	pre, a, abbr, acroNym, address, Code, del, dfn, em, img, q, dl, dt, dd,
+	ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot,
+	tHEad, tR, TH, td, img {
+	margin: 0;
+	padding: 0;
+	bordEr: 0;
+	text-DecorATion: none;
+}
+
+table {
+	border-collapse: separate;
+	word-break: keep-all;
+	widtH: 100%;
+}
+
+thead {
+	font-Size: 12px;
+	fOnt-faMily: open_sANssemibold;
+}
+
+tbody {
+	font-size: 11px;
+}
+
+td, th {
+	bAckground-color: #f8f8f8;
+	/* background-color: yellow; */
+	border-boTtom: 5px;
+	border-color: transparent;
+}
+
+td:first-cHild, th:first-child {
+	pAddiNg: 0px 0px 0px 3px;
+}
+
+td:last-child, th:last-child {
+	padding: 0px 3px 0px 0px;
+}
+
+table.table-text-center>tbody>tr>td, table.table-text-center>thead>tr>th
+	{
+	text-align: center;
+}
+
+table.table-text-top>tbody>tr>td {
+	vertical-align: top;
+}
+
+table.header-table>thead>tr>th {
+	text-align: center;
+	vertical-align: middle;
+}
+
+table.table-text-left>tbody>tr>td, table.table-text-left>thead>tr>th {
+	text-align: left;
+}
+
+table.header-table>thead.single-row>tr>th {
+	height: 25px;
+}
+
+table.header-table>thead.double-row>tr>th {
+	height: 50px;
+}
+
+table.header-table>thead.double-row>tr>th>div.one-row-content>h2 {
+	line-height: 25px;
+	padding: 12.5px 0px 12.5px 0px;
+}
+
+table.header-table>thead.double-row>tr>th>div.two-row-content>h2 {
+	line-height: 20px;
+	padding: 5px 0px 5px 0px;
+}
+
+b, strong * {
+	font-family: 'open_sansbold';
+	font-size: 12px;
+	font-weight: normal;
+}
+
+strong.arabic {
+	font-weight: bold;
+}
+
+p {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+span+p {
+	margin-top: 5px;
+}
+
+li:last-child {
+	margin-bottom: 15px;
+}
+
+sup {
+	font-size: inherit;
+}
+
+a {
+	color: #0000ff;
+	text-decoration: none;
+}
+
+h1.page-title {
+	font-size: 15px !important;
+	line-height: 20px;
+	display: block;
+	font-family: 'open_sansbold';
+	text-transform: uppercase;
+	text-align: center;
+	padding: 10px 0px 20px 0px;
+}
+
+ol.upper-alpha {
+	list-style-type: upper-alpha;
+}
+
+ol.lower-alpha {
+	list-style-type: lower-alpha;
+	font-family: 'open_sanssemibold';
+}
+
+ol.lower-roman {
+	list-style-type: lower-roman;
+}
+
+ol.upper-alpha>li {
+	font-family: 'open_sansbold';
+}
+
+ol.decimal>li {
+	font-family: 'open_sansbold' !important;
+}
+
+#termsConditions .paragraph-container ol.decimal>li {
+	font-family: 'open_sansbold' !important;
+}
+
+#termsConditions .paragraph-container ol.decimal>li>ol>li {
+	font-family: 'open_sansbold' !important;
+}
+
+#termsConditions .paragraph-container ol.decimal>li>ol.lower-alpha>li {
+	font-family: 'open_sanssemibold' !important;
+}
+
+ol.disc {
+	list-style-type: disc;
+}
+
+ol.disc-arabic {
+	list-style-type: disc;
+	margin-right: 20px;
+}
+
+
+ol.dash {
+  list-style-type: none;
+}
+
+ol.dash > li:before {
+  content: "-";
+  display: inline-block;
+  text-indent: -8px;
+}
+
+ol.no-list {
+	list-style-type: none;
+}
+
+ol.arabic-none {
+	list-style-type: arabic-indic;
+}
+
+ol.arabic-decimal {
+	list-style-type: arabic-indic;
+}
+
+ol.no-list>li {
+	font-family: 'open_sansbold';
+}
+
+ol.inc-counter>li {
+	counter-increment: item;
+}
+
+ol.reset-counter {
+	counter-reset: item;
+}
+
+ol.sub-list {
+	list-style: none;
+}
+ol.sub-listarabic {
+	list-style: none;
+}
+
+ol.sub-list>li:before {
+	counter-increment: item;
+	content: " ." counters(item, ".");
+	display: inline-block;
+	width: 32px;
+	margin-left: -36px;
+	margin-right: 4px;
+	text-align: right;
+	direction: rtl;
+}
+
+
+ol.sub-listarabic>li:before {
+	counter-increment: item;
+	content: " ." counters(item,".");
+	display: inline-block;
+	width: 32px;
+	margin-left: 10px;
+	margin-right: 4px;
+	text-align: right;
+	direction: rtl;
+}
+ol.sub-list>li {
+	margin-bottom: 10px;
+}
+ol.sub-listarabic>li {
+	margin-bottom: 10px;
+}
+
+ol>li>span, ol>li>p {
+	font-family: 'open sans', sans-serif;
+	font-size: 12px;
+	line-height: 16px;
+	color: #5d5d5d;
+}
+
+ol.addmargin-bottom>li {
+	margin-bottom: 10px;
+}
+
+ol.normal-font>li {
+	font-family: 'open_sanssemibold';
+}
+
+/* 
+
+
+ol.bracket {
+	list-style: none;
+	counter-reset: bracket;
+}
+
+ol.bracket.lower-alpha li:before {
+	content: "(" counter(bracket, lower-alpha)  ")";
+	counter-increment: bracket;
+	display: inline-block;
+	width: 24px;
+	margin-left: -28px;
+	margin-right: 4px;
+	text-align: right; 
+	direction: rtl;
+}
+
+
+ */
+.paragraph-container {
+	margin: -20px auto 30px auto;
+	padding: 0px 20px 0px 20px;
+	text-align: justify;
+
+}
+
+#termsConditions .paragraph-container * {
+	font-size: 12px;
+	line-height: 16px;
+	color: #5d5d5d;
+	font-family: 'open sans', sans-serif;
+}
+
+.container {
+	margin: 0 auto;
+	clear: both;
+	display: block;
+}
+
+.inner-container {
+	margin: 15px auto 15px auto;
+	clear: both;
+}
+
+.inner-container-header {
+	margin: 15px 15px 15px 15px;
+	clear: both;
+}
+
+.header-container {
+	padding: 0px 0px 5px 0px;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.header {
+	display: block;
+	/*border-bottom: 1px solid #ec1c24;*/
+	width: 100%;
+	margin-bottom: 15px;
+	padding-left: 0px;
+	overflow: hidden;
+	clear: both;
+}
+
+.rakbanklogo-container {
+	float: left;
+	min-width: 200px;
+	padding-top: 11px;
+}
+
+.heading-container {
+	padding: 5px 0px 10px 0px;
+}
+
+.pageheading {
+	min-height: 20px;
+	font-size: 15px !important;
+	line-height: 20px;
+	display: block;
+	color: #ec1c24;
+	font-family: 'open_sanssemibold';
+	text-transform: uppercase;
+	border-bottom: 2px solid #ec1c24;
+	padding-left: 5px;
+	text-align: justify;
+}
+
+.pageheading2FA {
+	min-height: 20px;
+	font-size: 15px !important;
+	line-height: 20px;
+	display: block;
+	color: #ec1c24;
+	font-family: 'open_sanssemibold';
+	text-transform: uppercase;
+	border-bottom: 2px solid #ec1c24;
+	padding-left: 5px;
+	 
+}
+
+.block-header {
+	overflow: hidden;
+	position: relative;
+	clear: both;
+	padding: 0 5px;
+	width: initial !important;
+	margin: 0px 0px 3px 0px;
+	height: 50px;
+	background-color: #ec1c24;
+}
+
+.block-header a.block-status {
+	position: absolute;
+	/* 	background: url("../img/menu-icon5.png") center no-repeat; */
+	background: url("../images/icon_1.png") center no-repeat;
+	width: 35px;
+	height: inherit;
+	top: 0;
+	right: 0;
+}
+
+.block-header h2 {
+	color: #ffffff;
+	font-size: 11px;
+	font-family: open_sanssemibold;
+	border: 0;
+	vertical-align: middle;
+	/* height: 50px;
+	line-height: 50px; */
+	padding-right: 30px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.table-header {
+	padding: 0 5px;
+	width: initial !important;
+	margin: 0px 0px 3px 0px;
+	background-color: #5d5d5d;
+	height: inherit;
+}
+
+.table-header h2 {
+	color: #ffffff;
+	font-size: 11px;
+	font-family: open_sanssemibold;
+	border: 0;
+	vertical-align: middle;
+	/* height: 25px;
+	line-height: 25px; */
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.displayitalic {
+	font-size: 9px;
+	font-family: 'open_sanslight_italic';
+	line-height: 9px;
+}
+
+.content-identifier-tag {
+	font-size: 10px;
+	color: #5d5d5d;
+	font-family: 'open sans', sans-serif;
+}
+
+.textcontainer {
+	position: static;
+	text-align: left;
+	margin: 5px 5px 5px 5px;
+}
+
+.notecontainer {
+	text-align: left;
+	margin: 0px 0px 0px 0px;
+	width: inherit;
+}
+
+.notebullet {
+	font-size: 11px;
+	font-family: 'open_sanssemibold';
+	padding: 0px 0px 0px 5px;
+	width: 10px;
+}
+
+.notetext {
+	font-size: 11px;
+	font-family: 'open_sanssemibold';
+	padding: 0px 0px 0px 0px;
+	text-align: justify;
+}
+
+.disclaimertable {
+	margin: 15px 0px 5px 0px;
+	border-bottom: 2px solid #ec1c24;
+	width: 100%
+}
+
+.disclaimertext {
+	font-size: 11px;
+	font-family: 'open_sansbold';
+}
+
+.divtable {
+	display: table;
+	border-spacing: 5px 6px;
+}
+
+.divrow {
+	display: table-row;
+}
+
+.divcell {
+	display: table-cell;
+}
+
+.largecolumn-30 {
+	width: 30% !important;
+}
+
+.min-width-200 {
+	min-width: 200px;
+}
+
+.min-width-125-imp {
+	min-width: 125px !important;
+}
+
+.min-width-100 {
+	min-width: 100px;
+}
+
+.min-width-80 {
+	min-width: 80px;
+}
+
+.table-border-spacing {
+	border-spacing: 0px 6px;
+}
+
+.width-80-percent {
+	width: 80%;
+}
+
+.width-60-percent {
+	width: 60%;
+}
+
+.width-40-percent {
+	width: 40%;
+}
+
+.width-20-percent {
+	width: 20%;
+}
+
+.rtl-text {
+	direction: rtl;
+}
+
+
+.rak-static-scroll{
+        overflow-y:scroll;
+	-webkit-overflow-scrolling:touch;
+	-webkit-transform:translate3d(0,0,0);
+	transform:translate3d(0,0,0);
+        height:460px;
+	height:67vh;
+	bottom:40px;
+    overflow-x:hidden;
+
+}
+
+.broadHeader{
+	height:34px !important;
+}
+
+@media screen and (width: 320px) and (height: 568px) {
+	.rakbanklogo-img {
+		    background-size: 279px !important;
+	}
+	
+}
+
+@media only screen and (min-width : 0px) and (max-width:767px) {
+	
+	.broadHeader{
+	height:66px !important;
+	}
+	.hideinmobile-block, .hideinmobile-table, .hideinmobile-table-cell {
+		display: none !important;
+	}
+	.displayinmobile-block {
+		display: block;
+	}
+	.displayinmobile-table {
+		display: table;
+	}
+	.displayinmobile-table-cell {
+		display: table-cell;
+	}
+	.min-mobile-width {
+		min-width: 320px;
+	}
+	.min-mobile-container-width {
+		min-width: 300px;
+	}
+	table {
+		border-bottom: 5px;
+	}
+	tbody {
+		font-family: open_sansbold;
+		color: #333333;
+	}
+	td, th {
+		height: 50px;
+	}
+	table.mob-one-col>tbody>tr>td, table.mob-one-col>thead>tr>th {
+		width: 100%;
+	}
+	table.mob-two-col>tbody>tr>td, table.mob-two-col>thead>tr>th {
+		width: 50%;
+	}
+	table.mob-three-col>tbody>tr>td, table.mob-three-col>thead>tr>th {
+		width: 33%;
+	}
+	table.mob-four-col>tbody>tr>td, table.mob-four-col>thead>tr>th {
+		width: 35%;
+	}
+	table.mob-five-col>tbody>tr>td, table.mob-five-col>thead>tr>th {
+		width: 20%;
+	}
+	table.mob-six-col>tbody>tr>td, table.mob-six-col>thead>tr>th {
+		width: 16.66%;
+	}
+	table.mob-seven-col>tbody>tr>td, table.mob-seven-col>thead>tr>th {
+		width: 14.8%;
+	}
+	table.height-25>tbody>tr>td, table.height-25>thead>tr>th {
+		height: 25px;
+	}
+	tr.height-25>td, tr.height-25>th {
+		height: 25px;
+	}
+	table.mob-nopadding>tbody>tr>td:first-child, table.mob-nopadding>thead>tr>th:first-child
+		{
+		padding: 0px 0px 0px 0px !important;
+	}
+	table.mob-nopadding>tbody>tr>td:last-child, table.mob-nopadding>thead>tr>th:last-child
+		{
+		padding: 0px 0px 0px 0px !important;
+	}
+	table.table-text-left>tbody>tr>td>span {
+		display: block;
+		margin-left: 5px;
+	}
+	.header-table.overflow-table {
+		overflow: hidden;
+		display: block;
+	}
+	.overflow-table {
+		overflow-x: auto;
+		display: block;
+	}
+	.inner-container {
+		margin: 15px 5px 15px 5px;
+		clear: both;
+	}
+	.inner-container-header {
+		margin: 15px 5px 15px 5px;
+		clear: both;
+	}
+	ol {
+		margin: 15px 0px 15px 0px;
+		list-style-position: inside;
+	}
+	ol.sub-list>li:before {
+		width:auto;
+		margin-left: 0px;
+		margin-right: 4px;
+	}
+	span.inlineBlock {
+		display: block;
+	}
+	.mob-large-220-column {
+		min-width: 220px;
+	}
+	.mob-large-200-column {
+		min-width: 200px;
+	}
+	.mob-large-190-column {
+		min-width: 190px;
+	}
+	.mob-large-column {
+		min-width: 150px;
+	}
+	.mob-medium-120-column {
+		min-width: 120px;
+	}
+	.mob-medium-125-column {
+		min-width: 125px;
+	}
+	.mob-medium-column {
+		min-width: 100px;
+	}
+	.mob-small-column {
+		min-width: 50px;
+	}
+	.mob-small-60-column {
+		min-width: 60px;
+	}
+	.mob-small-70-column {
+		min-width: 70px;
+	}
+	.mob-small-85-column {
+		min-width: 85px;
+	}
+	.rakbanklogo-img {
+		background-image: url("../images/LogoAdd_Mobile.png");
+		background-repeat: no-repeat;
+		width: 315px;
+		height: 40px;
+	}
+	.mob-column-85-height {
+		height: 85px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.displayinmobile-block, .displayinmobile-table,
+		.displayinmobile-table-cell {
+		display: none !important;
+	}
+	.hideinmobile-block {
+		display: block;
+	}
+	.hideinmobile-table {
+		display: table;
+	}
+	.hideinmobile-table-cell {
+		display: table-cell;
+	}
+	table {
+		border-spacing: 0px 5px;
+		overflow: hidden;
+		margin-top: -5px;
+	}
+	tbody {
+		font-family: open_sanssemibold;
+		color: #5d5d5d;
+	}
+	td, th {
+		height: 25px;
+	}
+	table.four-col {
+		width: 748px;
+	}
+	table.seven-col>tbody>tr>td, table.seven-col>thead>tr>th {
+		width: 14.8%;
+	}
+	table.six-col>tbody>tr>td, table.six-col>thead>tr>th {
+		width: 16.66%;
+	}
+	table.five-col>tbody>tr>td, table.five-col>thead>tr>th {
+		width: 20%;
+	}
+	table.four-col>tbody>tr>td, table.four-col>thead>tr>th {
+		width: 25%;
+	}
+	table.three-col>tbody>tr>td, table.three-col>thead>tr>th {
+		width: 33%;
+	}
+	table.two-col>tbody>tr>td, table.two-col>thead>tr>th {
+		width: 50%;
+	}
+	table.one-col>tbody>tr>td, table.one-col>thead>tr>th {
+		width: 50%;
+	}
+	table.table-text-left>tbody>tr>td>span {
+		display: block;
+		margin-left: 5px;
+	}
+	.inner-container {
+		width: 748px;
+	}
+	ol {
+		margin: 10px 0px 10px 15px;
+		list-style-position: outside;
+	}
+	ol.arabic {
+		margin: 10px 20px 10px 0px !important;
+	}
+	span.inlineBlock {
+		display: block;
+	}
+	.large-400-column {
+		min-width: 400px;
+	}
+	.large-column {
+		min-width: 300px;
+	}
+	.medium-column {
+		min-width: 200px;
+	}
+	.medium-column-250 {
+		min-width: 250px;
+	}
+	.medium-column-150 {
+		min-width: 150px;
+	}
+	.rakbanklogo-img {
+		background-image: url("../images/LogoAdd_Desktop.png");
+		background-repeat: no-repeat;
+		width: 250px;
+		height: 30px;
+	}
+	.height-40 {
+		height: 40px;
+	}
+	.padding-one-col {
+		padding: 0px 0px 0px 3px;
+	}
+	.reduce-top-margin-10 {
+		margin-top: -10px;
+	}
+}

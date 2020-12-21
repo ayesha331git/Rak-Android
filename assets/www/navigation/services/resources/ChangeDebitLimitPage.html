@@ -1,0 +1,103 @@
+<div class="app app-arrow2 title-right-dash" ng-click="setEvent('onCancelClick')"  id="blockCreditCardBackAction"></div>
+<div class="finacle-container"
+	ng-init="services.changeDCLimitInitGetAcc(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase" id="CDLPHeader">
+							{{appLiterals.APP.SERVICES.COMMON.CHANGE_DEBIT_CARD_LIMIT}}</div>
+					</div>
+
+
+					<form id="CDLPFormSubmit"
+						ng-submit="corpInit.corpModel.resetCorpInitDetails();services.changeDCLimitModel.unFormatNumbers();services.errMsg();">
+
+						<div class="avail-bal-wrap"
+							ng-init='existingAcc = createDropDownOptionAccountArray(services.changeDCLimitInitResponse.accountDetailList,["accountNickname", "-", "accountNumber"],"accountIndex");'>
+							<fin-input type="dropdown"
+								model="services.changeDCLimitModel.accountNumber"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.CHNG_DEBIT_LIMIT.PH_ACC_NO}}"
+								validation-flag='pageErrorArr["services.changeDCLimitModel.accountNumber"]'
+								option-array="existingAcc"
+								on-change="services.changeDCLimitModel.isBack=true;setEvent('onAccountNumberChange')"></fin-input>
+						</div>
+
+
+						<div class="avail-bal-wrap"
+							ng-init='debitCardList = createDropDownOptionArray(services.changeDCLimitInitResponse.cardTypeList,["debitCardNumber"],"debitCardIndex");'>
+							<fin-input type="dropdown" ng-show="debitCardList.length>0"
+								model="services.changeDCLimitModel.cardType" display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.CHNG_DEBIT_LIMIT.PH_DC_NO}}"
+								validation-flag='pageErrorArr["services.changeDCLimitModel.cardType"]'
+								option-array="debitCardList"
+								on-change="services.changeDCLimitModel.isBack2=true;services.changeDCLimitModel.refresh=true;setEvent('onDebitCardChange')"></fin-input>
+						</div>
+
+						<div class="col-sm-12">
+							<div class=" account-detail-dash margin-zero"
+								ng-if="services.changeDCLimitInitResponse.debitCardResponce.nameOnCard">
+								<strong class="trans-no" id="CDCLPNameOnCardLabel">{{appLiterals.APP.SERVICES.CHNG_DEBIT_LIMIT.TXT_NAME_OF_CARD}}
+								</strong> <span class="dash-ac-id" id="CDCLPNameOnCardValue">{{services.changeDCLimitInitResponse.debitCardResponce.nameOnCard}}</span>
+							</div>
+
+							<div class=" account-detail-dash margin-zero"
+								ng-if="services.changeDCLimitInitResponse.debitCardResponce.status">
+								<strong class="trans-no" id="CDCLPStatusLabel">{{appLiterals.APP.COMMON.TEXT.STATUS}}
+								</strong> <span class="dash-ac-id" id="CDCLPStatusValue">{{services.changeDCLimitInitResponse.debitCardResponce.status}}</span>
+							</div>
+							<div></div>
+						</div>
+
+						<div
+							class=" col-sm-12 account-detail-dash margin-zero clear-all no-border center"
+							ng-show="services.changeDCLimitModel.refresh">
+							<div class="margin-top-15 margin-bottom-15 fut-txt1"
+								id="CDCLPChannelModeLabelTransaction">{{appLiterals.APP.SERVICES.CHNG_DEBIT_LIMIT.TRANS_MODE}}</div>
+						</div>
+						<div class="" ng-show="services.changeDCLimitModel.refresh"
+								ng-repeat="channel in services.changeDCLimitInitResponse.debitCardList"
+								ng-init="services.convertToMoney($index,channel.newLimit);services.setCurrency($index,channel.newLimitCurrency);services.changeDCLimitModel.limit[$index]=channel.newLimit;formatAmountCrn('services.changeDCLimitModel.newLimit','services.changeDCLimitModel.newLimitCrn', 'ALL')">
+
+
+							<div
+								class="col-sm-12 account-detail-dash margin-zero clear-all no-border"
+									ng-init="standardLimit=parseMoney(channel.standardLimit,channel.standardLimitCurrency)">
+
+									<div class="fut-txt1 lh13" id="CDCLPChannelModeLabel">{{channel.mode}}</div>
+							</div>
+							<div class="col-sm-12 trans-detail no-border">
+										<div class="trans-dash-left">
+											<div class="trans-no" id="CDCLPStandardLimitLabel">{{appLiterals.APP.SERVICES.CHNG_DEBIT_LIMIT.TXT_STD_LIMIT}}
+											</div>
+										</div>
+										<div class="trans-dash-right">
+											<fin-balance amount="{{standardLimit}}" amount-class="amt-rs"
+												currency-class="amt-rs display-inline-block" />
+								</div>
+										</div>
+										<fin-input type="money"
+											model="services.changeDCLimitModel.newLimit[$index]"
+											display-row="full"
+											placeholder="{{appLiterals.APP.SERVICES.CHNG_DEBIT_LIMIT.TXT_NEW_LIMIT}}"
+											validation-flag='pageErrorArr["services.changeDCLimitModel.newLimit[" + {{$index}} +"]"]'
+											on-change="services.changeValue($index);"
+											related-field="services.changeDCLimitModel.newLimitCrn[$index]"></fin-input>
+
+
+
+
+
+						</div>
+
+						<md-button type="submit" class=" md-raised btn--primary-btn ">
+						{{appLiterals.APP.COMMON.BUTTON.CONTINUE}} </md-button>
+						</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

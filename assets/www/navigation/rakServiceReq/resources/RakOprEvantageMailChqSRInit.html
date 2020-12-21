@@ -1,0 +1,131 @@
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onRAKOprEvantageMailChqBackClick');"></i>
+	</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="resetPageError();rakServiceReq.rakOprEvantageMailChqReqInit(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					
+					<div class="">
+
+						<div class="summary-ServiceReq" ng-if='rakServiceReq.RakOprEvantageMailChqReq.counter>0 && rakServiceReq.RakOprEvantageMailChqReq.EditOption==""' >
+							<div class="iconDiv">
+								<span class="infoIcon"></span><span class="success">{{appLiterals.APP.RAK_SERVICES.RAK_OPR_EVMAILCHQ.ENTRY_MSG}}[{{rakServiceReq.RakOprEvantageMailChqReq.counter}}]</span>
+							</div>
+						</div>
+				
+						<div class="main-form-heading-ServiceReq"> 
+					      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.OPR_EV_MAILCHQ}}
+					      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+					      </h2>		       
+			 		</div>
+						<div class="bg-color rak-cont-padding rak-scroll">
+							<div class="row">
+								
+
+								<fin-input type="text_noSpecialCharacterWithSpace"
+									model="rakServiceReq.RakOprEvantageMailChqReq.benName"
+									display-row="full" pattern="[A-Za-z0-9]{100}"
+									validation-flag='pageErrorArr["rakServiceReq.RakOprEvantageMailChqReq.benName"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_OPR_EVMAILCHQ.NAME}}"
+									err-msg='{{appLiterals.APP.RAKERRORMSG.RAKSENDMONEY.ENTER_AMOUNT}}'>
+								</fin-input>
+
+								<fin-input type="money"
+									model="rakServiceReq.RakOprEvantageMailChqReq.amtNum"
+									display-row="full"
+									validation-flag='pageErrorArr["rakServiceReq.RakOprEvantageMailChqReq.amtNum"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_OPR_EVMAILCHQ.AMT_NUM}}"
+									err-msg='{{ appLiterals.APP.RAKERRORMSG.RAKSENDMONEY.ENTER_AMOUNT}}'>
+								</fin-input>
+
+
+								<fin-input type="text_noSpecialCharacterWithSpace"
+									model="rakServiceReq.RakOprEvantageMailChqReq.amtWords"
+									display-row="full"
+									validation-flag='pageErrorArr["rakServiceReq.RakOprEvantageMailChqReq.amtWords"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_OPR_EVMAILCHQ.AMT_TXT}}">
+								</fin-input>
+
+								<fin-input type="number_card"
+									model="rakServiceReq.RakOprEvantageMailChqReq.quantity"
+									display-row="full" maxlength="2"
+									validation-flag='pageErrorArr["rakServiceReq.RakOprEvantageMailChqReq.quantity"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_OPR_EVMAILCHQ.QUANTITY}}">
+								</fin-input>
+
+								<div
+									ng-init='resArr = createDropDownOptionArray(rakServiceReq.RakOprEvantageMailChqReq.reasonList, ["reasonDesc"], "reasonIndex");'></div>
+								<fin-input type="dropdown"
+									model="rakServiceReq.RakOprEvantageMailChqReq.reason"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_OPR_EVMAILCHQ.REASON}}"
+									validation-flag='pageErrorArr["rakServiceReq.RakOprEvantageMailChqReq.reason"]'
+									option-array="resArr"> </fin-input>
+
+
+
+								<fin-input type="text"
+									ng-show="rakServiceReq.RakOprEvantageMailChqReq.reason=='Others'"
+									model="rakServiceReq.RakOprEvantageMailChqReq.others" 
+									display-row="full" max-length="70"
+									validation-flag='pageErrorArr["rakServiceReq.RakOprEvantageMailChqReq.others"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_OPR_EVMAILCHQ.OTHERS}}">
+								</fin-input>
+
+
+								<div class="label-wrap" ng-if='rakServiceReq.RakOprEvantageMailChqReq.EditOption!="";'>
+								
+										<button type="button"
+										class="btn--special-btn btn-middle rak-button-small btn--back"
+										ng-click="rakServiceReq.RakOprEvantageMailChqOthers();rakServiceReq.rakOprEvantageMailChqReqAddToList();">
+										Update</button>
+
+											
+								</div>
+
+
+								<div class="label-wrap" ng-if='rakServiceReq.RakOprEvantageMailChqReq.EditOption=="";'>
+									<!-- <button type="button"
+										class="btn--special-btn btn-middle rak-button-small btn--back"
+										ng-click="setEvent('onUnBlockCreditCardHomeBackClick');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button> -->
+
+
+								<!-- 	<button type="button"
+										class="btn--special-btn btn-middle rak-button-small rak-btn-large-text btn--back"
+										ng-click="setEvent('onRAKOprEvantageMailChqAddClick');rakServiceReq.RakOprEvantageMailChqOthers();rakServiceReq.rakOprEvantageMailChqReqAddToList();">
+										{{appLiterals.APP.RAK_SERVICES.RAK_OPR_EVMAILCHQ.ADD_LIST}} [{{rakServiceReq.RakOprEvantageMailChqReq.counter}}]</button> -->
+
+											<button type="button"
+										class="btn--special-btn btn-middle rak-button-small "
+										ng-click="rakServiceReq.RakOprEvantageMailChqOthers();rakServiceReq.rakOprEvantageMailChqReqAddToList();">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+								</div>
+								<div class="col-sm-1"></div>
+								
+								
+								<div class="disclaimer">
+                                                 <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                                 <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                                 </div>                                                 
+                                                 
+                                                 <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+                                                 	<div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKEVAMAIL_INIT"></div>
+													<span ng-click="rakServiceReq.fetchDisclaimer('AcntAndDebitCardSrvcRqstsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKEVAMAIL_INITPAGE"></span>
+													<span ng-click="rakServiceReq.fetchDisclaimer('AccountServiceRequestsCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKEVAMAIL_INITPAGECONT"></span>
+												</div>
+                                                 
+                                 </div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

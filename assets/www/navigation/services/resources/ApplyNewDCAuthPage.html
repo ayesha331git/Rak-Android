@@ -1,0 +1,75 @@
+<div id="applyNewDCModel.isBack" class="app app-arrow2 title-right"
+	ng-click="services.applyNewDCModel.isBack=true;setEvent('onPrevServiceClick');"></div>
+<div class="finacle-container"
+	ng-init="services.initApplyNewDCConfirm(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper">
+				
+				<div id=".APP_NEW_DC_AUTH.TITLE1" class="title-center">
+					{{appLiterals.APP.SERVICES.APP_NEW_DC_AUTH.TITLE}}</div>
+			</div>
+
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div id="SERVICES.APP_NEW_DC_AUTH.TITLE" class="item-title text-uppercase">{{appLiterals.APP.SERVICES.APP_NEW_DC_AUTH.TITLE}}</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="dashboard-details">
+							<div class=" account-detail-dash margin-zero">
+								<b id="APP_NEW_DC_AUTH.TXT_ACC_NO" class="dash-ac-no">
+									{{appLiterals.APP.SERVICES.APP_NEW_DC_AUTH.TXT_ACC_NO}}</b> 
+									<span id="applyNewDCModel.confirmResponse.accountNickNameconfirmResponse.accountNumber" 
+									class="trans-date">{{services.applyNewDCModel.confirmResponse.accountNickName}}-{{services.applyNewDCModel.confirmResponse.accountNumber}}
+								</span>
+							</div>
+							<div class="account-detail-dash margin-zero">
+								<b id="SERVICES.APP_NEW_DC_AUTH.TXT_NAME_ON_CARD" class="dash-ac-no">
+									{{appLiterals.APP.SERVICES.APP_NEW_DC_AUTH.TXT_NAME_ON_CARD}}</b> 
+									<span id="services.applyNewDCModel.confirmResponse.nameOnCard"
+									class="trans-date">{{services.applyNewDCModel.confirmResponse.nameOnCard}}</span>
+							</div>
+							<div class="account-detail-dash margin-zero">
+								<b id="APP_NEW_DC_AUTH.TXT_CARD_TYPE" class="dash-ac-no">
+									{{appLiterals.APP.SERVICES.APP_NEW_DC_AUTH.TXT_CARD_TYPE}}</b> 
+									<span id="applyNewDCModel.confirmResponse.cardType" 
+									class="trans-date">{{services.applyNewDCModel.confirmResponse.cardType}}</span>
+							</div>
+							</div>
+
+							<div
+								ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+								<approval-input></approval-input>
+							</div>
+
+							
+
+
+
+
+
+<form ng-submit="corpInit.corpModel.getSelectedRoleDetailsAsString();setEvent('onDCSuccessClick')">
+
+<fin-Stepauth></fin-Stepauth>
+
+							<md-button id="applyNewDCModel.isOnlinetrue" type="submit"
+								ng-if="services.applyNewDCModel.isOnline == true"
+								class="md-raised btn--primary-btn">
+								<!-- ng-click="corpInit.corpModel.getSelectedRoleDetailsAsString();setEvent('onDCSuccessClick')"> -->{{appLiterals.APP.COMMON.BUTTON.SUBMIT}}
+							</md-button>
+							<md-button id="applyNewDCModel.isOnlinefalse" type="submit"
+								ng-if="services.applyNewDCModel.isOnline == false"
+								class="md-raised btn--primary-btn">
+								<!-- ng-click="corpInit.corpModel.getSelectedRoleDetailsAsString();setEvent('onDCSuccessClick')"> -->
+								{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD_AUTH.BTN_SUBMIT_TO_RM}}
+							</md-button>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		
+	</div>
+	</div>

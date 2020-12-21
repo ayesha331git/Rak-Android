@@ -1,0 +1,43 @@
+<div id="selectMBAASUrl" class="app app-arrow2 title-right"
+	ng-click="setGlobalEvent('onSelectBankIdBackClick')"></div>
+<div class="finacle-container"
+	ng-init="myProfile.MBAASURL='';setSingleStepRealmAuthFailure();">
+	<div class="account-page">
+		<div class="col-sm-12">
+
+			<div class="dashboard-pad padding-bottom-zero full-height">
+				<div class="dashboard-item-body full-height">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div id="mbaasTitle" class="item-title text-uppercase">Set MBAAS URL</div>
+					</div>
+
+					<p id="mbaasText" class="col-sm-12 fut-txt1 margin-bottom-20">Enter the MBAAS
+						URL in format protocol://host-or-ip:port/context-root</p>
+					<form ng-submit="myProfile.setServerURL()">
+						<fin-input type="text" model="myProfile.MBAASURL"
+							display-row="full"
+							placeholder="protocol://host-or-ip:port/context-root"
+							validation-flag='pageErrorArr["myProfile.MBAASURL"]'>
+						</fin-input>
+
+						<section class="button-wrapper" layout="row"
+							layout-align="center center" layout-wrap>
+							<md-button id="saveMBAASUrl" type="submit"
+								class=" md-raised btn--primary-btn">SAVE</md-button>
+						</section>
+					</form>
+
+					<p id="currentURL" class="col-sm-12 fut-txt1 margin-top-20 margin-bottom-15">Current
+						MBAAS URL {{myProfile.CURRENT_MBAASURL}}</p>
+
+					<section class="button-wrapper" layout="row"
+						layout-align="center center" layout-wrap>
+						<md-button id="fetchMBAASUrl" type="button"
+							ng-click="myProfile.getServerURL()"
+							class="md-raised btn--primary-btn">FETCH MBAAS URL ID</md-button>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

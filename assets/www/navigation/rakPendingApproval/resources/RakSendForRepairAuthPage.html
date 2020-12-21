@@ -1,0 +1,234 @@
+<div ng-if="rakPendingApproval.fromSearch==true">
+
+<div class="rak-back-header" ng-if="rakPendingApproval.isFromLandingPage==true">
+	<i class="rak-back-img" ng-click="rakPendingApproval.isBack=true; setEvent('gotoLandingPageClickBack');"></i>
+</div>
+<div class="rak-back-header" ng-if="rakPendingApproval.isFromLandingPage==false">
+	<i class="rak-back-img" ng-click="rakPendingApproval.isBack=true; setEvent('onPrevClick');"></i>
+</div>
+
+</div>
+<div ng-if="rakPendingApproval.fromSearch==false">
+<div class="rak-back-header" ng-if="rakPendingApproval.isFromLandingPage==true">
+	<i class="rak-back-img" ng-click="rakPendingApproval.isBack=true; setGlobalEvent('onPendingApprovalClick');"></i>
+</div>
+<div class="rak-back-header" ng-if="rakPendingApproval.isFromLandingPage==false">
+	<i class="rak-back-img" ng-click="rakPendingApproval.isBack=true; setEvent('onPrevClick');"></i>
+</div>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container ng-scope"
+			ng-init='resetPageError(); rakHome.AuthPageData.firstAuthModeValue=""; rakPendingApproval.reason="";
+	rakPendingApproval.responsePendingApprovalDetails(successResponse.responsesList);'>
+		<div class="account-page">
+			<div class="col-sm-11">
+			
+			
+			
+					
+					<div class="main-form-heading-ServiceReq" ng-if="rakPendingApproval.clickedEvent=='SFR'">
+						<div class="rakBenfHeader" id="moveMoneyRAPHeader">{{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.SEND_FOR_REPAIR}}</div>
+					</div>
+					<div class="main-form-heading-ServiceReq" ng-if="rakPendingApproval.clickedEvent=='RECALL'">
+						<div class="rakBenfHeader" id="moveMoneyRAPHeader">{{appLiterals.APP.RAKPENDINGAPPROVAL.OTHERS.RECALL_TXN}}</div>
+					</div>
+					
+						<div class="summary-ServiceReq" ng-show="rakPendingApproval.detailModel.successMsg">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakPendingApproval.detailModel.successMsg}}</span>
+                        </div>
+                    </div>
+                  
+					
+					<div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh">
+						<div class="">
+						
+							
+				<p class="rak-sum-txt ">
+							<span id="moveMoneyTAPToField1" class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.TRANSACTION_TYPE}}</span>
+							<span id="moveMoneyTAPToFieldValue" class="rak-sum-label black">{{rakPendingApproval.detailModel.txnDesc}}</span>
+						</p>
+						<p class="rak-sum-txt " ng-show="rakPendingApproval.approvalReasonDesc && rakPendingApproval.pendingApprovalTab!='PIA'">
+							<span id="moveMoneyTAPToField1" class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.REQUEST_TYPE}}</span>
+							<span id="moveMoneyTAPToFieldValue" class="rak-sum-label black">{{rakPendingApproval.approvalReasonDesc}}</span>
+						</p>
+						<p class="rak-sum-txt ">
+							<span id="moveMoneyTAPToField1" class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.REFERENCEID}}</span>
+							<span id="moveMoneyTAPToFieldValue" class="rak-sum-label black">{{rakPendingApproval.detailModel.requestId}}</span>
+						</p>
+						
+						<p class="rak-sum-txt"  ng-show="rakPendingApproval.detailModel.hostRefNo">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.BANKTRANSACTIONID}}</span>
+					<span class="rak-sum-label black">{{rakPendingApproval.detailModel.hostRefNo}}</span>
+				</p>
+				
+	           <p class="rak-sum-txt" >
+                    <span class="rak-sum-label">{{appLiterals.APP.RAKPENDINGAPPROVAL.DETAILS.FROM}}</span>
+                    <span class="rak-sum-label black">{{rakPendingApproval.detailModel.displayAccount}}</span>
+                </p>
+                
+                <p class="rak-sum-txt" ng-show="rakPendingApproval.detailModel.txnType!='OWN'">
+                    <span class="rak-sum-label" ng-show="rakPendingApproval.detailModel.txnType=='WRB' || rakPendingApproval.detailModel.txnType=='WCT' || rakPendingApproval.detailModel.txnType=='OCT'">{{appLiterals.APP.RAKPENDINGAPPROVAL.DETAILS.TO}}</span>
+                    <span class="rak-sum-label" ng-show="rakPendingApproval.detailModel.txnType=='IBP'">{{appLiterals.APP.RAKPENDINGAPPROVAL.DETAILS.LB_PAY_TO}}</span>
+                    <span class="rak-sum-label" ng-show="rakPendingApproval.detailModel.txnType=='RCP'||rakPendingApproval.detailModel.txnType=='SVC'|| rakPendingApproval.detailModel.txnType=='NCP'||rakPendingApproval.detailModel.txnType=='WCP'">{{appLiterals.APP.RAKPENDINGAPPROVAL.DETAILS.LB_PAYEE}}</span>
+                    <span class="rak-sum-label" ng-show="rakPendingApproval.detailModel.txnType=='PMT' ">{{appLiterals.APP.RAK_PAYEE.HISTORY.LB_BENF_NAME}}</span>
+                    
+                    <span class="rak-sum-label black" ng-show="rakPendingApproval.detailModel.txnType!='IBP'">{{rakPendingApproval.detailModel.destDetails}}</span>
+                    <span class="rak-sum-label black" ng-show="rakPendingApproval.detailModel.txnType=='IBP'">{{rakPendingApproval.detailModel.destDetails}}-{{rakPendingApproval.detailModel.serviceType}}</span>
+                </p>
+                
+            	<p class="rak-sum-txt" ng-show="rakPendingApproval.detailModel.txnType!='IBP' && rakPendingApproval.detailModel.txnType!='OWN' && rakPendingApproval.detailModel.txnType!='PMT' && rakPendingApproval.detailModel.txnType!='MCP' && rakPendingApproval.detailModel.txnType!='SVC'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.LB_BENF_NAME}}</span>
+					<span class="rak-sum-label black">{{rakPendingApproval.detailModel.beneficaryName}}</span>
+				</p>
+                            
+                
+                <p class="rak-sum-txt" ng-show="rakPendingApproval.detailModel.destId && rakPendingApproval.detailModel.txnType!='PMT'">
+                    <span class="rak-sum-label" ng-show="rakPendingApproval.detailModel.txnType=='OWN'">{{appLiterals.APP.RAKPENDINGAPPROVAL.DETAILS.TO}}</span>
+                    <span class="rak-sum-label" ng-show="rakPendingApproval.detailModel.txnType=='WRB'">{{appLiterals.APP.RAK_PAYEE.HISTORY.BFNIBAN}}</span>
+                    <span class="rak-sum-label" ng-show="rakPendingApproval.detailModel.txnType=='OCT'">{{appLiterals.APP.RAK_PAYEE.HISTORY.BFNIBAN}}</span>
+                       <span class="rak-sum-label" ng-show="rakPendingApproval.detailModel.txnType=='WCT'">{{appLiterals.APP.RAK_PAYEE.HISTORY.BFNIBAN}}</span>
+                    <span class="rak-sum-label" ng-show="rakPendingApproval.detailModel.txnType=='IBP'">{{appLiterals.APP.RAK_PAYEE.HISTORY.CONSUM_NO}}</span>
+                    <span class="rak-sum-label" ng-show="rakPendingApproval.detailModel.txnType=='RCP'|| rakPendingApproval.detailModel.txnType=='NCP'||rakPendingApproval.detailModel.txnType=='WCP'">{{appLiterals.APP.RAK_PAYEE.HISTORY.CC_NUMBER}}</span>
+                    <span class="rak-sum-label" ng-show="rakPendingApproval.detailModel.txnType=='SVC'">{{appLiterals.APP.RAK_PAYEE.HISTORY.PPCARD_NUMBER}}</span>
+                    <span class="rak-sum-label black">{{rakPendingApproval.detailModel.destId}}</span>
+                </p>
+                
+                
+                    <p class="rak-sum-txt ">
+                            
+                            <span  class="rak-sum-label" ng-show="rakPendingApproval.detailModel.txnType=='WRB' || rakPendingApproval.detailModel.txnType=='WCT' ||rakPendingApproval.detailModel.txnType=='OCT' || rakPendingApproval.detailModel.txnType=='OWN' || rakPendingApproval.detailModel.txnType=='PMT'">{{appLiterals.APP.RAK_PAYEE.HISTORY.TRANSFERAMT}}</span>
+                            <span  class="rak-sum-label" ng-show="rakPendingApproval.detailModel.txnType=='RCP'||rakPendingApproval.detailModel.txnType=='SVC'|| rakPendingApproval.detailModel.txnType=='NCP'|| rakPendingApproval.detailModel.txnType=='WCP'">{{appLiterals.APP.RAK_PAYEE.HISTORY.LB_PAYMENT_AMT}}</span>
+                            <span  class="rak-sum-label" ng-show="rakPendingApproval.detailModel.txnType=='IBP'">{{appLiterals.APP.RAK_PAYEE.HISTORY.LB_AMT}}</span>
+                            <span  class="rak-sum-label black">{{rakPendingApproval.detailModel.totalAmount}}</span>
+                    </p>
+                        
+                        
+                        
+                        
+                <p class="rak-sum-txt" ng-show="rakPendingApproval.detailModel.debitAmount && rakPendingApproval.detailModel.txnType!='IBP' ">
+                    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.DEBITAMOUNT}}</span>
+                    <span class="rak-sum-label black">{{rakPendingApproval.detailModel.debitAmount}}</span>
+                </p>
+                
+                <p class="rak-sum-txt" ng-show="rakPendingApproval.detailModel.chargeInd && (rakPendingApproval.detailModel.txnType!='NCP'  && rakPendingApproval.detailModel.txnType!='OCT' && rakPendingApproval.detailModel.txnType!='WCT' && rakPendingApproval.detailModel.txnType!='WCP')" >
+                    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.CHARGETYPE}}</span>
+                    <span class="rak-sum-label black">{{rakPendingApproval.detailModel.chargeInd}}</span>
+                </p>
+                
+                                
+              
+                
+                <p class="rak-sum-txt" ng-show="rakPendingApproval.detailModel.freqType=='O'">
+                    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FREQ}}</span>
+                    <span class="rak-sum-label black">{{appLiterals.APP.RAK_PAYEE.HISTORY.ONCE}}</span>
+                </p>
+                
+                <p class="rak-sum-txt" ng-show="rakPendingApproval.detailModel.freqType!='O'">
+                    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FREQ}}</span>
+                    <span class="rak-sum-label black">{{appLiterals.APP.RAK_PAYEE.HISTORY.REC}}</span>
+                </p>
+                
+                <p class="rak-sum-txt" ng-show="rakPendingApproval.detailModel.freqType!='O'">
+                                    <span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.FREQVALUE}}
+                                    </span> <span class="rak-sum-label black">{{rakPendingApproval.detailModel.recFreq}}</span>
+                                </p>
+                                <!-- PROINT-1590 -->
+                                <p class="rak-sum-txt" ng-show="rakPendingApproval.detailModel.freqType!='O'">
+                                    <span class="rak-sum-label" ng-show="rakPendingApproval.detailModel.txnType!='IBP' && rakPendingApproval.detailModel.txnType!='WRB' && rakPendingApproval.detailModel.txnType!='NCP' && rakPendingApproval.detailModel.txnType!='OWN'  && rakPendingApproval.detailModel.txnType!='OCT' &&  rakPendingApproval.detailModel.txnType!='WCT'">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.NOOFRECINSTANCE}}</span> 
+                                    <span class="rak-sum-label" ng-show="rakPendingApproval.detailModel.txnType=='IBP' || rakPendingApproval.detailModel.txnType=='WRB' || rakPendingApproval.detailModel.txnType=='NCP' || rakPendingApproval.detailModel.txnType=='OWN' || rakPendingApproval.detailModel.txnType=='OCT' || rakPendingApproval.detailModel.txnType=='WCT'">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.NO_OF_TRANS}}</span> 
+                                    <span class="rak-sum-label black">{{rakPendingApproval.detailModel.installments}}</span>
+                                </p>
+                                
+                                
+                                
+                 <p class="rak-sum-txt" >
+                    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.DATE}}</span>
+                    <span class="rak-sum-label black">{{rakPendingApproval.detailModel.txnDate}}</span>
+                </p>
+                                
+                <p class="rak-sum-txt" >
+                    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.STATUS}}</span>
+                    <span class="rak-sum-label black">{{rakPendingApproval.detailModel.txn_status}}</span>
+                </p>
+            
+                <p class="rak-sum-txt"    ng-show="rakPendingApproval.detailModel.failReason" ng-show="rakPendingApproval.detailModel.txnType!='IBP'">
+                    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.REASON_FAILURE}}</span>
+                    <span class="rak-sum-label black">{{rakPendingApproval.detailModel.failReason}}</span>
+                </p>
+            
+                    <p class="rak-sum-txt" >
+                    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.CHANNELNAME}}</span>
+                    <span class="rak-sum-label black">{{rakPendingApproval.detailModel.channelId}}</span>
+                </p>
+                
+			<div ng-show="rakPendingApproval.detailModel.txnType!='IBP'">
+                
+                  <!--   <p class="rak-sum-txt" ng-show='rakPendingApproval.detailModel.selPurpose' > 
+                        <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.PURPOSEDETAILS}}</span>
+                        <span class="rak-sum-label black">{{rakPendingApproval.detailModel.selPurpose}}</span>
+                    </p> -->
+                
+                
+                
+                
+                    <p class="rak-sum-txt" ng-show='rakPendingApproval.detailModel.selectedReason' >
+                        <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.REASON}}</span>
+                        <span class="rak-sum-label black">{{rakPendingApproval.detailModel.selectedReason}}</span>
+                    </p>
+                    <p class="rak-sum-txt" ng-show='rakPendingApproval.detailModel.selectedReason1'>
+                        <span class="rak-sum-label"></span>
+                        <span class="rak-sum-label black">{{rakPendingApproval.detailModel.selectedReason1}}</span>
+                    </p>
+                    <p class="rak-sum-txt" ng-show='rakPendingApproval.detailModel.selectedReason2'>
+                        <span class="rak-sum-label"></span>
+                        <span class="rak-sum-label black">{{rakPendingApproval.detailModel.selectedReason2}}</span>
+                    </p>
+                    <p class="rak-sum-txt" ng-show='rakPendingApproval.detailModel.selectedReason3'>
+                        <span class="rak-sum-label"></span>
+                        <span class="rak-sum-label black">{{rakPendingApproval.detailModel.selectedReason3}}</span>
+                    </p>
+                    
+                    
+                
+                </div>
+                
+                  <p class="rak-sum-txt" ng-show="rakPendingApproval.detailModel.chargeInd &&( rakPendingApproval.detailModel.txnType=='NCP' || rakPendingApproval.detailModel.txnType=='OCT' || rakPendingApproval.detailModel.txnType=='WCT')" >
+                    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.CHARGETYPE}}</span>
+                    <span class="rak-sum-label black">{{rakPendingApproval.detailModel.chargeInd}}</span>
+                </p>
+							
+								<div class="avail-bal-wrap">
+									<fin-input type="text" model="rakPendingApproval.reason"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAKPENDINGAPPROVAL.REJECT_AUTH.PH_REASON}} "
+										max-length="255"
+										validation-flag='pageErrorArr["rakPendingApproval.reason"]'></fin-input>
+		
+								</div>
+		
+								<!-- <fin-Stepauth></fin-Stepauth> -->
+								 <fin-dynamicauth></fin-dynamicauth>
+		
+								<div class="label-wrap" layout-align="center center" class="btn-wrap button-wrapper" ng-if="rakPendingApproval.clickedEvent=='SFR'">
+									<button type="button"
+										id="moveMoneyRAPSubmitButton"
+										class="btn--special-btn btn-middle rak-button-small"
+										ng-click="setEvent('onSendForRepairSuccessClick');">
+										{{appLiterals.APP.COMMON.BUTTON.CONFIRM}}</button>
+								</div>
+								<div class="label-wrap" layout-align="center center" class="btn-wrap button-wrapper" ng-if="rakPendingApproval.clickedEvent=='RECALL'">
+									<button type="button"
+										id="moveMoneyRAPSubmitButton"
+										class="btn--special-btn btn-middle rak-button-small"
+										ng-click="setEvent('rakUnApprTxnRecallSubmitClick');">
+										{{appLiterals.APP.COMMON.BUTTON.CONFIRM}}</button>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

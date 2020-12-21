@@ -1,0 +1,85 @@
+		<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onCancelClick');"></i>
+		</div>
+ <div class="nano menu-scroll">
+	<div class="nano-content">
+
+<div class="finacle-container" ng-init="rakServiceReq.RAKChangeBillDateData.initRAKChangeBillDateData(successResponse.responsesList);">
+  <div class="account-page" >
+    <div class="col-sm-11">
+		
+		<div class="main-form-heading-ServiceReq"> 
+                <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CHANGE_BILLING_DATE}}
+                <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+                </h2>              
+		</div>
+
+      <div class="bg-color rak-cont-padding rak-scroll">
+        <div class="row" >
+         
+
+          		<div ng-init='creditcardListed = createDropDownOptionArray(rakServiceReq.RAKChangeBillDateData.creditCardList,["prodDesc","-","creditCardNumber"],"creditIndex");'>
+					<fin-input type="dropdown"
+					on-change="rakServiceReq.RAKChangeBillDateData.dueDateFlag=true;setEvent('onChangeBillDateCreditClick');"
+					model="rakServiceReq.RAKChangeBillDateData.creditCardNum"
+					display-row="full"
+					placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CHANGE_BILLING_CCD.CREDITCARD}}"
+					validation-flag='pageErrorArr["rakServiceReq.RAKChangeBillDateData.creditCardNum"]'
+					option-array="creditcardListed"></fin-input>
+				</div>
+
+
+
+				<div class="rak-parent-txt" ng-show="rakServiceReq.RAKChangeBillDateData.dueDateFlag">
+            		<p  class="rak-sum-label  ServiceReqNormalLable" ng-show="rakServiceReq.RAKChangeBillDateData.dueDateFlag">{{appLiterals.APP.RAK_SERVICES.RAK_CHANGE_BILLING_CCD.DUE_DATE}}</p>
+            		<p class="rak-sum-label blackRight ServiceReqNormalLable">{{rakServiceReq.RAKChangeBillDateData.dueDate}}</p>
+            		</div>
+
+
+
+
+         <div   ng-init='periodArr = createDropDownOptionArray(rakServiceReq.RAKChangeBillDateData.periodList, ["description"], "code");'>
+			<fin-input type="dropdown" model="rakServiceReq.RAKChangeBillDateData.selectedPeriod"
+			ng-show="rakServiceReq.RAKChangeBillDateData.dueDateFlag"
+			display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CHANGE_BILLING_CCD.NEW_BILLING_DATE}}"
+			option-array="periodArr"
+			validation-flag='pageErrorArr["rakServiceReq.RAKChangeBillDateData.selectedPeriod"]'></fin-input>
+		</div>
+
+
+
+		<div class="label-wrap">
+
+				  <button  type="button" class="btn--special-btn btn-middle rak-button-small"
+				  ng-show="rakServiceReq.RAKChangeBillDateData.dueDateFlag"
+				  ng-click="setEvent('onRakChangeBillingCreditCardContinueClick');">
+				  {{appLiterals.APP.RAK_SERVICES.RAK_TEMP_BLK_CREDITCARD.CONTINUE}}</button>
+
+
+          </div>
+
+
+			</div>
+			
+						<div class="disclaimer">
+                                             <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                             <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                             </div>                                                 
+                                             
+                               <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+									<span ng-click="rakServiceReq.fetchDisclaimer('CreditCardServiceRequestsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCCBILL_INITPAGE"></span>
+									<span ng-click="rakServiceReq.fetchDisclaimer('CreditCardServiceCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCCBILL_INITPAGECONT"></span>
+								</div>
+                                             
+                             </div>
+			
+		 </div>
+          <div class="col-sm-1">
+          </div>
+        </div>
+      </div>
+      </div>
+ </div>
+ </div>

@@ -1,0 +1,265 @@
+{
+    "pageNavigation": [
+        {
+            "RakContactUsPage": [
+            	{
+                   	  "eventName" : "onBackClick",
+			          "validation":"false",
+			          "action" : "AuthenticationService",
+			          "actionType":"service",
+			          "encryptionEnabled" : false,
+			  	      "sensitiveFields" : [ "fields.finacleUserCorporateId", "fields.finacleUserPassword" ],
+			          "parameters": {"CorpId": "fields.finacleUserCorporateId", "PassWord": "fields.finacleUserPassword"},
+			          "successPage" : {"pageName": "RetailUserDashboardPage"},
+			          "errorPage" : {"pageName": "RetailUserLoginPage"}
+                },
+                {
+                    "eventName": "onRakRmTabClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+            
+                    "successPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakContactUsRMPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakContactUsPage"
+                    }
+                },
+                {
+                    "eventName": "onWriteUsClick",
+                 	"action": "RakWriteToUsInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakWriteToUsPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakWriteToUsPage"
+                    }
+                },
+                   {
+                    "eventName": "onRakSocialTabClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+            
+                    "successPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakContactUsSocial"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakContactUsPage"
+                    }
+                    
+            }                                                 
+            ],
+            "RakContactUsRMPage": [
+            {
+                    "eventName": "onRakCallUsTabClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+            
+                    "successPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakContactUsPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakContactUsPage"
+                    }
+                } ,
+                { "eventName": "onRakSocialTabClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+            
+                    "successPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakContactUsSocial"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakContactUsPage"
+                    }
+                    
+                    }              
+               
+            ],
+            "RakWriteToUsPage":[             
+                {
+                    "eventName": "onWriteUsSubmit",
+                    "action": "RakWriteToUsSubmitService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [ 
+                        "rakContactUs.contact.wsMailContent",
+                        "rakContactUs.contact.wsFromMailID",
+                        "rakContactUs.contact.wsCallBackDate",
+                        "rakContactUs.contact.wsPreferredTime"
+                    ],
+            	"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"SENDER_MAIL_ID": "rakContactUs.contact.wsFromMailID",
+				"MAIL_BODY": "rakContactUs.contact.wsMailContent",
+				"MAIL_SUBJECT": "rakContactUs.contact.selectedSubject",
+				"CALL_BACK_DATE": "rakContactUs.contact.wsCallBackDate",
+				"PREFERRED_DATE": "rakContactUs.contact.wsPreferredTime"
+			},
+                    "successPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakWriteToUsPage"
+                        
+                    },
+                    "errorPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakWriteToUsPage"
+                    }
+                }, 
+                { "eventName": "onpreLoginCallUS",
+                    "action": "RAKContactUsPreLoginService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakContactUsPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakWriteToUsPage"
+                    }
+            	},
+            	    { "eventName": "onRakSocialTabClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+            
+                    "successPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakContactUsSocial"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakWriteToUsPage"
+                    }
+                    
+                    } ,
+                 {
+                    "eventName": "navigateHomeClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+            
+                    "successPage": {
+                        "subFeature": "dashboard",
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "dashboard",
+                        "pageName": "RakWriteToUsPage"
+                    }
+                }
+            ],
+            "RakContactUsSocial":[
+             {
+                    "eventName": "onRakCallUsTabClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+            
+                    "successPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakContactUsPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakContactUsPage"
+                    }
+                },
+                
+                  { "eventName": "onRakContactUsClick",
+                    "action": "RAKContactUsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakContactUsPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakContactUsSocial"
+                    }
+            },
+                { "eventName": "onpreLoginCallUS",
+                    "action": "RAKContactUsPreLoginService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakContactUsPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakWriteToUsPage"
+                    }
+            	},
+                
+                {
+                    "eventName": "onRakRmTabClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+            
+                    "successPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakContactUsRMPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakContactUsPage"
+                    }
+                },
+                
+                {
+                    "eventName": "onWriteUsClick",
+                 	"action": "RakWriteToUsInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakWriteToUsPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakContactUs",
+                        "pageName": "RakWriteToUsPage"
+                    }
+                }
+            
+            
+            ]
+            
+    
+        }
+    ],
+    "subFeatureName": "rakContactUs",
+    "startPage": "RakContactUsPage"
+}

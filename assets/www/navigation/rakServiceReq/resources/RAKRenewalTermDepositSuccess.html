@@ -1,0 +1,81 @@
+<div class="finacle-container">
+	      <div class="account-page">
+	      <div class="col-sm-11">
+			
+            <div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{successResponse.responsesList[0].SuccessMsg}}</span>
+                        </div>
+                  </div>
+            
+            
+            <div class="main-form-heading-ServiceReq"> 
+                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.RENEWAL_FXDEP}}
+                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}} </span>                
+                 </h2>              
+			</div>
+			
+			
+			 <div class="bg-color rak-cont-padding rak-scroll-success">
+				<div class="row" >
+					<div class="">
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.FIXED_DEPOSIT_NUMBER}}
+								</span> <span class="rak-sum-label black">{{rakServiceReq.RAKRenewalTermDeposit.depaccountList[rakServiceReq.RAKRenewalTermDeposit.selectedDepAccNo].accountId}}</span>
+							</p>
+
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.RENEWAL_AMOUNT}}
+								</span> <span class="rak-sum-label black">{{rakServiceReq.RAKRenewalTermDeposit.renewalamount}} {{rakServiceReq.RAKRenewalTermDeposit.selectedcurrency}}</span>
+							</p>
+
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.INTEREST_TO_BE_CAPITAIZED}}
+								</span> <span class="rak-sum-label black">{{rakServiceReq.RAKRenewalTermDeposit.interesttobecapitalized}}</span>
+							</p>
+
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.RENEWAL_PERIOD}}
+								</span> <span class="rak-sum-label black" ng-show="rakServiceReq.RAKRenewalTermDeposit.renewalperiod == 'FPV'">{{rakServiceReq.RAKRenewalTermDeposit.selectedperiodDesc}}</span>
+								</span> <span class="rak-sum-label black" ng-show="rakServiceReq.RAKRenewalTermDeposit.renewalperiod == 'Date'">
+								{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.FROM}} {{rakServiceReq.RAKRenewalTermDeposit.previewDate}}
+								{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.TO}}   {{rakServiceReq.RAKRenewalTermDeposit.previewDateTwo}}</span>
+							</p>
+
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.DEBIT_ACC_NO}}
+								</span><span class="rak-sum-label black">{{rakServiceReq.RAKRenewalTermDeposit.debitopraccountList[rakServiceReq.RAKRenewalTermDeposit.selectedDebitOprAccNo].accountId}}</span>
+							</p>
+
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.ON_MATURITY}}
+								</span> <span class="rak-sum-label black"  ng-show="rakServiceReq.RAKRenewalTermDeposit.onamturityradiobtn == 'PA'">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.CREDIT_PROCEED_TO_MY_ACCOUNT}}</span>
+								</span> <span class="rak-sum-label black"  ng-show="rakServiceReq.RAKRenewalTermDeposit.onamturityradiobtn == 'Auto'">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.AUTO_ROLLOVER}}</span>
+							</p>
+
+							<p class="rak-sum-txt">
+								<span class="rak-sum-label" ng-show="rakServiceReq.RAKRenewalTermDeposit.onamturityradiobtn == 'PA'">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.ON_MATURITY_Account_Number}}
+								</span> <span class="rak-sum-label black" ng-show="rakServiceReq.RAKRenewalTermDeposit.onamturityradiobtn == 'PA'">
+								{{rakServiceReq.RAKRenewalTermDeposit.maturityopraccountList[rakServiceReq.RAKRenewalTermDeposit.selectedMaturityOprAccNo].accountId}}</span>
+							</p>
+
+							 <p class="rak-sum-txt" ng-show="rakServiceReq.RAKRenewalTermDeposit.onamturityradiobtn == 'Auto'">
+									<span class="rak-sum-label" >{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.INTEREST_HANDLING}}
+									</span> <span class="rak-sum-label black" ng-show="rakServiceReq.RAKRenewalTermDeposit.interesthandling == 'IA'">
+										{{rakServiceReq.RAKRenewalTermDeposit.InterestHandlingopraccountList[rakServiceReq.RAKRenewalTermDeposit.selectedIAOprAccNo].accountId}}</span>
+									</span> <span class="rak-sum-label black" ng-show="rakServiceReq.RAKRenewalTermDeposit.interesthandling == 'DepositAmt'">{{appLiterals.APP.RAK_SERVICES.RAKTERMDEPOSIT.ADD_INTEREST_TO_DEPOSIT_AMOUNT}}</span>
+							</p>
+
+							<div class="label-wrap">
+								<button type="button" class="btn--special-btn btn-middle rak-button-right"
+								ng-click="rakServiceReq.clearRAKRenewalTermDepositData();setEvent('RAKRenewalTermDepositDoneClick')">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}
+								</button>
+							</div>
+				<div class="col-sm-10"> </div>
+         	</div>
+         	</div>
+          </div>
+        </div>
+      </div>
+    </div>

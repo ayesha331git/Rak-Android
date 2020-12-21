@@ -1,0 +1,86 @@
+<div class="app app-arrow2 title-right-dash" id="renewFixedDepositAuthBack"
+	ng-click="services.renewFixedDepositModel.isBack=true;services.convertToNumber();setEvent('onPrevServiceClick')"></div>
+<div class="finacle-container"
+	ng-init="services.initRenewFDConfirm(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 ">
+						<div class="item-title text-uppercase">
+							<span id="pageTitle"> {{appLiterals.APP.COMMON.TITLE.CONF_AUTH}} </span>
+						</div>
+					</div>
+					<!--  end of title -->
+					<div class="col-sm-12">
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id=txtDepositAccount>
+								{{appLiterals.APP.SERVICES.DEPOSIT.RE_FD_HEADER}}
+								{{appLiterals.APP.COMMON.TEXT.FOR}} </strong> <span class="dash-ac-id" id="depositAccount">
+								{{services.renewFixedDepositModel.confirmResponse.depositAccount}}
+							</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtRenewalDisplay">
+								{{appLiterals.APP.COMMON.TEXT.TYPE}} </strong> <span class="dash-ac-id" id="renewalDisplay">
+								{{services.renewFixedDepositModel.confirmResponse.renewalDisplay}}
+							</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtDurationMonths">
+								{{appLiterals.APP.COMMON.TEXT.MONTH}} </strong> <span class="dash-ac-id" id="durationMonths">
+								{{services.renewFixedDepositModel.confirmResponse.durationMonths}}
+							</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtDurationDays">
+								{{appLiterals.APP.COMMON.TEXT.DAYS}}</strong> <span class="dash-ac-id" id="durationDays">
+								{{services.renewFixedDepositModel.confirmResponse.durationDays}}
+							</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtInstructionType">
+								{{appLiterals.APP.COMMON.TEXT.INTEREST}}</strong> <span
+								class="dash-ac-id" id="instructionType">
+								{{services.renewFixedDepositModel.confirmResponse.instructionType}}
+							</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtInOutFlow">
+								{{appLiterals.APP.COMMON.TEXT.FREQUENCY}}</strong> <span
+								class="dash-ac-id" id="inOutFlow">
+								{{services.renewFixedDepositModel.confirmResponse.inOutFlow}} </span>
+						</div>
+						<div class="account-detail-dash margin-zero"
+							ng-show="services.renewFixedDepositModel.confirmResponse.hasOwnProperty('transferTo')">
+							<strong class="trans-no" id="txtTransto">
+								{{appLiterals.APP.COMMON.TEXT.TRANS_TO}}</strong> <span
+								class="dash-ac-id" id="transTo">
+								{{services.renewFixedDepositModel.confirmResponse.inOutFlow}} </span>
+						</div>
+						<div class="account-detail-dash margin-zero"
+							ng-hide='services.renewFixedDepositModel.renewList=="A" && services.renewFixedDepositModel.interestInstruction=="CalculateOutflow"'>
+							<strong class="trans-no" id="txtRedeemAccount">
+								{{appLiterals.APP.SERVICES.RENW_FIXDEP_SUCC.TXT_ACCNO}}</strong> <span
+								class="dash-ac-id" id="redeemAccount">
+								{{services.renewFixedDepositModel.confirmResponse.redeemAccount}}
+							</span>
+						</div>
+					</div>
+					<form
+						ng-submit="corpInit.corpModel.getSelectedRoleDetailsAsString();setEvent(services.renewFixedDepositModel.getRenewFDSubmitEvent())">
+						<div
+							ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+							<approval-input></approval-input>
+						</div>
+						<fin-Stepauth></fin-Stepauth>
+						<md-button ng-show="!services.renewFixedDepositModel.onlineMode" id="BTN_SUBTORM"
+							type="submit" class="md-raised btn--primary-btn">{{appLiterals.APP.SERVICES.RENEW_FXD_DEPAUTH.BTN_SUBTORM}}</md-button>
+						<md-button ng-show="services.renewFixedDepositModel.onlineMode" id="BTN_SUB"
+							type="submit" class="md-raised btn--primary-btn">{{appLiterals.APP.SERVICES.RENEW_FXD_DEPAUTH.BTN_SUB}}</md-button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

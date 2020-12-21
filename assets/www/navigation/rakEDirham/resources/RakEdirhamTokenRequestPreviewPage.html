@@ -1,0 +1,74 @@
+
+<div ng-init="rakHome.AuthPageData.resetConfirmPageDataAfterNavigation();rakEDirham.initRAKEDirhamBlockConfirm(successResponse.responsesList);rakEDirham.initTokenRequestPreview();rakCorpInit.corpModel.processCorpInit(successResponse.responsesList);" >
+
+
+
+<div class="finacle-container ng-scope">
+
+
+		 <div class="rak-back-header">
+				<i class="rak-back-img"
+					ng-click="setEvent('onBackClick');"></i>
+		</div>
+	<div class="account-page">
+    <div class="col-sm-11">
+	  <div class="app-title-wrapper">
+       	
+       	<div class="main-form-heading">
+       	 <h2 class="rakBenfHeader">{{appLiterals.APP.EDIRHAM.EDIRHAM_TOKEN_REQ_TXT}} - {{appLiterals.APP.EDIRHAM.EDIRHAM_REG_HEADER_AUTH_SUB_HEADER}}
+				      </h2>
+		</div>	
+					          
+        <div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh">
+
+		<div class="">
+
+			<div class="" >
+			  <div class="">
+
+				<!-- <p class="rak-sum-txt">
+				<span class="rak-sum-label">PIN</span>
+				<span class="rak-sum-label black">{{rakEDirham.eDirhamDetails.pin}}</span>
+				</p> -->
+				  
+								<p class="rak-sum-txt">
+										<span  class="rak-sum-label">{{appLiterals.APP.EDIRHAM.SETTING_FUNDING_ACCT}}</span>
+										<span class="rak-sum-label black">{{rakEDirham.tokenRequest.selectedAccount}}</span>
+									</p>
+							 <corpapproval-input></corpapproval-input>
+							
+		
+						
+<!-- Dynamic Component used for authorization START -->
+				<fin-dynamicauth></fin-dynamicauth>
+			
+<!-- Dynamic Component used for authorization END -->
+				<div class="label-wrap">
+
+
+
+				 <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="setEvent('onBackClick');">  {{appLiterals.APP.EDIRHAM.BACK_BTN}}</button>
+				 <button type="button"  class="btn--special-btn btn-middle rak-button-small" ng-click='rakHome.AuthPageData.fetchOtp("onRAKEDirhamTokenRequestSubmitClick")'>  {{appLiterals.APP.EDIRHAM.CONFIRM_BTN}} </button>
+			  </div>
+          <div class="col-sm-1"> </div>
+        </div>
+      </div>
+    </div>
+
+
+ <div class="disclaimer">
+				<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+					<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+				</div>
+
+				<div class="disclaimer3" ng-show="rakDisclaimerFlag">
+					<div class="disclaimer3"  ng-bind-html="appLiterals.APP.EDIRHAM.BLOCK_EDIRHAM_DISCLAIMER"></div>
+				</div>
+			</div>
+
+  </div>
+  </div>
+</div>
+</div>
+</div>
+</div>

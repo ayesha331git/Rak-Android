@@ -1,0 +1,65 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRakGenRqEStmtSuccess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+			
+			<div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakServiceReq.RakGenRqEStmtModel.successMessage}}</span>
+                        </div>
+                  </div>
+            <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.GENRQ_ESTMT}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>                 
+                              </h2>              
+</div>
+                  
+		
+
+		<div class="bg-color rak-cont-padding rak-scroll-success">
+			<div class="">
+				<div class="">
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_STMT}}</span>
+							<span class="rak-sum-label black" ng-show="rakServiceReq.RakGenRqEStmtModel.isStmtCreditCardSelected && rakHome.userTypeIDValue!='CORPORATE'">{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_STMT_CC}}</span>
+							<span class="rak-sum-label" ng-show="rakServiceReq.RakGenRqEStmtModel.isStmtCreditCardSelected && rakServiceReq.RakGenRqEStmtModel.isStmtAccountsSelected"></span>
+							<span class="rak-sum-label black" ng-show="rakServiceReq.RakGenRqEStmtModel.isStmtAccountsSelected">{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_STMT_ACC}}</span>
+						</p>
+						<p class="rak-sum-txt" ng-show="rakServiceReq.RakGenRqEStmtModel.isAdviceRemitSelected || rakServiceReq.RakGenRqEStmtModel.isAdviceDepositSelected">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_ADVICES}}</span>
+							<span class="rak-sum-label black" ng-show="rakServiceReq.RakGenRqEStmtModel.isAdviceRemitSelected">{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_ADVICES_REMI}}</span>
+							<span class="rak-sum-label" ng-show="rakServiceReq.RakGenRqEStmtModel.isAdviceRemitSelected && rakServiceReq.RakGenRqEStmtModel.isAdviceDepositSelected"></span>
+							<span class="rak-sum-label black" ng-show="rakServiceReq.RakGenRqEStmtModel.isAdviceDepositSelected">{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_ADVICES_DEP}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_DELIVER_BY}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakGenRqEStmtModel.deliveryModeSelected}}</span>
+						</p>
+						<p class="rak-sum-txt"  ng-show="rakServiceReq.RakGenRqEStmtModel.deliveryModeSelected=='Email'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_PRIM_EMAIL}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakGenRqEStmtModel.primaryEmail}}</span>
+						</p>
+						<p class="rak-sum-txt"  ng-show="rakServiceReq.RakGenRqEStmtModel.deliveryModeSelected=='Email' && rakServiceReq.RakGenRqEStmtModel.secondaryEmail">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_SECON_EMAIL}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakGenRqEStmtModel.secondaryEmail}}</span>
+						</p>
+						<p class="rak-sum-txt"  ng-show="rakServiceReq.RakGenRqEStmtModel.deliveryModeSelected=='Fax'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKGENRQ_ESTMT.ESTMT_FAX_NO}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakGenRqEStmtModel.faxNo}}</span>
+						</p>
+
+				<div class="label-wrap">
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-right"
+						ng-click='rakServiceReq.resetRakGenRqEStmtDetails();setGlobalEvent("onDashboardClick");'>
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+				</div>
+
+				<div class="col-sm-10"></div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

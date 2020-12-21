@@ -1,0 +1,77 @@
+
+		<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onstopChequeReqStatusBackClick');"></i>
+		</div>
+
+<div class="nano menu-scroll">
+	<div class="nano-content">
+<div class="finacle-container"
+	ng-init="rakServiceReq.stopChequeReq.statusstopChequeReq(successResponse.responsesList);">
+	
+	<div class="account-page">
+		<div class="col-sm-11">
+			
+				<div class="scq-rakColumnDivDarkBackTop">
+					
+						<span class="pullLeft">&nbsp;</span>
+						<span class="scq-rakColumnLabelDark">&nbsp;{{appLiterals.APP.RAK_SERVICES.RAK_STOP_CHQ_REQ.CHQ_NUM}}</span>
+						
+						<span class="scq-rakColumnLabelDark">&nbsp;{{appLiterals.APP.RAK_SERVICES.RAK_STOP_CHQ_REQ.STATUS}}</span>
+						
+						<!-- <span class="emi-rakColumnLabelDark">Issue Date</span> -->
+					
+				</div>
+						
+							
+				<div class="rakScrollDiv" >	
+					
+						
+							<div class="rakColumnDiv" >
+							
+								<div ng-repeat="x in rakServiceReq.stopChequeReq.testArrayStatus">
+									<!--CHANGES DONE AS FIX OF PROUAT 1920 START  -->
+									<span class="scq-pullLeft"> <input type="checkbox" ng-model="x.flag" ng-disabled="x.chqStatus==='Stopped'"></span>
+									<!--CHANGES DONE AS FIX OF PROUAT 1920 END  -->
+									
+									<span class="scq-rakColumnLabel">&nbsp;{{x.chqNums}}</span>
+									
+									<span class="scq-rakColumnLabel">&nbsp;{{x.chqStatus}}</span>
+									
+								</div>
+								
+							</div>
+
+
+				 	<!-- Button for submit after checking - Start -->
+				 	<div class="label-wrap">
+																						
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small btn--back"
+							ng-click="setEvent('onstopChequeReqStatusBackClick');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+						
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small rak-button-right"
+							ng-click="rakServiceReq.stopChequeReq.statusContinueClick();">
+							{{appLiterals.APP.RAK_SERVICES.RAK_STOP_CHQ_REQ.TXT_STOP}}</button>
+					
+					</div>
+					<!-- Button for submit after checking - End -->
+					
+					
+					<div class="fin-txt"></div>
+					<div class="fin-txt"></div>
+					<div class="fin-txt"></div>
+					<div class="fin-txt"></div>
+					<div class="fin-txt"></div>
+				</div>
+			
+		
+</div>
+	</div>
+</div>
+
+</div>
+</div>

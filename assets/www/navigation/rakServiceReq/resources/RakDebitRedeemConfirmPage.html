@@ -1,0 +1,35 @@
+<div class="finacle-container"  ng-init="rakServiceReq.initDebitRedeemBalanceConfirmPage(successResponse.responsesList);">
+  <div class="account-page">
+    <div class="col-sm-10">
+		<div class="app-title-wrapper">
+			<div class="app-arrow title-left" ng-click="self.debitCashReedemModel.transactionPassword = '';setEvent('onDebitRedeemBalanceBackClick')"></div>
+			<div class="title-center">{{appLiterals.APP.RAK_SERVICES.DEBITCASH_REDEEM.HEADER}}</div>
+			<div class="app app-cancel title-right" ng-click="setEvent('onDebitRedeemBalanceCloseClick')"></div>
+		</div>
+      <div class="highlight-color"> </div>
+      <div class="bg-color">
+        <div class="row" >
+          <div class="col-sm-1"></div>
+          <div class="col-sm-10">
+			<p class="left-txt1 padding-top-zero">{{appLiterals.APP.RAK_SERVICES.DEBITCASH_REDEEM.HEADER}}</p>
+		
+			<p class="left-txt">{{appLiterals.APP.RAK_SERVICES.DEBITCASH_REDEEM.CARDNUMBER}}&nbsp;<span class="right-txt-color">{{rakServiceReq.debitCashReedemModel.debitCardNumber}}</span></p>
+			<p class="left-txt">{{appLiterals.APP.RAK_SERVICES.DEBITCASH_REDEEM.REDEEM}}&nbsp;<span class="right-txt-color">{{rakServiceReq.debitCashReedemModel.redeemDetailsList}}</span></p>
+			
+			<p class="left-txt">{{appLiterals.APP.RAK_SERVICES.DEBITCASH_REDEEM.AMOUNT}} &nbsp;<span class="right-txt-color">{{rakServiceReq.debitCashReedemModel.amount}}</span></p>
+			<!-- <p class="left-txt">{{appLiterals.APP.RAK_SERVICES.DEBITCASH_REDEEM.CARDTYPE}} &nbsp;<span class="right-txt-color">{{rakServiceReq.debitCashReedemModel.cardDetailsList}}</span></p> -->
+			
+			
+			
+			<div class="app-hr"></div>
+		  <div class="label-wrap" ng-hide="rakServiceReq.operativeAccountModel.authStatus">
+				 <p class="label-title">{{appLiterals.APP.RAK_SERVICES.DEBITCASH_REDEEM.TXT_AUTH}}</p>
+				  <p class="label-txt"> {{appLiterals.APP.RAK_SERVICES.DEBITCASH_REDEEM.SENT_AUTH}}</p>
+			  </div>
+			  <fin-input ng-hide="rakServiceReq.debitCashReedemModel.authStatus" type="password_text" model="rakServiceReq.debitCashReedemModel.transactionPassword" display-row="full" placeholder="Transaction Password" min="0" validation-flag='pageErrorArr["rakServiceReq.debitCashReedemModel.transactionPassword"]'></fin-input>
+			  <button type="button" class="btn--primary-btn" ng-click="setEvent('onDebitRedeemSubmitClick');"> {{appLiterals.APP.RAK_SERVICES.RAK_EVANTAGE_BALANCE.BTN_SUBTORM}} </button>
+		  </div>
+		</div>
+	</div>
+   </div>
+</div>

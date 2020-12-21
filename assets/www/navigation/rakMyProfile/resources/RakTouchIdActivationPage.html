@@ -1,0 +1,74 @@
+<div ng-if="appActivation.touchBack" class="rak-back-header">
+
+			<i class="rak-back-img" ng-click="appActivation.touchBack=false;setEvent('onBackClick');"></i>
+		</div>
+
+<div class="finacle-container" ng-init="rakTouchIdActivation.touchIdReg.touchIdRegFlowForRak=false;rakTouchIdActivation.touchIdReg.initTouchIdActivationPage()">
+    <div class='fin-txt'></div>
+ <div class="col-sm-11 rakNicknameScroll">
+	  <div class="trans_id_wrap">
+		  <div class="id_container">
+		  </div>
+		  
+															
+		  <div class="selfReg-main-form-heading">
+		  <span class="rak-black-color upd-label">{{appLiterals.APP.TOUCH_ID["HEADER_SETUP_TOUCH_ID"+biometricType]}}</span>
+		  </div>
+		  <div class="raktouchIdDivider"></div>
+          
+		  <p class="rakTouch_sucs_circle_wrap"> <span class="app-tickcircle sucs_circle_icon"></span> </p>
+          
+		  <div class="raktouchActivationPageSecHeader">
+			<div class="id_txt_pad">
+			<p class="raktouchActivationPageSecHeaderText">{{appLiterals.APP.TOUCH_ID["VIEW_QUICK_BAL"+biometricType]}}</p>
+			</div>
+		  </div>
+	  </div>
+	
+	 <div class="raktouchIdLayout">
+
+ 	  <div class="raktouchIdMsgLabel" ng-hide='rakTouchIdActivation.touchIdReg.isReRegister'>
+	  {{appLiterals.APP.TOUCH_ID["FINGERPRINT_MSG"+biometricType]}}
+	  </div> 
+
+	   <div class="raktouchIdMsgLabel">
+	  	   {{appLiterals.APP.TOUCH_ID["TXT_PARAGRAPH"+biometricType]}}
+	  </div>
+
+	   <div class="raktouchIdMsgLabel">
+	  	  	    {{appLiterals.APP.TOUCH_ID["WARN_MSG"+biometricType]}}
+	  	  </div>
+
+
+
+	  	   <div ng-show='appActivation.touchIdEnable && !appActivation.isTouchIdNotEnrolled'  class="raktouchIdMsgConfLabel">
+		  	   	{{rakTouchIdActivation.touchIdReg.isReRegister ? appLiterals.APP.TOUCH_ID["ENABLE_TOUCHID_FORREREG"+biometricType] : appLiterals.APP.TOUCH_ID["ENABLE_TOUCHID"+biometricType] }}
+	  	  </div>
+	  	  
+	  	   <div ng-show='appActivation.isTouchIdNotEnrolled' class=" rakRed raktouchIdMsgLabel">
+		  	   	 {{appLiterals.APP.TOUCH_ID["ENABLE_TOUCH"+biometricType]}}
+	  	  </div>
+
+
+	  	<div ng-show='appActivation.touchIdEnable && !appActivation.isTouchIdNotEnrolled' class="reg-toggle-button-margin raktouchIdtoggle_container">
+		  					  <div ng-class="{'raktouchIdtoggle_btn_wrap raktouchIdtogglebtn_active':isTouchIDActivation && isTouchIDLogin ,'raktouchIdtoggle_btn_wrap':!isTouchIDActivation && !isTouchIDLogin}"  ng-click="rakTouchIdActivation.toggleRegClick();" >
+		  						<div ng-class="{'raktouchIdtoggle_btn_con raktouchIdtoggle_btn_con_active':isTouchIDActivation && isTouchIDLogin ,'raktouchIdtoggle_btn_con':!isTouchIDActivation && !isTouchIDLogin}" > </div>
+		  						
+		  						<div class="toggle_btn"> <span class="caret"></span> </div>
+		  					  </div>
+					</div>
+
+
+
+	 	<button class="raktouchIdOverviewButtonDisable" ng-hide='(isTouchIDActivation && isTouchIDLogin) ||appActivation.isTouchIdNotEnrolled '>{{appLiterals.APP.TOUCH_ID["PROCEED_OVERVIEW"+biometricType]}}</button>
+        
+        <button class="raktouchIdOverviewButtonEnable" ng-show='(isTouchIDActivation && isTouchIDLogin) ||appActivation.isTouchIdNotEnrolled ' ng-click="setGlobalEvent('onDashboardClick')" >{{appLiterals.APP.TOUCH_ID["PROCEED_OVERVIEW"+biometricType]}}</button>
+
+<div class='fin-txt'></div>
+
+	 </div>
+	 </div>
+</div>
+
+
+

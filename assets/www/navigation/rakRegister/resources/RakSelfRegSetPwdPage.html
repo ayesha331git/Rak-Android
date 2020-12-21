@@ -1,0 +1,218 @@
+		<div
+			ng-init="rakRegister.common.flag=false;rakRegister.chkOtpValidation(successResponse.responsesList)">
+			<div ng-show="rakRegister.RegistrationModel.otpCheck=='true'">
+				<div class="full-page-screen"></div>
+				<div class="confirmation-content-container">
+					<div class="message-box-new">
+         				<div class="message-box-new">
+         				
+         				 <div>
+					            <p class="round-icon-new">
+					            <span class="app app-alert pop-alert-icon rak-color"></span>
+					            </p>
+					
+					        </div>
+						<div>
+						<div class="otp-txt-label rak-black-color">{{rakRegister.RegistrationModel.otpMessage}}</div>
+						</div>
+
+
+						<div class="otp-btn-wrap">
+							<button type="button" class="btn--otppri-btn rak-grey-color" ng-click='rakRegister.RegistrationModel.otpCheck=false;setGlobalEvent("onLoginClick");'> &nbsp; {{alertOverlayObj.okText}}&nbsp;</button>
+        				</div>
+						</div>
+				</div>
+				</div>
+				
+			</div>
+		</div>
+<div class="account-page">
+	<div class="col-sm-11">
+
+		<div class="finacle-container"
+			ng-init="setSingleStepRealmAuthFailure();rakRegister.initSuccess(successResponse.responsesList)">
+			<div class="row">
+				<div class="col-sm-1 rakDblheight"></div>
+				<div class="login-form">
+
+
+					<div class="center rakFont10">
+						<div class="rak-logintab"
+							ng-click="setGlobalEvent('onLoginClick');">
+							<span class="rak-black-color login-label">
+								{{appLiterals.APP.RAK_LOGIN_PAGE.LOGIN}} </span>
+						</div>
+
+						<!-- CHANGES DONE AS FIX OF PRCU-1412 START -->
+						<div class="rak-logintab  border-left"
+							ng-show="rakRegister.RegistrationModel.isRegisterClicked">
+							<span class="login-label rak-color border-bottom">
+								{{appLiterals.APP.RAK_LOGIN_PAGE.REGISTER}}</span>
+						</div>
+
+						<div class="rak-logintab  border-left"
+							ng-show="rakRegister.RegistrationModel.isforgotUserIdClicked">
+							<span class="login-label rak-color border-bottom">
+								{{appLiterals.APP.RAK_LOGIN_PAGE.FORGOT_USERID}}</span>
+						</div>
+
+						<div class="rak-logintab  border-left"
+							ng-show="rakRegister.RegistrationModel.isforgotPasswordClicked">
+							<span class="login-label rak-color border-bottom">
+								{{appLiterals.APP.RAK_LOGIN_PAGE.FORGOT_PASSWORD}}</span>
+						</div>
+
+						<div class="rak-logintab  border-left"
+							ng-show="rakRegister.RegistrationModel.isEnableUserIdClicked">
+							<span class="login-label rak-color border-bottom">
+								{{appLiterals.APP.RAK_LOGIN_PAGE.ENABLE_USERID}}</span>
+						</div>
+						<!--  CHANGES DONE AS FIX OF PRCU-1412 END -->
+
+					</div>
+
+					<div class="selfReg-main-form-heading margin-top10px">
+						<div>
+							<span class="rak-black-color login-label-selfReg">{{appLiterals.APP.RAKSELFREG.SETPWD_HEADER}}</span>
+
+							<ul class="process-steps">
+								<li></li>
+								<li></li>
+								<li></li>
+								<li class="active"></li>
+								<li ></li>
+							</ul>
+
+						</div>
+					</div>
+
+
+					<div class="rakWidth100Percent rakNicknameScroll rak-cont-paddingvh">
+						<div class="">
+
+
+							<div ng-if="rakRegister.RegistrationModel.requestType=='ORON'" ng-init="rakRegister.validateUserResponse(successResponse.responsesList)">
+							
+									<div class="rakSelfLabel">{{appLiterals.APP.RAKSELFREG.USERID}}</div>
+
+								<fin-input type="text"
+									model="rakRegister.LoginTxnPwdModel.userId" max-length="20"
+									validation-flag='pageErrorArr["rakRegister.LoginTxnPwdModel.userId"]'
+									display-row="full"
+									on-change="rakRegister.validateUserID();"
+									placeholder="{{appLiterals.APP.RAKSELFREG.LOGINID}}"></fin-input>
+
+							</div>
+							<div>
+
+
+
+								<div ng-hide="rakRegister.RegistrationModel.requestType == 'FPON' && rakRegister.RegistrationModel.pwdTypeFlag =='T'" class="label-wrap" class="rak100">
+								<p>
+									<span  class="rakselfregSuccess" >
+										{{rakRegister.RegistrationModel.userIdsuccessMsg}}</span></p>
+								<!-- 	<button type="button" ng-if="rakRegister.RegistrationModel.requestType=='ORON'"
+										class="btn--special-btn btn-middle rak-button-medium "
+										>
+										{{appLiterals.APP.RAKSELFREG.VALD_USERID}}</button> -->
+								</div>
+
+</div>
+
+
+								
+									<div class="rakSelfLabel">{{appLiterals.APP.RAKSELFREG.SET_PWD_MSG}}</div>
+									<div class="rakSelfLabel">{{appLiterals.APP.RAKSELFREG.SET_PWD_MSG1}}</div>
+									<div class="rakSelfLabel">{{appLiterals.APP.RAKSELFREG.SET_PWD_MSG2}}</div>
+									<div class="rakSelfLabel" ng-if="rakHome.CorpeventClicked=='N'">{{appLiterals.APP.RAKSELFREG.SET_PWD_MSG3}}</div>
+									<div class="rakSelfLabel" ng-if="rakHome.CorpeventClicked=='Y'|| isCorpcheked">{{appLiterals.APP.RAKSELFREG.SET_PWD_MSG4}}</div>
+									<div class="rakSelfLabel">{{appLiterals.APP.RAKSELFREG.SET_PWD_MSG5}}</div>
+
+
+								<fin-input type="password_text"
+									model="rakRegister.LoginTxnPwdModel.loginPwd" max-length="16"
+									validation-flag='pageErrorArr["rakRegister.LoginTxnPwdModel.loginPwd"]'
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAKSELFREG.NEWLGNPASS}}"
+									ng-keyup="rakRegister.LoginTxnPwdModel.currentPasswordType=rakRegister.passwordType.Login;"></fin-input>
+
+								<p class="special-txt"
+									ng-hide="rakRegister.LoginTxnPwdModel.hideLgnPasswordStrength">{{appLiterals.APP.RAKSELFREG.TXT_PASSSTRENGTH}}
+									{{rakRegister.LoginTxnPwdModel.passwordStrengthLgnText}}</p>
+								<div class="progress"
+									ng-hide="rakRegister.LoginTxnPwdModel.hideLgnPasswordStrength"
+									style="clear: both; height: 3px; margin: 0 1.5em;">
+									<div class="progress-bar progress-bar-success"
+										ng-if="rakRegister.LoginTxnPwdModel.isLgnIronclad"
+										role="progressbar" aria-valuenow="100" aria-valuemin="0"
+										aria-valuemax="100"
+										style="width: 100%; background-color: #76d602;">
+										<span class="sr-only">{{appLiterals.APP.RAKSELFREG.MSG6}}</span>
+									</div>
+									<div class="progress-bar progress-bar-info"
+										ng-if="rakRegister.LoginTxnPwdModel.isLgnTooShort"
+										role="progressbar" aria-valuenow="20" aria-valuemin="0"
+										aria-valuemax="100"
+										style="width: 20%; background-color: #e21619;">
+										<span class="sr-only">{{appLiterals.APP.RAKSELFREG.MSG2}}</span>
+									</div>
+									<div class="progress-bar progress-bar-warning"
+										ng-if="rakRegister.LoginTxnPwdModel.isLgnWeak"
+										role="progressbar" aria-valuenow="40" aria-valuemin="0"
+										aria-valuemax="100"
+										style="width: 40%; background-color: #ff8202;">
+										<span class="sr-only">{{appLiterals.APP.RAKSELFREG.MSG3}}</span>
+									</div>
+									<div class="progress-bar progress-bar-danger"
+										ng-if="rakRegister.LoginTxnPwdModel.isLgnFair"
+										role="progressbar" aria-valuenow="60" aria-valuemin="0"
+										aria-valuemax="100"
+										style="width: 60%; background-color: #ffea01;">
+										<span class="sr-only">{{appLiterals.APP.RAKSELFREG.MSG4}}</span>
+									</div>
+									<div class="progress-bar progress-bar-danger"
+										ng-if="rakRegister.LoginTxnPwdModel.isLgnStrong"
+										role="progressbar" aria-valuenow="80" aria-valuemin="0"
+										aria-valuemax="100"
+										style="width: 80%; background-color: #01adff;">
+										<span class="sr-only">{{appLiterals.APP.RAKSELFREG.MSG5}}</span>
+									</div>
+								</div>
+								<fin-input type="password_text"
+									model="rakRegister.LoginTxnPwdModel.loginPwdConfirm"  max-length="16"
+									validation-flag='pageErrorArr["rakRegister.LoginTxnPwdModel.loginPwdConfirm"]'
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAKSELFREG.NEWCONFLGNPASS}}"></fin-input>
+
+
+							
+
+
+							<div ng-if="rakRegister.RegistrationModel.requestType=='ORON'">
+							
+							<div class="rakSelfLabel">{{appLiterals.APP.RAKSELFREG.EMAIL}}</div>
+							
+								<fin-input type="mail_Id"
+									model="rakRegister.LoginTxnPwdModel.email" display-row="full"
+									placeholder="{{appLiterals.APP.RAKSELFREG.EMAIL}}"
+									validation-flag='pageErrorArr["rakRegister.LoginTxnPwdModel.email"]'></fin-input>
+							</div>
+
+
+							<div class="label-wrap">
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small btn--back "
+									ng-click="setGlobalEvent('onLoginClick');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CANCEL}}</button>
+
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small "
+									ng-click="rakRegister.RegistrationModel.userIdsuccessMsg='';rakRegister.common.flag='false';rakRegister.clearStrengthData();setEvent('onSetPasswordSubmitClicked')">
+									{{appLiterals.APP.RAKCOMMONLITERALS.PROCEED}}</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>

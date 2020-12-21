@@ -1,0 +1,153 @@
+<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onCCConvertionEmiPreCloseClick');"></i>
+		</div>
+
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		
+
+<div class="finacle-container"
+	ng-init="rakServiceReq.CCConvertionEmi.preCCConvertionEmi(successResponse.responsesList);">
+	
+	<div class="account-page">
+		<div class="col-sm-11">
+		<div class="form-block">
+			<div class="main-form-heading-ServiceReq"> 
+	                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CONVERT_EMI}}
+	                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+	                 </h2>              
+			</div>
+			<div class="bg-color ">
+				<div class="row">
+					<div
+						ng-init='creditcardlist = createDropDownOptionArray(rakServiceReq.CCConvertionEmi.creditCardList,["productDescription","-","creditCardNumber"],"index");'
+						 >
+						<fin-input type="dropdown"
+							model="rakServiceReq.CCConvertionEmi.creditIndex"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.MASKED_CREDIT_NUMBER}}"
+							
+							validation-flag='pageErrorArr["rakServiceReq.CCConvertionEmi.creditIndex"]'
+							option-array="creditcardlist" ></fin-input>
+					</div>
+					
+					<div class="rakCtsmDateSrch">
+					<fin-input type="date"
+								model="rakServiceReq.CCConvertionEmi.tranStartDate"
+								display-row="half1" value="pastDatesOnly" 
+								validation-flag='pageErrorArr["rakServiceReq.CCConvertionEmi.tranStartDate"]'>
+					</fin-input>
+					
+					<fin-input type="date"
+								model="rakServiceReq.CCConvertionEmi.tranEndDate"
+								display-row="half2"  value="pastDatesOnly"
+								validation-flag='pageErrorArr["rakServiceReq.CCConvertionEmi.tranEndDate"]'>
+					</fin-input>
+					
+						
+						<!--REFRESHING LIST FIRST START AND SHOWING IN PAGE START -->
+						<span class="rakResetSpanBtn" ng-click="rakServiceReq.CCConvertionEmi.clearingList();rakServiceReq.CCConvertionEmi.continueClick();setEvent('onSelectForTransactionDate');">{{appLiterals.APP.RAK_COMMON.GO}}</span> 					   
+					    <!-- CHANGES REFRESHING LIST FIRST START AND SHOWING IN PAGE END -->
+					 </div>
+						
+					</div>
+					
+					<div>
+											<p class="dateLabelLeft">
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.FROM_DATE}}
+												
+											</p>
+					</div>
+					
+					<div>
+											<p class="dateLabelRight">
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.TO_DATE}}
+												
+											</p>
+					</div>
+					
+					<div class="col-sm-1"> </div>
+				</div>
+				
+				<div ng-show="rakServiceReq.CCConvertionEmi.isTxnListPresent">
+				
+		
+
+
+							<div class="rakColumnDivDarkBackTop">
+								
+									<span class="pullLeft">&nbsp;</span>
+									<span class="emi-rakColumnLabelDark">{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.TRAN_DATE}}</span>
+									<span class="emi-rakColumnLabelDark">{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.TRAN_ORG_AMT}}</span>
+									<!-- <li><span>{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.TRAN_BILL_AMT}}</span></li> -->
+									<span class="emi-rakColumnLabelDark">{{appLiterals.APP.RAK_SERVICES.RAK_CONVERT_EMI.TRAN_DESC}}</span>
+								
+							</div>
+						
+							
+				<div class="nano rakHalfScrollDiv rak-cont-paddingvh" >	
+					
+						<div class="" >
+							
+								<div ng-repeat="x in rakServiceReq.CCConvertionEmi.testArray" class="rakClear">
+									
+									<div class="emi-pullLeft">
+										<div class="rakCstmRadioDiv ">
+										 <input type="radio"  value={{x.ind}} id={{x.ind}} name="emi_flag"  
+										ng-model="rakServiceReq.CCConvertionEmi.selectedData">
+										<label for={{x.ind}}><span><span></span></span></label>
+										</div>
+									</div>
+									<span class="emi-rakColumnLabel">{{x.txnSearchDate}}</span>
+									<span class="emi-rakColumnLabel">{{x.txnOriginalAmount}}</span>
+									<!-- <li><span class="emi-rakColumnLabel">{{x.txnBillingAmount}}</span></li> -->
+									<span class="emi-rakColumnLabel">{{x.txnTypeDesc}}</span>
+									
+								</div>
+								
+							</div>
+						
+					
+						<div class="label-wrap">
+						
+								<button type="button"
+							class="btn--special-btn btn-middle rak-button-small btn--back"
+							ng-click="setEvent('onCCConvertionEmiPreCloseClick');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+
+								<button type="button"
+								class="btn--special-btn btn-middle rak-button-small rak-button-right"
+								ng-click="rakServiceReq.CCConvertionEmi.RadioBoxClicked()">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+
+						</div>
+						
+					</div>
+					
+					
+						</div>
+				
+						<div class="disclaimer">
+                                                <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                                <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                                </div>                                                 
+                                                
+                                    <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+										<span ng-click="rakServiceReq.fetchDisclaimer('CreditCardServiceRequestsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCCEMI_INITPAGE"></span>
+										<span ng-click="rakServiceReq.fetchDisclaimer('CreditCardServiceCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCCEMI_INITPAGECONT"></span>
+									</div>
+                                                
+                                </div>
+				
+		
+				</div>
+				</div>
+				
+			</div>
+		</div>
+
+	</div>
+</div>
+

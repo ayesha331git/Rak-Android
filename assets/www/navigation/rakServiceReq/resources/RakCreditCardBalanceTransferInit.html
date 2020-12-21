@@ -1,0 +1,223 @@
+		<div class="rak-back-header">
+			<i class="rak-back-img"
+				ng-click="setEvent('onRAKBalanceTransferBackClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.rakCreditCardBalanceTransferInit(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+				
+					<div class="form-block">
+					
+					<div class="main-form-heading-ServiceReq"> 
+			                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.CC_BAL}}
+			                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+			                 </h2>              
+					</div>
+						<div class="bg-color rak-cont-padding rak-scroll">
+							<div class="row">							
+
+								<div
+									ng-init='cardArr = createDropDownOptionArray(rakServiceReq.RakCreditCardBalanceTransfer.cardList, ["creditCardDesc","-","creditCardNumber"], "creditIndex");'></div>
+								<fin-input type="dropdown"
+									model="rakServiceReq.RakCreditCardBalanceTransfer.selectedCard"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.CC}}"
+									on-change="rakServiceReq.RakCCBTHideOtherfields();setEvent('onRAKCreditCardBalanceTransferDetails');"
+									validation-flag='pageErrorArr["rakServiceReq.RakCreditCardBalanceTransfer.selectedCard"]'
+									option-array="cardArr"> </fin-input>
+
+
+							<div ng-show="rakServiceReq.RakCreditCardBalanceTransfer.isDetailsFetched =='Y'">
+
+								<p class="rak-parent-txt" ng-if="rakServiceReq.RakCreditCardBalanceTransfer.ccCombinedLimitFlag">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_COMMON.RAK_COMBINED_AVL_LIMIT}}</span>
+									<span class="rak-sum-label black">{{rakServiceReq.RakCreditCardBalanceTransfer.availCreditLimit}}</span>
+								</p>
+								<p class="rak-parent-txt" ng-if="!rakServiceReq.RakCreditCardBalanceTransfer.ccCombinedLimitFlag">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.CRED_LIMIT}}</span>
+									<span class="rak-sum-label black">{{rakServiceReq.RakCreditCardBalanceTransfer.availCreditLimit}}</span>
+								</p>
+								<p class="rak-parent-txt">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.ELIG_LIM}}</span> <span
+										class="rak-sum-label black">{{rakServiceReq.RakCreditCardBalanceTransfer.eligibleAmount}}</span>
+								</p>
+							
+
+
+								<div
+									ng-init='tyArr = createDropDownOptionArray(rakServiceReq.RakCreditCardBalanceTransfer.bnkTypeList ,["codeDesc"], "codeIndex");'></div>
+								<fin-input type="dropdown"
+									model="rakServiceReq.RakCreditCardBalanceTransfer.bnkType"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.BNK_TYPE}}"
+									validation-flag='pageErrorArr["rakServiceReq.RakCreditCardBalanceTransfer.bnkType"]'
+									option-array="tyArr"> </fin-input>
+
+<!--CHANGES DONE AS FIX OF PROUAT-1900 START  -->
+								<div
+									ng-init='nameArr = createDropDownOptionArray(rakServiceReq.RakCreditCardBalanceTransfer.bankNamesList ,["codeDesc"], "codeIndex");'></div>
+								<fin-input type="dropdown"
+									model="rakServiceReq.RakCreditCardBalanceTransfer.bankName"
+									display-row="full"
+									on-change="rakServiceReq.RakCreditCardBalanceTransfer.deliveryChannel='';rakServiceReq.rakCreditCardBalanceTransferUaeftEligibilityCheck();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.BNK_NAME}}"
+									validation-flag='pageErrorArr["rakServiceReq.RakCreditCardBalanceTransfer.bankName"]'
+									option-array="nameArr"> </fin-input>
+
+								<fin-input type="number_card"
+									model="rakServiceReq.RakCreditCardBalanceTransfer.otherBnkCC"
+									display-row="full" max-length="16"
+									validation-flag='pageErrorArr["rakServiceReq.RakCreditCardBalanceTransfer.otherBnkCC"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.BNK_CC}}">
+								</fin-input>
+
+								<fin-input type="money"
+									model="rakServiceReq.RakCreditCardBalanceTransfer.balanceTransferAmt"
+									display-row="full"
+									validation-flag='pageErrorArr["rakServiceReq.RakCreditCardBalanceTransfer.balanceTransferAmt"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.BT_AMT}}">
+								</fin-input>
+<!--CHANGES DONE AS FIX OF PROUAT-1900 END  -->
+
+
+			<div ng-if="rakServiceReq.RakCreditCardBalanceTransfer.bankName!=''">
+                         		<div
+									ng-init='delArr = createDropDownOptionArray(rakServiceReq.RakCreditCardBalanceTransfer.deliveryChannelList, ["codeDesc"], "codeIndex");'></div>
+								<fin-input type="dropdown"
+							ng-show="rakServiceReq.RakCreditCardBalanceTransfer.isUaeftElig"
+									model="rakServiceReq.RakCreditCardBalanceTransfer.deliveryChannel"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.DEL_CHAN}}"
+									validation-flag='pageErrorArr["rakServiceReq.RakCreditCardBalanceTransfer.deliveryChannel"]'
+									option-array="delArr"> </fin-input>
+
+
+								<div
+									ng-init='delArrForWithoutUAEFTS = createDropDownOptionArray(rakServiceReq.RakCreditCardBalanceTransfer.deliveryChannelListWithoutUAEFTS, ["codeDesc"], "codeIndex");'></div>
+								<fin-input type="dropdown"
+							ng-hide="rakServiceReq.RakCreditCardBalanceTransfer.isUaeftElig"
+									model="rakServiceReq.RakCreditCardBalanceTransfer.deliveryChannel"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.DEL_CHAN}}"
+									validation-flag='pageErrorArr["rakServiceReq.RakCreditCardBalanceTransfer.deliveryChannel"]'
+									option-array="delArrForWithoutUAEFTS"> </fin-input>
+					</div>
+					
+					
+					<div ng-if="rakServiceReq.RakCreditCardBalanceTransfer.bankName=='' || rakServiceReq.RakCreditCardBalanceTransfer.bankName==null">
+                         		<div
+									ng-init='delArr = createDropDownOptionArray(rakServiceReq.RakCreditCardBalanceTransfer.deliveryChannelList, ["codeDesc"], "codeIndex");'></div>
+								<fin-input type="dropdown"
+							ng-show="rakServiceReq.RakCreditCardBalanceTransfer.isUaeftElig"
+									model="rakServiceReq.RakCreditCardBalanceTransfer.deliveryChannel"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.DEL_CHAN}}"
+									validation-flag='pageErrorArr["rakServiceReq.RakCreditCardBalanceTransfer.deliveryChannel"]'
+									option-array="delArr" readonly> </fin-input>
+									
+									<div
+									ng-init='delArrForWithoutUAEFTS = createDropDownOptionArray(rakServiceReq.RakCreditCardBalanceTransfer.deliveryChannelListWithoutUAEFTS, ["codeDesc"], "codeIndex");'></div>
+								<fin-input type="dropdown"
+							ng-hide="rakServiceReq.RakCreditCardBalanceTransfer.isUaeftElig"
+									model="rakServiceReq.RakCreditCardBalanceTransfer.deliveryChannel"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.DEL_CHAN}}"
+									validation-flag='pageErrorArr["rakServiceReq.RakCreditCardBalanceTransfer.deliveryChannel"]'
+									option-array="delArrForWithoutUAEFTS" readonly> </fin-input>
+
+
+								
+					</div>
+								
+	
+								
+
+								<div class="rakRow"
+									ng-show="rakServiceReq.RakCreditCardBalanceTransfer.deliveryChannelList[rakServiceReq.RakCreditCardBalanceTransfer.deliveryChannel].code && rakServiceReq.RakCreditCardBalanceTransfer.deliveryChannelList[rakServiceReq.RakCreditCardBalanceTransfer.deliveryChannel].code=='M'">
+									<div class="radio-biller rak100">
+										{{appLiterals.APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.MAN_CHQ}}</div>
+									<div class="rak100 ">
+										<div>
+																				
+										
+											<div class="rakCstmRadioDiv rak50 ">
+												<input type="radio" value="B"  id="radio1"
+													ng-model="rakServiceReq.RakCreditCardBalanceTransfer.managerChq" />
+													<label for="radio1"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.BRANCH}}</label>
+												
+											</div>
+											<div class="rakCstmRadioDiv rak47 ">
+												<input type="radio" value="C" id="radio2"
+													ng-model="rakServiceReq.RakCreditCardBalanceTransfer.managerChq" />
+													<label for="radio2"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.COURIER}}</label>
+											
+											</div>
+
+										</div>
+										<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.RakCreditCardBalanceTransfer.managerChq"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.MAN_CHQ}}</div>
+									</div>
+								</div>
+
+								<div 
+									ng-init='brArr = createDropDownOptionArray(rakServiceReq.RakCreditCardBalanceTransfer.branchList ,["codeDesc"], "codeIndex");'></div>
+								<fin-input type="dropdown" ng-if="rakServiceReq.RakCreditCardBalanceTransfer.managerChq =='B'"
+									ng-show="rakServiceReq.RakCreditCardBalanceTransfer.managerChq=='B'||rakServiceReq.RakCreditCardBalanceTransfer.deliveryChannelList[rakServiceReq.RakCreditCardBalanceTransfer.deliveryChannel].code!='E'"
+									model="rakServiceReq.RakCreditCardBalanceTransfer.branch"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.BRANCH}}"
+									validation-flag='pageErrorArr["rakServiceReq.RakCreditCardBalanceTransfer.branch"]'
+									option-array="brArr"> </fin-input>
+
+
+								<div
+									ng-init='btArr = createDropDownOptionArray(rakServiceReq.RakCreditCardBalanceTransfer.balanceTransferList ,["codeDesc"], "codeIndex");'></div>
+								<fin-input type="dropdown"
+									model="rakServiceReq.RakCreditCardBalanceTransfer.balanceTransfer"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.BT_OPTION}}"
+									validation-flag='pageErrorArr["rakServiceReq.RakCreditCardBalanceTransfer.balanceTransfer"]'
+									option-array="btArr"> </fin-input>
+
+
+								<fin-input type="text"
+									model="rakServiceReq.RakCreditCardBalanceTransfer.remarks"
+									display-row="full"
+									validation-flag='pageErrorArr["rakServiceReq.RakCreditCardBalanceTransfer.remarks"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_CC_BAL_TRANSFER.REMARKS}}">
+								</fin-input>
+
+
+								<div class="label-wrap">
+
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small"
+										ng-click="rakServiceReq.RakCreditCardBalanceTransfer.rakCCBalanceTransferSubmit();rakServiceReq.rakCreditCardBalanceTransferOtherBankCard();rakServiceReq.RakCreditCardBalanceTransfer.rakCCBalanceTransferContinue();setEvent('onRAKCreditCardBalanceTransferConfirmClick');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+								</div>
+								<div class="col-sm-1"></div>
+								
+						<div class="disclaimer">
+                              <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                              <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                              </div>
+                              
+                              <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+									<span ng-click="rakServiceReq.fetchDisclaimer('CreditCardServiceRequestsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKBALTRANSFER_INITPAGE"></span>
+									<span ng-click="rakServiceReq.fetchDisclaimer('CreditCardServiceCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKBALTRANSFER_INITPAGECONT"></span>
+								</div>
+              			</div>
+              			
+							</div>
+						</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

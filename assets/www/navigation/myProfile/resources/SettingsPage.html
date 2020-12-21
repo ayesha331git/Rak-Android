@@ -1,0 +1,39 @@
+<div class="finacle-container"
+	ng-init="setSingleStepRealmAuthFailure();resetPageError();">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height-98">
+
+			<div class="dashboard-pad padding-bottom-zero full-height">
+				<div class="dashboard-item-body full-height">
+					<div class="dashboard-item-title col-sm-12">
+						<div id="title" class="item-title text-uppercase">Settings Page</div>
+					</div>
+
+					<div class="col-sm-12">
+						<div id="setBankIdClick" class="landingpage-list"
+							ng-click="setGlobalEvent('onSetBankIdClick')">
+							<div id="bankId" class="pull-left profile-txt">Set Bank Id</div>
+						</div>
+
+						<div class="service-hr"></div>
+						<div id="setMBAASUrlClick" class="landingpage-list2"
+							ng-click="setGlobalEvent('onSetMbaasURL')">
+							<div id="mbaas" class="pull-left profile-txt">Set MBAAS URL</div>
+						</div>
+
+						<div class="service-hr"></div>
+						<div id="setBuildTypeClick" class="landingpage-list2"
+							ng-click="setGlobalEvent('onSetBuildType')">
+							<div id="buildType" class="pull-left profile-txt">Set Build Type</div>
+						</div>
+						<div class="service-hr"></div>
+						<div id="setAppClick" class="landingpage-list2"
+							ng-click="setGlobalEvent('onSetAppMode')">
+							<div id="mbaas" class="pull-left profile-txt">Set App Mode </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

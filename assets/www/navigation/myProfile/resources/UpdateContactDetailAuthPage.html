@@ -1,0 +1,75 @@
+<div id="updateContactDetailAuthPage" class="app app-arrow2 title-right"
+	ng-click="myProfile.onback();myProfile.updateContactModel.isBack=true;setEvent('onPrevServiceClick')"></div>
+<div class="finacle-container"
+	ng-init="myProfile.initUpdateContactDetailsConfirm(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper">
+			</div>
+
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div id="updateContactAuth" class="item-title text-uppercase">{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.CONFIRM_TXT}}</div>
+					</div>
+
+					<div class="col-sm-12">
+						<div class="account-detail-dash margin-zero">
+							<b id="mobile" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.MOBILE}}
+								<span id="cellPh" ng-show={{myProfile.updateContactModel.prefPhn=='CELLPH'}} >({{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PREFFERED}})</span>
+							</b> <span id="mobileDetails" class="dash-ac-id"><fin-Phone model="myProfile.updateContactModel.mobileNumberComplete" value="{{myProfile.updateContactModel.mobileNumberComplete}}" /></span>
+						</div>
+	
+						<div class="account-detail-dash margin-zero">
+							<b id="home" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.HOME}}
+								<span id="homePh"
+								ng-show={{myProfile.updateContactModel.prefPhn=='HOMEPH1'}} >({{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PREFFERED}})</span>
+							</b> <span id="homeDetails" class="dash-ac-id"><fin-Phone model="myProfile.updateContactModel.homePhoneNumberComplete" value="{{myProfile.updateContactModel.homePhoneNumberComplete}}" /></span>
+						</div>
+
+						<div class="account-detail-dash margin-zero">
+							<b id="work" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.WORK}}
+								<span id="workPh"
+								ng-show={{myProfile.updateContactModel.prefPhn=='WORKPH1'}} >({{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PREFFERED}})</span>
+							</b> <span id="workValue" class="dash-ac-id"><fin-Phone model="myProfile.updateContactModel.workPhoneNumberComplete" value="{{myProfile.updateContactModel.workPhoneNumberComplete}}" /></span>
+						</div>
+						
+						<div class="account-detail-dash margin-zero">
+							<b id="workExtn" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.WORK_EXTN}}
+							</b> <span id="workExtnValue" class="dash-ac-id">{{myProfile.updateContactModel.confirmResponse.workExtenNumber}}</span>
+						</div>
+						
+						<div class="account-detail-dash margin-zero">
+							<b id="personalMail" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PERSONAL_EMAIL_ID}}
+								<span id="homeMail"
+								ng-show={{myProfile.updateContactModel.prefEmail=='HOMEEML'}} >({{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PREFFERED}})</span>
+							</b> <span id="homeMailValue" class="dash-ac-id">{{myProfile.updateContactModel.confirmResponse.personalEmailId}}</span>
+						</div>
+	
+						
+						<div class="account-detail-dash margin-zero">
+							<b id="workMail" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.WORK_EMAIL_ID}}
+								<span id="prefWork"
+								ng-show={{myProfile.updateContactModel.prefEmail=='WORKEML'}} >({{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.PREFFERED}})</span>
+							</b> <span id="workMailValue" class="dash-ac-id">{{myProfile.updateContactModel.confirmResponse.workEmailId}}</span>
+						</div>
+
+
+						<form ng-submit="setEvent('onCCSuccessClick')">
+							<fin-Stepauth></fin-Stepauth>
+							<section class="button-wrapper" layout="row"
+								layout-align="center center" layout-wrap>
+								<md-button id="updateContactAuth" type="submit"
+									class=" md-raised btn--primary-btn">
+								{{appLiterals.APP.MYPROFILE.UPDATECONTACTDET.CONFIRM_BTN}}</md-button>
+							</section>
+
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+</div>

@@ -1,0 +1,135 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+<div class="finacle-container" ng-init="rakPayee.payCard.initSuccessPage(successResponse.responsesList)">
+ 
+  <div class="account-page">
+    <div class="col-sm-11">
+     <div class="app-title-wrapper">
+     
+	    
+     
+       
+    
+		<div class="form-block">
+     
+       
+        <ng-include  src="'./navigation/rakPayee/resources/RakPayCardsTabPage.html'"> </ng-include>    
+  				<div class="tab-links">
+						<ul>																	
+							<li class="active"><span class="active">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_HISTORY}}</span></li>
+					<li ng-click="rakPayCards.schedule.clearSchedulePayCardsData();rakPayCards.ownCards.clearOwnCardsData();rakPayCards.setFutureDate();setGlobalEvent('onRakPayeeCardHistoryTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_SCHEDULE}}</span></li>
+						</ul>
+					</div>
+      </div> 
+		  
+		  <div class="">
+    
+            <div class="summary-BenfReq main-form-heading-ServiceReq">
+				<div class="iconDivBenf">
+					<span class="infoIconBenf"></span><span class="success">{{rakPayee.payCard.successMessage}}</span>
+				</div>
+			</div>
+	 
+		<div class="bg-color rak-scroll-success rak-cont-paddingvh">
+		 
+			<div class="row" >
+			  <div class="">
+			  
+			  	 <p class="rak-sum-txt"  ng-show="rakPayee.payCard.selectedCompltTxn.hostRefNo">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.BANKTRANSACTIONID}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.selectedCompltTxn.hostRefNo}}</span>
+				</p>
+			  
+			  <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.REFID}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.selectedCompltTxn.txnReferenceId}}</span>
+				</p>
+				
+				
+				
+					<!--   <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.TXNID}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.selectedCompltTxn.txnId}}</span>
+				</p>
+				 -->
+					<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.REQUESTDATE}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.selectedCompltTxn.reqDate}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.DATE}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.selectedCompltTxn.txnDate}}</span>
+				</p>
+	<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FROM}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.selectedCompltTxn.initorAccount}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.TOACC}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.selectedCompltTxn.toAccount}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NAME}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.beneficiaryName}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.AMOUNT}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.selectedCompltTxn.txnCurrency}} {{rakPayee.payCard.selectedCompltTxn.txnAmount}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show='rakPayee.payCard.reason'>
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.CANCELLATION_REMARKS}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.reason}}</span>
+				</p>
+				
+	<!-- 		<p class="rak-sum-txt" ng-show="rakPayee.payCard.selectedCompltTxn.freqType=='O'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FREQ}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAK_PAYEE.HISTORY.ONCE}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakPayee.payCard.selectedCompltTxn.freqType!='O'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FREQ}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAK_PAYEE.HISTORY.REC}}</span>
+				</p> -->
+				
+				<!-- <p class="rak-sum-txt" ng-show="rakPayee.payCard.selectedCompltTxn.txnStatus!='Under Processing'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.STATUS}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.selectedCompltTxn.txnStatus}}</span>
+				</p>	 -->	
+				
+			<!-- 	<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.STATUS}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payCard.statusFromHost}}</span>
+				</p>	
+				 -->
+				
+					<p class="rak-sum-txt" ng-if="rakPayee.common.nextApprover">
+					<span class="rak-sum-label">{{appLiterals.APP.CORPORATE.APPROVERNAME}}</span>
+					<span class="rak-sum-label black">{{rakPayee.common.nextApprover}}</span>
+				</p>
+			
+				<div class="label-wrap">
+
+
+
+				 <!-- <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="rakSendMoney.common.fromAuthPage=true; setEvent('onTransfersAuthBackClick');">  {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.BTN_BACK}} </button> -->
+				 <button type="button"  class="btn--special-btn btn-middle rak-button-small" ng-click="rakPayee.isUserNavigatingBack=false;rakPayee.isBeneficiaryHistoryMode=false;rakPayCards.common.fromAuthPage=false;rakPayCards.clearTab();rakPayee.clearTab();rakPayCards.utils.clearCommonData();rakPayCards.cardHistoryTab=true;rakPayee.payCard.clearSearchHistory();rakPayCards.schedule.clearSchedulePayCardsData();rakPayCards.ownCards.clearOwnCardsData();
+			rakPayee.payCard.setInitialFromToDate();rakPayee.payCard.selectedCardType='';setGlobalEvent('onRakPayeeHistoryTabClick');"> Done </button>
+		
+			  </div>		  
+								
+				<div class="col-sm-10"> </div> 	
+      </div>
+    </div>
+  </div>
+		  </div>
+		</div>
+	</div>
+
+		</div>
+</div>
+</div>

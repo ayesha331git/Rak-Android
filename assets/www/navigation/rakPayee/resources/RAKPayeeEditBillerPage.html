@@ -1,0 +1,73 @@
+  <div class="rak-back-header">
+    <i class="rak-back-img" ng-click="setEvent('onEditBillerPageBackClick')"></i>
+  </div>
+   <div class="nano menu-scroll">
+	<div class="nano-content">
+  <div class="finacle-container" ng-init="rakPayee.payeeModel.editBnfFlag=false;rakPayee.getPayeeInitForBillerType(successResponse.responsesList);">
+	<div class="account-page">
+	<div class="col-sm-11">
+	<div class="app-title-wrapper">
+			<div class="form-block">
+					<ng-include  src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>
+					   <div class="rak-scroll">	 		
+				 <div class="main-form-heading-payee"> 
+		      <h2 >{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_MODIFY_BILLER}}<span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1}} :{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP1_TXT_EDIT}} </span></h2>		       
+		        </div>	
+			     
+		
+		<div class="bg-color rak-cont-padding">
+				<div class="" >
+					  <div class="col-sm-1"> </div>
+				   
+			<!-- Name -->            
+               <p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BIL_NAME}}</span>
+					<span class="rak-sum-label black">{{rakPayee.billerModel.displayName}}</span>
+				</p>  
+				
+			        
+         
+           <div ng-repeat="fields in rakPayee.billerModel.labels" >
+				<p class="rak-sum-txt" ng-if="fields.consumerCode!=''">
+					<span class="rak-sum-label">{{fields.field}}</span>
+					<span class="rak-sum-label black">{{fields.consumerCode}}</span>
+				</p> 
+			</div>                               
+                   
+                   	  <p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BIL_NICKNAME}}</span>
+					<span class="rak-sum-label black rak30Edit" ng-if="!rakPayee.payBill.editIconFlag">{{rakPayee.billerModel.nickName}}</span>
+					<span class="rakEditBenfImg" ng-if="!rakPayee.payBill.editIconFlag" ng-click="rakPayee.payBill.editIconFlag=true;"></span>
+					 <span class="rak-sum-label black" ng-if="rakPayee.payBill.editIconFlag"><fin-input type="text_restrictedSpecialCharacter" model="rakPayee.billerModel.nickName" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BIL_NICKNAME}}" 
+					 validation-flag='pageErrorArr["rakPayee.billerModel.nickName"]' > </fin-input></span>
+				</p>   
+                                  
+                
+                <div class="fin-txt"></div>                                            									
+					<div class="label-wrap">
+					
+					<button type="button"
+										class="btn--special-btn btn-middle rak-button-small btn--back"
+										ng-click="setEvent('onEditBillerPageBackClick');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+					
+						<!-- <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="setEvent('onEditBillerPageBackClick')" >{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_BACK}}</button> -->
+						<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakPayee.validateNickName();" >{{appLiterals.APP.PAYEE.ADDBILL_PAGE.BTN_CONTINUE}}</button>
+                  							<!-- <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakPayee.billerModel.getConsumerCodeListForBiller();
+                  							(rakPayee.isAutoPaySet) ? rakPayee.prepareAutoPayParams(): '';(rakPayee.isAutoPaySet) ? setEvent('onPayeeEditBillerAutoPayClick') : setEvent('onPayeeEditBillerClick');" >{{appLiterals.APP.PAYEE.ADDBILL_PAGE.BTN_CONTINUE}}</button> -->
+                  		
+                        </div> 
+                        <div class="col-sm-1"> </div>	
+					</div>
+					<!-- The same button handles edit biller use case and add biller use case -->
+			
+			</div>
+				 
+		</div>
+		</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>

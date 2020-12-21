@@ -1,0 +1,53 @@
+<div id="selectBuildType" class="app app-arrow2 title-right"
+	ng-click="setGlobalEvent('onSelectBankIdBackClick')"></div>
+<div class="finacle-container"
+	ng-init="setSingleStepRealmAuthFailure();">
+	<div class="account-page">
+		<div class="col-sm-12">
+
+			<div class="dashboard-pad padding-bottom-zero full-height">
+				<div class="dashboard-item-body full-height">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div id="buildTypeTitle" class="item-title text-uppercase">Set App Mode </div>
+					</div>
+
+					<form ng-submit="myProfile.setAppType();">
+						<div
+							ng-init='appType = createDropDownOptionArray(mobileAppConfig.appConfigData.appType, ["appTypeDesc"], "appTypeDescValue");'></div>
+						<fin-input type="dropdown" model="myProfile.appType"
+							validation-flag='pageErrorArr["myProfile.appType"]'
+							display-row="full" placeholder="appMode"
+							option-array="appType"></fin-input>
+
+						<section class="button-wrapper" layout="row"
+							layout-align="center center" layout-wrap>
+							<md-button id="setAppType" type="submit"
+								class=" md-raised btn--primary-btn">SAVE</md-button>
+						</section>
+					</form>
+				</div>
+			</div>
+			
+			
+			
+			<div class="dashboard-pad padding-bottom-zero full-height">
+				<div class="dashboard-item-body full-height">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div id="buildTypeTitle" class="item-title text-uppercase">Current App Mode : {{myProfile.currentAppType}} </div>
+					</div>
+
+					<form ng-submit="myProfile.getAppType()">
+						 
+						 
+
+						<section class="button-wrapper" layout="row"
+							layout-align="center center" layout-wrap>
+							<md-button id="getAppType" type="submit"
+								class=" md-raised btn--primary-btn">GET CURRENT APP MODE</md-button>
+						</section>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

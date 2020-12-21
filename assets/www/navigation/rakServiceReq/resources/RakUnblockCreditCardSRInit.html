@@ -1,0 +1,97 @@
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onUnBlockCreditCardHomeBackClick');"></i>
+	</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.rakUnblockCreditCardBlockInit(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<!--  <div class="app-title-wrapper"> -->
+					<div class="form-block">
+						<div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.UNBLOCK_CC}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+                              </h2>              
+						</div>
+						
+						<div class="bg-color rak-cont-padding rak-scroll">
+							<div class="row">
+							
+
+								<div
+									ng-init='cardArr = createDropDownOptionArray(rakServiceReq.RakUnblockCreditCardBlock.cardList, ["creditCardDesc","-","creditCardNumber"], "creditIndex");'></div>
+								<fin-input type="dropdown"
+									model="rakServiceReq.RakUnblockCreditCardBlock.selectedCard"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAKTEMPDEBBLOCK.CARDNO}}"
+								on-change="rakServiceReq.RakUnblockCreditCardBlock.expDateFlag=rakServiceReq.RakUnblockCreditCardBlock.selectedCard!=''?true:false;setEvent('onUnblockCreditCardSelected');" 	validation-flag='pageErrorArr["rakServiceReq.RakUnblockCreditCardBlock.selectedCard"]'
+									option-array="cardArr"> </fin-input>
+
+	<div ng-if="rakServiceReq.RakUnblockCreditCardBlock.isDetailsFetched =='Y'">
+								<div class="rak-parent-txt "
+									ng-show="rakServiceReq.RakUnblockCreditCardBlock.expDateFlag">
+
+									<p class="rak-sum-label  ServiceReqNormalLable">{{appLiterals.APP.RAK_SERVICES.RAKTEMPDEBBLOCK.EXPDATE}}</p>
+										<p class="rak-sum-label blackRight ServiceReqNormalLable">{{rakServiceReq.RakUnblockCreditCardBlock.expDate}}</p>
+
+
+								</div>
+
+
+								<div
+									ng-init='resArr = createDropDownOptionArray(rakServiceReq.RakUnblockCreditCardBlock.reasonList, ["reasonDesc"], "reasonIndex");'></div>
+								<fin-input type="dropdown"
+									model="rakServiceReq.RakUnblockCreditCardBlock.reason"
+									on-change="rakServiceReq.RakUnblockCreditCardBlock.other='';"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAKTEMPDEBBLOCK.REASON}}"
+									validation-flag='pageErrorArr["rakServiceReq.RakUnblockCreditCardBlock.reason"]'
+									option-array="resArr" select-req="false"> </fin-input>
+
+								<fin-input type="text"
+									ng-show="rakServiceReq.RakUnblockCreditCardBlock.reason=='Others'"
+									model="rakServiceReq.RakUnblockCreditCardBlock.other"
+									display-row="full"
+									validation-flag='pageErrorArr["rakServiceReq.RakUnblockCreditCardBlock.other"]'
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAKTEMPDEBBLOCK.OTHERS}}">
+								</fin-input>
+
+
+
+
+
+								<div class="label-wrap">
+								<!-- 	<button type="button"
+										class="btn--special-btn btn-middle rak-button-small btn--back"
+										ng-click="setEvent('onUnBlockCreditCardHomeBackClick');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button> -->
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small"
+										ng-click="rakServiceReq.rakUnblockCreditOthers();rakServiceReq.RakUnblockCreditCardBlock.resetUnblockCreditCardBlockConfirm();rakServiceReq.rakUnblockCreditCardBlockDate();setEvent('onRAKUnblockCreditConfirmClick');">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+								</div>
+								<div class="col-sm-1"></div>
+								
+							</div>	
+								
+				<div class="disclaimer">
+                      <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                       <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                       </div>                                                 
+                                              
+                      <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+							<span ng-bind-html="appLiterals.APP.DISCLAIMER.UNBLOCK_CC_INIT"></span>
+						</div>                                              
+             	</div>
+								
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

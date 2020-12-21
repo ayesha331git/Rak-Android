@@ -1,0 +1,76 @@
+<div class="app app-arrow2 title-right-dash"
+	id="cancelAndApplyDebitCardPageBack"
+	ng-click="setEvent('onCancelAndApplyDebitCardCancelClick')"></div> 
+<div class="finacle-container"
+	ng-init="services.cancelApplyDebitCard.initCancelApplyDCData(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase">
+							<span id="pageTitle">
+								{{appLiterals.APP.SERVICES.COMMON.TXT_CANCEL_DEBIT_CARD}} </span>
+						</div>
+					</div>
+					<!--  End of title  -->
+					<!-- <div class="service-money"> </div> -->
+					<form
+						ng-submit="corpInit.corpModel.resetCorpInitDetails();services.cancelApplyDebitCard.addrFlag();setEvent('onCancelAndApplyDebitCardContinueClick')">
+						<div class="avail-bal-wrap"
+							ng-init='accountsListArray = createDropDownOptionAccountArray(services.cancelApplyDebitCard.accountsList,["accountNickName", "-", "accountNumber"], "accountIndex");'>
+							<fin-input type="dropdown"
+								model="services.cancelApplyDebitCard.accountNumber"
+								on-change="setEvent('onCancelAndApplyDebitCardAccountNumberSelect');"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.CANCEL_AND_APPLY_DC.PH_ACC_NO}}"
+								validation-flag='pageErrorArr["services.cancelApplyDebitCard.accountNumber"]'
+								option-array="accountsListArray"></fin-input>
+						</div>
+						<div class="avail-bal-wrap"
+							ng-init='debitCardNumberArray = createDropDownOptionArray(services.cancelApplyDebitCard.debitCardList,["debitCardNumber"], "debitCardIndex");'>
+							<fin-input type="dropdown" ng-show="debitCardNumberArray.length>0"
+								model="services.cancelApplyDebitCard.debitCardNumber"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.CANCEL_AND_APPLY_DC.PH_DC_NO}}"
+								validation-flag='pageErrorArr["services.cancelApplyDebitCard.debitCardNumber"]'
+								option-array="debitCardNumberArray"></fin-input>
+						</div>
+						<div class="avail-bal-wrap"
+							ng-init='reasonsListArray = createDropDownOptionArray(services.cancelApplyDebitCard.reasonsList,["reasonDescription"], "reasonIndex");'>
+							<fin-input type="dropdown" ng-show="reasonsListArray.length>0"
+								model="services.cancelApplyDebitCard.reason" display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.CANCEL_AND_APPLY_DC.PH_REASON}}"
+								validation-flag='pageErrorArr["services.cancelApplyDebitCard.reason"]'
+								option-array="reasonsListArray"></fin-input>
+						</div>
+						<div class="col-sm-12">
+							<div class="ques-cb pull-left margin-zero">
+								<input type="checkbox" id="cancelAndApplyDebitCardCheckbox"
+									class="unchecked"
+									ng-model="services.cancelApplyDebitCard.address"> <label
+									for="cancelAndApplyDebitCardCheckbox"></label>
+							</div>
+							<label class="special-txt" for="cancelAndApplyDebitCardCheckbox"
+								id="labelTitle"> &nbsp;
+								{{appLiterals.APP.SERVICES.APP_NEW_DC.TITLE}} </label>
+						</div>
+						<div ng-show="services.cancelApplyDebitCard.address">
+							<span class="special-txt" id="deliveryAddressTitle"> <b>{{appLiterals.APP.SERVICES.COMMON.DELIVERY_ADDRESS}}</b></span><br />
+							<br />
+							<p class="left-txt" id="deliveryAddress">
+								{{services.cancelApplyDebitCard.responceList.address1}}<br id="deliveryAddress2"/>
+								{{services.cancelApplyDebitCard.responceList.address2}}<br id="deliveryAddress3"/>
+								{{services.cancelApplyDebitCard.responceList.address3}}<br id="deliveryAddress4"/>
+								{{services.cancelApplyDebitCard.responceList.city}},
+								{{services.cancelApplyDebitCard.responceList.state}},{{services.cancelApplyDebitCard.responceList.country}}
+							</p>
+						</div>
+						<md-button id="cancelAndApplyDebitCardSubmit" type="submit"
+							class="md-raised btn--primary-btn">{{appLiterals.APP.COMMON.BUTTON.CONTINUE}}</md-button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,137 @@
+  <div class="rak-back-header">
+    <i class="rak-back-img" ng-click="rakPayee.isBackClicked=true;rakPayee.revertValues();setEvent('onPayeeConfirmationBackClick');rakPayee.isDeleteBeneficiaryMode=false;"></i>
+  </div>
+<div class="finacle-container ng-scope" ng-init="(rakPayee.processBillerAuthInitResponse(successResponse.responsesList));rakPayee.authMode.firstAuthModeValue = '';rakPayee.authMode.secAuthModeValue = '';rakHome.AuthPageData.firstAuthModeValue='';rak2FARegister.RegistrationModel.resendAuthMode(successResponse.responsesList);">
+
+	<div class="account-page">
+    <div class="col-sm-11">
+				<div class="app-title-wrapper">
+						<ng-include  src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>
+ <div class="rak-scroll">
+		   <div class="">
+	        <div class="main-form-heading-payee" >
+                <h2>{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.CREATE_PAYEE}}<span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP3}} : {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2_TXT1}} </span></h2>
+            </div>
+
+			 <div class="bg-color rak-cont-padding">
+				<div class="" >
+				 <div class="">
+
+<!-- <div class="ng-hide" ng-if="rakPayee.isShowAlert" ng-init="(rakPayee.isAlertAnError == true) ? showErrorPopup(rakPayee.billerAuthStatusMessage) : showAlert(rakPayee.billerAuthStatusMessage);rakPayee.isBillerAuthSent=false;rakPayee.isShowAlert=false; setEvent(rakPayee.getBillerAuthPopupEvent())"></div> -->
+
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BILLER_NAME}}</span>
+				<span class="rak-sum-label black">{{rakPayee.billerModel.displayName}}</span>
+			</p>
+			
+
+			<p  class="rak-sum-txt" ng-show="rakPayee.billerAuthDetails.hasOwnProperty('billerAuthStatusMessage')">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_BIL_STATUS}}</span>
+				<span class="rak-sum-label black">{{rakPayee.billerAuthDetails.billerAuthStatusMessage}}</span>
+			</p>
+
+
+			<!--<p class="rak-sum-txt" ng-show="rakPayee.billerAuthDetails.hasOwnProperty('billerID')">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_BIL_ID}}</span>
+				<span class="rak-sum-label black">  {{rakPayee.billerAuthDetails.billerID}}</span>
+			</p>
+
+		<!-- 	<p class="rak-sum-txt" ng-show="rakPayee.billerAuthDetails.hasOwnProperty('billerType')">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_BIL_TYPE}}</span>
+				<span class="rak-sum-label black">  {{rakPayee.billerAuthDetails.billerType}}</span>
+			</p>
+
+			<p class="rak-sum-txt" ng-show="rakPayee.billerAuthDetails.hasOwnProperty('billerTypeDesc')">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_BIL_DESC}}</span>
+				<span class="rak-sum-label black">  {{rakPayee.billerAuthDetails.billerTypeDesc}}</span>
+			</p> -->
+
+		    <div ng-repeat="fields in rakPayee.billerModel.consumerCodeflds"
+		    ng-hide="(rakPayee.billerModel.displayName == 'EMAAR' && fields.label=='Others' && rakPayee.billerModel.consumercode0!='OTHR')">
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{fields.label}}</span>
+					<span class="rak-sum-label black">{{fields.value}}</span>
+				</p>
+			</div>
+			
+			
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BILLER_NICKNAME}}</span>
+				<span class="rak-sum-label black">{{rakPayee.billerAuthDetails.billerNickName}}</span>
+			</p>
+
+			<!-- <div  class="rak-sum-txt" ng-show=" rakPayee.billerAuthDetails.hasOwnProperty('subscriptionDate')">
+						<p class="rak-sum-txt">
+						 <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_SUB_DATE}}</span>
+						  <span class="rak-sum-label black">  {{rakPayee.billerAuthDetails.subscriptionDate}}</span>
+						</p>
+					</div> -->
+
+			<!-- <div  ng-show="rakPayee.billerAuthDetails.hasOwnProperty('autoPayRequired')">
+				<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_AUTO_REQ}}</span>
+				  <span class="rak-sum-label black">  {{rakPayee.billerAuthDetails.autoPayRequired}}</span>
+				</p>
+
+				<div   ng-show=" rakPayee.billerAuthDetails.autoPayRequired == 'Yes'">
+					<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_AUTO_MODE}}</span>
+					   <span class="rak-sum-label black">  {{rakPayee.billerAuthDetails.autoPayMode}}</span>
+					</p>
+					<div class="rak-sum-txt" ng-show=" rakPayee.billerAuthDetails.hasOwnProperty('billerLimitAmount')">
+						<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_LIM_AMT}}</span>
+						<span class="rak-sum-label black">{{rakPayee.billerAuthDetails.billerLimitAmount}}</span>
+						</p>
+					</div>
+					<p class="rak-sum-txt">
+					  <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_DEB_ACC}}</span>
+					  <span class="rak-sum-label black">  {{rakPayee.billerAuthDetails.debitAccount}}</span>
+					 </p>
+					<div  class="rak-sum-txt" ng-show=" rakPayee.billerAuthDetails.hasOwnProperty('subscriptionDate')">
+						<p class="rak-sum-txt">
+						 <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_SUB_DATE}}</span>
+						  <span class="rak-sum-label black">  {{rakPayee.billerAuthDetails.subscriptionDate}}</span>
+						</p>
+					</div>
+				</div>
+			</div>-->
+			
+			
+			<fin-dynamicbenfauthresend></fin-dynamicbenfauthresend>
+			
+
+			 <div  class="label-wrap">
+
+
+			 <!-- RAK:Sindhu:Save Biller Flow-Modified-Start -->
+		   <button type="button" class="btn--special-btn btn-middle rak-button-small rak40 center rakFloatNoneImp" ng-click="rakPayee.isBillerAuthSent = true; rakPayee.isBackClicked=false;rakPayee.billerModel.getRAKConfirmFlag(0);setEvent('onRAKAddBillerAuthConfirmClick')" >{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_RAKCLATER}}</button>
+
+           <button type="button" class="btn--special-btn btn-middle rak-button-small rak40 center rakFloatNoneImp" ng-click="rakPayee.isBillerAuthSent = true; rakPayee.isBackClicked=false;rakPayee.billerModel.getRAKConfirmFlag(1);rakHome.AuthPageData.fetchOtp('onAddBillerAuthConfirmClick')" >{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_RAKCNOW}}</button>
+
+             <!-- RAK:Sindhu:Save Biller Flow-Added-End -->
+		  </div>
+
+		   <div class="col-sm-1"> </div>
+		   <div class="disclaimer"  ng-init="rakPayee.getDisclaimerForAddBiller()">
+				<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+					<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+				</div>
+
+				<div class="disclaimer3" ng-show="rakDisclaimerFlag">
+					
+					<span ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.OTP" ng-bind-html="appLiterals.APP.DISCLAIMER.PAYEE_AUTH"></span>
+                    <span ng-show="rakHome.AuthPageData.authType!=rakHome.AuthPageData.OTP" ng-bind-html="appLiterals.APP.DISCLAIMER.PAYEE_AUTH_RAKTOKEN"></span>
+					<span ng-if="rakPayee.billerCoolingPeriodRqd=='Y'" ng-bind-html="rakPayee.disclaimerText"></span>
+				</div>
+
+			</div>
+		   </div>
+	  </div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

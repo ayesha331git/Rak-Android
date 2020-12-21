@@ -1,0 +1,42 @@
+<div class="full-height">
+	<div class="account-page full-height">
+		<form class="dashboard-item-body full-height "
+			ng-submit="setEvent('onContinueClick');">
+			<div class="sticky-footer">
+				<div class="dashboard-item-title col-sm-12" layout="row"
+					layout-align="center center" layout-wrap>
+					<h2 class="md-headline item-title text-uppercase" layout="row"
+						layout-align="center center" layout-wrap id="regCustIdHeader">{{appLiterals.APP.REGISTER.REG_CUSTID.HEADER}}</h2>
+				</div>
+				<div class="col-sm-12  lh13 margin-bottom-20"
+					id="regCustIdEnterUserId">
+					<div class="col-sm-12">
+						<p class="fut-txt1">{{appLiterals.APP.REGISTER.REG_CUSTID.ENT_UID}}</p>
+					</div>
+				</div>
+
+				<div class="col-sm-12">
+					<div class="avail-bal-wrap">
+						<fin-input type="text" model="register.loginModel.userId"
+							display-row="full"
+							placeholder="{{appLiterals.APP.REGISTER.REG_CUSTID.PH_UID}}"
+							validation-flag='pageErrorArr["register.loginModel.userId"]'></fin-input>
+						<div id="dontHaveUserId"
+							class="subscript-text new_user balance-available"
+							ng-click="setEvent('onRegTypeClick');" id="dontHaveUserIdLink">{{appLiterals.APP.REGISTER.REG_CUSTID.NO_UID}}</div>
+					</div>
+				</div>
+			</div>
+			<section class="button-wrapper sticky-footer-block" layout="row"
+				layout-align="center center" layout-wrap>
+				<md-button id="regCustIdCancel" type="button"
+					class=" md-raised btn--secondary-btn"
+					ng-click="setGlobalEvent('onLoginClick');setSingleStepRealmAuthFailure();">
+				{{appLiterals.APP.COMMON.BUTTON.CANCEL}} </md-button>
+				<md-button id="regCustIdSubmit" type="submit"
+					class=" md-raised btn--primary-btn ">
+				{{appLiterals.APP.REGISTER.REG_CUSTID.BTN_PROCEED}} </md-button>
+			</section>
+		</form>
+	</div>
+</div>

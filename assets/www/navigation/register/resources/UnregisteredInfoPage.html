@@ -1,0 +1,31 @@
+<div class="full-height">
+	<div class="account-page full-height">
+		<div class="dashboard-item-body full-height">
+			<div class="sticky-footer">
+				<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+					<h2 class="md-headline item-title text-uppercase"
+						id="unRegisterMobileAppHeader">{{appLiterals.APP.REGISTER.REG_CHAN_SEL.HEADER}}</h2>
+				</div>
+				<div class="col-sm-12  lh13 margin-bottom-20"
+					id="unRegisterMobileAppTxt">
+					<div class="col-sm-12">
+						<p class=" fut-txt1">{{appLiterals.APP.REGISTER.REG_CHAN_SEL.UNREGISTER}}</p>
+					</div>
+				</div>
+			</div>
+			<section layout="row" layout-align="center center"
+				class="btn-wrap button-wrapper sticky-footer-block">
+				<md-button id="registerMobileAppNo" type="button"
+					class=" md-raised btn--secondary-btn"
+					ng-click="setEvent('onUnregisteredInfoPageNoClick')">
+				{{appLiterals.APP.COMMON.BUTTON.NO}} </md-button>
+				<md-button id="registerMobileAppYes" type="button"
+					class=" md-raised btn--primary-btn"
+					ng-click="register.checkChanneldeSelection();register.delSelectChannel('G');register.isLogOut=true;setEvent('onUnregisteredInfoPageNoClick')">
+				{{appLiterals.APP.COMMON.BUTTON.YES}}</md-button>
+			</section>
+		</div>
+	</div>
+</div>
+
+

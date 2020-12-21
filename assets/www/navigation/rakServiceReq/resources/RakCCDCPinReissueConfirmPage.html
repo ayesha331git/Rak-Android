@@ -1,0 +1,110 @@
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="rakServiceReq.common.fromAuthPage=true;setEvent('onRAKCCDCPinReissueConfirmBackClick');"></i>
+	</div>
+<div class="finacle-container ng-scope"
+	ng-init="rakServiceReq.RAKCCDCPinReissueModel.txnPwd = '';rakServiceReq.confirmRAKCCDCPinReissue(successResponse.responsesList);">
+	<div class="account-page ">
+		<div class="col-sm-11">
+			<!-- 	<div class="app-title-wrapper"> -->
+
+				<!-- <div class="main-form-heading-ServiceReq"> 
+                      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CC_PIN_REISSUE}}
+                      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>                
+                      </h2>              
+				</div> -->
+				<div ng-if="rakServiceReq.serviceRequestStatusModel.cardFlag=='Credit'" class="main-form-heading-ServiceReq"> 
+			                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CC_PIN_REISSUE}}
+			                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}}</span>                
+			                 </h2>              
+						</div>
+						
+						
+						<div ng-if="rakServiceReq.serviceRequestStatusModel.cardFlag=='Debit'" class="main-form-heading-ServiceReq"> 
+			                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DC_PIN_REISSUE}}
+			                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}}</span>                
+			                 </h2>              
+						</div>
+			<!-- </div> -->
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">		
+				
+					<div class="rakDupliSRChkMsgImg" ng-show='rakServiceReq.common.message'>
+						<span class='rakAlertForDupStmt'></span> <span class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+					</div>			
+
+						<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{rakServiceReq.RAKCCDCPinReissueModel.CardConfirmPageText}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKCCDCPinReissueModel.CCDCCardList[rakServiceReq.RAKCCDCPinReissueModel.selectedCCDCCard].creditDebitcardNumber}}</span>
+						</p>
+						<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_CC_DC_PIN_REISSUE.OTP}}</span>
+							<span class="rak-sum-label black">..........</span>
+						</p>
+
+						<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_CC_DC_PIN_REISSUE.CVV}}</span>
+							<span class="rak-sum-label black">...</span>
+						</p>
+
+						<p class="rak-sum-txt ">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_CC_DC_PIN_REISSUE.DOB}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RAKCCDCPinReissueModel.dateOfBirthDisp}}</span>
+						</p>
+
+					<div class="label-wrap"
+						ng-show='rakServiceReq.RAKCCDCPinReissueModel.authStatus'>
+						
+						
+						<fin-input type="password_text" model="rakServiceReq.RAKCCDCPinReissueModel.txnPwd"
+							display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+							validation-flag='pageErrorArr["rakServiceReq.RAKCCDCPinReissueModel.txnPwd"]'
+						ng-show="rakServiceReq.RAKCCDCPinReissueModel.authMode==txnpwdString">
+							</fin-input>
+							
+						<!--  CHANGES FOR RESEND OTP START -->
+						<div ng-show="rakServiceReq.RAKCCDCPinReissueModel.authMode==otpString">
+						<div ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+						<fin-input type="password_num" model="rakServiceReq.RAKCCDCPinReissueModel.txnPwd"
+						display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}"
+						validation-flag='pageErrorArr["rakServiceReq.RAKCCDCPinReissueModel.txnPwd"]'>
+						</fin-input>
+						</div>
+						<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0' ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+                        <fin-input type="dropdown" option-array="toModeArray" model="rakHome.otpModel.otpModeSelected" display-row="full" placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+                        <p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>                  
+                  		</div>
+						 <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>   
+						 </div>
+						<!--  CHANGES FOR RESEND OTP END -->
+					</div>
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back"
+								ng-click="rakServiceReq.common.fromAuthPage=true;setEvent('onRAKCCDCPinReissueConfirmBackClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="setEvent(rakServiceReq.RAKCCDCPinReissueModel.onCCDCCardFinalSubmitEvent);">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}
+							</button>
+
+						</div>
+						<div class="col-sm-1"></div>
+						
+						<div class="disclaimer">
+                                 <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                 <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                 </div>
+
+                                 <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                                 <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSERREQ_CONF"></div>
+                                 </div>
+                 </div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

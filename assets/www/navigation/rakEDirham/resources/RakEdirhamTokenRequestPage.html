@@ -1,0 +1,74 @@
+ <div class="rak-back-header">
+	<i class="rak-back-img" ng-click="setEvent('onBackClick');"></i>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div ng-init='rakEDirham.initTokenGenerateRequest(successResponse.responsesList[0]);'  class="finacle-container">
+			<div class="account-page">
+			
+					<div class="app-title-wrapper">
+						<div class="form-block">						
+						
+			<div class="eDirham-acct-block margn-5-5-0-5">
+						<div  class="bg-color rak-cont-padding rak-scroll eDirham-acct-block">
+							<div class="paybils-block-top w-100">
+					           <div class="">
+					             <div class="entr-edirham-pin-txt black-txt dashboard-item-title">{{appLiterals.APP.EDIRHAM.EDIRHAM_TOKEN_REQ_TXT}}</div>
+					              
+					            </div>	
+					             <div>
+					            <h3 class="setPin-msg">
+									{{appLiterals.APP.EDIRHAM.CHOOSE_ACCT_MSG}}
+									</h3>	
+					            </div>
+					            	
+								<div class="e-dirham-wlcm-block">
+								
+								
+									<div class="loginFirstDiv" ng-init='chooseAcctArray=createDropDownOptionArray(rakEDirham.tokenRequest.acctArray , ["acctTypeDesc","-","accountNumber", "-", "currencyCode"],"accountIndex")'>
+									
+										<fin-input type="dropdown" option-array="chooseAcctArray"
+											model="rakEDirham.tokenRequest.acctModel"
+											display-row="full" on-change="rakHome.onCustomerTypeChange()"
+											placeholder="{{appLiterals.APP.EDIRHAM.EDIRHAM_SELECT_PLC_HLDR}}"
+											
+											validation-flag='pageErrorArr["rakEDirham.tokenRequest.acctModel"]'>
+										</fin-input>
+									
+										
+											
+										</div>
+								</div>
+					<div class="disclaimer3" >
+								<div class="check-boxsLeft">
+				                    <input id="termsFlag"  class="checkbox-custom-new"  type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" ng-model='rakEDirham.tokenRequest.acceptTermscondition' >
+				                    <label for="termsFlag" class="e-dirham-checkbox-label termsCheck smallCheck" ng-bind-html="appLiterals.APP.DISCLAIMER.RAKEDIRHAMTOKENREQUESTTERMS"></label>
+				                    <span ng-click="rakServiceReq.fetchDisclaimer('AcntAndDebitCardSrvcRqstsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.EDIRHAMTERMCONDLINK}}</span>
+				                     <span class="e-dirham-checkbox-label termsCheck smallCheck">{{appLiterals.APP.DISCLAIMER.RAKEDIRHAMTERMSLABEL2}}</span>
+				                </div>		
+				                
+				                
+				                						
+					</div>
+							</div>
+										<div class="label-wrap">
+										<button type="button"
+											    class="btn--special-btn btn-middle rak-button-small btn--back margin-top-sixtypx"
+											    ng-click="setEvent('onBackClick');">
+											    {{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+										<button type="button"
+											    class="btn--special-btn btn-middle rak-button-right margin-top-sixtypx"
+											    ng-click="rakEDirham.tokenRequestSetEvent()">
+											   {{appLiterals.APP.EDIRHAM.NEXT_BTN}}</button>
+									</div>
+						</div>
+						
+									
+						</div>
+					</div>
+				</div>
+			
+		</div>
+	</div>
+	</div>
+	</div>

@@ -1,0 +1,63 @@
+
+<div class="account-page">
+	<div class="col-sm-11">
+
+		<div class="finacle-container"
+			ng-init="rak2FARegister.corpCheckEzComObject();rak2FARegister.RegistrationModel.initSuccess(successResponse.responsesList);">
+			<div >
+			<div class="row">
+				<div class="col-sm-1 rakDblheight"></div>
+				<div class="login-form">
+
+
+				
+					<div class="selfReg-main-form-heading margin-top10px">
+						<div>
+						<span class="rak-black-color login-label-selfReg">Soft Token Registration</span>
+
+
+							<ul class="process-steps">
+								<li></li>
+								<li></li>
+								<li></li>
+								<li class="active"></li>
+								<li ></li>
+							</ul>
+
+						</div>
+					</div>
+
+
+					<div class="rakWidth100Percent rakNicknameScroll rak-cont-paddingvh">
+						<div class="">
+
+						<div class="rak-selfReg-lable">
+								<p>Your Account is verified and registration for Soft Token is under Process. Kindly proceed to complete the registration.</p>
+							</div>
+
+
+							<div>
+
+
+
+</div>
+
+
+							<div class="label-wrap">
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small btn--back "
+									ng-click="setGlobalEvent('onLoginClick');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CANCEL}}</button>
+
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small "
+									ng-click="rak2FARegister.corpCheckEzComObjectResponse();rak2FARegister.initPayLoadGeneration(rak2FARegister.EzComToken.payLoadGenerationReceivedData);">
+									{{appLiterals.APP.RAKCOMMONLITERALS.PROCEED}}</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+	</div>

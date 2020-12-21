@@ -1,0 +1,315 @@
+<div class="rak-back-header">
+
+			<i class="rak-back-img" ng-click="setEvent('onViewPPBackClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakMyProfile.initViewPersonalProfile(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+
+					<div class="bg-color rak-cont-padding rakFullNoHeaderScroll">
+						<div class="row">
+						
+
+
+					<div class="selfReg-main-form-heading">
+						<div>
+							<span class="rak-black-color upd-label ">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_PERSONAL_INFO}}</span>
+								
+						</div>
+					</div>
+						
+							<p class="rak-sum-txt ">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_FULLNAME}}</span>
+								<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.fullName}}</span>
+
+							</p>
+							<!--  Corporate -->
+							<p class="rak-sum-txt " ng-if="rakMyProfile.viewPersonalProfile.userTypeValue=='2'">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_TRADE_LIC}}</span>
+								<span class="rak-sum-label black raknew_trade" ng-click="rakServiceReq.TLUpload.resetTLUpload();rakServiceReq.TLUpload.backflag=true;setEvent('onTLUploadInit');">{{rakMyProfile.viewPersonalProfile.TradeLicenceNumber}}</span>
+
+							</p>
+							
+							<!--  Retails -->
+							<div  ng-if="rakMyProfile.viewPersonalProfile.userTypeValue!='2'">
+
+								<p class="rak-sum-txt ">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_PASSPORT}}</span>
+									<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.passportNumber}}</span>
+	
+								</p>
+								<p class="rak-sum-txt ">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_EMIRATEID}}</span>
+									<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.emirateID}}</span>
+	
+								</p>
+	
+								<p class="rak-sum-txt ">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_EMAIL}}</span>
+									<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.emailID}}</span>
+	
+								</p>
+					<div ng-if="rakMyProfile.viewPersonalProfile.mailAddress !=''">		
+							<div class="selfReg-main-form-heading">
+								<div>
+									<span class="rak-black-color upd-label ">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_RESADD}}</span>
+										
+								</div>
+							</div>
+
+						
+
+							<p class="rak-sum-txt ">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_ADDRESS}}</span>
+								<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.mailAddress}}</span>
+
+							</p>
+
+							<p class="rak-sum-txt ">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_POBOX}}</span>
+								<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.pobox}}</span>
+
+							</p>
+							<p class="rak-sum-txt ">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_CITY}}</span>
+								<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.city}}</span>
+
+							</p>
+							<p class="rak-sum-txt ">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_COUNT}}</span>
+								<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.country}}</span>
+
+							</p>
+							
+					</div>
+							<div ng-if="rakMyProfile.viewPersonalProfile.offAddress !=''">
+
+								<div class="selfReg-main-form-heading">
+									<div>
+										<span class="rak-black-color upd-label ">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_OFFADD}}</span>
+											
+									</div>
+								</div>
+								
+								
+
+								<p class="rak-sum-txt ">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_OFF_ADDRESS}}</span>
+									<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.offAddress}}</span>
+
+								</p>
+								<p class="rak-sum-txt ">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_OFF_POBOX}}</span>
+									<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.offpobox}}</span>
+
+								</p>
+								<p class="rak-sum-txt ">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_OFF_CITY}}</span>
+									<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.offcity}}</span>
+
+								</p>
+								<p class="rak-sum-txt ">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_OFF_COUNT}}</span>
+									<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.offcountry}}</span>
+
+								</p>
+							</div>
+							
+						<!-- 		<div class="selfReg-main-form-heading">
+									<div>
+										<span class="rak-black-color upd-label ">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_PREFERED}}</span>
+											
+									</div>
+								</div>
+							
+						
+							
+							<p class="rak-sum-txt ">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_PREFERED}}</span>
+								<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.preferredAddressTypeDesc}}</span>
+
+							</p> -->
+							
+						</div>	
+						
+						<!--  Corporate -->
+						<div ng-if="rakMyProfile.viewPersonalProfile.userTypeValue=='2'">
+							
+							
+							
+							
+							<div ng-if="rakMyProfile.viewPersonalProfile.offAddress !=''">
+	
+								<div class="selfReg-main-form-heading">
+									<div>
+										<span class="rak-black-color upd-label ">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_OFFADD}}</span>
+											
+									</div>
+								</div>
+									
+								
+	
+									<p class="rak-sum-txt ">
+										<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_COMP_NAME}}</span>
+								<!-- 		<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.offaddress2}}</span> -->
+										 <span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.offaddress1}}</span> 
+	
+									</p>
+									
+									<p class="rak-sum-txt ">
+										<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_JOB_DESIG}}</span>
+										<!-- <span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.offaddress1}}</span> -->
+									 	<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.offaddress2}}</span> 
+	
+									</p>
+									 <p class="rak-sum-txt ">
+										<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_DEPT_EMP}}</span>
+										<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.offaddress3}}</span>
+	
+									</p> 
+									
+									<p class="rak-sum-txt ">
+										<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_POBOX}}</span>
+										<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.offpobox}}</span>
+		
+									</p>
+									
+									<p class="rak-sum-txt ">
+										<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_OFF_CITY}}</span>
+										<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.offcity}}</span>
+	
+									</p>
+									<p class="rak-sum-txt ">
+										<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_OFF_COUNT}}</span>
+										<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.offcountry}}</span>
+	
+									</p>
+									
+								</div>
+						<div ng-if="rakMyProfile.viewPersonalProfile.mailAddress !=''">		
+									
+								<div class="selfReg-main-form-heading">
+									<div>
+										<span class="rak-black-color upd-label ">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_HEAD_OFFADD}}</span>
+											
+									</div>
+								</div>
+									
+								
+									
+										
+									<p class="rak-sum-txt ">
+										<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_HEAD_OFF_ADDRESS}}</span>
+										<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.address1}}</span>
+		
+									</p>
+									
+									<p class="rak-sum-txt ">
+										<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_HEAD_OFF_ADDRESS2}}</span>
+										<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.address2}}</span>
+		
+									</p>
+									
+									<p class="rak-sum-txt ">
+										<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_HEAD_OFF_ADDRESS3}}</span>
+										<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.address3}}</span>
+		
+									</p>
+		
+									<p class="rak-sum-txt ">
+										<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_POBOX}}</span>
+										<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.pobox}}</span>
+		
+									</p>
+									<p class="rak-sum-txt ">
+										<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_CITY}}</span>
+										<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.city}}</span>
+		
+									</p>
+									<p class="rak-sum-txt ">
+										<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_COUNT}}</span>
+										<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.country}}</span>
+		
+									</p> 
+									
+									
+						</div>
+						
+							<div class="selfReg-main-form-heading" ng-if="rakMyProfile.viewPersonalProfile.preferredAddressTypeDesc!=''">
+									<div>
+										<span class="rak-black-color upd-label ">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_PREFERED}}</span>
+											
+									</div>
+								</div>
+							
+							
+							
+							<p class="rak-sum-txt " ng-if="rakMyProfile.viewPersonalProfile.preferredAddressTypeDesc!=''">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_PREFERED}}</span>
+								<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.preferredAddressTypeDesc}}</span>
+
+							</p>
+							
+							
+		
+								
+							</div>
+							
+							<div class="selfReg-main-form-heading">
+									<div>
+										<span class="rak-black-color upd-label ">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_CONTACT_DETAILS}}</span>
+											
+									</div>
+								</div>
+							
+						
+
+							<p class="rak-sum-txt " ng-if="rakMyProfile.viewPersonalProfile.userTypeValue!='2'">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_HOMENUM}}</span>
+								<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.homeNumber}}</span>
+
+							</p>
+							<p class="rak-sum-txt " >
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_OFFNUM}}</span>
+								<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.offNumber}}</span>
+
+							</p>
+							
+							<p class="rak-sum-txt " ng-if="rakMyProfile.viewPersonalProfile.userTypeValue=='2'">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_FAX}}</span>
+								<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.offNumber}}</span>
+
+							</p>
+							
+							<p class="rak-sum-txt " ng-if="rakMyProfile.viewPersonalProfile.userTypeValue!='2'">
+								<span class="rak-sum-label">{{appLiterals.APP.RAK_MYPROFILE.RAK_VIEWPP.TXT_MOBNO}}</span>
+								<span class="rak-sum-label black">{{rakMyProfile.viewPersonalProfile.mobileNumber}}</span>
+
+							</p>
+
+
+
+							<!-- <div class="label-wrap">
+
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small rak-button-right"
+									ng-click="rakMyProfile.viewPersonalProfileEdit();setEvent('onViewPPEditClick');">
+									{{appLiterals.APP.RAKCOMMONLITERALS.TXT_EDIT}}Edit</button>
+
+							</div> -->
+
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+</div>

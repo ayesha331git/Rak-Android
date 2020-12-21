@@ -1,0 +1,76 @@
+<div class="app app-arrow2 title-right-dash" id="breakFixedDepositBack"
+	ng-click="services.breakFixedDepositModel.isBack=true;services.convertToNumber();setEvent('onPrevServiceClick')"></div>
+<div class="finacle-container"
+	ng-init="services.breakFDAuthpageInit(successResponse.responsesList);formatAmountCrn('services.breakFixedDepositModel.previewResponse.amount','services.breakFixedDepositModel.depositAccountCrn')">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div class="item-title text-uppercase">
+							<span id="pageTitle">
+								{{appLiterals.APP.SERVICES.BRKFXD_DEPAUTH.HEADER}} </span>
+						</div>
+					</div>
+					<!--  end of title -->
+					<div class="col-sm-12">
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtdepositAccount">
+								{{appLiterals.APP.SERVICES.BRKFXD_DEPAUTH.TXT_BRKDEP}}
+								 </strong> <span
+								class="dash-ac-id" id="depositAccount">
+								{{services.breakFixedDepositModel.previewResponse.depositAccount}}
+							</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtAmount">
+								{{appLiterals.APP.COMMON.TEXT.AMOUNT}} </strong> <span class="dash-ac-id"
+								id="amount">
+								{{appLiterals.APP.SERVICES.BRKFXD_DEPAUTH.INR}}
+								{{services.breakFixedDepositModel.previewResponse.amount}} </span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtTransferType">
+								{{appLiterals.APP.SERVICES.BRKFXD_DEPAUTH.TRANF_TO}}</strong> <span
+								class="dash-ac-id" id="transferType">
+								{{services.breakFixedDepositModel.previewResponse.transferType}}
+							</span>
+						</div>
+						<div class="account-detail-dash margin-zero"
+							ng-show="services.breakFixedDepositModel.transferType == 'account'">
+							<strong class="trans-no" id="txtINITOR_ID">
+								{{appLiterals.APP.SERVICES.BRKFXD_DEPAUTH.ACC_NO}}</strong> <span
+								class="dash-ac-id" id="INITOR_ID">
+								{{services.breakFixedDepositModel.previewResponse.INITOR_ID}} </span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtDate">
+								{{appLiterals.APP.COMMON.TEXT.DATE}}</strong> <span class="dash-ac-id"
+								id="date"> <fin-Date
+									date-value='{{services.breakFixedDepositModel.previewResponse.date}}'></fin-Date>
+							</span>
+						</div>
+					</div>
+					<form
+						ng-submit="corpInit.corpModel.getSelectedRoleDetailsAsString();services.breakFixedDepositModel.unFormatNumbers();setEvent(services.breakFixedDepositModel.getBreakFDSubmitEvent())">
+						<div
+							ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+							<approval-input></approval-input>
+						</div>
+							<fin-Stepauth></fin-Stepauth>
+						
+							<md-button type="submit" id="btnSumtorm"
+								ng-if="!services.breakFixedDepositModel.onlineMode"
+								class="md-raised btn--primary-btn">
+							{{appLiterals.APP.SERVICES.BRKFXD_DEPAUTH.BTN_SUBTORM}}</md-button>
+							<md-button type="submit" id="btnSub"
+								ng-if="services.breakFixedDepositModel.onlineMode"
+								class="md-raised btn--primary-btn">
+							{{appLiterals.APP.SERVICES.BRKFXD_DEPAUTH.BTN_SUB}}</md-button>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

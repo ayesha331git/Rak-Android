@@ -1,0 +1,71 @@
+  <div class="rak-back-header">
+    <i class="rak-back-img" ng-click="rakPayee.isBackClicked=true;rakPayee.revertValues();setEvent('onDeleteBackClick');rakPayee.isDeleteBeneficiaryMode=false;"></i>
+  </div>
+  <div class="finacle-container ng-scope" ng-init="rakPayee.payeeModel.editBnfFlag=false;rakPayee.billerModel.processDeleteBillerAuthInitResponse(successResponse.responsesList);rakPayee.authMode.firstAuthModeValue = '';rakPayee.authMode.secAuthModeValue = '';rakHome.AuthPageData.firstAuthModeValue='';rak2FARegister.RegistrationModel.resendAuthMode(successResponse.responsesList);">
+	<div class="account-page">
+    <div class="col-sm-11">
+    <div class="app-title-wrapper">
+					<ng-include  src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>
+      <div class="rak-scroll">
+					  <div class="main-form-heading-payee" >
+                <h2>{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_DEL_BILLER}}<span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2}} :{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP2_TXT1}} </span></h2>
+            </div>
+
+
+			  <div class="bg-color rak-cont-padding">
+				<div class="" >
+				  <div class="">
+<!-- <div class="ng-hide" ng-if="rakPayee.isShowAlert" ng-init="(rakPayee.isAlertAnError == true) ? showErrorPopup(rakPayee.billerAuthStatusMessage) : showAlert(rakPayee.billerAuthStatusMessage);rakPayee.isBillerAuthSent=false;rakPayee.isShowAlert=false; setEvent(rakPayee.getBillerAuthPopupEvent())"></div> -->
+
+        <p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BIL_NAME}}&nbsp;</span>
+				<span class="rak-sum-label black">{{rakPayee.billerAuthDetails.billerName}}</span>
+			</p>
+
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BIL_NICKNAME}}&nbsp;</span>
+				<span class="rak-sum-label black">{{rakPayee.billerAuthDetails.billerNickName}}</span>
+			</p>
+
+			<!-- <p class="rak-sum-txt" ng-show="rakPayee.billerAuthDetails.hasOwnProperty('billerType')">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_BIL_TYPE}}:&nbsp;</span>
+				<span class="rak-sum-label black">{{rakPayee.billerAuthDetails.billerType}}</span>
+			</p>
+
+			<p class="rak-sum-txt" ng-show="rakPayee.billerAuthDetails.hasOwnProperty('billerSubscriptionDate')">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_SUB_DATE}}:&nbsp;</span>
+				<span class="rak-sum-label black">{{rakPayee.billerAuthDetails.billerSubscriptionDate}}</span>
+			</p>-->
+
+
+		    <div ng-repeat="fields in rakPayee.billerModel.labels">
+				<p class="rak-sum-txt" ng-if="fields.value!=''">
+					<span class="rak-sum-label">{{fields.label}}</span>
+					<span class="rak-sum-label black">{{fields.value}}</span>
+				</p>
+			</div>
+
+            <fin-dynamicbenfauthresend></fin-dynamicbenfauthresend>
+
+            <div class="label-wrap">
+
+            <button type="button"
+										class="btn--special-btn btn-middle rak-button-small btn--back"
+										ng-click="rakPayee.isBackClicked=true;rakPayee.revertValues();setEvent('onDeleteBackClick');rakPayee.isDeleteBeneficiaryMode=false;">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+
+            <!-- <button type="button"  class="btn--special-btn btn-middle rak-button-small"
+			  ng-click="rakPayee.isBackClicked=true;rakPayee.revertValues();setEvent('onDeleteBackClick');rakPayee.isDeleteBeneficiaryMode=false;">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_BACK}}</button> -->
+
+                <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakPayee.isBillerAuthSent = true; rakPayee.isBackClicked=false;rakHome.AuthPageData.fetchOtp('onRAKDeleteBillerAuthConfirmClick')">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_BTN_PAYEE}}</button>
+            </div>
+
+		   <div class="col-sm-1"> </div>
+		  </div>
+	  </div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</div>

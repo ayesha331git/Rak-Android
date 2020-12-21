@@ -1,0 +1,51 @@
+<div class="app app-arrow2 title-right-dash"
+	id="changeDebitCardAuthBack"
+	ng-click="services.ChangeDebitCardPinPageData.isBack=true;services.ChangeDebitCardPinPageData.onBackBtnClick();setEvent('onChangeDebitCardBackClick')"></div>
+<div class="finacle-container"
+	ng-init="services.ChangeDebitCardPinPageData.initchangeCreditCardConfirmData(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div class="item-title text-uppercase">
+							<span id="pageTitle"> {{appLiterals.APP.SERVICES.APP_NEW_DC_AUTH.TITLE}}
+							</span>
+						</div>
+					</div>
+					<!--  -->
+					<div class="col-sm-12">
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtAccNo">
+								{{appLiterals.APP.SERVICES.APP_NEW_DC_AUTH.TXT_ACC_NO}} </strong> <span
+								class="dash-ac-id" id="accNo">
+								{{services.ChangeDebitCardPinPageData.confirmResponse.accountNickname}}-{{services.ChangeDebitCardPinPageData.confirmResponse.accountNumber}}
+							</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtDebitCardNo">
+								{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD_AUTH.TXT_DEBIT_CARD_NO}}
+							</strong> <span class="dash-ac-id" id="debitCardNumber">
+								{{services.ChangeDebitCardPinPageData.confirmResponse.debitCardNumber}}
+							</span>
+						</div>
+					</div>
+					<form
+						ng-submit="corpInit.corpModel.getSelectedRoleDetailsAsString();setEvent('onChangeDebitCardSubmitClick')">
+						<div
+							ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+							<approval-input></approval-input>
+						</div>
+						<fin-Stepauth></fin-Stepauth>
+						<md-button id="changeDebitCardPinAuthPageSubmit" type="submit"
+							ng-if="services.ChangeDebitCardPinPageData.isOnline == true"
+							class="btn--primary-btn">{{appLiterals.APP.COMMON.BUTTON.SUBMIT}}</md-button>
+						<md-button id="changeDebitCardPinAuthPageSubmitToRm" type="submit"
+							ng-if="services.ChangeDebitCardPinPageData.isOnline == false"
+							class="btn--primary-btn">{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD_AUTH.BTN_SUBMIT_TO_RM}}</md-button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

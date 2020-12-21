@@ -1,0 +1,25 @@
+<div class="full-page-screen"></div>
+
+ <div class="confirmation-content-container">
+  <div class="message-box-new">
+        <div class="message-box-new">
+         <div>
+             <p class="round-icon-new">
+             <span class="app app-alert pop-alert-icon rak-color" ng-show='alertOverlayObj.isCancel'></span>
+             <span class="app app-tickcircle pop-alert-icon rak-color" ng-show='!alertOverlayObj.isCancel'></span>
+
+             </p>
+
+             <div class="otp-txt-label rak-black-color"> {{alertOverlayObj.message}}</div>
+         </div>
+         <div class="otp-btn-wrap-switch">
+        
+             <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back"  ng-click='callInProgress=false;checkAppSwitch = false; rakHome.forceLogout()'>  Cancel</button>
+        
+             <button type="button" class="btn--special-btn btn-middle rak-button-small"  ng-click='callInProgress=false;checkAppSwitch = false; rakHome.redirectPage();'> Redirect</button>
+         </div>
+        
+       </div>  
+     </div>
+</div>
+</div>

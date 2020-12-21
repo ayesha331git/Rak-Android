@@ -1,0 +1,74 @@
+<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onRakDCCashBkRedemInitBackClick');"></i>
+	</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.fetchRAKDCCashBkRedemData(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+						<div class="main-form-heading-ServiceReq">
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DC_CASH_BACK_REDEM}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>
+                              </h2>
+</div>
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="">
+
+
+									<div
+										ng-init='DrCardArr = createDropDownOptionArray(rakServiceReq.RakDCCashBkRedemModel.DebitCardList, ["debitcardNumber"], "debitcardIndex");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RakDCCashBkRedemModel.selectedDebitCard"
+										display-row="full"
+										on-change="rakServiceReq.setRakDCBCashBackAvlAmt();rakServiceReq.showRakDCBCashBackAndRedeemAmt();"
+										placeholder="{{appLiterals.APP.RAKDCCASHBKREDEM.DCB_SEL_CARD_NO}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakDCCashBkRedemModel.selectedDebitCard"]'
+										option-array="DrCardArr"> </fin-input>
+
+									<div ng-show="rakServiceReq.RakDCCashBkRedemModel.showCashBackAvailable" class="rak-parent-txt">
+
+				            		<p  class="rak-sum-label  ServiceReqNormalLable">{{appLiterals.APP.RAKDCCASHBKREDEM.DCB_CASH_BACK_AVL}}</p>
+
+										<p class="rak-sum-label black ServiceReqNormalLable">{{rakServiceReq.RakDCCashBkRedemModel.cashBackAvailableAmt}}</p>
+
+
+
+									<fin-input type="number_card"
+										model="rakServiceReq.RakDCCashBkRedemModel.userEnteredRedeemAmount"
+										display-row="full" placeholder="{{appLiterals.APP.RAKDCCASHBKREDEM.DCB_REDEEM_AMT}}"
+										ng-show="rakServiceReq.RakDCCashBkRedemModel.showRedeemAmount"
+										validation-flag='pageErrorArr["rakServiceReq.RakDCCashBkRedemModel.userEnteredRedeemAmount"]'></fin-input>
+
+									<div class="label-wrap">
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-right"
+											ng-click="setEvent('onRakDCCashBkRedemContinueClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
+
+								<div class="disclaimer" >
+                                        <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                        <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                        </div>
+
+                                        <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+
+                                                <span ng-click="rakServiceReq.fetchDisclaimer('AcntAndDebitCardSrvcRqstsCutoffTime.html');" class="hyperLinkRed">
+                                                {{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCASHBACKREDEM_INITPAGE"></span>
+                                                 <span ng-click="rakServiceReq.fetchDisclaimer('DebitCardServiceCharges.html');" class="hyperLinkRed">
+                                                {{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCASHBACKREDEM_INITPAGECONT"></span>
+
+                                        </div>
+                                     </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

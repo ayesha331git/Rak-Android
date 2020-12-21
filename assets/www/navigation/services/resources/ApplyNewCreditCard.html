@@ -1,0 +1,103 @@
+<div class="app app-arrow2 title-right-dash"
+	id="applyNewCreditCardPageback" ng-click="setEvent('onCancelClick')"></div>
+<div class="finacle-container"
+	ng-init="services.initNewCreditCardModel(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase">
+							<span id="pageTitle"> {{appLiterals.APP.SERVICES.APP_NEWCREDCARD.HEADER}}
+							</span>
+						</div>
+					</div>
+					<!-- end of title -->
+
+					<form
+						ng-submit="corpInit.corpModel.resetCorpInitDetails();services.appendAddress((services.newCreditCard.countryList|filter:{value:services.newCreditCardModel.selectedCountry})[0].content);setEvent('onCCConfirmClick');">
+						<div class="avail-bal-wrap">
+							<fin-input type="text" model="services.newCreditCardModel.name"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.APP_NEWCREDCARD.PH_FRSTNME}}"
+								max-length="30"
+								validation-flag='pageErrorArr["services.newCreditCardModel.name"]'></fin-input>
+						</div>
+						<div class="avail-bal-wrap">
+							<fin-input type="date"
+								model="services.newCreditCardModel.dateOfBirth"
+								on-change='services.parseDOBDate()' display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.APP_NEWCREDCARD.PH_DOB}}"
+								validation-flag='pageErrorArr["services.newCreditCardModel.dateOfBirth"]'></fin-input>
+						</div>
+						<div class="avail-bal-wrap"
+							ng-init='incomeList =
+						createDropDownOptionArray(services.newCreditCard.incomeList,
+						["income"], "incomeDescriptionCode");'>
+							<fin-input type="dropdown"
+								model="services.newCreditCardModel.selectedIncome"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.APP_NEWCREDCARD.PH_INCPMNTH}}"
+								validation-flag='pageErrorArr["services.newCreditCardModel.selectedIncome"]'
+								option-array="incomeList"></fin-input>
+						</div>
+						<div class="avail-bal-wrap"
+							ng-init='occupationList =
+						createDropDownOptionArray(services.newCreditCard.occupationList,
+						["occupation"], "occupationDescriptionCode");'>
+							<fin-input type="dropdown"
+								model="services.newCreditCardModel.selectedOccupation"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.APP_NEWCREDCARD.PH_OCCUP}}"
+								validation-flag='pageErrorArr["services.newCreditCardModel.selectedOccupation"]'
+								option-array="occupationList"></fin-input>
+						</div>
+						<div class="avail-bal-wrap"
+							ng-init='cardType =
+						createDropDownOptionArray(services.newCreditCard.cardTypeList,
+						["cardType"], "cardTypeDescriptionCode");'>
+							<fin-input type="dropdown"
+								model="services.newCreditCardModel.selectedCardType"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.APP_NEWCREDCARD.PH_TYPEOCRD}}"
+								validation-flag='pageErrorArr["services.newCreditCardModel.selectedCardType"]'
+								option-array="cardType"></fin-input>
+						</div>
+						<span class="special-txt" id="TXT_DISPADD">
+							{{appLiterals.APP.SERVICES.APP_NEWCREDCARD.TXT_DISPADD}} </span>
+						<div>
+							<fin-input type="text"
+								model="services.newCreditCardModel.address1" display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.APP_NEWCREDCARD.PH_ADDLNE1}}"
+								validation-flag='pageErrorArr["services.newCreditCardModel.address1"]'></fin-input>
+							<fin-input type="text"
+								model="services.newCreditCardModel.address2" display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.APP_NEWCREDCARD.PH_ADDLNE2}}"
+								validation-flag="false"></fin-input>
+							<fin-input type="text" model="services.newCreditCardModel.city"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.APP_NEWCREDCARD.PH_CITY}}"
+								validation-flag='pageErrorArr["services.newCreditCardModel.city"]'></fin-input>							
+						</div>
+						<div class="two-input-wrapper"
+							ng-init='countryList = createDropDownOptionArray(services.newCreditCard.countryList, ["content"], "value");'>
+							<fin-input type="postalCode"
+								model="services.newCreditCardModel.postalCode"
+								display-row="half1"
+								placeholder="{{appLiterals.APP.SERVICES.APP_NEWCREDCARD.PH_POST_CODE}}"
+								validation-flag='pageErrorArr["services.newCreditCardModel.postalCode"]'></fin-input>
+							<fin-input type="dropdown"
+								model="services.newCreditCardModel.selectedCountry"
+								display-row="half2"
+								placeholder="{{appLiterals.APP.SERVICES.APP_NEWCREDCARD.PH_CNTRY}}"
+								validation-flag='pageErrorArr["services.newCreditCardModel.selectedCountry"]'
+								option-array="countryList"></fin-input>
+							<md-button type="submit" class="md-raised btn--primary-btn">
+							{{appLiterals.APP.SERVICES.APP_NEWCREDCARD.BTN_CONT}}</md-button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

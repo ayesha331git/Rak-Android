@@ -1,0 +1,112 @@
+<div class="finacle-container"  ng-init="rakServiceReq.initAdvanceSalaryDataConfirmPage(successResponse.responsesList);">
+  <div class="account-page">
+    <div class="col-sm-11">
+	
+
+      <div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.ADVSALARY}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>		     
+				      </h2>		       
+		 		</div>
+
+      <div class="bg-color rak-cont-padding rak-scroll">
+        <div class="row" >
+	      <div class="">
+	      
+	      		<div class="rakDupliSRChkMsgImg" ng-show='rakServiceReq.common.message'>
+					<span class='rakAlertForDupStmt'></span> <span class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+				</div>
+
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_ADVANCE_SALARY.ACCOUNTNUMBER}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.AdvanceSalaryData.accountNumberList[rakServiceReq.AdvanceSalaryData.accountNumber].accountNumber}}-{{rakServiceReq.AdvanceSalaryData.accountNumberList[rakServiceReq.AdvanceSalaryData.accountNumber].accountName}}-{{rakServiceReq.AdvanceSalaryData.accountNumberList[rakServiceReq.AdvanceSalaryData.accountNumber].currencyCode}}</span>
+			</p>
+
+			<!-- CHANGES SHOWING ELIGIBEL AMOUNT IN COMMAS START -->
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_ADVANCE_SALARY.ELIGIBLE}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.AdvanceSalaryData.eligibleAmountDisplay}}</span>
+			</p>
+			<!-- CHANGES SHOWING ELIGIBEL AMOUNT IN COMMAS END -->
+
+			<p class="rak-sum-txt">
+			<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_ADVANCE_SALARY.ADVANCE_SALARY}}</span>
+			<span class="rak-sum-label black">{{rakServiceReq.AdvanceSalaryData.currencycode}} {{rakServiceReq.AdvanceSalaryData.advanceSalaryNum}}</span>
+			</p>
+
+
+			   <div ng-hide="rakServiceReq.AdvanceSalaryData.authStatus">
+			  		<fin-input type="password_text" model="rakServiceReq.AdvanceSalaryData.transactionPassword"
+					display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+					validation-flag='pageErrorArr["rakServiceReq.AdvanceSalaryData.transactionPassword"]'
+					ng-show="rakServiceReq.AdvanceSalaryData.authFlag==txnpwdString">
+					</fin-input>
+				 	<!-- <fin-input type="password_num" model="rakServiceReq.AdvanceSalaryData.transactionPassword"
+					display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+					validation-flag='pageErrorArr["rakServiceReq.AdvanceSalaryData.transactionPassword"]'
+					ng-show="rakServiceReq.AdvanceSalaryData.authFlag==otpString">
+					</fin-input> -->
+					<div
+								ng-show="rakServiceReq.AdvanceSalaryData.authFlag==otpString">
+								<div
+									ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+									<fin-input type="password_num"
+										model="rakServiceReq.AdvanceSalaryData.transactionPassword"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}"
+										validation-flag='pageErrorArr["rakServiceReq.AdvanceSalaryData.transactionPassword"]'></fin-input>
+								</div>
+
+
+								<div class="rakwidth28 rakModeDropdown"
+									ng-show='rakHome.otpModel.otpModesList.length>0'
+									ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+
+									<fin-input type="dropdown" option-array="toModeArray"
+										model="rakHome.otpModel.otpModeSelected" display-row="full"
+										placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+									<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+
+								</div>
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+									ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');">
+									{{appLiterals.APP.RAK_COMMON.RESEND_OTP}}</button>
+
+							</div>
+
+
+			</div>
+			   
+		  
+		  <div class="label-wrap">
+			<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back"
+	  			ng-click="rakServiceReq.AdvanceSalaryData.transactionPassword = '';rakServiceReq.AdvanceSalaryData.eligibleAmount=rakServiceReq.AdvanceSalaryData.advanceSalaryNum;
+	  				setEvent('onAdvaceSalaryBackClick')"> {{appLiterals.APP.RAK_SERVICES.RAK_ADVANCE_SALARY.BACK}} </button>
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-small"
+						ng-click="rakServiceReq.AdvanceSalaryData.backFlag=true;setEvent('onAdvanceSalarySubmitClick');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}
+					</button>
+
+				</div>
+		  
+          <div class="col-sm-1"> </div>
+        </div>
+      </div>
+      
+      <div class="disclaimer">
+                         <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                         <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                         </div>
+
+                         <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                         <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSERREQ_CONF"></div>
+                         </div>
+                 </div>
+      
+    </div>
+    </div>
+
+  </div>
+</div>
+</div>

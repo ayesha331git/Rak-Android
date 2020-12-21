@@ -1,0 +1,189 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.rakBankRefLetter.confirmRAKOprAcctBalConfReq(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+		
+		   <div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.BANKREFLETTER}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>		     
+				      </h2>		       
+		 		</div>
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+					<div class="">
+						
+						
+						<div class="rakDupliSRChkMsgImg" ng-show='rakServiceReq.common.message'>
+							<span class='rakAlertForDupStmt'></span> <span class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+						</div>
+						
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.BAL_CONF_DATE}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.common.initDate}}</span>
+						</p>
+						 <p class="rak-sum-txt" ng-show="rakServiceReq.rakBankRefLetter.applicantName">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.APPLICANTNAME}}</span> <span
+										class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.applicantName}}</span>
+								</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.FORACC}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.selectedForAccountNo}}
+							</span>
+						</p>
+						
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.LANG}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.selectedLang =='E' ? appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.ENGLISH : appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.ARABIC }}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.ADDRESSEDTO}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.addressdTo}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.ADDRESS}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.address}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.DEBTACCT}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.selectedAccountNumber}}
+							</span>
+						</p>
+						
+						<p class="rak-sum-txt" ng-show='rakServiceReq.rakBankRefLetter.reqdDetailsDesc'>
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.REQDETAILS}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.reqdDetailsDesc}}
+							</span>
+						</p>
+
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.DISPATCHMODE}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.selectedDelMode}}</span>
+						</p>
+
+						<p class="rak-sum-txt"
+							ng-show="rakServiceReq.rakBankRefLetter.selectedDelMode=='{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.COLLECTBRANCH}}'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.emiSelDesc}}</span>
+						</p>
+						<p class="rak-sum-txt"
+							ng-show="rakServiceReq.rakBankRefLetter.selectedDelMode=='{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.COLLECTBRANCH}}'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.BRANCHNAME}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.selectedBranchDesc}}</span>
+						</p>
+
+					<!-- 	<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.CONTACTMOBNO}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKOprAcctBalConfReq.mobileNoString}}</span>
+						</p>
+ -->
+						<p class="rak-sum-txt"
+							ng-hide="rakServiceReq.rakBankRefLetter.notes==''">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.NOTES}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.notes}}</span>
+						</p>
+
+
+						<div class="label-wrap"
+							ng-show='rakServiceReq.rakBankRefLetter.authStatus'>
+
+							<fin-input type="password_text"
+								model="rakServiceReq.rakBankRefLetter.txnPwd"
+								display-row="full"
+								placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+								validation-flag='pageErrorArr["rakServiceReq.rakBankRefLetter.txnPwd"]'
+								ng-show="rakServiceReq.rakBankRefLetter.authMode==txnpwdString">
+							</fin-input>
+							<!-- <fin-input type="password_num"
+								model="rakServiceReq.RAKOprAcctBalConfReq.txnPwd"
+								display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+								validation-flag='pageErrorArr["rakServiceReq.RAKOprAcctBalConfReq.txnPwd"]'
+							ng-show="rakServiceReq.RAKOprAcctBalConfReq.authMode==otpString">
+							</fin-input> -->
+<div
+								ng-show="rakServiceReq.rakBankRefLetter.authMode==otpString">
+								<div
+									ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+									<fin-input type="password_num"
+										model="rakServiceReq.rakBankRefLetter.txnPwd"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}"
+										validation-flag='pageErrorArr["rakServiceReq.rakBankRefLetter.txnPwd"]'></fin-input>
+								</div>
+
+
+								<div class="rakwidth28 rakModeDropdown"
+									ng-show='rakHome.otpModel.otpModesList.length>0'
+									ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+
+									<fin-input type="dropdown" option-array="toModeArray"
+										model="rakHome.otpModel.otpModeSelected" display-row="full"
+										placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+									<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+
+								</div>
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+									ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');">
+									{{appLiterals.APP.RAK_COMMON.RESEND_OTP}}</button>
+
+							</div>
+							<!--  CHANGES FOR RESEND OTP START -->
+								<!--<div
+								ng-show="rakServiceReq.RAKOprAcctBalConfReq.authMode==otpString">
+								<div class="rakwidth65">
+									<fin-input type="password_num"
+										model="rakServiceReq.RAKOprAcctBalConfReq.txnPwd"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKOprAcctBalConfReq.txnPwd"]'>
+									</fin-input>
+								</div>
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+									ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');">
+									Resend OTP</button>-->
+							</div>
+							<!--  CHANGES FOR RESEND OTP END -->
+						</div>
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back"
+								ng-click="rakServiceReq.rakBankRefLetter.txnPwd='';setEvent('onRAKOprAcctBalConfReqBackClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="setEvent('onRAKOprAcctBalConfReqSubmitClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}</button>
+						</div>
+						
+						
+							<div class="disclaimer" ng-init='rakDisclaimerFlag=false;' >
+								<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+									<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+								</div>
+						
+								
+								<div class="disclaimer3" ng-if="rakDisclaimerFlag">		
+								    <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKBANKLETTERCONFDISCMSG"></span>							
+																	
+								</div>
+								
+								
+							</div>	
+						
+						<div class="col-sm-1"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

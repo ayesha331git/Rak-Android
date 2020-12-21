@@ -1,0 +1,233 @@
+<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="rakAccounts.backNavigation();"></i>
+	</div>
+<div class="finacle-container"
+	ng-init='
+        dashboard.currSuccessResponse = ( 
+          fields.accountDetailSource == "DASHBOARD" || fields.accountDetailSource == "ACC_ITEM" ? successResponse : dashboard.currSuccessResponse
+        );
+        fields.trxSearchFlag = (
+          fields.accountDetailSource == "DASHBOARD" || fields.accountDetailSource == "ACC_ITEM" ? false : fields.trxSearchFlag        
+        );
+        fields.trxSeachResult = fields.accountDetailSource == "ACC_SEARCH_CLICK" ? successResponse.responsesList[0].transactionList : fields.trxSeachResult;        
+        fields.currAccountDetails = fields.dashboardResponseList[fields.browseAccountIndexInt];
+      	fields.acccountEventName = (
+          fields.currAccountDetails.mainAccountType == "OPR" ? "onOprAccountDetailsClick" : 
+          (fields.currAccountDetails.mainAccountType == "DEP" ? "onDepositAccountDetailsClick" : "onLoanAccountDetailsClick")
+        );
+        successResponse.invocationResult=successResponse.hasOwnProperty("responsesList")?successResponse.responsesList:successResponse.invocationResult.response.responsesList;
+        rakAccounts.accountList(successResponse.invocationResult);
+        rakAccounts.initPage(successResponse.responsesList,rakAccounts.RAKAccountsModel.accountType);'>
+
+	<div class="account-page" ng-focus="addMMIDFlag?addMMIDFlag=false:''">
+		<div class="col-sm-11">
+			<div class="bg-color rak-cont-padding">
+				<div class="row">
+					<!-- <div class="col-sm-1"></div> -->
+					<div class="rakwidth75"
+						ng-init='invtAccountArrayList=createDropDownOptionArray(rakAccounts.RAKAccountsModel.invtAccounts, ["subAccountTypeDesc", "-", "accountId","-","currency"],"accountIndex");'>
+						<fin-input type="dropdown" option-array="invtAccountArrayList"
+							model="rakAccounts.RAKAccountsModel.selectedAccount"
+							select-req="false"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.SELECT_ACCOUNT}}"
+							on-change='setEvent(rakAccounts.getEvent(rakAccounts.RAKAccountsModel.accountType,rakAccounts.RAKAccountsModel.invtAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType))'>
+						</fin-input>
+					</div>
+						</fin-input>				
+					
+
+					<div class="app  rakapp-ellipses-icon"
+						ng-click="rakAccounts.handlePullDown($event);">
+						<span class="app-ellipses rakCustellipses"></span>
+						<ul class="rakPullDownMenu">
+							<li><a href="" ng-click="setEvent('onRakInvestmentEvaluation')">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_INVTESTEMENT_VALUATION}}</a></li>
+							<li><a href="" ng-click="rakAccounts.RakInvestmentPortfolioViewStmt.resetRakInvestmentPortfolioViewStmtData();setEvent('onRakInvestmentPortfolioViewStmtClick')">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_INVTESTEMENT_STATEMENT}}</a></li>
+						</ul>
+					</div>
+
+					<div class="balance-detail">
+						<div class="rakamount">
+							 <span class="amount-ps">
+								{{rakAccounts.RAKAccountsModel.invtAccounts[rakAccounts.RAKAccountsModel.selectedAccount].relationshipValue}}
+						</div>
+
+						<p class="balance-available-dash rak-display-caption">
+							{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_REL_VALUE}}
+						</p>
+
+					</div>
+
+					<!-- <div class="money-block">
+						<ul>
+							<li class="active">
+								{{appLiterals.APP.RAK_ACCOUNTS.INVESTMENT_PAGE.PORTFOLIO_SUMMARY}}</li>
+						</ul>
+					</div> -->
+					<p class="rak-sum-txtStop rakBoxShadowStop">
+								<span class="rak-sum-labelStop">{{appLiterals.APP.RAK_ACCOUNTS.INVESTMENT_PAGE.PORTFOLIO_SUMMARY}}</span>
+					</p>
+
+					<div class="nano-content rakTxnSrchDiv">
+						<div class="trans-detail rakGreyRow" ng-show="rakAccounts.RAKAccountsModel.transactionsList == null || rakAccounts.RAKAccountsModel.transactionsList.length == 0">
+							{{appLiterals.APP.RAK_ACCOUNTS.INVESTMENT_PAGE.NO_PORTFOLIO_MSG}}
+							</div>
+							
+							<!-- CHANGES DONE AS FIX OF PRCU-1923 START -->
+							<div class="balance-columns-header-row" ng-show="rakAccounts.RAKAccountsModel.transactionsList.length > 0" ng-init="rakAccounts.RAKAccountsModel.showMore=[];">
+								  <div class="balance-heade-col rak30">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.PRODUCT}}</div>
+								<!--   <div class="balance-heade-col rak15">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.QUANTITY}}</div>  -->
+								<!-- <div class="balance-heade-col rak15">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.QTY}}</div> -->
+								<!--  <div class="balance-heade-col rak20">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.PURCHASE_VALUE}}</div> -->
+								  <div class="balance-heade-col rak30">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.MARKET_VALUE}}</div>
+								   <div class="balance-heade-col rak30">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.PROFIT_LOSS}}</div> 
+							</div>
+							<!-- CHANGES DONE AS FIX OF PRCU-1923 END -->
+							
+							
+						<!-- 	<div class="trans-detail rakGreyRow" -->
+						<div class="rakHalfScrollDiv">
+							<div class="trans-detail rakGreyRow rakWidth100Percent" ng-show="rakAccounts.RAKAccountsModel.transactionsList.length > 0" 
+							ng-repeat="transaction in rakAccounts.RAKAccountsModel.transactionsList"
+							ng-init="rakAccounts.RAKAccountsModel.showMore[$index]=false"
+							ng-click="trnxIndex = $accountIndex; fields.selectedTransProfileId = '' + $index + ''; 
+							rakAccounts.RAKAccountsModel.profileSelectedAccount='' + $index + '';
+							rakAccounts.RAKAccountsModel.trxDetailsPortfolioFlag = true;">
+						
+						<!-- CHANGES DONE AS FIX OF PRCU-1923 START	 -->
+							<div class="trans-date rakPeopleNameRow1 rak30 rakPadding0505 rakFont1em margin_top2px" 
+							ng-click="trnxIndex = $accountIndex; fields.selectedTransProfileId = '' + $index + '';setEvent('onInvPortfolioListClick');">
+							{{transaction.productName}}
+							</div>
+							<!-- <div class="trans-date rakPeopleNameRow1 pull-left rak15 rakPadding0505 rakFont1em">
+								{{transaction.quantity}}
+							</div> -->
+							
+							<!-- <div class="trans-date rakPeopleNameRow1 rak20 rakPadding0505 rakFont1em">
+								
+								{{transaction.purchaseValue}}</div> -->
+								
+							<div class="trans-date rakPeopleNameRow1 rak30 rakPadding0505 rakFont1em margin_top2px" 
+							ng-click="trnxIndex = $accountIndex; fields.selectedTransProfileId = '' + $index + '';setEvent('onInvPortfolioListClick');">
+								{{transaction.marketValue}}</div>	
+						
+						
+								<div class="trans-date rakPeopleNameRow1 rak30 rakPadding0505 rakFont1em margin_top2px" 
+								ng-click="trnxIndex = $accountIndex; fields.selectedTransProfileId = '' + $index + '';setEvent('onInvPortfolioListClick');">
+								
+								{{transaction.profitLoss}}</div>
+						
+						<div class="trans-date rakPeopleNameRow1 rak10 center rakPaddingPoint8emAndZero" ng-click="rakAccounts.RAKAccountsModel.showMore[$index] = !rakAccounts.RAKAccountsModel.showMore[$index]">
+												<img alt="" ng-show="rakAccounts.RAKAccountsModel.showMore[$index]==false" class="image_2x margin_top2px" src="./images/more-dots.png">
+												<img alt="" ng-hide="rakAccounts.RAKAccountsModel.showMore[$index]==false" class="image_2x margin_rightTopNegative" src="./images/close.png">
+						</div>		 
+							
+							<div
+												class="trans-date rakPeopleNameRow1 rak50 rakPadding0505 rakFont1em rakPaddingLeft6 rakClearLeft" ng-hide="rakAccounts.RAKAccountsModel.showMore[$index]==false">
+												{{transaction.quantity}}<div class="boldLabel">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.QTY}}</div></div>
+												
+							<div
+												class="trans-date rakPeopleNameRow1 rak50 rakPadding0505 rakFont1em" ng-hide="rakAccounts.RAKAccountsModel.showMore[$index]==false">
+												{{transaction.purchaseValue}}<div class="boldLabel">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.PURCHASE_VALUE}}</div></div>
+								
+						<!-- CHANGES DONE AS FIX OF PRCU-1923 END	 -->
+								
+						
+					
+							</div>
+							</div>
+						</div>
+				</div>
+				<div class="col-sm-1"></div>
+
+				<div class="col-sm-1"></div>
+			</div>
+		</div>
+
+
+<!-- 		<div ng-show="true">
+
+			Overlay begin
+			<div
+				ng-show="(popoverObject.isInProgress || (popoverObject.isSuccess != null))">
+
+				<div class="ac-popup"></div>
+
+				Loader begin
+				<div class="message-box" ng-show="popoverObject.isInProgress">
+					<div class="spinner-wrapper">
+						<p class="round-icon app app-loading load-icon"></p>
+					</div>
+					<p class="desc-text">
+						{{appLiterals.APP.DASHBOARD.ACCOUNTS_PAGE.LOADING}}</p>
+				</div>
+				Loader end
+
+
+				<div class="popup-msg-wrap" ng-show="popoverObject.isSuccess">
+					<div class="highlight-color"></div>
+
+					<div class="bg-white">
+
+						transaction title begin
+						<div class="popup-ac-info">
+							<div class="trans-dash-left">
+								<span class="amt-cur">
+									{{fields.selectedAccount.currency}} </span> <span class="amt-rs">
+									{{parseMoney(successResponse.responsesList[0].transactionAmount).rs}}.
+								</span> <span class="amt-ps">
+									{{parseMoney(successResponse.responsesList[0].transactionAmount).ps}}
+								</span>
+
+							</div>
+
+							<div class="trans-dash-cd">
+								<span class="app app-credit credit-icon"
+									ng-show='successResponse.responsesList[0].transactionType == "CR"'></span>
+								<span class="app app-debit debit-icon"
+									ng-show='successResponse.responsesList[0].transactionType == "DR"'></span>
+							</div>
+
+							<div class="trans-dash-right">
+								<div class="trans-no">
+									{{successResponse.responsesList[0].transactionRemarks == "" ?
+									"-" :
+									(successResponse.responsesList[0].transactionRemarks).substr(0,14)}}
+
+								</div>
+								<div class="trans-date">
+									{{successResponse.responsesList[0].transactionDate}}</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+				content end
+
+			</div>
+			Overlay end
+
+			Error overlay begin
+			<div ng-show="false">
+
+				<div class="full-screen1"></div>
+
+				Loader error begin
+				<div class="message-box">
+
+					<p class="desc-text3">{{appLiterals.APP.DASHBOARD.ACCOUNTS_PAGE.MESSAGE_TRANSAC_DETAIL_FAIL}}</p>
+					<img src="images/refresh.png" class="page-refresh" />
+					<p class="desc-text4">{{appLiterals.APP.DASHBOARD.ACCOUNTS_PAGE.MESSAGE_TRY_AGAIN}}</p>
+
+				</div>
+
+
+			</div>
+
+		</div> -->
+	</div>
+</div>
+</div>
+
+

@@ -1,0 +1,892 @@
+
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html dir ="{{appLiteralDirection}}">
+    <head>
+        <meta charset="utf-8" />
+        <meta content='user-scalable=no, initial-scale=1, width=device-width' id='viewport' name='viewport'>
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+		<link rel="stylesheet" href="plugins/cordova-plugin-mfp/worklight/worklight.css">
+		<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/swiper.css">
+ <link rel="stylesheet" type="text/css" href="css/mobiscroll.custom-3.0.0-beta6.min.css">
+<link rel="stylesheet" type="text/css" href="css/font-family.css">
+ <link rel="stylesheet" type="text/css" href="css/finacle-css.css">
+ <link rel="stylesheet" type="text/css" href="demoTour/flexicel.css">
+  <link rel="stylesheet" type="text/css" href="demoTour/style.css">
+  <link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css">
+<!--  	<link rel="stylesheet" type="text/css" ng-href="css/{{localeCSS.$pristine ? 'finacle.min.css':localeCSS }}"> -->
+		<link  rel="stylesheet" type="text/css" ng-href="css/{{rakHome.cssPath}}.css">
+      <!--  <link rel="stylesheet" type="text/css" href="css/finacle.min.css"> -->
+      <!--  <link rel="stylesheet" type="text/css" href="css/mobiscroll.custom-3.0.0-beta2.min.css"> -->
+       <!--   <link rel="stylesheet" type="text/css" href="css/mobiscroll.custom-3.0.0-beta4.min.css"> -->
+
+<link rel="stylesheet" type="text/css"
+	href="css/angular-material.min.css">
+
+<!-- <link rel="stylesheet" type="text/css"
+	ng-href="css/blackberry.css"> -->
+<title>{{appLiterals.APP.INDEX_TITLE}}</title>
+</head>
+
+<body class="body-finacle" ng-init='showMenu = false;' ng-controller="AppController" ng-cloak oncopy="return false;" oncut="return false;">
+<div id='rakOverlayForBurger' class='rakOverlay rakHideElement' ></div>
+        <div ng-show="approvalFlow==true">
+    <div class="full-page-screen"  ></div>
+
+    <div class="confirmation-content-container">
+        <div class="message-box-new rakTop25">
+            <div>
+                <p class="round-icon-new">
+                <span class="app app-alert pop-alert-icon rak-color"></span>
+                </p>
+
+            </div>
+
+            <div class="conf-txt-label rak-black-color">{{appLiterals.APP.RAK_2FA_TRANSACTION_APPROVAL.TRANSACTION_INIT}}
+            </div>
+            <div class="conf-btn-wrap_alert rakpaddingBottom10 ">
+
+
+
+
+
+                <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click='rak2FARegister.approvalFlowFlag();' >
+                    &nbsp; {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.BTN_CNL}} &nbsp;
+                </button>
+
+                <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click='rak2FARegister.EzComToken.indexFlow="yes";rak2FARegister.approvalFlowFlag();rak2FARegister.transactionApproval.initTransactionApprovalFlow(rak2FARegister.transactionApproval.notificationData);' >
+                    &nbsp; {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.BTN_YES}} &nbsp;
+                </button>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+<nav class="navbar-fixed-top navbar-finacle navbar-height-adjust" role="navigation" >
+  <div class="navbar-burger-adjust">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="container-fluid navbar-header" ng-cloak>
+	  <!-- App Logo Part -->
+				<div class="app_icon_wrap" ng-show="quickBalValue=='N' && !isSuccessPage">
+					<span class="app moblie-button1"></span>
+				</div>
+
+	  <!-- App Logo Part -->
+
+				<a ng-class="headerLogo"> </a>
+
+
+					<div class="rak-app-ico rak-appr-link"  ng-show="(isUserLoggedIn && quickBalValue=='N' && (rakHome.userTypeIDValue=='CORPORATE' || SMEWrkflow=='Y') && !hideMenuFlag)"
+							ng-click='rakPendingApproval.pendingApprovalTab="PMA";rakHome.fromApprovalHome=false;rakHome.footerClearTab();setGlobalEvent("onPendingApprovalsCountClick");'>
+						<div ng-if="rakHome.approvalCount>0">
+						<!-- <span ng-if="rakPendingApproval.rakApprCountDashboard!=''" ng-bind="rakPendingApproval.rakApprCountDashboard"></span> -->
+						<span ng-if="rakHome.approvalCount>=0" ng-bind="rakHome.approvalCount"></span>
+						<!-- <span ng-if="rakPendingApproval.rakApprCountDashboard>0 && rakHome.fromApprovalHome==false" ng-bind="rakPendingApproval.rakApprCountDashboard"></span> -->
+						</div>
+						<i class="apprIcon"></i>
+					</div>
+
+					<div class="rak-inboxlink" ng-show="isUserLoggedIn && quickBalValue=='N' && !hideMenuFlag && rakHome.userTypeIDValue!='CORPORATE' && SMEWrkflow=='N'" ng-click='rakMails.inbox.clear();setGlobalEvent("onRakMailClick");'>
+						<div ng-if="rakHome.mailCount>0">
+							<span ng-if="rakHome.mailCount>=0 && rakHome.fromHome==true" ng-bind="rakHome.mailCount"></span>
+							<!-- <span ng-if="rakHome.mailCount>=0 && rakHome.fromHome==false" ng-bind="rakMails.inbox.mailCount"></span> -->
+							<span ng-if="rakMails.inbox.mailCount>0 && rakHome.fromHome==false" ng-bind="rakMails.inbox.mailCount"></span>
+						</div>
+						<i class="rakmails-icon"></i>
+					</div>
+
+
+
+				<!-- RAK DEV CHANGES REMOVING SEPARATOR AS ISSUED OF PRCU-743 START -->
+				<!-- <span ng-show="isUserLoggedIn" class="rak-HeaderLine">|</span> -->
+				<span ng-show="isUserLoggedIn && rakHome.userTypeIDValue!='CORPORATE'" class="rak-HeaderLine"></span>
+				<!-- RAK DEV CHANGES REMOVING SEPARATOR AS ISSUED OF PRCU-743 END -->
+				<div class="app_icon_wrap app_icon_power ng-hide"
+					ng-show="isUserLoggedIn  && quickBalValue=='N' || rakSeamLessLogin.RakSeamLessLoginModel.IsUserMigrated=='N'">
+					<span class="app rak-logout"
+						ng-click="fields.finacleUserCorporateId = null; fields.finacleUserPassword = null; setGlobalEvent('onLogoutClick')"></span>
+				</div>
+
+    </div>
+  </div>
+  <!-- Version to be added/removed -->
+            <div style="width: 10%;float: right;margin-top: -12px">1.1</div>
+    <!-- Version to be added/removed -->
+</nav>
+
+
+	<div id="fms-content" class="sliderMenu">
+
+	<!-- RAK Burger Menu Starts -->
+		<div class="desktop-moblie-block">
+			<nav class="header-bottom">
+				<div class="burgercontainer ">
+					<div class="desktop-moblie-inner-block">
+						<div class="proflie-block" ng-show="isUserLoggedIn && !hideMenuFlag">
+							<div class="proflie-block-right">
+								<h3>
+									{{appLiterals.APP.RAK_DASHBOARD.WELCOME_SAL}} <span>{{rakHome.customerName}}</span>
+								</h3>
+								<h3 class="rakProfileBlockMarginBottom">
+									<span class="rak100">{{appLiterals.APP.RAK_DASHBOARD.LAST_LOGIN}}
+									<span class="rakFontBold" ng-show="rakHome.lastLoggedIntime">{{rakHome.lastLoggedIntime}}</span> </span>
+									<span class="rak100">{{appLiterals.APP.RAK_DASHBOARD.LAST_LOGIN_CHANNEl}}
+									<span class="rakFontBold"  ng-show="rakHome.lastLoginChannel">{{rakHome.lastLoginChannel}} </span></span>
+									<span class="rak90">{{appLiterals.APP.RAK_DASHBOARD.UNSUCCESSFULL_LOGIN}}
+									<span class="rakFontBold" ng-show="rakHome.lastUnsucessfullLogin">{{rakHome.lastUnsucessfullLogin}}</span> </span>
+									<span ng-click='rakHome.closeMenu();setGlobalEvent("rakOnMyProfileClick");' class="rakFloatRight"><span class="setting-icon"></span>
+								</h3>
+
+							</div>
+						</div>
+						<ul class="nav-justified">
+							<li class="home-icon"
+								ng-click='rakHome.closeMenu();rak2FARegister.constants.isRakTknDeReg="NO";rakHome.handleLoginPage();'
+								ng-hide='isUserLoggedIn'><span>{{appLiterals.APP.RAKBURGER.LOGIN}}</span></li>
+
+								<li class="notification-icon"
+								ng-click='rakHome.closeMenu();rakHome.onPushMessageNavigation();'
+								ng-show='isUserLoggedIn && !hideMenuFlag'><span> {{appLiterals.APP.RAKBURGER.NOTIFICATION}}</span></li>
+								
+								<!-- <li class="eDirham-menu-icon" ng-show='!isUserLoggedIn'
+								ng-click='rakHome.closeMenu();rakEDirham.getEdirhamDetailsEvent();'>
+								<span> {{appLiterals.APP.RAKBURGER.EDIRHAM}}</span>
+								</li> -->
+
+							<li class="home-icon"
+								ng-click='rakHome.closeMenu();rakAccounts.myProducts.navigationFlag=false;setGlobalEvent("onDashboardClick");'
+								ng-show='isUserLoggedIn && !hideMenuFlag'><span ng-show='rakHome.chkUserType=="2"'> {{appLiterals.APP.RAKBURGER.RAKHOME}}</span>
+								<span ng-show='rakHome.chkUserType=="1"'> {{appLiterals.APP.RAKBURGER.HOME}}</span></li>
+
+						<!-- 	<li class="" ng-click="rakHome.openSubMenu($event);"
+								ng-show='isUserLoggedIn'><span class="products-red-ico"> {{appLiterals.APP.RAKBURGER.MYPRODUCTS}}</span>
+								<ul id="navSubMenu"> -->
+									<li class="accounts-icon" ng-show='isUserLoggedIn && !hideMenuFlag' ng-click='fields.browseAccountIndexInt = 0;
+									rakAccounts.myProducts.navigationType="ProductsAccounts";
+									rakAccounts.myProducts.navigationFlag=true;
+									fields.mainAccountType="OPR";fields.accountType="OPR";rakHome.closeMenu();
+									setGlobalEvent("onOperativeListClick");rakAccounts.clearPage();
+									'><span>{{appLiterals.APP.RAKBURGER.MYPRODUCTS_OPR}}</span>
+									</li>
+<!-- changes for CR BB005 -->
+
+							<li class="deposits-icon1" ng-show='isUserLoggedIn && rakHome.chkUserType=="2" && !hideMenuFlag' ng-click='fields.browseAccountIndexInt = 0;
+									fields.mainAccountType="DEP";rakHome.closeMenu();
+									rakAccounts.myProducts.navigationType="ProductsDeposit";
+									rakAccounts.myProducts.navigationFlag=true;
+									setGlobalEvent("onDepositListClick");rakAccounts.clearPage();'><span>{{appLiterals.APP.RAKBURGER.MYPRODUCTS_DEP}}</span>
+									</li>
+
+
+					<li class="loans-finances-icon" ng-show='isUserLoggedIn && rakHome.chkUserType=="2" && !hideMenuFlag' ng-click='fields.browseAccountIndexInt = 0;
+									rakAccounts.myProducts.navigationType="ProductsLoan";
+									rakAccounts.myProducts.navigationFlag=true;
+									fields.mainAccountType="LON";rakHome.closeMenu();
+									setGlobalEvent("onLoanListClick");rakAccounts.clearPage();'><span>{{appLiterals.APP.RAKBURGER.MYPRODUCTS_LON}} </span></li>
+
+
+
+
+<!-- <li  class="accounts-icon" ng-show='isUserLoggedIn && rakHome.userTypeIDValue=="SME"'  ng-click='fields.browseAccountIndexInt = 0;
+										rakAccounts.myProducts.navigationType="TradeAccounts";
+									rakAccounts.myProducts.navigationFlag=true;
+									fields.mainAccountType="OPR";fields.accountType="CAA";rakHome.closeMenu();
+									setGlobalEvent("onTradeAccountListClick");rakAccounts.clearPage();'><span>{{appLiterals.APP.RAKBURGER.MYPRODUCTS_TRADEFIN}}</span>
+
+									</li> -->
+
+									<li  class="tradefinance-icon rakCollapse" ng-show='isUserLoggedIn && !hideMenuFlag && (rakHome.userTypeIDValue=="CORPORATE" || rakHome.userTypeIDValue=="SME")' ng-click="rakHome.expandMenu($event);">
+
+									<span>{{appLiterals.APP.RAKBURGER.MYPRODUCTS_TRADEFIN}}</span>
+							<ul id="navSubMenu">
+
+							<li   ng-click='fields.browseAccountIndexInt = 0;
+										rakAccounts.myProducts.navigationType="TradeAccounts";
+									rakAccounts.myProducts.navigationFlag=true;
+									fields.mainAccountType="OPR";fields.accountType="CAA";rakHome.closeMenu();rakServiceReq.serviceRequestStatusModel.isSRorTF="SR";
+									setGlobalEvent("onTradeAccountListClick");rakAccounts.clearPage();'><span>{{appLiterals.APP.RAKBURGER.TRADE_ACCOUNTS}}</span>
+
+									</li>
+
+									<li   ng-click='rakServiceReq.serviceRequestStatusModel.resetServiceRequestStatusModel();rakServiceReq.serviceRequestStatusModel.requestType="All";rakHome.closeMenu();rakServiceReq.serviceRequestStatusModel.isSRorTF="TF";setGlobalEvent("onTFRequestStatusClick");'><span>My Requests</span>
+
+                                    </li>
+
+									<li  ng-repeat="item in menuProfile.menuItems.menuUserAccessList   | filterMultiple:{menuAccessibility:['LGN'],parentMenuId:'RAKTRADEFINANCE'}| orderBy:'menuSeqNumber'"
+											ng-click="rakServiceReq.serviceRequestStatusModel.isSRorTF='SR';menuProfile.menuItems.getClickProperties(item);setGlobalEvent(item.event.eventname,item.event.timeout)">
+			   									<span>{{menuProfile.menuItems.getMenuName(item)}}</span></li>
+
+
+
+
+								</ul>
+								</li>
+
+
+							<li  class="pendingAction-icon rakCollapse" ng-show='isUserLoggedIn && !hideMenuFlag &&( rakHome.userTypeIDValue=="CORPORATE" || SMEWrkflow=="Y")' ng-click="rakHome.expandMenu($event);">
+
+									<span>{{appLiterals.APP.DASHBOARD.RETAIL_USER_DASHBOARD_PAGE.MAIN_HEADER}}</span>
+							<ul id="navSubMenu">
+
+									<li   ng-click='rakHome.closeMenu();rakPendingApproval.setInitialFromToDate();rakPendingApproval.setFromToDate();rakPendingApproval.pendingApprovalTab="PMA";rakPendingApproval.fromLandingPage=true;rakPendingApproval.fromLandingPage=true;rakPendingApproval.fromCountPage();rakPendingApproval.resetSearchVals();rakPendingApproval.setInitialData();setGlobalEvent("onPendingApprovalClick");'><span>{{appLiterals.APP.RAKPENDINGAPPROVAL.TABHEADERS.VIEW_APPROVAL_Q}}</span>
+									</li>
+
+									<li   ng-click='rakHome.closeMenu();rakPendingApproval.setInitialFromToDate();rakPendingApproval.setFromToDate();rakPendingApproval.pendingApprovalTab="PCA";rakPendingApproval.fromLandingPage=true;rakPendingApproval.fromLandingPage=true;rakPendingApproval.fromCountPage();rakPendingApproval.resetSearchVals();rakPendingApproval.setInitialData();setGlobalEvent("onPendingApprovalClick");'><span>{{appLiterals.APP.RAKPENDINGAPPROVAL.TABHEADERS.VIEW_UNAPPROVED_TXNS}}</span>
+									</li>
+
+									<li   ng-click='rakHome.closeMenu();rakPendingApproval.setInitialFromToDate();rakPendingApproval.setFromToDate();rakPendingApproval.pendingApprovalTab="PIA";rakPendingApproval.fromLandingPage=true;rakPendingApproval.fromLandingPage=true;rakPendingApproval.fromCountPage();rakPendingApproval.resetSearchVals();rakPendingApproval.setInitialData();setGlobalEvent("onPendingIncompleteTxnsClick");'><span>{{appLiterals.APP.RAKPENDINGAPPROVAL.TABHEADERS.VIEW_INCOMPLETE_TXNS}}</span>
+									</li>
+
+
+	                               <li   ng-click='rakHome.closeMenu();rakELMSApproval.setInitialFromToDate();rakELMSApproval.setFromToDate();rakELMSApproval.pendingApprovalTab="PMA";rakELMSApproval.fromLandingPage=true;rakELMSApproval.fromCountPage();rakELMSApproval.resetSearchVals();rakELMSApproval.setInitialData();setGlobalEvent("onELMSSPendingApprovalClick");'><span>{{appLiterals.APP.RAKPENDINGAPPROVAL.TABHEADERS.ELMS_APPROVAL}}</span>
+									</li>
+
+
+
+								</ul>
+								</li>
+
+					 <li  class="Rakvalue-icon" ng-show='isUserLoggedIn && !hideMenuFlag && rakHome.userTypeIDValue=="SME"'  ng-click='fields.browseAccountIndexInt = 0;
+											setGlobalEvent("onRakValuationHomeClick");rakAccounts.RakValuationEnroll.resetRakValuationEnrollHome();rakAccounts.RakValuationUpgradeValuation.resetRakValuationUpgradeValuationHome();rakAccounts.clearPage();
+											rakHome.closeMenu();'>
+										<span>{{appLiterals.APP.RAKBURGER.RAK_VALUATION}}</span></li>
+
+		<!-- changes for CR BB005 -->
+
+									<li class="cards-icon" ng-show='isUserLoggedIn && !hideMenuFlag && rakHome.chkUserType=="1"' ng-click='fields.browseAccountIndexInt = 0;
+									fields.mainAccountType="CCD";rakHome.closeMenu();
+									rakAccounts.myProducts.navigationType="ProductsCards";
+									rakAccounts.myProducts.navigationFlag=true;
+									setGlobalEvent("onCreditAccountClick");rakAccounts.clearPage();'>
+									<span>{{appLiterals.APP.RAKBURGER.MYPRODUCTS_CARDS}}</span></li>
+
+
+
+									<li class="loans-finances-icon" ng-show='isUserLoggedIn && !hideMenuFlag && rakHome.chkUserType=="1"' ng-click='fields.browseAccountIndexInt = 0;
+									rakAccounts.myProducts.navigationType="ProductsLoan";
+									rakAccounts.myProducts.navigationFlag=true;
+									fields.mainAccountType="LON";rakHome.closeMenu();
+									setGlobalEvent("onLoanListClick");rakAccounts.clearPage();'><span>{{appLiterals.APP.RAKBURGER.MYPRODUCTS_LON}}</span></li>
+
+									<li class="deposits-icon1" ng-show='isUserLoggedIn && !hideMenuFlag && rakHome.chkUserType=="1"' ng-click='fields.browseAccountIndexInt = 0;
+									fields.mainAccountType="DEP";rakHome.closeMenu();
+									rakAccounts.myProducts.navigationType="ProductsDeposit";
+									rakAccounts.myProducts.navigationFlag=true;
+									setGlobalEvent("onDepositListClick");rakAccounts.clearPage();'><span>{{appLiterals.APP.RAKBURGER.MYPRODUCTS_DEP}}</span>
+									</li>
+
+									<li class="investments-icon" ng-show='isUserLoggedIn && !hideMenuFlag && rakHome.userTypeIDValue!="CORPORATE"' ng-click='fields.browseAccountIndexInt = 0;
+									rakAccounts.myProducts.navigationType="ProductsInvestment";
+									rakAccounts.myProducts.navigationFlag=true;
+									fields.mainAccountType="INV";rakHome.closeMenu();
+									setGlobalEvent("onInvestmentListClick");rakAccounts.clearPage();'>
+									<span>{{appLiterals.APP.RAKBURGER.MYPRODUCTS_INV}}</span>
+									</li>
+
+								<!-- 	<li ng-show='isUserLoggedIn' ng-click='fields.browseAccountIndexInt = 0;
+									rakAccounts.myProducts.navigationType="ProductsGold";
+									rakAccounts.myProducts.navigationFlag=true;
+									fields.mainAccountType="GLD";rakHome.closeMenu();
+									setGlobalEvent("onGoldListClick");rakAccounts.clearPage();'>
+									<span>{{appLiterals.APP.RAKBURGER.MYPRODUCTS_GOLD}}</span></li> -->
+
+										<!-- RAK Nikitha Value Collection-->
+
+
+																		<!-- RAK Nikitha Value Collection-->
+
+																			<!-- <li ng-click='fields.browseAccountIndexInt = 0;
+																		setGlobalEvent("onRakValuationClick");rakAccounts.RakValuationEnroll.resetRakValuationEnrollHome();rakAccounts.RakValuationUpgradeValuation.resetRakValuationUpgradeValuationHome();rakAccounts.clearPage();
+																		rakHome.closeMenu();'> -->
+										<!-- Prasenjeet Changed  -->
+
+										 <li  class="Rakvalue-icon"ng-show='isUserLoggedIn && !hideMenuFlag && rakHome.chkUserType=="1"'  ng-click='fields.browseAccountIndexInt = 0;
+											setGlobalEvent("onRakValuationHomeClick");rakAccounts.RakValuationEnroll.resetRakValuationEnrollHome();rakAccounts.RakValuationUpgradeValuation.resetRakValuationUpgradeValuationHome();rakAccounts.clearPage();
+											rakHome.closeMenu();'>
+
+
+									<span>{{appLiterals.APP.RAKBURGER.RAK_VALUATION}}</span></li>
+
+
+								<!-- 	<li  ng-repeat="item in menuProfile.menuItems.menuUserAccessList   | filterMultiple:{menuAccessibility:['LGN'],parentMenuId:'RAKTRADEFINANCE'}| orderBy:'menuSeqNumber'"
+											ng-click="menuProfile.menuItems.getClickProperties(item);setGlobalEvent(item.event.eventname,item.event.timeout)">
+			   									<span>{{menuProfile.menuItems.getMenuName(item)}}</span></li> -->
+
+								<!-- 	<li  ng-click="rakHome.openSubMenu($event);"
+								ng-show='isUserLoggedIn'><span>Trade Finance </span>
+								<ul id="navSubMenu">
+									<li  ng-repeat="item in menuProfile.menuItems.menuUserAccessList   | filterMultiple:{menuAccessibility:['LGN'],parentMenuId:'RAKTRADEFINANCE'}| orderBy:'menuSeqNumber'"
+											ng-click="menuProfile.menuItems.getClickProperties(item);setGlobalEvent(item.event.eventname,item.event.timeout)">
+			   									<span>{{menuProfile.menuItems.getMenuName(item)}}</span></li>
+
+
+
+
+								</ul></li> -->
+
+
+
+
+	<!--
+					<li class="pendingAction-icon"
+								ng-click='rakHome.closeMenu();rakPendingApproval.pendingApprovalTab="PCA";rakPendingApproval.fromLandingPage=true;rakPendingApproval.setInitialFromToDate();rakPendingApproval.setFromToDate();setGlobalEvent("onPendingApprovalClick");'
+								ng-show='isUserLoggedIn &&( rakHome.userTypeIDValue=="CORPORATE" || SMEWrkflow=="Y")'><span> {{appLiterals.APP.DASHBOARD.RETAIL_USER_DASHBOARD_PAGE.MAIN_HEADER}} </span></li>
+
+ -->
+
+							<li class="service-requests-icon"
+								ng-click='rakHome.closeMenu();rakServiceReq.resetNavigation();setGlobalEvent("onRakServicesClick");'
+								ng-show='isUserLoggedIn && !hideMenuFlag'><span> {{appLiterals.APP.RAKBURGER.SERVICEREQUEST}} </span></li>
+								
+								<li class="eDirham-menu-icon" ng-show='isUserLoggedIn'
+								ng-click='rakEDirham.getPostLoginNavigation();rakHome.closeMenu();'
+								>
+								<span> {{appLiterals.APP.RAKBURGER.EDIRHAM}}</span>
+								</li>
+
+		<li class="mails-requests-icon" ng-show="isUserLoggedIn && quickBalValue=='N' && !hideMenuFlag &&  (rakHome.userTypeIDValue=='CORPORATE' || SMEWrkflow=='Y') " ng-click='rakHome.closeMenu();rakMails.inbox.clear();setGlobalEvent("onRakMailClick");'><span> {{appLiterals.APP.RAKBURGER.MAILS}} <span  class="mails-circle-icon" ng-if="rakHome.mailCount>0 && rakHome.fromHome==true" ng-bind="rakHome.mailCount"></span><span class="mails-circle-icon" ng-if="rakMails.inbox.mailCount>0 && rakHome.fromHome==false && rakHome.mailCount>0" ng-bind="rakMails.inbox.mailCount"></span></span>
+			</li>
+
+	<li  class="DA-icon" ng-click="rakHome.openSubMenu($event);"
+								ng-show='isUserLoggedIn && !hideMenuFlag' ng-click="rakHome.closeMenu();rakServiceReq.RakDiscApply.resetRakDiscApplyData();rakServiceReq.RakDiscApply.isFirstTimeFlag=true;setGlobalEvent('onDiscAndapplyLinkClicked');"><span>{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DIS_N_APPLY}}</span>
+
+					</li>
+
+	<div class="rakWidth100PercentBottonIcon" ng-show='isUserLoggedIn && !hideMenuFlag'>
+							<div class="rakBottomIconFirst">
+							<li class="deals-icon3"
+								ng-click='rakHome.closeMenu();setGlobalEvent("openDealsPage");'
+								ng-show='isUserLoggedIn'><span></span>
+								</li>
+
+							</div>
+							<div class="rakBottomIconSec">
+							<li class="rakMiddleBottomIcon" ng-show='isUserLoggedIn'
+								ng-click='rakHome.closeMenu();rakLocateUs.resetRAKLocateUsSearchData();fields.isMapPage=true;fields.bankId = "RAK";fields.locationSearchText="";fields.isSearchInProgress=false;fields.locatorMethodName="getLocationsAroundGeoCodes";
+								rakLocateUs.getCurrentLocation("onRakPostLocatorClick");'>
+								<span class="locator-icon"></span>
+							</li>
+						 </div>
+						 <div class="rakBottomIconThird">
+						<li class="contact-icon rakLastBottomIcon" ng-show='isUserLoggedIn' ng-click='rakHome.closeMenu();resetPageError();rakHome.footerClearTab();rakHome.footerContactUsIcon=true;setGlobalEvent("onRakContactUsClick");'>
+						<span></span>
+						</li>
+					   </div>
+					</div>
+
+					<li  ng-hide='isUserLoggedIn'
+								ng-click='rakHome.closeMenu();rakLocateUs.resetRAKLocateUsSearchData();fields.isMapPage=true;fields.bankId = "RAK";fields.locationSearchText="";fields.isSearchInProgress=false;fields.locatorMethodName="getLocationsAroundGeoCodes";
+								rakLocateUs.getCurrentLocation("onRakLocatorClick");'>
+								<span class="locator-icon"> Locate Us </span>
+				  </li>
+
+					<!-- <li class="contact-icon" ng-hide='isUserLoggedIn' ng-click='rakHome.closeMenu();resetPageError();setGlobalEvent("onpreLoginCallUS");'>
+						<span> Contact Us </span>
+					</li> -->
+
+					<li class="contact-icon" ng-hide='isUserLoggedIn' ng-click='rakHome.closeMenu();resetPageError();rakHome.contactUs();'>
+						<span> Contact Us </span>
+					</li>
+
+
+						<li class="deals-icon_burger" ng-hide='isUserLoggedIn' ng-click='rakHome.closeMenu();resetPageError();setGlobalEvent("openDealsPagePreLogin")'>
+						<span> {{appLiterals.APP.RAK_LOGIN_PAGE.DEALS}} </span>
+					</li>
+
+					<!-- <li class="faq-icon" ng-hide='isUserLoggedIn' ng-click='rakHome.closeMenu();resetPageError();'>
+						<span> {{appLiterals.APP.RAKBURGER.FAQ}}  </span>
+					</li> -->
+<!--
+								<li class="home-icon"
+								ng-click='setGlobalEvent("onWriteUsClick");rakHome.closeMenu();'
+								ng-hide='isUserLoggedIn'><span>{{appLiterals.APP.RAKBURGER.WRITE_US}}<i id="arrow"></i></span>
+
+				    			</li> -->
+
+							<!--	<li class="investments-icon"
+								ng-click='rakHome.closeMenu();setGlobalEvent("");'
+								ng-hide='isUserLoggedIn'><span> {{appLiterals.APP.RAKBURGER.RAMADAN}} <i id="arrow"></i></span></li>
+
+							<li class="investments-icon" ng-show='isUserLoggedIn'>
+							<span class="rakHyperLinkDisable" ng-click="rakHome.openWebChat(rakHome.chatUrl,rakHome.islamicChatUrl)">
+							{{appLiterals.APP.RAK_LOGIN_PAGE.LIVE_CHAT}}
+							<i id="arrow"></i></span>
+							</li>
+
+							</span>
+							</li>-->
+
+						<!-- 	<li class="investments-icon"
+								ng-click='rakHome.closeMenu();setGlobalEvent("");'
+								ng-show='isUserLoggedIn'><span>{{appLiterals.APP.RAKBURGER.FAQ}} <i id="arrow"></i> </span></li> -->
+
+
+
+
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+
+		<!-- RAK Burger Menu Starts -->
+
+    <div  id="fms-ng-view" class="menu-height-adjust2">
+
+		  	<div ng-show='toggleHelp' id="helpContainer" class='nano scroll-height'>
+		  	<div class='nano-content' id='helpContent'></div>
+		    </div>
+
+			        		<div ng-view > </div>
+
+		        <div ng-show='showValidationAlertFlag'>
+		            <ng-include  src="'./navigation/common/resources/FinacleValidationAlertPage.html'"> </ng-include>
+		        </div>
+		        <div ng-show='showAlertFlag'>
+		            <ng-include  src="'./navigation/common/resources/FinacleLoaderErrorPage.html'"> </ng-include>
+		        </div>
+				 <div ng-show='showToast'>
+		            <ng-include  src="'./navigation/common/resources/FinacleToastPage.html'"> </ng-include>
+		        </div>
+
+		        <div ng-show='showCampaignOverlayFlag'>
+		            <ng-include  src="'./navigation/common/resources/FinacleCampaignOverlayPage.html'"> </ng-include>
+		        </div>
+		        <div ng-show='showConfirmBoxFlag'>
+		            <ng-include  src="'./navigation/common/resources/FinacleConfirmBoxPage.html'"> </ng-include>
+		        </div>
+		        <div ng-show='showAlertReturnSamePageFlag'>
+		            <ng-include  src="'./navigation/common/resources/FinacleLoaderAlertReturnSamePage.html'"> </ng-include>
+		        </div>
+				      <div ng-show='showLogoutConfirmationFlag'>
+		            <ng-include  src="'./navigation/common/resources/FinacleConfirmationLogoutPage.html'"> </ng-include>
+					</div>
+					 <div ng-show='checkAppSwitch'>
+		            <ng-include  src="'./navigation/common/resources/RakAppSwitchFinacleLoaderErrorPage.html'"> </ng-include>
+					</div>
+
+		<!-- RAK Footer Menu -->
+			<div  class="icons-block flex" ng-show="isUserLoggedIn && quickBalValue=='N' && !hideFooterFlag && !hideMenuFlag" ng-cloak>
+			<!-- MFP-8 Changes -->
+				<span ng-hide="isIphone" class="rakFloatRight rak-noBottomBorder" ng-click="rakHome.openWebChat(rakHome.chatUrl,rakHome.islamicChatUrl)">
+					<i class="spirt-icon live-chat-icon" ></i>
+					{{appLiterals.APP.RAK_LOGIN_PAGE.LIVE_CHAT}}
+				</span>
+
+				<span ng-class="rakHome.sendMoneyIcon==true?'rakFloatLeft rak-noBottomBorder  BottomSelectedMargin':'rakFloatLeft rak-noBottomBorder'" ng-click="rakHome.footerClearTab();rakHome.sendMoneyIcon=true;
+				rakSendMoney.sendMoney.clearSelfTransfersData();
+				rakPayee.isUserNavigatingBack=false;rakSendMoney.utils.clearCommonData();rakPendingApproval.pendingApprovalTab='';rakSendMoney.cardOnlyCustFunction();"> <i
+					class="spirt-icon send-money-icon"></i>
+					{{appLiterals.APP.RAK_LOGIN_PAGE.SEND_MONEY}}
+				</span>
+				<span ng-class="rakHome.footerPayBillIcon==true?'rakFloatLeft rak-noBottomBorder  BottomSelectedMargin':'rakFloatLeft rak-noBottomBorder'"> <i
+					class="spirt-icon pay-bills-icon" ng-click='rakHome.footerClearTab();rakHome.footerPayBillIcon=true;rakPayee.payBill.isBackfromInitPage=false;rakPayee.payBill.clearPayBillData();rakPendingApproval.pendingApprovalTab="";rakPayee.outstandingTab=true;setGlobalEvent("onPayOutstandingBillsClick");'></i>
+					{{appLiterals.APP.RAK_LOGIN_PAGE.PAY_BILLS}}
+				</span>
+				<span ng-class="rakHome.footerPayCardIcon==true?'rakFloatLeft rak-noBottomBorder  BottomSelectedMargin':'rakFloatLeft rak-noBottomBorder'"> <i
+					class="spirt-icon pay-cards-icon" ng-click='rakHome.footerClearTab();rakHome.footerPayCardIcon=true;rakPayee.bankbnftype="";rakPayee.isUserNavigatingBack=false;rakPayCards.utils.clearCommonData();rakPayCards.schedule.clearSchedulePayCardsData();rakPayCards.ownCards.clearOwnCardsData();rakPendingApproval.pendingApprovalTab="";setGlobalEvent("onRakPayCardsClick");' ></i>
+					{{appLiterals.APP.RAK_LOGIN_PAGE.PAY_CARDS}}
+				</span>
+				<!-- MFP-8 Changes -->
+				<span ng-show="isIphone" ng-class="rakHome.footerContactUsIcon==true?'rakFloatLeft rak-noBottomBorder  BottomSelectedMargin':'rakFloatLeft rak-noBottomBorder'" ng-click='rakHome.footerClearTab();rakHome.footerContactUsIcon=true;resetPageError();setGlobalEvent("onRakContactUsClick");'>
+					<i class="spirt-icon contact-us-icon" ></i>
+					{{appLiterals.APP.RAK_LOGIN_PAGE.CONTACT_US}}
+				</span>
+
+			</div>
+
+			<!-- <div class="icons-block flex" ng-show="isUserLoggedIn && quickBalValue=='N'" ng-cloak>
+				<span class="rakFloatRight rak-noBottomBorder" ng-click="rakHome.openWebChat(rakHome.chatUrl,rakHome.islamicChatUrl)">
+					<i class="spirt-icon live-chat-icon" ></i>
+					{{appLiterals.APP.RAK_LOGIN_PAGE.LIVE_CHAT}}
+				</span>
+				<span class="rakFloatLeft rak-noBottomBorder " ng-click="rakSendMoney.sendMoney.clearSelfTransfersData();
+				rakPayee.isUserNavigatingBack=false;
+				rakHome.isActive=true;
+				rakSendMoney.utils.clearCommonData();setGlobalEvent('onRakMoveMoneyClick');"> <i
+					class="spirt-icon send-money-icon"></i>
+					{{appLiterals.APP.RAK_LOGIN_PAGE.SEND_MONEY}}
+				</span>
+				<span class="rakFloatLeft rak-noBottomBorder"> <i
+					class="spirt-icon pay-bills-icon" ng-click='rakPayee.clearTab();rakPayee.payBill.isBackfromInitPage=false;rakPayee.payBill.clearPayBillData();setGlobalEvent("onPayOutstandingBillsClick");'></i>
+					{{appLiterals.APP.RAK_LOGIN_PAGE.PAY_BILLS}}
+				</span>
+				<span class="rakFloatRight rak-noBottomBorder"> <i
+					class="spirt-icon pay-cards-icon" ng-click='rakPayCards.clearTab();rakPayee.bankbnftype="";rakPayee.isUserNavigatingBack=false;rakPayCards.utils.clearCommonData();rakPayCards.schedule.clearSchedulePayCardsData();rakPayCards.ownCards.clearOwnCardsData();setGlobalEvent("onRakPayCardsClick");' ></i>
+					{{appLiterals.APP.RAK_LOGIN_PAGE.PAY_CARDS}}
+				</span>
+			</div> -->
+			<!-- RAK Footer Menu -->
+</div>
+
+
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/initOptions.js"></script>
+	<script src="js/messages.js"></script>
+	<!-- MFP-8 Changes -->
+	<script src="./cordova.js"></script>
+		<!--<script>window.$ = window.jQuery = WLJQ;</script>-->
+	<script src="libs/moment.min.js" type='text/javascript'>
+
+	</script>
+	<script src="libs/angular.min.js" type="text/javascript"></script>
+	<script src="libs/angular-route.min.js" type="text/javascript"></script>
+	<!-- <script src="libs/angular-animate.min.js" type="text/javascript" ></script>  -->
+	<script src="libs/angular-sanitize.min.js"></script>
+
+	<script src="libs/angular-animate.min.js"></script>
+	<script src="libs/angular-aria.min.js"></script>
+	<script src="libs/angular-messages.min.js"></script>
+	<script src='libs/angular-touch.min.js' type="text/javascript"></script>
+	<!-- Angular Material Library -->
+	<script src="libs/angular-material.min.js"></script>
+
+            <!--script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi2GoROKylIxt-KtT5CZOLpopeXd3lTa4"></script-->
+			
+	 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDor-Kpw7D-ZmCYxJPJdC1wva76KbotbY8"></script>
+			 
+
+	<script src='js/plugins/plugins.js' type="text/javascript"></script>
+          	<script src="libs/CryptoJS/rollups/pbkdf2.js" type='text/javascript'> </script>
+          	<script src="libs/CryptoJS/rollups/aes.js" type='text/javascript'> </script>
+			<script src="libs/CryptoJS/rollups/sha512.js" type='text/javascript'> </script>
+			<script src="libs/CryptoJS/components/enc-base64.js" type='text/javascript'> </script>
+			<script src="libs/date.js" type="text/javascript" ></script>
+			<script src="libs/microevent.js" type="text/javascript" ></script>
+				<script src="js/wl_main.js" type="text/javascript"></script>
+            <script src="js/main.js" type="text/javascript" ></script>
+            <script src="js/processors/PageProcessor.js" type="text/javascript" ></script>
+            <script src="js/processors/FeatureProcessor.js" type="text/javascript" ></script>
+            <script src="js/processors/TemplateProcessor.js" type="text/javascript" ></script>
+            <script src="js/processors/ActionProcessor.js" type="text/javascript" ></script>
+            <script src="js/processors/ServiceInputs.js" type="text/javascript" ></script>
+ 			<script src="js/utils/BaseValidationService.js" type="text/javascript" ></script>
+            <script src="js/extensions/ExtValidationService.js" type="text/javascript" ></script>
+            <script src="js/processors/ValidationService.js" type="text/javascript" ></script>
+            <script src="js/processors/ValidationProcessor.js" type="text/javascript" ></script>
+            <script src="js/processors/LocaleProcessor.js" type="text/javascript" ></script>
+            <script src="js/processors/ServerConfigProcessor.js" type="text/javascript" ></script>
+            <script src="js/processors/CampaignProcessor.js" type="text/javascript" ></script>
+            <script src="js/processors/MenuProfileProcessor.js" type="text/javascript" ></script>
+
+            <script src="js/processors/MenuUIAccessProcessor.js" type="text/javascript" ></script>
+            <script src="js/processors/CurrencyConfigProcessor.js" type="text/javascript" ></script>
+            <script src="js/processors/QRCodeModelConfigProcessor.js" type="text/javascript"></script>
+			<script src="js/processors/PhoneFormatConfigProcessor.js" type="text/javascript"></script>
+            <script src="js/processors/BrandConfigProcessor.js" type="text/javascript"></script>
+            <script src="js/extensions/ExtMultiBrandingService.js" type="text/javascript" ></script>
+            <!--FRAMEWORK-Extension-START  -->
+             <script src="js/extensions/ExtDirectiveService.js" type="text/javascript" ></script>
+             <script src="js/extensions/OverrideDirectiveService.js" type="text/javascript" ></script>
+
+            <!-- Extension Framework  -->
+            <script src="js/extensions/x_viewModels/native_plugins.js" type="text/javascript" ></script>
+            <script src="js/extensions/x_viewModels/js_plugins.js" type="text/javascript" ></script>
+            <script src="js/extensions/x_viewModels/payee.js" type="text/javascript" ></script>
+            <!--FRAMEWORK-INCLUSION-START  -->
+
+            <!--Stepup authenticator-->
+            <script src="js/framework/StepupAuthentication/StepupAuthenticateProcessor.js" type="text/javascript" ></script>
+            <script src="js/framework/StepupAuthentication/SMSOTPStepupAuthenticator.js" type="text/javascript" ></script>
+            <script src="js/framework/StepupAuthentication/RSATokenStepupAuthenticator.js" type="text/javascript" ></script>
+            <script src="js/framework/StepupAuthentication/SecurityQuestionsStepupAuthenticator.js" type="text/javascript" ></script>
+            <script src="js/framework/StepupAuthentication/SetSecurityQuestionsStepupAuthenticator.js" type="text/javascript" ></script>
+            <script src="js/framework/StepupAuthentication/TermsConditionsStepupAuthenticator.js" type="text/javascript" ></script>
+            <script src="js/framework/StepupAuthentication/PasswordChallengeStepupAuthenticator.js" type="text/javascript"></script>
+            <!--FRAMEWORK-INCLUSION-END  -->
+
+            <!-- All the view models are inserted to the index.html -->
+            <script src="js/viewModels/AuthenticationModel.js" type="text/javascript" ></script>
+
+
+             <script src="js/viewModels/rakELMSApproval.js" type="text/javascript" ></script>
+            <script src="js/viewModels/home.js" type="text/javascript" ></script>
+            <script src="js/viewModels/dashboard.js" type="text/javascript" ></script>
+             <script src="js/viewModels/myProfile.js" type="text/javascript" ></script>
+            <script src="js/viewModels/appVersion.js" type="text/javascript" ></script>
+            <script src="js/viewModels/mobileAppConfig.js" type="text/javascript" ></script>
+            <script src="js/viewModels/utils.js" type="text/javascript" ></script>
+             <script src="js/viewModels/appActivation.js" type="text/javascript" ></script>
+      		<script type="text/javascript" src="js/viewModels/TouchID.js"></script>
+            <script src="js/viewModels/notifications.js" type="text/javascript" ></script>
+
+            <script src="js/viewModels/StepupAuthenticate.js" type="text/javascript" ></script>
+            <script src="js/viewModels/menuProfile.js" type="text/javascript" ></script>
+            <script src="js/viewModels/rak2FARegister.js" type="text/javascript"></script>
+
+            <script src="js/FingerprintAuth.js" type="text/javascript"></script>
+
+            <!-- All the  controllers are inserted to the index.html -->
+            <script src="js/controllers/appController.js" type="text/javascript" ></script>
+           <!-- <script src="js/authenticators/AuthenticationEventHandler.js" type="text/javascript" ></script>-->
+            <script src="js/authenticators/MBUserAuthenticationRealmHandler.js" type="text/javascript" ></script>
+            <!-- <script src="js/authenticators/PushAuthRealmChallengeHandler.js" type="text/javascript" ></script> -->
+            <script src="js/utils/EncryptedCacheService.js" type="text/javascript" ></script>
+            <script src="js/utils/EncryptDecryptService.js" type="text/javascript"></script>
+            <script src="js/utils/UIControlsService.js" type="text/javascript"></script>
+            <script src="js/utils/MapService.js" type="text/javascript"></script>
+            <script src="js/utils/UIStubsService.js" type="text/javascript"></script>
+            <script src="js/utils/jsonStore.js" type="text/javascript" ></script>
+<!-- MFP-8 Changes -->
+	<!-- Push Notification -->
+	<script src="js/utils/PushNotification.js" type="text/javascript"></script>
+	<script src="js/utils/PushNotificationImpl.js" type="text/javascript"></script>
+	<script src="js/mfp/MFPPushImpl.js" type="text/javascript"></script>
+	<script src="js/utils/pushNotificationHandler.js" type="text/javascript"></script>  <!--Ravi changes for Push Notification-->
+
+            <!-- All the abstractions -->
+            <script src="js/utils/Logger.js" type="text/javascript"></script>
+            <script src="js/utils/LoggerImpl.js" type="text/javascript"></script>
+            <script src="js/utils/MBaaS.js" type="text/javascript"></script>
+            <script src="js/utils/MBaaSImpl.js" type="text/javascript"></script>
+            <script src="js/utils/HTTPConnector.js" type="text/javascript"></script>
+            <script src="js/utils/HTTPConnectorImpl.js" type="text/javascript"></script>
+
+            <!-- All Worklight specific implementations -->
+            <script src="js/mfp/MFPLoggerImpl.js" type="text/javascript"></script>
+            <script src="js/mfp/MFPMBaaSImpl.js" type="text/javascript"></script>
+            <script src="js/connectors/HTTPMiddlewareImpl.js" type="text/javascript"></script>
+
+    		<script src='js/lodash.js' type="text/javascript"></script>
+    		<script src='js/plugins/plugins.js' type="text/javascript"></script>
+
+			<!--Swap js-->
+			<script src='js/angular-touch.min.js' type="text/javascript"></script>
+			<!--Slider js-->
+      <script src='js/slider.js' type="text/javascript"></script>
+		<!-- RAK Specifics JS goes here -->
+			<script type="text/javascript" src="js/jquery.scrollintoview.min.js"></script>
+        <script src="js/viewModels/rakMails.js" type="text/javascript" ></script>
+		<script src="js/viewModels/rakRegister.js" type="text/javascript"></script>
+		<script src="js/viewModels/rakLocateUs.js" type="text/javascript"></script>
+		<script src="js/viewModels/rakServiceReq.js" type="text/javascript"></script>
+		<script src="js/viewModels/rakFundTfr.js" type="text/javascript"></script>
+		<script src="js/viewModels/rakMyProfile.js" type="text/javascript"></script>
+         <script src="js/viewModels/rakContactUs.js" type="text/javascript" ></script>
+		<script src="js/viewModels/rakSendMoney.js" type="text/javascript"></script>
+		<script src="js/viewModels/rakHome.js" type="text/javascript"></script>
+		<script src="js/viewModels/rakAccounts.js" type="text/javascript"></script>
+		<script src="js/viewModels/rakPayCards.js" type="text/javascript"></script>
+		<script src="js/viewModels/rakEDirham.js" type="text/javascript"></script>
+		<!-- RAK:Sindhu: Added for Beneficiary Management module customization-Start -->
+		<script src="js/viewModels/rakPayee.js" type="text/javascript"></script>
+		<script src="js/viewModels/rakCreditCard.js" type="text/javascript"></script>
+		<!-- RAK:Sindhu: Added for Beneficiary Management module customization-End -->
+		<script src="libs/swiper.min.js"></script>
+		<!-- RAK SUDIPTO Added for Seam Less Login START -->
+		<script src="js/viewModels/rakSeamLessLogin.js" type="text/javascript"></script>
+		<!-- RAK SUDIPTO Added for Seam Less Login END -->
+		<!-- RAK SUDIPTO Added for Seam Less Login START -->
+			<script src="js/framework/StepupAuthentication/rakPostLoginIntermidiateScreen.js" type="text/javascript" ></script>
+		<!-- RAK SUDIPTO Added for Seam Less Login END -->
+		<!-- RAK  Added for trade fin CORPORATE start -->
+		<script src="js/viewModels/rakTradeFinance.js" type="text/javascript"></script>
+		<!-- RAK  Added for trade fin CORPORATE END -->
+
+		<script src="js/viewModels/rakCorpInit.js" type="text/javascript" ></script>
+		<!-- RAK  Added for trade fin CORPORATE APPROVAL Start -->
+		<script src="js/viewModels/rakPendingApproval.js" type="text/javascript" ></script>
+		<!-- RAK  Added for trade fin CORPORATE APPROVAL End -->
+		<!-- Added for WCM -->
+		<script src="js/viewModels/wcmclienthandlers.js" type="text/javascript" ></script>
+		<script src="js/viewModels/rakbankWCMPlugins.js" type="text/javascript" ></script>
+		<script src="js/viewModels/rakTouchIdActivation.js" type="text/javascript"></script>
+		<script src="js/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+			<script src="js/mobiscroll.custom-3.0.0-beta6.min.js" type="text/javascript"></script>
+		<script>
+
+			jQuery('.moblie-button1').click(function() {
+				jQuery('ul.nav-justified li a.active').removeClass('active');
+				jQuery('ul.nav-justified  li ul').removeAttr('style');
+				jQuery('ul.nav-justified li.rakExpand').removeClass('rakExpand').addClass('rakCollapse');
+
+			    jQuery('.desktop-moblie-block').toggleClass('open');
+			    jQuery('body').toggleClass('move');
+			    console.log("@@@@@ agent" +navigator.userAgent);
+			    var userAgent = navigator.userAgent;
+			    if(userAgent.indexOf("HTC One X")>0){
+			     console.log("inside htc");
+			     	 if(jQuery('.rakHTCBlocker,.rakHTCBlocker1').length){
+				    	jQuery('.rakHTCBlocker').remove();
+				    	jQuery('.rakHTCBlocker1').remove();
+				    	jQuery(".swiper-slide:visible").removeClass('htcLoginFix');
+				    }else{
+				    console.log("inside htc else");
+				    	jQuery(".icons-block:visible").prepend('<div class="rakHTCBlocker"/>');
+				    	if(jQuery('.login-form').length){
+					    	jQuery(".swiper-slide:visible").prepend('<div class="rakHTCBlocker1"/>');
+					    	jQuery(".swiper-slide:visible").addClass('htcLoginFix');
+				    	}else{
+				    		jQuery(".account-page").prepend('<div class="rakHTCBlocker1"/>');
+				    		jQuery(".swiper-wrapper").prepend('<div class="rakHTCBlocker1"/>');
+				    		jQuery(".dashboard-item-body").prepend('<div class="rakHTCBlocker1"/>');
+				    		jQuery(".bg-color .row").prepend('<div class="rakHTCBlocker1"/>');
+				    		jQuery(".rakServiceReqList").prepend('<div class="rakHTCBlocker1"/>');
+
+
+
+				    	}
+				    	jQuery('.rakHTCBlocker,.rakHTCBlocker1').each(function(){jQuery(this).click(function(event){
+				  				jQuery('.moblie-button1').click();
+				  				event.stopImmediatePropagation();
+							})
+						});
+				    }
+			    }
+			    var brgrOvrLay =  jQuery('#rakOverlayForBurger');
+			    brgrOvrLay.toggleClass('rakHideElement');
+
+			    var pos = jQuery('.navbar-fixed-top').css('position');
+			    if(pos=="static"){
+			    /*CHNAGES DONE SLOW DOWN OF CLOSING OF BURGER MENU START */
+			    	setTimeout(function(){jQuery('.navbar-fixed-top').css('position','');jQuery('.rak-inboxlink').removeClass('rakBurgerFix');jQuery('.rak-appr-link').removeClass('rakinfoiconFix');},500);
+			    /*CHNAGES DONE SLOW DOWN OF CLOSING OF BURGER MENU END */
+			    }else{
+			    	jQuery('.navbar-fixed-top').css('position','static');
+			    	jQuery('.rak-inboxlink').addClass('rakBurgerFix');
+                    jQuery('.rak-appr-link').addClass('rakinfoiconFix');
+			    }
+			   	//var brgrOvrLay =  jQuery('#rakOverlayForBurger').toggleClass('rakBurgerTransition');
+			   	if(jQuery('#rakOverlayForBurger:visible').length){
+			   		 brgrOvrLay.animate({'left':'260px'},'0.5s');
+			   	} else{
+			   		 brgrOvrLay.animate({'left':'0'},'0.5s');
+			   	}
+			});
+			jQuery('.moblie-stripe, .content-part, .header-top-left,.rakHTCBlocker1,.rakHTCBlocker').click(function() {
+				jQuery('.desktop-moblie-block').removeClass('open');
+			    jQuery('body').removeClass('move');
+			});
+			jQuery('#rakOverlayForBurger').click(function(event){
+			  jQuery('.moblie-button1').click();
+			});
+
+originalHeight=jQuery(window).height();
+originalWidth=jQuery(window).width();
+			console.log("@@@@@ : "+originalHeight);
+			jQuery(window).resize(function(){
+			originalHeight=originalHeight==0 ? jQuery(window).height() : originalHeight;
+			console.log("@@@@@ : "+originalHeight);
+				var currHeight = jQuery(window).height();
+				console.log("@@@@@ : ch :"+currHeight);
+				var diff= originalHeight-currHeight;
+				if(diff<0){
+					diff = -(diff);
+				}
+				if(diff>100){
+					jQuery('.icons-block').css('display','none');
+				} else{
+					jQuery('.icons-block').css('display','');
+				}
+				if(originalHeight == currHeight){
+					console.log("Inside equal");
+					jQuery('.icons-block').css('display','');
+				}
+				var focusedElem = jQuery(':focus');
+				/*console.log("@@@@@ : fEleme "+focusedElem[0].type);*/
+				var elemTop = focusedElem.offset().top;
+				var isFocusReq = focusedElem.closest('.noFocus');
+				console.log("@@@@@ : top : "+elemTop);
+				/* jQuery(focusedElem).scrollintoview({ duration: "normal" }); */
+				if(isFocusReq.length){
+					jQuery(focusedElem).scrollintoview({ duration: "normal" });
+				}
+				else if(elemTop>originalHeight/2){
+				jQuery('html,body,.rak-scroll,.rakScrollDiv').animate({
+				 scrollTop:focusedElem.offset().top-150
+				},1000);
+
+				}
+
+			});
+			<!-- MFP-8 Changes [To be changed]-->
+            if(WL.Client.getEnvironment() == WL.Environment.IPHONE){
+                console.log("@@@@@ inside if");
+                jQuery('body').delegate('input:not([datepicker]):not(.mbsc-control):not([type="button"])','focus',function(){
+                                      setTimeout(function(){
+                                      jQuery('.icons-block ').css('display','none');
+                                      jQuery('.nano.scroll-height').addClass('expandScroll');
+									  },55);
+                                      });
+                                      jQuery('body').delegate('input:not([datepicker]):not(.mbsc-control):not([type="button"])','blur',function(){
+                                                          jQuery('.nano.scroll-height').removeClass('expandScroll');
+                                                          	setTimeout(function(){
+															jQuery('.icons-block ').css('display','');
+                                                            jQuery('.icons-block ').css('bottom',0);
+															},0);
+                                                        });
+                                                        
+                    var ios12 = navigator.userAgent.match(/OS 12_/i);
+                  var ios13 = navigator.userAgent.match(/OS 13_/i);
+                    var ios14 = navigator.userAgent.match(/OS 14_/i);
+               
+	               if(ios12 !=null  || ios13 !=null || ios14!=null){
+	                    var docEle = document.documentElement;
+	                    docEle.setAttribute('RAKBANK-useragent',  "RAK-IOS");
+	               } 
+            }
+
+            function scrollToElem(elem){
+            var scrollDiv = jQuery('.rakScrollDiv');
+            if(!scrollDiv.length){
+            scrollDiv=jQuery('.rak-scroll');
+            }
+            if(!scrollDiv.length){
+            scrollDiv=jQuery('.rakNicknameScroll');
+            }
+            if(!scrollDiv.length){
+            scrollDiv=jQuery('.rakTouchIdScroll');
+            }
+            if(scrollDiv.length && elem){
+            scrollDiv.scrollTop(scrollDiv.scrollTop() - scrollDiv.offset().top + jQuery(elem).offset().top);
+            }
+            }
+
+			</script>
+		<!-- RAK Specifics JS goes here -->
+            <style>
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+input[type=date]::-webkit-inner-spin-button,
+input[type=date]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+img{
+ -webkit-touch-callout: none;
+}
+</style>
+        </div>
+
+        <div ng-show='rakCorpInit.corpModel.rulesFlag' class="benificiary" id="MainBenificaiary">
+		            <ng-include  src="'./navigation/common/resources/RakOverLappingRulePage.html'"> </ng-include>
+		        </div>
+    </body>
+</html>

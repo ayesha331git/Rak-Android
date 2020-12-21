@@ -1,0 +1,96 @@
+<div class="finacle-container ng-scope" ng-init="rakMails.trash.inboxToTrash=false;rakMails.clearTab();rakMails.trashTab=true;rakMails.isDeleteClicked ? rakMails.trash.initAfterDelete(successResponse.responsesList) : rakMails.trash.initListPage(successResponse.responsesList)">
+	
+				<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setGlobalEvent('onDashboardClick');"></i>
+	</div>
+ 
+	<div class="account-page">
+		<div class="col-sm-11">
+
+        <div class="">
+			<div class="row" >
+			
+			<div
+					ng-init='mailTypeArray=createDropDownOptionArray(rakMails.mailOptions, ["mailOption"],"mailValue")'>
+					<fin-input type="dropdown" option-array="mailTypeArray"
+						model="rakMails.selectedMailType"
+						display-row="full"
+						placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_SELCT}}"
+						on-change="resetPageError();setGlobalEvent(rakMails.getMailEvent());"
+						validation-flag='pageErrorArr["rakMails.selectedMailType"]'>
+					</fin-input>
+				</div>
+				
+				<div class="col-sm-1"></div>
+
+
+<!--CHANGES DONE TO FILTER TEXT ON WRITING START-->
+<div class="rakmail-field-wrap">
+      <p class="search-field">
+      
+        <span class="rakGlyphicon glyphicon-search"> </span>
+        <input type="text" input-restricted-special-character placeholder="{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.SEARCH_MAILS}}" ng-model="searchText" class="raksearch-txt">
+      </p>
+</div>
+
+<div class="rakMargin5px">
+<a  class="advanceSearch" ng-click="rakMails.RakSearchMails.fromTrashFlag=true;rakMails.RakSearchMails.criteriaFlag=false;rakMails.RakSearchMails.rakSearchMailReset();rakMails.RakSearchMails.rakMailFolderIdInbox();setEvent('onMailSearchClick');">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.ADVANCESEARCH}}</a>
+</div>
+<!--CHANGES DONE TO FILTER TEXT ON WRITING END-->       
+
+
+		                   <!-- <ng-include
+								src="'./navigation/rakMails/resources/RakMailsTabPage.html'">
+							</ng-include> -->
+
+
+<!--  CHANGES FOR EMPTY ALL TRAH ITEMS ICON START-->
+			 <div class="emptyTrashDiv" ng-click="rakMails.trash.clear();rakMails.isDeleteClicked=true;setEvent('onDeleteAllClick');">
+			 	<span><button id="emptyTrash" style="width: 120px;">
+				 		<span style="vertical-align: super;">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.BTN_EMPTRSH}}</span>
+				 		<img src="images/recyclie-bin.png" alt="" style="margin-left: 5px;float: right;">
+			 		  </button>
+			 	</span>
+			 </div>
+<!--  CHANGES FOR EMPTY ALL TRAH ITEMS ICON END-->
+			 
+				<div class="bg-color rak-cont-padding rak-scroll_height50 rakClearBothImp">
+					<div class="row">
+					      <div class="ng-hide" ng-if='rakMails.trash.isTrashEmpty'
+									ng-init="showAlert(rakMails.successMessage); setEvent('onTrashEmptyOkClick')">
+							</div>
+							<div class="ng-hide" ng-if='rakMails.isMailDeleted'
+									ng-init="(rakMails.isStatusError) ? showErrorPopup(rakMails.successMessage) : showAlert(rakMails.successMessage); rakMails.isMailDeleted=false; rakMails.isDeleteClicked=false;setEvent('onDeleteOKClick')">
+							</div>
+							<div >
+					      <div class="landingpage-list read" ng-repeat="mail in filteredList=(rakMails.trash.list | filter:searchText)">
+					         	<div class="i-mailInbox">
+
+
+					         	   <div class="inbox-rsplit-inbox"
+					         	   ng-click="rakMails.selectedMailId=mail.mboxId;rakMails.detailType='Trash';setEvent('onMessageClick')">
+					         	    <span class="bnk_nm">{{mail.mailSubject}}</span>
+					         	   </div>
+
+									<div class="inbox-csplit-new">{{mail.mailDate}}
+									</div>
+
+					             <div class="inbox-lsplit i-trash" ng-click="rakMails.selectedMailId=mail.mboxId;rakMails.isDeleteClicked=true;setEvent('TrashMailDelete')">
+									<span class="glyphicon glyphicon-trash rakMarginTop15"></span>
+					            </div>
+								</div>
+					           
+							</div>
+							<span ng-show="filteredList.length=='0'" class="noMails">No mails found</span>
+							</div>
+							</div>
+						</div>
+					  </div>
+					</div>
+				</div>
+			</div>
+      
+    </div>
+ 
+
+

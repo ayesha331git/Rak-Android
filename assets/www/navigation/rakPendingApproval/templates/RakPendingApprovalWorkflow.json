@@ -1,0 +1,3030 @@
+{
+    "pageNavigation": [
+        {
+            "RakPendingApprovalLandingPage": [
+            	{
+                    "eventName": "onDeleteTxnClick",
+                    "action": "RakPendingApprovalDeleteService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "TransactionType":"rakPendingApproval.pendingItem.txnType",
+		                "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+		                "TXN_TYPE":"rakPendingApproval.pendingItem.effTxnType",
+		                "ENTRY_AMT":"rakPendingApproval.pendingItem.txnAmount"
+		             },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalDeleteDetailPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onMultiplePayClick",
+                    "action": "RakPayeeEditMultipleBillPayInitService",
+                    "actionType": "service",
+                    "validation": "false",                    
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType"                                           
+                    },
+                    "successPage": {
+                    	"subFeature":"rakPayee",
+                        "pageName": "RakPayEditMultipleBillPayInitPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onRakPayeeEditClick",
+                    "action": "RakPayeeIncompleteEditTransferService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "txnIndex":"rakPayee.schedule.selectedTxnIndex",
+                        "BILLERNAME":"rakPayee.schedule.selectedPayee",                        
+                        "PAYEE_LIST_ID":"rakPayee.schedule.selectedID",
+                        "FREQTYPE":"rakPayee.schedule.selectedTxn.txnFrequency",
+                        "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+                        "TransactionType":"rakPendingApproval.pendingItem.txnType"                   
+                    },
+                    "successPage": {
+                        "subFeature": "rakPayee",
+                        "pageName": "RakPayeeEditPayNowPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onRakQuickPayeeEditClick",
+                    "action": "RakPayeeIncompleteEditPMTService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "txnIndex":"rakPayee.schedule.selectedTxnIndex",
+                        "BILLERNAME":"rakPayee.schedule.selectedPayee",                        
+                        "PAYEE_LIST_ID":"rakPayee.schedule.selectedID",
+                        "FREQTYPE":"rakPayee.schedule.selectedTxn.txnFrequency",
+                        "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType"                   
+                    },
+                    "successPage": {
+                        "subFeature": "rakPayee",
+                        "pageName": "RakPayeeQuickPayEditPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+					"eventName": "onRakPayCardsEditClick",
+                    "action": "RAKPayCardsIncompFetchCardsEditService",
+                    "actionType": "service",
+                    "validation": "false",
+                      "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "txnIndex":"rakPayCards.schedule.selectedTxnIndex",
+                        "TXN_TYPE": "rakPayCards.ownCards.selectedCardBenfType",
+                        "FREQTYPE":"rakPayCards.schedule.selectedTxn.txnFrequency",
+                        "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+                        "TransactionType":"rakPendingApproval.pendingItem.txnType"
+                    },
+                    "successPage": {
+                     	"subFeature": "rakPayee",
+                        "pageName": "RakPayCardsEditPayNowPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+					"eventName": "onRakPayeeSubmitClick",
+                    "action": "RakSubmitPayeeModifyService",
+                    "actionType": "service",
+                    "validation": "false",
+                      "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "txnIndex":"rakPayee.schedule.selectedTxnIndex",
+                        "BILLERNAME":"rakPayee.schedule.selectedPayee",                        
+                        "PAYEE_LIST_ID":"rakPayee.schedule.selectedID",
+                        "FREQTYPE":"rakPayee.schedule.selectedTxn.txnFrequency",
+                        "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+                         "TransactionType":"rakPendingApproval.pendingItem.txnType"
+                        
+                        
+                    },
+                   "successPage": [
+	                    {
+	                    	"condition":"RegisteredForSoftTokenYES",
+	                    	 "subFeature": "rakPayee",
+	                        "pageName": "RakPayeeSubmitBillPayConfirmPage"
+	                        },
+	                        {
+	                        "condition":"RegisteredForSoftTokenNo",
+	                        "subFeature": "rak2FARegister",
+	                        "pageName": "Rak2FASelfRegPopupPage"
+	                        }                        
+	                    ],
+                    "errorPage": {
+                        "subFeature": "rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+					"eventName": "onRakPayeeMultipleSubmitClick",
+                    "action": "RakSubmitMultiplePayeeModifyService",
+                    "actionType": "service",
+                    "validation": "false",
+                      "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "txnIndex":"rakPayee.schedule.selectedTxnIndex",
+                        "BILLERNAME":"rakPayee.schedule.selectedPayee",                        
+                        "PAYEE_LIST_ID":"rakPayee.schedule.selectedID",
+                        "FREQTYPE":"rakPayee.schedule.selectedTxn.txnFrequency",
+                        "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType"
+                        
+                    },
+                   "successPage":[
+	                    	{
+	                    	"condition":"RegisteredForSoftTokenYES",
+	                    	 "subFeature": "rakPayee",
+	                        "pageName": "RakPayMultipleBillPaySubmitConfirmPage"
+	                        },
+	                        {
+	                        "condition":"RegisteredForSoftTokenNo",
+	                        "subFeature": "rak2FARegister",
+	                        "pageName": "Rak2FASelfRegPopupPage"
+	                        }                        
+	                    ],
+                    "errorPage": {
+                        "subFeature": "rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+					"eventName": "onRakPayCardsSubmitClick",
+                    "action": "RakSubmitPayCardModifyService",
+                    "actionType": "service",
+                    "validation": "false",
+                      "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "txnIndex":"rakPayCards.schedule.selectedTxnIndex",
+                        "TXN_TYPE": "rakPayCards.ownCards.selectedCardBenfType",
+                        "FREQTYPE":"rakPayCards.schedule.selectedTxn.txnFrequency",
+                        "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+                         "TransactionType":"rakPendingApproval.pendingItem.txnType"
+                        
+                    },
+                   "successPage": [
+	                    {
+	                    	"condition":"RegisteredForSoftTokenYES",
+	                    	 "subFeature": "rakPayCards",
+	                        "pageName": "RakPayCardsSubmitTransfersAuthenticatePage"
+	                        },
+	                        {
+	                        "condition":"RegisteredForSoftTokenNo",
+	                        "subFeature": "rak2FARegister",
+	                        "pageName": "Rak2FASelfRegPopupPage"
+	                        }                        
+	                    ],
+                    "errorPage": {
+                        "subFeature": "rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onRakSendMoneyEditClick",
+                    "action": "RakIncompleteTransferModifyService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "txnIndex":"rakSendMoney.schedule.selectedTxnIndex",
+                        "index":"rakSendMoney.schedule.selectedTxnIndex",
+                        "FREQTYPE":"rakSendMoney.schedule.selectedTxn.txnFrequency",
+                        "TXN_TYPE":"rakSendMoney.schedule.selectedTxn.txnType",
+                        "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+                        "TransactionType":"rakPendingApproval.pendingItem.txnType"
+                     
+                    },
+                    "successPage": {
+                        "subFeature": "rakSendMoney",
+                        "pageName": "RakSendMoneyEditPayNowPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onRakSendMoneySubmitClick",
+                    "action": "RakSubmitTransferModifyService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "txnIndex":"rakSendMoney.schedule.selectedTxnIndex",
+                        "index":"rakSendMoney.schedule.selectedTxnIndex",
+                        "FREQTYPE":"rakSendMoney.schedule.selectedTxn.txnFrequency",
+                        "TXN_TYPE":"rakSendMoney.schedule.selectedTxn.txnType",
+                        "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType"   ,
+                        "TransactionType":"rakPendingApproval.pendingItem.txnType"                 
+                    },
+                    "successPage": [
+	                    {
+	                    	"condition":"RegisteredForSoftTokenYES",
+	                    	 "subFeature": "rakSendMoney",
+	                        "pageName": "RakSendMoneySubmitTransfersAuthenticatePage"
+	                        },
+	                        {
+	                        "condition":"RegisteredForSoftTokenNo",
+	                        "subFeature": "rak2FARegister",
+	                        "pageName": "Rak2FASelfRegPopupPage"
+	                        }                        
+	                    ],
+                    "errorPage": {
+                        "subFeature": "rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPendingPaymentClick",
+                    "action": "RakPendingApprovalDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "TransactionType":"rakPendingApproval.pendingItem.txnType",
+		                "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+		                "TXN_TYPE":"rakPendingApproval.pendingItem.effTxnType",
+		                "ENTRY_AMT":"rakPendingApproval.pendingItem.txnAmount"
+		             },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalDetailPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onMutiplePayClick",
+                    "action": "RakPendingApprovalDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "TransactionType":"rakPendingApproval.pendingItem.txnType",
+		                "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+		                "TXN_TYPE":"rakPendingApproval.pendingItem.effTxnType",
+		                "ENTRY_AMT":"rakPendingApproval.pendingItem.txnAmount"
+		             },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakMultiplePendingApprovalDetailPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPendingSwipePaymentApproveClick",
+                    "action": "RakPendingApprovalSwipeApproveService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "TransactionType":"rakPendingApproval.pendingItem.txnType",
+		                "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+		                "TXN_TYPE":"rakPendingApproval.pendingItem.effTxnType",
+		                "ENTRY_AMT":"rakPendingApproval.pendingItem.txnAmount",
+		                 "CLICKEDEVENT":"rakPendingApproval.clickedEvent",
+		                 "STOPEVENT":"rakPendingApproval.pendingItem.approvalReason"
+		                },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakApproveAuthPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                
+                {
+                    "eventName": "onPendingSwipeMultiplePaymentApproveClick",
+                    "action": "RakPendingApprovalSwipeApproveService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "TransactionType":"rakPendingApproval.pendingItem.txnType",
+		                "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+		                "TXN_TYPE":"rakPendingApproval.pendingItem.effTxnType",
+		                "ENTRY_AMT":"rakPendingApproval.pendingItem.txnAmount",
+		                 "CLICKEDEVENT":"rakPendingApproval.clickedEvent"
+		                },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakMultiplePendingApprovalPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                       
+                 {
+                    "eventName": "onPendingSwipeRemittanceApproveClick",
+                    "action": "RakPendingApprovalSwipeApproveService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "TransactionType":"rakPendingApproval.pendingItem.txnType",
+		                "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+		                "TXN_TYPE":"rakPendingApproval.pendingItem.effTxnType",
+		                "ENTRY_AMT":"rakPendingApproval.pendingItem.txnAmount",
+		                 "CLICKEDEVENT":"rakPendingApproval.clickedEvent"
+		                },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakApproveRemittanceAuthPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPendingSwipeRemittanceRejectClick",
+                    "action": "RakPendingApprovalSwipeRejectService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "TransactionType":"rakPendingApproval.pendingItem.txnType",
+		                "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+		                "TXN_TYPE":"rakPendingApproval.pendingItem.effTxnType",
+		                "ENTRY_AMT":"rakPendingApproval.pendingItem.txnAmount",
+		                "CLICKEDEVENT":"rakPendingApproval.clickedEvent"
+		                },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakRejectRemittanceAuthPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },         
+                {
+                    "eventName": "onPendingApprovalBackClick",
+                    "action": "RefreshAccountDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "USER_TYPE": "dashboard.userType"
+                    },
+                    
+                     "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserDashboardPage"
+                    },
+                    "errorPage": {  
+                           "subFeature": "rakPendingApproval",                
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }                 
+                },
+                {
+                    "eventName": "onSendForRepairLandingPgClick",
+                    "action": "RakPendingApprovalSendForRepairLandingPgService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "TransactionType":"rakPendingApproval.pendingItem.txnType",
+		                "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+		                "TXN_TYPE":"rakPendingApproval.pendingItem.effTxnType",
+		                "ENTRY_AMT":"rakPendingApproval.pendingItem.txnAmount",
+		                "CLICKEDEVENT":"rakPendingApproval.clickedEvent"
+		                },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakSendForRepairAuthPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                 {
+                    "eventName": "onSendForRepairMultipleBillClick",
+                    "action": "RakPendingApprovalSendForRepairLandingPgService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "TransactionType":"rakPendingApproval.pendingItem.txnType",
+		                "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+		                "TXN_TYPE":"rakPendingApproval.pendingItem.effTxnType",
+		                "ENTRY_AMT":"rakPendingApproval.pendingItem.txnAmount",
+		                "CLICKEDEVENT":"rakPendingApproval.clickedEvent"
+		                },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakSendForRepairMultipleBillAuthPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPendingSwipePaymentRejectClick",
+                    "action": "RakPendingApprovalSwipeRejectService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "TransactionType":"rakPendingApproval.pendingItem.txnType",
+		                "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+		                "TXN_TYPE":"rakPendingApproval.pendingItem.effTxnType",
+		                "ENTRY_AMT":"rakPendingApproval.pendingItem.txnAmount",
+		                "CLICKEDEVENT":"rakPendingApproval.clickedEvent"
+		                },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakRejectAuthPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPendingMultiplePaymentRejectClick",
+                    "action": "RakPendingApprovalSwipeRejectService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "TransactionType":"rakPendingApproval.pendingItem.txnType",
+		                "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+		                "TXN_TYPE":"rakPendingApproval.pendingItem.effTxnType",
+		                "ENTRY_AMT":"rakPendingApproval.pendingItem.txnAmount",
+		                "CLICKEDEVENT":"rakPendingApproval.clickedEvent"
+		                },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakRejectMultipleBillAuthPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                
+                {
+                    "eventName": "onApproveDetailClick",
+                    "action": "RakPendingApprovalRulesAuthService",
+                    "actionType": "service",
+                    "validation": "false",
+                     "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam"           
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakApproveAuthPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "rakUnApprTxnRecallConfirmClick",
+                    "action": "RakUnApprTxnRecallConfirmService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "TransactionType":"rakPendingApproval.pendingItem.txnType",
+		                "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+		                "TXN_TYPE":"rakPendingApproval.pendingItem.effTxnType",
+		                "CLICKEDEVENT":"rakPendingApproval.clickedEvent",
+		                "ENTRY_AMT":"rakPendingApproval.pendingItem.txnAmount"
+		                },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakRecallAuthPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                
+                 {
+                    "eventName": "rakUnApprTxnRecallMultipleBillConfirmClick",
+                    "action": "RakUnApprTxnRecallConfirmService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "TransactionType":"rakPendingApproval.pendingItem.txnType",
+		                "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+		                "TXN_TYPE":"rakPendingApproval.pendingItem.effTxnType",
+		                "ENTRY_AMT":"rakPendingApproval.pendingItem.txnAmount"
+		                },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakSendForRepairMultipleBillAuthPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                
+                {
+                    "eventName": "rakUpdateNxtApprClick",
+                    "action": "RakUpdateNxtApprConfirmService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "TransactionType":"rakPendingApproval.pendingItem.txnType",
+		                "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+		                "TXN_TYPE":"rakPendingApproval.pendingItem.effTxnType",
+		                 "CLICKEDEVENT":"rakPendingApproval.clickedEvent",
+		                "ENTRY_AMT":"rakPendingApproval.pendingItem.txnAmount"
+		                },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakUpdateNxtApprInitPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                
+                   {
+                    "eventName": "rakUpdateNxtMultipleBillApprClick",
+                    "action": "RakUpdateNxtApprConfirmService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "TransactionType":"rakPendingApproval.pendingItem.txnType",
+		                "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+		                "TXN_TYPE":"rakPendingApproval.pendingItem.effTxnType",
+		                "ENTRY_AMT":"rakPendingApproval.pendingItem.txnAmount"
+		                },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakUpdateNxtApprMultipleBillInitPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onApprUnapprSearchClick",
+                    "action": "RakPendingApprovalListSearchService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "txnTypeSearch":"rakPendingApproval.selectedTxnType",
+		                "accIdIndexSearch":"rakPendingApproval.selectedAccId",
+		                "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year"
+		                },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPendingIncompleteTxnsSearchClick",
+                    "action": "RakPendingIncompleteTxnsSearchService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                "txnTypeSearch":"rakPendingApproval.selectedTxnType",
+		                "txnStatusSearch":"rakPendingApproval.selectedTxnStatus",
+		                "accIdIndexSearch":"rakPendingApproval.selectedAccId",
+		                "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year"
+		            },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                }
+            ],
+     "RakMultiplePendingApprovalDetailPage": [
+            	  {
+                    "eventName": "onRejectClick",
+                    "action": "RakPendingApprovalRejectAuthService",
+                    "actionType": "service",
+                    "validation": "false",
+                     "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam"           
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakRejectAuthPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onApproveDetailClick",
+                    "action": "RakPendingApprovalRulesAuthService",
+                    "actionType": "service",
+                    "validation": "false",
+                     "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam"           
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakApproveAuthPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                    "action": "RakPendingApprovalListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onSendForRepairClick",
+                    "action": "RakPendingApprovalSendForRepairLandingPgService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "TransactionType":"rakPendingApproval.pendingItem.txnType",
+		                "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+		                "TXN_TYPE":"rakPendingApproval.pendingItem.effTxnType",
+		                "ENTRY_AMT":"rakPendingApproval.pendingItem.txnAmount",
+		                 "CLICKEDEVENT":"rakPendingApproval.clickedEvent"
+		                },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakSendForRepairAuthPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakMultiplePendingApprovalDetailPage"
+                    }
+                },
+                {
+                    "eventName": "rakUnApprTxnRecallConfirmClick",
+                    "action": "RakUnApprTxnRecallConfirmService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "TransactionType":"rakPendingApproval.pendingItem.txnType",
+		                "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+		                "TXN_TYPE":"rakPendingApproval.pendingItem.effTxnType",
+		                "CLICKEDEVENT":"rakPendingApproval.clickedEvent",
+		                "ENTRY_AMT":"rakPendingApproval.pendingItem.txnAmount"
+		                },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakSendForRepairAuthPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakMultiplePendingApprovalDetailPage"
+                    }
+                }
+            ],
+            "RakPendingApprovalDetailPage": [
+             {
+                 "eventName": "gotoLandingPageClickBack",
+                   "action": "RakPendingApprovalListSearchService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "txnTypeSearch":"rakPendingApproval.selectedTxnType",
+		                "accIdIndexSearch":"rakPendingApproval.selectedAccId",
+		                "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalDetailPage"
+                    }
+                },
+            	  {
+                    "eventName": "onRejectClick",
+                    "action": "RakPendingApprovalRejectAuthService",
+                    "actionType": "service",
+                    "validation": "false",
+                     "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam"           
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakRejectAuthPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onApproveDetailClick",
+                    "action": "RakPendingApprovalRulesAuthService",
+                    "actionType": "service",
+                    "validation": "false",
+                     "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam"           
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakApproveAuthPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                   "action": "navigation",
+					"actionType": "navigation",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year",
+		                "CountSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onSendForRepairClick",
+                    "action": "RakPendingApprovalSendForRepairLandingPgService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "TransactionType":"rakPendingApproval.pendingItem.txnType",
+		                "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+		                "TXN_TYPE":"rakPendingApproval.pendingItem.effTxnType",
+		                "ENTRY_AMT":"rakPendingApproval.pendingItem.txnAmount",
+		                 "CLICKEDEVENT":"rakPendingApproval.clickedEvent"
+		                },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakSendForRepairAuthPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalDetailPage"
+                    }
+                },
+                {
+                    "eventName": "rakUnApprTxnRecallConfirmClick",
+                    "action": "RakUnApprTxnRecallConfirmService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "TransactionType":"rakPendingApproval.pendingItem.txnType",
+		                "EffTransactionType":"rakPendingApproval.pendingItem.effTxnType",
+		                "TXN_TYPE":"rakPendingApproval.pendingItem.effTxnType",
+		                "CLICKEDEVENT":"rakPendingApproval.clickedEvent",
+		                "ENTRY_AMT":"rakPendingApproval.pendingItem.txnAmount"
+		                },
+                    "successPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakSendForRepairAuthPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalDetailPage"
+                    }
+                }
+            ],
+            "RakApproveAuthPage": [
+            
+            {
+                 "eventName": "gotoLandingPageClickBack",
+                   "action": "RakPendingApprovalListSearchService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "txnTypeSearch":"rakPendingApproval.selectedTxnType",
+		                "accIdIndexSearch":"rakPendingApproval.selectedAccId",
+		                "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakApproveAuthPage"
+                    }
+                },
+            
+            {
+				"eventName": "onSearchRoleDetailsClick",
+				"action": "navigation",
+				"actionType": "navigation",
+				"validation": "false",				
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam"
+				},
+				"successPage": {
+					
+					"pageName": "RakCorpPendingApproverLookUpPage"
+				},
+				"errorPage": {
+					
+					"pageName": "RakCorpPendingApproverLookUpPage"
+				}
+			},
+            {
+				"eventName": "onCorpGetPendingLookUpClick",
+				"action": "navigation",
+				"actionType": "navigation",
+				"validation": "false",				
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam"
+				},
+				"successPage": {
+				
+					"pageName": "RakCorpPendingApproverLookUpPage"
+				},
+				"errorPage": {
+					
+					"pageName": "RakApproveAuthPage"
+				}
+			},
+             {
+		                   "eventName": "onGenerateOtp",
+		                    "action": "RakResendOtpService",
+		                    "actionType": "serviceNoNavigation",
+		                    "validation": "false",
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+		                        
+		                    },
+		                    "successPage": {
+		                      "pageName": "RakApproveAuthPage"
+		                    },
+		                    "errorPage": {
+		                        "pageName": "RakApproveAuthPage"
+		                    }
+                },
+                {
+                    "eventName": "onConfirmClick",
+                    "action": "RakPendingApprovalSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                    
+                    "validationParams" : ["rakHome.AuthPageData.firstAuthModeValue",
+                    "rakPendingApproval.approveAuthModel.userName"],
+                     "encryptionEnabled": true,
+                       "sensitiveFields": [
+                        "rakHome.AuthPageData.firstAuthModeValue"
+                    ],
+                     "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		              	 "Mode": "rakHome.AuthPageData.firstAuthModeValue",
+		                "RemarksText":"rakPendingApproval.approveAuthModel.remarksText||''",
+		                "ROLE": "rakPendingApproval.approveAuthModel.userName"             
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakApprovedTxnSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakApproveAuthPage"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                    "action": "RakPendingApprovalListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year",
+		                "CountSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPrevClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakApproveAuthPage"
+                    }
+                },
+                {
+                    "eventName": "onConfirmationClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakApproveAuthPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakApproveAuthPage"
+                    }
+                }
+            ],
+            
+             "RakMultiplePendingApprovalPage": [
+             
+              {
+                 "eventName": "gotoLandingPageClickBack",
+                   "action": "RakPendingApprovalListSearchService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "txnTypeSearch":"rakPendingApproval.selectedTxnType",
+		                "accIdIndexSearch":"rakPendingApproval.selectedAccId",
+		                "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakMultiplePendingApprovalPage"
+                    }
+                },
+            
+            {
+				"eventName": "onSearchRoleDetailsClick",
+				"action": "navigation",
+				"actionType": "navigation",
+				"validation": "false",				
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam"
+				},
+				"successPage": {
+					
+					"pageName": "RakCorpPendingApproverLookUpPage"
+				},
+				"errorPage": {
+					
+					"pageName": "RakCorpPendingApproverLookUpPage"
+				}
+			},
+            {
+				"eventName": "onCorpGetPendingLookUpClick",
+				"action": "navigation",
+				"actionType": "navigation",
+				"validation": "false",				
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam"
+				},
+				"successPage": {
+				
+					"pageName": "RakCorpPendingApproverLookUpPage"
+				},
+				"errorPage": {
+					
+					"pageName": "RakMultiplePendingApprovalPage"
+				}
+			},
+             {
+		                   "eventName": "onGenerateOtp",
+		                    "action": "RakResendOtpService",
+		                    "actionType": "serviceNoNavigation",
+		                    "validation": "false",
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+		                        
+		                    },
+		                    "successPage": {
+		                      "pageName": "RakMultiplePendingApprovalPage"
+		                    },
+		                    "errorPage": {
+		                        "pageName": "RakMultiplePendingApprovalPage"
+		                    }
+                },
+                {
+                    "eventName": "onConfirmClick",
+                    "action": "RakPendingApprovalSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                    
+                    "validationParams" : ["rakHome.AuthPageData.firstAuthModeValue",
+                    "rakPendingApproval.approveAuthModel.userName"],
+                     "encryptionEnabled": true,
+                       "sensitiveFields": [
+                        "rakHome.AuthPageData.firstAuthModeValue"
+                    ],
+                     "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		              	 "Mode": "rakHome.AuthPageData.firstAuthModeValue",
+		                "RemarksText":"rakPendingApproval.approveAuthModel.remarksText||''",
+		                "ROLE": "rakPendingApproval.approveAuthModel.userName"             
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakApprovedMultipleBillSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakMultiplePendingApprovalPage"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                    "action": "RakPendingApprovalListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year",
+		                "CountSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPrevClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakMultiplePendingApprovalPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakMultiplePendingApprovalPage"
+                    }
+                }
+            ],
+            "RakRejectAuthPage": [
+             {
+		                   "eventName": "onGenerateOtp",
+		                    "action": "RakResendOtpService",
+		                    "actionType": "serviceNoNavigation",
+		                    "validation": "false",
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+		                        
+		                    },
+		                    "successPage": {
+		                      "pageName": "RakRejectAuthPage"
+		                    },
+		                    "errorPage": {
+		                        "pageName": "RakRejectAuthPage"
+		                    }
+                },
+                {
+                    "eventName": "onConfirmClick",
+                    "action": "RakPendingApprovalRejectService",
+                    "actionType": "service",
+                    "validation": "true",
+                     
+                    "validationParams" : ["rakPendingApproval.reason",
+                    "rakHome.AuthPageData.firstAuthModeValue"],
+                    "encryptionEnabled": true,
+                      "sensitiveFields": [
+                        "rakHome.AuthPageData.firstAuthModeValue"
+                    ],
+                     "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "Mode": "rakHome.AuthPageData.firstAuthModeValue",
+		                "RemarksText":"rakPendingApproval.reason||''",
+		                "ROLE": "rakPendingApproval.nextApprovalArr.toString()"             
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakRejectTransactionSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakRejectAuthPage"
+                    }
+                },
+                {
+                 "eventName": "gotoLandingPageClickBack",
+                   "action": "RakPendingApprovalListSearchService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "txnTypeSearch":"rakPendingApproval.selectedTxnType",
+		                "accIdIndexSearch":"rakPendingApproval.selectedAccId",
+		                "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakRejectAuthPage"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                    "action": "RakPendingApprovalListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year",
+		                "CountSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPrevClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakRejectAuthPage"
+                    }
+                }
+            ],
+            
+             "RakRejectMultipleBillAuthPage": [
+             {
+                 "eventName": "gotoLandingPageClickBack",
+                   "action": "RakPendingApprovalListSearchService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "txnTypeSearch":"rakPendingApproval.selectedTxnType",
+		                "accIdIndexSearch":"rakPendingApproval.selectedAccId",
+		                "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+             {
+		                   "eventName": "onGenerateOtp",
+		                    "action": "RakResendOtpService",
+		                    "actionType": "serviceNoNavigation",
+		                    "validation": "false",
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+		                        
+		                    },
+		                    "successPage": {
+		                      "pageName": "RakRejectMultipleBillAuthPage"
+		                    },
+		                    "errorPage": {
+		                        "pageName": "RakRejectMultipleBillAuthPage"
+		                    }
+                },
+                {
+                    "eventName": "onConfirmClick",
+                    "action": "RakPendingApprovalRejectService",
+                    "actionType": "service",
+                    "validation": "true",
+                     
+                    "validationParams" : ["rakPendingApproval.reason",
+                    "rakHome.AuthPageData.firstAuthModeValue"],
+                    "encryptionEnabled": true,
+                      "sensitiveFields": [
+                        "rakHome.AuthPageData.firstAuthModeValue"
+                    ],
+                     "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "Mode": "rakHome.AuthPageData.firstAuthModeValue",
+		                "RemarksText":"rakPendingApproval.reason||''",
+		                "ROLE": "rakPendingApproval.nextApprovalArr.toString()"             
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakApprovedMultipleBillSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakRejectMultipleBillAuthPage"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                    "action": "RakPendingApprovalListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year",
+		                "CountSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPrevClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakRejectMultipleBillAuthPage"
+                    }
+                }
+            ],
+            
+            "RakApprovedTransactionSuccessPage": [
+                {
+                    "eventName": "gotoLandingPageClick",
+                    "action": "RakPendingApprovalListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                 "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year",
+		                "CountSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                
+                {
+                    "eventName": "gotoLandingPageClickBack",
+                   "action": "RakPendingApprovalListSearchService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "txnTypeSearch":"rakPendingApproval.selectedTxnType",
+		                "accIdIndexSearch":"rakPendingApproval.selectedAccId",
+		                "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                }
+            ],
+            
+             "RakSendForRepairSuccessPage": [
+                {
+                    "eventName": "gotoLandingPageClick",
+                    "action": "RakPendingApprovalListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+                         "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+                        "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+                        "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+                        "TODATE_day":"rakPendingApproval.searchToDate_day",
+                        "TODATE_month":"rakPendingApproval.searchToDate_month",
+                        "TODATE_year":"rakPendingApproval.searchToDate_year",
+                        "CountSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab"
+                        },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                
+                {
+                    "eventName": "gotoLandingPageClickBack",
+                   "action": "RakPendingApprovalListSearchService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+                        "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+                        "txnTypeSearch":"rakPendingApproval.selectedTxnType",
+                        "accIdIndexSearch":"rakPendingApproval.selectedAccId",
+                        "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+                        "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+                        "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+                        "TODATE_day":"rakPendingApproval.searchToDate_day",
+                        "TODATE_month":"rakPendingApproval.searchToDate_month",
+                        "TODATE_year":"rakPendingApproval.searchToDate_year"
+                        },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                }
+            ],
+            
+             "RakChangeApproverSuccessPage": [
+                {
+                    "eventName": "gotoLandingPageClick",
+                    "action": "RakPendingApprovalListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+                         "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+                        "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+                        "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+                        "TODATE_day":"rakPendingApproval.searchToDate_day",
+                        "TODATE_month":"rakPendingApproval.searchToDate_month",
+                        "TODATE_year":"rakPendingApproval.searchToDate_year",
+                        "CountSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab"
+                        },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                
+                {
+                    "eventName": "gotoLandingPageClickBack",
+                   "action": "RakPendingApprovalListSearchService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+                        "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+                        "txnTypeSearch":"rakPendingApproval.selectedTxnType",
+                        "accIdIndexSearch":"rakPendingApproval.selectedAccId",
+                        "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+                        "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+                        "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+                        "TODATE_day":"rakPendingApproval.searchToDate_day",
+                        "TODATE_month":"rakPendingApproval.searchToDate_month",
+                        "TODATE_year":"rakPendingApproval.searchToDate_year"
+                        },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                }
+            ],
+            
+             "RakApprovedTxnSuccessPage": [
+                {
+                    "eventName": "gotoLandingPageClick",
+                    "action": "RakPendingApprovalListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+                         "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+                        "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+                        "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+                        "TODATE_day":"rakPendingApproval.searchToDate_day",
+                        "TODATE_month":"rakPendingApproval.searchToDate_month",
+                        "TODATE_year":"rakPendingApproval.searchToDate_year",
+                        "CountSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab"
+                        },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                
+                {
+                    "eventName": "gotoLandingPageClickBack",
+                   "action": "RakPendingApprovalListSearchService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+                        "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+                        "txnTypeSearch":"rakPendingApproval.selectedTxnType",
+                        "accIdIndexSearch":"rakPendingApproval.selectedAccId",
+                        "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+                        "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+                        "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+                        "TODATE_day":"rakPendingApproval.searchToDate_day",
+                        "TODATE_month":"rakPendingApproval.searchToDate_month",
+                        "TODATE_year":"rakPendingApproval.searchToDate_year"
+                        },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                }
+            ],
+            
+             "RakApprovedMultipleBillSuccessPage": [
+                {
+                    "eventName": "gotoLandingPageClick",
+                    "action": "RakPendingApprovalListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                 "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year",
+		                "CountSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                
+                   
+                {
+                    "eventName": "gotoLandingPageClickBack",
+                    "action": "RakPendingApprovalListSearchService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "txnTypeSearch":"rakPendingApproval.selectedTxnType",
+		                "accIdIndexSearch":"rakPendingApproval.selectedAccId",
+		                "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                }
+            ],
+            
+            "RakApprovedRemitTransactionSuccessPage": [
+                {
+                    "eventName": "gotoLandingPageClick",
+                    "action": "RakPendingApprovalListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                 "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year",
+		                "CountSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                   
+                {
+                    "eventName": "gotoLandingPageClickBack",
+                    "action": "RakPendingApprovalListSearchService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "txnTypeSearch":"rakPendingApproval.selectedTxnType",
+		                "accIdIndexSearch":"rakPendingApproval.selectedAccId",
+		                "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                }
+            ],
+            
+            
+             "RakRejectTransactionSuccessPage": [
+                {
+                    "eventName": "gotoLandingPageClick",
+                    "action": "RakPendingApprovalListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+                         "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+                        "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+                        "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+                        "TODATE_day":"rakPendingApproval.searchToDate_day",
+                        "TODATE_month":"rakPendingApproval.searchToDate_month",
+                        "TODATE_year":"rakPendingApproval.searchToDate_year",
+                        "CountSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab"
+                        },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                   
+                {
+                    "eventName": "gotoLandingPageClickBack",
+                    "action": "RakPendingApprovalListSearchService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+                        "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+                        "txnTypeSearch":"rakPendingApproval.selectedTxnType",
+                        "accIdIndexSearch":"rakPendingApproval.selectedAccId",
+                        "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+                        "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+                        "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+                        "TODATE_day":"rakPendingApproval.searchToDate_day",
+                        "TODATE_month":"rakPendingApproval.searchToDate_month",
+                        "TODATE_year":"rakPendingApproval.searchToDate_year"
+                        },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                }
+            ],
+            
+            
+             "RakRecallTransactionSuccessPage": [
+                {
+                    "eventName": "gotoLandingPageClick",
+                    "action": "RakPendingApprovalListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+                         "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+                        "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+                        "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+                        "TODATE_day":"rakPendingApproval.searchToDate_day",
+                        "TODATE_month":"rakPendingApproval.searchToDate_month",
+                        "TODATE_year":"rakPendingApproval.searchToDate_year",
+                        "CountSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab"
+                        },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                   
+                {
+                    "eventName": "gotoLandingPageClickBack",
+                    "action": "RakPendingApprovalListSearchService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+                        "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+                        "txnTypeSearch":"rakPendingApproval.selectedTxnType",
+                        "accIdIndexSearch":"rakPendingApproval.selectedAccId",
+                        "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+                        "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+                        "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+                        "TODATE_day":"rakPendingApproval.searchToDate_day",
+                        "TODATE_month":"rakPendingApproval.searchToDate_month",
+                        "TODATE_year":"rakPendingApproval.searchToDate_year"
+                        },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                }
+            ],
+              "RejectTransactionSuccessPage": [
+                {
+                    "eventName": "gotoLandingPageClick",
+                    "action": "RakPendingApprovalListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                 "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year",
+		                "CountSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                }
+            ],
+            "RakSendForRepairAuthPage": [
+             {
+                 "eventName": "gotoLandingPageClickBack",
+                   "action": "RakPendingApprovalListSearchService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "txnTypeSearch":"rakPendingApproval.selectedTxnType",
+		                "accIdIndexSearch":"rakPendingApproval.selectedAccId",
+		                "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakSendForRepairAuthPage"
+                    }
+                },
+              {
+		                   "eventName": "onGenerateOtp",
+		                    "action": "RakResendOtpService",
+		                    "actionType": "serviceNoNavigation",
+		                    "validation": "false",
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+		                        
+		                    },
+		                    "successPage": {
+		                      "pageName": "RakSendForRepairAuthPage"
+		                    },
+		                    "errorPage": {
+		                        "pageName": "RakSendForRepairAuthPage"
+		                    }
+                },
+                {
+                    "eventName": "onSendForRepairSuccessClick",
+                    "action": "RakPendingApprovalSendForRepairSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                    
+                    "validationParams" : ["rakPendingApproval.reason",
+                    "rakHome.AuthPageData.firstAuthModeValue"],
+                     "encryptionEnabled": true,
+                       "sensitiveFields": [
+                        "rakHome.AuthPageData.firstAuthModeValue"
+                    ],
+                     "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REQUEST_ID": "rakPendingApproval.detailModel.requestId",
+						"TXN_TYPE": "rakPendingApproval.detailModel.transactionType",
+						 "Mode": "rakHome.AuthPageData.firstAuthModeValue",
+		                "USER_ENTRY_REMARKS":"rakPendingApproval.reason"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakSendForRepairSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakSendForRepairAuthPage"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                    "action": "RakPendingApprovalListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year",
+		                "CountSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPrevClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakSendForRepairAuthPage"
+                    }
+                },
+                
+                 {
+                    "eventName": "rakUnApprTxnRecall",
+                    "action": "RakUnApprTxnRecallService",
+                    "actionType": "service",
+                    "validation": "true",
+                   
+                    "validationParams" : ["rakPendingApproval.reason",
+                    "rakHome.AuthPageData.firstAuthModeValue"],
+                      "encryptionEnabled": true,
+                        "sensitiveFields": [
+                        "rakHome.AuthPageData.firstAuthModeValue"
+                    ],
+                     "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REQUEST_ID": "rakPendingApproval.detailModel.requestId",
+						"TXN_TYPE": "rakPendingApproval.detailModel.transactionType",
+		                "USER_ENTRY_REMARKS":"rakPendingApproval.reason",
+		                "Mode": "rakHome.AuthPageData.firstAuthModeValue",
+		                "MAX_NO_OF_ENTRIES":"rakPendingApproval.detailModel.noOfEntries"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakSendForRepairSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakSendForRepairAuthPage"
+                    }
+                },
+                {
+                    "eventName": "rakUnApprTxnRecallSubmitClick",
+                    "action": "RakUnApprTxnRecallSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                   
+                    "validationParams" : ["rakPendingApproval.reason",
+                    "rakHome.AuthPageData.firstAuthModeValue"],
+                      "encryptionEnabled": true,
+                        "sensitiveFields": [
+                        "rakHome.AuthPageData.firstAuthModeValue"
+                    ],
+                     "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REQUEST_ID": "rakPendingApproval.detailModel.requestId",
+						"TXN_TYPE": "rakPendingApproval.detailModel.transactionType",
+		                "USER_ENTRY_REMARKS":"rakPendingApproval.reason",
+		                "Mode": "rakHome.AuthPageData.firstAuthModeValue",
+		                "MAX_NO_OF_ENTRIES":"rakPendingApproval.detailModel.noOfEntries"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakSendForRepairSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakSendForRepairAuthPage"
+                    }
+                }
+            ],
+            
+            
+              "RakRecallAuthPage": [
+             {
+                 "eventName": "gotoLandingPageClickBack",
+                   "action": "RakPendingApprovalListSearchService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+                        "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+                        "txnTypeSearch":"rakPendingApproval.selectedTxnType",
+                        "accIdIndexSearch":"rakPendingApproval.selectedAccId",
+                        "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+                        "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+                        "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+                        "TODATE_day":"rakPendingApproval.searchToDate_day",
+                        "TODATE_month":"rakPendingApproval.searchToDate_month",
+                        "TODATE_year":"rakPendingApproval.searchToDate_year"
+                        },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakRecallAuthPage"
+                    }
+                },
+              {
+                           "eventName": "onGenerateOtp",
+                            "action": "RakResendOtpService",
+                            "actionType": "serviceNoNavigation",
+                            "validation": "false",
+                            "parameters": {
+                                "jsessionid": "fields.finacleUserSessionId",
+                                "mbparam": "fields.finacleMbParam",
+                                "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+                                
+                            },
+                            "successPage": {
+                              "pageName": "RakRecallAuthPage"
+                            },
+                            "errorPage": {
+                                "pageName": "RakRecallAuthPage"
+                            }
+                },
+                {
+                    "eventName": "onSendForRepairSuccessClick",
+                    "action": "RakPendingApprovalSendForRepairSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                    
+                    "validationParams" : ["rakPendingApproval.reason",
+                    "rakHome.AuthPageData.firstAuthModeValue"],
+                     "encryptionEnabled": true,
+                       "sensitiveFields": [
+                        "rakHome.AuthPageData.firstAuthModeValue"
+                    ],
+                     "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "REQUEST_ID": "rakPendingApproval.detailModel.requestId",
+                        "TXN_TYPE": "rakPendingApproval.detailModel.transactionType",
+                         "Mode": "rakHome.AuthPageData.firstAuthModeValue",
+                        "USER_ENTRY_REMARKS":"rakPendingApproval.reason"
+                        },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakRecallTransactionSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakRecallAuthPage"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                    "action": "RakPendingApprovalListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+                        "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+                        "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+                        "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+                        "TODATE_day":"rakPendingApproval.searchToDate_day",
+                        "TODATE_month":"rakPendingApproval.searchToDate_month",
+                        "TODATE_year":"rakPendingApproval.searchToDate_year",
+                        "CountSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab"
+                        },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPrevClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakRecallAuthPage"
+                    }
+                },
+                
+                 {
+                    "eventName": "rakUnApprTxnRecall",
+                    "action": "RakUnApprTxnRecallService",
+                    "actionType": "service",
+                    "validation": "true",
+                   
+                    "validationParams" : ["rakPendingApproval.reason",
+                    "rakHome.AuthPageData.firstAuthModeValue"],
+                      "encryptionEnabled": true,
+                        "sensitiveFields": [
+                        "rakHome.AuthPageData.firstAuthModeValue"
+                    ],
+                     "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "REQUEST_ID": "rakPendingApproval.detailModel.requestId",
+                        "TXN_TYPE": "rakPendingApproval.detailModel.transactionType",
+                        "USER_ENTRY_REMARKS":"rakPendingApproval.reason",
+                        "Mode": "rakHome.AuthPageData.firstAuthModeValue",
+                        "MAX_NO_OF_ENTRIES":"rakPendingApproval.detailModel.noOfEntries"
+                        },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakRecallTransactionSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakRecallAuthPage"
+                    }
+                },
+                {
+                    "eventName": "rakUnApprTxnRecallSubmitClick",
+                    "action": "RakUnApprTxnRecallSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                   
+                    "validationParams" : ["rakPendingApproval.reason",
+                    "rakHome.AuthPageData.firstAuthModeValue"],
+                      "encryptionEnabled": true,
+                        "sensitiveFields": [
+                        "rakHome.AuthPageData.firstAuthModeValue"
+                    ],
+                     "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "REQUEST_ID": "rakPendingApproval.detailModel.requestId",
+                        "TXN_TYPE": "rakPendingApproval.detailModel.transactionType",
+                        "USER_ENTRY_REMARKS":"rakPendingApproval.reason",
+                        "Mode": "rakHome.AuthPageData.firstAuthModeValue",
+                        "MAX_NO_OF_ENTRIES":"rakPendingApproval.detailModel.noOfEntries"
+                        },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakRecallTransactionSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakRecallAuthPage"
+                    }
+                }
+            ],
+            
+             "RakSendForRepairMultipleBillAuthPage": [
+              {
+                 "eventName": "gotoLandingPageClickBack",
+                   "action": "RakPendingApprovalListSearchService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+		                "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+		                "txnTypeSearch":"rakPendingApproval.selectedTxnType",
+		                "accIdIndexSearch":"rakPendingApproval.selectedAccId",
+		                "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+		                "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+		                "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+		                "TODATE_day":"rakPendingApproval.searchToDate_day",
+		                "TODATE_month":"rakPendingApproval.searchToDate_month",
+		                "TODATE_year":"rakPendingApproval.searchToDate_year"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakSendForRepairMultipleBillAuthPage"
+                    }
+                },
+              {
+		                   "eventName": "onGenerateOtp",
+		                    "action": "RakResendOtpService",
+		                    "actionType": "serviceNoNavigation",
+		                    "validation": "false",
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+		                        
+		                    },
+		                    "successPage": {
+		                      "pageName": "RakSendForRepairMultipleBillAuthPage"
+		                    },
+		                    "errorPage": {
+		                        "pageName": "RakSendForRepairMultipleBillAuthPage"
+		                    }
+                },
+                {
+                    "eventName": "onSendForRepairSuccessClick",
+                    "action": "RakPendingApprovalSendForRepairSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                    
+                    "validationParams" : ["rakPendingApproval.reason",
+                    "rakHome.AuthPageData.firstAuthModeValue"],
+                     "encryptionEnabled": true,
+                       "sensitiveFields": [
+                        "rakHome.AuthPageData.firstAuthModeValue"
+                    ],
+                     "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REQUEST_ID": "rakPendingApproval.detailModel.requestId",
+						"TXN_TYPE": "rakPendingApproval.detailModel.transactionType",
+						 "Mode": "rakHome.AuthPageData.firstAuthModeValue",
+		                "USER_ENTRY_REMARKS":"rakPendingApproval.reason"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakApprovedMultipleBillSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakSendForRepairMultipleBillAuthPage"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+					"actionType": "navigation",
+                    "validation": "false",
+                    "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam"
+		              
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPrevClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakSendForRepairMultipleBillAuthPage"
+                    }
+                },
+                {
+                    "eventName": "rakUnApprTxnRecallSubmitClick",
+                    "action": "RakUnApprTxnRecallSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                   
+                    "validationParams" : ["rakPendingApproval.reason",
+                    "rakHome.AuthPageData.firstAuthModeValue"],
+                      "encryptionEnabled": true,
+                        "sensitiveFields": [
+                        "rakHome.AuthPageData.firstAuthModeValue"
+                    ],
+                     "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REQUEST_ID": "rakPendingApproval.detailModel.requestId",
+						"TXN_TYPE": "rakPendingApproval.detailModel.transactionType",
+		                "USER_ENTRY_REMARKS":"rakPendingApproval.reason",
+		                "Mode": "rakHome.AuthPageData.firstAuthModeValue",
+		                "MAX_NO_OF_ENTRIES":"rakPendingApproval.detailModel.noOfEntries"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakApprovedMultipleBillSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakSendForRepairMultipleBillAuthPage"
+                    }
+                }
+            ],
+            "RakUpdateNxtApprInitPage": [
+            {
+                    "eventName": "onGenerateOtp",
+		                    "action": "RakResendOtpService",
+		                    "actionType": "serviceNoNavigation",
+		                    "validation": "false",
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+		                        
+		                    },
+		                    "successPage": {
+		                      "pageName": "RakUpdateNxtApprInitPage"
+		                    },
+		                    "errorPage": {
+		                        "pageName": "RakUpdateNxtApprInitPage"
+		                    }
+		                },
+	    	{
+					"eventName": "onCancel",
+					"action": "navigation",
+					"actionType": "navigation",
+					"validation": "false",				
+					"parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+					"successPage": {
+						"subFeature": "rakPendingApproval",
+						"pageName": "RakPendingApprovalLandingPage"
+					},
+					"errorPage": {
+						"subFeature":"rakPendingApproval",
+                        "pageName": "RakUpdateNxtApprInitPage"
+					}
+				},
+
+            	{
+					"eventName": "onCorpGetLookUpClick",
+					"action": "navigation",
+					"actionType": "navigation",
+					"validation": "false",				
+					"parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+					"successPage": {
+						"subFeature": "common",
+						"pageName": "RakCorpSearchApproverLookUpPage"
+					},
+					"errorPage": {
+						"subFeature":"rakPendingApproval",
+                        "pageName": "RakUpdateNxtApprInitPage"
+					}
+				},
+					{
+					"eventName": "onPenApprGetLookUpClick",
+					"action": "navigation",
+					"actionType": "navigation",
+					"validation": "false",				
+					"parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+					"successPage": {
+						"subFeature": "rakPendingApproval",
+						"pageName": "RakPenApprApproverLookUpPage"
+					},
+					"errorPage": {
+						"subFeature":"rakPendingApproval",
+                        "pageName": "RakUpdateNxtApprInitPage"
+					}
+				},
+				{
+                    "eventName": "onPenApprUpdtNxtApprConfirmClick",
+                    "action": "RakPenApprUpdtNxtApprSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams" : ["rakPendingApproval.apprRoleId",
+                     "rakHome.AuthPageData.firstAuthModeValue"],
+                     "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REQUEST_ID": "rakPendingApproval.detailModel.requestId",
+						"TXN_TYPE": "rakPendingApproval.pendingItem.effTxnType",
+		                "USER_REMARKS":"rakPendingApproval.reason",
+		                "Mode": "rakHome.AuthPageData.firstAuthModeValue",
+		                "NEXT_APPROVER":"rakPendingApproval.apprRoleId",
+		                "NEXT_APPROVERID_TYPE":"rakPendingApproval.nxtApprIdType"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakChangeApproverSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakUpdateNxtApprInitPage"
+                    }
+                }
+            ],
+            
+            
+            "RakUpdateNxtApprMultipleBillInitPage": [
+	    	{
+					"eventName": "onCancel",
+					"action": "navigation",
+					"actionType": "navigation",
+					"validation": "false",				
+					"parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+					"successPage": {
+						"subFeature": "rakPendingApproval",
+						"pageName": "RakPendingApprovalLandingPage"
+					},
+					"errorPage": {
+						"subFeature":"rakPendingApproval",
+                        "pageName": "RakUpdateNxtApprMultipleBillInitPage"
+					}
+				},
+				
+				{
+		                   "eventName": "onGenerateOtp",
+		                    "action": "RakResendOtpService",
+		                    "actionType": "serviceNoNavigation",
+		                    "validation": "false",
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+		                        
+		                    },
+		                    "successPage": {
+		                      "pageName": "RakUpdateNxtApprInitPage"
+		                    },
+		                    "errorPage": {
+		                        "pageName": "RakUpdateNxtApprInitPage"
+		                    }
+		                },
+
+            	{
+					"eventName": "onCorpGetLookUpClick",
+					"action": "navigation",
+					"actionType": "navigation",
+					"validation": "false",				
+					"parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+					"successPage": {
+						"subFeature": "common",
+						"pageName": "RakCorpSearchApproverLookUpPage"
+					},
+					"errorPage": {
+						"subFeature":"rakPendingApproval",
+                        "pageName": "RakUpdateNxtApprMultipleBillInitPage"
+					}
+				},
+					{
+					"eventName": "onPenApprGetLookUpClick",
+					"action": "navigation",
+					"actionType": "navigation",
+					"validation": "false",				
+					"parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+					"successPage": {
+						"subFeature": "rakPendingApproval",
+						"pageName": "RakPenApprApproverLookUpPage"
+					},
+					"errorPage": {
+						"subFeature":"rakPendingApproval",
+                        "pageName": "RakUpdateNxtApprMultipleBillInitPage"
+					}
+				},
+				{
+                    "eventName": "onPenApprUpdtNxtApprConfirmClick",
+                    "action": "RakPenApprUpdtNxtApprSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                   "validationParams" : ["rakPendingApproval.apprRoleId",
+                     "rakHome.AuthPageData.firstAuthModeValue"],
+                     "parameters": {
+		                "jsessionid": "fields.finacleUserSessionId",
+		                "mbparam": "fields.finacleMbParam",
+		                "REQUEST_ID": "rakPendingApproval.detailModel.requestId",
+						"TXN_TYPE": "rakPendingApproval.pendingItem.effTxnType",
+						  "Mode": "rakHome.AuthPageData.firstAuthModeValue",
+		                "USER_REMARKS":"rakPendingApproval.reason",
+		                "NEXT_APPROVER":"rakPendingApproval.apprRoleId",
+		                "NEXT_APPROVERID_TYPE":"rakPendingApproval.nxtApprIdType"
+		                },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakApprovedMultipleBillSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakUpdateNxtApprMultipleBillInitPage"
+                    }
+                }
+            ],
+            
+            
+            "RakPenApprApproverLookUpPage": [
+            	{
+					"eventName": "onPenApprRoleSelClick",
+					"action": "navigation",
+					"actionType": "navigation",
+					"validation": "false",				
+					"parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+					"successPage": {
+						"subFeature": "rakPendingApproval",
+						"pageName": "RakUpdateNxtApprInitPage"
+					},
+					"errorPage": {
+						"subFeature":"rakPendingApproval",
+                        "pageName": "RakUpdateNxtApprInitPage"
+					}
+				},
+				
+				{
+					"eventName": "onPenApprRoleSelMulipleBillClick",
+					"action": "navigation",
+					"actionType": "navigation",
+					"validation": "false",				
+					"parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+					"successPage": {
+						"subFeature": "rakPendingApproval",
+						"pageName": "RakUpdateNxtApprMultipleBillInitPage"
+					},
+					"errorPage": {
+						"subFeature":"rakPendingApproval",
+                        "pageName": "RakUpdateNxtApprMultipleBillInitPage"
+					}
+				}
+            ],
+            
+             "RakApproveRemittanceAuthPage": [
+            	 	 {
+		                   "eventName": "onGenerateOtp",
+		                    "action": "RakResendOtpService",
+		                    "actionType": "serviceNoNavigation",
+		                    "validation": "false",
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+		                        
+		                    },
+		                    "successPage": {
+		                      "pageName": "RakApproveRemittanceAuthPage"
+		                    },
+		                    "errorPage": {
+		                        "pageName": "RakApproveRemittanceAuthPage"
+		                    }
+		                },
+		                
+		                {
+						"eventName": "onCorpGetPendingLookUpClick",
+						"action": "navigation",
+						"actionType": "navigation",
+						"validation": "false",				
+						"parameters": {
+							"jsessionid": "fields.finacleUserSessionId",
+							"mbparam": "fields.finacleMbParam"
+						},
+						"successPage": {
+						
+							"pageName": "RakCorpPendingApproverLookUpPage"
+						},
+						"errorPage": {
+							
+							"pageName": "RakApproveRemittanceAuthPage"
+						}
+					},
+					
+					 {
+	                    "eventName": "onConfirmClick",
+	                    "action": "RakPendingApprovalSuccessService",
+	                    "actionType": "service",
+	                    "validation": "true",
+	                    
+	                    "validationParams" : ["rakHome.AuthPageData.firstAuthModeValue",
+	                    "rakPendingApproval.approveAuthModel.remarksTextRemit",
+	                    "rakPendingApproval.approveAuthModel.userName"],
+	                     "encryptionEnabled": true,
+	                       "sensitiveFields": [
+	                        "rakHome.AuthPageData.firstAuthModeValue"
+	                    ],
+	                     "parameters": {
+			                "jsessionid": "fields.finacleUserSessionId",
+			                "mbparam": "fields.finacleMbParam",
+			                "SecMode": "StepupAuthenticate.RSAorOTP||''",
+							"SECURITY_ANSWER": "StepupAuthenticate.onContinueClick()",
+			                "Mode": "rakHome.AuthPageData.firstAuthModeValue",
+			                "RemarksText":"rakPendingApproval.approveAuthModel.remarksTextRemit",
+			                "ROLE": "rakPendingApproval.approveAuthModel.userName"             
+			                },
+	                    "successPage": {
+	                        "subFeature":"rakPendingApproval",
+	                        "pageName": "RakApprovedRemitTransactionSuccessPage"
+	                    },
+	                    "errorPage": {
+	                        "subFeature":"rakPendingApproval",
+	                        "pageName": "RakApproveRemittanceAuthPage"
+	                    }
+	                }
+	            ],
+	            
+	            "RakRejectRemittanceAuthPage": [
+            	 	 {
+		                   "eventName": "onGenerateOtp",
+		                    "action": "RakResendOtpService",
+		                    "actionType": "serviceNoNavigation",
+		                    "validation": "false",
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+		                        
+		                    },
+		                    "successPage": {
+		                      "pageName": "RakRejectRemittanceAuthPage"
+		                    },
+		                    "errorPage": {
+		                        "pageName": "RakRejectRemittanceAuthPage"
+		                    }
+		                },
+		                
+		                {
+						"eventName": "onCorpGetPendingLookUpClick",
+						"action": "navigation",
+						"actionType": "navigation",
+						"validation": "false",				
+						"parameters": {
+							"jsessionid": "fields.finacleUserSessionId",
+							"mbparam": "fields.finacleMbParam"
+						},
+						"successPage": {
+						
+							"pageName": "RakCorpPendingApproverLookUpPage"
+						},
+						"errorPage": {
+							
+							"pageName": "RakRejectRemittanceAuthPage"
+						}
+					},
+					
+					 {
+	                    "eventName": "onConfirmClick",
+	                    "action": "RakPendingApprovalRejectService",
+	                    "actionType": "service",
+	                    "validation": "true",
+	                    
+	                    "validationParams" : ["rakHome.AuthPageData.firstAuthModeValue",
+	                    "rakPendingApproval.approveAuthModel.remarksTextRemit",
+	                    "rakPendingApproval.approveAuthModel.userName"],
+	                     "encryptionEnabled": true,
+	                       "sensitiveFields": [
+	                        "rakHome.AuthPageData.firstAuthModeValue"
+	                    ],
+	                     "parameters": {
+			                "jsessionid": "fields.finacleUserSessionId",
+			                "mbparam": "fields.finacleMbParam",
+			                "SecMode": "StepupAuthenticate.RSAorOTP||''",
+							"SECURITY_ANSWER": "StepupAuthenticate.onContinueClick()",
+			                "Mode": "rakHome.AuthPageData.firstAuthModeValue",
+			                "RemarksText":"rakPendingApproval.approveAuthModel.remarksTextRemit",
+			                "ROLE": "rakPendingApproval.approveAuthModel.userName"             
+			                },
+	                    "successPage": {
+	                        "subFeature":"rakPendingApproval",
+	                        "pageName": "RakApprovedRemitTransactionSuccessPage"
+	                    },
+	                    "errorPage": {
+	                        "subFeature":"rakPendingApproval",
+	                        "pageName": "RakRejectRemittanceAuthPage"
+	                    }
+	                }
+	            ],
+	            
+	            
+	            "RakPendingApprovalDeleteDetailPage": [
+            	 	 {
+		                   "eventName": "onGenerateOtp",
+		                    "action": "RakResendOtpService",
+		                    "actionType": "serviceNoNavigation",
+		                    "validation": "false",
+		                    "parameters": {
+		                        "jsessionid": "fields.finacleUserSessionId",
+		                        "mbparam": "fields.finacleMbParam",
+		                        "OTP_MODE":"rakHome.otpModel.otpModeSelected"
+		                        
+		                    },
+		                    "successPage": {
+		                      "pageName": "RakPendingApprovalDeleteDetailPage"
+		                    },
+		                    "errorPage": {
+		                        "pageName": "RakPendingApprovalDeleteDetailPage"
+		                    }
+		                },
+		                
+		                {
+		                    "eventName": "onCancelClick",
+		                    "action": "navigation",
+							"actionType": "navigation",
+		                    "validation": "false",
+		                    "parameters": {
+				                "jsessionid": "fields.finacleUserSessionId",
+				                "mbparam": "fields.finacleMbParam"
+				              
+				                },
+		                    "successPage": {
+		                        "subFeature":"rakPendingApproval",
+		                        "pageName": "RakPendingApprovalLandingPage"
+		                    },
+		                    "errorPage": {
+		                        "subFeature":"rakPendingApproval",
+		                        "pageName": "RakPendingApprovalLandingPage"
+		                    }
+		                },
+		                
+		                
+					
+					 {
+	                    "eventName": "onPenApprDeleteTxnClick",
+	                    "action": "RakPenApprTxnDeleteService",
+	                    "actionType": "service",
+	                    "validation": "true",
+	                    
+	                    "validationParams" : ["rakHome.AuthPageData.firstAuthModeValue"],
+	                     "encryptionEnabled": true,
+	                       "sensitiveFields": [
+	                        "rakHome.AuthPageData.firstAuthModeValue"
+	                    ],
+	                     "parameters": {
+			                "jsessionid": "fields.finacleUserSessionId",
+			                "mbparam": "fields.finacleMbParam",
+			                "SecMode": "StepupAuthenticate.RSAorOTP||''",
+							"SECURITY_ANSWER": "StepupAuthenticate.onContinueClick()",
+			                "Mode": "rakHome.AuthPageData.firstAuthModeValue",
+			                "REQUEST_ID": "rakPendingApproval.detailModel.requestId",
+							"TXN_TYPE": "rakPendingApproval.pendingItem.effTxnType"            
+			                },
+	                    "successPage": {
+	                        "subFeature":"rakPendingApproval",
+	                        "pageName": "RakIncompleteDeleteTxnSuccessPage"
+	                    },
+	                    "errorPage": {
+	                        "subFeature":"rakPendingApproval",
+	                        "pageName": "RakPendingApprovalDeleteDetailPage"
+	                    }
+	                }
+	            ],
+	            
+	            "RakIncompleteDeleteTxnSuccessPage": [
+                {
+                    "eventName": "gotoLandingPageClick",
+                    "action": "RakPendingApprovalListService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+                         "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+                        "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+                        "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+                        "TODATE_day":"rakPendingApproval.searchToDate_day",
+                        "TODATE_month":"rakPendingApproval.searchToDate_month",
+                        "TODATE_year":"rakPendingApproval.searchToDate_year",
+                        "CountSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab"
+                        },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                },
+                
+                {
+                    "eventName": "gotoLandingPageClickBack",
+                   "action": "RakPendingApprovalListSearchService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TabSelectedTxnStatus":"rakPendingApproval.pendingApprovalTab",
+                        "txnIndex": "rakPendingApproval.pendingItem.txnIndex",
+                        "txnTypeSearch":"rakPendingApproval.selectedTxnType",
+                        "accIdIndexSearch":"rakPendingApproval.selectedAccId",
+                        "FROMDATE_day":"rakPendingApproval.searchFromDate_day",
+                        "FROMDATE_month":"rakPendingApproval.searchFromDate_month",
+                        "FROMDATE_year":"rakPendingApproval.searchFromDate_year",
+                        "TODATE_day":"rakPendingApproval.searchToDate_day",
+                        "TODATE_month":"rakPendingApproval.searchToDate_month",
+                        "TODATE_year":"rakPendingApproval.searchToDate_year"
+                        },
+                    "successPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature":"rakPendingApproval",
+                        "pageName": "RakPendingApprovalLandingPage"
+                    }
+                }
+            ]
+            
+            
+            
+            
+        }
+    ],
+    "subFeatureName": "rakPendingApproval",
+    "startPage": "RakPendingApprovalLandingPage"
+}

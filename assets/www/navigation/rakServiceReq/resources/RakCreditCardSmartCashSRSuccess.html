@@ -1,0 +1,59 @@
+<div class="finacle-container" ng-init="rakServiceReq.ccSmartCashRq.successCcSmartCashRq(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+
+			
+			
+<div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakServiceReq.ccSmartCashRq.ccSmartCashSuccessMsg}}</span>
+                        </div>
+                  </div>
+            <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CC_SMART_CASH}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>                 
+                              </h2>              
+</div>
+                  
+				
+
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+
+				<div class="">
+					<div class="">
+					
+						<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CC_SMARTCASH.CARDNUM}}</span> <span class="rak-sum-label black">{{rakServiceReq.ccSmartCashRq.displayCcAccountNumber}}</span>
+					</p>
+					
+					<p class="rak-sum-txt" ng-show="rakServiceReq.ccSmartCashRq.transferCashTo==rakServiceReq.ccSmartCashRqConstants.MYRAKBANKACCOUNT">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CC_SMARTCASH.TRANSFER_CASH_TO}}</span> <span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_CC_SMARTCASH.MY_RAKBANK}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-show="rakServiceReq.ccSmartCashRq.transferCashTo==rakServiceReq.ccSmartCashRqConstants.MYOTHERBANKWITHINUAE">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CC_SMARTCASH.TRANSFER_CASH_TO}}</span> <span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_CC_SMARTCASH.MY_OTHERBANK}}</span>
+					</p>					
+					<p class="rak-sum-txt" ng-show="rakServiceReq.ccSmartCashRq.transferCashTo==rakServiceReq.ccSmartCashRqConstants.MYRAKBANKACCOUNT">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CC_SMARTCASH.MY_RAKBANK}}</span> <span class="rak-sum-label black">{{rakServiceReq.ccSmartCashRq.displayOprAccountNumber}}</span>
+					</p>
+					<p class="rak-sum-txt" ng-show="rakServiceReq.ccSmartCashRq.transferCashTo==rakServiceReq.ccSmartCashRqConstants.MYOTHERBANKWITHINUAE">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CC_SMARTCASH.MY_OTHERBANK}}</span> <span class="rak-sum-label black">{{rakServiceReq.ccSmartCashRq.iban}}</span>
+					</p>
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CC_SMARTCASH.SMARTCASH}}</span> <span class="rak-sum-label black">{{rakServiceReq.ccSmartCashRq.smartCashAmount}}</span>
+					</p>	
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakServiceReq.ccSmartCashRq.resetCcSmartCashRqModel();setEvent('onRakServiceHomeClick')">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>

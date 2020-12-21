@@ -1,0 +1,548 @@
+	<div class="rak-back-header">
+		<i class="rak-back-img" ng-click="setEvent('onUpdatePPBackToSerRqClick');"></i>
+	</div>
+	
+	<div class="rak-back-header" ng-if="rakMyProfile.fromSettingsMenu">
+		<i class="rak-back-img" ng-click="setEvent('onUpdatePPBackClick');"></i>
+	</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakMyProfile.initUpdatePersonalProfile(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+
+					
+					
+					<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader"> {{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.UPDATE_PP_DETAILS}}
+				        
+				      </h2>		       
+		 		</div>
+
+				<div id="modProfile" class="bg-color rak-cont-paddingvh rakFullNoHeaderScroll">
+							<div class="row">
+								<p class="rak-parent-txt">
+									<span class="rak-sum-label labelServiceReqTemp rak30">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_FULLNAME}}</span> <span
+										class="rak-sum-label black labelServiceReqTemp rak70">{{rakMyProfile.updatePersonalProfile.fullName}}</span>
+								</p>
+
+			
+		<div ng-if="rakMyProfile.updatePersonalProfile.userTypeValue!='2'">	
+					<div class="selfReg-main-form-heading">
+						<div>
+							<span class="rak-black-color upd-label ">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_RESADD}}</span>
+								
+						</div>
+					</div>
+
+	
+
+								<fin-input type="text"
+									model="rakMyProfile.updatePersonalProfile.address1"
+									display-row="full" max-length="50"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_ADDRESS}}"
+									on-change="rakMyProfile.checkDirty();"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.address1"]'>
+								</fin-input>
+								<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_ADDRESS}}</span>
+
+								<fin-input type="text"
+									model="rakMyProfile.updatePersonalProfile.address2"
+									display-row="full" max-length="50"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_ADDRESS2}}"
+									on-change="rakMyProfile.checkDirty();"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.address2"]'>
+								</fin-input>
+								<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_ADDRESS2}}</span>
+
+
+								<fin-input type="text"
+									model="rakMyProfile.updatePersonalProfile.street"
+									display-row="full" max-length="50"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_STREET}}"
+									on-change="rakMyProfile.checkDirty();"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.street"]'>
+								</fin-input>
+								<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_STREET}}</span>
+								
+								<fin-input type="text"
+									model="rakMyProfile.updatePersonalProfile.address3"
+									display-row="full" max-length="50"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_ADDRESS3}}"
+									on-change="rakMyProfile.checkDirty();"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.address3"]'>
+								</fin-input>
+								<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_ADDRESS3}}</span>
+
+								<fin-input type="text_noSpace"
+									model="rakMyProfile.updatePersonalProfile.pobox"
+									display-row="full" max-length="10"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_POBOX}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.pobox"]'>
+								</fin-input>
+								<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_POBOX}}</span>
+
+								<fin-input type="text"
+									model="rakMyProfile.updatePersonalProfile.cityDesc"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_CITY}}"
+									on-change="rakMyProfile.checkDirty();"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.cityDesc"]' readonly>
+								</fin-input>
+								<!-- Sindhu -->
+								<div  class="new_user" ng-click="rakMyProfile.updatePersonalProfile.cityList='';rakMyProfile.updatePersonalProfile.citySearchText='';rakMyProfile.updatePersonalProfile.isHomeCity=true;setEvent('onGetCityNameListSearchClick')">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_CITY_SEARCH}}</div> 
+								<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_CITY}}</span>
+
+								<div
+									ng-init='countryListArr = createDropDownOptionArray(rakMyProfile.updatePersonalProfile.countryList, ["content"], "value");'>
+									<fin-input type="dropdown"
+										model="rakMyProfile.updatePersonalProfile.country"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_COUNT}}"
+										on-change="rakMyProfile.validateCity(true,'country');rakMyProfile.checkDirty();"
+										validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.country"]'
+										option-array="countryListArr"></fin-input>
+									<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_COUNT}}</span>
+								</div>
+				</div>
+				
+		<!-- 	HEad office Address Details START-->	
+		
+		<div ng-if="rakMyProfile.updatePersonalProfile.userTypeValue=='2'">	
+		
+					<div class="selfReg-main-form-heading">
+						<div>
+							<span class="rak-black-color upd-label ">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HEAD_OFFADD}}</span>
+								
+						</div>
+					</div>
+					
+
+								<fin-input type="text"
+									model="rakMyProfile.updatePersonalProfile.head_offaddress1"
+									display-row="full" max-length="50"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_HEAD_OFF_ADDRESS}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.head_offaddress1"]'>
+								</fin-input>
+								<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HEAD_OFF_ADDRESS}}</span>
+
+								<fin-input type="text"
+									model="rakMyProfile.updatePersonalProfile.head_offaddress2"
+									display-row="full" max-length="50"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_HEAD_OFF_ADDRESS2}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.head_offaddress2"]'>
+								</fin-input>
+								<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HEAD_OFF_ADDRESS2}}</span>
+
+
+								<!-- 
+								<fin-input type="text"
+									model="rakMyProfile.updatePersonalProfile.offStreet"
+									display-row="full" max-length="50"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HEAD_OFF_STREET}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.offStreet"]'>
+								</fin-input> -->
+								<fin-input type="text"
+									model="rakMyProfile.updatePersonalProfile.head_offaddress3"
+									display-row="full" max-length="50"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_HEAD_OFF_ADDRESS3}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.head_offaddress3"]'>
+								</fin-input>
+								<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HEAD_OFF_ADDRESS3}}</span>
+
+								<fin-input type="text_noSpace"
+									model="rakMyProfile.updatePersonalProfile.head_offpobox"
+									display-row="full" max-length="10"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_HEAD_OFF_POBOX}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.head_offpobox"]'>
+								</fin-input>
+								<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HEAD_OFF_POBOX}}</span>
+
+								<fin-input type="text"
+									model="rakMyProfile.updatePersonalProfile.head_offCityDesc"
+									display-row="full"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_HEAD_OFF_CITY}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.head_offCityDesc"]' readonly>
+								</fin-input>
+								<!-- Sindhu --><div  class="search_city" ng-click="rakMyProfile.updatePersonalProfile.cityList='';rakMyProfile.updatePersonalProfile.citySearchText='';rakMyProfile.updatePersonalProfile.isHeadOfficeCity=true;setEvent('onGetCityNameListSearchClick')">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_CITY_SEARCH}}</div>
+								<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HEAD_OFF_CITY}}</span>
+
+								<div
+									ng-init='offcountryListArr = createDropDownOptionArray(rakMyProfile.updatePersonalProfile.countryList, ["content"], "value");'>
+									<fin-input type="dropdown"
+										model="rakMyProfile.updatePersonalProfile.head_offcountry"
+										display-row="full"
+										on-change="rakMyProfile.validateCity(true,'head_offcountry');rakMyProfile.checkDirty();"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_HEAD_OFF_COUNT}}"
+										validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.head_offcountry"]'
+										option-array="offcountryListArr"></fin-input>
+								</div>
+									<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HEAD_OFF_COUNT}}</span>
+				</div>
+					<!-- 	HEad office Address Details END-->
+				
+				<div class="upd-main-form-heading">
+						<div>
+							<span class="rak-black-color upd-label ">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFFADD}}</span>
+								
+						</div>
+					</div>
+					
+				
+
+
+								<fin-input type="text"
+									model="rakMyProfile.updatePersonalProfile.offaddress1"
+									display-row="full" max-length="50"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_OFF_ADDRESS}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.offaddress1"]'>
+								</fin-input>
+								<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFF_ADDRESS}}</span>
+
+								<fin-input type="text"
+									model="rakMyProfile.updatePersonalProfile.offaddress2"
+									display-row="full" max-length="50"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_OFF_ADDRESS2}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.offaddress2"]'>
+								</fin-input>
+								<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFF_ADDRESS2}}</span>
+
+
+							
+								<fin-input type="text"
+									model="rakMyProfile.updatePersonalProfile.offaddress3"
+									display-row="full" max-length="50"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_OFF_ADDRESS3}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.offaddress3"]'>
+								</fin-input>
+								<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFF_ADDRESS3}}</span>
+
+								<fin-input type="text_noSpace"
+									model="rakMyProfile.updatePersonalProfile.offpobox"
+									display-row="full" max-length="10"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_OFF_POBOX}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.offpobox"]'>
+								</fin-input>
+								<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFF_POBOX}}</span>
+
+								<fin-input type="text"
+									model="rakMyProfile.updatePersonalProfile.offCityDesc"
+									display-row="full"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_OFF_CITY}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.offCityDesc"]' readonly>
+								</fin-input>
+								<!-- Sindhu --><div  class="new_user" ng-click="rakMyProfile.updatePersonalProfile.cityList='';rakMyProfile.updatePersonalProfile.citySearchText='';rakMyProfile.updatePersonalProfile.isOfficeCity=true;setEvent('onGetCityNameListSearchClick')">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_CITY_SEARCH}}</div>
+								<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFF_CITY}}</span>
+
+								<div
+									ng-init='offcountryListArr = createDropDownOptionArray(rakMyProfile.updatePersonalProfile.countryList, ["content"], "value");'>
+									<fin-input type="dropdown"
+										model="rakMyProfile.updatePersonalProfile.offcountry"
+										display-row="full"
+										on-change="rakMyProfile.validateCity(true,'offcountry');rakMyProfile.checkDirty();"
+										placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_OFF_COUNT}}"
+										validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.offcountry"]'
+										option-array="offcountryListArr"></fin-input>
+								</div>
+									<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFF_COUNT}}</span>
+
+
+
+								<div class="rakRow">
+									<div class="radio-biller rak100 raktext-align">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_PREFMAILADD}}</div>
+									<div class="rak100">
+										<div>
+											
+																			
+											
+											<div class="rakCstmRadioDiv rak50 "  ng-if="rakMyProfile.updatePersonalProfile.userTypeValue!='2'">
+												<input type="radio" value="RESIDENCE"  id="radio1"
+													ng-model="rakMyProfile.updatePersonalProfile.preferredAddressType" ng-change="rakMyProfile.checkDirty();"/>
+													<label for="radio1"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_RESD}}</label>
+												
+												
+											</div>
+											
+											<div ng-if="rakMyProfile.updatePersonalProfile.userTypeValue=='2'" class="rakCstmRadioDiv rak50 ">
+												<input type="radio" value="HEAD"  id="radio2"
+													ng-model="rakMyProfile.updatePersonalProfile.preferredAddressType" ng-change="rakMyProfile.checkDirty();"/>
+												<label for="radio2"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HEAD_OFF}}</label>
+											
+											</div>
+											<div class="rakCstmRadioDiv rak40 ">
+												<input type="radio" value="OFFICE"   id="radio3"
+													ng-model="rakMyProfile.updatePersonalProfile.preferredAddressType" ng-change="rakMyProfile.checkDirty();"/>
+													<label for="radio3"><span><span></span></span>{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFF}}</label>
+												
+											</div>
+											
+										
+										</div>
+									</div>
+								</div>
+								
+					<div class="selfReg-main-form-heading">
+						<div>
+							<span class="rak-black-color upd-label ">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_CONTACTDEAT}}</span>
+								
+						</div>
+					</div>
+
+							
+			
+	<div ng-if="rakMyProfile.updatePersonalProfile.userTypeValue!='2'">			
+				<div class="rak100">
+								
+								<div class="rak30" > <fin-input type="number_card"
+									model="rakMyProfile.updatePersonalProfile.homeCountrycode"
+									display-row="full" max-length="10"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HOMENUM_CC}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.homeCountrycode"]'>
+								</fin-input>
+								</div>
+								
+							<!-- 	<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HOMENUM_CC}}</span> -->
+							<div class="rak65 pull-right">
+								<fin-input type="number_card"
+									model="rakMyProfile.updatePersonalProfile.homeNumber"
+									display-row="full" max-length="10"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_HOMENUM}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.homeNumber"]'>
+								</fin-input>
+								</div>
+										
+					</div >
+				<div class="rak100">
+				<div class="rak30"></div>
+					<div class="rak65 pull-right"><span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HOMENUM}}</span>
+					
+					</div>
+				</div>
+					<div class="rak100">
+							<div class="rak30">	<fin-input type="number_card"
+									model="rakMyProfile.updatePersonalProfile.homeTwoCountrycode"
+									display-row="full" max-length="10"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HOMENUM2_CC}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.homeTwoCountrycode"]'>
+								</fin-input>
+								</div>
+								<!-- <span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HOMENUM2_CC}}</span>
+ -->
+							<div class="rak65 pull-right">	<fin-input type="number_card"
+									model="rakMyProfile.updatePersonalProfile.homeNumberTwo"
+									display-row="full" max-length="10"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_HOMENUM2}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.homeNumberTwo"]'>
+								</fin-input>
+								</div>
+								</div>
+								<div>
+								<div class="rak30"></div>
+								<div class="rak65 pull-right"><span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HOMENUM2}}</span></div>
+						</div>
+			</div>			
+						
+ 
+ 				
+ 				<div class="rak100">
+								<div class="rak30"><fin-input type="number_card"
+									model="rakMyProfile.updatePersonalProfile.OffCountrycode"
+									display-row="full" max-length="10"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFFNUM_CC}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.OffCountrycode"]'>
+								</fin-input>
+								</div>
+							<!-- 	<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFFNUM_CC}}</span> -->
+
+								<div class="rak65 pull-right"><fin-input type="number_card"
+									model="rakMyProfile.updatePersonalProfile.offNumber"
+									display-row="full" max-length="10"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_OFFNUM}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.offNumber"]'>
+								</fin-input></div>
+								
+</div>
+<div class="rak100">
+<div class="rak30"></div>
+<div class="rak65 pull-right"><span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFFNUM}}</span></div>
+</div>
+
+						<div class="rak100">	<div class="rak30">	<fin-input type="number_card"
+									model="rakMyProfile.updatePersonalProfile.OffTwoCountrycode"
+									display-row="full" max-length="10"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFFNUM2_CC}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.OffTwoCountrycode"]'>
+								</fin-input></div>
+							<!-- 	<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFFNUM2_CC}}</span> -->
+
+								<div class="rak65 pull-right"><fin-input type="number_card"
+									model="rakMyProfile.updatePersonalProfile.offNumberTwo"
+									display-row="full" max-length="10"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_OFFNUM2}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.offNumberTwo"]'>
+								</fin-input></div>
+								</div>
+								<div class="rak100">
+<div class="rak30"></div>
+<div class="rak65 pull-right"><span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFFNUM2}}</span></div>
+</div>
+
+	<div ng-if="rakMyProfile.updatePersonalProfile.userTypeValue!='2'">
+
+					<div class="rak100">
+							<div class="rak30">	<fin-input type="number_card"
+									model="rakMyProfile.updatePersonalProfile.faxHome_CC"
+									display-row="full" max-length="10"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HFAX_CC}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.faxHome_CC"]'>
+								</fin-input></div>
+							<!-- 	<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HFAX_CC}}</span> -->
+
+							 	<div class="rak65 pull-right"><fin-input type="number_card"
+									model="rakMyProfile.updatePersonalProfile.faxHome"
+									display-row="full" max-length="10"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_HFAX}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.faxHome"]'>
+								</fin-input></div>
+					</div>
+					
+				
+								
+								
+					<div class="rak100">
+					<div class="rak30"></div>
+							<div class="rak65 pull-right">	<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_HFAX}}</span></div>
+							</div>
+							
+		</div>
+
+<div class="rak100">
+								<div class="rak30"><fin-input type="number_card"
+									model="rakMyProfile.updatePersonalProfile.faxOffOne_CC"
+									display-row="full" max-length="10"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFAX_CC}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.faxOffOne_CC"]'>
+								</fin-input></div>
+								<!-- <span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFAX_CC}}</span> -->
+
+								<div class="rak65 pull-right"><fin-input type="number_card"
+									model="rakMyProfile.updatePersonalProfile.faxOffOne"
+									display-row="full" max-length="10"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_OFAX}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.faxOffOne"]'>
+								</fin-input></div>
+								</div>
+								<div class="rak100">
+									<div class="rak30"></div>
+									<div class="rak65 pull-right">	<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OFAX}}</span></div>
+									</div>
+<div class="rak100">
+								<div class="rak30"><fin-input type="number_card"
+									model="rakMyProfile.updatePersonalProfile.faxOffTwo_CC"
+									display-row="full" max-length="10"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OTFAX_CC}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.faxOffTwo_CC"]'>
+								</fin-input></div>
+							<!-- 	<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OTFAX_CC}}</span> -->
+
+								<div class="rak65 pull-right"><fin-input type="number_card"
+									model="rakMyProfile.updatePersonalProfile.faxOffTwo"
+									display-row="full" max-length="10"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_OTFAX}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.faxOffTwo"]'>
+								</fin-input></div>
+								</div>
+								<div class="rak100"><div class="rak30"></div>
+								<div class="rak65 pull-right"><span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_OTFAX}}</span></div>
+								</div>
+ 
+ 
+ 				<div ng-if="rakMyProfile.updatePersonalProfile.userTypeValue!='2'">	
+ 								
+ 								<fin-input type="number_card"
+									model="rakMyProfile.updatePersonalProfile.emirateID"
+									display-row="full" max-length="15"
+									on-change="rakMyProfile.checkDirty();"
+									placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.ENTER_TXT_EMIRATEID}}"
+									validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.emirateID"]'>
+								</fin-input>
+								<div class="rak100"><span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_EMIRATEID}}</span></div>
+ 								
+ 					
+															
+								<fin-input type="date"
+								model="rakMyProfile.updatePersonalProfile.dateExpiry"
+								values="futureDateValues"
+								display-row="full"
+								on-change="rakMyProfile.checkDirty();"
+								validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.dateExpiry"]'>
+								</fin-input>
+
+
+
+
+
+								<div class="rak100"><span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_EMIRATEID_DATE}}</span></div>
+								
+					</div>
+
+								<div class="label-wrap">
+
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small rak-button-right"
+										ng-click="rakMyProfile.chkUpdateValue();">
+										{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+
+								</div>
+
+							</div>
+							
+			<div class="disclaimer">
+                              <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                              <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                              </div>
+
+                              <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                              <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKUPDATECONTACTDETAILS_INITPAGE2"></div>
+                              </div>
+              </div>
+
+
+
+						</div>
+					
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+</div>

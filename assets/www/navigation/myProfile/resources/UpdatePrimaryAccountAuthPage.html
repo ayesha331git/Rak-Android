@@ -1,0 +1,42 @@
+<div id="updatePrimaryAccountAuthPage" class="app app-arrow2 title-right"
+	ng-click="myProfile.isBack=true;setEvent('onPrevServiceClick')"></div>
+<div class="finacle-container"
+	ng-init="myProfile.updatePrimaryAccount.authResponse(successResponse.responsesList);resetPageError();myProfile.updatePrimaryAccount.mode='';">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper"></div>
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+
+					<div class="dashboard-item-title col-sm-12">
+						<div id="primaryAuthTitle" class="item-title text-uppercase">{{appLiterals.APP.COMMON.TITLE.CONF_AUTH}}</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="dashboard-details">
+							<div class="account-detail-dash" ng-show="myProfile.checkPrimary">
+								<b id="primaryAcc" class="dash-ac-no">{{appLiterals.APP.MYPROFILE.UPDATE_PRIMARY.PRIMARY_ACC}}</b>
+								<span id="accNickName" class="dash-ac-id">
+									{{myProfile.updatePrimaryAccount.primaryAuthModel.accountNumber}}
+									({{myProfile.updatePrimaryAccount.primaryAuthModel.subAccountType}})
+								</span>
+							</div>
+						</div>
+						<p id="notSelected" ng-hide="myProfile.checkPrimary" class="left-txt">{{appLiterals.APP.MYPROFILE.UPDATE_PRIMARY.ACC_NOTSELECTED}}</p>
+					</div>
+
+					<form ng-submit="myProfile.updatePrimaryAccount.primaryAuthModel.auth==''?setEvent('onUpdatePrimaryAccountNoAuthClick'):setEvent('onUpdatePrimaryAccountConfirmClick');">
+							<fin-Stepauth></fin-Stepauth>
+							<section class="button-wrapper" layout="row"
+								layout-align="center center" layout-wrap>
+								<md-button id="updatePrimaryAccAuth" type="submit"
+									class=" md-raised btn--primary-btn">
+								{{appLiterals.APP.COMMON.BUTTON.SUBMIT}}</md-button>
+							</section>
+						
+					</form>
+				</div>
+				<!-- <button ng-if="myProfile.updatePrimaryAccount.primaryAuthModel.auth==''" type="button" class="btn--primary-btn" ng-click="setEvent('onUpdatePrimaryAccountNoAuthClick');"> {{appLiterals.APP.COMMON.BUTTON.SUBMIT}} </button> -->
+			</div>
+		</div>
+	</div>
+</div>

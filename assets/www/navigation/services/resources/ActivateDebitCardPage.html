@@ -1,0 +1,90 @@
+<div class="app app-arrow2 title-right-dash" id="activateDebitCardPageBack"
+	ng-click="setEvent('onActivateDebitCardCancelClick')"></div>
+<div class="finacle-container"
+	ng-init="services.debitCardCommonData.initDebitCardData(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase">
+							<span id="pageTitle"> {{appLiterals.APP.SERVICES.COMMON.ACT_DEBIT_CARD}}
+							</span>
+						</div>
+					</div>
+					<!--  end of title  -->
+					<form
+						ng-submit="corpInit.corpModel.resetCorpInitDetails();services.debitCardCommonData.activeDebitCardContinueClick();setEvent('onActivateDebitCardContinueClick')">
+						<div class="avail-bal-wrap"
+							ng-init='accountsListArray = createDropDownOptionAccountArray(services.debitCardCommonData.accountsList,["accountNickName", "-", "accountNumber"], "accountIndex");'>
+							<fin-input type="dropdown"
+								model="services.debitCardCommonData.accountNumber"
+								on-change="setEvent('onAccountNumberSelect');"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD.PH_ACC_NO}}"
+								validation-flag='pageErrorArr["services.debitCardCommonData.accountNumber"]'
+								option-array="accountsListArray"></fin-input>
+						</div>
+						<div class="avail-bal-wrap"
+							ng-init='debitCardNumberArray = createDropDownOptionArray(services.debitCardCommonData.debitCardList,["debitCardNumber"], "debitCardIndex");'>
+							<fin-input ng-show="debitCardNumberArray.length>0" type="dropdown"
+								model="services.debitCardCommonData.debitCardNumber"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD.PH_DEBIT_CARD}}"
+								validation-flag='pageErrorArr["services.debitCardCommonData.debitCardNumber"]'
+								option-array="debitCardNumberArray"></fin-input>
+						</div>
+						<div ng-show="debitCardNumberArray.length>0">
+						<div class="label-wrap">
+							<p class="label-title" id="labelPIN">{{appLiterals.APP.COMMON.TEXT.PIN}}</p>
+						</div>
+						<div class="col-sm-12" layout="row" layout-align="center none">
+							<div class="col-sm-3 card_no">
+								<fin-input type="password_num"
+									model="services.debitCardCommonData.pinFirstDigit"
+									display-row="full" placeholder=""
+									validation-flag='pageErrorArr["services.debitCardCommonData.pinFirstDigit"]'
+									max-length="1"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="password_num"
+									model="services.debitCardCommonData.pinSecondDigit"
+									display-row="full" placeholder=""
+									validation-flag='pageErrorArr["services.debitCardCommonData.pinSecondDigit"]'
+									max-length="1"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="password_num"
+									model="services.debitCardCommonData.pinThirdDigit"
+									display-row="full" placeholder=""
+									validation-flag='pageErrorArr["services.debitCardCommonData.pinThirdDigit"]'
+									max-length="1"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="password_num"
+									model="services.debitCardCommonData.pinFourthDigit"
+									display-row="full" placeholder=""
+									validation-flag='pageErrorArr["services.debitCardCommonData.pinFourthDigit"]'
+									max-length="1"></fin-input>
+							</div>
+						</div>
+						<div class="col-sm-12 margin-bottom-20" layout="row" layout-align="center none">
+							<p class="grey-txt" id="TXT_PIN_LIMIT">{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD_AUTH.TXT_PIN_LIMIT}}</p>
+						</div>
+						</div>
+						<div class="">
+							<fin-input type="text"
+								model="services.debitCardCommonData.remarks" display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD.PH_REMARK}}"
+								validation-flag="false">
+							</fin-input>
+						</div>
+						<md-button id="activateDebitCardPageSubmit" type="submit"
+							class="md-raised btn--primary-btn">
+						{{appLiterals.APP.COMMON.BUTTON.CONTINUE}} </md-button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

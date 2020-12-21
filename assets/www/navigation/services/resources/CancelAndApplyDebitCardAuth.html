@@ -1,0 +1,70 @@
+<div class="app app-arrow2 title-right-dash"
+	id="cancelAndApplyDebitCardAuthBack"
+	ng-click="setEvent('onCancelAndApplyDebitCardAuthBackClick')"></div>
+<div class="finacle-container"
+	ng-init="services.cancelApplyDebitCard.initCancelApplyDCConfirmData(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div class="item-title text-uppercase">
+							<span id="pageTitle"> {{appLiterals.APP.SERVICES.APP_NEW_DC_AUTH.TITLE}}
+							</span>
+						</div>
+					</div>
+					<!-- end of title -->
+					<div class="col-sm-12">
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtAccNo">
+								{{appLiterals.APP.SERVICES.APP_NEW_DC_AUTH.TXT_ACC_NO}} </strong> <span
+								class="dash-ac-id" id="accId">
+								{{services.cancelApplyDebitCard.authResponceList.accountNickname}}-{{services.cancelApplyDebitCard.authResponceList.accountId}}
+							</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtDebitCardNo">
+								{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD_AUTH.TXT_DEBIT_CARD_NO}}
+							</strong> <span class="dash-ac-id" id="debitCardNumber">
+								{{services.cancelApplyDebitCard.authResponceList.debitCardNumber}}
+							</span>
+						</div>
+						<div class="account-detail-dash margin-zero">
+							<strong class="trans-no" id="txtReason">
+								{{appLiterals.APP.SERVICES.COMMON.REASON}} </strong> <span
+								class="dash-ac-id" id="reasonDescription">
+								{{services.cancelApplyDebitCard.authResponceList.reasonDescription}}
+							</span>
+						</div>
+					</div>
+					<div
+						ng-hide=" services.cancelApplyDebitCard.authResponseList.address1 === undefined || services.cancelApplyDebitCard.authResponseList.address1 == ''">
+						<span class="left-txt"> <b id="deliveryAddressTitle">{{appLiterals.APP.SERVICES.APP_NEW_DC.TITLE}}</b></span>
+						<p class="left-txt" id="deliveryAddress">
+							{{appLiterals.APP.SERVICES.COMMON.DELIVERY_ADDRESS}}<br /> <br />{{services.cancelApplyDebitCard.authResponceList.address1}},<br />
+							{{services.cancelApplyDebitCard.authResponceList.address2}},<br />
+							{{services.cancelApplyDebitCard.authResponceList.address3}},<br />
+							{{services.cancelApplyDebitCard.authResponceList.city}},{{services.cancelApplyDebitCard.authResponceList.state}},{{services.cancelApplyDebitCard.authResponceList.country}}
+						</p>
+					</div>
+					<form
+						ng-submit="corpInit.corpModel.getSelectedRoleDetailsAsString();setEvent('onCancelAndApplyDebitCardAuthSubmitClick')">
+						<div
+							ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+							<approval-input></approval-input>
+						</div>
+						<fin-Stepauth></fin-Stepauth>
+						<md-button type="submit" id="cancelAndApplyDebitCardSubmit"
+							ng-if='services.cancelApplyDebitCard.isOnline ==true'
+							class="md-raised btn--primary-btn">{{appLiterals.APP.COMMON.BUTTON.SUBMIT}}
+						</md-button>
+						<md-button type="submit" id="cancelAndApplyDebitCardSubmitToRm"
+							ng-if='services.cancelApplyDebitCard.isOnline==false'
+							class="md-raised btn--primary-btn">{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD_AUTH.BTN_SUBMIT_TO_RM}}
+						</md-button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

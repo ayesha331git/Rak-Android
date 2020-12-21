@@ -1,0 +1,53 @@
+<div id="myProfileNotificationSettings"
+	class="app app-arrow2 title-right"
+	ng-click="setEvent('onMyProfileNotifyBackClick')"></div>
+<div class="finacle-container"
+	ng-init="myProfile.getSubscriptionStatus();resetPageError();">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper"></div>
+
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div id="notificationTitle" class="item-title text-uppercase">{{appLiterals.APP.DASHBOARD.NOTIFICATION_SETTINGS.TITLE}}</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="landingpage-list">
+							<div id="mobile" class="pull-left profile-txt">{{appLiterals.APP.DASHBOARD.NOTIFICATION_SETTINGS.MOBILE_NOTIFICATION}}</div>
+
+							<div class="trans-dash-right">
+								<md-switch id="toggle"
+									class="margin-top-zero margin-bottom-zero md-default-theme" ng-model="myProfile.isSubscribed"
+									ng-change=" myProfile.changeNotifySubscriptionStatus()">
+								</md-switch>
+							</div>
+
+						</div>
+					</div>
+					<!-- <div ng-model="myProfile.isSubscribed"></div> -->
+					<!--	<div class="service-hr"></div>
+				<div class="landingpage-list2" ng-click="">
+					<div class="pull-left profile-txt">Tablet Notification</div>
+					<div class="pull-right set-arrow">
+            <div class="small-toggle">
+              <input type="checkbox" value="None" id="tabNoti" name="check" checked />
+              <label for="tabNoti"></label>
+            </div>
+          </div>
+				</div>-->
+					<!--  	<div class="service-hr"></div>
+				<div class="landingpage-list2" ng-click="">
+					<div class="pull-left profile-txt">Desktop Notification</div>
+					<div class="pull-right set-arrow">
+            <div class="small-toggle">
+              <input type="checkbox" value="None" id="deskNoti" name="check" checked />
+              <label for="deskNoti"></label>
+            </div>
+          </div>
+				</div>-->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

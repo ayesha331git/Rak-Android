@@ -1,0 +1,208 @@
+<div class="rak-back-header">
+			<i class="rak-back-img" ng-click="setEvent('onBackClick')"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container" ng-init="rakSendMoney.common.fromAuthPage=false;rakSendMoney.schedule.initSchedulehistoryDetails(successResponse.responsesList);">
+ 	
+			  <div class="account-page">
+			    <div class="col-sm-11">
+			     <div class="app-title-wrapper">
+		  
+		  <ng-include
+								src="'./navigation/rakSendMoney/resources/RakSendMoneyTabPage.html'">
+							</ng-include>
+
+
+							<div class="tab-links">
+								<ul>
+								    <li class="active"><span class="active">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_HISTORY}}</span></li>
+									<li  ng-click="rakSendMoney.clearTab();rakSendMoney.common.clearSearchData();rakSendMoney.schedule.clearScheduleTransferData();rakSendMoney.txnHistory.setFutureDate();rakSendMoney.history=true;setGlobalEvent('onRakHistoryTabClick')"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_SCHEDULE}}</span></li>
+									<li ng-hide="rakHome.userTypeIDValue=='CORPORATE'" ng-click="rakSendMoney.mobileCashHistory.clearSearchHistory();rakSendMoney.mobileCashHistory.setInitialDate();rakSendMoney.mobileCashHistory.setInitialDate();setGlobalEvent('onRakSendMoneyMobileCashHistoryTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_MOBILECASH_HISTORY}}</span></li>
+								</ul>
+							</div>  
+		  
+		  <div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh">
+      <div class="main-form-heading-ServiceReq">
+                    	<h2 class="rakBenfHeader">{{appLiterals.APP.RAK_PAYEE.HISTORY.TXNDETAILS}}</h2>
+            </div>
+	
+	 
+		<div class="">      
+		 
+			<div class="" >
+			  <div class="">
+			  
+			  <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.REFID}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.selectedCompltTxn.txnReferenceId}}</span>
+				</p>
+						
+				<p class="rak-sum-txt"  ng-show="rakSendMoney.txnHistory.selectedCompltTxn.hostRefNo && rakSendMoney.schedule.txnType!='WBP'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.BANKTRANSACTIONID}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.selectedCompltTxn.hostRefNo}}</span>
+				</p>
+								
+				<p class="rak-sum-txt" ng-show="rakSendMoney.txnHistory.selectedCompltTxn.txnType!='RMT'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FROM_ACCOUNT}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.displayAccount}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakSendMoney.txnHistory.selectedCompltTxn.txnType=='RMT'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FROMACCCARD}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.displayAccount}}</span>
+				</p>
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.TOACC}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.selectedCompltTxn.toAccount}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakSendMoney.schedule.beneficiaryName && rakSendMoney.txnHistory.selectedCompltTxn.txnType!='OWN'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NAME}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.beneficiaryName}}</span>
+				</p>
+			
+				<p class="rak-sum-txt" ng-show="rakSendMoney.schedule.destId && rakSendMoney.txnHistory.selectedCompltTxn.txnType=='WRB'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.BNFACCTNO}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.destId}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakSendMoney.schedule.destId && rakSendMoney.txnHistory.selectedCompltTxn.txnType=='OWN'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.CARD_NUMBER}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.destId}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakSendMoney.schedule.destId && (rakSendMoney.txnHistory.selectedCompltTxn.txnType=='RMT' || 
+				rakSendMoney.txnHistory.selectedCompltTxn.txnType=='OCT')">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.BFNIBAN}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.destId}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakSendMoney.schedule.destId && rakSendMoney.txnHistory.selectedCompltTxn.txnType=='WCT'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.IBAN}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.destId}}</span>
+				</p>
+										
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.DATE}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.selectedCompltTxn.txnDate}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.TXN_AMOUNT}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.selectedCompltTxn.txnCurrency}} {{rakSendMoney.txnHistory.selectedCompltTxn.txnAmount}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show='rakSendMoney.schedule.debitAmount'>
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.DEBITAMOUNT}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.debitAmount}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show='rakSendMoney.schedule.chargeInd' >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.CHARGETYPE}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.chargeInd}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakSendMoney.txnHistory.selectedCompltTxn.freqType=='O'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FREQ}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAK_PAYEE.HISTORY.ONCE}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakSendMoney.txnHistory.selectedCompltTxn.freqType!='O'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FREQ}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAK_PAYEE.HISTORY.REC}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.STATUS}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.selectedCompltTxn.txnStatus}}</span>
+				</p>
+				
+				
+				
+				
+				<!--CHANGES DONE AS FIX OF PROUAT-4171 START -->
+				<p class="rak-sum-txt"    ng-show="rakSendMoney.schedule.failReason">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.REASON_FAILURE}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.failReason}}</span>
+				</p>
+				<!--CHANGES DONE AS FIX OF PROUAT-4171 END -->
+				
+					<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.CHANNELNAME}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.channelId}}</span>
+				</p>
+				
+				
+				
+					
+				
+				
+				
+				
+			<!-- 	<p class="rak-sum-txt"  ng-show='rakSendMoney.schedule.chargeAmount'>
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.CHARGEAMT}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.chargeAmount}}</span>
+				</p> -->
+				
+				
+				
+				
+				<!-- <p class="rak-sum-txt" ng-show='rakSendMoney.schedule.selPurpose'>
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.PURPOSE}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.selPurpose}}</span>
+				</p>
+				 -->
+				
+				
+				
+				<p class="rak-sum-txt" ng-show='rakSendMoney.schedule.selectedReason'>
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.REASON}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.selectedReason}}</span>
+				</p>
+				<p class="rak-sum-txt" ng-show='rakSendMoney.schedule.selectedReason1'>
+					<span class="rak-sum-label"></span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.selectedReason1}}</span>
+				</p>
+				<p class="rak-sum-txt" ng-show='rakSendMoney.schedule.selectedReason2'>
+					<span class="rak-sum-label"></span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.selectedReason2}}</span>
+				</p>
+				<p class="rak-sum-txt" ng-show='rakSendMoney.schedule.selectedReason3'>
+					<span class="rak-sum-label"></span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.selectedReason3}}</span>
+				</p>
+				
+						<p class="rak-sum-txt" ng-show="rakSendMoney.schedule.requestedBy  && rakSendMoney.schedule.txnStatus!='REJ'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.REQUESTED_BY}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.requestedBy}}</span>
+				</p>
+			
+					<p class="rak-sum-txt" ng-show='rakSendMoney.schedule.approvedBy'>
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.APPROVED_BY}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.approvedBy}}</span>
+				</p>
+							  
+						<p class="rak-sum-txt" ng-show='rakSendMoney.schedule.userRemarks'>
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.USER_REMARKS}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.userRemarks}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show='rakSendMoney.schedule.fileSequenceNumber'>
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FILE_SEQ_NUM}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.schedule.fileSequenceNumber}}</span>
+				</p>
+							
+				
+      </div>
+    </div>
+  </div>
+		</div>
+		</div>
+		  </div>
+		</div>
+	</div>
+<div class="scroll-space"></div>
+		</div>
+<!-- partial code end here-->

@@ -1,0 +1,252 @@
+		<div class="rak-back-header">
+				<i class="rak-back-img"
+					ng-click="rakServiceReq.setRakOprIslamicAcctOpenBackBtnClicked();"></i>
+		</div>
+<div class="finacle-container"
+	ng-init="rakServiceReq.initOprIslamicAcctOpen(successResponse.responsesList);">
+
+	<div class="account-page">
+		<div class="col-sm-11">
+
+			<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.ISLAMIC_ACCOUNT}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+				      </h2>		       
+		 		</div>
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+				
+
+					<div ng-show="rakServiceReq.RAKOprIslamicAcctOpenLists.refAcctNoList.length > 0"
+						ng-init='refAcctNo = createDropDownOptionArray(rakServiceReq.RAKOprIslamicAcctOpenLists.refAcctNoList,["accountName","-","accountNumber"],"accountIndex");'>
+						<fin-input type="dropdown"
+							model="rakServiceReq.RAKOprIslamicAcctOpenReq.selectedRefNo"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.REF_ACCT_NO}}"
+							validation-flag='pageErrorArr["rakServiceReq.RAKOprIslamicAcctOpenReq.selectedRefNo"]'
+							option-array="refAcctNo"></fin-input>
+					</div>
+
+					<div 
+											ng-init="rakServiceReq.RAKOprIslamicAcctOpenReq.selectedCrn='AED'">
+					</div>
+
+				<p class="rak-parent-txt">
+									<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.ACCTCRN}}</span> <span
+										class="rak-sum-label black labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.AED}}</span>
+				</p>
+
+				<!-- 	<div class="rakRow">
+										<div class="radio-biller rak20"
+											ng-init="rakServiceReq.RAKOprIslamicAcctOpenReq.selectedCrn='AED'">
+											{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.ACCTCRN}}</div>
+										<div class="rak80">
+											<div>
+												<div class="rak33 rakRelative">
+													<input type="radio"
+														value="{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.AED}}"
+														
+														ng-model="rakServiceReq.RAKOprIslamicAcctOpenReq.selectedCrn" /><span
+														class="rakRadioLabel-SR">{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.AED}}</span>
+												</div>
+											</div>
+										</div>
+										<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.RAKOprIslamicAcctOpenReq.selectedCrn"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.ACCTCRN}}</div>
+									</div>
+ -->
+
+									<div class="rakRow">
+										<div class="radio-biller rak100 rakWidth100">
+											{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.DEBIT_CARD_RQD}}</div>
+										<div class="rak90">
+											<div>
+												<div class="rakCstmRadioDiv rak50 rakTop2emLeft3">
+													<input type="radio" id="radio2"
+														value="{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.DEBIT_ACC_YES}}"
+														
+														ng-model="rakServiceReq.RAKOprIslamicAcctOpenReq.debitCardRqd"
+														validation-flag='pageErrorArr["rakServiceReq.RAKOprIslamicAcctOpenReq.debitCardRqd"]'
+														/>
+														<label for="radio2"><span><span></span></span>
+														{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.DEBIT_ACC_YES}}</label>
+												</div>
+												<div class="rakCstmRadioDiv rak47 rakTop2emLeft3">
+													<input type="radio" id="radio3"
+														value="{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.DEBIT_ACC_NO}}"
+														
+														ng-model="rakServiceReq.RAKOprIslamicAcctOpenReq.debitCardRqd"
+														validation-flag='pageErrorArr["rakServiceReq.RAKOprIslamicAcctOpenReq.debitCardRqd"]'
+														/>
+														<label for="radio3"><span><span></span></span>
+														{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.DEBIT_ACC_NO}}</label>
+												</div>
+
+											</div>
+											<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.RAKOprIslamicAcctOpenReq.debitCardRqd"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.DEBIT_CARD_RQD}}</div>
+										</div>
+									</div>
+
+			<!-- 	<div ng-show="rakServiceReq.RAKOprIslamicAcctOpenLists.refAcctNoList.length == 0"
+						ng-init='branch = createDropDownOptionArray(rakServiceReq.RAKOprIslamicAcctOpenLists.branchList,["branchName"],"branchIndex");'>
+						<fin-input type="dropdown"
+							model="rakServiceReq.RAKOprIslamicAcctOpenReq.selectedBranch"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.BRANCH}}"
+							validation-flag='pageErrorArr["rakServiceReq.RAKOprIslamicAcctOpenReq.selectedBranch"]'
+							option-array="branch"></fin-input>
+					</div>
+					 -->
+					
+					
+					
+					<div  ng-show="rakServiceReq.RAKOprIslamicAcctOpenLists.refAcctNoList.length == 0" ng-if="rakServiceReq.RAKOprIslamicAcctOpenLists.refAcctNoList.length == 0"
+								ng-init='cardArr = createDropDownOptionArray(rakServiceReq.RAKOprIslamicAcctOpenLists.emirateList, ["codeDesc"], "code");'
+								
+								>
+							<fin-input type="dropdown"
+								model="rakServiceReq.RAKOprIslamicAcctOpenReq.emirateSeletected"
+								display-row="full"
+								
+								placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}"
+								on-change="rakServiceReq.RakOprIslamicAcctOpenOptionChange();"
+								validation-flag='pageErrorArr["rakServiceReq.RAKOprIslamicAcctOpenReq.emirateSeletected"]'
+								option-array="cardArr"> </fin-input>
+							</div>
+							
+							
+							<div class="fin-input-container"
+								ng-show="rakServiceReq.RAKOprIslamicAcctOpenReq.isEmiSelected &&  rakServiceReq.RAKOprIslamicAcctOpenLists.refAcctNoList.length == 0" ng-if="rakServiceReq.RAKOprIslamicAcctOpenLists.refAcctNoList.length == 0">
+								<div
+									ng-class="{'left-line': !pageErrorArr['rakServiceReq.RAKOprIslamicAcctOpenReq.selectedBranch'], 'left-line-error':pageErrorArr['rakServiceReq.RAKOprIslamicAcctOpenReq.selectedBranch']}"
+									class="left-line"></div>
+								<div class="input-body">
+									<div class="input-body2 input-body2-dropdown">
+										<select dropdownpicker class="fin-input fin-select" title="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}"
+											ng-model="rakServiceReq.RAKOprIslamicAcctOpenReq.selectedBranch"
+											ng-style="{{rakServiceReq.RAKOprIslamicAcctOpenReq.selectedBranch}} == '' ? {'font-size': '14px'} : {'color': 'initial'}">
+											<option class="place-holder-select" value=""
+												ng-selected="rakServiceReq.RAKOprIslamicAcctOpenReq.selectedBranch== null"
+												ng-show="rakServiceReq.RAKOprIslamicAcctOpenReq.selectedBranch== null">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}</option>
+											<option
+												ng-repeat="option in rakServiceReq.RAKOprIslamicAcctOpenReq.emiCategorizedBranchList"
+												ng-selected="option.value=={{rakServiceReq.RAKOprIslamicAcctOpenReq.selectedBranch}}"
+												value="{{option.branchIndex}}">{{option.branchName}}</option>
+										</select>
+									</div>
+									<div
+										ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.RAKOprIslamicAcctOpenReq.selectedBranch'], 'bottom-line-error':pageErrorArr['rakServiceReq.RAKOprIslamicAcctOpenReq.selectedBranch']}"
+										class="bottom-line"></div>
+									<div
+										ng-hide='pageErrorArr["rakServiceReq.RAKOprIslamicAcctOpenReq.selectedBranch"]==null'
+										class="rakErrorMsg">
+										{{pageErrorArr['rakServiceReq.RAKOprIslamicAcctOpenReq.selectedBranch']}}</div>
+
+								</div>
+							</div>
+
+
+
+<!-- 
+									<fin-input type="number_card"
+							model="rakServiceReq.RAKOprIslamicAcctOpenReq.EmiratesId"
+							display-row="full" max-length="15"
+							placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.EMIRATESID}}"
+							validation-flag='pageErrorArr["rakServiceReq.RAKOprIslamicAcctOpenReq.EmiratesId"]'></fin-input> -->
+			
+			<div ng-if='rakServiceReq.common.EmiratesIdAvailable=="Y"'>			
+							<p class="rak-parent-txt" >
+									<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.EMIRATESID}}</span> <span
+										class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RAKOprIslamicAcctOpenReq.EmiratesId}}</span>
+				</p>
+				
+					<p class="rak-parent-txt" >
+									<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.ID_EXPIRY_DATE}}</span> <span
+										class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.common.accountsOpenDisplayDate}}</span>
+				</p>
+				
+
+							<!-- <fin-input type="date"
+						model="rakServiceReq.RAKOprIslamicAcctOpenReq.selectedDate"
+						display-row="full"
+						placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.ID_EXPIRY_DATE}}"
+						validation-flag='pageErrorArr["rakServiceReq.RAKOprIslamicAcctOpenReq.selectedDate"]'></fin-input> -->
+						
+					<!-- 	<fin-input type="date"
+						model="rakServiceReq.RAKOprIslamicAcctOpenReq.selectedDate"
+						display-row="full" value="futureDatesOnly"
+						placeholder="{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.ID_EXPIRY_DATE}}"
+						validation-flag='pageErrorArr["rakServiceReq.RAKOprIslamicAcctOpenReq.selectedDate"]'></fin-input> -->
+
+				
+				<!-- 	 	<span class="smallLabel">{{appLiterals.APP.RAK_SERVICES.RAKOPRSAVACCOPEN.ID_EXPIRY_DATE}}</span>  -->
+		</div>
+
+						<div class="rakRow" ng-show="rakServiceReq.RAKOprIslamicAcctOpenLists.refAcctNoList.length != 0 &&
+						rakServiceReq.RAKOprIslamicAcctOpenLists.refAcctNoList[rakServiceReq.RAKOprIslamicAcctOpenReq.selectedRefNo].mode=='JOINTOR'">
+										<div class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px">
+											{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.OPER_MODE}}</div>
+										<div class="rak90">
+											<div>
+												<div class="rakCstmRadioDiv rak50 rakTop2emLeft3">
+													<input type="radio" id="radio4"
+														value="{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.MODE_SINGLE}}"
+														
+														ng-model="rakServiceReq.RAKOprIslamicAcctOpenReq.operationMode" /><label
+														for="radio4"><span><span></span></span>
+														{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.MODE_SINGLE}}</label>
+												</div>
+											</div>
+											<div>
+												<div class="rakCstmRadioDiv rak47 rakTop2emLeft3">
+													<input type="radio" id="radio5"
+														value="{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.MODE_JOINT}}"
+														
+														ng-model="rakServiceReq.RAKOprIslamicAcctOpenReq.operationMode" /><label
+														for="radio5"><span><span></span></span>
+														{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.MODE_JOINT}}</label>
+												</div>
+											</div>
+										</div>
+										<div class="rakRadioErr" ng-hide='pageErrorArr["rakServiceReq.RAKOprIslamicAcctOpenReq.operationMode"]==null'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_PLS_SEL}}{{appLiterals.APP.RAK_SERVICES.RAKOPRISLAMICACCOPEN.OPER_MODE}}</div>
+									</div>
+									
+									
+									<div class="fin-txt"></div>
+									<div class="fin-txt"></div>
+
+
+					<div class="disclaimer3" >
+						<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKISLOPEN"></span>
+						<span ng-click="rakServiceReq.fetchDisclaimer('TermsAndConditionsAmalProducts.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+						<span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKISLOPENCONT"></span>
+					
+										
+								<div class="check-boxsLeft">
+				                    <input id="termsFlag"  class="checkbox-custom-new"  type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" ng-model='rakServiceReq.acceptTermscondition' >
+				                    <label for="termsFlag" class="checkbox-custom-label termsCheck smallCheck" ng-bind-html="appLiterals.APP.DISCLAIMER.RAKISLOPENCONTTERMS"></label>
+				                </div>										
+					</div>
+
+
+						<div class="label-wrap">
+							<!-- <button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="setEvent('onRAKOprIslamicAcctOpenBackClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CANCEL}}</button> -->
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakServiceReq.setRAKOprIslamicAcctOpenReqDate();setEvent('onRAKOprIslamicAcctOpenConfirmClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+
+						</div>
+
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

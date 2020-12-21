@@ -1,0 +1,3339 @@
+{
+    "pageNavigation": [
+        {
+            "ProfileLandingPage": [
+                {
+                    "eventName": "onTxnPwdClick",
+                    "action": "ChangeTxnPwdInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "TransactionPassword"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                },
+                    {
+                    "eventName": "onLoginPwdClick",
+                    "action": "ChangeLoginPasswordInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "LoginPassword"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "LoginPassword"
+                    }
+                },
+                 {
+                    "eventName": "onChangeMPINClick",
+                    "action": "MPINChangeInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "AppActivation",
+                        "pageName": "ActivationChangeMPINPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                },
+				{
+					"eventName": "onChangeAddressClick",
+					"action": "ChangeAddressInitService",
+					"actionType": "service",
+					"validation": "false",
+					"parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+					"successPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateAddressLandingPage"
+					},
+					"errorPage": {
+						"subFeature": "MyProfile",
+						"pageName": "ProfileLandingPage"
+					}
+				},
+                    {
+                    "eventName": "onSelectChannnelClick",
+                    "action": "ChannelSelectionInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "Register",
+                        "pageName": "RegisterChannelSelection"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onReferFrndClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ReferAndSharePage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ChannelSelection"
+                    }
+                },
+                {
+                    "eventName": "onActivityClick",
+                    "validation": "false",
+                    "action": "SelfAuditContinueService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "ActInqFromDate_day": "myProfile.emptyStr",
+                        "ActInqFromDate_month": "myProfile.emptyStr",
+                        "ActInqFromDate_year": "myProfile.emptyStr",
+                        "ActInqToDate_day": "myProfile.emptyStr",
+                        "ActInqToDate_month": "myProfile.emptyStr",
+                        "ActInqToDate_year": "myProfile.emptyStr",
+                        "CHANNEL_ID_QUERY": "myProfile.emptyStr",
+                        "NO_OF_DAYS": "myProfile.activityModel.isDays"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "MyActivitiesPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "MyActivitiesPage"
+                    }
+                },
+                {
+                    "eventName": "onUpdateNicknameClick",
+                    "action": "UpdateNicknameInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                     "parameters": {
+                    	"jsessionid": "fields.finacleUserSessionId",
+                    	"mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "UpdateNicknameLandingPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onUserIDClick",
+                    "validation": "false",
+                    "action": "UpdateUserId",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "UpdateUserID"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "UpdateUserID"
+                    }
+                },
+                {
+                    "eventName": "onContactDetailClick",
+                    "validation": "false",
+                    "action": "UpdateContactDetails",
+                   "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "UpdateContactDetailPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "UpdateContactDetailPage"
+                    }
+                },
+                {
+                    "eventName": "onMyPreferenceClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "MyPreferencesPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ChannelSelection"
+                    }
+                },
+                {
+                    "eventName": "onMngAcClick",
+                    "action": "ManageDeviceInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                     "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ManageDevicePage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ChannelSelection"
+                    }
+                },
+                {
+                    "eventName": "onBioMatrixLoginClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "BioMatrixLoginPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                },{
+                    "eventName": "onNotificationClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "MyProfileNotificationSettings"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                }
+            ]
+        },
+        {
+        "ProfilePicLandingPage": [
+                {
+                    "eventName": "uploadProfilePic",
+                    "action": "UploadProfilePicService",
+                    "actionType": "serviceNoNavigation",
+                    "parameters": {
+  					    "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "data":"myProfile.userProfilePicTemp"
+                       },
+                    "successPage": {
+                        "pageName": "ProfilePicLandingPage"
+                    },
+                    "errorPage": {
+                        "pageName": "ProfilePicLandingPage"
+                    }
+                    }
+            ]
+        
+        },
+        {
+            "TransactionPassword": [
+                {
+                    "eventName": "txnPwdSubmitClick",
+                    "action": "ChangeTxnPwdSubmitService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "myProfile.txnOldPassword",
+                        "myProfile.txnNewPassword",
+                        "myProfile.txnConfirmPassword"
+                    ],
+                      "validationErrorMessage": [
+                        	{
+                            	"stringEquals": "APP.MYPROFILE.VAL_ERROR.VALID_PASSWORD"
+                        	}
+                    	],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "TxnOldPwd": "myProfile.txnOldPassword",
+                        "TxnNewPwd": "myProfile.txnNewPassword",
+                        "TxnNewCnfPwd": "myProfile.txnConfirmPassword"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "LoginPasswordSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "TransactionPassword"
+                    }
+                },
+                {
+                    "eventName": "onLoginPwdClick",
+                    "action": "ChangeLoginPasswordInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "LoginPassword"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "LoginPassword"
+                    }
+                },
+                {
+                    "eventName": "onTxnPwdPageCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onTxnPwdClick",
+                    "action": "ChangeTxnPwdInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "TransactionPassword"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "TransactionPassword"
+                    }
+                },
+                {
+                    "eventName": "loginPwdSubmitClick",
+                    "action": "ChangeLoginPasswordSubmitService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "myProfile.oldPassword",
+                        "myProfile.newPassword",
+                        "myProfile.confirmPassword"
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "LginOldPwd": "myProfile.oldPassword",
+                        "LginNewPwd": "myProfile.newPassword",
+                        "LginNewCnfPwd": "myProfile.confirmPassword"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "LoginPasswordSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "LoginPassword"
+                    }
+                },
+                {
+                    "eventName": "onLoginPwdPageCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                }
+            ]
+        },
+        {
+            "LoginPassword": [
+                {
+                    "eventName": "onTxnPwdClick",
+                    "action": "ChangeTxnPwdInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "TransactionPassword"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "TransactionPassword"
+                    }
+                },
+                {
+                    "eventName": "loginPwdSubmitClick",
+                    "action": "ChangeLoginPasswordSubmitService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "myProfile.oldPassword",
+                        "myProfile.newPassword",
+                        "myProfile.confirmPassword"
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "LginOldPwd": "myProfile.oldPassword",
+                        "LginNewPwd": "myProfile.newPassword",
+                        "LginNewCnfPwd": "myProfile.confirmPassword"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "LoginPasswordSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "LoginPassword"
+                    }
+                },
+                {
+                    "eventName": "onLoginPwdPageCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+			}]
+		}, {
+			"UpdateAddressLandingPage": [{
+					"eventName": "onCancelClick",
+					"action": "navigation",
+					"actionType": "navigation",
+					"validation": "false",
+					"successPage": {
+						"subFeature": "MyProfile",
+						"pageName": "ProfileLandingPage"
+					},
+					"errorPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateAddressLandingPage"
+					}
+				},
+
+				{
+					"eventName": "onCommAddTabClick",
+					"action": "navigation",
+					"actionType": "navigation",
+					"validation": "false",
+					"successPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateCommunicationAddressLandingPage"
+					},
+					"errorPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateAddressLandingPage"
+					}
+				},
+
+				{
+					"eventName": "onPermanentTabClick",
+					"action": "navigation",
+					"actionType": "navigation",
+					"validation": "false",
+					"successPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdatePermanentAddressLandingPage"
+					},
+					"errorPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateAddressLandingPage"
+					}
+				},
+
+				{
+					"eventName": "onCountrySelect",
+					"action": "FetchStateService",
+					"actionType": "service",
+					"validation": "false",
+					"parameters": {
+						"country": "myProfile.updateAddressModel.workCountry",
+						"activeTab":"myProfile.activeTab",
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+					"successPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateAddressLandingPage"
+					},
+					"errorPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateAddressLandingPage"
+					}
+				},
+				 {
+					"eventName": "onContinueClick",
+					"action": "UpdateAddressConfirmationService",
+					"actionType": "service",
+					
+
+					"validation": "true",
+					"validationParams": [
+						"myProfile.updateAddressModel.firstName",
+						"myProfile.updateAddressModel.lastName",
+						"myProfile.updateAddressModel.workAddressLineOne",
+						"myProfile.updateAddressModel.workAddressLineTwo",
+						"myProfile.updateAddressModel.workAddressLineThree",
+						"myProfile.updateAddressModel.workPostalCode",
+						"myProfile.updateAddressModel.workCountry",
+						"myProfile.updateAddressModel.workState",
+						"myProfile.updateAddressModel.workCity",
+						"myProfile.updateAddressModel.workAddressSince",
+						"myProfile.updateAddressModel.communicationAddressLineOne",
+						"myProfile.updateAddressModel.communicationAddressLineTwo",
+						"myProfile.updateAddressModel.communicationAddressLineThree",
+						"myProfile.updateAddressModel.communicationCountry",
+						"myProfile.updateAddressModel.communicationState",
+						"myProfile.updateAddressModel.communicationCity",
+						"myProfile.updateAddressModel.communicationPostalCode",
+						"myProfile.updateAddressModel.communicationAddressSince",
+						"myProfile.updateAddressModel.permanentAddressLineOne",
+						"myProfile.updateAddressModel.permanentAddressLineOne",
+						"myProfile.updateAddressModel.permanentAddressLineTwo",
+						"myProfile.updateAddressModel.permanentAddressLineThree",
+						"myProfile.updateAddressModel.permanentCountry",
+						"myProfile.updateAddressModel.permanentState",
+						"myProfile.updateAddressModel.permanentCity",
+						"myProfile.updateAddressModel.permanentPostalCode",
+						"myProfile.updateAddressModel.permanentAddressSince"
+						],
+						 "validationErrorMessage": [
+                        	{
+                            	"dateGreaterThanNowUpdateWorkAddr":"APP.MYPROFILE.VAL_ERROR.INVALID_WORK_RESIDING_SINCE"
+                        	},
+                        	{
+                            	"dateGreaterThanNowUpdateCommAddr":"APP.MYPROFILE.VAL_ERROR.INVALID_COMMUNICATION_RESIDING_SINCE"
+                        	},
+                        	{
+                            	"dateGreaterThanNowUpdatePermAddr":"APP.MYPROFILE.VAL_ERROR.INVALID_PERMANENT_RESIDING_SINCE"
+                        	}
+                    	],
+					"parameters": {
+
+						"FIRST_NAME": "myProfile.updateAddressModel.firstName",
+						"LAST_NAME": "myProfile.updateAddressModel.lastName",
+						"PRF_ADDRESS": "myProfile.updateAddressModel.preferredAddress",
+						"WORK_HOUSE_NO": "myProfile.updateAddressModel.workAddressLineOne",
+						"WORK_STREET_NO": "myProfile.updateAddressModel.workAddressLineTwo",
+						"WORK_STREET_NAME": "myProfile.updateAddressModel.workAddressLineThree",
+						"WORK_POSTAL_CODE": "myProfile.updateAddressModel.workPostalCode",
+						"WORK_COUNTRY": "myProfile.updateAddressModel.workCountry",
+						"WORK_STATE": "myProfile.updateAddressModel.workState",
+						"WORK_CITY": "myProfile.updateAddressModel.workCity",
+						"WORK_ADDR_SINCE": "myProfile.updateAddressModel.workAddressSince",
+						"COMMN_HOUSE_NO": "myProfile.updateAddressModel.communicationAddressLineOne",
+						"COMMN_STREET_NO": "myProfile.updateAddressModel.communicationAddressLineTwo",
+						"COMMN_STREET_NAME": "myProfile.updateAddressModel.communicationAddressLineThree",
+						"COMMN_COUNTRY": "myProfile.updateAddressModel.communicationCountry",
+						"COMMN_STATE": "myProfile.updateAddressModel.communicationState",
+						"COMMN_CITY": "myProfile.updateAddressModel.communicationCity",
+						"COMMN_POSTAL_CODE": "myProfile.updateAddressModel.communicationPostalCode",
+						"COMMN_ADDR_SINCE": "myProfile.updateAddressModel.communicationAddressSince",
+						"PERMANENT_HOUSE_NO": "myProfile.updateAddressModel.permanentAddressLineOne",
+						"PERMANENT_STREET_NO": "myProfile.updateAddressModel.permanentAddressLineTwo",
+						"PERMANENT_STREET_NAME": "myProfile.updateAddressModel.permanentAddressLineThree",
+						"PERMANENT_COUNTRY": "myProfile.updateAddressModel.permanentCountry",
+						"PERMANENT_STATE": "myProfile.updateAddressModel.permanentState",
+						"PERMANENT_CITY": "myProfile.updateAddressModel.permanentCity",
+						"PERMANENT_POSTAL_CODE": "myProfile.updateAddressModel.permanentPostalCode",
+						"PERMANENT_ADDR_SINCE": "myProfile.updateAddressModel.permanentAddressSince",
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+					"successPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateAddressConfirmationPage"
+					},
+					"errorPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateAddressLandingPage"
+					}
+				}
+
+
+			]
+		}, {
+			"UpdatePermanentAddressLandingPage": [{
+					"eventName": "onCancelClick",
+					"action": "navigation",
+					"actionType": "navigation",
+					"validation": "false",
+					"successPage": {
+						"subFeature": "MyProfile",
+						"pageName": "ProfileLandingPage"
+					},
+					"errorPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdatePermanentAddressLandingPage"
+					}
+				},
+
+				{
+					"eventName": "onHomeTabClick",
+					"action": "navigation",
+					"actionType": "navigation",
+					"validation": "false",
+					"successPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateAddressLandingPage"
+					},
+					"errorPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdatePermanentAddressLandingPage"
+					}
+				},
+
+				{
+					"eventName": "onCommAddTabClick",
+					"action": "navigation",
+					"actionType": "navigation",
+					"validation": "false",
+					"successPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateCommunicationAddressLandingPage"
+					},
+					"errorPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdatePermanentAddressLandingPage"
+					}
+				},
+
+				{
+					"eventName": "onCountrySelect",
+					"action": "FetchStateService",
+					"actionType": "service",
+					"validation": "false",
+					"parameters": {
+						"country": "myProfile.updateAddressModel.permanentCountry",
+						"activeTab":"myProfile.activeTab",
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+					"successPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdatePermanentAddressLandingPage"
+					},
+					"errorPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdatePermanentAddressLandingPage"
+					}
+				},
+				
+				 {
+					"eventName": "onContinueClick",
+					"action": "UpdateAddressConfirmationService",
+					"actionType": "service",
+					
+
+					"validation": "true",
+					"validationParams": [
+					    "myProfile.updateAddressModel.firstName",
+						"myProfile.updateAddressModel.lastName",
+						"myProfile.updateAddressModel.permanentAddressLineOne",
+						"myProfile.updateAddressModel.permanentAddressLineTwo",
+						"myProfile.updateAddressModel.permanentAddressLineThree",
+						"myProfile.updateAddressModel.permanentCountry",
+						"myProfile.updateAddressModel.permanentState",
+						"myProfile.updateAddressModel.permanentCity",
+						"myProfile.updateAddressModel.permanentPostalCode",
+						"myProfile.updateAddressModel.permanentAddressSince",
+						"myProfile.updateAddressModel.communicationAddressLineOne",
+						"myProfile.updateAddressModel.communicationAddressLineTwo",
+						"myProfile.updateAddressModel.communicationAddressLineThree",
+						"myProfile.updateAddressModel.communicationCountry",
+						"myProfile.updateAddressModel.communicationState",
+						"myProfile.updateAddressModel.communicationCity",
+						"myProfile.updateAddressModel.communicationPostalCode",
+						"myProfile.updateAddressModel.communicationAddressSince",
+	                    "myProfile.updateAddressModel.workAddressLineOne",
+						"myProfile.updateAddressModel.workAddressLineTwo",
+						"myProfile.updateAddressModel.workAddressLineThree",
+						"myProfile.updateAddressModel.workPostalCode",
+						"myProfile.updateAddressModel.workCountry",
+						"myProfile.updateAddressModel.workState",
+						"myProfile.updateAddressModel.workCity",
+						"myProfile.updateAddressModel.workAddressSince"
+						],
+						 "validationErrorMessage": [
+                        	{
+                            	"dateGreaterThanNow":"APP.MYPROFILE.VAL_ERROR.INVALID_PERMANENT_RESIDING_SINCE"
+                        	}
+                    	],
+					"parameters": {
+
+						"FIRST_NAME": "myProfile.updateAddressModel.firstName",
+						"LAST_NAME": "myProfile.updateAddressModel.lastName",
+						"PRF_ADDRESS": "myProfile.updateAddressModel.preferredAddress",
+						"WORK_HOUSE_NO": "myProfile.updateAddressModel.workAddressLineOne",
+						"WORK_STREET_NO": "myProfile.updateAddressModel.workAddressLineTwo",
+						"WORK_STREET_NAME": "myProfile.updateAddressModel.workAddressLineThree",
+						"WORK_POSTAL_CODE": "myProfile.updateAddressModel.workPostalCode",
+						"WORK_COUNTRY": "myProfile.updateAddressModel.workCountry",
+						"WORK_STATE": "myProfile.updateAddressModel.workState",
+						"WORK_CITY": "myProfile.updateAddressModel.workCity",
+						"WORK_ADDR_SINCE": "myProfile.updateAddressModel.workAddressSince",
+						"COMMN_HOUSE_NO": "myProfile.updateAddressModel.communicationAddressLineOne",
+						"COMMN_STREET_NO": "myProfile.updateAddressModel.communicationAddressLineTwo",
+						"COMMN_STREET_NAME": "myProfile.updateAddressModel.communicationAddressLineThree",
+						"COMMN_COUNTRY": "myProfile.updateAddressModel.communicationCountry",
+						"COMMN_STATE": "myProfile.updateAddressModel.communicationState",
+						"COMMN_CITY": "myProfile.updateAddressModel.communicationCity",
+						"COMMN_POSTAL_CODE": "myProfile.updateAddressModel.communicationPostalCode",
+						"COMMN_ADDR_SINCE": "myProfile.updateAddressModel.communicationAddressSince",
+						"PERMANENT_HOUSE_NO": "myProfile.updateAddressModel.permanentAddressLineOne",
+						"PERMANENT_STREET_NO": "myProfile.updateAddressModel.permanentAddressLineTwo",
+						"PERMANENT_STREET_NAME": "myProfile.updateAddressModel.permanentAddressLineThree",
+						"PERMANENT_COUNTRY": "myProfile.updateAddressModel.permanentCountry",
+						"PERMANENT_STATE": "myProfile.updateAddressModel.permanentState",
+						"PERMANENT_CITY": "myProfile.updateAddressModel.permanentCity",
+						"PERMANENT_POSTAL_CODE": "myProfile.updateAddressModel.permanentPostalCode",
+						"PERMANENT_ADDR_SINCE": "myProfile.updateAddressModel.permanentAddressSince",
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+					"successPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateAddressConfirmationPage"
+					},
+					"errorPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateAddressLandingPage"
+					}
+				}
+				
+
+
+			]
+		}, {
+			"UpdateCommunicationAddressLandingPage": [{
+					"eventName": "onCancelClick",
+					"action": "navigation",
+					"actionType": "navigation",
+					"validation": "false",
+					"successPage": {
+						"subFeature": "MyProfile",
+						"pageName": "ProfileLandingPage"
+					},
+					"errorPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateCommunicationAddressLandingPage"
+					}
+				},
+
+				{
+					"eventName": "onHomeTabClick",
+					"action": "navigation",
+					"actionType": "navigation",
+					"validation": "false",
+					"successPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateAddressLandingPage"
+					},
+					"errorPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateCommunicationAddressLandingPage"
+					}
+				},
+
+				{
+					"eventName": "onPermanentTabClick",
+					"action": "navigation",
+					"actionType": "navigation",
+					"validation": "false",
+					"successPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdatePermanentAddressLandingPage"
+					},
+					"errorPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateCommunicationAddressLandingPage"
+					}
+				},
+
+				{
+					"eventName": "onCountrySelect",
+					"action": "FetchStateService",
+					"actionType": "service",
+					"validation": "false",
+					"parameters": {
+						"country": "myProfile.updateAddressModel.communicationCountry",
+						"jsessionid": "fields.finacleUserSessionId",
+						"activeTab":"myProfile.activeTab",
+						"mbparam": "fields.finacleMbParam"
+					},
+					"successPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateCommunicationAddressLandingPage"
+					},
+					"errorPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateCommunicationAddressLandingPage"
+					}
+				},
+				{
+					"eventName": "onContinueClick",
+					"action": "UpdateAddressConfirmationService",
+					"actionType": "service",
+					
+
+					"validation": "true",
+					"validationParams": [
+					    "myProfile.updateAddressModel.firstName",
+						"myProfile.updateAddressModel.lastName",
+						"myProfile.updateAddressModel.communicationAddressLineOne",
+						"myProfile.updateAddressModel.communicationAddressLineTwo",
+						"myProfile.updateAddressModel.communicationAddressLineThree",
+						"myProfile.updateAddressModel.communicationCountry",
+						"myProfile.updateAddressModel.communicationState",
+						"myProfile.updateAddressModel.communicationCity",
+						"myProfile.updateAddressModel.communicationPostalCode",
+						"myProfile.updateAddressModel.communicationAddressSince",
+						"myProfile.updateAddressModel.permanentAddressLineOne",
+						"myProfile.updateAddressModel.permanentAddressLineTwo",
+						"myProfile.updateAddressModel.permanentAddressLineThree",
+						"myProfile.updateAddressModel.permanentCountry",
+						"myProfile.updateAddressModel.permanentState",
+						"myProfile.updateAddressModel.permanentCity",
+						"myProfile.updateAddressModel.permanentPostalCode",
+						"myProfile.updateAddressModel.permanentAddressSince",
+						"myProfile.updateAddressModel.workAddressLineOne",
+						"myProfile.updateAddressModel.workAddressLineTwo",
+						"myProfile.updateAddressModel.workAddressLineThree",
+						"myProfile.updateAddressModel.workPostalCode",
+						"myProfile.updateAddressModel.workCountry",
+						"myProfile.updateAddressModel.workState",
+						"myProfile.updateAddressModel.workCity",
+						"myProfile.updateAddressModel.workAddressSince"
+						],
+						 "validationErrorMessage": [
+                        	{
+                            	"dateGreaterThanNow":"APP.MYPROFILE.VAL_ERROR.INVALID_COMMUNICATION_RESIDING_SINCE"
+                        	}
+                    	],
+					"parameters": {
+
+						"FIRST_NAME": "myProfile.updateAddressModel.firstName",
+						"LAST_NAME": "myProfile.updateAddressModel.lastName",
+						"PRF_ADDRESS": "myProfile.updateAddressModel.preferredAddress",
+						"WORK_HOUSE_NO": "myProfile.updateAddressModel.workAddressLineOne",
+						"WORK_STREET_NO": "myProfile.updateAddressModel.workAddressLineTwo",
+						"WORK_STREET_NAME": "myProfile.updateAddressModel.workAddressLineThree",
+						"WORK_POSTAL_CODE": "myProfile.updateAddressModel.workPostalCode",
+						"WORK_COUNTRY": "myProfile.updateAddressModel.workCountry",
+						"WORK_STATE": "myProfile.updateAddressModel.workState",
+						"WORK_CITY": "myProfile.updateAddressModel.workCity",
+						"WORK_ADDR_SINCE": "myProfile.updateAddressModel.workAddressSince",
+						"COMMN_HOUSE_NO": "myProfile.updateAddressModel.communicationAddressLineOne",
+						"COMMN_STREET_NO": "myProfile.updateAddressModel.communicationAddressLineTwo",
+						"COMMN_STREET_NAME": "myProfile.updateAddressModel.communicationAddressLineThree",
+						"COMMN_COUNTRY": "myProfile.updateAddressModel.communicationCountry",
+						"COMMN_STATE": "myProfile.updateAddressModel.communicationState",
+						"COMMN_CITY": "myProfile.updateAddressModel.communicationCity",
+						"COMMN_POSTAL_CODE": "myProfile.updateAddressModel.communicationPostalCode",
+						"COMMN_ADDR_SINCE": "myProfile.updateAddressModel.communicationAddressSince",
+						"PERMANENT_HOUSE_NO": "myProfile.updateAddressModel.permanentAddressLineOne",
+						"PERMANENT_STREET_NO": "myProfile.updateAddressModel.permanentAddressLineTwo",
+						"PERMANENT_STREET_NAME": "myProfile.updateAddressModel.permanentAddressLineThree",
+						"PERMANENT_COUNTRY": "myProfile.updateAddressModel.permanentCountry",
+						"PERMANENT_STATE": "myProfile.updateAddressModel.permanentState",
+						"PERMANENT_CITY": "myProfile.updateAddressModel.permanentCity",
+						"PERMANENT_POSTAL_CODE": "myProfile.updateAddressModel.permanentPostalCode",
+						"PERMANENT_ADDR_SINCE": "myProfile.updateAddressModel.permanentAddressSince",
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+					"successPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateAddressConfirmationPage"
+					},
+					"errorPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateAddressLandingPage"
+					}
+				}
+
+
+			]
+		},
+		
+		{
+			"UpdateAddressConfirmationPage": [
+			{
+					
+					"eventName": "onCancelClick",
+					"action": "navigation",
+					"actionType": "navigation",
+					"validation": "false",
+					"successPage": {
+						"subFeature": "MyProfile",
+						"pageName": "ProfileLandingPage"
+					},
+					"errorPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateAddressConfirmationPage"
+					}
+				},
+
+					{
+					
+					"eventName": "onPrevServiceClick",
+					"action": "navigation",
+					"actionType": "navigation",
+					"validation": "false",
+					"successPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateAddressLandingPage"
+					},
+					"errorPage": {
+						"subFeature": "MyProfile",
+						"pageName": "UpdateAddressConfirmationPage"
+					}
+				},
+				
+              {
+                "eventName": "onSubmit",
+                "action": "UpdateAddressDetailsSubmitService",
+                "actionType": "service",
+                "validation": "true",
+                "validationParams": [],
+                "parameters": {
+                    "jsessionid": "fields.finacleUserSessionId",
+                    "mbparam": "fields.finacleMbParam",
+                    "Mode": "myProfile.updateAddressModel.transactionPwD"
+                },
+                "successPage": {
+                    "subFeature": "MyProfile",
+                    "pageName": "UpdateAddressDetailsSuccessPage"
+                },
+                "errorPage": {
+                    "subFeature": "MyProfile",
+                    "pageName": "UpdateAddressConfirmationPage"
+                }
+            }
+
+
+			]
+		    
+		    },
+		    {
+		    "UpdateAddressDetailsSuccessPage":[{
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "UpdateAddressDetailsSuccessPage"
+                    }
+                }
+            ]
+		    },
+
+		{
+			"LoginPasswordSuccessful": [{
+                    "eventName": "onLoginPasswordDoneClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                }
+            ]
+        },
+        {
+            "ForgotPasswordUserID": [
+                {
+                    "eventName": "onForgotPwdUserIDAuthClick",
+                    "action": "ForgotPasswordUserIDService",
+                    "actionType": "service",
+                    "encryptionEnabled": false,
+                    "validation": "true",
+                    "validationParams": [
+                        "myProfile.userID"
+                    ],
+                    "parameters": {
+                        "CorpId": "myProfile.userID"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotPasswordUserID"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotPasswordUserID"
+                    }
+                },
+                {
+                    "eventName": "onForgotUserIDCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "AppActivation",
+                        "pageName": "ForgotMPINLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "AppActivation",
+                        "pageName": "ForgotMPINLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onGenerateOTPClick",
+                    "action": "ForgotPasswordClickedNoService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "myProfile.sessionId",
+                        "mbparam": "myProfile.mparam"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotPasswordAuthenticate"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "onGenerateOTPClick"
+                    }
+                },
+				{ 
+  					"eventName" : "onAppActivationProceedClick",
+  					"action" : "AppActivationInitService",
+  					"actionType":"service",
+  					"validation": "true",
+  					"validationParams": [
+                    	"appActivation.userId"
+                    ],
+  					"parameters": {
+                        "CorpId": "appActivation.userId",
+                        "CLIENT_ID": "appActivation.clientId"
+                    },
+  					"successPage" : {
+  						"pageName": "AppActivationOTPAuthenticatePage"
+  					},
+  					"errorPage" : {
+  						"pageName": "RegisterCustomerIdPage"
+  					}
+  				}
+            ]
+        },
+        {
+            "ForgotPasswordAuthenticate": [
+                {
+                    "eventName": "onForgotPwdAuthClick",
+                    "action": "ForgotPasswordUpdateService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "encryptionEnabled": true,
+                    "sensitiveFields": [
+                        "myProfile.authenticateOTP"
+                    ],
+                    "validationParams": [
+                        "myProfile.authenticateOTP"
+                    ],
+                    "parameters": {
+                        "jsessionid": "myProfile.sessionId",
+                        "mbparam": "myProfile.mparam",
+                        "SMSOTP": "myProfile.authenticateOTP"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotLoginTransaction"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotPasswordAuthenticate"
+                    }
+                },
+                {
+                    "eventName": "onRegenerateOTPForTouchIDClick",
+                    "action": "ForgotPasswordClickedNoService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "myProfile.sessionId",
+                        "mbparam": "myProfile.mparam"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotPasswordAuthenticate"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotPasswordAuthenticate"
+                    }
+                },
+                {
+                    "eventName": "onForgotPwdAuthCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotPasswordUserID"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotPasswordAuthenticate"
+                    }
+                },
+                {
+                    "eventName": "onForgotLoginTransClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotLoginTransaction"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotLoginTransaction"
+                    }
+                }
+            ]
+        },
+        {
+            "ForgotPasswordReset": [
+                {
+                    "eventName": "onForgotLoginClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotLogin"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotLogin"
+                    }
+                },
+                {
+                    "eventName": "onForgotPwdTxnClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotTransaction"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotTransaction"
+                    }
+                },
+                {
+                    "eventName": "onForgotLoginTransClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotLoginTransaction"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotLoginTransaction"
+                    }
+                },
+                {
+                    "eventName": "onForgotPwdResetCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                }
+            ]
+        },
+        {
+            "ForgotLogin": [
+                {
+                    "eventName": "onForgotPwdDoneClick",
+                    "action": "ForgotPasswordContinueService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "encryptionEnabled": true,
+                    "sensitiveFields": [
+                        "myProfile.newPassword",
+                        "myProfile.confirmPassword"
+                    ],
+                    "validationParams": [
+                        "myProfile.newPassword",
+                        "myProfile.confirmPassword"
+                    ],
+                    "parameters": {
+                        "jsessionid": "myProfile.sessionId",
+                        "mbparam": "myProfile.mparam",
+                        "LginPwdChk": "myProfile.loginPwdChk",
+                        "LginNewPwd": "myProfile.newPassword",
+                        "LginNewCnfPwd": "myProfile.confirmPassword",
+                        "TxnPwdChk": "myProfile.passBlank",
+                        "TxnNewPwd": "myProfile.passBlank",
+                        "TxnNewCnfPwd": "myProfile.passBlank"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotPasswordSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotLogin"
+                    }
+                },
+                {
+                    "eventName": "onBackArrowClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotPasswordReset"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotPasswordReset"
+                    }
+                },
+                {
+                    "eventName": "onForgotLoginCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                }
+            ]
+        },
+        {
+            "ForgotLoginTransaction": [
+                {
+                    "eventName": "onBackArrowClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotPasswordReset"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotPasswordReset"
+                    }
+                },
+                {
+                    "eventName": "onForgotLoginTransCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                {
+                    "eventName": "onForgotLoginTranDoneClick",
+                    "action": "ForgotPasswordContinueService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "encryptionEnabled": true,
+                    "sensitiveFields": [
+                        "myProfile.newPassword",
+                        "myProfile.confirmPassword",
+                        "myProfile.txnNewPassword",
+                        "myProfile.txnConfirmPassword"
+                    ],
+                    "validationParams": [
+                        "myProfile.newPassword",
+                        "myProfile.confirmPassword",
+                        "myProfile.txnNewPassword",
+                        "myProfile.txnConfirmPassword"
+                    ],
+                    "parameters": {
+                        "jsessionid": "myProfile.sessionId",
+                        "mbparam": "myProfile.mparam",
+                        "LginPwdChk": "myProfile.loginPwdChk",
+                        "LginNewPwd": "myProfile.newPassword",
+                        "LginNewCnfPwd": "myProfile.confirmPassword",
+                        "TxnPwdChk": "myProfile.txnPwdChk",
+                        "TxnNewPwd": "myProfile.txnNewPassword",
+                        "TxnNewCnfPwd": "myProfile.txnConfirmPassword"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotPasswordSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotLoginTransaction"
+                    }
+                }
+            ]
+        },
+        {
+            "ForgotTransaction": [
+                {
+                    "eventName": "onBackArrowClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotPasswordReset"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotPasswordReset"
+                    }
+                },
+                {
+                    "eventName": "onForgotTransactionDoneClick",
+                    "action": "ForgotPasswordContinueService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "encryptionEnabled": true,
+                    "sensitiveFields": [
+                        "myProfile.txnNewPassword",
+                        "myProfile.txnConfirmPassword"
+                    ],
+                    "validationParams": [
+                        "myProfile.txnNewPassword",
+                        "myProfile.txnConfirmPassword"
+                    ],
+                    "parameters": {
+                        "jsessionid": "myProfile.sessionId",
+                        "mbparam": "myProfile.mparam",
+                        "LginPwdChk": "myProfile.passBlank",
+                        "LginNewPwd": "myProfile.passBlank",
+                        "LginNewCnfPwd": "myProfile.passBlank",
+                        "TxnPwdChk": "myProfile.txnPwdChk",
+                        "TxnNewPwd": "myProfile.txnNewPassword",
+                        "TxnNewCnfPwd": "myProfile.txnConfirmPassword"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotPasswordSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForgotTransaction"
+                    }
+                },
+                {
+                    "eventName": "onForgotTransactionClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "Dashboard"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                }
+            ]
+        },
+        {
+            "ForgotPasswordSuccessful": [
+                {
+                    "eventName": "onDoneButtonClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                }
+            ]
+        },
+        {
+            "ForcePasswordChangeMessage": [
+                {
+                    "eventName": "onForcePasswordChangeOkButtonClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForcePasswordLoginTransaction"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForcePasswordLoginTransaction"
+                    }
+                }
+            ]
+        },
+        {
+            "ForcePasswordLoginTransaction": [
+                {
+                    "eventName": "onSubmitButtonClick",
+                    "action": "ForcePasswordChangeUpdateService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "myProfile.oldForceLoginPassword",
+                        "myProfile.newForceLoginPassword",
+                        "myProfile.confirmForceLoginPassword",
+                        "myProfile.oldForceTxnPassword",
+                        "myProfile.newForceTxnPassword",
+                        "myProfile.confirmForceTxnPassword"
+                    ],
+                    "parameters": {
+                        "jsessionid": "myProfile.sessionId",
+                        "mbparam": "myProfile.mparam",
+                        "LginOldPwd": "myProfile.oldForceLoginPassword",
+                        "LginNewPwd": "myProfile.newForceLoginPassword",
+                        "LginNewCnfPwd": "myProfile.confirmForceLoginPassword",
+                        "LoginPwdChk": "myProfile.loginPwdChk",
+                        "TxnOldPwd": "myProfile.oldForceTxnPassword",
+                        "TxnNewPwd": "myProfile.newForceTxnPassword",
+                        "TxnNewCnfPwd": "myProfile.confirmForceTxnPassword",
+                        "TxnPwdChk": "myProfile.txnPwdChk"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForceChangePasswordSuccessMessage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ForcePasswordLoginTransaction"
+                    }
+                },
+                {
+                    "eventName": "onForceChangePasswordCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                }
+            ]
+        },
+        {
+            "ForceChangePasswordSuccessMessage": [
+                {
+                    "eventName": "onOkButtonClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                }
+            ]
+        },
+        {
+            "ChannelSelection": [
+                {
+                    "eventName": "onChannelRegClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ChannelRegisteration"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ChannelRegisteration"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                }
+            ]
+        },
+        {
+            "ChannelRegisteration": [
+                {
+                    "eventName": "onRegSuccessClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ChannelRegisterationSuccessful"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ChannelRegisterationSuccessful"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                }
+            ]
+        },
+        {
+            "ChannelRegisterationSuccessful": [
+                {
+                    "eventName": "onLoginClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                }
+            ]
+        },
+        {
+            "ReferAndSharePage": [
+                {
+                    "eventName": "onReferClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ReferFriendToRmPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ReferAndSharePage"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ReferAndSharePage"
+                    }
+                }
+            ]
+        },
+        {
+            "ReferFriendToRmPage": [
+                {
+                    "eventName": "onReferSuccessClick",
+                    "action": "ReferToRMService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "myProfile.referAndShare.fullName",
+                        "myProfile.referAndShare.number"
+                    ],
+                    "validationErrorMessage": [
+                        	{
+                            	"spclCharacterValidator":"APP.MYPROFILE.REFER_FRND_RM.INVALID_NAME"
+                            	
+                            	
+                        	},{
+                        	    "lengthEquals":"APP.MYPROFILE.REFER_FRND_RM.MOBILE_NUMBER_LENGTH_ERROR"
+                        	}
+                    	],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "MAIL_BODY": "myProfile.referAndShare.message"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ReferFriendToRmSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ReferFriendToRmPage"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ReferFriendToRmPage"
+                    }
+                },
+                {
+                    "eventName": "onPrevClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ReferAndSharePage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ReferFriendToRmPage"
+                    }
+                }
+            ]
+        },
+        {
+            "ReferFriendToRmSuccessPage": [
+                {
+                    "eventName": "onDoneButtonClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ReferFriendToRmSuccessPage"
+                    }
+                }
+            ]
+        },
+        {
+            "MyActivitiesPage": [
+                {
+                    "eventName": "onActivityDetailClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "MyActivitiesDetailsPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "MyActivitiesDetailsPage"
+                    }
+                },
+                {
+                    "eventName": "onActiveSearchClick",
+                    "action": "SelfAuditInitService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "MyActivitiesSearchPage"
+                    },
+                    "errorPage": {
+                        "pageName": "MyActivitiesSearchPage"
+                    }
+                },
+                {
+                    "eventName": "onSearchClose",
+                    "action": "SelfAuditContinueService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "ActInqFromDate_day": "myProfile.emptyStr",
+                        "ActInqFromDate_month": "myProfile.emptyStr",
+                        "ActInqFromDate_year": "myProfile.emptyStr",
+                        "ActInqToDate_day": "myProfile.emptyStr",
+                        "ActInqToDate_month": "myProfile.emptyStr",
+                        "ActInqToDate_year": "myProfile.emptyStr",
+                        "CHANNEL_ID_QUERY": "myProfile.emptyStr",
+                        "NO_OF_DAYS": "myProfile.activityModel.isDays"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "MyActivitiesPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "MyActivitiesSearchPage"
+                    }
+                }
+            ]
+        },
+        {
+            "MyActivitiesSearchPage": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPrevServiceClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "MyActivitiesPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "MyActivitiesPage"
+                    }
+                },
+                {
+                    "eventName": "onServiceSearchClick",
+                    "action": "SelfAuditContinueService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "myProfile.activityModel.fromDate",
+                        "myProfile.activityModel.toDate",
+                        "myProfile.activityModel.channel"
+                    ],
+                    "validationErrorMessage": [
+                      {"actualDateGreaterThan":"APP.MYPROFILE.MY_ACTIVITIES.VAL_ERROR.VALID_ACTUALDATE"}],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "ActInqFromDate_day": "myProfile.activityModel.fromDay",
+                        "ActInqFromDate_month": "myProfile.activityModel.fromMonth",
+                        "ActInqFromDate_year": "myProfile.activityModel.fromYear",
+                        "ActInqToDate_day": "myProfile.activityModel.toDay",
+                        "ActInqToDate_month": "myProfile.activityModel.toMonth",
+                        "ActInqToDate_year": "myProfile.activityModel.toYear",
+                        "CHANNEL_ID_QUERY": "myProfile.activityModel.channel",
+                        "NO_OF_DAYS": "myProfile.activityModel.isDays"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "MyActivitiesPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "MyActivitiesSearchPage"
+                    }
+                }
+            ]
+        },
+        {
+            "MyActivitiesDetailsPage": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPrevServiceClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "MyActivitiesPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "MyActivitiesPage"
+                    }
+                }
+            ]
+        },
+        {
+            "UpdateUserID": [
+				{
+				"eventName": "onNoClick",
+				"action": "navigation",
+				"actionType": "navigation",
+				"validation": "false",
+				"successPage": {
+					"subFeature": "MyProfile",
+					"pageName": "UpdateUserID"
+				},
+				"errorPage": {
+					"subFeature": "MyProfile",
+					"pageName": "UpdateUserIDWarningPage"
+				}
+				},
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                },
+		{
+				"eventName": "onUserIdEdit",
+				"action": "navigation",
+				"actionType": "navigation",
+				"validation": "true",
+                "validationParams": ["myProfile.updateIdModel.Userid"],
+                 "validationErrorMessage": [
+                        	{
+                            	"validateBasedOnIndex": "APP.MYPROFILE.VAL_ERROR.VALID_USERID"
+                        	}
+                    	],
+				"successPage": {
+					"subFeature": "MyProfile",
+					"pageName": "UpdateUserIDWarningPage"
+				},
+				"errorPage": {
+					"subFeature": "MyProfile",
+					"pageName": "UpdateUserID"
+				}
+			},
+                {
+                    "eventName": "onNNConfirmClick",
+                    "action": "UpdateUserIdConfirm",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams":["myProfile.updateIdModel.Userid"],
+                      "validationErrorMessage": [
+                        	{
+                            	"validateBasedOnIndex": "APP.MYPROFILE.VAL_ERROR.VALID_USERID"
+                        	}
+                    	],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "index": "myProfile.updateIdModel.strUpdateIndex",
+                        "value": "myProfile.updateIdModel.strUpdateIds"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "UpdateUserIDAuthPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "UpdateUserID"
+                    }
+			},
+			{
+				"eventName": "onWarningNNConfirmClick",
+				"action": "UpdateUserIdConfirm",
+				"actionType": "service",
+				"validation": "false",
+				
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam",
+					"index": "myProfile.updateIdModel.strUpdateIndex",
+					"value": "myProfile.updateIdModel.strUpdateIds"
+				},
+				  
+				
+				"successPage": {
+					"subFeature": "MyProfile",
+					"pageName": "UpdateUserIDAuthPage"
+				},
+				"errorPage": {
+					"subFeature": "MyProfile",
+					"pageName": "UpdateUserIDWarningPage"
+                    }
+            }
+			
+			]
+		},
+				{
+			"UpdateUserIDWarningPage": [{
+				"eventName": "onNoClick",
+				"action": "navigation",
+				"actionType": "navigation",
+				"validation": "false",
+				"successPage": {
+					"subFeature": "MyProfile",
+					"pageName": "UpdateUserID"
+				},
+				"errorPage": {
+					"subFeature": "MyProfile",
+					"pageName": "UpdateUserIDWarningPage"
+				}
+			},  
+			
+			{
+				"eventName": "onNNConfirmClick",
+				"action": "UpdateUserIdConfirm",
+				"actionType": "service",
+				"validation": "false",
+				
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam",
+					"index": "myProfile.updateIdModel.strUpdateIndex",
+					"value": "myProfile.updateIdModel.strUpdateIds"
+				},
+				  
+				
+				"successPage": {
+					"subFeature": "MyProfile",
+					"pageName": "UpdateUserIDAuthPage"
+				},
+				"errorPage": {
+					"subFeature": "MyProfile",
+					"pageName": "UpdateUserIDWarningPage"
+                    }
+                }
+            ]
+        },
+        {
+            "UpdateUserIDAuthPage": [
+                {
+                    "eventName": "onPrevServiceClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "UpdateUserID"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "UpdateUserIDAuthPage"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "UpdateUserIDAuthPage"
+                    }
+                },
+                {
+                    "eventName": "onNNSuccessClick",
+                    "action": "UpdateUserIdSuccess",
+                    "actionType": "service",
+                    "validation": "true",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "UpdateUserIDSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "UpdateUserIDAuthPage"
+                    }
+                }
+            ]
+        },
+        {
+            "UpdateUserIDSuccessPage": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                }
+            ]
+        },
+        {
+            "UpdateContactDetailPage": [
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onCCConfirmClick",
+                    "action": "UpdateContactDetailsConfirm",
+                    "actionType": "services",
+                    "validation": "true",
+				"validationParams": [
+					"myProfile.updateContactModel.workEmail",
+					"myProfile.updateContactModel.personalEmail",
+					"myProfile.updateContactModel.mobileNumberCountry",
+					"myProfile.updateContactModel.mobileNumberCity",
+					"myProfile.updateContactModel.mobileNumberLocalCode",
+					"myProfile.updateContactModel.workExtenNumber",
+					"myProfile.updateContactModel.homePhoneNumberCity",
+					"myProfile.updateContactModel.homePhoneNumberLocalCode",
+					"myProfile.updateContactModel.workPhoneNumberCity",
+					"myProfile.updateContactModel.workPhoneNumberLocalCode",
+					"myProfile.updateContactModel.homePhoneNumberCountry",
+					"myProfile.updateContactModel.workPhoneNumberCountry"
+					],
+					"validationErrorMessage": [
+                        	{
+                            	"isEmail": "APP.MYPROFILE.UPDATECONTACTDET.IS_EMAIL_ID_ERROR"
+                        	}
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "PRF_PHN":"myProfile.updateContactModel.prefPhn",
+						"PRF_EMAIL":"myProfile.updateContactModel.prefEmail",
+					"HOME_PH_NUMBERCOUNTRY": "myProfile.updateContactModel.homePhoneNumberCountry",
+					"HOME_PH_NUMBERCITY": "myProfile.updateContactModel.homePhoneNumberCity",
+					"HOME_PH_NUMBERLOCALCODE": "myProfile.updateContactModel.homePhoneNumberLocalCode",
+					"WORK_PH_NUMBERCOUNTRY": "myProfile.updateContactModel.workPhoneNumberCountry",
+					"WORK_PH_NUMBERCITY": "myProfile.updateContactModel.workPhoneNumberCity",
+					"WORK_PH_NUMBERLOCALCODE": "myProfile.updateContactModel.workPhoneNumberLocalCode",
+					"MOBILE_NUMBERCOUNTRY": "myProfile.updateContactModel.mobileNumberCountry",
+					"MOBILE_NUMBERCITY": "myProfile.updateContactModel.mobileNumberCity",
+					"MOBILE_NUMBERLOCALCODE": "myProfile.updateContactModel.mobileNumberLocalCode",
+					"PERSONAL_EMAILID": "myProfile.updateContactModel.personalEmail",
+					"WORK_EMAILID": "myProfile.updateContactModel.workEmail",
+					"WORK_EXTN_NUMBER": "myProfile.updateContactModel.workExtenNumber"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "UpdateContactDetailAuthPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "UpdateContactDetailAuthPage"
+                    }
+                }
+            ]
+        },
+        {
+            "UpdateContactDetailAuthPage": [
+                {
+                    "eventName": "onPrevServiceClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "UpdateContactDetailPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "UpdateContactDetailAuthPage"
+                    }
+                },
+                {
+                    "eventName": "onCancelClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "UpdateContactDetailAuthPage"
+                    }
+                },
+                {
+				"eventName": "onCCSuccessClick",
+                    "action": "UpdateContactDetailsSuccess",
+                    "actionType": "services",
+				"validation": "true",
+				"validationParams": [],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "Mode": "myProfile.updateContactModel.transactionPwD"
+                    },
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "UpdateContactDetailSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "UpdateContactDetailAuthPage"
+                    }
+                }
+            ]
+        },
+        {
+            "UpdateContactDetailSuccessPage": [
+                {
+				"eventName": "onSuccessClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+					"pageName": "UpdateContactDetailSuccessPage"
+				}
+			},
+			{
+				"eventName": "onCancelClick",
+				"action": "navigation",
+				"actionType": "navigation",
+				"validation": "false",
+				"successPage": {
+					"subFeature": "MyProfile",
+					"pageName": "UpdateContactDetailPage"
+				},
+				"errorPage": {
+					"subFeature": "MyProfile",
+					"pageName": "UpdateContactDetailSuccessPage"
+                    }
+                }
+            ]
+            },
+            { 
+				"UpdateNicknameLandingPage": [
+                {
+                    "eventName": "onUpdateNicknameContinueClick",
+                    "action": "UpdateNicknameSubmitService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams":["myProfile.updateNickname.nickname"],
+                     "parameters": {
+                    	"jsessionid": "fields.finacleUserSessionId",
+                    	"mbparam": "fields.finacleMbParam",
+                    	"index": "myProfile.updateNickname.selectedIndexAsString",
+                    	"NickName": "myProfile.updateNickname.selectedNicknameAsString"
+                    },
+                    "successPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "UpdateNicknameAuthPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "UpdateNicknameLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onUpdateNicknameCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "UpdateNicknameAuthPage"
+                    }
+                }
+              ]
+			},
+			{ 
+				"UpdateNicknameAuthPage": [
+                {
+                    "eventName": "onUpdateNicknameConfirmClick",
+                    "action": "UpdateNicknameSuccessService",
+                    "actionType": "service",
+                    "validation": "true",
+                     "parameters": {
+                    	"jsessionid": "fields.finacleUserSessionId",
+                    	"mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "UpdateNicknameSuccessPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "UpdateNicknameAuthPage"
+                    }
+                },
+                {
+                    "eventName": "onUpdateNicknamePrevClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "UpdateNicknameLandingPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "UpdateNicknameAuthPage"
+				}
+			}, {
+				"eventName": "onUpdateNicknameCloseClick",
+				"action": "navigation",
+				"actionType": "navigation",
+				"validation": "false",
+				"successPage": {
+					"subFeature": "MyProfile",
+					"pageName": "ProfileLandingPage"
+				},
+				"errorPage": {
+					"subFeature": "MyProfile",
+					"pageName": "UpdateNicknameAuthPage"
+				}
+			}]
+		}, {
+			"UpdateNicknameSuccessPage": [{
+				"eventName": "onSuccessClick",
+				"action": "navigation",
+				"actionType": "navigation",
+				"validation": "false",
+				"successPage": {
+					"subFeature": "MyProfile",
+					"pageName": "UpdateNicknameLandingPage"
+				},
+				"errorPage": {
+					"subFeature": "MyProfile",
+					"pageName": "UpdateNicknameSuccessPage"
+                    }
+                },
+                {
+                    "eventName": "onUpdateNicknameCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"MyProfile",
+                    
+                        "pageName": "UpdateNicknameSuccessPage"
+                    }
+                }
+              ]
+        	},
+        	{ 
+				"MyPreferencesPage": [
+	                {
+	                    "eventName": "onMyPreferenceCloseClick",
+	                    "action": "navigation",
+	                    "actionType": "navigation",
+	                    "validation": "false",
+	                    "successPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ProfileLandingPage"
+	                    },
+	                    "errorPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "MyPreferencesPage"
+	                    }
+	                },
+	                {
+	                    "eventName": "onPrimaryAccountClick",
+	                    "action": "UpdatePrimaryAccountInitService",
+	                    "actionType": "service",
+	                    "validation": "false",
+	                     "parameters": {
+	                    	"jsessionid": "fields.finacleUserSessionId",
+	                    	"mbparam": "fields.finacleMbParam"
+	                    },
+	                    "successPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "UpdatePrimaryAccountPage"
+	                    },
+	                    "errorPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "MyPreferencesPage"
+	                    }
+	                },
+	                {
+	                    "eventName": "onManageAlertClick",
+	                    "action": "FetchAlertsService",
+	                    "actionType": "service",
+	                    "validation": "false",
+	                     "parameters": {
+	                    	"jsessionid": "fields.finacleUserSessionId",
+	                    	"mbparam": "fields.finacleMbParam"
+	                    },
+	                    "successPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertPage"
+	                    },
+	                    "errorPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "MyPreferencesPage"
+	                    }
+	                },
+					{
+	                    "eventName": "onDNDSettingsClick",
+	                    "action": "DNDSettingsService",
+	                    "actionType": "service",
+	                    "validation": "false",
+	                     "parameters": {
+	                    	"jsessionid": "fields.finacleUserSessionId",
+	                    	"mbparam": "fields.finacleMbParam"
+	                    },
+	                    "successPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "DNDSettingsPage"
+	                    },
+	                    "errorPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "MyPreferencesPage"
+	                    }
+	                }
+	                
+              ]
+			},
+			{ 
+				"ManageAlertPage": [
+	                {
+	                    "eventName": "onManageAlertCloseClick",
+	                    "action": "navigation",
+	                    "actionType": "navigation",
+	                    "validation": "false",
+	                    "successPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "MyPreferencesPage"
+	                    },
+	                    "errorPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertPage"
+	                    }
+	                },
+	                {
+	                    "eventName": "onManageAlertDetailsClick",
+	                    "action": "navigation",
+	                    "actionType": "navigation",
+	                    "validation": "false",
+	                    "successPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertDetailsPage"
+	                    },
+	                    "errorPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertPage"
+	                    }
+	                }
+              ]
+			},
+			{ 
+				"ManageAlertDetailsPage": [
+				     {
+	                    "eventName": "onManageAlertPageBackClick",
+	                    "action": "navigation",
+	                    "actionType": "navigation",
+	                    "validation": "false",
+	                    "successPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertPage"
+	                    },
+	                    "errorPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertDetailsPage"
+	                    }
+	                },
+	                {
+	                    "eventName": "onManageAlertDetailsPageCloseClick",
+	                    "action": "navigation",
+	                    "actionType": "navigation",
+	                    "validation": "false",
+	                    "successPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "MyPreferencesPage"
+	                    },
+	                    "errorPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertDetailsPage"
+	                    }
+	                },
+	                {
+	                    "eventName": "onManageAlertDetailsSubmitClick",
+	                    "action": "navigation",
+	                    "actionType": "navigation",
+	                    "validation": "true",
+	                    "validationParams":[
+	                    	"myProfile.manageAlert.accountNumber",
+	                    	"myProfile.manageAlert.numberOfDays",
+	                    	"myProfile.manageAlert.amount",
+	                    	"myProfile.manageAlert.frequencyAlert",
+	                    	"myProfile.manageAlert.weeklyFirstDate",
+	                    	"myProfile.manageAlert.monthlyFirstDate",
+	                    	"myProfile.manageAlert.yearDate1"
+	                    ],
+	                    "validationErrorMessage": [
+                        	{
+                            	"requiredNonZero": "APP.MYPROFILE.VAL_ERROR.VALID_AMOUNT"
+                        	}
+                    	],
+	                    "successPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertConfirmPage"
+	                    },
+	                    "errorPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertDetailsPage"
+	                    }
+	                },
+	                {
+	                    "eventName": "onManageAlertDetailsSubscribeOFFSubmitClick",
+	                    "action": "navigation",
+	                    "actionType": "navigation",
+	                    "validation": "false",
+	                    "successPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertConfirmPage"
+	                    },
+	                    "errorPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertDetailsPage"
+	                    }
+	                }
+              ]
+			},
+			{ 
+				"ManageAlertConfirmPage": [
+	                {
+	                    "eventName": "onManageAlertConfirmPageBackClick",
+	                    "action": "navigation",
+	                    "actionType": "navigation",
+	                    "validation": "false",
+	                    "successPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertDetailsPage"
+	                    },
+	                    "errorPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertConfirmPage"
+	                    }
+	                },
+	                {
+	                    "eventName": "onManageAlertConfirmPageCloseClick",
+	                    "action": "navigation",
+	                    "actionType": "navigation",
+	                    "validation": "false",
+	                    "successPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "MyPreferencesPage"
+	                    },
+	                    "errorPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertConfirmPage"
+	                    }
+	                },
+	                {
+	                    "eventName": "onManageAlertDetailsSubscribedClick",
+	                    "action": "SubscribeAlertService",
+	                    "actionType": "service",
+	                    "validation": "true",
+	                    "parameters": {
+	                    	"jsessionid": "fields.finacleUserSessionId",
+	                    	"mbparam": "fields.finacleMbParam",
+	                    	"ALERT_ID":"myProfile.manageAlert.alertId",
+	                    	"AMOUNT":"myProfile.manageAlert.amount.toString()",
+	                    	"UNIQUE_ID":"myProfile.manageAlert.accountNumber.toString()",
+	                    	"NO_OF_DAYS":"myProfile.manageAlert.numberOfDays.toString()",
+	                    	"FREQUENCY":"myProfile.manageAlert.frequencyAlert",
+	                    	"ALRT_PARAM_NAME":"myProfile.manageAlert.alertParamName",
+	                    	"INTERNET_BANKING":"myProfile.manageAlert.alertDeliveryChannelsParameter(myProfile.manageAlert.inbox)",
+	                    	"EMAIL":"myProfile.manageAlert.alertDeliveryChannelsParameter(myProfile.manageAlert.email)",
+	                    	"SMS":"myProfile.manageAlert.alertDeliveryChannelsParameter(myProfile.manageAlert.textMessage)",
+	                    	"VOICE":"myProfile.manageAlert.alertDeliveryChannelsParameter(myProfile.manageAlert.voice)",
+	                    	"FAX":"myProfile.manageAlert.alertDeliveryChannelsParameter(myProfile.manageAlert.fax)",
+	                    	"WEEK_DAY1":"myProfile.manageAlert.weeklyFirstDate.toString()",
+	                    	"WEEK_DAY2":"myProfile.manageAlert.weeklySecondDate.toString()",
+	                    	"MONTH_DAY1":"myProfile.manageAlert.monthlyFirstDate.toString()",
+	                    	"MONTH_DAY2":"myProfile.manageAlert.monthlySecondDate.toString()",
+	                    	"YEAR_MONTH1":"myProfile.manageAlert.yearMonth1.toString()",
+	                    	"YEAR_DAY1":"myProfile.manageAlert.yearDate1.toString()",
+	                    	"YEAR_MONTH2":"myProfile.manageAlert.yearMonth2.toString()",
+	                    	"YEAR_DAY2":"myProfile.manageAlert.yearDate2.toString()",
+	                    	"YEAR_MONTH3":"myProfile.manageAlert.yearMonth3.toString()",
+	                    	"YEAR_DAY3":"myProfile.manageAlert.yearDate3.toString()",
+	                    	"YEAR_MONTH4":"myProfile.manageAlert.yearMonth4.toString()",
+	                    	"YEAR_DAY4":"myProfile.manageAlert.yearDate4.toString()",
+	                    	"YEAR_MONTH5":"myProfile.manageAlert.yearMonth5.toString()",
+	                    	"YEAR_DAY5":"myProfile.manageAlert.yearDate5.toString()",
+	                    	"YEAR_MONTH6":"myProfile.manageAlert.yearMonth6.toString()",
+	                    	"YEAR_DAY6":"myProfile.manageAlert.yearDate6.toString()"
+	                   },
+	                    "successPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertSuccessPage"
+	                    },
+	                    "errorPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertConfirmPage"
+	                    }
+	                },
+	                {
+	                    "eventName": "onManageAlertDetailsSubmitClick",
+	                    "action": "UpdateAlertService",
+	                    "actionType": "service",
+	                    "validation": "true",
+	                    "parameters": {
+	                    	"jsessionid": "fields.finacleUserSessionId",
+	                    	"mbparam": "fields.finacleMbParam",
+	                    	"ALERT_ID":"myProfile.manageAlert.alertId",
+	                    	"AMOUNT":"myProfile.manageAlert.amount.toString()",
+	                    	"UNIQUE_ID":"myProfile.manageAlert.accountNumber.toString()",
+	                    	"NO_OF_DAYS":"myProfile.manageAlert.numberOfDays.toString()",
+	                    	"FREQUENCY":"myProfile.manageAlert.frequencyAlert",
+	                    	"ALRT_PARAM_NAME":"myProfile.manageAlert.alertParamName",
+	                    	"INTERNET_BANKING":"myProfile.manageAlert.alertDeliveryChannelsParameter(myProfile.manageAlert.inbox)",
+	                    	"EMAIL":"myProfile.manageAlert.alertDeliveryChannelsParameter(myProfile.manageAlert.email)",
+	                    	"SMS":"myProfile.manageAlert.alertDeliveryChannelsParameter(myProfile.manageAlert.textMessage)",
+	                    	"VOICE":"myProfile.manageAlert.alertDeliveryChannelsParameter(myProfile.manageAlert.voice)",
+	                    	"FAX":"myProfile.manageAlert.alertDeliveryChannelsParameter(myProfile.manageAlert.fax)",
+	                    	"WEEK_DAY1":"myProfile.manageAlert.weeklyFirstDate.toString()",
+	                    	"WEEK_DAY2":"myProfile.manageAlert.weeklySecondDate.toString()",
+	                    	"WEEK_INTERNAL_REFNO1":"myProfile.manageAlert.weekRefNo1.toString()",
+	                    	"WEEK_INTERNAL_REFNO2":"myProfile.manageAlert.weekRefNo2.toString()",
+	                    	"MONTH_DAY1":"myProfile.manageAlert.monthlyFirstDate.toString()",
+	                    	"MONTH_DAY2":"myProfile.manageAlert.monthlySecondDate.toString()",
+	                    	"MONTH_INTERNAL_REFNO1":"myProfile.manageAlert.monthRefNo1.toString()",
+	                    	"MONTH_INTERNAL_REFNO2":"myProfile.manageAlert.monthRefNo2.toString()",
+	                    	"YEAR_MONTH1":"myProfile.manageAlert.yearMonth1.toString()",
+	                    	"YEAR_DAY1":"myProfile.manageAlert.yearDate1.toString()",
+	                    	"YEAR_MONTH2":"myProfile.manageAlert.yearMonth2.toString()",
+	                    	"YEAR_DAY2":"myProfile.manageAlert.yearDate2.toString()",
+	                    	"YEAR_MONTH3":"myProfile.manageAlert.yearMonth3.toString()",
+	                    	"YEAR_DAY3":"myProfile.manageAlert.yearDate3.toString()",
+	                    	"YEAR_MONTH4":"myProfile.manageAlert.yearMonth4.toString()",
+	                    	"YEAR_DAY4":"myProfile.manageAlert.yearDate4.toString()",
+	                    	"YEAR_MONTH5":"myProfile.manageAlert.yearMonth5.toString()",
+	                    	"YEAR_DAY5":"myProfile.manageAlert.yearDate5.toString()",
+	                    	"YEAR_MONTH6":"myProfile.manageAlert.yearMonth6.toString()",
+	                    	"YEAR_DAY6":"myProfile.manageAlert.yearDate6.toString()",
+	                    	"YEAR_INTERNAL_REFNO1":"myProfile.manageAlert.yearRefNo1.toString()",
+	                    	"YEAR_INTERNAL_REFNO2":"myProfile.manageAlert.yearRefNo2.toString()",
+	                    	"YEAR_INTERNAL_REFNO3":"myProfile.manageAlert.yearRefNo3.toString()",
+	                    	"YEAR_INTERNAL_REFNO4":"myProfile.manageAlert.yearRefNo4.toString()",
+	                    	"YEAR_INTERNAL_REFNO5":"myProfile.manageAlert.yearRefNo5.toString()",
+	                    	"YEAR_INTERNAL_REFNO6":"myProfile.manageAlert.yearRefNo6.toString()"
+	                   },
+	                    "successPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertSuccessPage"
+	                    },
+	                    "errorPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertConfirmPage"
+	                    }
+	                },
+	                {
+	                    "eventName": "onManageAlertDetailsUnsubscribedClick",
+	                    "action": "UnsubscribeAlertService",
+	                    "actionType": "service",
+	                    "validation": "true",
+	                    "parameters": {
+	                    	"jsessionid": "fields.finacleUserSessionId",
+	                    	"mbparam": "fields.finacleMbParam",
+	                    	"ALERT_ID":"myProfile.manageAlert.alertId.toString()",
+	                    	"UNIQUE_ID":"myProfile.manageAlert.accountNumber.toString()"
+	                   },
+	                    "successPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertSuccessPage"
+	                    },
+	                    "errorPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertConfirmPage"
+	                    }
+	                }
+              ]
+			},
+			{ 
+				"ManageAlertSuccessPage": [
+	                {
+	                    "eventName": "onManageAlertDoneClick",
+	                    "action": "navigation",
+	                    "actionType": "navigation",
+	                    "validation": "false",
+	                    "successPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "MyPreferencesPage"
+	                    },
+	                    "errorPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "ManageAlertSuccessPage"
+	                    }
+	                }
+              ]
+			},
+			{ 
+				"DNDSettingsPage": [
+				
+					{
+                    	"eventName": "notRegisteredForAlerts",
+                    	"action": "navigation",
+                    	"actionType": "navigation",
+                    	"validation": "false",
+                    	"successPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "MyPreferencesPage"
+                   	 },
+                    	"errorPage": {
+                    		"subFeature":"MyProfile",
+                        	"pageName": "ProfileLandingPage"
+                    	}
+                	},
+	                {
+	                    "eventName": "onCancelClick",
+	                    "action": "navigation",
+	                    "actionType": "navigation",
+	                    "validation": "false",
+	                    "successPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "MyPreferencesPage"
+	                    },
+	                    "errorPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "DNDSettingsPage"
+	                    }
+	                },
+	                {
+	                    "eventName": "onDNDConfirmClick",
+	                    "action": "DNDSettingsUpdateService",
+	                    "actionType": "service",
+	                    "validation": "false",
+	                    "parameters": {
+                    	"jsessionid": "fields.finacleUserSessionId",
+                    	"mbparam": "fields.finacleMbParam",
+                    	"DND_FROM_TIME": "myProfile.dndSettings.dndFromTime.toString()",
+                    	"DND_TO_TIME": "myProfile.dndSettings.dndToTime.toString()",
+                    	"DND_Enabled": "myProfile.dndSettings.dndEnabled"
+                    },
+	                    "successPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "DNDSettingsSuccessPage"
+	                    },
+	                    "errorPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "DNDSettingsPage"
+	                    }
+	                }
+              ]
+			},
+			{ 
+				"DNDSettingsSuccessPage": [
+	                {
+	                    "eventName": "onDNDSettingsDoneClick",
+	                    "action": "navigation",
+	                    "actionType": "navigation",
+	                    "validation": "false",
+	                    "successPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "MyPreferencesPage"
+	                    },
+	                    "errorPage": {
+	                    	"subFeature":"MyProfile",
+	                        "pageName": "DNDSettingsSuccessPage"
+	                    }
+	                }
+              ]
+			},
+			{ 
+				"UpdatePrimaryAccountPage": [
+				 {
+                    "eventName": "noPrimaryAccount",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "MyPreferencesPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPrimaryAccountCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "MyPreferencesPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPrimaryAccountContinueClick",
+                    "action": "UpdatePrimaryAccountAuthService",
+                    "actionType": "service",
+                    "validation": "false",
+                     "parameters": {
+                    	"jsessionid": "fields.finacleUserSessionId",
+                    	"mbparam": "fields.finacleMbParam",
+                    	"ACCOUNT_IDX": "myProfile.primaryAcc.toString()"
+                    },
+                    "successPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "UpdatePrimaryAccountAuthPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                }
+              ]
+			},
+			{ 
+				"UpdatePrimaryAccountAuthPage": [
+                {
+                    "eventName": "onPrimaryAccountAuthCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "MyPreferencesPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onPrevServiceClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "UpdatePrimaryAccountPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onUpdatePrimaryAccountConfirmClick",
+                    "action": "UpdatePrimaryAccountSubmitService",
+                    "actionType": "service",
+                    "validation": "true",
+                     "parameters": {
+                    	"jsessionid": "fields.finacleUserSessionId",
+                    	"mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "UpdatePrimaryAccountSuccessPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "UpdatePrimaryAccountAuthPage"
+                    }
+                },
+                {
+                    "eventName": "onUpdatePrimaryAccountNoAuthClick",
+                    "action": "UpdatePrimaryAccountSubmitService",
+                    "actionType": "service",
+                    "validation": "false",
+                     "parameters": {
+                    	"jsessionid": "fields.finacleUserSessionId",
+                    	"mbparam": "fields.finacleMbParam",
+                    	"Mode": "emptyStr"
+                    },
+                    "successPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "UpdatePrimaryAccountSuccessPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    }
+                }
+              ]
+			},
+			{ 
+				"UpdatePrimaryAccountSuccessPage": [
+                {
+                    "eventName": "onSuccessClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "MyPreferencesPage"
+                    },
+                    "errorPage": {
+                    	"subFeature":"MyProfile",
+                        "pageName": "MyPreferencesPage"
+                    }
+                }
+              ]
+        	},
+        	{ "ForgotUserID" :[     
+		    	{ "eventName" : "onForgotUserIDSubmitClick",
+		          "action" : "ForgotUserIDSubmitService",
+		          "actionType":"service",
+		          "validation": "true",
+				  "validationParams" : [ 
+				  		"myProfile.forgotUserID.firstName",
+				  		"myProfile.forgotUserID.lastName",
+				  		"myProfile.forgotUserID.birthDate",
+				  		"myProfile.forgotUserID.accountID",
+				  		"myProfile.forgotUserID.address1",
+				  		"myProfile.forgotUserID.address2",
+				  		"myProfile.forgotUserID.city",
+				  		"myProfile.forgotUserID.state",
+				  		"myProfile.forgotUserID.postalCode",
+				  		"myProfile.forgotUserID.mailID",
+				  		"myProfile.forgotUserID.country",
+				  		"myProfile.forgotUserID.mobileNumber"
+				  ],
+				   "validationErrorMessage": [
+                        	{
+                            	"actualDateLessThan": "APP.MYPROFILE.VAL_ERROR.VALID_DATE"
+                        	},
+                        	{
+                            	"isEmail": "APP.MYPROFILE.VAL_ERROR.VALID_EMAIL"
+                        	},
+                        	{
+                            	"hasSpace": "APP.MYPROFILE.VAL_ERROR.VALID_EMAIL"
+                        	},
+                        	{
+                        		"textWithoutZero": "APP.MYPROFILE.VAL_ERROR.VALID_MOB"
+                        		
+                        	}
+                    	],
+				  "parameters": {
+                    	"jsessionid": "myProfile.forgotUserID.forgotUserID",
+                    	"mbparam": "fields.finacleMbParam",
+                    	"FirstName":"myProfile.forgotUserID.firstName",
+                    	"LastName":"myProfile.forgotUserID.lastName",
+                    	"AccountId":"myProfile.forgotUserID.accountID.toString()",
+                    	"DateOfBirth":"myProfile.forgotUserID.birthDate",
+                    	"DateOfBirth_day":"myProfile.forgotUserID.dateDay",
+                    	"DateOfBirth_month":"myProfile.forgotUserID.dateMonth",
+                    	"DateOfBirth_year":"myProfile.forgotUserID.dateYear",
+                    	"EmailId":"myProfile.forgotUserID.mailID",
+                    	"MobileNumber":"myProfile.forgotUserID.mobileNumber.toString()",
+                    	"CommunicationAddress":"myProfile.forgotUserID.address",
+                    	"City":"myProfile.forgotUserID.city",
+                    	"State":"myProfile.forgotUserID.state",
+                    	"Country":"myProfile.forgotUserID.country",
+                    	"PostalCode":"myProfile.forgotUserID.postalCode.toString()"
+                    },
+		          "successPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ForgotUserIDSuccessful"
+		                  },
+		          "errorPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ForgotUserID"
+		                }
+		         },
+		         { "eventName" : "onForgotUserIdCancelClick",
+		          "action" : "navigation",
+		          "actionType":"navigation",
+		          "successPage" : {
+		          		  "subFeature": "RetailUserLogin",
+		                  "pageName": "RetailUserLoginPage"
+		                  },
+		          "errorPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ForgotUserID"
+		                }
+		         },
+		         { "eventName" : "onBackClick",
+		          "action" : "navigation",
+		          "actionType":"navigation",
+		          "successPage": {
+                        "subFeature": "AppActivation",
+                        "pageName": "ForgotMPINLandingPage"
+                    },
+		          "errorPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ForgotUserID"
+		                }
+		         }
+		         
+        ]
+      },
+      { "ForgotUserIDSuccessful" :
+        [
+     
+		    	{ "eventName" : "onForgotUserSuccessDoneClick",
+		          "action" : "navigation",
+		          "actionType":"navigation",
+		          "validation": "false",
+		          "successPage" : {
+		          		  "subFeature": "RetailUserLogin",
+		                  "pageName": "RetailUserLoginPage"
+		                  },
+		          "errorPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ForgotUserIDSuccessful"
+		                }
+		         }
+        ]
+
+      },
+      { "ManageDevicePage" :
+        [       
+                { "eventName" : "onNoDeActClick",
+                  "action" : "navigation",
+                  "actionType":"navigation",
+                  "validation": "false",
+                  "successPage" : {
+                          "subFeature": "MyProfile",
+                          "pageName": "ManageDevicePage"
+                          },
+                  "errorPage" : {
+                          "subFeature": "MyProfile",
+                          "pageName": "ProfileLandingPage"
+                        }
+                 },
+                 { "eventName" : "onCurrentDeviceDeActivate",
+                  "action" : "ManageDeviceDeactivateService",
+                  "actionType":"service",
+                  "validation": "false",
+                  "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "deviceIDX": "myProfile.manageDevice.selDeviceDetails.index"
+                    },
+                  "successPage" : {
+                          "subFeature": "MyProfile",
+                          "pageName": "DeActiveSuccessPage"
+                          },
+                  "errorPage" : {
+                          "subFeature": "MyProfile",
+                          "pageName": "ProfileLandingPage"
+                        }
+                 },
+     
+		    	{ "eventName" : "onMngEditClick",
+		          "action" : "navigation",
+		          "actionType":"navigation",
+		          "validation": "false",
+		          "successPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "EditDevicePage"
+		                  },
+		          "errorPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "EditDevicePage"
+		                }
+		         },
+		         { "eventName" : "onMngDLClick",
+		          "action" : "navigation",
+		          "actionType":"navigation",
+		          "validation": "false",
+		          "successPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "DeActivePage"
+		                  },
+		          "errorPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ProfileLandingPage"
+		                }
+		         },
+		         { "eventName" : "onCancelClick",
+		          "action" : "navigation",
+		          "actionType":"navigation",
+		          "validation": "false",
+		          "successPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ProfileLandingPage"
+		                  },
+		          "errorPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ProfileLandingPage"
+		                }
+		         },
+		         { "eventName" : "onDeActClick",
+		          "action" : "ManageDeviceDeactivateService",
+		          "actionType":"service",
+		          "validation": "false",
+		          "parameters": {
+                    	"jsessionid": "fields.finacleUserSessionId",
+                    	"mbparam": "fields.finacleMbParam",
+                    	"deviceIDX": "myProfile.manageDevice.selDeviceDetails.index"
+                    },
+		          "successPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "DeActiveSuccessPage"
+		                  },
+		          "errorPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ProfileLandingPage"
+		                }
+		         },
+		         { "eventName" : "onMaxDeActClick",
+		          "action" : "ManageDeviceDeactivateService",
+		          "actionType":"service",
+		          "validation": "false",
+		          "parameters": {
+                    	"jsessionid": "appActivation.sessionId",
+                        "mbparam": "appActivation.mparam",
+                    	"deviceIDX": "myProfile.manageDevice.selDeviceDetails.index"
+                    },
+		          "successPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "DeActiveSuccessPage"
+		                  },
+		          "errorPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ProfileLandingPage"
+		                }
+		         }
+        ]
+      },
+      { "EditDevicePage" :
+        [
+     
+		    	{ "eventName" : "onBackClick",
+		          "action" : "navigation",
+		          "actionType":"navigation",
+		          "validation": "false",
+		          "successPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ManageDevicePage"
+		                  },
+		          "errorPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ProfileLandingPage"
+		                }
+		         },
+		         { "eventName" : "onEditConfirmClick",
+		          "action" : "ManageDeviceEditService",
+		          "actionType":"service",
+		          "validation": "true",
+		           "validationParams" : [ 
+				  		"appActivation.deviceName"		
+				  ],
+		          "parameters":{
+		         		"jsessionid": "fields.finacleUserSessionId",
+                    	"mbparam": "fields.finacleMbParam",
+		          		"deviceName":"appActivation.deviceName",
+		          		"deviceIDX": "myProfile.manageDevice.selDeviceDetails.index"		
+		          },
+		          "successPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ManageDeviceEditSuccessPage"
+		                  },
+		          "errorPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "EditDevicePage"
+		                }
+		         },
+		         { "eventName" : "onCancelClick",
+		          "action" : "navigation",
+		          "actionType":"navigation",
+		          "validation": "false",
+		          "successPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ProfileLandingPage"
+		                  },
+		          "errorPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ProfileLandingPage"
+		                }
+		         }
+        ]
+      },
+      { "ManageDeviceEditSuccessPage" :
+        [
+     
+		    	{ "eventName" : "onDeviceEditDoneClick",
+		          "action": "ManageDeviceInitService",
+                  "actionType": "service",
+                  "validation": "false",
+                  "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+		          "successPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ManageDevicePage"
+		                  },
+		          "errorPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ProfileLandingPage"
+		                }
+		         }
+        ]
+      },
+      { "DeActivePage" :
+        [
+     
+		         
+		         { "eventName" : "onCancelClick",
+		          "action" : "navigation",
+		          "actionType":"navigation",
+		          "validation": "false",
+		          "successPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ProfileLandingPage"
+		                  },
+		          "errorPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ProfileLandingPage"
+		                }
+		         },
+		         { "eventName" : "onNoDeActClick",
+		          "action" : "navigation",
+		          "actionType":"navigation",
+		          "validation": "false",
+		          "successPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ManageDevicePage"
+		                  },
+		          "errorPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ProfileLandingPage"
+		                }
+		         },
+		         { "eventName" : "onCurrentDeviceDeActivate",
+		          "action" : "ManageDeviceDeactivateService",
+		          "actionType":"service",
+		          "validation": "false",
+		          "parameters": {
+                    	"jsessionid": "fields.finacleUserSessionId",
+                    	"mbparam": "fields.finacleMbParam",
+                    	"deviceIDX": "myProfile.manageDevice.selDeviceDetails.index"
+                    },
+		          "successPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "DeActiveSuccessPage"
+		                  },
+		          "errorPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ProfileLandingPage"
+		                }
+		         }
+        ]
+      },
+      { "DeActiveSuccessPage" :
+        [
+     			{
+                    "eventName": "onNavigateMpin",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "AppActivation",
+                        "pageName": "AppActivationSetMPINPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+		    	{ "eventName" : "onDeactiveDoneClick",
+		          "action": "ManageDeviceInitService",
+                  "actionType": "service",
+                  "validation": "false",
+                   "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+		          "successPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ManageDevicePage"
+		                  },
+		          "errorPage" : {
+		          		  "subFeature": "MyProfile",
+		                  "pageName": "ProfileLandingPage"
+		                }
+		         }
+		         
+        ]
+      },
+      { "BioMatrixLoginPage" :
+        [
+        		{ 
+  					"eventName" : "onAppActivationProceedClick",
+  					"action" : "AppActivationInitTouchIDService",
+  					"actionType":"service",
+  					"validation": "false",
+  					"parameters": {
+  					    "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "CorpId": "appActivation.userId",
+                        "CLIENT_ID": "appActivation.clientId"
+                    },
+  					"successPage" : {
+  					    "subFeature": "AppActivation",
+  						"pageName": "AppActivationOTPAuthenticatePage"
+  					},
+  					"errorPage" : {
+  						"pageName": "RetailUserLoginPage"
+  					}
+  				},
+     			{
+                    "eventName": "onBioMatrixLoginPageCloseClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "ProfileLandingPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "MyProfile",
+                        "pageName": "BioMatrixLoginPage"
+                    }
+                }
+        ]
+      },
+      { "MyProfileNotificationSettings" :
+        [
+        		{
+					"eventName" : "onMyProfileNotifyBackClick",
+					 "action" : "navigation",
+					 "actionType":"navigation",
+					 "validation": "false",
+					 "successPage" : {
+					     "subFeature": "MyProfile",
+				         "pageName": "ProfileLandingPage"
+					  },
+					  "errorPage" : {
+					       "subFeature": "MyProfile",
+					        "pageName": "ProfileLandingPage"
+				      }
+				}
+        ]
+      }
+    ],
+    "subFeatureName": "MyProfile",
+    "startPage": "ProfileLandingPage"
+}

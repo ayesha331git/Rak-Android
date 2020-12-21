@@ -1,0 +1,130 @@
+<div class="rak-back-header">
+
+			<div ng-if="rakMyProfile.updateNickName.navigationType=='MyProfile'">
+				<i class="rak-back-img"
+				ng-click="rakAccounts.RAKAccountsModel.clearTxnList='Y';setEvent('onUpdateNicknameCloseClick');"></i>
+			</div>
+			<div ng-if="rakMyProfile.updateNickName.navigationType=='RetailUserAccounts'" >
+				<i class="rak-back-img"
+				ng-click="rakAccounts.RAKAccountsModel.clearTxnList='Y';setEvent('onUpdateNicknameAccountsBackClick');"></i>
+			</div>
+			<div ng-if="rakMyProfile.updateNickName.navigationType=='RetailUserTransSearch'" >
+				<i class="rak-back-img"
+				ng-click="rakAccounts.RAKAccountsModel.clearTxnList='Y';setEvent('onUpdateNicknameTransSearchBackClick');"></i>
+			</div>
+			<div ng-if="rakMyProfile.updateNickName.navigationType=='RetailUserAccDetails'" >
+				<i class="rak-back-img"
+				ng-click="rakAccounts.RAKAccountsModel.clearTxnList='Y';setEvent('onUpdateNicknameAccDetailsBackClick');"></i>
+			</div>
+			<div ng-if="rakMyProfile.updateNickName.navigationType=='RetailCCUserAccounts'" >
+				<i class="rak-back-img"
+				ng-click="rakAccounts.RAKAccountsModel.clearTxnList='Y';setEvent('onUpdateNicknameCCAccountsBackClick');"></i>
+			</div>
+			<div ng-if="rakMyProfile.updateNickName.navigationType=='RetailCCUserTransSearch'" >
+				<i class="rak-back-img"
+				ng-click="rakAccounts.RAKAccountsModel.clearTxnList='Y';setEvent('onUpdateNicknameCCTransSearchBackClick');"></i>
+			</div>
+			<div ng-if="rakMyProfile.updateNickName.navigationType=='RetailCCUserAccDetails'" >
+				<i class="rak-back-img"
+				ng-click="rakAccounts.RAKAccountsModel.clearTxnList='Y';setEvent('onUpdateNicknameCCAccDetailsBackClick');"></i>
+			</div>
+			<div ng-if="rakMyProfile.updateNickName.navigationType=='RetailSUPCCUserAccDetails'" >
+				<i class="rak-back-img"
+				ng-click="rakAccounts.RAKAccountsModel.clearTxnList='Y';setEvent('onUpdateNicknameSUPCCAccDetailsBackClick');"></i>
+			</div>
+			
+			
+			
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		
+		<div class="finacle-container "
+			ng-init="rakMyProfile.updateNickname.initNicknameDetails(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+				
+					<div class="bg-color ">
+						<div class="row">
+						
+								<div class="main-form-heading rakbottomMargin10">
+             						 <h2>{{appLiterals.APP.RAK_COMMON.CHANGE_NICKNAME}}</h2>
+     						 </div>
+						
+							<div class="rakNicknameHeaderFont">
+								<div>
+									<div class="rakNicknameHeader">
+										<span class="rakNewHeaderfont"><b>{{appLiterals.APP.RAK_UPDATE_NICKNAME.ACC_NO}}</b></span>
+									</div>
+									<div class="nickname-lsplit rakNicknameHeader2">
+										<span class="rakNewHeaderfont"><b>{{appLiterals.APP.RAK_UPDATE_NICKNAME.NICK_NAME}}</b></span>
+									</div>
+								</div>
+							</div>
+							
+
+							<div class="rakNicknameScroll rak-cont-paddingvh">
+
+							
+								<div class="nano-content">
+
+									
+									<div
+										ng-repeat="accountDetails in rakMyProfile.updateNickname.nicknameDetails"
+										ng-init="rakMyProfile.updateNickname.nickname[$index]=accountDetails.accountNickName">
+									
+										<div>
+											<div class="rakNickname-rsplit">
+												<p class="rakContentSize">
+													<b>{{accountDetails.accountNumber}}</b>
+												</p>
+											</div>
+											<div class="nickname-lsplit">
+												<fin-input type="text_restrictedSpecialCharacter" model="accountDetails.accountNickName" max-length="80"
+													display-row="full"
+													ng-keyUp="rakMyProfile.updateNickname.updateNicknameModelData($index)"
+													on-Change="rakMyProfile.updateNickname.selectedChangeNicknameIndex($index);rakMyProfile.updateNickname.updateNicknameModelData($index);"
+													validation-flag='pageErrorArr["rakMyProfile.updateNickname.nickname[" + {{$index}} +"]"]'></fin-input>
+											</div>
+										</div>
+										
+									</div>
+									<!-- Detail End Here -->
+
+									<div class="label-wrap">
+
+										
+										<button type="button"
+											ng-if="!rakMyProfile.updateNickname.isDisabled"
+											class="btn--special-btn btn-middle rak-button-small rak-button-right"
+											ng-click="showErrorPopup('{{appLiterals.APP.RAK_UPDATE_NICKNAME.NICKNAME_NOT_MODIFIED_ERRROR}}')">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+										
+										<button type="button"
+											ng-if="rakMyProfile.updateNickname.isDisabled"
+											class="btn--special-btn btn-middle rak-button-small rak-button-right"
+											ng-click="rakMyProfile.updateNickname.continueClick();setEvent('onUpdateNicknameContinueClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+											
+										
+
+									</div>
+						
+
+									
+								</div>
+								
+							</div>
+
+							
+						
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

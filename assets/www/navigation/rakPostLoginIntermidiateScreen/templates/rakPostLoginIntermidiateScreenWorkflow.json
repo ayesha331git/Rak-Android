@@ -1,0 +1,203 @@
+{
+	"pageNavigation": [
+		{
+			"RakSeamLessLoginPage": [{
+        			"eventName" : "onRakSeamLessLoginSubmitClick",
+  					"action" : "RakSeamLessLoginSubmitService",
+  					"actionType":"service",
+					"validation": "true",
+					"validationParams": ["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd",
+						"rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType",
+						"rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd"
+					],
+					
+  					"parameters": {
+  					    "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "SEAMLESS_SELECTED_USER_ID": "rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSend",
+                        "SEAMLESS_SELECTED_SIGNON_PWD": "rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd",
+                        "SEAMLESS_SELECTED_SIGNON_PWD_RETYPE": "rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType",
+                        "SEAMLESS_IS_PWD_RETAINED": "rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd"
+                    },
+  					"successPage" : {
+  						"subFeature": "rakPostLoginIntermidiateScreen",
+  						"pageName": "RAKSeamLessLoginSuccess"
+  					},
+  					"errorPage" : {
+  						"pageName": "RakSeamLessLoginPage"
+  					}
+		},
+		{
+        			"eventName" : "onRakSeamLessLoginSubmitNonAuthClick",
+  					"action" : "RakSeamLessLoginSubmitNonAuthService",
+  					"actionType":"service",
+					"validation": "true",
+					"validationParams": ["rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd",
+						"rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType",
+						"rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd"
+					],
+				
+  					"parameters": {
+  					    "jsessionid": "rakRegister.jsessionid",
+                        "mbparam": "fields.finacleMbParam",
+                        "SEAMLESS_SELECTED_USER_ID": "rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSend",
+                        "SEAMLESS_SELECTED_SIGNON_PWD": "rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwd",
+                        "SEAMLESS_SELECTED_SIGNON_PWD_RETYPE": "rakSeamLessLogin.RakSeamLessLoginModel.userEnteredSignOnPwdReType",
+                        "SEAMLESS_IS_PWD_RETAINED": "rakSeamLessLogin.RakSeamLessLoginModel.isExistingOrNewPwd"
+                    },
+  					"successPage" : {
+  						"subFeature": "rakPostLoginIntermidiateScreen",
+  						"pageName": "RAKSeamLessLoginSuccess"
+  					},
+  					"errorPage" : {
+  						"pageName": "RakSeamLessLoginPage"
+  					}
+		},
+        {
+		            "eventName": "onRakRqdValidateUserIdSel",
+		            "action": "navigation",
+		            "actionType": "navigation",
+		            "validation": "true",
+					"validationParams": ["rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSend"],
+		            "successPage": {
+		  				"pageName": "RakSeamLessLoginPage"
+		            },
+		            "errorPage": {                    
+		  				"pageName": "RakSeamLessLoginPage"
+		            }
+        },
+        {
+		            "eventName": "onRakRqdValidateUserIdAndReenterUserId",
+		            "action": "navigation",
+		            "actionType": "navigation",
+		            "validation": "true",
+					"validationParams": ["rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSend",
+						"rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSendReEnter"],
+		            "successPage": {
+		  				"pageName": "RakSeamLessLoginPage"
+		            },
+		            "errorPage": {                    
+		  				"pageName": "RakSeamLessLoginPage"
+		            }
+        },
+        {
+                    "eventName": "checkUserIdAvailability",                  
+                    "action": "RakSelfRegCheckUserIdAvailabilityService",
+                    "actionType": "service",   
+                    "validation": "true",
+                    "validationParams":[
+                    	
+                    	"rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSend",
+						"rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSendReEnter"
+                    ],    
+                             
+                    "parameters": {                       
+                        "mbparam": "fields.finacleMbParam",
+                         "jsessionid": "fields.finacleUserSessionId", 
+                        "userId":"rakSeamLessLogin.RakSeamLessLoginModel.selectedUserIdToSend"                        
+                    },
+                    "successPage": {
+                       "subFeature": "rakPostLoginIntermidiateScreen",
+                        "pageName": "RakSeamLessLoginPage"
+                    },
+                    "errorPage": {
+                    "subFeature": "rakPostLoginIntermidiateScreen",
+                        "pageName": "RakSeamLessLoginPage"
+                    }
+                }
+		],
+        	"RAKSeamLessLoginSuccess": [{
+        			"eventName" : "onRakSeamLessLoginSuccessOkClick",
+                    "validation": "false",
+                    "action": "LogoutService",
+                    "actionType": "service",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+        		},
+        		 {
+                    "eventName": "onLoginClick",
+                    "validation": "true",
+                    "validationParams": [
+                        "fields.finacleUserCorporateId",
+                        "fields.finacleUserPassword"
+                    ],
+                    "action": "RakSeamlessSuccessOnLoginClick",
+                    "actionType": "service",
+                    "encryptionEnabled": true,
+                    "sensitiveFields": [
+                        "fields.finacleUserCorporateId",
+                        "fields.finacleUserPassword"
+                    ],
+                    "validationErrorMessage": [
+                        	{
+                            	"maxLength": "APP.DASHBOARD.RETAIL_USER_LOGIN.USER_ID_LENGTH_ERROR"
+                        	}
+                    ],
+                    "parameters": {
+                        "CorpId": "fields.finacleUserCorporateId",
+                        "PassWord": "fields.finacleUserPassword",
+                        "USER_TYPE":"rakSeamLessLogin.RakSeamLessLoginModel.userType"
+                     
+                     
+                    },
+                    "successPage": {
+                         "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserDashboardPage"
+                    },
+                    "errorPage": {
+                      "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                },
+                                        {
+                                        "eventName": "onsetupClick",
+                                        "action": "EzmComServerCall",
+                                        "actionType": "service",
+                                        "validation": "false",
+                                        
+                                        "parameters": {
+                                        "userId": "rakHome.cifId",
+                                        "urlType": "urlType",
+                                        "actionBy":"actionBy"
+                                        
+                                        },
+                                        "successPage": {
+                                        "subFeature": "rak2FARegister",
+                                        "pageName": "Rak2FASelfRegSetPwdPage"
+                                        },
+                                        "errorPage": {
+                                        "subFeature": "RetailUserLogin",
+                                        "pageName": "RetailUserLoginPage"
+                                        }
+                                        
+                                        
+                                        } ,
+                {
+                    "eventName": "onRakSeamLessLoginSuccessNonAuthOkClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {                    
+                        "subFeature": "RetailUserLogin",
+                        "pageName": "RetailUserLoginPage"
+                    }
+                }
+        		]
+    }],
+	"subFeatureName": "rakPostLoginIntermidiateScreen",
+	"startPage": "RakSeamLessLoginPage"
+}

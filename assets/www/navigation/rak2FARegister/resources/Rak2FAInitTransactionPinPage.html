@@ -1,0 +1,52 @@
+
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rak2FARegister.approvalFlowFlag();setSingleStepRealmAuthFailure();rak2FARegister.transactionApproval.pin='';">
+			<div class="account-page">
+				<div class="col-sm-11">
+				
+					<div class="main-form-heading-ServiceReq"> 
+							      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_2FA_TRANSACTION_APPROVAL.TRANACTION_APPROVE}}
+							      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAK_2FA_TRANSACTION_APPROVAL.ENTER_PIN}}</span>		     
+							      </h2>		       
+					 		</div>
+
+					<div class="bg-color rak-cont-padding rak-scroll">
+						<div class="row">
+							
+						
+								<fin-input type="password_num"
+									model="rak2FARegister.transactionApproval.pin"
+									max-length="{{rak2FARegister.constants.PINLENGTH}}"
+									display-row="full"
+									placeholder="{{appLiterals.APP.RAK_2FA_TRANSACTION_APPROVAL.ENTER_PIN}}"
+							            
+									validation-flag='pageErrorArr["rak2FARegister.transactionApproval.pin"]'></fin-input>
+							<span  class="forgotRAKTokenPIN" ng-click="rakServiceReq.fetchDisclaimer('ForgotRAKTokenPIN.html');">{{appLiterals.APP.RAKCOMMONLITERALS.TOKEN_FORGOT_PIN}}</span>		
+									
+
+								
+
+
+						
+								<div class="label-wrap">
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-small btn--back "
+											ng-click="rak2FARegister.registerSuccess();">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CANCEL}}</button>
+				
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-small "
+											ng-click='rak2FARegister.transactionApproval.submitPinForApproval();'>{{appLiterals.APP.RAKCOMMONLITERALS.PROCEED}}</button>
+								</div>
+
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

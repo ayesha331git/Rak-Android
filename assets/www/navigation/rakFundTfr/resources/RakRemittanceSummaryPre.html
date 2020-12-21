@@ -1,0 +1,106 @@
+
+<!-- 	<div ng-if="rakPayCards.ownCards.backButton!='back'"  class="rak-back-header">
+
+			<i class="rak-back-img"
+					ng-click="setEvent('onBackClick');"></i>
+		</div>
+		
+		
+	<div ng-if="rakPayCards.ownCards.backButton=='back'" class="rak-back-header">
+
+			<i class="rak-back-img"
+					ng-click="setEvent('onBackPayeeClick');"></i>
+		</div> -->
+	<div ng-if="rakPayee.payCard.remitBackFlag" class="rak-back-header">
+			<i class="rak-back-img" ng-click="setEvent('onCardBackClick')"></i>
+		</div>
+		
+		<div ng-if="!rakPayee.payCard.remitBackFlag" class="rak-back-header">
+			<i class="rak-back-img" ng-click="setEvent('onBackClick')"></i>
+		</div>
+		
+<div class="nano menu-scroll">
+	<div class="nano-content">
+	
+
+<div class="finacle-container"
+	ng-init="rakFundTfr.remitSummary.remittanceSummaryPre(successResponse.responsesList);">
+	
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+			<div class="main-form-heading-ServiceReq"> 
+							      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.MUL_REMITTANCE}}		     
+							      </h2>		       
+					</div>
+
+			<div class="bg-color rak-cont-padding">
+				<div class="row">
+					
+
+							
+									<div class="rakRow">
+										<div class="radio-biller rak100 rakWidth100 rakpaddingButton">
+											{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.MODE_OF_TRANSFER}}</div>
+										<div class="rak100">
+											<div>
+												<div class="rakCstmRadioDiv rak50">
+													<input type="radio" value="WUB" id="radio1"
+														ng-click="rakFundTfr.remitSummary.clicked=true"
+														ng-model="rakFundTfr.remitSummary.transferMode" />
+														<label for="radio1" ><span><span></span></span>{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.WITHIN_UAE}}</label>
+												
+												</div>
+												<div class="rakCstmRadioDiv rak50">
+													<input type="radio" value="OUB" id="radio2"
+													ng-click="rakFundTfr.remitSummary.clicked=true"
+														ng-model="rakFundTfr.remitSummary.transferMode" />
+														<label for="radio2" ><span><span></span></span>{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.OUTSIDE_UAE}}</label>
+												
+												</div>
+											</div>
+										</div>
+									</div>
+									
+
+					
+					
+						<div class="label-wrap rakRemPaddingButton">
+
+						<!-- 	<button type="button"
+							class="btn--special-btn btn-middle rak-button-small rak-button-right"
+							ng-click="rakFundTfr.remitSummary.checkForRadioBtnClicked();setEvent('onRakSendMoneyRemitInitClick');
+							rakFundTfr.remitSummary.resetRemitSummCancel()">
+							{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.CONTINUE_DETAILS}}</button> -->
+							
+							
+							<button type="button" class="btn--special-btn btn-middle rak-button-full-black ng-binding" 
+							ng-click="rakFundTfr.remitSummary.checkForRadioBtnClicked();setEvent('onRakSendMoneyRemitInitClick');
+							rakFundTfr.remitSummary.resetRemitSummCancel()">
+							{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.CONTINUE_DETAILS}}
+							</button>
+
+						</div>
+						
+							<div class="disclaimer">
+                              <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                              <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                              </div>
+
+                              <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                              <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.REMITCANCEL"></div>
+                              </div>
+              			</div>
+
+					
+
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+</div>

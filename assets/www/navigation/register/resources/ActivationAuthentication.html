@@ -1,0 +1,60 @@
+<div class="container-fluid finacle-container">
+	<div class="row title_wrap_row">
+		<div class="title_wrap">
+			<div class="title">
+				<p class="small_title">
+					{{appLiterals.APP.REGISTER.ACT_AUTH.HEADER}}</p>
+			</div>
+			<div class="close_wrap">
+				<span class="icon icon-cancel" ng-click="setEvent('onCancelClick');"></span>
+			</div>
+		</div>
+	</div>
+	<div class="bg-color payee-wrap">
+		<div class="border"></div>
+		<div class="row">
+			<div class="row stage_wrap">
+				<div class="col-sm-1"></div>
+				<div class="col-sm-10 stage_3" style="padding-left: 2.5em;">
+
+					<div class="stage next_stage sucs_stage sucs_stage1">
+						<p></p>
+						<p>
+							<span class="app app-icon-check"> </span>
+						</p>
+						<p></p>
+					</div>
+					<div class="stage_line line_small"></div>
+
+					<div class="stage">
+						<p>{{appLiterals.APP.REGISTER.ACT_AUTH.NO2}}</p>
+					</div>
+					<div class="stage_line line_small"></div>
+					<div class="stage next_stage">
+						<p>{{appLiterals.APP.REGISTER.ACT_AUTH.NO3}}</p>
+					</div>
+
+				</div>
+				<div class="col-sm-1"></div>
+			</div>
+		</div>
+		<div class="label-wrap">
+			<p class="label-title">{{appLiterals.APP.REGISTER.ACT_AUTH.AUTH}}</p>
+			<p class="label-txt">
+				{{appLiterals.APP.REGISTER.ACT_AUTH.SENT_AUTH}}</p>
+			<!-- <p class="label-txt"> Confirm the payment using your transaction password</p>  -->
+		</div>
+		<!--<fin-input type="password_text" model="tempVar1" display-row="full" placeholder="Transaction Password"  validation-flag="testFlag" ></fin-input>-->
+		<fin-input type="password_num" model="tempVar" display-row="full"
+			placeholder="{{appLiterals.APP.REGISTER.ACT_AUTH.PH_OTP}}"
+			validation-flag="testFlag"></fin-input>
+		<div class="pull-right new-payee-txt label_pad">{{appLiterals.APP.REGISTER.ACT_AUTH.REGEN_OTP}}</div>
+		<div class="btn_wrap can_btn fin_btn1 fin_bot"
+			ng-click="setEvent('onSetCredentialsClick');">
+			<button type="button" class="btn_style">
+				<span class="login-procees">
+					{{appLiterals.APP.REGISTER.ACT_AUTH.BTN_AUTH}} </span>
+			</button>
+		</div>
+	</div>
+</div>

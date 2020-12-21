@@ -1,0 +1,1176 @@
+{
+	"pageNavigation": [{
+			"RakEDirhamWlcmPage": [
+			{
+                    "eventName": "onRetailClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "true",
+                    "validationParams": [
+                      
+                        "rakHome.typeOfCustomer"
+                       
+                    ],
+                    "successPage": {     
+                      "subFeature": "RetailUserLogin",                            
+                        "pageName": "RetailUserLoginPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "RetailUserLogin",  
+                        "pageName": "RakEDirhamWlcmPage"
+                    }
+                },
+                {
+                    "eventName": "onRegisterUserClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "true",
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RetailUserDirhamEDWPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEDirhamWlcmPage"
+                    }
+                }
+		],
+		"RakSetDirhamDetailsPage": [
+				{
+                    "eventName": "onEdirhamSetPinNextClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "true",
+                    "validationParams": [
+                        "rakEDirham.eDirhamDetails.pin",
+                        "rakEDirham.eDirhamDetails.confirmPin"
+                    ],
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamSetTouchIdPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakSetDirhamDetailsPage"
+                    }
+                },
+                {
+                    "eventName": "onEdirhamSkipClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+		            "parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+                    "validation": "false",
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamSetTouchIdPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakSetDirhamDetailsPage"
+                    }
+                },
+                {
+                    "eventName": "onEdirhamRAKTokenNextClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "true",
+                    "validationParams": [
+                       "rakEDirham.eDirhamDetails.rakTokenFlag"
+                    ],
+                    "validationErrorMessage": [
+                        {
+                            "conditionalRequired": "APP.DASHBOARD.VAL_ERROR.VALID_CONDITIONALDATE"
+                        }
+                     ],
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakSetDirhamDetailsPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakSetDirhamDetailsPage"
+                    }
+                }
+		],
+		"RakEdirhamAuthPage": [
+			{
+                    "eventName": "onAuthClick",
+                    "action": "RakEdirhamGetTicketService",
+                    "actionType": "service",
+                    "validation": "false",
+                     "parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamDisplayTokenPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEDirhamWlcmPage"
+                    }
+                }
+		],
+		"RakEdirhamLandingPage": [
+			{
+                    "eventName": "onAuthClick",
+                    "action": "RakEdirhamGetTicketService",
+                    "actionType": "service",
+                    "validation": "false",
+                     "parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamDisplayTokenPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamLandingPage"
+                    }
+                },
+                {
+                    "eventName": "onSettingClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamSettingPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamLandingPage"
+                    }
+                }
+		],
+		
+		"RakEdirhamSettingPage": [
+                {
+				"eventName": "onAcctSettingClick",
+				"action": "RakEdirhamAcctSummaryService",
+				"actionType": "service",
+				"validation": "false",				
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam"
+				},
+				"successPage": {
+					"subFeature": "rakEDirham",
+					"pageName": "RakEdirhamAcctPinSettingPage"
+				},
+				"errorPage": {
+					"subFeature": "rakEDirham",
+                        "pageName": "RakEdirhamSettingPage"
+				}
+				},
+                {
+                    "eventName": "onHistoryClick",
+                    "action": "RAKCustomEDMTxnHistoryService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam",
+					   "EDM_TXN_FROM_DATE_year":"rakEDirham.eDirhamHistory.fromDate_year",
+                        "EDM_TXN_FROM_DATE_month":"rakEDirham.eDirhamHistory.fromDate_month",
+                        "EDM_TXN_FROM_DATE_day":"rakEDirham.eDirhamHistory.fromDate_day",
+                        "EDM_TXN_TO_DATE_year":"rakEDirham.eDirhamHistory.toDate_year",
+                        "EDM_TXN_TO_DATE_month":"rakEDirham.eDirhamHistory.toDate_month",
+                        "EDM_TXN_TO_DATE_day":"rakEDirham.eDirhamHistory.toDate_day"
+				},
+				"successPage": {
+					"subFeature": "rakEDirham",
+					"pageName": "RakEdirhamHistoryPage"
+				},
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamSettingPage"
+                    }
+                },
+                 {
+                    "eventName": "onBackClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamLandingPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamSettingPage"
+                    }
+                },
+                 {
+                    "eventName": "onBlockEDClick",
+                    "action": "RakEdirhamFetchDetailsService",
+					"actionType": "service",
+					"validation": "false",				
+					"parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakBlockEdirhamPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamSettingPage"
+                    }
+                }
+		],
+		"RakEdirhamAcctPinSettingPage": [
+			{
+			"eventName": "onRAKEDirhamUpdateContinueClick",
+			"action": "RAKEDirhamRegConfirmService",
+			"actionType": "service",
+			"validation": "true",
+			"validationParams": [
+                        "rakEDirham.eDirhamDetails.accountModel"
+                    ],
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"RequestId":"rakEDirham.common.txnType"
+			},
+			"successPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamUpdateAuthPage"
+			},
+			"errorPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamAcctPinSettingPage"
+			}
+			},
+                {
+                    "eventName": "onEdirhamSuccClick",
+                    "action": "RakEdirhamRegService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "rakEDirham.eDirhamDetails.accountModel"
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "ACCT_INDEX": "rakEDirham.eDirhamDetails.accountModel"
+                    },
+                    "successPage": {
+                        "subFeature": "rakEDirham",                            
+                        "pageName": "RakSetDirhamRegSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamSetDeafultAccountPage"
+                    }
+                },
+                {
+                    "eventName": "onEdirhamFetchDetailsClick",
+                    "action": "RakEdirhamFetchDetailsService",
+                    "actionType": "serviceNoNavigation",
+                    "validation": "false",
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {
+                        "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamSetDeafultAccountPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamSetDeafultAccountPage"
+                    }
+                },
+                {
+                    "eventName": "onBackClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamSettingPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamAcctPinSettingPage"
+                    }
+                }
+		],
+		"RetailUserDirhamEDWPage": [
+				{
+                    "eventName": "onEdirhamEnterPinNextClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "true",
+                    "validationParams": [
+                        "rakEDirham.eDirhamDetails.pin"
+                    ],
+                    "validationErrorMessage": [
+                        {
+                            "conditionalRequired": "APP.DASHBOARD.VAL_ERROR.VALID_CONDITIONALDATE"
+                        }
+                     ],
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RetailUserDirhamEDWPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RetailUserDirhamEDWPage"
+                    }
+                },
+				{
+                    "eventName": "onEdirhamSuccClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "true",
+                    "validationParams": [
+                        "rakEDirham.eDirhamDetails.accountModel"
+                    ],
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakSetDirhamRegSuccessPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RetailUserDirhamEDWPage"
+                    }
+                }
+		],
+		"RakEdirhamHistoryPage": [
+			{
+                    "eventName": "onEdirhamHistDetailsClick",
+                    "action": "RAKCustomEDMTxnHistoryDetailsService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam",
+					"MCF_REF_NO":"rakEDirham.eDirhamHistory.selectedMcfRef"
+				},
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamHistoryDetailsPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamHistoryPage"
+                    }
+                },
+                 {
+                    "eventName": "onHistoryClick",
+                    "action": "RAKCustomEDMTxnHistoryService",
+                    "actionType": "serviceNoNavigation",
+                    "validation": "false",
+                    "parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam",
+					  "EDM_TXN_FROM_DATE_year":"rakEDirham.eDirhamHistory.fromDate_year",
+                        "EDM_TXN_FROM_DATE_month":"rakEDirham.eDirhamHistory.fromDate_month",
+                        "EDM_TXN_FROM_DATE_day":"rakEDirham.eDirhamHistory.fromDate_day",
+                        "EDM_TXN_TO_DATE_year":"rakEDirham.eDirhamHistory.toDate_year",
+                        "EDM_TXN_TO_DATE_month":"rakEDirham.eDirhamHistory.toDate_month",
+                        "EDM_TXN_TO_DATE_day":"rakEDirham.eDirhamHistory.toDate_day"
+				},
+				"successPage": {
+					"subFeature": "rakEDirham",
+					"pageName": "RakEdirhamHistoryDetailsPage"
+				},
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamHistoryDetailsPage"
+                    }
+                },
+                {
+                    "eventName": "onBackClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+					"successPage": {
+						"subFeature": "rakEDirham",
+						"pageName": "RakEdirhamSettingPage"
+					},
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamHistoryPage"
+                    }
+                }
+		],
+		"RakEdirhamDisplayTokenPage": [
+			{
+                    "eventName": "onEdirhamGenerateTokenClick",
+                    "action": "RakEdirhamGetTicketService",
+                    "actionType": "service",
+                    "validation": "false",
+                     "parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamDisplayTokenPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamDisplayTokenPage"
+                    }
+                },
+                {
+			"eventName": "onEdirhamTxnTimeoutClick",
+			"action": "EdirhamTxnApprovalService",
+			"actionType": "service",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"APPROVAL_STATUS":"rakEDirham.eDirhamTokenGeneration.timerStatus",
+				"ED_TOKEN":"rakEDirham.eDirhamTokenGeneration.token"
+			},
+			"successPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamDisplayTokenPage"
+			}
+		},
+                {
+                    "eventName": "onEdirhamTxnClick",
+                    "action": "RakEdirhamGetTxnStatusService",
+                    "actionType": "serviceNoNavigation",
+                    "validation": "false",
+                     "parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam",
+						"EDTOKEN":"rakEDirham.eDirhamTokenGeneration.token"
+					},
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamDisplayTokenPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamDisplayTokenPage"
+                    }
+                },
+                {
+                    "eventName": "onEdirhamTxnSuccessClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamTxnApprovPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamDisplayTokenPage"
+                    }
+                },
+                {
+                    "eventName": "onBackClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamLandingPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamDisplayTokenPage"
+                    }
+                }
+		],
+		"RakSetDirhamRegSuccessPage": [
+			{
+				
+					"eventName": "onEdirhamOverviewClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamLandingPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakSetDirhamRegSuccessPage"
+                    }
+                },
+                			{
+                    "eventName": "onAuthClick",
+                    "action": "RakEdirhamGetTicketService",
+                    "actionType": "service",
+                    "validation": "false",
+                     "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam"
+                    },
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamDisplayTokenPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamLandingPage"
+                    }
+                },
+                {
+				
+					"eventName": "onEdirhamRegClick",
+                    "action": "RakEdirhamAcctSummaryService",
+                    "actionType": "service",
+                    "validation": "false",				
+					"parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamSetDeafultAccountPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakSetDirhamRegSuccessPage"
+                    }
+                }
+		],
+	"RakEdirhamSetTouchIdPage": [
+			{
+                    "eventName": "onEdirhamSetTouchIdNextClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamSetDeafultAccountPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamSetTouchIdPage"
+                    }
+                },
+                {
+				
+					"eventName": "onBackClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakSetDirhamDetailsPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamSetTouchIdPage"
+                    }
+                },
+                   {
+                    "eventName": "onEdirhamSkipClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamSetDeafultAccountPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamSetTouchIdPage"
+                    }
+                }
+		],
+		"RakEdirhamSetDeafultAccountPage": [
+		       {
+			"eventName": "onRAKEDirhamRegContinueClick",
+			"action": "RAKEDirhamRegConfirmService",
+			"actionType": "service",
+			"validation": "true",
+			"validationParams": [
+                        "rakEDirham.eDirhamDetails.accountModel"
+                    ],
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"RequestId":"rakEDirham.common.txnTypeReg"
+			},
+			"successPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamRegAuthPage"
+			},
+			"errorPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamSetDeafultAccountPage"
+			}
+		},
+                {
+                    "eventName": "onEdirhamSuccClick",
+                    "action": "RakEdirhamRegService",
+                    "actionType": "service",
+                    "validation": "true",
+                    "validationParams": [
+                        "rakEDirham.eDirhamDetails.accountModel"
+                    ],
+                    "parameters": {
+                        "jsessionid": "fields.finacleUserSessionId",
+                        "mbparam": "fields.finacleMbParam",
+                        "ACCT_INDEX": "rakEDirham.eDirhamDetails.accountModel"
+                    },
+                    "successPage": {
+                        "subFeature": "rakEDirham",                            
+                        "pageName": "RakSetDirhamRegSuccessPage"
+                    },
+                    "errorPage": {
+                        "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamSetDeafultAccountPage"
+                    }
+                },
+                {
+				
+					"eventName": "onBackClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamSetTouchIdPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamSetDeafultAccountPage"
+                    }
+                },
+                 {
+				
+					"eventName": "onEdirhamOverviewClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamLandingPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamSetDeafultAccountPage"
+                    }
+                }
+		],
+		"RakEdirhamRegAuthPage": [
+		     {
+			"eventName": "onRAKEDirhamRegSubmitClick",
+			"action": "RakEdirhamRegService",
+			"actionType": "service",
+			"validation": "true",
+             "validationParams": [
+                        "rakHome.AuthPageData.firstAuthModeValue"
+             ],			
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"ACCT_INDEX":"rakEDirham.eDirhamDetails.accountModel",
+				"Mode": "rakHome.AuthPageData.firstAuthModeValue"
+			},
+			"successPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakSetDirhamRegSuccessPage"
+			},
+			"errorPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamRegAuthPage"
+			}
+		}, 
+		{
+			"eventName": "onGenerateOtp",
+			"action": "RakResendOtpService",
+			"actionType": "serviceNoNavigation",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"OTP_MODE":"rakHome.otpModel.otpModeSelected"
+			},
+			"successPage": {
+				"pageName": "RakEdirhamRegAuthPage"
+			},
+			"errorPage": {
+				"pageName": "RakEdirhamRegAuthPage"
+			}
+		},
+		{
+				
+					"eventName": "onBackClick",
+                    "action": "RakEdirhamAcctSummaryService",
+                    "actionType": "service",
+                    "validation": "false",				
+					"parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamSetDeafultAccountPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamRegAuthPage"
+                    }
+                }
+		],
+		"RakEdirhamUpdateAuthPage": [
+		     {
+			"eventName": "onRAKEDirhamUpdateClick",
+			"action": "RakEdirhamUpdateService",
+			"actionType": "service",
+			"validation": "true",
+             "validationParams": [
+                         "rakHome.AuthPageData.firstAuthModeValue"
+             ],
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"ACCT_INDEX":"rakEDirham.eDirhamDetails.accountModel",
+				"Mode": "rakHome.AuthPageData.firstAuthModeValue",
+				"RequestId":"rakEDirham.common.txnType"
+			},
+			"successPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamUpdateSuccessPage"
+			},
+			"errorPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamUpdateAuthPage"
+			}
+		}, 
+		{
+			"eventName": "onGenerateOtp",
+			"action": "RakResendOtpService",
+			"actionType": "serviceNoNavigation",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"OTP_MODE":"rakHome.otpModel.otpModeSelected"
+			},
+			"successPage": {
+				"pageName": "RakEdirhamUpdateAuthPage"
+			},
+			"errorPage": {
+				"pageName": "RakEdirhamUpdateAuthPage"
+			}
+		},
+		{
+				
+					"eventName": "onBackClick",
+                    "action": "RakEdirhamAcctSummaryService",
+                    "actionType": "service",
+                    "validation": "false",				
+					"parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamAcctPinSettingPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamUpdateAuthPage"
+                    }
+                }
+		],
+		"RakEdirhamUpdateSuccessPage": [
+			{
+				
+					"eventName": "onEdirhamOverviewClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamLandingPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakSetDirhamRegSuccessPage"
+                    }
+                },
+               {
+                    "eventName": "onAuthClick",
+                    "action": "RakEdirhamGetTicketService",
+                    "actionType": "service",
+                    "validation": "false",
+                     "parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamDisplayTokenPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamLandingPage"
+                    }
+                }
+		],
+		"RakBlockEdirhamPage": [
+			{
+				
+					"eventName": "onEdirhamBlockUnblockConfirmClick",
+                   	"action": "RakEDBAuthNewStatusService",
+					"actionType": "service",
+					"validation": "false",
+					"parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam",
+						"FUNDING_ACC_NO":"rakEDirham.eDirhamSettings.edAccountId",
+						"EDIRHAM_STATUS":"rakEDirham.eDirhamSettings.BlockStatus",
+						"RequestId":"rakEDirham.common.txnType"
+					},
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamBlockUnblockPreview"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakBlockEdirhamPage"
+                    }
+                },
+               {
+				
+					"eventName": "onBackClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamSettingPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakBlockEdirhamPage"
+                    }
+                }
+		],
+		"RakEdirhamBlockSuccessPage": [
+        {
+				
+					"eventName": "onEdirhamOverviewClick",
+                    "action": "navigation",
+                    "actionType": "navigation",
+                    "validation": "false",
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamLandingPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamBlockSuccessPage"
+                    }
+        }
+		],
+		"RakEdirhamBlockUnblockPreview": [
+			{
+				
+					"eventName": "onEdirhamBlockUnblockClick",
+                    "action": "RakEdirhamInitiateBlockService",
+                    "actionType": "service",
+                     "validationParams": [
+                         "rakHome.AuthPageData.firstAuthModeValue"
+             ],
+                     "parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam",
+						"FUNDING_ACC_NO":"rakEDirham.eDirhamSettings.edAccountId",
+						"EDIRHAM_STATUS":"rakEDirham.eDirhamSettings.BlockStatus",
+						"Mode": "rakHome.AuthPageData.firstAuthModeValue",
+						"RequestId":"rakEDirham.common.txnType"
+					},
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamBlockSuccessPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamBlockUnblockPreview"
+                    }
+                },
+                {
+				
+					"eventName": "onBackClick",
+                    "action": "RakEdirhamFetchDetailsService",
+					"actionType": "service",
+					"validation": "false",				
+					"parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam"
+					},
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakBlockEdirhamPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamBlockUnblockPreview"
+                    }
+                },
+                {
+			"eventName": "onGenerateOtp",
+			"action": "RakResendOtpService",
+			"actionType": "serviceNoNavigation",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"OTP_MODE":"rakHome.otpModel.otpModeSelected"
+			},
+			"successPage": {
+				"pageName": "RakEdirhamBlockUnblockPreview"
+			},
+			"errorPage": {
+				"pageName": "RakEdirhamBlockUnblockPreview"
+			}
+		}
+       ],
+       		"RakEdirhamTokenRequestPage": [
+			{
+				
+					"eventName": "onEdirhamTokenRequestConfirmClick",
+                   	"action": "RAKEDTsubmitOnlieConfirmService",
+					"actionType": "service",
+					"validation": "true",
+		             "validationParams": [
+		                        "rakEDirham.tokenRequest.acctModel"
+		                  
+		             ],
+					"parameters": {
+						"jsessionid": "fields.finacleUserSessionId",
+						"mbparam": "fields.finacleMbParam",
+						"ACCT_INDEX":"rakEDirham.tokenRequest.acctModel",
+						"TERMS_FLAG":"rakEDirham.tokenRequest.acceptTermscondition",
+						"RequestId":"rakEDirham.common.txnType"
+					},
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamTokenRequestPreviewPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamTokenRequestPage"
+                    }
+                },
+                {
+				
+					"eventName": "onBackClick",
+                   	"action": "navigation",
+					"actionType": "navigation",
+					"validation": "false",
+                    "successPage": {     
+                      "subFeature": "RetailUserLogin",                            
+                        "pageName": "RakServicesLandingPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamTokenRequestPage"
+                    }
+                }
+                ],
+            "RakEdirhamTokenRequestPreviewPage": [
+			 {
+			"eventName": "onRAKEDirhamTokenRequestSubmitClick",
+			"action": "RakEdirhamReqTokenSubmitService",
+			"actionType": "service",
+			"validation": "true",
+             "validationParams": [
+                        "rakHome.AuthPageData.firstAuthModeValue"
+                  
+             ],		
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"ACCT_INDEX":"rakEDirham.tokenRequest.acctModel",
+				"CUST_ID":"customerId",
+				"Mode": "rakHome.AuthPageData.firstAuthModeValue"
+			},
+			"successPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamTokenRequestSuccessPage"
+			},
+			"errorPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamTokenRequestPreviewPage"
+			}
+		}, 
+		{
+			"eventName": "onGenerateOtp",
+			"action": "RakResendOtpService",
+			"actionType": "serviceNoNavigation",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"OTP_MODE":"rakHome.otpModel.otpModeSelected"
+			},
+			"successPage": {
+				"pageName": "RakEdirhamTokenRequestPreviewPage"
+			},
+			"errorPage": {
+				"pageName": "RakEdirhamTokenRequestPreviewPage"
+			}
+		},
+                {
+				
+					"eventName": "onBackClick",
+                   	"action": "RakEdirhamGenerateTokenInitService",
+				"actionType": "service",
+				"validation": "false",				
+				"parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam"
+				},
+                    "successPage": {     
+                      "subFeature": "rakEDirham",                            
+                        "pageName": "RakEdirhamTokenRequestPage"
+                    },
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamTokenRequestPreviewPage"
+                    }
+                }
+                ],
+                "RakEdirhamHistoryDetailsPage": [
+                {
+                    "eventName": "onBackClick",
+                    "action": "RAKCustomEDMTxnHistoryService",
+                    "actionType": "service",
+                    "validation": "false",
+                    "parameters": {
+					"jsessionid": "fields.finacleUserSessionId",
+					"mbparam": "fields.finacleMbParam",
+					 "EDM_TXN_FROM_DATE_year":"rakEDirham.eDirhamHistory.fromDate_year",
+                        "EDM_TXN_FROM_DATE_month":"rakEDirham.eDirhamHistory.fromDate_month",
+                        "EDM_TXN_FROM_DATE_day":"rakEDirham.eDirhamHistory.fromDate_day",
+                        "EDM_TXN_TO_DATE_year":"rakEDirham.eDirhamHistory.toDate_year",
+                        "EDM_TXN_TO_DATE_month":"rakEDirham.eDirhamHistory.toDate_month",
+                        "EDM_TXN_TO_DATE_day":"rakEDirham.eDirhamHistory.toDate_day"
+				},
+				"successPage": {
+					"subFeature": "rakEDirham",
+					"pageName": "RakEdirhamHistoryPage"
+				},
+                    "errorPage": {
+                     "subFeature": "rakEDirham",  
+                        "pageName": "RakEdirhamHistoryDetailsPage"
+                    }
+                }
+		],
+	"RakEdirhamTokenRequestSuccessPage": [
+	{
+			"eventName": "onEdirhamOverviewClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamTokenRequestSuccessPage"
+			}
+		}
+	],
+		"RakEdirhamTxnApprovPage": [
+	{
+			"eventName": "onEdirhamTxnApproveClick",
+			"action": "EdirhamTxnApprovalService",
+			"actionType": "service",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"APPROVAL_STATUS":"rakEDirham.eDirhamTokenGeneration.approvalStatus",
+				"ED_TOKEN":"rakEDirham.eDirhamTokenGeneration.token"
+			},
+			"successPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamTxnApprovPageSuccessPage"
+			},
+			"errorPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamLandingPage"
+			}
+		},
+		{
+			"eventName": "onEdirhamTxnTimeoutClick",
+			"action": "EdirhamTxnApprovalService",
+			"actionType": "service",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"APPROVAL_STATUS":"rakEDirham.eDirhamTokenGeneration.timerStatus",
+				"ED_TOKEN":"rakEDirham.eDirhamTokenGeneration.token"
+			},
+			"successPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamLandingPage"
+			}
+		},
+		{
+			"eventName": "onEdirhamTxnRejectClick",
+			"action": "EdirhamTxnApprovalService",
+			"actionType": "service",
+			"validation": "false",
+			"parameters": {
+				"jsessionid": "fields.finacleUserSessionId",
+				"mbparam": "fields.finacleMbParam",
+				"APPROVAL_STATUS":"rakEDirham.eDirhamTokenGeneration.approvalStatus",
+				"ED_TOKEN":"rakEDirham.eDirhamTokenGeneration.token"
+			},
+			"successPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamTxnApprovPageSuccessPage"
+			},
+			"errorPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamLandingPage"
+			}
+		}
+	],
+	"RakEdirhamTxnApprovPageSuccessPage": [
+	{
+			"eventName": "onEdirhamOverviewClick",
+			"action": "navigation",
+			"actionType": "navigation",
+			"validation": "false",
+			"successPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamLandingPage"
+			},
+			"errorPage": {
+				"subFeature": "rakEDirham",
+				"pageName": "RakEdirhamTxnApprovPageSuccessPage"
+			}
+		}
+	]
+		
+	}],
+	"subFeatureName": "rakEDirham",
+	"startPage": "RakEDirhamWlcmPage"
+}

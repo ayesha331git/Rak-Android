@@ -1,0 +1,115 @@
+<div class="app app-arrow2 title-right-dash" id="backArrow"
+	ng-click="setEvent('onCancelClick')"></div>
+<div class="finacle-container"
+	ng-init="services.initOpenOperativeAccount(successResponse.responsesList);formatAmountCrn('services.operativeAccountModel.accountOpenAmount','services.operativeAccountModel.selectedCurrency')">
+	<div class="account-page">
+		<div class="col-sm-12">
+
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase" id="OpenOprAccHead">
+							{{appLiterals.APP.SERVICES.ONOPER_ACC.HEADER}}</div>
+					</div>
+					<form
+						ng-submit="services.operativeAccountModel.unFormatNumbers();services.operativeAccountSubmitClick();setEvent('onConfirmClick');">
+						<div class="avail-bal-wrap" class="clear-all">
+
+							<fin-input type="date"
+								model="services.operativeAccountModel.accountOpenDate"
+								display-row="full"
+								validation-flag='pageErrorArr["services.operativeAccountModel.accountOpenDate"]'
+								placeholder="{{appLiterals.APP.SERVICES.ONOPER_ACC.PH_DTOFOPEN}}"></fin-input>
+
+
+						</div>
+
+						<div class="two-input-wrapper"
+							ng-init='currencyArr = createDropDownOptionArray(services.openNewOperativeAccount.currencyList, ["currencyDescription"], "currencyCode");'>
+							<fin-input type="dropdown"
+								model="services.operativeAccountModel.selectedCurrency"
+								display-row="half1"
+								placeholder="{{appLiterals.APP.SERVICES.ONOPER_ACC.PH_CURR}}"
+								on-change="services.openNewOperativeAccount.setCurrency();"
+								onchange="angular.element(this).scope().formatAmountCrn('services.operativeAccountModel.accountOpenAmount','services.operativeAccountModel.selectedCurrency')"
+								validation-flag='pageErrorArr["services.operativeAccountModel.selectedCurrency"]'
+								option-array="currencyArr"> </fin-input>
+							<fin-input type="money"
+								model="services.operativeAccountModel.accountOpenAmount"
+								related-field="services.operativeAccountModel.selectedCurrency"
+								display-row="half2"
+								placeholder="{{appLiterals.APP.SERVICES.ONOPER_ACC.PH_OPNAMT}}"
+								validation-flag='pageErrorArr["services.operativeAccountModel.accountOpenAmount"]'
+								max-length='10'></fin-input>
+						</div>
+
+						<div class="avail-bal-wrap"
+							ng-init='branchArr = createDropDownOptionArray(services.openNewOperativeAccount.branchList, ["branchName"], "branchId");'>
+							<fin-input type="dropdown"
+								model="services.operativeAccountModel.selectedBranch"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.ONOPER_ACC.PH_ACCBRNCH}}"
+								validation-flag='pageErrorArr["services.operativeAccountModel.selectedBranch"]'
+								option-array="branchArr"> </fin-input>
+						</div>
+						<div class="avail-bal-wrap"
+							ng-init='debitAccountNumberArr = createDropDownOptionAccountArray(services.openNewOperativeAccount.accountList, ["accountNickName", "-", "accountNumber"], "accountId");'>
+							<fin-input type="dropdown"
+								model="services.operativeAccountModel.selectedAccountNumber"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.ONOPER_ACC.PH_DEBACC}}"
+								validation-flag='pageErrorArr["services.operativeAccountModel.selectedAccountNumber"]'
+								option-array="debitAccountNumberArr"></fin-input>
+						</div>
+
+						<div class="avail-bal-wrap">
+							<div class="col-sm-12 "><p class="fut-txt1">{{appLiterals.APP.SERVICES.ONOPER_ACC.PERS_DET}}</p></div>
+							<fin-input type="text"
+								model="services.operativeAccountModel.accountHolderName"
+								ng-keypress="validateMaxLength($event,services.operativeAccountModel.accountHolderName,15);"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.ONOPER_ACC.PH_ACCNAME}}"
+								validation-flag='pageErrorArr["services.operativeAccountModel.accountHolderName"]'></fin-input>
+						</div>
+						<div class="avail-bal-wrap" class="clear-all">
+							<fin-input type="textarea"
+								model="services.operativeAccountModel.addressDetails"
+								max-length="100" class="text_area"
+								placeholder="{{appLiterals.APP.SERVICES.ONOPER_ACC.PH_ADD}}"
+								validation-flag='pageErrorArr["services.operativeAccountModel.addressDetails"]'></fin-input>
+
+							<fin-input type="text"
+								model="services.operativeAccountModel.selectedCity"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.ONOPER_ACC.PH_CTY}}"
+								validation-flag='pageErrorArr["services.operativeAccountModel.selectedCity"]'
+								max-length='20'></fin-input>
+							<fin-input type="postalCode"
+								model="services.operativeAccountModel.postalCode"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.ONOPER_ACC.PH_POSTCDE}}"
+								validation-flag='pageErrorArr["services.operativeAccountModel.postalCode"]'></fin-input>
+						</div>
+						<div class="avail-bal-wrap"
+							ng-init='countryArr = createDropDownOptionArray(services.openNewOperativeAccount.countryList,["countryName"], "countryCode");'>
+							<fin-input type="dropdown"
+								model="services.operativeAccountModel.selectedCountry"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.ONOPER_ACC.PH_CNTRY}}"
+								validation-flag='pageErrorArr["services.operativeAccountModel.selectedCountry"]'
+								option-array="countryArr"></fin-input>
+						</div>
+						<md-button id="OpenOprAccProceed" type="submit"
+							class="md-raised  btn--primary-btn">
+						{{appLiterals.APP.SERVICES.ONOPER_ACC.BTN_CONT}}</md-button>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+

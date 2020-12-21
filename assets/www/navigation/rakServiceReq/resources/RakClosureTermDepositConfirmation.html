@@ -1,0 +1,115 @@
+<div class="finacle-container ng-scope"
+	ng-init="rakServiceReq.RakClosureTermDepositModel.transactionPassword = '';rakServiceReq.initClosureTDConfirm(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+
+			<div class="main-form-heading-ServiceReq" ng-if="rakServiceReq.RakClosureTermDepositModel.closureType=='TDC'"> 
+                      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.TXT_CTD}}
+                      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>                
+                      </h2>              
+				</div>
+				
+				<div class="main-form-heading-ServiceReq" ng-if="rakServiceReq.RakClosureTermDepositModel.closureType=='TSC'"> 
+                      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.TXT_ICT}}
+                      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>                
+                      </h2>              
+				</div>
+		
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="">
+					<div class="">
+					<div class="rakDupliSRChkMsgImg" ng-show='rakServiceReq.common.message'>
+      					<span class='rakAlertForDupStmt'></span> <span class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+					</div>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_FD_NUM}} &nbsp;</span> <span
+								class="rak-sum-label black">{{rakServiceReq.RakClosureTermDepositModel.previewFDNumber}}</span>
+						</p>
+					
+						<p class="rak-sum-txt" ng-if="rakServiceReq.RakClosureTermDepositModel.closureType=='TDC'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_PRE_MAT_INTS}}
+								&nbsp;</span> <span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_PRE_MAT_INT_RADIO}}</span>
+						</p>
+						
+						<p class="rak-sum-txt" ng-if="rakServiceReq.RakClosureTermDepositModel.closureType=='TSC'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_PRE_MAT_INTS}}
+								&nbsp;</span> <span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_PRE_MAT_INT_ISL_RADIO}}</span>
+						</p>
+
+
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_ACTION_DATE}}</span> <span
+								class="rak-sum-label black">{{rakServiceReq.RakClosureTermDepositModel.previewActionDate}}</span>
+						</p>
+
+						<p class="rak-sum-txt" ng-show="rakServiceReq.RakClosureTermDepositModel.upliftmentInstructions && rakServiceReq.RakClosureTermDepositModel.closureType=='TDC'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_CREDIT_TO}}</span> <span
+								class="rak-sum-label black">{{rakServiceReq.RakClosureTermDepositModel.previewCreditAcc}}</span>
+						</p>
+						<p class="rak-sum-txt" ng-show="rakServiceReq.RakClosureTermDepositModel.upliftmentInstructions && rakServiceReq.RakClosureTermDepositModel.closureType=='TSC'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.TXT_CREDIT_TO_ISL}}</span> <span
+								class="rak-sum-label black">{{rakServiceReq.RakClosureTermDepositModel.previewCreditAcc}}</span>
+						</p>
+						
+
+						<p class="rak-sum-txt" ng-if="rakServiceReq.RakClosureTermDepositModel.remarks!=''">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CLOSURETD.REMARKS}}</span> <span
+								class="rak-sum-label black">{{rakServiceReq.RakClosureTermDepositModel.remarks}}</span>
+						</p>
+
+						<fin-input type="password_text"
+							model="rakServiceReq.RakClosureTermDepositModel.transactionPassword"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+							min="0"
+							validation-flag='pageErrorArr["rakServiceReq.RakClosureTermDepositModel.transactionPassword"]'
+							ng-show="rakServiceReq.RakClosureTermDepositModel.auth==txnpwdString"></fin-input>
+
+						<!-- <fin-input type="password_num"
+							model="rakServiceReq.RakClosureTermDepositModel.transactionPassword"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+							min="0"
+							validation-flag='pageErrorArr["rakServiceReq.RakClosureTermDepositModel.transactionPassword"]'
+							ng-show="rakServiceReq.RakClosureTermDepositModel.auth==otpString"></fin-input> -->
+
+<!--  CHANGES FOR RESEND OTP START -->
+ <div ng-show="rakServiceReq.RakClosureTermDepositModel.auth==otpString">
+   <div ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+    <fin-input type="password_num" model="rakServiceReq.RakClosureTermDepositModel.transactionPassword"
+              display-row="full" placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.PH_OTP}}"
+              validation-flag='pageErrorArr["rakServiceReq.RakClosureTermDepositModel.transactionPassword"]'>
+      </fin-input>
+ </div>
+ <div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0' ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+			
+				<fin-input type="dropdown" option-array="toModeArray" model="rakHome.otpModel.otpModeSelected" display-row="full" placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+				<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+			
+			</div>
+ <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');">{{appLiterals.APP.RAK_COMMON.RESEND_OTP}}</button>
+</div>
+<!--  CHANGES FOR RESEND OTP END -->
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back"
+								ng-click="rakServiceReq.RakClosureTermDepositModel.isBack=true;setEvent('onPrevServiceClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="setEvent('onSuccessClick');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}
+							</button>
+
+						</div>
+						<div class="col-sm-1"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

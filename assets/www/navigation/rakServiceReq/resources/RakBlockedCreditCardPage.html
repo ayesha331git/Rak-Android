@@ -1,0 +1,95 @@
+<div class="rak-back-header">
+
+				<i class="rak-back-img"
+					ng-click="setEvent('onCancelClick');"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+<div class="finacle-container" ng-init="rakServiceReq.BlockedCreditCardData.initBlockedCreditCardData(successResponse.responsesList);">
+  <div class="account-page" >
+    <div class="col-sm-11">
+		<div class="main-form-heading-ServiceReq"> 
+                 <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.TEMP_BLOCKED_CREDITCARD}}
+                 <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+                 </h2>              
+		</div>
+
+    <!-- CHANGES SHOWING EXPIRY DATE ONLY ON SELECTION OF ACCOUNT START  -->
+      <div class="bg-color rak-cont-padding rak-scroll">
+        <div class="row" >
+         
+
+          		<div ng-init='creditcardListed = createDropDownOptionArray(rakServiceReq.BlockedCreditCardData.creditCardList,["prodDesc","-","creditCardNumber"],"creditIndex");'>
+					<fin-input type="dropdown"
+					on-change="rakServiceReq.BlockedCreditCardData.creditCardNumber=rakServiceReq.BlockedCreditCardData.creditCardNum;rakServiceReq.BlockedCreditCardData.expDateFlag=rakServiceReq.BlockedCreditCardData.creditCardNum!=''?true:false;setEvent('onBlockedCreditCardSelected');"
+					model="rakServiceReq.BlockedCreditCardData.creditCardNum"
+					display-row="full"
+					placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_TEMP_BLK_CREDITCARD.CREDITCARD}}"
+					validation-flag='pageErrorArr["rakServiceReq.ReplacementCCData.creditcardNumber"]'
+					option-array="creditcardListed"></fin-input>
+				</div>
+
+
+
+				<div class="rak-parent-txt" ng-show="rakServiceReq.BlockedCreditCardData.expDateFlag">
+            		<p  class="rak-sum-label  ServiceReqNormalLable" ng-show="rakServiceReq.BlockedCreditCardData.expDateFlag">{{appLiterals.APP.RAK_SERVICES.RAK_TEMP_BLK_CREDITCARD.EXPIRE_DATE}}</p>
+            		
+            		<p class="rak-sum-label blackRight ServiceReqNormalLable">{{rakServiceReq.BlockedCreditCardData.expDate}}</p>
+            		</div>
+			    <!-- CHANGES SHOWING EXPIRY DATE ONLY ON SELECTION OF ACCOUNT END  -->
+
+
+          <!--  If Branch is selected: Populate Branch -->
+         <div   ng-init='reasonArr = createDropDownOptionArray(rakServiceReq.BlockedCreditCardData.reasonList, ["reasonDesc"], "reasonIndex");'>
+			<fin-input type="dropdown" model="rakServiceReq.BlockedCreditCardData.reasonName"
+			display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_TEMP_BLK_CREDITCARD.REASON}}"
+			on-change="rakServiceReq.BlockedCreditCardData.getReasonValue();"
+			option-array="reasonArr" select-req="false"
+			validation-flag='pageErrorArr["rakServiceReq.BlockedCreditCardData.reasonName"]'></fin-input>
+		</div>
+
+	 <div ng-show="rakServiceReq.BlockedCreditCardData.flag">
+			<fin-input  type="text" model="rakServiceReq.BlockedCreditCardData.other"
+			 display-row="full" validation-flag='pageErrorArr["rakServiceReq.BlockedCreditCardData.other"]'
+			 placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_TEMP_BLK_CREDITCARD.OTHER}}" ></fin-input>
+     </div>
+     
+
+
+
+
+
+
+		<div class="label-wrap">
+		<!--  <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back"
+		 ng-click="rakSendMoney.common.fromAuthPage=true; setEvent('onCancelClick');"> {{appLiterals.APP.RAK_SERVICES.RAK_CREDIT_REPLACEMENT.BACK}}</button> -->
+
+				  <button  type="button" class="btn--special-btn btn-middle rak-button-small"
+				  ng-click="setEvent('onTempBlockedCreditClick');">
+				  {{appLiterals.APP.RAK_SERVICES.RAK_TEMP_BLK_CREDITCARD.CONTINUE}}</button>
+
+
+          </div>
+          
+          <div class="disclaimer">
+                      <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                       <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                       </div>                                                 
+                                              
+                      <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+							<span ng-bind-html="appLiterals.APP.DISCLAIMER.BLOCK_CC_INIT"></span>
+						</div>
+                                              
+             </div>
+
+
+			</div>
+		 </div>
+          <div class="col-sm-1">
+          </div>
+        </div>
+      </div>
+      </div>
+ </div>
+ </div>

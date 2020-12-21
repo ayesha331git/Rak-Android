@@ -1,0 +1,424 @@
+<!-- <div class="nano menu-scroll"> -->
+<div class="nano"> 
+	<div class="">
+		<div class="finacle-container"
+		      ng-init='rakCreditCard.viewFlag1=false;
+
+                quickBalValue="N";
+		        oppAccountIndex = 0;
+		        loanAccountIndex = 0;
+		        depositAccountIndex = 0;
+		        fields.selectAcccountMax = 0;
+		        rakCreditCard.getList(successResponse.invocationResult);
+		        successResponse.invocationResult=successResponse.hasOwnProperty("responsesList")?successResponse.responsesList[0]:successResponse.invocationResult;
+		        rakHome.checkForPremiumUser(successResponse.invocationResult);
+		        rakTouchIdActivation.touchIdReg.addPwdtoKeyChain();
+			'>
+
+
+
+	<!--
+		<div class="nano menu-scroll dash-tiles rak-dash">
+		<div class="rakTouchIdScroll"> 
+	-->
+		<div class="nano dash-tiles rak-dash"> 
+		<div class="rakNicknameScrollQuickBalDashboard dashScrollFixn">
+		
+		 <div class="summary-ServiceReq col-sm-11" ng-if="rakHome.noAccountsLinked!=''">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakHome.noAccountsLinked}}</span>
+				</div>
+			</div>
+
+		 <div class="dashboard-body" ng-hide="successResponse.invocationResult.operativeAccountsList.length == 0">
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body" >
+				<div class="dashboard-item-title">
+					  <div class="rak-item-title"> <i class="spirt-icon account-icon"></i>
+					  {{appLiterals.APP.RAK_DASHBOARD.ACCOUNTS}} </div>
+					  
+					</div>
+
+		        <div class="dashboard-item-body" class="" >
+
+		          <div class="" dir="rtl" ng-repeat="accountVO in successResponse.invocationResult.operativeAccountsList">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide balance-table">
+
+
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"></td>
+												<td><span>{{accountVO.balance}}</span> <i>*{{appLiterals.APP.RAK_DASHBOARD.AVAILABLE_BALANCE}}</i></td>
+												<td><strong>{{accountVO.subAccountTypeDesc}}</strong> <i>{{accountVO.accountId}}</i></td>
+
+											</tr>
+										 </tbody>
+									</table>
+
+
+
+
+
+								</div>
+						
+							</div>
+					</div>
+
+
+
+		        </div>
+		
+
+		      </div>
+		    </div>
+		  </div>
+
+		  <div class="dashboard-body dashboard-pad" ng-hide="rakCreditCard.primaryCard.length == 0" >
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+		    <div class="dashboard-item-title">
+		          <div class="rak-item-title"><i class="spirt-icon credit-icon"></i> {{appLiterals.APP.RAK_DASHBOARD.CARDS}} </div>
+		        </div>
+
+		        <div class="dashboard-item-body" >
+
+					<div class="" dir="rtl" ng-repeat="ccListVO in rakCreditCard.primaryCard">
+
+							<div class="swiper-wrapper">
+							<div class="swiper-slide balance-table">
+
+
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"></td>
+												<!-- <td><span>{{ccListVO.balance}}</span> <i>*{{appLiterals.APP.RAK_DASHBOARD.CURRENT_BALANCE}}</i></td>
+												<td><strong>{{ccListVO.subAccountTypeDesc}}</strong> <i>{{ccListVO.creditCardNo}}</i></td> -->
+												<td ng-if="ccListVO.isCIFlink !='Y'">
+												<span ng-if="ccListVO.balance.indexOf('0.00') > -1">{{ccListVO.balance}}</span>
+												<span ng-hide="ccListVO.balance.indexOf('0.00') > -1">{{(ccListVO.balance).indexOf("-") > -1 ? (ccListVO.balance).replace("-","") : ccListVO.balance +" CR" }}</span>
+												<i>*{{appLiterals.APP.RAK_DASHBOARD.CURRENT_BALANCE}}</i>
+												</td>
+												 
+												<td ng-if="ccListVO.isCIFlink == 'Y'">
+												<span>{{appLiterals.APP.RAK_DASHBOARD.NA}}</span>
+												<i>*{{appLiterals.APP.RAK_DASHBOARD.CURRENT_BALANCE}}</i>
+												</td>
+												<td><strong>{{ccListVO.subAccountTypeDesc}}</strong> <i>{{ccListVO.creditCardNo}}</i></td>
+											</tr>
+										 </tbody>
+									</table>
+
+								</div>
+							
+							</div>
+					</div>
+		        </div>
+
+
+
+
+
+
+
+		      </div>
+		    </div>
+		    </div>
+		    
+		    
+		  <div ng-show="rakCreditCard.suppCard.length > 0" class="col-sm-11">
+		  	<span class="rakSupplCardIco"  ng-class="{'rakSupplCardIcoExpnd':rakCreditCard.viewFlag1}"  ng-click="rakCreditCard.viewFlag1=!rakCreditCard.viewFlag1" >{{appLiterals.APP.RAK_DASHBOARD.VIEWCARDS}}</span>
+		  </div>
+
+		  <div class="dashboard-body dashboard-pad" ng-show="rakCreditCard.viewFlag1 && rakCreditCard.suppCard.length > 0 ">
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+		    <div class="dashboard-item-title">
+		          <div class="rak-item-title"><i class="spirt-icon credit-icon"></i> {{appLiterals.APP.RAK_DASHBOARD.SCARDS}} </div>
+		        </div>
+
+		        <div class="dashboard-item-body" ng-hide="rakCreditCard.suppCard.length == 0">
+
+					<div class="" dir="rtl" ng-repeat="ccListVO in rakCreditCard.suppCard">
+
+							<div class="swiper-wrapper">
+							<div class="swiper-slide balance-table" >
+
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"></td>
+												<!-- <td><span>{{ccListVO.balance}}</span> <i>*{{appLiterals.APP.RAK_DASHBOARD.CURRENT_BALANCE}}</i></td> -->
+												<td>
+												<span>{{appLiterals.APP.RAK_DASHBOARD.NA}}</span>
+												<i>*{{appLiterals.APP.RAK_DASHBOARD.CURRENT_BALANCE}}</i>
+												</td>
+												
+												<td><strong>{{ccListVO.subAccountTypeDesc}}</strong> <i>{{ccListVO.creditCardNo}}</i></td>
+
+											</tr>
+										 </tbody>
+									</table>
+
+
+
+
+
+								</div>
+					</div>
+		        </div>
+
+
+		      </div>
+		    </div>
+		    </div>
+
+		    </div>
+
+		  <div class="dashboard-body dashboard-pad" ng-hide="successResponse.invocationResult.depositAccountsList.length == 0">
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+		        <div class="dashboard-item-title">
+		          <div class="rak-item-title"> <i class="spirt-icon deposits-icon"></i> {{appLiterals.APP.RAK_DASHBOARD.DEPOSITS}} </div>
+		        </div>
+
+		        <div class="dashboard-item-body" >
+
+				  <div class="" dir="rtl" ng-repeat="depAccountVO in successResponse.invocationResult.depositAccountsList">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide balance-table">
+
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"></td>
+												<td><span>{{depAccountVO.balance}}</span> <i>{{appLiterals.APP.RAK_DASHBOARD.DEPOSIT_AMOUNT}}</i></td>
+												<td><strong>{{depAccountVO.subAccountTypeDesc}}</strong> <i>{{depAccountVO.accountId}}</i></td>
+
+											</tr>
+										 </tbody>
+									</table>
+
+
+
+
+								</div>
+							
+							</div>
+					</div>
+
+		        </div>
+
+
+		      </div>
+		    </div>
+		  </div>
+		  
+		  
+		  <div class="dashboard-body dashboard-pad" ng-hide="successResponse.invocationResult.loanAccountsList.length == 0">
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+		        <div class="dashboard-item-title">
+		          <div class="rak-item-title"> <i class="spirt-icon loan-finance-icon"></i> {{appLiterals.APP.RAK_DASHBOARD.LOANS}} </div>
+		        </div>
+
+		        <div class="dashboard-item-body" >
+
+				  <div class="" dir="rtl" ng-repeat="lnAccountVO in successResponse.invocationResult.loanAccountsList">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide balance-table" >
+
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"></td>
+												<td><span>{{lnAccountVO.balance}}</span> <i>{{appLiterals.APP.RAK_DASHBOARD.TOTAL_OUTSTANDING}}</i></td>
+												<td><strong>{{lnAccountVO.subAccountTypeDesc}}</strong> <i>{{lnAccountVO.accountId}}</i></td>
+
+											</tr>
+										 </tbody>
+									</table>
+
+
+
+								</div>
+							
+							</div>
+					</div>
+		        </div>
+
+
+		      </div>
+		    </div>
+		  </div>
+
+<!-- trade finance account -->
+	  <div class="dashboard-body dashboard-pad" ng-hide="successResponse.invocationResult.tradeFinAccountsList.length == 0">
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+		        <div class="dashboard-item-title">
+		          <div class="rak-item-title"> <i class="spirt-icon account-icon"></i> {{appLiterals.APP.RAK_DASHBOARD.TRADEFINACE}} </div>
+		        </div>
+
+		        <div class="dashboard-item-body" >
+
+				  <div class="" dir="rtl" ng-repeat="tfAccountVO in successResponse.invocationResult.tradeFinAccountsList">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide balance-table" >
+
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"></td>
+												<td><span>{{tfAccountVO.balance}}</span> <i>*{{appLiterals.APP.RAK_DASHBOARD.AVAILABLE_BALANCE}}</i></td>
+												<td><strong>{{tfAccountVO.subAccountTypeDesc}}</strong> <i>{{tfAccountVO.accountId}}</i></td>
+
+											</tr>
+										 </tbody>
+									</table>
+
+
+
+								</div>
+							
+							</div>
+					</div>
+		        </div>
+
+
+		      </div>
+		    </div>
+		  </div>
+		  <!--trade finance account end -->
+		    <div class="dashboard-body dashboard-pad" ng-show="successResponse.invocationResult.goldAccountsList.length > 0">
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+		    <div class="dashboard-item-title">
+		          <div class="rak-item-title"><i class="spirt-icon gold-icon"></i> {{appLiterals.APP.RAK_DASHBOARD.GOLD_ACCOUNTS}} </div>
+		        </div>
+
+		        <div class="dashboard-item-body" >
+
+					<div class="" dir="rtl" ng-repeat="goldAccntVO in successResponse.invocationResult.goldAccountsList">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide balance-table"  >
+
+
+
+
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"></td>
+												<td><span  class="goldbalanceDirection" >{{goldAccntVO.availableBal}}</span> <i>{{appLiterals.APP.RAK_DASHBOARD.GOLD_WEIGHT}}</i></td>
+
+												<td><strong>{{appLiterals.APP.RAK_DASHBOARD.RAKGLD}}</strong> <i>{{goldAccntVO.accountId}}</i></td>
+											</tr>
+										 </tbody>
+									</table>
+
+
+								</div>
+							
+							</div>
+					</div>
+		        </div>
+
+
+
+
+
+			
+
+
+		      </div>
+		    </div>
+		  </div>
+
+
+
+		   <div class="dashboard-body dashboard-pad" ng-show="successResponse.invocationResult.invAccountsList.length > 0">
+		    <div class="col-sm-11">
+
+		     <div class="dashboard-item-body">
+		    <div class="dashboard-item-title">
+		          <div class="rak-item-title"><i class="spirt-icon investment1-icon"></i> {{appLiterals.APP.RAK_DASHBOARD.INVESTMENTS}} </div>
+		        </div>
+
+		        <div class="dashboard-item-body" >
+
+					<div class="" dir="rtl" ng-repeat="invAccntVO in successResponse.invocationResult.invAccountsList">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide balance-table" >
+
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"></td>
+												<td><span>{{invAccntVO.balance}}</span> <i>{{appLiterals.APP.RAK_DASHBOARD.RELATIONSHIP_VALUE}}</i></td>
+												<!-- CHANGES DONE AS FIX OF PROUAT-4127 START-->
+												<!-- <td><strong>{{invAccntVO.accountName}}</strong> <i>{{invAccntVO.accountId}}</i></td> -->
+                                                <td><strong>{{appLiterals.APP.RAK_DASHBOARD.RAKINVEST}}</strong> <i>{{invAccntVO.accountId}}</i></td>
+                                                <!-- CHANGES DONE AS FIX OF PROUAT-4127 END-->
+											</tr>
+										 </tbody>
+									</table>
+
+
+
+								</div>
+							
+							</div>
+					</div>
+		        </div>
+
+
+		      </div>
+             
+             
+             
+		    </div>
+            
+            
+            
+		  </div>
+           
+   <span></span>
+<div class="rakTouchButtonPadding">
+<button class="raktouchIdOverviewButtonEnable rakTouchIDbuttonPadding" ng-click="fields.finacleUserCorporateId = null; fields.finacleUserPassword = null; setGlobalEvent('onLogoutClickOK')" >Exit</button>
+</div>
+<div class='fin-txt'></div>
+	<div class="disclaimer-bottom margin2em">
+                            <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                            <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                            </div>
+
+                                                                <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                                                                <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.OVERVIEW_MAIN_PAGE"></div>
+                                                                </div>
+                                  </div>
+        
+		  </div>
+		</div>
+
+		    </div>
+
+	</div>
+</div>

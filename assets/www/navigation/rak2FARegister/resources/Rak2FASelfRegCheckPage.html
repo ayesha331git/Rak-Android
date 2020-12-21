@@ -1,0 +1,19 @@
+<div class="nano ">
+	<div class="">
+		<div class="finacle-container"
+			ng-init="rak2FARegister.RegistrationModel.initSelfRegistrationData(successResponse.responsesList);">
+
+
+			<div ng-if="rak2FARegister.RegistrationModel.sectionId=='OTPV'">
+				<ng-include
+					src="'./navigation/rak2FARegister/resources/Rak2FASelfRegConfirmationPage.html'" />
+			</div>
+			<div ng-if="rak2FARegister.RegistrationModel.sectionId=='ORON'">
+				<ng-include
+					src="'./navigation/rak2FARegister/resources/Rak2FASelfRegCheckInputPage.html'" />
+			</div>
+			
+
+		</div>
+	</div>
+</div>

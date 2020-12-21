@@ -1,0 +1,36 @@
+
+<!-- partial code start here-->
+<div class="finacle-container finacle-container-successPage col-sm-12"
+	ng-init="dashboard.mmid.initMMID(successResponse.responsesList[0]);">
+	<div class=" dashboard-item-body">
+	
+	<div class="sucs_circle_wrap">
+		<span class="app-tickcircle sucs_circle_icon"></span>
+	</div>
+	<p id="retailUserGenerateMMIDPageMessage" class="trans_sucs_txt">{{dashboard.mmid.message}}</p>
+	<div class="trans_id_wrap">
+		<div class="id_container"></div>
+		<div class="id_txt_wrap">
+			<div class="id_txt_pad">
+				<!--  <p> <span class="id_color">Transaction Id:</span> 430361346</p>-->
+				<p id="retailUserGenerateMMIDPageMmidValue" class="sucs-id-txt">{{appLiterals.APP.DASHBOARD.RETAIL_USER_GENERATE_MMID.MMID}}{{dashboard.mmid.mmidValue}}</p>
+			</div>
+		</div>
+	</div>
+	
+	<p id="retailUserGenerateMMIDPageACCOUNT_NO" class="sucs-left-txt">
+		{{appLiterals.APP.DASHBOARD.RETAIL_USER_GENERATE_MMID.ACCOUNT_NO}}&nbsp;<span
+			class="sucs-right-color">{{dashboard.mmid.accountId}}</span>
+	</p>
+	<p id="retailUserGenerateMMIDPageMOBILE_NO" class="sucs-left-txt">
+		{{appLiterals.APP.DASHBOARD.RETAIL_USER_GENERATE_MMID.MOBILE_NO}}&nbsp;<span
+			class="sucs-right-color">{{dashboard.mmid.mobileNo}}</span>
+	</p>
+<!--	<div class="col-sm-12">
+		<md-button type="button" class=" md-raised btn--special-btn1"
+			ng-click="dashboard.mmid.isBack=true;setEvent('onGenerateOKClick')">
+			{{appLiterals.APP.DASHBOARD.RETAIL_USER_GENERATE_MMID.DONE}}</md-button>
+		</div> -->
+	</div>
+</div>
+<!-- partial code end here-->

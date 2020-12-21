@@ -1,0 +1,102 @@
+
+<div class="rak-back-header" ng-hide='isUserLoggedIn'>
+	<i class="rak-back-img"
+		ng-click="setGlobalEvent('onRakLocatorClick');"></i>
+</div>
+
+
+<div class="rak-back-header" ng-show='isUserLoggedIn'>
+	<i class="rak-back-img"
+		ng-click="setGlobalEvent('onRakPostLocatorClick');"></i>
+</div>
+
+<div class="finacle-container"
+	ng-init='setSingleStepRealmAuthFailure();home.responseLocator(successResponse.responsesList);rakLocateUs.initRAKLocateUsSearchData(successResponse.responsesList)'>
+
+
+	<div id="map-wrapper"
+		ng-init='home.responseLocator(successResponse.responsesList);rakLocateUs.initRAKLocateUsSearchData(successResponse.responsesList);'>
+		<fin-map id="map-wrapper" location="home.atmBranchDetails"></fin-map>
+	</div>
+
+	<div class="bg-color ">
+		<div class="col-sm-11">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-1"></div>
+			
+	<div class="loc-split">
+			<div ng-click="rakLocateUs.RAKLocateUsSearchData.searchFlag='A'"  class="rakWidth60">
+				<div class="pwd-transaction pwd-transactionGreen">
+					
+					<span class="loc-type-txt1">
+						{{appLiterals.APP.RAK_LOCATEUS.ATM}}<span class="rakLocateLine">/</span> </span>
+					
+				</div>
+				
+					<div class="pwd-transaction pwd-transactionGrey">
+					
+					<span class="loc-type-txt1">
+						{{appLiterals.APP.RAK_LOCATEUS.DM}} </span>
+				
+				</div>
+				<div ng-hide="rakLocateUs.RAKLocateUsSearchData.searchFlag!='A'" class="app-fut-line app-fut-linenew"></div>
+					<div ng-hide="rakLocateUs.RAKLocateUsSearchData.searchFlag!='A'" class="app-fut-tri app-fut-trinew"></div>
+				</div>
+				<div class="pwd-transaction pwd-transactionRed"
+					ng-click="rakLocateUs.RAKLocateUsSearchData.searchFlag='B'">
+					<span class="loc-type-txt">
+						{{appLiterals.APP.RAK_LOCATEUS.BRANCH}} </span>
+					<div ng-show="rakLocateUs.RAKLocateUsSearchData.searchFlag=='B'" class="app-fut-line"></div>
+					<div ng-show="rakLocateUs.RAKLocateUsSearchData.searchFlag=='B'" class="app-fut-tri"></div>
+				</div>
+
+			</div>
+			<div class="rakHalfScrollDiv rak-cont-paddingvh">
+				<div ng-show='isUserLoggedIn'>
+					<div
+						ng-init='emrArr = createDropDownOptionArray(rakLocateUs.RAKLocateUsSearchData.emrList, ["emrDesc"], "emrCode");'></div>
+					<fin-input type="dropdown"
+						model="rakLocateUs.RAKLocateUsSearchData.selectedEmr"
+						display-row="half1"
+						placeholder="{{appLiterals.APP.RAK_LOCATEUS.EMRLIST}}"
+						on-change="rakLocateUs.RAKLocateUsSearchData.emrSelectedFlag=true;rakLocateUs.RAKLocateUsSearchData.selectedArea='';rakLocateUs.RAKLocateUsSearchData.areaList=[];rakLocateUs.RAKLocateUsSearchData.areaSelectedFlag=false;rakLocateUs.RAKLocateUsSearchData.searchBtnClicked=false;setEvent('onRakLocateUsEmiratesChanged');"
+						validation-flag='pageErrorArr["rakLocateUs.RAKLocateUsSearchData.selectedEmr"]'
+						option-array="emrArr"> </fin-input>
+				</div>
+
+				<div ng-hide='isUserLoggedIn'>
+					<div
+						ng-init='emrArr = createDropDownOptionArray(rakLocateUs.RAKLocateUsSearchData.emrList, ["emrDesc"], "emrCode");'></div>
+					<fin-input type="dropdown"
+						model="rakLocateUs.RAKLocateUsSearchData.selectedEmr"
+						display-row="half1"
+						placeholder="{{appLiterals.APP.RAK_LOCATEUS.EMRLIST}}"
+						on-change="rakLocateUs.RAKLocateUsSearchData.emrSelectedFlag=true;rakLocateUs.RAKLocateUsSearchData.selectedArea='';rakLocateUs.RAKLocateUsSearchData.areaList=[];rakLocateUs.RAKLocateUsSearchData.areaSelectedFlag=false;setEvent('onLocateUsEmiratesChanged');"
+						validation-flag='pageErrorArr["rakLocateUs.RAKLocateUsSearchData.selectedEmr"]'
+						option-array="emrArr"> </fin-input>
+				</div>
+
+				<div
+					ng-init='areaArr = createDropDownOptionArray(rakLocateUs.RAKLocateUsSearchData.areaList, ["areaDesc"], "areaCode");'></div>
+				<fin-input type="dropdown"
+					model="rakLocateUs.RAKLocateUsSearchData.selectedArea"
+					display-row="half2"
+					placeholder="{{appLiterals.APP.RAK_LOCATEUS.AREALIST}}"
+					validation-flag='pageErrorArr["rakLocateUs.RAKLocateUsSearchData.selectedArea"]'
+					option-array="areaArr"
+					on-change="rakLocateUs.RAKLocateUsSearchData.areaSelectedFlag=true;">
+				</fin-input>
+				<!-- ng-if="rakLocateUs.RAKLocateUsSearchData.emrSelectedFlag" -->
+
+				<div class="label-wrap">
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-small rak-locatorBtn-width100"
+					ng-click="rakLocateUs.resetRAKLocateUsSearchDataLists();rakLocateUs.RAKLocateUsSearchData.loggedInFlag = isUserLoggedIn;rakLocateUs.setEventForSearchATMBranch();setEvent('onRakLocatorSearchByEmrArea');">
+						{{appLiterals.APP.RAK_LOCATEUS.SEARCH}}</button>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,136 @@
+ <div class="rak-back-header">
+	<i class="rak-back-img" ng-click="setEvent('onBackClick');"></i>
+</div>
+ 
+ 
+ <div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container" >
+		<!-- RAK ALERT -->
+		<div class="full-page-screen ng-scope confirmation-content-container" ng-if="rakServiceReq.sage.sageFlag" >
+        <div class="message-box-new">
+         <div class="message-box-new">
+            <div>
+                <p class="round-icon-new">
+                <span class="app app-alert pop-alert-icon rak-color"></span>
+                </p>
+                
+            </div>
+            
+            <div class="conf-txt-label rak-black-color">{{appLiterals.APP.RAK_SAGE_REGISTER.DISCLAIMER}}
+                
+            </div> 
+            <div class="conf-btn-wrap_alert rakpaddingBottom10 ">
+                
+                
+                
+                
+                
+               
+                
+               
+                 <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="rakServiceReq.sage.sageFlag=false" >
+                    &nbsp; {{appLiterals.APP.RAK_SAGE_REGISTER.NO}} &nbsp;
+                </button>
+                 <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click="rakServiceReq.sage.sageFlag=false;rakServiceReq.sageUrl();" >
+                    &nbsp; {{appLiterals.APP.RAK_SAGE_REGISTER.YES}} &nbsp;
+                </button>
+            </div>
+            
+            
+            
+            
+        </div>
+    </div>
+    </div>
+    <!-- RAK ALERT -->
+    
+    
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="">
+						<div class="">
+						 <div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakRedFont">{{appLiterals.APP.RAKBURGER.REGISTER_FOR_SAGE}}
+				  	     
+				      </h2>		       
+		 		</div>
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="">
+																	
+										
+									
+										
+				
+					
+
+
+					<div class="disclaimer3" >
+						
+						<span>{{appLiterals.APP.RAK_SAGE_REGISTER.CONTENT1}}</span>
+						
+						 <h3 class="rakRedFont">{{appLiterals.APP.RAK_SAGE_REGISTER.HEADER}}
+				  	     
+				      </h3>
+				     
+						<span ng-bind-html=appLiterals.APP.RAK_SAGE_REGISTER.CONTENT2></span>	
+						<div class="">
+				<div class="rakBnfBlocksSage rakSrchVisible {{val == 'accountant' ? 'accountantLeft' : '' }}" ng-repeat="val in rakServiceReq.sage.imageValueList | filter:searchText">		
+<div  ng-if="val" ng-class="val">
+
+						
+		 <div class="addBenfLinkSage" ng-show="val=='legislation'">{{appLiterals.APP.RAK_SAGE_REGISTER.LEGISLATION}} </div>	
+		 <div class="addBenfLinkSage" ng-show="val=='tracks'">{{appLiterals.APP.RAK_SAGE_REGISTER.TRACKS}} </div>	
+		 <div class="addBenfLinkSage" ng-show="val=='encryption'">{{appLiterals.APP.RAK_SAGE_REGISTER.ENCRYPTION}} </div>	
+		 <div class="addBenfLinkSage" ng-show="val=='cloud'">{{appLiterals.APP.RAK_SAGE_REGISTER.CLOUD}} </div>	
+		 <div class="addBenfLinkSage" ng-show="val=='accountant'" style="display: inline-block;">{{appLiterals.APP.RAK_SAGE_REGISTER.ACCOUNTANT}} </div>
+		
+		 		                
+				  </div>           
+				  </div>   
+				         
+											      						
+					</div>
+					
+									
+
+									<div class="label-wrap">
+										
+										
+											   <button type="button" 
+											    class="btn--special-btn btn-middle rak-button-right margin-top-thirtypx"
+											    ng-click="rakServiceReq.sagePopUp();">
+											    {{appLiterals.APP.RAK_SAGE_REGISTER.REGISTER}}</button>
+									</div>
+									
+									
+									<!-- <div class="col-sm-1"></div>
+									<div class="col-sm-1"></div> -->
+									
+									
+										
+								</div>
+								
+								 <div class="disclaimer">
+                                               <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                               <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                               </div>
+                                               
+                                               <div class="disclaimer3" ng-if="rakDisclaimerFlag ">
+												
+												<span ng-bind-html="appLiterals.APP.RAK_SAGE_REGISTER.MAIN_DISCLAIMER"></span>														
+											</div>
+                                                   
+                                 </div>
+								
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		</div>
+		</div>

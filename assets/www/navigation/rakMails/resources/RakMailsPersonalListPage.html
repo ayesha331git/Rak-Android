@@ -1,0 +1,80 @@
+<div class="finacle-container ng-scope"
+	ng-init="rakMails.isDeleteClicked ? rakMails.personal.initAfterDelete(successResponse.responsesList) : rakMails.personal.initPersonalPage(successResponse.responsesList)">
+
+
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onCancelClick');"></i>
+	</div>
+
+	<div class="account-page fin-txt">
+		<div class="col-sm-11">
+
+
+			<div class="bg-color rak-cont-padding">
+				<div class="row">
+				
+				
+				<div
+							ng-init='mailTypeArray=createDropDownOptionArray(rakMails.mailOptions, ["mailOption"],"mailValue")'>	</div>
+							<fin-input type="dropdown" option-array="mailTypeArray"
+								model="rakMails.selectedMailType"
+								display-row="full"
+								placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_SELCT}}"
+								on-change="resetPageError();setGlobalEvent(rakMails.getMailEvent());"
+								validation-flag='pageErrorArr["rakMails.selectedMailType"]'>
+							</fin-input>
+					
+					<div class="col-sm-1"></div>
+				
+									
+		<!-- <div class="raksearch-field-wrapSearchMail" >
+  
+ <a ng-click="rakMails.RakSearchMails.rakSearchMailReset();rakMails.RakSearchMails.rakMailFolderIdPersonal();setEvent('onMailSearchClick');"><span class="rakGlyphicon glyphicon-search "> </span></a>
+
+    </div> -->	
+    
+    <div class="ng-show" ng-if='rakMails.isPersonalEmpty'>
+		<span class="bnk_nm toggle_btn">{{rakMails.successMessage}}</span>
+	</div>
+							
+    <div class="rakmail-field-wrap" ng-hide="rakMails.isPersonalEmpty">
+      <p class="search-field">
+      <a >
+        <span class="rakGlyphicon glyphicon-search"> </span></a>
+        <input type="text" placeholder="{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.SEARCH_MAILS}}" ng-model="searchText"  class="raksearch-txt">
+      </p>
+</div>
+
+
+				 	<div class="bg-color rak-cont-padding rak-scroll">
+						<div class="row">
+							<div class="col-sm-1"></div>
+							<div class="ng-hide" ng-if='rakMails.isPersonalEmpty'
+									ng-init="showAlert(rakMails.successMessage); setEvent('onPersonalEmptyOkClick')">
+							</div>
+							<div class="ng-hide" ng-if='rakMails.isMailDeleted'
+								ng-init="(rakMails.isStatusError) ? showErrorPopup(rakMails.successMessage) : showAlert(rakMails.successMessage); rakMails.isMailDeleted=false; rakMails.isDeleteClicked=false; setEvent('onDeleteOKClick')">
+							</div>
+
+							<div class="landingpage-list read">
+                                      <div class="i-mail" ng-repeat="mail in rakMails.personal.personalMailListItems">
+									           <div class="inbox-rsplit" ng-click="rakMails.selectedMailId=mail.mBoxId;rakMails.detailType='Personal';rakMails.fromBroadcast=false;setEvent('onRakPersonalFolderMailClick')">
+										            <span class="bnk_nm">{{mail.mailSubject}}</span> 
+										       </div>
+							                   
+							                    <div class="inbox-csplit">{{mail.mailDate}}</div>  
+                                       </div>
+							</div>
+							
+							
+							
+							<div class="col-sm-1 rakBnf"></div>
+							
+					</div>
+					<div class="col-sm-1"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

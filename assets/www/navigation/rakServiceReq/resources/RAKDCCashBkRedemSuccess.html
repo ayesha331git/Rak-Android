@@ -1,0 +1,49 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.initRakDCCashBkRedemSuccess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+			<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.RakDCCashBkRedemModel.successMessage}}</span>
+				</div>
+			</div>
+		<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DC_CASH_BACK_REDEM}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>		     
+				      </h2>		       
+		 </div>
+		
+			
+	
+		<div class="bg-color rak-cont-padding rak-scroll-success">
+			<div class="">
+				<div class="">
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKDCCASHBKREDEM.DCB_CARD_NO}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakDCCashBkRedemModel.DebitCardList[rakServiceReq.RakDCCashBkRedemModel.selectedDebitCard].debitcardNumber}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKDCCASHBKREDEM.DCB_CASH_BACK_AVL}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakDCCashBkRedemModel.cashBackAvailableAmt}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKDCCASHBKREDEM.DCB_REDEEM_AMT}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakDCCashBkRedemModel.redeemAmtDisplay}}</span>
+						</p>
+
+				<div class="label-wrap">
+					<button type="button"
+						class="btn--special-btn btn-middle rak-button-right"
+						ng-click='rakServiceReq.resetRAKDCCashBkRedemDetails();setEvent("onRAKDCCashBkRedemSuccessOkClick");'>
+						{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+				</div>
+
+				<div class="col-sm-10"></div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

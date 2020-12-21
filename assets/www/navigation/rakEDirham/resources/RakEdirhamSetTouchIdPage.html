@@ -1,0 +1,58 @@
+ <div class="rak-back-header">
+	<i class="rak-back-img" ng-click="rakEDirham.eDirhamDetails.pin='';rakEDirham.eDirhamDetails.confirmPin='';setEvent('onBackClick');"></i>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container">
+			<div class="account-page">
+			
+					<div class="app-title-wrapper">
+						<div class="form-block">	
+							
+							<div class="bg-color rak-cont-padding rak-scroll margn-5-5-0-5">
+							<div class="paybils-block-top w-100">
+					            <div class="">
+					             <div class="entr-edirham-pin-txt black-txt dashboard-item-title">{{appLiterals.APP.EDIRHAM.ENABL_TCH_ID}}</div>
+					              
+					            </div>	
+					            <div>
+					            <h3 class="setPin-msg">
+									{{appLiterals.APP.EDIRHAM.ENBL_ID_MSG}}
+									</h3>	
+					            </div>	            
+					            
+					        </div>	
+								<div class="">
+								
+											<md-switch class="eDirham-switch eDirham-switch-details" ng-model="rakEDirham.eDirhamDetails.isTouchId">
+											   {{appLiterals.APP.EDIRHAM.USE_TCH_ID}}
+											  </md-switch>
+
+									
+									
+								</div>
+								
+								
+									
+										
+								<div class="mt-30Per">
+		    					 <button type="button" class="btn--special-btn btn-middle go-overview-btn"
+									ng-click="setEvent('onEdirhamSkipClick');">
+												{{appLiterals.APP.EDIRHAM.SKIP_BTN}}
+											</button>
+									 <button type="button" class="btn--special-btn btn-middle generate-token-btn"
+									ng-click="setEvent('onEdirhamSetTouchIdNextClick');">
+												{{appLiterals.APP.EDIRHAM.NEXT_BTN}}
+											</button>
+			
+		     					</div>
+							
+							</div>
+				
+					</div>
+				</div>
+			
+		</div>
+	</div>
+	</div>
+	</div>

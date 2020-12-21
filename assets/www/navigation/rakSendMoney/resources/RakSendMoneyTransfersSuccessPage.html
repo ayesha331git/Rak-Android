@@ -1,0 +1,203 @@
+<div class="finacle-container" ng-init="rakSendMoney.sendMoney.initSuccessPage(successResponse.responsesList)">
+	<div class="account-page">
+     <div class="col-sm-11">
+	 <div class="app-title-wrapper">
+
+		<ng-include ng-if="rakPendingApproval.pendingApprovalTab!='PIA'"  src="'./navigation/rakSendMoney/resources/RakSendMoneyTabPage.html'"> </ng-include>
+
+		<div class="tab-links" ng-show="rakHome.userTypeIDValue!='CORPORATE'">
+         <ul>
+            <li  class="active"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_BNKTRANSFER}}</span></li>
+            <li  ng-show="dashboard.userType=='1'"   ng-click="rakSendMoney.clearTab();rakSendMoney.sendMoney.rankMoneyTab=true;rakSendMoney.rakMoney.clearSelfTransfersData();setGlobalEvent('onRakMoneyPayTabClick');"><span class="active">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_RAKMNY}}</span></li>
+            <li   ng-show="rakHome.userTypeIDValue!='CORPORATE'" ng-click="rakSendMoney.clearTab();rakSendMoney.sendMoney.mobileCashTab=true;setGlobalEvent('onMobileCashTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_MBLCASH}}</span></li>
+          </ul>
+        </div>
+        <div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh">
+
+
+		<div class="summary-BenfReq main-form-heading-ServiceReq" ng-if="rakPendingApproval.pendingApprovalTab!='PIA'">
+						<div class="iconDivBenf">
+							<span class="infoIconBenf"></span><span class="success">{{rakSendMoney.common.successMessage}}</span>
+						</div>
+		</div>
+		
+		<div class="summary-ServiceReq" ng-if="rakPendingApproval.pendingApprovalTab=='PIA'">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakSendMoney.common.successMessage}}</span>
+				</div>
+			</div>
+		
+		<div class="main-form-heading-ServiceReq" ng-if="rakPendingApproval.pendingApprovalTab=='PIA'"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_COMMON.MODIFY_TRAN}}				     	     
+				      </h2>		       
+		 </div>
+
+
+	 <div class="" >
+
+	    <div class="" >
+	      <div class="">
+    <p class="rak-sum-txt" >
+				<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.REFERENCEID}}</span>
+				<span class="rak-sum-label black">{{rakSendMoney.common.refId}}</span>
+				</p>
+				<p class="rak-sum-txt" ng-show="rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OWN">
+				<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.TXT_TO}}</span>
+				<span class="rak-sum-label black">{{rakSendMoney.common.toDisplayString}}</span>
+				</p>
+
+
+
+<!-- added for IBAN -->
+
+	<p class="rak-sum-txt" ng-show="rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.IBANNO}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.common.IBANNO}}</span>					
+				</p>
+
+				<p class="rak-sum-txt" ng-hide="rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OWN">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.TXT_TO}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.common.beneficaryNickName}}</span>
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NAME}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.common.beneficaryName}}</span>
+				</p>
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.TXT_FROM}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.common.fromDisplayString}}</span>
+</p>
+
+
+
+  <p class="rak-sum-txt" ng-show="rakSendMoney.common.promocode">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.PROMO_CODE}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.common.promocode}}</span>
+                </p>
+                <!-- XM Changes  -->
+			
+				<p class="rak-sum-txt" ng-show='rakSendMoney.common.beneficiaryResidentCountryDisplay && ( rakSendMoney.sendMoney.showResidentCountryField=="Y"  || rakSendMoney.sendMoney.showUBFResidentCountry=="YES")'>
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_RESIDENT_COUNTRY}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.common.beneficiaryResidentCountryDisplay}}</span>
+				</p>
+
+
+			<!-- XM Changes  -->
+
+				<p class="rak-sum-txt" ng-hide="rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OWN || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.BENEFICIARYACCOUNT}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.common.beneficiaryAccountNumber}}</span>
+               </p>
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.AMOUNT}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.common.currency}} {{rakSendMoney.common.amount}}</span>
+				</p>
+
+				    <p class="rak-sum-txt" ng-show='rakSendMoney.common.exchangeRate && rakSendMoney.common.exchangeRateCall'>
+							<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.EXCHANGERATE}}</span>
+							<span class="rak-sum-label black">{{rakSendMoney.common.exchangeRate}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show='rakSendMoney.common.convertedAmt'>
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.TXT_DEBIT_AMOUNT}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.common.convertedAmt}}</span>
+				</p>
+
+
+               	<p class="rak-sum-txt" ng-show="rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE||rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OUTUAE">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.CHARGES}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.common.charges}}</span>
+				</p>
+
+
+
+				<p class="rak-sum-txt" ng-show="rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE||rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OUTUAE">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.CHGAMT}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.common.chargeAmt}}</span>
+				</p>
+
+
+               	<p class="rak-sum-txt" ng-show='rakSendMoney.common.creditAmt'>
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.CREDITAMT}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.common.creditAmt}}</span>
+				</p>
+
+				<p class="rak-sum-txt">
+					<span  class="rak-sum-label">{{rakSendMoney.sendMoney.selectedFrequency=='O' ? appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.TXT_PAYDATE : appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.TXT_PAYDATE_REC}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.common.transactionDate}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-hide="rakSendMoney.sendMoney.selectedFrequency=='O'">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.TXT_FRQ_TYPE}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.FREQ_REC}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-hide="rakSendMoney.sendMoney.selectedFrequency=='O'">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.TXT_FRQ}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.common.frequencyType}}</span>
+				</p>
+
+
+
+			 	<p class="rak-sum-txt" ng-hide="rakSendMoney.sendMoney.selectedFrequency=='O'">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.TXT_NOOFTRA}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.common.noOfTransfer}}</span>
+				</p>
+
+
+					<p class="rak-sum-txt" ng-show="rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.TXT_REASON}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.common.purpose}}</span>
+				</p>
+
+
+				<p class="rak-sum-txt" ng-show="(rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OWN || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.RAKBANK ) && rakSendMoney.common.reason">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.TXT_REASON}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.common.reason}}</span>
+				</p>
+
+
+				<p class="rak-sum-txt" ng-show="(rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OUTUAE)&& rakSendMoney.common.reason">
+					<span  class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.TXT_REASON}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.common.reason}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="(rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OUTUAE)&& rakSendMoney.common.reason1">
+					<span  class="rak-sum-label"></span>
+					<span class="rak-sum-label black">{{rakSendMoney.sendMoney.selectedReason1}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="(rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OUTUAE)&& rakSendMoney.common.reason2">
+					<span  class="rak-sum-label"></span>
+					<span class="rak-sum-label black">{{rakSendMoney.sendMoney.selectedReason2}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="(rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.WITHINUAE || rakSendMoney.sendMoney.selectedBenType==rakSendMoney.RAKSENDMONEYBENFTYPE.OUTUAE)&& rakSendMoney.common.reason3">
+					<span  class="rak-sum-label"></span>
+					<span class="rak-sum-label black">{{rakSendMoney.sendMoney.selectedReason3}}</span>
+				</p>
+				<p class="rak-sum-txt" ng-if="rakSendMoney.common.nextApprover">
+					<span class="rak-sum-label">{{appLiterals.APP.CORPORATE.APPROVERNAME}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.common.nextApprover}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-if="rakCorpInit.corpModel.remarks">
+					<span class="rak-sum-label">{{appLiterals.APP.CORPORATE.REMARKS}}</span>
+					<span class="rak-sum-label black">{{rakCorpInit.corpModel.remarks}}</span>
+				</p>
+
+	<div class="label-wrap">
+		<button type="button" class="btn--special-btn btn-middle rak-button-full rak-back rak-btn-large-text" ng-if="rakPendingApproval.pendingApprovalTab!='PIA'" 
+				ng-click="rakSendMoney.common.fromAuthPage=false;rakSendMoney.sendMoney.clearSelfTransfersData(); rakSendMoney.utils.clearCommonData();setEvent('onSendAgainClick');">  
+				{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_SUCCESSPAGE.SEND_AGAIN}}  </button>
+		<button type="button" ng-if="rakPendingApproval.pendingApprovalTab=='PIA'"
+                class="btn--special-btn btn-middle rak-button-right"
+                ng-click='rakPendingApproval.setInitialFromToDate();rakPendingApproval.setFromToDate();rakPendingApproval.pendingApprovalTab="PIA";rakPendingApproval.fromLandingPage=true;rakPendingApproval.fromLandingPage=true;rakPendingApproval.fromCountPage();rakPendingApproval.setInitialData();rakPendingApproval.backClickFlag="N";setGlobalEvent("onPendingIncompleteTxnsClick");'>
+                {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.BK_TO_LIST}}</button>
+ 	</div>
+	<div class="col-sm-10"> </div>
+	</div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

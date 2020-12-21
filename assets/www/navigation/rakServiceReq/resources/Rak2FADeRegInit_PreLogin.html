@@ -1,0 +1,56 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.fetchRak2FADeRegData_preLogin(successResponse.invocationResult);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+						<div class="summary-ServiceReq" ng-show='rakServiceReq.Rak2FADeRegModel.message'>
+	                        <div class="iconDiv">
+	                              <span class="infoIcon"></span><span class="success">{{rakServiceReq.Rak2FADeRegModel.message}}</span>
+	                        </div>
+                	  </div>
+						<div class="main-form-heading-ServiceReq">
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.SOFTTOKENDEREG}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>
+                              </h2>
+						</div>
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="">
+
+										<p class="rak-parent-txt">
+											<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.SOFTTOKENDEREG.USERNAME}}</span>
+											 <span	class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.Rak2FADeRegModel.userName}}</span>
+										</p>
+
+										<p class="rak-parent-txt">
+											<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.SOFTTOKENDEREG.MOBNO}}</span>
+											 <span	class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.Rak2FADeRegModel.mobNo}}</span>
+										</p>
+										
+
+									<div
+										ng-init='ReasonArr = createDropDownOptionArray(rakServiceReq.Rak2FADeRegModel.reasonList, ["reasonName"], "reasonCode");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.Rak2FADeRegModel.selectedReason"
+										display-row="full"
+										placeholder="{{appLiterals.APP.SOFTTOKENDEREG.REASON}}"
+										validation-flag='pageErrorArr["rakServiceReq.Rak2FADeRegModel.selectedReason"]'
+										option-array="ReasonArr"> </fin-input>
+
+									<div class="label-wrap">
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-right"
+											ng-click="setEvent('onRak2FADeRegContinueClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

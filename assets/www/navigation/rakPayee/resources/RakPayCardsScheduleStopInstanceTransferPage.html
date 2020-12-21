@@ -1,0 +1,98 @@
+
+<div class="rak-back-header" ng-show="transfers.txnFrequency!='O'">
+	<i class="rak-back-img" ng-click="setEvent('onBackClick');rakPayCards.common.fromAuthPage=true;"></i>
+</div>
+<div class="rak-back-header" ng-show="rakPayCards.schedule.stopBtnClicked==true">
+	<i class="rak-back-img" ng-click="setEvent('onBackToListClick');rakPayCards.common.fromAuthPage=true;"></i>
+</div>
+<div ng-init="resetPageError();rakPayCards.schedule.remarks='';rakPayCards.schedule.remarks='';rakPayCards.schedule.initImmediateStopTransfer(successResponse.responsesList);">
+	<div class="account-page">
+	
+    <div class="col-sm-11">
+	  <div class="app-title-wrapper">		
+			<ng-include  src="'./navigation/rakPayee/resources/RakPayCardsTabPage.html'"> </ng-include>
+   
+   							<div class="tab-links">
+								<ul>
+									<li ng-click="rakSendMoney.txnHistory.clearSearchHistory();setGlobalEvent('onRakPayeeHistoryTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_HISTORY}}</span></li>
+									<li class="active"><span class="active">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_SCHEDULE}}</span></li>
+									
+								</ul>
+							</div>
+		 <div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh">
+		 
+		  <!-- <div class="main-form-heading" ng-if="rakPayCards.schedule.stopBtnClicked==true">
+                    	<h2 class="success">{{appLiterals.APP.RAK_SERVICES.RAK_GENERAL.SENT_MSG}}<span>{{rakPayCards.common.successMessage}}</span></h2>
+            </div> 
+ 
+            
+
+			<div class="main-form-heading-BenfReq"> 
+							      <h2 class="rakBenfHeaderSummary">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.SUMMARY}}
+							      </h2>		       
+			</div>-->
+	
+<div class="summary-BenfReq main-form-heading-ServiceReq">
+				<div class="iconDivBenf" ng-if="rakPayCards.schedule.stopBtnClicked==true">
+					<span class="infoIconBenf"></span><span class="success">{{rakPayCards.common.successMessage}}</span>
+				</div>
+</div>
+	
+	<div class="main-form-heading">
+                    	<h2><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.STOPINSTANCEHEADING}}</span></h2>
+    </div>		
+			
+
+<!-- CHANGES DONE FOR SUCESS PAGE END -->    
+            
+            
+        <div class="">
+
+		<div class="">      
+		 
+			<div class="row" >
+			  <div class="">
+			  
+			  
+			  
+			  	<div class="balance-columns-header-row">
+							<div class="rak-header-col rak10 rak10-row"><input type="checkbox" ng-model="rakPayCards.schedule.selectAll"  ng-click="rakPayCards.schedule.getCheckBoxStatus();" id="chkBox"   value="Y"></div>
+							<div class="rak-header-col rak90 rak90-row">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.PAYMENTDUE}}</div>
+						
+						</div>
+			  
+
+						
+						<div class="rakSubScrollDiv rak-cont-paddingvh">
+							<div ng-repeat="instance in rakPayCards.schedule.instanceList" class="balance-columns-row" >
+								<div class="rak-header-col rak10 rak10-row">
+								
+									<input type="checkbox" ng-model='rakPayCards.schedule.instanceList[$index].checkedFlag' id="chkBox" ng-click='rakPayCards.schedule.selectAll=false'>
+									</div>
+									<div class="pull-left rak90 rak90-row">
+									{{instance.immediatePaymentDueOn}}
+									</div>
+								
+							
+								
+								
+							</div>
+											<div class="label-wrap">	
+				 <button type="button"  class="btn--special-btn btn-middle rak-button-small" 
+				 ng-click="rakPayCards.schedule.isBackclicked=false;rakPayCards.schedule.onStopSingleInstanceConfirm();">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.SUBMIT}}</button>
+			  </div>
+			  </div>
+				
+				
+			
+          <div class="col-sm-1"> </div>
+      
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+

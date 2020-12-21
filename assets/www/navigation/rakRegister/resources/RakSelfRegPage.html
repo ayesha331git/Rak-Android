@@ -1,0 +1,25 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="rak-back-header">
+
+			<i class="rak-back-img"
+				ng-click="setEvent('onSelfRegPageBackClick');"></i>
+		</div>
+		
+		<div class="finacle-container"
+			ng-init="rakRegister.initSelfRegistrationData(successResponse.responsesList);rakHome.otpModel.populateModeArray(successResponse.responsesList[0]);">
+
+
+			<div ng-if="rakRegister.RegistrationModel.isRetailNormal=='true'">
+				<ng-include
+					src="'./navigation/rakRegister/resources/RakSelfRegConfirmationPage.html'" />
+			</div>
+			<div ng-if="rakRegister.RegistrationModel.isRetailNormal=='false'">
+				<ng-include
+					src="'./navigation/rakRegister/resources/RakSelfRegDetailsPage.html'" />
+			</div>
+
+		</div>
+	</div>
+</div>

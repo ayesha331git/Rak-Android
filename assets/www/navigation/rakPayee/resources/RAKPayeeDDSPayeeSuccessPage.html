@@ -1,0 +1,104 @@
+<div class="finacle-container" ng-init="rakPayee.payeeModel.processDDSPayeeSuccessResponse(successResponse.responsesList);rakPayee.clearDDSTab();rakPayee.ddsPayeeTab=true;">
+      <div class="account-page">   
+     <div class="col-sm-11">
+     
+    <div class="app-title-wrapper">
+    <ng-include  src="'./navigation/rakPayee/resources/RakDDSPayeeTabPage.html'"> </ng-include>	                 
+        
+         <div class="rak-scroll"> 
+        <div class="main-form-heading" ng-hide="rakPayee.payeeModel.isEditDdsPayee||rakPayee.payeeModel.isDeleteDdsPayee">
+                    	<h2 class="success">{{appLiterals.APP.RAK_PAYEE.SUCCESSFUL.ADD_SUCC}}<span>{{rakPayee.beneficiarySuccessDetails.addDdsPayeeResponse}}</span></h2>
+        </div>
+        <div class="main-form-heading" ng-show="rakPayee.payeeModel.isEditDdsPayee">
+                    	<h2 class="success">{{appLiterals.APP.RAK_PAYEE.SUCCESSFUL.EDIT_SUCC}}<span>{{rakPayee.beneficiarySuccessDetails.editDdsPayeeResponse}}</span></h2>
+        </div>
+         <div class="main-form-heading" ng-show="rakPayee.payeeModel.isDeleteDdsPayee">
+                    	<h2 class="success">{{appLiterals.APP.RAK_PAYEE.SUCCESSFUL.DELETE_SUCC}}<span>{{rakPayee.beneficiarySuccessDetails.deleteDdsPayeeResponse}}</span></h2>
+        </div>
+            
+
+      <div class="bg-color rak-cont-padding" >
+        <div class="" >
+	      <div class="">                 						        
+       
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.SERVICE_PROVIDER}}:&nbsp;</span>
+				<span class="rak-sum-label black">{{rakPayee.payeeModel.serviceProviderDisplayName}}</span>
+			</p>
+			
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.UTILITY_SERVICE}}:&nbsp;</span>
+				<span class="rak-sum-label black">{{rakPayee.payeeModel.utilityServiceDisplayName}}</span>
+			</p>
+			
+			<p class="rak-sum-txt"> 
+			    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.UTILITY_NUMBER}}: &nbsp;</span>
+			    <span class="rak-sum-label black">{{rakPayee.payeeModel.utilityNumber}}</span>
+			</p>			
+		  															
+		    <p class="rak-sum-txt" ng-show="rakPayee.payeeModel.debitFrom==rakPayee.constants.ACCOUNTLABEL"> 
+			     <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.DEBIT_FROM}}: &nbsp;</span>
+			     <span class="rak-sum-label black">{{rakPayee.payeeModel.accountDisplayName}}</span>
+			</p>		  		    
+             
+             <p class="rak-sum-txt" ng-show="rakPayee.payeeModel.debitFrom==rakPayee.constants.CREDITCARDLABEL">
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.DEBIT_FROM}}&nbsp;</span>		              		             
+		              <span class="rak-sum-label black">{{rakPayee.payeeModel.creditCardNumberDisplayName}}</span>
+		         </p>		         
+		         
+		         <p class="rak-sum-txt">
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.ISSUED_FOR}}&nbsp;</span>
+		              <span class="rak-sum-label black">{{rakPayee.payeeModel.issuedFor}}</span>
+		         </p>
+		         
+		          <p class="rak-sum-txt" ng-hide="rakPayee.payeeModel.paymentFrequency==rakPayee.constants.PAYFREQONETIME">
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.COMMENCES_ON}}&nbsp;</span>
+		               <span class="rak-sum-label black" ng-hide="rakPayee.payeeModel.isEditDdsPayee">{{rakPayee.payeeModel.commenceDateDisplay}}</span>
+		              <span class="rak-sum-label black" ng-show="rakPayee.payeeModel.isEditDdsPayee">{{rakPayee.payeeModel.commenceDateDdsEditDisplay}}</span>
+		         </p>
+		         
+		          <p class="rak-sum-txt">
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.EXPIRY_ON}}&nbsp;</span>
+		               <span class="rak-sum-label black" ng-hide="rakPayee.payeeModel.isEditDdsPayee">{{rakPayee.payeeModel.expiryDateDisplay}}</span>
+		               <span class="rak-sum-label black" ng-show="rakPayee.payeeModel.isEditDdsPayee">{{rakPayee.payeeModel.expiryDateDdsEditDisplay}}</span>
+		         </p>
+		         
+		          <p class="rak-sum-txt" >
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.PAYMENT_FREQUENCY}}&nbsp;</span>
+		              <span class="rak-sum-label black">{{rakPayee.payeeModel.paymentFrequencyDisplayName}}</span>
+		         </p>
+		         
+		          <p class="rak-sum-txt" ng-show="rakPayee.payeeModel.paymentFrequency==rakPayee.constants.DEFINEDDAYS">
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.DEFINEDDAYS}}&nbsp;</span>
+		              <span class="rak-sum-label black">{{rakPayee.payeeModel.definedDays}}</span>
+		         </p>
+		         <p class="rak-sum-txt">
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.FIXEDVAR_AMT}}&nbsp;</span>
+		              <span class="rak-sum-label black">{{rakPayee.payeeModel.fixedVarAmountDisplayName}}</span>
+		          </p>				
+				  <p class="rak-sum-txt" ng-show="rakPayee.payeeModel.fixedVarAmount==rakPayee.constants.FIXEDAMOUNT" >
+				      <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.FIXEDAMOUNT}}&nbsp;</span>
+				      <span class="rak-sum-label black">{{rakPayee.payeeModel.fixedAmount}}</span></p>				      	
+				   				
+			      <p class="rak-sum-txt" ng-show="rakPayee.payeeModel.fixedVarAmount==rakPayee.constants.VARIABLEAMOUNT"> 
+			        <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.VAR_MAX_AMT}}&nbsp;</span>
+			        <span class="rak-sum-label black">{{rakPayee.payeeModel.variableMaxAmount}}</span>
+			     </p>
+			     <p class="rak-sum-txt"  ng-show="rakPayee.payeeModel.fixedVarAmount==rakPayee.constants.VARIABLEAMOUNT"> 
+			       <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.DDS_PAYEE.VAR_MIN_AMT}}&nbsp;</span>
+			       <span class="rak-sum-label black">{{rakPayee.payeeModel.variableMinAmount}}</span>
+			    </p>
+    
+        <div class="label-wrap">
+        <button type="button" class="btn--special-btn btn-middle rak-button-small rak-button-right" ng-click="setGlobalEvent('onPayUAEDDSClick')"> {{appLiterals.APP.RAK_PAYEE.SUCCESSFUL.ADD_MORE_BENEFICIARY}}</button>
+        
+        </div>
+        <div class="col-sm-10"> </div> 
+        </div>
+        </div>        
+      </div>   
+      </div>	  
+</div>
+</div>
+</div> 
+</div>         

@@ -1,0 +1,108 @@
+<div class="full-height"
+	ng-init="register.onlineContinueModel.debitPin= '';register.responseRegisterOnlineContinue(successResponse);">
+	<div class="account-page full-height">
+		<div class="full-height">
+			<div class="full-height">
+				<div class="dashboard-item-body full-height">
+					<div class="dashboard-item-title col-sm-12" layout="row"
+						layout-align="center center" layout-wrap>
+						<h2 class="md-headline item-title"
+							id="registerDCHeader" layout="row" layout-align="center center"
+							layout-wrap>{{appLiterals.APP.REGISTER.REGSELF_ENROL.HEADER}}</h2>
+					</div>
+					<div class="stage_wrap">
+						<div class="stage-sucs3">
+							<p class="staging-sucs1">
+								<span class="app app-icon-check"> </span>
+							</p>
+						</div>
+						<div class="stage-line line-small"></div>
+						<div class="stage3">
+							<p class="staging" id="registerDCTickCircle2">
+								{{appLiterals.APP.REGISTER.REG_CHAN_SEL.NO2}}</p>
+						</div>
+						<div class="stage-line line-small"></div>
+						<div class="next-stage">
+							<p class="staging" id="registerDCTickCircle3">
+								{{appLiterals.APP.REGISTER.REG_CHAN_SEL.NO3}}</p>
+						</div>
+						<div class="stage-line line-small"></div>
+						<div class="next-stage">
+							<p class="staging" id="registerDCTickCircle4">
+								{{appLiterals.APP.REGISTER.REG_CHAN_SEL.NO4}}</p>
+						</div>
+					</div>
+					<div class="col-sm-12 lh13">
+						<div class="col-sm-12">
+							<p class="fut-txt1" id="registerDCCardName">
+								{{appLiterals.APP.REGISTER.REGON_AUTH.SENT1}} <br>
+								{{appLiterals.APP.REGISTER.REGON_AUTH.SENT3}}
+							</p>
+						</div>
+					</div>
+					<form
+						ng-submit="register.validateDCAndCC();register.validateDebitPin();setEvent('onOnlineDCAuthClick');">
+						<div class="col-sm-12">
+						<fin-input type="text" model="register.onlineContinueModel.name"
+							display-row="full"
+							placeholder="{{appLiterals.APP.REGISTER.REG_DC_AUTH.PH_NAME_ON_CARD}}"
+							validation-flag='pageErrorArr["register.onlineContinueModel.name"]'
+							max-length="32"></fin-input>
+						<div class="col-sm-12 lh13">
+							<p class="fut-txt1" id="registerDCCardNumberMsg">{{appLiterals.APP.REGISTER.REGON_AUTH.CARD_NO}}</p>
+						</div>						
+						<div class="avail-bal-wrap"  layout="row" layout-align="center center" layout-wrap>
+							<div class="col-sm-3 card_no">
+								<fin-input type="number_card"
+									model="register.onlineContinueModel.card1" display-row="full"
+									placeholder="XXXX"
+									validation-flag='pageErrorArr["register.onlineContinueModel.card1"]'
+									max-length="4"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="number_card"
+									model="register.onlineContinueModel.card2" display-row="full"
+									placeholder="XXXX"
+									validation-flag='pageErrorArr["register.onlineContinueModel.card2"]'
+									max-length="4"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="number_card"
+									model="register.onlineContinueModel.card3" display-row="full"
+									placeholder="XXXX"
+									validation-flag='pageErrorArr["register.onlineContinueModel.card3"]'
+									max-length="4"></fin-input>
+							</div>
+							<div class="col-sm-3 card_no">
+								<fin-input type="number_card"
+									model="register.onlineContinueModel.card4" display-row="full"
+									placeholder="XXXX"
+									validation-flag='pageErrorArr["register.onlineContinueModel.card4"]'
+									max-length="4"></fin-input>
+							</div>
+						</div>
+						<div class="clear-all avail-bal-wrap col-sm-12">
+							<fin-input type="password_num"
+								model="register.onlineContinueModel.debitPin"
+								display-row="half1"
+								validation-flag='pageErrorArr["register.onlineContinueModel.debitPin"]'
+								placeholder="{{appLiterals.APP.REGISTER.REG_DC_AUTH.PH_PIN}}"
+								max-length="4"></fin-input>
+						</div>
+						<section layout="row" layout-align="center center"
+							class="button-wrapper sticky-footer-block">
+							<md-button id="registerDebitCardCancel" type="button"
+								class=" md-raised btn--secondary-btn"
+								ng-click="setGlobalEvent('onLoginClick');">
+							{{appLiterals.APP.COMMON.BUTTON.CANCEL}} </md-button>
+							<md-button id="registerDebitCardSubmit" type="submit"
+								class=" md-raised btn--primary-btn">
+							{{appLiterals.APP.REGISTER.REGON_AUTH.BTN_PROCD}}</md-button>
+						</section>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

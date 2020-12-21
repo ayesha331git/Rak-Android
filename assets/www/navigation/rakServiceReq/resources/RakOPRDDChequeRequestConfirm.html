@@ -1,0 +1,227 @@
+<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onRakOPRDDChequeConfirmBackClick');"></i>
+	</div>
+<div class="finacle-container"
+	ng-init="rakServiceReq.initGenericConfirmationMethod(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+				<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DD_MCHQ_INIT}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>		     
+				      </h2>		       
+		 		</div>
+		
+		<div class="bg-color rak-cont-padding rak-scroll">
+			<div class="row">
+				<div class="">
+				   <div class="rakDupliSRChkMsgImg" ng-show='rakServiceReq.common.message'>
+							<span class='rakAlertForDupStmt'></span> <span class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+						</div>
+
+					<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRDD_SELECT_FROM_ACCOUNTS}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.selectedOprAcctCn}}</span>
+					</p>
+					<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPR_REQ}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.RakSelectedRequestIDModel}}</span>
+					</p>
+					<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_NAME}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.selectedBnfNameCn}}</span>
+					</p>
+					<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_BANK_NAME}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.bnfBankNameCn}}</span>
+					</p>
+					<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_COUNTRY}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.bnfCountryNameCn}}</span>
+					</p>
+						<p class="rak-sum-txt" ng-show="{{rakServiceReq.RakOperativeDDCheque.txnbenfTypeNewArr[rakServiceReq.RakOperativeDDCheque.selectedBnf].beneficiaryAccountNumber}}">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_ACC_NUMBER}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.txnbenfTypeNewArr[rakServiceReq.RakOperativeDDCheque.selectedBnf].beneficiaryAccountNumber}}</span>
+					</p>
+					
+				<!-- 	<p class="rak-sum-txt" ng-show="rakServiceReq.RakOperativeDDCheque.beneficiaryAccountNumber">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_ACC_NUMBER}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.beneficiaryAccountNumber}}</span>
+					</p> -->
+					
+					
+						<div ng-if="rakServiceReq.RakOperativeDDCheque.txnbenfTypeNewArr[rakServiceReq.RakOperativeDDCheque.selectedBnf].bnfBankCountry =='IN' 
+										&& rakServiceReq.RakOperativeDDCheque.requestList[rakServiceReq.RakOperativeDDCheque.selectedReq].code == 'DD' ">
+										
+						<p class="rak-sum-txt">
+					   	<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.CORS_BANK}}</span>
+					   	<span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.correspondingBankList[rakServiceReq.RakOperativeDDCheque.selectedCorrsBank].bankDesc}}</span>
+						</p>
+						
+						<p class="rak-sum-txt " ng-show="rakServiceReq.RakOperativeDDCheque.selectedCityCn">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.CITY}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.selectedCityCn}}</span>
+						</p>				
+						</div>
+					
+					<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_CURRENCY}}</span>
+					  <!--  <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.bnfAccCurrencyCn}}</span> -->
+					 <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.selBeneficiaryAccountCurrency}}</span>
+					</p>
+				<!-- 	<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.CORS_BANK}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.selectedCorrsBankCn}}</span>
+					</p> -->
+					
+					<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_AMOUNT}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.amount}}</span>
+					</p>
+					
+						<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_PURPOSE}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.selectedPurposeCn}}</span>
+					</p>
+					
+					<!-- Added Radio button to enabled courier option by Kamesh: START -->
+					<p class="rak-sum-txt" ng-if="rakServiceReq.RakOperativeDDCheque.isDelModeBranchVisible">
+							
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.emiSelDesc}}</span>
+					</p> 
+					<p class="rak-sum-txt " ng-if="rakServiceReq.RakOperativeDDCheque.isDelModeBranchVisible">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_BRANCH}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.benfTypeCn}}</span>
+					</p>
+					<p class="rak-sum-txt " ng-if="!rakServiceReq.RakOperativeDDCheque.isDelModeBranchVisible">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.REG_ADD}}</span>
+						<span	class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.registeredAddress}}</span>
+					</p>
+					<!-- Added Radio button to enabled courier option by Kamesh: END -->
+					
+					<div ng-hide="rakServiceReq.RakOperativeDDCheque.authorize == false">
+					<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.NAME_AUTH}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.authorizeNameCn}}</span>
+					</p>
+					<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.CONTACT}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.contactCn}}</span>
+					</p>
+					<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.VALID_ID}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.selectedValidIdCn}}</span>
+					</p>
+					
+						<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.ID_NUM}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.idNumberCn}}</span>
+					</p>
+					</div>
+				<!-- 	<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.VALID_ID}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.selectedValidIdCn}}</span>
+					</p> -->
+					
+					
+					
+				<!-- 	<p class="rak-sum-txt ">
+					   <span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRDDCHQ.OPRBENF_AMOUNT}}</span>
+					   <span class="rak-sum-label black">{{rakServiceReq.RakOperativeDDCheque.amount}}</span>
+					</p>
+
+					<p class="rak-sum-txt " ng-show="rakServiceReq.RAKAmmendDeposit.instructions == 'C'">
+						<span class="rak-sum-label" ng-show="rakServiceReq.RAKAmmendDeposit.instructions == 'C'">{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.CREDIT_INTEREST_TO_MY_ACCOUNT}}</span>
+						<span class="rak-sum-label black">{{rakServiceReq.RAKAmmendDeposit.debitopraccountList[rakServiceReq.RAKAmmendDeposit.selectedDebitOprAccNo].accountId}}</span>
+					</p>
+
+
+					<p class="rak-sum-txt " ng-show="rakServiceReq.RAKAmmendDeposit.instructions == 'I'">
+						<span class="rak-sum-label" ng-show="rakServiceReq.RAKAmmendDeposit.instructions == 'I'">{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.INCREASE_AMOUNT_DEP}}</span>
+						 <span class="rak-sum-label black">{{rakServiceReq.RAKAmmendDeposit.increaseamtdepval}}</span>
+					</p> -->
+
+					 <fin-input  type="password_text"
+					 model="rakServiceReq.GenericAuthorizationVariable.transactionPassword"
+					 display-row="full"
+					 placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"  min="0"
+					 validation-flag='pageErrorArr["rakServiceReq.GenericAuthorizationVariable.transactionPassword"]'
+					 ng-show="rakServiceReq.GenericAuthorizationVariable.authMode==txnpwdString">
+					 </fin-input>
+
+<div
+								ng-show="rakServiceReq.GenericAuthorizationVariable.authMode==otpString">
+								<div
+									ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+									<fin-input type="password_num"
+										model="rakServiceReq.GenericAuthorizationVariable.transactionPassword"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}"
+										validation-flag='pageErrorArr["rakServiceReq.GenericAuthorizationVariable.transactionPassword"]'></fin-input>
+								</div>
+
+
+								<div class="rakwidth28 rakModeDropdown"
+									ng-show='rakHome.otpModel.otpModesList.length>0'
+									ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+
+									<fin-input type="dropdown" option-array="toModeArray"
+										model="rakHome.otpModel.otpModeSelected" display-row="full"
+										placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+									<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+
+								</div>
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+									ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');">
+									{{appLiterals.APP.RAK_COMMON.RESEND_OTP}}</button>
+
+							</div>
+<!--  CHANGES FOR RESEND OTP START -->
+<!--<div ng-show="rakServiceReq.GenericAuthorizationVariable.authMode==otpString">
+<div class="rakwidth65">
+<fin-input type="password_num" model="rakServiceReq.GenericAuthorizationVariable.transactionPassword"
+display-row="full" placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.PH_OTP}}"
+validation-flag='pageErrorArr["rakServiceReq.GenericAuthorizationVariable.transactionPassword"]'  >
+</fin-input>
+ </div>
+<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> Resend OTP </button>
+</div>-->
+<!--  CHANGES FOR RESEND OTP END -->
+
+
+
+					<div class="label-wrap">
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small btn--back"
+							ng-click="rakServiceReq.GenericAuthorizationVariable.transactionPassword = '';
+							setEvent('onRakOPRDDChequeConfirmBackClick');">
+							{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.BACK}}</button>
+
+
+				 	<button type="button"
+							class="btn--special-btn btn-middle rak-button-small"
+							ng-click="setEvent('rakOPRDDCHQConfirmSubmit');">
+							{{appLiterals.APP.RAK_SERVICES.RAKAMENDMATURITY.SUBMIT}}</button>
+
+
+
+					</div>
+					
+						<div class="disclaimer" >
+				<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+					<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+				</div>
+		
+				<div class="disclaimer3" ng-show="rakDisclaimerFlag">
+					<div class="disclaimer3" ng-bind-html="appLiterals.APP.DISCLAIMER.RAKDDMCHQ_CONFIRMATIONPAGE"></div>
+				</div>
+			</div>	
+					
+					<div class="col-sm-1"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

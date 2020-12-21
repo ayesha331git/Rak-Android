@@ -1,0 +1,52 @@
+<div class="finacle-container"
+	ng-init="services.initChangeDCLimitSuccess(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class=" dashboard-item-body">
+				
+					<fin-success
+						success-banner=""
+						success-message="{{services.changeDCLimitModel.responseText.message}}"
+						cross-click="setEvent('onCancelClick')"></fin-success>
+						
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="CDLSPAccountNoLabel">
+							{{appLiterals.APP.SERVICES.APP_NEW_DC_AUTH.TXT_ACC_NO}}</span> <span
+							class="sucs-right-color" id="CDLSPAccountNoValue">{{services.changeDCLimitModel.responseText.accountNickname}}-{{services.changeDCLimitModel.responseText.accountNumber}}</span>
+					</div>
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="CDLSPDebitCardNoLabel">{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD_AUTH.TXT_DEBIT_CARD_NO}}</span>
+						<span class="sucs-right-color" id="CDLSPDebitCardNoValue">{{services.changeDCLimitModel.responseText.debitCardNumber}}</span>
+					</div>
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="CDLSPNameOnCardLabel">{{appLiterals.APP.SERVICES.APP_NEW_DC_AUTH.TXT_NAME_ON_CARD}}</span>
+						<span class="sucs-right-color" id="CDLSPNameOnCardValue">{{services.changeDCLimitModel.responseText.nameOnCard}}</span>
+					</div>
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="CDLSPStatusLabel">{{appLiterals.APP.COMMON.TEXT.STATUS}}</span>
+						<span class="sucs-right-color" id="CDLSPStatusValue">{{services.changeDCLimitModel.responseText.status}}</span>
+					</div>
+
+					<div
+						ng-repeat="card in services.changeDCLimitModel.responseText.debitCardNewLimitsList"
+						class="sucs-left-txt"
+						ng-init="NewLimit=parseMoney(card.newLimit,card.newLimitCurrency)">
+						<span class="sucs-left-color" id="CDLSPChannelModeLabel{{$index}}">{{card.mode}}
+						</span>
+						<span class="sucs-right-color">
+						<fin-balance
+								amount="{{NewLimit}}" amount-class=""
+								currency-class="display-inline-block" />
+								</span>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

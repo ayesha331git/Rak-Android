@@ -1,0 +1,54 @@
+<div class="finacle-container"
+	ng-init="appActivation.userMPIN='';appActivation.initAppActivationSetMPINPage(successResponse.responsesList);
+myProfile.password.currentPasswordType=myProfile.passwordType.Login;myProfile.password.initPasswordStrengthRules(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase"
+							id="touchIdEnterExistingMpinHeader">{{appLiterals.APP.REGISTER.SET_MPIN.ACT_HEADER}}</div>
+					</div>
+					<div class="stage_wrap">
+						<div class="stage-sucs3">
+							<p class="staging-sucs1">
+								<span class="app app-icon-check"> </span>
+							</p>
+						</div>
+						<div class="stage-line line-small"></div>
+						<div class="stage-sucs3">
+							<p class="staging-sucs1">
+								<span class="app app-icon-check"> </span>
+							</p>
+						</div>
+						<div class="stage-line line-small"></div>
+						<div class="next-stage">
+							<p class="staging" id="touchIdEnterExistingTickCircle3">
+								{{appLiterals.APP.REGISTER.REG_CHAN_PASS.NO3}}</p>
+						</div>
+					</div>
+					<p class="col-sm-12 fut-txt1 lh13"
+						id="touchIdEnterExistingMpinTxt1">
+						{{appLiterals.APP.APPACTIVATION.ENTER_EXISTING_MPIN}}</p>
+					<form
+						ng-submit="appActivation.activeUserForTouchIDSet();setEvent('onAppActivationSetMPINSubmitClick');">
+						<fin-input type="password_text" model="appActivation.userMPIN"
+							validation-flag='pageErrorArr["appActivation.userMPIN"]'
+							display-row="full"
+							placeholder="{{appLiterals.APP.APPACTIVATION.PH_EXISTING_MPIN}}"
+							max-length='{{appActivation.mpinRules.maxLength}}'></fin-input>
+						<section layout="row" layout-align="center center"
+							class="btn-wrap button-wrapper">
+							<md-button id="touchIdEnterExistingMpinCancel" type="button"
+								class=" md-raised btn--secondary-btn"
+								ng-click="setEvent('onSetMPINTouchIDPageCancelClick')">
+							{{appLiterals.APP.COMMON.BUTTON.CANCEL}} </md-button>
+							<md-button id="setMPINClick" class=" md-raised btn--primary-btn"
+								type="submit"> {{appLiterals.APP.COMMON.BTN_SUBMIT}}</md-button>
+						</section>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

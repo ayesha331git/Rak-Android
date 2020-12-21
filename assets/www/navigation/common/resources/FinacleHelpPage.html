@@ -1,0 +1,16 @@
+<md-dialog layout-padding flex>
+	<md-dialog-content>
+		<h2 class="md-title" ng-if="dialogBoxMessage.title">{{dialogBoxMessage.title}}</h2>
+		<div ng-if="dialogBoxMessage.isURL" class="_md-dialog-content-body">
+		<div ng-include="dialogBoxMessage.url"></div>
+		
+		</div>
+		<div ng-if="!dialogBoxMessage.isURL" class="_md-dialog-content-body">
+			<p class="md-body-2">{{dialogBoxMessage.message}}</p>
+		</div>
+	</md-dialog-content> <md-dialog-actions layout="row">
+	<span flex></span>
+	<md-button type="button" class="popUpButton_font" ng-click="okButtonClick()">{{dialogBoxMessage.ok}}</md-button>
+	</md-dialog-actions> 
+</md-dialog>
+

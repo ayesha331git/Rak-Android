@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default" role="navigation">
+	<div class="navbar-header">
+		<img class="banner" width=64px height=64px>
+		<p class="navbar-text">{{appLiterals.APP.ACTIVATION.ACT_PAGE.HEADER}}</p>
+	</div>
+</nav>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="centering text-center">
+			<h2>{{appLiterals.APP.ACTIVATION.ACT_PAGE.TXT_ACT}}</h2>
+			<br>
+			<p>{{appLiterals.APP.ACTIVATION.ACT_PAGE.FEED_ID}}</p>
+			<div class="form-group">
+				<input type="text" class="form-control" id="customerID"
+					placeholder="{{appLiterals.APP.ACTIVATION.ACT_PAGE.PH_CUSTID}}">
+			</div>
+			<div class="form-group">
+				<button ng-click="setEvent('onActivateClicked')" type="button"
+					class="btn btn-success">{{appLiterals.APP.ACTIVATION.ACT_PAGE.BTN_PROC}}</button>
+			</div>
+			<button type="button" class="btn btn-link">{{appLiterals.APP.ACTIVATION.ACT_PAGE.BTN_FORPASS}}</button>
+		</div>
+	</div>
+</div>

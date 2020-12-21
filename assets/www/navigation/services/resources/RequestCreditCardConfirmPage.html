@@ -1,0 +1,63 @@
+<div id="reqCreditCardConfirmPage" class="app app-arrow2 title-right"
+	ng-click="services.reqCCPinModel.isBack=true;setEvent('onPrevServiceClick')"></div>
+<div class="finacle-container"
+	ng-init="services.initReqCCPinAuthpage(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper">
+			</div>
+
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div id="confirmTitle" class="item-title text-uppercase">{{appLiterals.APP.SERVICES.BRKFXD_DEPAUTH.HEADER}}</div>
+					</div>
+
+					<div class="col-sm-12">
+
+						<div class="account-detail-dash margin-zero">
+							<b id="ccDesc" class="dash-ac-no">{{appLiterals.APP.SERVICES.REQ_CC_CNFRM.TXT_CC_NO}}
+							</b> <span id="ccPinValue" class="dash-ac-id">{{services.reqCCPinModel.authResponce.cardNumber}}</span>
+						</div>
+
+						<div class="account-detail-dash margin-zero">
+							<b id="remarksDesc" class="dash-ac-no">{{appLiterals.APP.SERVICES.REQ_CC_CNFRM.TXT_REMARK}}
+							</b> <span id="remarksValue" class="dash-ac-id">{{services.reqCCPinModel.authResponce.remarks}}</span>
+						</div>
+						</div>
+						<div
+							ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+							<approval-input></approval-input>
+						</div>
+					
+					<form
+						ng-submit="corpInit.corpModel.getSelectedRoleDetailsAsString();setEvent('onReqCDSuccessClick')">
+						<fin-Stepauth></fin-Stepauth>
+
+						<section class="button-wrapper" layout="row"
+							layout-align="center center" layout-wrap>
+							<md-button ng-if='services.reqCCPinModel.isOnline == true'
+								id="reqCCPinAuthOnline" type="submit"
+								class=" md-raised btn--primary-btn">
+							{{appLiterals.APP.COMMON.BUTTON.SUBMIT}}</md-button>
+
+							<md-button ng-if='services.reqCCPinModel.isOnline == false'
+								id="reqCCPinAuthOffline" type="submit"
+								class=" md-raised btn--primary-btn">
+							{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD_AUTH.BTN_SUBMIT_TO_RM}}</md-button>
+						</section>
+						<!-- 	<button type="button"
+							ng-if='services.reqCCPinModel.isOnline == true'
+							class="btn--primary-btn"
+							ng-click="corpInit.corpModel.getSelectedRoleDetailsAsString();setEvent('onReqCDSuccessClick')">{{appLiterals.APP.COMMON.BUTTON.SUBMIT}}</button> 
+							
+							<button type="button"
+							ng-if='services.reqCCPinModel.isOnline == false'
+							class="btn--primary-btn"
+							ng-click="corpInit.corpModel.getSelectedRoleDetailsAsString();setEvent('onReqCDSuccessClick')">{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD_AUTH.BTN_SUBMIT_TO_RM}}</button> -->
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

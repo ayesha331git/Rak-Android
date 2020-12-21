@@ -1,0 +1,131 @@
+<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="rakServiceReq.setRakDCApplyInitBackBtnClicked();"></i>
+	</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.fetchRakDCApplyInitData(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">
+						<div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DEBITCARD_APPLY}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}} </span>                
+                              </h2>              
+						</div>
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="">
+								
+
+									<div
+										ng-init='OprAcctArr = createDropDownOptionArray(rakServiceReq.RakDCApplyModel.OprAcctList, ["acctTypeDesc","-","accountId"," ","currencyCode"], "accountIndex");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RakDCApplyModel.selectedOprAcct"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_SELECT_OPR_ACCOUNTS}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakDCApplyModel.selectedOprAcct"]'
+										option-array="OprAcctArr"> </fin-input>
+
+										<!-- <fin-input type="text" model="rakServiceReq.RakDCApplyModel.MobileNo"
+										display-row="full" placeholder="{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_MOB}}"
+										readonly="true"> </fin-input>
+										<span class="smallLabel">{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_MOB}}</span> -->
+										
+										<p class="rak-parent-txt">
+											<span class="rak-sum-label labelServiceReqTemp">{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_MOB}}</span>
+											 <span	class="rak-sum-label black labelServiceReqTemp">{{rakServiceReq.RakDCApplyModel.MobileNo}}</span>
+										</p>
+									
+
+
+										<div class="rakRow">
+											<div class="radio-biller rak100 rakWidth100 raktext-align rakMarginTop4px"	>
+												{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_DISPATCH_MODE}}</div>
+											<div class="rak90">
+												<div>
+													<div class="rakCstmRadioDiv rak50 rakTop2emLeft3" ng-if="!rakServiceReq.branchDelOptHideSrList.includes('ADC') || rakServiceReq.hideBranchDelOpt!='Y'">
+														<input type="radio" id="radio1" value="{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_DISPATCH_BRANCH}}" class="rakRadio"
+															ng-model="rakServiceReq.RakDCApplyModel.isBranchOrAddress" />
+														<label for="radio1"><span><span></span></span>{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_DISPATCH_BRANCH}}</label>
+													</div>
+													<div class="rakCstmRadioDiv rak47 rakTop2emLeft3">
+														<input type="radio" id="radio2" value="{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_DISPATCH_ADDRESS}}" class="rakRadio"
+															ng-model="rakServiceReq.RakDCApplyModel.isBranchOrAddress" />
+														<label for="radio2"><span><span></span></span>{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_DISPATCH_ADDRESS}}</label>
+													</div>
+												</div>
+											</div>
+										</div>
+
+							
+							<div
+								ng-init='cardArr = createDropDownOptionArray(rakServiceReq.RakDCApplyModel.emirateList, ["codeDesc"], "code");'
+								
+								>
+							<fin-input type="dropdown"
+								model="rakServiceReq.RakDCApplyModel.emirateSeletected"
+								display-row="full"
+								ng-show="rakServiceReq.RakDCApplyModel.isBranchOrAddress=='{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_DISPATCH_BRANCH}}'"
+								placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}"
+								on-change="rakServiceReq.rakDCApplyModelOptionChange();"
+								validation-flag='pageErrorArr["rakServiceReq.RakDCApplyModel.emirateSeletected"]'
+								option-array="cardArr"> </fin-input>
+							</div>
+							
+							
+							<div class="fin-input-container"
+								ng-show="rakServiceReq.RakDCApplyModel.isBranchOrAddress=='{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_DISPATCH_BRANCH}}' && rakServiceReq.RakDCApplyModel.isEmiSelected">
+								<div
+									ng-class="{'left-line': !pageErrorArr['rakServiceReq.RakDCApplyModel.selectedBranchId'], 'left-line-error':pageErrorArr['rakServiceReq.RakDCApplyModel.selectedBranchId']}"
+									class="left-line"></div>
+								<div class="input-body">
+									<div class="input-body2 input-body2-dropdown">
+										<select dropdownpicker title="{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}" class="fin-input fin-select"
+											ng-model="rakServiceReq.RakDCApplyModel.selectedBranchId"
+											ng-style="{{rakServiceReq.RakDCApplyModel.selectedBranchId}} == '' ? {'font-size': '14px'} : {'color': 'initial'}">
+											<option class="place-holder-select" value=""
+												ng-selected="rakServiceReq.RakDCApplyModel.selectedBranchId== null"
+												ng-show="rakServiceReq.RakDCApplyModel.selectedBranchId== null">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.BRANCH}}</option>
+											<option
+												ng-repeat="option in rakServiceReq.RakDCApplyModel.emiCategorizedBranchList"
+												ng-selected="option.value=={{rakServiceReq.RakDCApplyModel.selectedBranchId}}"
+												value="{{option.branchIndex}}">{{option.branchCode}}</option>
+										</select>
+									</div>
+									<div
+										ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.RakDCApplyModel.selectedBranchId'], 'bottom-line-error':pageErrorArr['rakServiceReq.RakDCApplyModel.selectedBranchId']}"
+										class="bottom-line"></div>
+									<div
+										ng-hide='pageErrorArr["rakServiceReq.RakDCApplyModel.selectedBranchId"]==null'
+										class="rakErrorMsg">
+										{{pageErrorArr['rakServiceReq.RakDCApplyModel.selectedBranchId']}}</div>
+
+								</div>
+							</div>
+
+
+				
+
+
+									<fin-input type="text"
+										model="rakServiceReq.RakDCApplyModel.mailingAddress"
+										display-row="full" placeholder="{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_ADDRESS}}"
+										ng-show="rakServiceReq.RakDCApplyModel.isBranchOrAddress=='{{appLiterals.APP.RAKDCAPPLYSR.DCAPPLY_DISPATCH_ADDRESS}}'"
+										validation-flag='pageErrorArr["rakServiceReq.RakDCApplyModel.mailingAddress"]'></fin-input>
+
+									<div class="label-wrap">
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-right"
+											ng-click="rakServiceReq.branchOrAddressRqdCheck();setEvent('onRakDCApplyNextClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

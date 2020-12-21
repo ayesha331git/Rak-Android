@@ -1,0 +1,154 @@
+<div class="rak-back-header">
+	<i class="rak-back-img" ng-click="rakELMSApproval.backClickFlag='Y';setEvent('onELMSViewDetailsBackClick');"></i>
+</div>
+
+<div class="nano menu-scroll">
+<div class="nano-content">
+<div class="finacle-container "
+	ng-init="rakCorpInit.corpModel.eventName='ELMS';resetPageError();rakELMSApproval.reason=''; rakHome.AuthPageData.firstAuthModeValue='';
+	rakELMSApproval.rakFetchELMSStatusDetResponse(successResponse.responsesList);rakELMSApproval.approverList(successResponse.responsesList);rakELMSApproval.responseApproveAuth(successResponse.responsesList)">
+	<div class="account-page">
+	
+		<div class="col-sm-11">
+		
+		<div class="summary-ServiceReq" ng-show='rakELMSApproval.common.message'>
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakELMSApproval.common.message}}</span>
+                        </div>
+        </div>
+		
+		<div ng-if="rakELMSApproval.pageName=='APPROVE'" class="main-form-heading-ServiceReq">
+                <h2 class="rakBenfHeader">{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.SUBHEADERS.APPROVE_TRANSACTION}}
+                </h2>
+		</div>
+	
+	    <div ng-if="rakELMSApproval.pageName=='VIEWDETAILS'" class="main-form-heading-ServiceReq">
+                <h2 class="rakBenfHeader">{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.SUBHEADERS.TRANSACTION_VIEW_DETAILS}}
+                </h2>
+		</div>
+		
+		<div ng-if="rakELMSApproval.pageName=='REJECT'" class="main-form-heading-ServiceReq">
+                <h2 class="rakBenfHeader">{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.SUBHEADERS.REJECT_TRANSACTION}}
+                </h2>
+		</div>
+		
+		<div ng-if="rakELMSApproval.pageName=='RECALL'" class="main-form-heading-ServiceReq">
+                <h2 class="rakBenfHeader">{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.SUBHEADERS.RECALL_TRANSACTION}}
+                </h2>
+		</div>
+		
+		<div ng-if="rakELMSApproval.pageName=='REPAIR'" class="main-form-heading-ServiceReq">
+                <h2 class="rakBenfHeader">{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.SUBHEADERS.REPAIR_TRANSACTION}}
+                </h2>
+		</div>
+			
+
+			
+		<div class="bg-color rak-cont-paddingvh rakNicknameScrollDashboard ">
+		
+		
+		
+			<div class=""  ng-repeat='item in rakELMSApproval.ELMSServiceRequestStatusModel.detailModel.labelKeySetArr'>
+			<div ng-if="item.value">
+				<div class="fin-input-container rakTransfersexchangerate-block" ng-if="item.label=='SrStatusSubHeader'">
+					<p class="rakexchangevalue">{{item.value}}</p>
+				</div>
+				<p class="rak-sum-txt " ng-if="item.label!='SrStatusSubHeader'">
+					<span class="rak-sum-label">{{item.label}}</span>
+					<span class="rak-sum-label black">{{item.value}}</span>
+				</p>
+			</div>
+			
+			</div>
+
+			 <div> 
+
+		  
+		 
+		  
+		  <div ng-if="rakELMSApproval.pageName=='APPROVE'">
+		  
+						<p class="rak-sum-txt " ng-show='rakELMSApproval.approverHistoryList'>
+						<span class="rak-sum-label">{{appLiterals.APP.RAKELMSPENDINGAPPROVAL.ITEMTEXTS.REQUESTED_UPDATED_BY}}</span>
+						<span class="rak-sum-label black">{{rakELMSApproval.approverHistoryList}}</span>
+						</p>
+
+		 </div> 
+			
+		 <div ng-show="rakELMSApproval.userRoleDetails.length> 0" ng-if="rakELMSApproval.pageName=='APPROVE'">
+				<div class="apprHeadingMain rakWidth100">
+						<div class="apprHeading">{{appLiterals.APP.CORPORATE.SELECTAPPR}}</div>
+				</div> 
+				<div>
+						<div class="rakwidth65">
+						<fin-input  type="text" model="rakELMSApproval.approveAuthModel.userName" display-row="full"  validation-flag='pageErrorArr["rakELMSApproval.approveAuthModel.userName"]' placeholder="{{appLiterals.APP.CORPORATE.SELECTUSER}}" > </fin-input>
+						</div>
+						<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakLookUpbutton" ng-click="setEvent('onCorpELMSGetPendingLookUpClick');"> {{appLiterals.APP.CORPORATE.LOOKUP}}</button>
+				</div>
+		 </div> 
+			
+		
+			<fin-dynamicauth></fin-dynamicauth>
+			
+			<div class="label-wrap" ng-if="rakELMSApproval.pageName=='VIEWDETAILS'" >
+                <button type="button"
+                    class="btn--special-btn btn-middle rak-button-small btn--back"                    
+                    ng-click="rakELMSApproval.backClickFlag='Y';setEvent('onELMSViewDetailsBackClick');">
+                    {{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+            </div>
+			
+			<div ng-if="rakELMSApproval.pageName=='REJECT'" class="label-wrap" >
+				<button type="button"
+                    class="btn--special-btn btn-middle rak-button-small btn--back"                    
+                    ng-click="rakELMSApproval.backClickFlag='Y';setEvent('onELMSViewDetailsBackClick');">
+                    {{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button> &nbsp;
+                <button type="button"
+                    class="btn--special-btn btn-middle rak-button-small"
+                    ng-click="setEvent('onELMSRejectConfirmClick');">
+                    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.CONFIRM}}</button>
+            </div>
+			
+			<div ng-if="rakELMSApproval.pageName=='RECALL'" class="label-wrap" >
+				<button type="button"
+                    class="btn--special-btn btn-middle rak-button-small btn--back"                    
+                    ng-click="rakELMSApproval.backClickFlag='Y';setEvent('onELMSViewDetailsBackClick');">
+                    {{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button> &nbsp;
+                <button type="button"
+                    class="btn--special-btn btn-middle rak-button-small"
+                    ng-click="setEvent('onRecallConfirmClick');">
+                    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.CONFIRM}}</button>
+            </div>
+            
+            <div ng-if="rakELMSApproval.pageName=='REPAIR'" class="label-wrap" >
+            	<button type="button"
+                    class="btn--special-btn btn-middle rak-button-small btn--back"                    
+                    ng-click="rakELMSApproval.backClickFlag='Y';setEvent('onELMSViewDetailsBackClick');">
+                    {{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button> &nbsp;
+                <button type="button"
+                    class="btn--special-btn btn-middle rak-button-small"
+                    ng-click="setEvent('onRepairConfirmClick');">
+                    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.CONFIRM}}</button>
+            </div>
+            
+            
+            <div ng-if="rakELMSApproval.pageName=='APPROVE'" class="label-wrap" >
+            	<button type="button"
+                    class="btn--special-btn btn-middle rak-button-small btn--back"                    
+                    ng-click="rakELMSApproval.backClickFlag='Y';setEvent('onELMSViewDetailsBackClick');">
+                    {{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button> &nbsp;
+                <button type="button"
+                    class="btn--special-btn btn-middle rak-button-small"
+                    ng-click="setEvent('onApprovalConfirmClick');">
+                    {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.CONFIRM}}</button>
+            </div>
+				
+				</div>
+				
+				
+		</div>
+		</div>
+		</div>
+	</div>
+</div>
+	</div>
+</div>

@@ -1,0 +1,152 @@
+<div class="rak-back-header" ng-if="rakPendingApproval.pendingApprovalTab=='PIA'">
+	<div ng-if="rakPendingApproval.fromSearch==false">
+		<i class="rak-back-img" ng-click="rakPendingApproval.backClickFlag='Y';setGlobalEvent('onPendingIncompleteTxnsClick')"></i>
+	</div>
+	<div ng-if="rakPendingApproval.fromSearch==true">
+		<i class="rak-back-img" ng-click="rakPendingApproval.backClickFlag='Y';setEvent('onCancelClick');"></i>
+	</div>
+</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container"
+			ng-init="rakCorpInit.corpModel.resetCorpInitDetails();rakPayee.quickPay.initQuickPayEditPage(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block">	
+						
+							 
+							
+							<div class="bg-color rak-cont-padding rak-scroll">
+							
+							<div class="main-form-heading-ServiceReq" ng-if="rakPendingApproval.pendingApprovalTab=='PIA'"> 
+							      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_COMMON.MODIFY_TRAN}}				     	     
+							      </h2>		       
+							</div>
+								<div class="row">
+									<div class="col-sm-1"></div>
+									
+																		
+									<div
+										ng-init='payeeListArray=createDropDownOptionArray(rakPayee.quickPay.billerList, ["billerName"],"billerIndex")'>
+										<fin-input type="text" 
+											model="rakPayee.quickPay.selectedBillerDisp"											
+											display-row="full"
+											placeholder="{{appLiterals.APP.PAYEE.QUICK_PAY.PLCHOLDER_TO}}"											
+											validation-flag='pageErrorArr["rakPayee.quickPay.selectedBiller"]' readonly>
+										</fin-input>
+
+									</div>	
+									
+									<div ng-repeat="fields in rakPayee.quickPay.consumerCodeFields">											
+												
+												
+										<div ng-if="fields.billerFieldType=='dropDown'"  > 
+												<div ng-init='ccDropdown=createDropDownOptionArray(fields.dropdown, ["payeeLabelDesc"],"payeeLabelValue")'>
+													<fin-input option-array="ccDropdown"	
+											 		 type="dropdown" model='rakPayee.quickPay.consumercode{{$index}}' ng-pattern="/^[a-zA-Z0-9]*$/" required
+													display-row="full"  placeholder="{{fields.billerFieldName}}" validation-flag='pageErrorArr["rakPayee.quickPay.consumerCodeValues[{{$index}}].value"]'>
+													
+												</fin-input>
+											</div>
+										</div>									
+								
+									
+										<fin-input ng-if="fields.billerFieldType=='numeric'" type="number_card" model="rakPayee.quickPay.consumercode{{$index}}" ng-pattern="/^[a-zA-Z0-9]*$/" required
+											display-row="full"  placeholder="{{fields.billerFieldName}}" max-length="{{fields.billerFieldSize}}" validation-flag='pageErrorArr["rakPayee.quickPay.consumerCodeValues[{{$index}}].value"]'>
+										</fin-input>
+										
+										<div ng-hide="((rakPayee.quickPay.billerList[rakPayee.quickPay.selectedBiller].billerName == 'DEWA' || rakPayee.quickPay.billerList[rakPayee.quickPay.selectedBiller].billerName == 'SALIK') && fields.billerFieldName=='Service Type')
+										|| (rakPayee.quickPay.billerList[rakPayee.quickPay.selectedBiller].billerName == 'EMAAR' && fields.billerFieldName=='Others' && rakPayee.quickPay.consumercode0!='OTHR')">
+										<fin-input ng-if="fields.billerFieldType=='alphaNumeric'" type="text" model="rakPayee.quickPay.consumercode{{$index}}" ng-pattern="/^[a-zA-Z0-9]*$/" required
+											display-row="full"  placeholder="{{fields.billerFieldName}}"  max-length="{{fields.billerFieldSize}}" validation-flag='pageErrorArr["rakPayee.quickPay.consumerCodeValues[{{$index}}].value"]'>
+										</fin-input>
+										</div>
+									
+									</div>
+						 
+									
+								<fin-input type="text"
+									model="rakPayee.quickPay.billerNickname"
+									display-row="full"
+									placeholder="{{appLiterals.APP.PAYEE.QUICK_PAY.NICKNAME}}" max-length="64"
+									validation-flag='pageErrorArr["rakPayee.quickPay.billerNickname"]'></fin-input>		
+									
+							<!-- 	 <div class="rakChkBoxLabelDiv">
+									<input type="checkbox" id="checkbox"  ng-model='rakPayee.quickPay.saveToList' />
+									<span>{{appLiterals.APP.PAYEE.QUICK_PAY.SAVE}}</span>
+								  </div>			
+											 -->	
+											  <div class="subs-tab-links">
+								<div class="" >
+								
+								<div class="check-boxsLeft ">
+				                    <input id="checkbox"  class="checkbox-custom-new"  type="checkbox"  ng-model='rakPayee.quickPay.saveToList' >
+				                  <label for="checkbox" class="checkbox-custom-label rakpayeechBox"> {{appLiterals.APP.PAYEE.QUICK_PAY.SAVE}} </label>
+				                </div>
+									
+								</div>
+							</div>							
+									<div
+										ng-init='fromAccountArray=createDropDownOptionArray(rakPayee.quickPay.fromAccounts, ["subAccountTypeDesc","-","accountNumberDisplay", "-", "accountCurrency"],"accountIndex")'>
+										<fin-input type="dropdown" option-array="fromAccountArray"
+											model="rakPayee.quickPay.selectedFromAccount"
+											display-row="full" on-change="rakPayee.common.updateBal(rakPayee.quickPay.getBalanceEvent());"
+											placeholder="{{appLiterals.APP.PAYEE.QUICK_PAY.PLCHOLDER_FROM}}"											
+											validation-flag='pageErrorArr["rakPayee.quickPay.selectedFromAccount"]'>
+										</fin-input>
+
+									</div>		
+									
+									
+									<div>
+											<p class="balance-available2"
+												ng-show="rakPayee.quickPay.selectedFromAccount && rakPayee.common.availBal">
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_BALANCE}}
+												<span class="rs-color">
+													{{rakPayee.common.availBal}}</span>
+											</p>
+
+											<p class="balance-available2"
+												ng-show="rakPayee.quickPay.subAccountTypeDesc=='Credit'">
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_ELGIBLEAMT}}
+												<span class="rs-color">
+													{{rakPayee.common.availBal}}</span>
+											</p>
+										</div>
+										
+									<div >
+											
+														<fin-input type="money"
+															model="rakPayee.quickPay.amount" 
+															display-row="full"															
+															placeholder="{{appLiterals.APP.PAYEE.QUICK_PAY.AMOUNT_AED}}"
+															validation-flag='pageErrorArr["rakPayee.quickPay.amount"]'>
+														</fin-input>														
+												
+										</div>
+										
+										<div>
+										
+											
+							 <div class="rak-parent-txt paymentLabel">
+								<span class="rak-sum-label  labelCardsTemp">{{appLiterals.APP.PAYEE.QUICK_PAY.WHEN}}</span>
+								<span class="rak-sum-label black labelCardsTemp">{{rakPayee.common.displayDate}}</span>
+							</div>									
+										<div class="label-wrap">											
+											<button type="button"
+												class="btn--special-btn btn-middle rak-button-right"
+												ng-click="rakPayee.quickPay.fromAgain=true;rakPayee.quickPay.setquickPayDate();rakPayee.quickPay.populateConsumerCodes();rakCorpInit.corpModel.eventName='QUICKPAY';rakCorpInit.corpModel.backFlag='N';setEvent('onquickPayNowSend')";>
+												{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.PLCHOLDER_PROCEED}}
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-1"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

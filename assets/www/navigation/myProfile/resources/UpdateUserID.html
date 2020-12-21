@@ -1,0 +1,77 @@
+<div id="updateUserId" class="app app-arrow2 title-right"
+	ng-click="setEvent('onCancelClick')"></div>
+<div class="finacle-container"
+	ng-init="myProfile.initUpdateIdPage(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper"></div>
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div id="updateTitle" class="item-title text-uppercase">{{appLiterals.APP.MYPROFILE.PROFLANDPAGE.UPDATE_USER_ID}}</div>
+					</div>
+
+
+
+					<!-- <p id="masterId" class="left-txt1">
+							{{appLiterals.APP.MYPROFILE.UPDATEUSERID.MASTER_USER_ID}}&nbsp;<b>{{myProfile.updateIdInitResponse.masterID}}</b>
+						</p>
+
+						<div>
+							<div class="pwd-details">
+								<span id="channel" class="special-txt"><b>{{appLiterals.APP.MYPROFILE.UPDATEUSERID.CHANNEL}}</b></span>
+							</div>
+							<div class="pull-right pwd-transaction">
+								<span id="usrId" class="special-txt"><b>{{appLiterals.APP.MYPROFILE.UPDATEUSERID.USER_ID}}</b></span>
+							</div>
+						</div> -->
+
+					<form
+						ng-submit="myProfile.updateIdModel.isUserIdModified ? myProfile.convertToString():showErrorPopup(appLiterals.APP.MYPROFILE.UPDATEUSERID.USER_ID_NOT_MODIFIED_ERRROR)">
+						<md-radio-group ng-model="myProfile.updateIdModelName">
+						<div ng-if='channel.channelId=="I" || channel.channelId=="G"'
+							class=""
+							ng-repeat="channel in myProfile.updateIdInitResponse.channelList"
+							ng-init='myProfile.updateIdModel.Userid[$index]=channel.userId;myProfile.updateIdModel.editFlag[$index]=false'>
+
+
+							<div class="margin-top-20 col-sm-12">
+								<md-radio-button flex value="{{channel.channelName}}"
+									class="fut-txt1"
+									ng-click="myProfile.checkUserIdPreference($index);">
+								{{channel.channelName}} </md-radio-button>
+								<!-- <input id="checkBox" class="floatLeft" type="checkbox"
+										ng-model="myProfile.updateIdModel.editFlag[$index]"
+										ng-click="myProfile.checkUserIdPreference($index);"> <span
+										id="channelName" class="special-txt">{{channel.channelName}}</span> -->
+							</div>
+
+
+
+
+							<fin-input type="text_dynamic_disable" inputNoSpace
+								readonly="myProfile.updateIdModelName != channel.channelName"
+								model="channel.userId" max-length="32" display-row="full"
+								placeholder="{{appLiterals.APP.MYPROFILE.UPDATEUSERID.USER_ID}}"
+								validation-flag='pageErrorArr["myProfile.updateIdModel.Userid[" + {{$index}} +"]"]'
+								ng-keyUp="myProfile.updateList($index);"
+								on-change="myProfile.updateIdModel.inputModified();myProfile.changeValue($index)"></fin-input>
+
+
+						</div>
+						</md-radio-group>
+
+
+						<section class="button-wrapper" layout="row"
+							layout-align="center center" layout-wrap>
+							<md-button id="updateId" type="submit"
+								class=" md-raised btn--primary-btn">
+							{{appLiterals.APP.MYPROFILE.UPDATEUSERID.CONTINUE_BUTTON}}</md-button>
+						</section>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

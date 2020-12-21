@@ -1,0 +1,78 @@
+<!-- partial code start here-->
+<div class="finacle-container"
+	ng-init="services.initRenewFDSuccess(successResponse.responsesList);">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+			<div class="dashboard-pad full-height">
+				<div class="dashboard-item-body full-height">
+					<fin-success
+						success-banner="{{appLiterals.APP.COMMON.MSG.SUCCESS}}"
+						success-message="{{services.renewFixedDepositModel.responseText}}"
+						cross-click="setEvent('onCancelClick')"> </fin-success>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtAccNo" id="txtDepositAccount">
+							{{appLiterals.APP.SERVICES.RENW_FIXDEP_SUCC.TXT_RENEW_DEP_FOR}} </span>
+						<span class="sucs-right-color" id="depositAccount">
+							{{services.renewFixedDepositModel.successResponse.depositAccount}}
+						</span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtRenewalDisplay">
+							{{appLiterals.APP.SERVICES.RENW_FIXDEP_SUCC.TXT_TYPE}} </span> <span
+							class="sucs-right-color" id="renewalDisplay">
+							{{services.renewFixedDepositModel.successResponse.renewalDisplay}}
+						</span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtMonths">
+							{{appLiterals.APP.SERVICES.RENW_FIXDEP_SUCC.TXT_MNTHS}} </span> <span
+							class="sucs-right-color" id="durationMonths">
+							{{services.renewFixedDepositModel.successResponse.durationMonths}}
+						</span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtDays">
+							{{appLiterals.APP.SERVICES.RENW_FIXDEP_SUCC.DAYS}} </span> <span
+							class="sucs-right-color" id="durationDays">
+							{{services.renewFixedDepositModel.successResponse.durationDays}}
+						</span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtOper">
+							{{appLiterals.APP.SERVICES.RENW_FIXDEP_SUCC.TAX_OPER}} </span> <span
+							class="sucs-right-color" id="oper">
+							{{appLiterals.APP.SERVICES.RENFIX_DEPAUTH.TXT_YES}} </span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtInstructionType">
+							{{appLiterals.APP.SERVICES.RENW_FIXDEP_SUCC.TXT_INT}} </span> <span
+							class="sucs-right-color" id="instructionType">
+							{{services.renewFixedDepositModel.successResponse.instructionType}}
+						</span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtInOutFlow">
+							{{appLiterals.APP.SERVICES.RENW_FIXDEP_SUCC.TXT_FREQ}} </span> <span
+							class="sucs-right-color" id="inOutFlow">
+							{{services.renewFixedDepositModel.successResponse.inOutFlow}} </span>
+					</div>
+					<div class="sucs-left-txt"
+						ng-show="services.renewFixedDepositModel.successResponse.hasOwnProperty('transferTo')">
+						<span class="sucs-left-color" id="txtTransferTo">
+							{{appLiterals.APP.SERVICES.RENW_FIXDEP_SUCC.TXT_TRANSFTO}} </span> <span
+							class="sucs-right-color" id="transferTo">
+							{{services.renewFixedDepositModel.successResponse.transferTo}} </span>
+					</div>
+					<div class="sucs-left-txt"
+						ng-show="services.renewFixedDepositModel.successResponse.transferTo == 'Account' && services.renewFixedDepositModel.successResponse.redeemAccount!=null && services.renewFixedDepositModel.successResponse.redeemAccount!=''">
+						<span class="sucs-left-color" id="txtRedeemAccount">
+							{{appLiterals.APP.SERVICES.RENW_FIXDEP_SUCC.TXT_ACCNO}} </span> <span
+							class="sucs-right-color" id="redeemAccount">
+							{{services.renewFixedDepositModel.successResponse.redeemAccount}}
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

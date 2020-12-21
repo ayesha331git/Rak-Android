@@ -1,0 +1,20 @@
+<div class="finacle-container"
+	ng-init='register.responseOfflineSuccess(successResponse);'>
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+			<div class="dashboard-pad full-height">
+				<div class=" dashboard-item-body full-height">
+					<fin-success
+						success-banner=""
+						success-message="{{register.offlineSuccessMsg}}"
+						cross-click="setGlobalEvent('onLoginClick')"></fin-success>
+					<div class="trans_id_wrap no-border id_txt_pad">
+						<p id="registerOfflineMsg">
+							{{appLiterals.APP.REGISTER.REG_OFF_SUCC.SENT1}}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,192 @@
+<div class="rak-home-header" ng-show="!rakPayee.isBeneficiaryHistoryMode">
+				<i class="homeCorner" ng-click="setGlobalEvent('onDashboardClick');"></i> 
+</div>
+<div class="rak-back-header" ng-show="rakPayee.isBeneficiaryHistoryMode">
+				<i class="rak-back-img" ng-click="rakPayee.common.fromAuthPage=true;setEvent('onBackClick');"></i>
+</div>
+
+<div class="finacle-container"
+	ng-init="resetPageError();rakCorpInit.corpModel.resetCorpInitDetails();rakPayee.payCard.remitBackFlag=false;rakPayee.payCard.initSearchPage(successResponse.responsesList);">
+	<div class="account-page">
+
+		<div class="col-sm-11">
+			<div class="app-title-wrapper">
+
+				<div class="form-block">
+					<ng-include
+						src="'./navigation/rakPayee/resources/RakPayCardsTabPage.html'">
+					</ng-include>
+
+					<div class="tab-links">
+						<ul>
+							<li class="active"><span class="active">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_HISTORY}}</span></li>
+							<li	ng-click="rakPayCards.schedule.clearSchedulePayCardsData();rakPayCards.ownCards.clearOwnCardsData();rakPayCards.setFutureDate();setGlobalEvent('onRakPayeeCardHistoryTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_SCHEDULE}}</span></li>
+
+						</ul>
+					</div>
+
+
+					<div class="bg-color rak-cont-padding ">						
+
+						<div ng-hide="rakPayee.isBeneficiaryHistoryMode==true">
+
+							<div class="rakTxnSearch" ng-init='rakPayee.payCard.scheduleList.length == 0 ? rakTxnSearch=true : rakTxnSearch=false;'>
+								<div class="rakTxnSearch1 rakTxnSearchIcon" ng-class="{'rakTxnSearchIconExpnd':rakTxnSearch}"
+									ng-click="rakTxnSearch=!rakTxnSearch">
+									<h3 class="rakTxnSearch2">{{appLiterals.APP.RAK_COMMON.SEARCH}}</h3>
+								</div>
+								<div class="rakTxnSearch3" ng-show="rakTxnSearch">							
+									
+									<div
+										ng-init='cardTypeArray=createDropDownOptionArray(rakPayee.payCard.cardTypeList, ["cardDesc"],"cardCode")'>
+										<fin-input type="dropdown" option-array="cardTypeArray"
+											model="rakPayee.payCard.selectedCardType" display-row="full"
+											placeholder="{{appLiterals.APP.RAK_PAYEE.HISTORY.CARD_TYPE}}"
+											validation-flag='pageErrorArr["rakPayee.payCard.selectedCardType"]'>
+										</fin-input>
+		
+									</div>
+									
+										<fin-input type="date" model="rakPayee.payCard.searchFromDate"
+											display-row="half1" value="pastDatesOnly"
+											placeholder="{{appLiterals.APP.RAK_PAYEE.HISTORY.FROM_DATE}}"
+											validation-flag='pageErrorArr["rakPayee.payCard.searchFromDate"]'></fin-input>
+		
+										<fin-input type="date" model="rakPayee.payCard.searchToDate"
+											display-row="half2" value="pastDatesOnly"
+											placeholder="{{appLiterals.APP.RAK_PAYEE.HISTORY.TO_DATE}}"
+											validation-flag='pageErrorArr["rakPayee.payCard.searchToDate"]'></fin-input>
+		
+										<div class=""> 
+												<span class="fieldLabelLeft" >{{appLiterals.APP.RAK_PAYEE.HISTORY.FROM_DATE}}</span> 
+												<span class="fieldLabelRight rak42" >{{appLiterals.APP.RAK_PAYEE.HISTORY.TO_DATE}}</span> 
+											</div>
+											
+									<button type="button" class="btn--special-btn btn-middle rak-button-full-black"
+									ng-click="rakPayee.payCard.fromSearchResult=true;rakPayee.payCard.setFromToDate();setEvent('onScheduleSearchClick')">{{appLiterals.APP.RAK_COMMON.GO}}
+									</button>
+									
+									<button type="button" class="btn--special-btn btn-middle rak-button-full-grey"
+									ng-click="rakPayCards.ownCards.fromSearch=true;
+									rakPayee.payCard.remitBackFlag=true;rakPayee.common.fromAuthPage=false;
+									setGlobalEvent('onRemitSummCancelClick');">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.REMIT_BUTTON}}
+									</button>
+		
+
+								</div>
+							</div>	
+
+						</div>
+						
+						<div ng-if="rakPayee.payCard.scheduleList.length == 0 ">
+
+							<div class="summary-ServiceReq">
+								<div class="iconDivNorecord">
+									<span class="infoIcon"></span><span class="success">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.NO_TXNS}}</span>
+								</div>
+							</div>
+						</div>
+
+
+
+						<div ng-if="rakPayee.payCard.scheduleList.length > 0">
+						
+							<div class="money-block rakBottomZero">
+								<ul>
+									<li class="active rak30 rakPaddingPoint8em">
+										{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.DATE}}</li>
+									<li class="active rak30 ">
+										{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.PAYEE}}</li>
+									<li class="active rak30 ">
+										{{appLiterals.APP.RAK_TABLE_DATA.HEADINGS.AMOUNT}}</li>
+									<li class="active rak10 ">&nbsp;</li>
+								</ul>
+							</div>
+						
+							<div class="rakScrollDivHistory rak-cont-paddingvh" ng-class="{'rak-history-paddingvh':rakTxnSearch}">
+						
+								<div class="">
+
+
+									<div class="trans-detail rakGreyRow"
+										ng-repeat="transfers in rakPayee.payCard.scheduleList">
+
+										<div
+											class="trans-dash-right rakPeopleNameRow1  rak30  rakPaddingPoint8em pull-left">
+											<div>
+												<div class="trans-no rakTextCenter rakFont1em">
+													{{transfers.txnDate}}</div>
+											</div>
+
+										</div>
+
+										<div
+											class="trans-dash-right rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em">
+											<div>
+												<div class="trans-no rakTextCenter rakFont1em">
+													{{transfers.toAccount}}</div>
+											</div>
+										</div>
+
+
+										<div
+											class="trans-dash-left rakPeopleNameRow1  rak30 pull-left rakPaddingPoint8em">
+											<div>
+												<div class="trans-no rakTextCenter rakFont1em">
+													{{transfers.txnCurrency}} {{transfers.txnAmount}}</div>
+											</div>
+
+										</div>
+
+										<div class="pull-right rakPaddingPoint5em" style="width: 10%">
+											<span class="rakPullDownNew"
+												ng-click="rakHome.handlePullDown($event);"></span>
+											<ul
+												class="rakPullDownMenu rakAbsolute rakTop2em rakMarginTop2">
+												<li><a href=""
+													ng-click="rakPayee.payCard.searchFrom ='Schedule';rakPayee.payCard.selectedCompltTxn = transfers;
+											  		rakPayee.payCard.selectedCompltTxnIndex = transfers.index; setEvent('onPayCardViewTxnDetails')">
+
+														{{appLiterals.APP.RAK_PAYEE.HISTORY.VIEW}}</a></li>
+												<li><a href=""
+													ng-click="rakPayCards.schedule.schTxnListSubmitBtn='SEND_AGAIN';rakPayCards.ownCards.fromSearch=true;rakPayCards.ownCards.selectedCardBenfType = rakPayee.payCard.selectedCardType;rakPayee.payCard.selectedCompltTxn = transfers;
+											    rakPayCards.ownCards.isBenfAccountSelected=true;rakPayCards.ownCards.isCardSelected=true;rakPayee.payCard.selectedCompltTxn = transfers;rakPayee.common.fromAuthPage=false;rakPayee.payCard.selectedCompltTxnIndex = transfers.index;setEvent('onCompltTxnSendAgain')">
+														{{appLiterals.APP.RAK_PAYEE.HISTORY.PAYAGAIN}}</a></li>
+												<li><a href=""
+													ng-show="transfers.txnStatus=='Under Processing'"
+													ng-click="rakPayee.payCard.selectedCompltTxn = transfers;rakPayee.payCard.selectedCompltTxnIndex = transfers.index;setEvent('onCompltTxnViewStatus')">
+														{{appLiterals.APP.RAK_PAYEE.HISTORY.VIEWSTAT}}</a></li>
+
+
+												<li><a href=""
+													ng-show="transfers.txnStatus=='Under Processing'"
+													ng-click="rakCorpInit.corpModel.resetCorpInitDetails();rakPayee.payCard.selectedCompltTxn = transfers;rakPayee.payCard.selectedCompltTxnIndex = transfers.index;rakCorpInit.corpModel.eventName='CANCELTRANSFERPAYCARD';rakCorpInit.corpModel.backFlag='N';rakPayee.payCard.txnType = transfers.txnType;setEvent('onCompltTxnCancel')">
+														{{appLiterals.APP.RAK_PAYEE.HISTORY.CANCEL}}</a></li>
+											</ul>
+										</div>
+
+
+									</div>
+								</div>
+					<div class="disclaimer">
+							<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+											<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+							</div>
+
+							<div class="disclaimer3" ng-show="rakDisclaimerFlag">
+											<div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCARDHISTORY"></div>
+							</div>
+					</div>
+			
+							</div>
+						</div>
+
+					</div>
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

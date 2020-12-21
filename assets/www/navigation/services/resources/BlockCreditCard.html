@@ -1,0 +1,46 @@
+<div class="app app-arrow2 title-right-dash" id="blockCreditCardBackAction"
+	ng-click="setEvent('onBlockCreditCardCloseClick')"></div>
+<div class="finacle-container"
+	ng-init="services.blockCreditCardModel.initBlockCreditCard(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase">
+							{{appLiterals.APP.SERVICES.CREDIT_CARD.BLOCK_CC_HEADER}}</div>
+					</div>
+					<form
+						ng-submit="corpInit.corpModel.resetCorpInitDetails();setEvent('onBlockCreditCardConfirmClick');">
+
+						<div class="avail-bal-wrap"
+							ng-init='creditcardlist = createDropDownOptionArray(services.blockCreditCardModel.creditCardList,["creditcardNumber"],"index");'>
+
+							<fin-input type="dropdown"
+								model="services.blockCreditCardModel.blockCreditCardNumber"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.BLOCK_CREDCARD.HEADER}}"
+								validation-flag='pageErrorArr["services.blockCreditCardModel.blockCreditCardNumber"]'
+								option-array="creditcardlist"></fin-input>
+
+						</div>
+						<div class="avail-bal-wrap">
+							<fin-input type="text"
+								model="services.blockCreditCardModel.remarks" display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.BLOCK_CREDCARD.PH_REM}}"
+								validation-flag='pageErrorArr["services.blockCreditCardModel.remarks"]'></fin-input>
+						</div>
+						<md-button id="blockCCSubmit" type="submit"
+							class="md-raised btn--primary-btn">
+						{{appLiterals.APP.COMMON.BUTTON.BLOCK}}</md-button>
+
+					</form>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

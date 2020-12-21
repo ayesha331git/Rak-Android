@@ -1,0 +1,133 @@
+<div class="rak-back-header">
+    <i class="rak-back-img" ng-click="rakMyProfile.updatePersonalProfile.isHomeCity=false;rakMyProfile.updatePersonalProfile.isOfficeCity=false;setEvent('onCitySearchBackClick');"></i>
+  </div>
+    	<div class="finacle-container" ng-init="rakMyProfile.getCitySearchList(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+			<div class="app-title-wrapper">	
+					 <!-- Heading fix-start -->
+                 <div class="main-form-heading">
+					  <h2> 
+					   {{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.UPDATE_PP_DETAILS}}</div>
+					  
+					</h2>
+					<!-- Heading fix-end -->
+			   <div class="form-block">
+
+			     <div class="main-form-heading-payee"> 
+		      <h2 >{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_CITY_SEARCHTXT}}
+		      <span>{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_SEARCH}}</span>		     
+		      </h2>		       
+		  </div>		 
+			</div>		
+				
+			  
+			  	<fin-input  type="text" model="rakMyProfile.updatePersonalProfile.citySearchText" display-row="full" placeholder="{{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_CITY_SEARCHTXT}}" validation-flag='pageErrorArr["rakMyProfile.updatePersonalProfile.citySearchText"]'> </fin-input>
+	            <!-- <fin-input  type="text" model="rakPayee.payeeModel.ifscBankBranch" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.IFSC_BRANCHNAME}}" validation-flag='pageErrorArr["rakPayee.payeeModel.bankBranch"]'> </fin-input>
+	            <fin-input  type="text" model="rakPayee.payeeModel.ifscCode" display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.IFSC_CODE}}" validation-flag='pageErrorArr["rakPayee.payeeModel.bankBranch"]'> </fin-input>
+				 -->	
+		<div ng-show="rakMyProfile.updatePersonalProfile.isHomeCity">
+        <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="rakMyProfile.updatePersonalProfile.citySearchText='';rakMyProfile.updatePersonalProfile.cityDesc='';rakMyProfile.updatePersonalProfile.city='';"> {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.IFSC_CLEAR}}</button>
+        <button type="button" class="btn--special-btn btn-middle rak-button-small rak-button-right" ng-click="setEvent('onSearchCityGetListClick')"> {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.IFSC_SEARCH}}</button>       
+       </div>
+       <div ng-show="rakMyProfile.updatePersonalProfile.isOfficeCity">
+        <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="rakMyProfile.updatePersonalProfile.citySearchText='';rakMyProfile.updatePersonalProfile.offCityDesc='';rakMyProfile.updatePersonalProfile.offcity='';"> {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.IFSC_CLEAR}}</button>
+        <button type="button" class="btn--special-btn btn-middle rak-button-small rak-button-right" ng-click="setEvent('onSearchCityGetListClick')"> {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.IFSC_SEARCH}}</button>       
+       </div>  
+       
+       <div ng-show="rakMyProfile.updatePersonalProfile.isHeadOfficeCity">
+        <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="rakMyProfile.updatePersonalProfile.citySearchText='';rakMyProfile.updatePersonalProfile.head_offCityDesc='';rakMyProfile.updatePersonalProfile.head_offcity='';"> {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.IFSC_CLEAR}}</button>
+        <button type="button" class="btn--special-btn btn-middle rak-button-small rak-button-right" ng-click="setEvent('onSearchCityGetListClick')"> {{appLiterals.APP.RAK_PAYEE.CONFIRMATION.IFSC_SEARCH}}</button>       
+       </div>       
+         <div class="fin-txt"></div>
+         <div class="bg-color rak-cont-padding">         
+          <div class="money-block" ng-show="rakMyProfile.updatePersonalProfile.cityList.length> 0">              
+						         <ul>						           						       						           
+						            <li class="active rak25Imp">
+						            {{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_CITY_CODE}}
+						          </li>
+						            <li class="active rak50Imp">
+						             {{appLiterals.APP.RAK_SERVICES.RAK_UPDATEPP.TXT_CITY_DESC}}
+						           </li>
+						            <li class="active rak20Imp">
+						            
+						           </li>
+						            
+						         </ul>
+						 	</div>
+          <div class="nano scroll-height rakscroll-height" >    
+					            <div class="custom-nano-content rakTxnSrchDivNew" >
+					       
+					               
+									<div class="trans-detail rakGreyRow" ng-repeat="city in rakMyProfile.updatePersonalProfile.cityList">					                  					                    					                  
+					                    
+					                    
+					                  <div class="trans-dash-left rakPeopleNameRow1 rak25Imp pull-left rakPaddingPoint8em">					                  
+					                    <div> 
+					                    <div class="trans-no rakFont1em"> 
+					                         {{city.cityCode}}            
+					                    </div>
+					                  </div> 
+					                        
+					                  </div>
+					                  
+					                  <div class="trans-dash-left rakPeopleNameRow1 rak50Imp pull-left rakPaddingPoint8em">					                  
+					                    <div> 
+					                    <div ng-show="rakMyProfile.updatePersonalProfile.isHomeCity" class="trans-no rakFont1em"> 
+					                 {{city.cityDesc}}                 
+					                    </div>
+					                    <div ng-show="rakMyProfile.updatePersonalProfile.isOfficeCity" class="trans-no rakFont1em"> 
+					                 {{city.cityDesc}}                  
+					                    </div>
+					                    <div ng-show="rakMyProfile.updatePersonalProfile.isHeadOfficeCity" class="trans-no rakFont1em"> 
+					                 {{city.cityDesc}}                 
+					                    </div>
+					                  </div> 
+					                        
+					                  </div>
+					                  
+					                    <div class="trans-dash-left rakPeopleNameRow1 rak20Imp pull-left rakPaddingPoint8em">					                  
+					                    <div> 
+					                    <div class="trans-no rakFont1em"> 
+					                          <div ng-show="rakMyProfile.updatePersonalProfile.isHomeCity"> 
+					                <div class="raknew_user" 
+					                 ng-click="rakMyProfile.updatePersonalProfile.city=city.cityCode;
+					                 rakMyProfile.updatePersonalProfile.cityDesc=city.cityDesc;
+					                 rakMyProfile.updatePersonalProfile.isHeadOfficeCity=false;
+					                 rakMyProfile.updatePersonalProfile.isOfficeCity=false;setEvent('onCitySelectedClick');" 
+					                 ng-model="rakMyProfile.updatePersonalProfile.city">select</div>                 
+					                    </div>
+					                    <div ng-show="rakMyProfile.updatePersonalProfile.isOfficeCity" > 
+					                  <div class="raknew_user" 
+					                 ng-click="rakMyProfile.updatePersonalProfile.offcity=city.cityCode;
+					                 rakMyProfile.updatePersonalProfile.offCityDesc=city.cityDesc;
+					                 rakMyProfile.updatePersonalProfile.isHeadOfficeCity=false;
+					                 rakMyProfile.updatePersonalProfile.isHomeCity=false;
+					                 setEvent('onCitySelectedClick');" 
+					                 ng-model="rakMyProfile.updatePersonalProfile.offcity">select</div>                 
+					                    </div>
+					                    <div ng-show="rakMyProfile.updatePersonalProfile.isHeadOfficeCity" > 
+					                  <div class="raknew_user" 
+					                 ng-click="rakMyProfile.updatePersonalProfile.head_offcity=city.cityCode;
+					                 rakMyProfile.updatePersonalProfile.head_offCityDesc=city.cityDesc;
+					                 rakMyProfile.updatePersonalProfile.isHomeCity=false;
+					                 rakMyProfile.updatePersonalProfile.isOfficeCity=false;setEvent('onCitySelectedClick');" 
+					                 ng-model="rakMyProfile.updatePersonalProfile.head_offcity">select</div>                 
+					                    </div>          
+					                    </div>
+					                  </div> 
+					                        
+					                  </div>
+				
+					       
+					             </div>
+					              </div> 
+              
+						</div>
+          </div>
+         
+       
+   </div>
+</div>
+</div>
+</div>

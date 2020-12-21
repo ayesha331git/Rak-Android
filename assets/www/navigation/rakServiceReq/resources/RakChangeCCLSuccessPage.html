@@ -1,0 +1,76 @@
+<div class="finacle-container" ng-init="rakServiceReq.creditCardLimitChange.successInit(successResponse.responsesList[0]);">
+	<div class="account-page">
+		<div class="col-sm-11">
+			
+
+
+<div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakServiceReq.creditCardLimitChange.creditcardChangeLimitResponse}}</span>
+                        </div>
+                  </div>
+            <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CHNG_CRDLIM}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>                 
+                              </h2>              
+</div>
+                  
+
+		
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+
+				<div class="row">
+					<div class="">
+
+					<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CHNG_CNFRMPAGE.CHNGE_CRDLIM}} {{appLiterals.APP.RAK_SERVICES.RAK_CHNG_CNFRMPAGE.TXT_FR}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.creditCardLimitChange.cardNoContinue}}</span>
+					</p>
+
+					<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CHNG_CNFRMPAGE.TXT_NEWLIM}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.creditCardLimitChange.newLimitContinue}}</span>
+					</p>
+
+
+
+
+					<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CHNG_CCLIMPAG.PH_RQST_TO}}&nbsp;</span>
+							<span class="rak-sum-label black" ng-show="rakServiceReq.creditCardLimitChange.requestTo=='Increase'">{{appLiterals.APP.RAK_SERVICES.RAK_CHNG_CCLIMPAG.PH_INC_LT}}</span>
+							<span class="rak-sum-label black" ng-show="rakServiceReq.creditCardLimitChange.requestTo=='Decrease'">{{appLiterals.APP.RAK_SERVICES.RAK_CHNG_CCLIMPAG.PH_DEC_LT}}</span>
+					</p>
+
+					<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CHNG_CCLIMPAG.PH_LIMIT_CHANGE}}&nbsp;</span>
+							<span class="rak-sum-label black" >{{rakServiceReq.creditCardLimitChange.limitContinue}}</span>
+
+					</p>
+
+					<p class="rak-sum-txt" ng-if="rakServiceReq.creditCardLimitChange.limitChange == rakServiceReq.creditCardLimitChange.tempCode">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CHNG_CCLIMPAG.PH_NUM_MONTH}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.creditCardLimitChange.monthsContinue}}</span>
+					</p>
+
+					<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_CHNG_CCLIMPAG.PH_NTE}}&nbsp;</span>
+							<span class="rak-sum-label black">{{rakServiceReq.creditCardLimitChange.note}}</span>
+					</p>
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="rakServiceReq.creditCardLimitChange.resetCreditCardLimitChangeModel();setEvent('onCancelClick')">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+						</div>
+						<div class="col-sm-1"></div>
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>

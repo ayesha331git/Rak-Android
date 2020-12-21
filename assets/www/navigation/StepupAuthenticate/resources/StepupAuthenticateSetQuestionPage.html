@@ -1,0 +1,50 @@
+
+<div ng-hide="stepupAuthentication.isEnabled" id="stepupAuthenticateSetQuestionPage"
+	class="app app-arrow2 title-right"
+	ng-click="stepupAuthentication.isErrorPage=true;setEvent('onStepupAuthenticateSetQuestionCancelClick')"></div>
+<div class="finacle-container"
+	ng-init='
+successResponse.invocationResult=successResponse.hasOwnProperty("responsesList")?successResponse.responsesList[0]:successResponse.invocationResult;
+StepupAuthenticate.initResponse(successResponse.invocationResult)'>
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper"></div>
+
+			<div class="ipad-container">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12  margin-bottom-20">
+						<div id="setSecAnsTitle" class="item-title text-uppercase">{{appLiterals.APP.STEPUP_AUTH.QUE_PAGE.TXT_SEQ_QUE}}</div>
+					</div>
+
+					<form
+						ng-submit="StepupAuthenticate.selectedQuestionHandler();setEvent('onStepupAuthenticateQuestionContinueClick')">
+
+
+						<div class="col-sm-12"
+							ng-repeat="question in stepupAuthentication.response.actionDetails[0].params.Questions">
+							<md-checkbox class="display-inline-block" id="{{$index}}" ng-model="StepupAuthenticate.selectedQuestions[$index]"> </md-checkbox>
+							<!-- <input type="checkbox" id="{{$index}}" class="unchecked"
+								ng-model="StepupAuthenticate.selectedQuestions[$index]">
+							<label for="{{$index}}"></label> -->
+							<div class="display-inline-block finInput_checkbox">
+								<fin-input class="margin-lr-0" type="text"
+									model="question.answer" display-row="full"
+									placeholder="{{question.questionDescription}}"
+									validation-flag='pageErrorArr["StepupAuthenticate.actionDetails[0].params.Questions[" + {{$index}} +"]"]'></fin-input>
+							</div>
+							<!-- {{stepupAuthentication.SET_SECURITY_QUESTIONS.selectedQuestions}} -->
+						</div>
+
+
+						<section class="clear-all button-wrapper" layout="row"
+							layout-align="center center" layout-wrap>
+							<md-button id="setSecAnsContinue" type="submit"
+								class=" md-raised btn--primary-btn">
+							{{appLiterals.APP.COMMON.BUTTON.CONTINUE}}</md-button>
+						</section>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

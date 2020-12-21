@@ -1,0 +1,56 @@
+<div class="finacle-container" ng-init="rakPayee.processBillerAuthStatusResponse(successResponse.responsesList)">
+<div class="account-page">
+     <div class="col-sm-11">
+
+     <div class="app-title-wrapper">
+     <ng-include  src="'./navigation/rakPayee/resources/RakPayBillsTabPage.html'"> </ng-include>
+      <div class="rak-scroll rak-cont-padding">
+      
+        	<div class="summary-BenfReq main-form-heading-ServiceReq">
+				<div class="iconDivBenf">
+					<span class="infoIconBenf"></span><span class="success">{{rakPayee.billerAuthStatusMessage}}</span>
+				</div>
+			</div>
+
+	  <div class="bg-color " >
+        <div class="row" >
+	      <div class="">
+	     <p class="rak-sum-txt">
+		 				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BILLER_NAME}}</span>
+		 				<span class="rak-sum-label black">{{rakPayee.billerModel.displayName}}</span>
+		 			</p>
+		 		
+
+			<p  class="rak-sum-txt" ng-show="rakPayee.billerAuthDetails.hasOwnProperty('billerAuthStatusMessage')">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.RAK_BIL_STATUS}}</span>
+				<span class="rak-sum-label black">{{rakPayee.billerAuthDetails.billerAuthStatusMessage}}</span>
+			</p>
+
+
+		    <div ng-repeat="fields in rakPayee.billerModel.consumerCodeflds">
+				<p class="rak-sum-txt" ng-hide="(rakPayee.billerModel.displayName == 'EMAAR' && fields.label=='Others' && rakPayee.billerModel.consumercode0!='OTHR')">
+					<span class="rak-sum-label">{{fields.label}}</span>
+					<span class="rak-sum-label black">{{fields.value}}</span>
+				</p>
+			</div>
+			
+				<p class="rak-sum-txt">
+		 				<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BILLER_NICKNAME}}</span>
+		 				<span class="rak-sum-label black">{{rakPayee.billerAuthDetails.billerNickName}}</span>
+			</p>
+
+	      </div>
+	      </div>
+	      </div>
+
+
+		<div class="label-wrap">
+			 <!--  <button type="button" class="btn--special-btn btn-middle rak-button-small rak-button-right" ng-click="rakPayee.billsTab=true;setGlobalEvent('onPayBillsClick');rakPayee.resetBillerModule();">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.SUCCESSFUL.RAK_BTN_ANOTHER_PAYEE}} </button> -->
+			   <button type="button" class="btn--special-btn btn-middle rak-button-small rak-button-right" ng-click="rakPayee.selectedPayeeType=rakPayee.payeeTypes.BILLER;rakPayee.resetBillerModule();setEvent('billerSuccessClick')">{{appLiterals.APP.RAK_PAYESLFCONF_REQ.SUCCESSFUL.RAK_BTN_ANOTHER_PAYEE}} </button>
+			  </div>
+		<div class="col-sm-10" ></div>
+</div>
+</div>
+</div>
+</div>
+</div>

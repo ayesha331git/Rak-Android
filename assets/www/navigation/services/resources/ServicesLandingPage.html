@@ -1,0 +1,235 @@
+<div class="finacle-container"
+	ng-init="resetPageError(); expandOper=true">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="app-title-wrapper">
+				<div class="title-left"></div>
+				<!-- <div class="title-service">{{appLiterals.APP.SERVICES.SERV_LANDPG.HEADER}}</div> -->
+			</div>
+
+			<div class="  ipad-container">
+				<div class="dashboard-item-body padding-zero">
+					<div class="dashboard-item-title col-sm-12">
+						<div class="item-title text-uppercase">
+							{{appLiterals.APP.SERVICES.SERV_LANDPG.HEADER}}</div>
+					</div>
+
+					<div class="service-body"
+						ng-hide="(menuProfile.menuItems.menuUserAccessList | filterMultiple:{parentMenuId:'OPACC'}).length == 0">
+						<div class="service-item1-body"
+							ng-init="service.operativeTab = false">
+							<div class="service-item-title" id="OPR_ACC"
+								ng-click='services.getLandingItemCount($event); service.operativeTab = true;'
+								ng-class="{'service-active-tab': (services.currentServiceMenuIndex==0 && service.operativeTab == true)}">
+								<div class="service-item-list" id="ServLandTab0">
+									{{appLiterals.APP.SERVICES.SERV_LANDPG.TXT_OPERACC}}</div>
+								<div class="service-arrow">
+									<span class="app app-arrow3"></span>
+								</div>
+
+							</div>
+							<div class=" white-bg collapse"
+								ng-class="{'expand':(services.currentServiceMenuIndex==0 && service.operativeTab == true)}">
+
+								<div
+									ng-repeat="item in menuProfile.menuItems.menuUserAccessList   | filterMultiple:{menuAccessibility:['LGN'],parentMenuId:'OPACC'}| orderBy:'menuSeqNumber'">
+									<span class="service-txt"
+										id='{{menuProfile.menuItems.getMenuName(item)}}'
+										ng-click="menuProfile.menuItems.getClickProperties(item);setEvent(item.event.eventname,item.event.timeout)">{{menuProfile.menuItems.getMenuName(item)}}</span>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
+
+					<div class="service-body"
+						ng-hide="(menuProfile.menuItems.menuUserAccessList | filterMultiple:{parentMenuId:'DEPACC'}).length == 0">
+						<div class="service-item1-body">
+							<div class="service-item-title" id='DEP_ACC'
+								ng-click='services.getLandingItemCount($event); service.operativeTab = false'
+								ng-class="{'service-active-tab': services.currentServiceMenuIndex==1}">
+								<div class="service-item-list" id="ServLandTab1">
+									{{appLiterals.APP.SERVICES.SERV_LANDPG.DEP_ACC}}</div>
+								<div class="service-arrow">
+									<span class="app app-arrow3"></span>
+								</div>
+
+							</div>
+							<div class=" white-bg collapse"
+								ng-class="{'expand':services.currentServiceMenuIndex==1}">
+
+
+								<div
+									ng-repeat="item in menuProfile.menuItems.menuUserAccessList   | filterMultiple:{menuAccessibility:['LGN'],parentMenuId:'DEPACC'}| orderBy:'menuSeqNumber'">
+									<span class="service-txt"
+										id='{{menuProfile.menuItems.getMenuName(item)}}'
+										ng-click="menuProfile.menuItems.getClickProperties(item);setEvent(item.event.eventname,item.event.timeout)">{{menuProfile.menuItems.getMenuName(item)}}</span>
+									
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
+					<div class="service-body"
+						ng-hide="(menuProfile.menuItems.menuUserAccessList | filterMultiple:{parentMenuId:'LONACC'}).length == 0">
+						<div class="service-item1-body">
+							<div class="service-item-title" id="LN_ACC"
+								ng-click='services.getLandingItemCount($event); service.operativeTab == false;'
+								ng-class="{'service-active-tab': services.currentServiceMenuIndex==2}">
+								<div class="service-item-list" id="ServLandTab2">
+									{{appLiterals.APP.SERVICES.SERV_LANDPG.LN_ACC}}</div>
+								<div class="service-arrow">
+									<span class="app app-arrow3"></span>
+								</div>
+
+							</div>
+							<div class=" white-bg collapse"
+								ng-class="{'expand':services.currentServiceMenuIndex==2}">
+
+								<div
+									ng-repeat="item in menuProfile.menuItems.menuUserAccessList   | filterMultiple:{menuAccessibility:['LGN'],parentMenuId:'LONACC'}| orderBy:'menuSeqNumber'">
+									<span class="service-txt"
+										id='{{menuProfile.menuItems.getMenuName(item)}}'
+										ng-click="menuProfile.menuItems.getClickProperties(item);setEvent(item.event.eventname,item.event.timeout)">{{menuProfile.menuItems.getMenuName(item)}}</span>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="service-body"
+						ng-hide="(menuProfile.menuItems.menuUserAccessList | filterMultiple:{parentMenuId:'DEBCRD'}).length == 0">
+						<div class="service-item1-body">
+							<div class="service-item-title" id="DEBIT_CARD"
+								ng-click='services.getLandingItemCount($event); service.operativeTab = false;'
+								ng-class="{'service-active-tab': services.currentServiceMenuIndex==3}">
+								<div class="service-item-list" id="ServLandTab3">
+									{{appLiterals.APP.SERVICES.SERV_LANDPG.DEBT_CRD}}</div>
+								<div class="service-arrow">
+									<span class="app app-arrow3"></span>
+								</div>
+
+							</div>
+							<div class=" white-bg collapse"
+								ng-class="{'expand':services.currentServiceMenuIndex==3}">
+
+								<div
+									ng-repeat="item in menuProfile.menuItems.menuUserAccessList   | filterMultiple:{menuAccessibility:['LGN'],parentMenuId:'DEBCRD'}| orderBy:'menuSeqNumber'">
+									<span class="service-txt"
+										id='{{menuProfile.menuItems.getMenuName(item)}}'
+										ng-click="menuProfile.menuItems.getClickProperties(item);setEvent(item.event.eventname,item.event.timeout)">{{menuProfile.menuItems.getMenuName(item)}}</span>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
+					<div class="service-body"
+						ng-hide="(menuProfile.menuItems.menuUserAccessList | filterMultiple:{parentMenuId:'CREDCRD'}).length == 0">
+						<div class="service-item1-body">
+							<div class="service-item-title" id="CRED_CRRD"
+								ng-click='services.getLandingItemCount($event); service.operativeTab = false'
+								ng-class="{'service-active-tab': services.currentServiceMenuIndex==4}">
+								<div class="service-item-list" id="ServLandTab4">
+									{{appLiterals.APP.SERVICES.SERV_LANDPG.CRED_CRD}}</div>
+								<div class="service-arrow">
+									<span class="app app-arrow3"></span>
+								</div>
+
+							</div>
+							<div class=" white-bg collapse"
+								ng-class="{'expand':services.currentServiceMenuIndex==4}">
+
+								<div
+									ng-repeat="item in menuProfile.menuItems.menuUserAccessList   | filterMultiple:{menuAccessibility:['LGN'],parentMenuId:'CREDCRD'}| orderBy:'menuSeqNumber'">
+									<span class="service-txt"
+										id='{{menuProfile.menuItems.getMenuName(item)}}'
+										ng-click="menuProfile.menuItems.getClickProperties(item);setEvent(item.event.eventname,item.event.timeout)">{{menuProfile.menuItems.getMenuName(item)}}</span>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
+					<div class="service-body" ng-hide="true" id="btn_TXT_CHQ"
+						ng-click='services.getLandingItemCount($event);'>
+						<div class="service-item1-body">
+							<div class="service-item-title" id="TXT_CHQ"
+								ng-click='services.getLandingItemCount($event); service.operativeTab = false'
+								ng-class="{'service-active-tab': services.currentServiceMenuIndex==5}">
+								<div class="service-item-list" id="ServLandTab5">
+									{{appLiterals.APP.SERVICES.SERV_LANDPG.TXTCHEQ}}</div>
+								<div class="service-arrow">
+									<span class="app app-arrow3"></span>
+								</div>
+
+							</div>
+							<div class=" white-bg collapse"
+								ng-class="{'expand':services.currentServiceMenuIndex==5}">
+
+								<div class="col-sm-10">
+									<span class="service-txt" id="ServLandTabChq1">{{appLiterals.APP.SERVICES.SERV_LANDPG.CHEQ_STAT}}</span>
+									<div class="service-hr"></div>
+									<span class="service-txt" id="ServLandTabChq2">{{appLiterals.APP.SERVICES.SERV_LANDPG.REQ_NEWCHEQBK}}</span>
+									<div class="service-hr"></div>
+									<span class="service-txt" id="ServLandTabChq3">{{appLiterals.APP.SERVICES.SERV_LANDPG.STP_CHEQ}}</span>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
+
+					<div class="service-body"
+						ng-hide="(menuProfile.menuItems.menuUserAccessList | filterMultiple:{menuAccessibility:['LGN'],parentMenuId:'OTHERS'}).length == 0">
+						<div class="service-item1-body">
+							<div class="service-item-title" id="OTHER"
+								ng-click='services.getLandingItemCount($event); service.operativeTab = false'
+								ng-class="{'service-active-tab': services.currentServiceMenuIndex==6}">
+								<div class="service-item-list" id="ServLandTab6">
+									{{appLiterals.APP.SERVICES.SERV_LANDPG.OTHER}}</div>
+								<div class="service-arrow">
+									<span class="app app-arrow3"></span>
+								</div>
+
+							</div>
+							<div class=" white-bg collapse"
+								ng-class="{'expand':services.currentServiceMenuIndex==6}">
+
+								<div
+									ng-repeat="item in menuProfile.menuItems.menuUserAccessList   | filterMultiple:{menuAccessibility:['LGN'],parentMenuId:'OTHERS'}| orderBy:'menuSeqNumber'">
+									<span class="service-txt"
+										id='{{menuProfile.menuItems.getMenuName(item)}}'
+										ng-click="menuProfile.menuItems.getClickProperties(item);setEvent(item.event.eventname,item.event.timeout)">{{menuProfile.menuItems.getMenuName(item)}}</span>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
+					
+					
+				
+
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

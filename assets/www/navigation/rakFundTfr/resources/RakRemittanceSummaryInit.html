@@ -1,0 +1,146 @@
+<div class="rak-back-header">
+
+			<i class="rak-back-img"
+				ng-click="setEvent('onRemittanceSummaryInitCloseClick');
+							rakFundTfr.remitSummary.resetRemitSummCancel()"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+
+		<div class="finacle-container bg-color"
+			ng-init="rakCorpInit.corpModel.resetCorpInitDetails();rakFundTfr.remitSummary.remittanceSummaryInit(successResponse.responsesList);">
+
+			<div class="account-page">
+				<div class="col-sm-11">
+
+					<div class="main-form-heading-ServiceReq">
+							      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.MUL_REMITTANCE}}
+							      </h2>
+					</div>
+					<div class="app-title-wrapper rakTopPadding15">
+						<!-- <div class="form-block">
+
+							<ng-include
+								src="'./navigation/rakSendMoney/resources/RakSendMoneyTabPage.html'">
+							</ng-include>
+
+							<div class="remit-tab-links">
+								<ul>
+									<li><span class="pullLeft">&nbsp;</span></li>
+									<li><span>{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.REFERENCE_NUM}}</span></li>
+									<li><span>{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.DEBIT_ACCOUNT}}</span></li>
+									<li><span>{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.BENF_NAME}}</span></li>
+									<li><span>{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.AMOUNT}}</span></li>
+								</ul>
+							</div>
+						</div> -->
+
+
+						<div class="balance-columns-header-row">
+							<div class="balance-heade-col rak10">&nbsp;</div>
+							<!-- <div class="balance-heade-col rak23">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.REFERENCE_NUM}}</div> -->
+							<div class="balance-heade-col rak30 ">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.DEBIT_ACCOUNT}}</div>
+							<div class="balance-heade-col rak30 ">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.BENF_NAME}}</div>
+							<div class="balance-heade-col rak30 ">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.AMOUNT}}</div>
+						</div>
+
+
+						<!-- <div class="bg-color rak-cont-padding rak-scroll">
+							<div class="row">
+								<div class="col-sm-1"></div>
+
+								<div class="nano scroll-height3">
+
+									<div class="nano-content"> -->
+
+
+
+
+						<!-- <div class="rakColumnDiv_FTViewSchTxnList_ColHeader ">
+											<span class="pullLeft">&nbsp;</span>
+
+											<span class="rakColumnLabel_FTViewSchTxnList_ColHeader">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.REFERENCE_NUM}}</span>
+											<span class="rakColumnLabel_FTViewSchTxnList_ColHeader">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.DEBIT_ACCOUNT}}</span>
+											<span class="rakColumnLabel_FTViewSchTxnList_ColHeader">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.BENF_NAME}}</span>
+											<span class="rakColumnLabel_FTViewSchTxnList_ColHeader">{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.AMOUNT}}</span>
+
+										</div>
+										 -->
+
+
+						<!-- 	<div class=""
+											ng-repeat="x in rakFundTfr.remitSummary.testArray">
+											<div class="rakColumnDiv">
+												<span class="pullLeft"> <input type="checkbox" ng-model="x.flag"></span>
+												<span class="rakColumnLabel_FTViewSchTxnList">{{x.refno}}</span>
+												<span class="rakColumnLabel_FTViewSchTxnList">{{x.debitlist}}</span>
+												<span class="rakColumnLabel_FTViewSchTxnList">{{x.benfnamelist}}</span>
+												<span
+													class="rakColumnLabel_FTViewSchTxnList">{{x.amountlist}}</span>
+											</div>
+										</div> -->
+
+						<!-- <div class="form-block">
+
+							<div class="remit-tab-links remit-rakColumnDiv">
+								<ul ng-repeat="x in rakFundTfr.remitSummary.testArray">
+									<li><span class="pullLeft"> <input type="checkbox" ng-model="x.flag"></span></li>
+									<li><span class="rakColumnLabel_FTViewSchTxnList ">{{x.refno}}</span></li>
+									<li><span class="rakColumnLabel_FTViewSchTxnList ">{{x.debitlist}}</span></li>
+									<li><span class="rakColumnLabel_FTViewSchTxnList ">{{x.benfnamelist}}</span></li>
+									<li><span class="rakColumnLabel_FTViewSchTxnList ">{{x.amountlist}}</span></li>
+								</ul>
+							</div>
+						</div> -->
+
+						<div class="trans-detail rakGreyRowRemittance rakRemitListScrollDiv">
+							<div ng-repeat="x in rakFundTfr.remitSummary.testArray" class="rakRemittanceCancellation">
+							
+							
+						
+								 <div ng-show="userTypeComponent=='CHECKBOXCOMPONENT'" class="check-boxsLeft rak10">
+									<input type="checkbox" class="checkbox-custom-new" ng-model="x.flag" id="{{$index}}">
+									   <label for="{{$index}}" class="checkbox-custom-label rakRemMargin"> </label>
+								</div> 
+								
+								<div ng-show="userTypeComponent=='RADIOCOMPONENT'" class=" rakCstmRadioDiv check-boxsLeft rak10">
+								
+									<input type="radio" value={{x.refno}} id="radio{{$index}}"
+										ng-model="rakFundTfr.remitSummary.radioSelected" id="{{$index}}" 
+									/>
+									
+									<label  for="radio{{$index}}" class="rakRemitRadio" ><span><span></span></span></label>
+									
+								</div>
+								<!-- <div class="rak23 pull-left">
+									<span class="rakFont1em trans-date rakPeopleNameRow1  padding-zero">{{x.refno}}</span>
+								</div> -->
+								<div class="rak30 pull-left ">
+									<span class="rakFont1em rakPeopleNameRow1 center ">{{x.debitlist}}</span>
+								</div>
+								<div class="rak30 pull-left ">
+									<span class="rakFont1em rakPeopleNameRow1  center">{{x.benfnamelist}}</span>
+								</div>
+								<div class="rak30 pull-left">
+									<span class=" rakFont1em   rakPeopleNameRow1 center ">{{x.amountlist}}</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small rak-button-right"
+								ng-click="rakCorpInit.corpModel.eventName='REMTCANCEL';rakCorpInit.corpModel.backFlag='N';rakFundTfr.CheckBoxClicked()">
+								{{appLiterals.APP.RAK_FUND_TFR.RAK_REMIT.CONTINUE_DETAILS}}</button>
+						</div>
+
+					</div>
+
+					<div class="col-sm-1"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

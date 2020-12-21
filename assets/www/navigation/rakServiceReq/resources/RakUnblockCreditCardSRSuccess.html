@@ -1,0 +1,61 @@
+<div class="finacle-container" ng-init="rakServiceReq.rakUnblockCreditCardBlockSuccess(successResponse.responsesList)">
+	<div class="account-page">
+     	<div class="col-sm-11">
+	 	
+	 		<div class="summary-ServiceReq">
+                        <div class="iconDiv">
+                              <span class="infoIcon"></span><span class="success">{{rakServiceReq.RakUnblockCreditCardBlock.successMessage}}</span>
+                        </div>
+                  </div>
+            <div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.UNBLOCK_CC}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>                 
+                              </h2>              
+</div>
+
+     		<div class="bg-color rak-cont-padding rak-scroll-success" >
+     		
+     		
+                  
+     		
+		 		<div class="row" >
+		      		<div class="col-sm-1"></div>
+
+	      	       		<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKTEMPDEBBLOCK.CARDNO}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakUnblockCreditCardBlock.confirmedCard}}</span>
+			</p>
+
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKTEMPDEBBLOCK.EXPDATE}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakUnblockCreditCardBlock.confirmExpDate}}</span>
+			</p>
+
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKTEMPDEBBLOCK.REASON}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakUnblockCreditCardBlock.confirmedReason}}</span>
+			</p>
+
+
+			<p class="rak-sum-txt"
+						ng-show="rakServiceReq.RakUnblockCreditCardBlock.reason=='Others'">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKTEMPDEBBLOCK.OTHERS}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RakUnblockCreditCardBlock.other}}</span>
+					</p>
+
+
+
+	      			<div class="label-wrap">
+	      				<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click='setEvent("onRAKUnBlockSuccessOkClick");'>{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+
+ 						<!-- <button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click=" setEvent('onSendAgainClick');">  {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_SUCCESSPAGE.SEND_AGAIN}}  </button>
+						<button type="button" class="btn--special-btn btn-middle rak-button-small" ng-click='rakSendMoney.sendMoney.clearSelfTransfersData(); rakSendMoney.utils.clearCommonData(); setEvent("onTransfersSuccessOkClick")'> {{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_SUCCESSPAGE.HOME}} </button> -->
+					</div>
+					<div class="col-sm-10"> </div>
+
+      		</div>
+    	</div>
+
+  	</div>
+
+</div>

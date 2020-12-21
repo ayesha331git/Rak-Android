@@ -1,0 +1,95 @@
+<div class="finacle-container ng-scope" ng-init="rakMails.clearTab();rakMails.sentMailsTab=true;rakMails.isDeleteClicked ? rakMails.sent.initAfterDelete(successResponse.responsesList) : rakMails.sent.initListPage(successResponse.responsesList)">
+
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setGlobalEvent('onDashboardClick');"></i>
+	</div>
+	<div class="account-page">
+		<div class="col-sm-11">
+
+        <div class="">
+			<div class="row" >
+			
+					<div
+							ng-init='mailTypeArray=createDropDownOptionArray(rakMails.mailOptions, ["mailOption"],"mailValue")'>
+							<fin-input type="dropdown" option-array="mailTypeArray"
+								model="rakMails.selectedMailType"
+								display-row="full"
+								placeholder="{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_SELCT}}"
+								on-change="resetPageError();setGlobalEvent(rakMails.getMailEvent());"
+								validation-flag='pageErrorArr["rakMails.selectedMailType"]'>
+							</fin-input>
+						</div>
+						
+						<div class="col-sm-1"></div>
+
+    
+<!--CHANGES DONE TO FILTER TEXT ON WRITING START-->
+<div class="rakmail-field-wrap">
+      <p class="search-field">
+     
+        <span class="rakGlyphicon glyphicon-search"> </span>
+        <input type="text" input-restricted-special-character placeholder="{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.SEARCH_MAILS}}" ng-model="searchText" class="raksearch-txt">
+      </p>
+</div>
+
+<div class="rakMargin5px">
+<a  class="advanceSearch" ng-click="rakMails.RakSearchMails.fromSentFlag=true;rakMails.RakSearchMails.criteriaFlag=false;rakMails.RakSearchMails.rakSearchMailReset();rakMails.RakSearchMails.rakMailFolderIdInbox();setEvent('onMailSearchClick');">{{appLiterals.APP.RAK_MAILS.RAKMESSAGECENTRE_PAGE.ADVANCESEARCH}}</a>
+</div>
+<!--CHANGES DONE TO FILTER TEXT ON WRITING END-->
+
+
+					<!-- <div class="rakNewFixed rakBackGrndWhite">
+		                   <ng-include
+								src="'./navigation/rakMails/resources/RakMailsTabPage.html'">
+							</ng-include>
+					</div> -->
+
+
+
+			  	<div class="bg-color rak-cont-padding rak-scroll rakHeight60">
+						<div class="row">
+						
+
+					      <div class="ng-hide" ng-if='rakMails.sent.isSentEmpty'
+									ng-init="showAlert(rakMails.successMessage); setEvent('onSentEmptyOkClick')">
+							</div>
+							<div class="ng-hide" ng-if='rakMails.isMailDeleted'
+									ng-init="(rakMails.isStatusError) ? showErrorPopup(rakMails.successMessage) : showAlert(rakMails.successMessage); rakMails.isMailDeleted=false; rakMails.isDeleteClicked=false;setEvent('onDeleteOKClick')">
+							</div>
+					      <div class=""  >
+					      <div class="landingpage-list read" >
+								
+					         	<div class="i-mailInbox" ng-repeat="mail in filteredList=(rakMails.sent.list | filter:searchText)">
+									<div class="inbox-rsplit-inbox" ng-click="rakMails.selectedMailId=mail.mboxId;rakMails.detailType='Sent';rakMails.fromInbox=false;rakMails.fromSentMail=true;rakMails.inboxComposeFlag=false;setEvent('onMessageClick')">
+										<span class="bnk_nm">{{mail.mailSubject}}</span>
+									</div>
+
+									<div class="inbox-csplit-new">{{mail.mailDate}}
+									<!-- <span class="bnk_nm">{{mail.toId}}</span> -->
+										<!-- <span class="bnk_nm">{{mail.mailDate}}</span> -->
+									</div>
+
+									<!-- CHANGES SHOWING DELETE ICON IN ROW START  -->
+									<!--   <div class="inbox-lsplit i-trash" ng-click="rakMails.selectedMailId=mail.mboxId;rakMails.isDeleteClicked=true;setEvent('onDeleteClick')">
+									          <span class="glyphicon glyphicon-trash"></span>
+					                   </div> -->
+					               <!-- CHANGES SHOWING DELETE ICON IN ROW END  -->
+
+								</div>
+
+					          <!--   <div class="inbox-lsplit i-trash" ng-click="rakMails.selectedMailId=mail.mboxId;rakMails.isDeleteClicked=true;setEvent('onDeleteClick')">
+									<span class="glyphicon glyphicon-trash"></span>
+					            </div> -->
+					            <span ng-show="filteredList.length=='0'" class="noMails">No mails found</span>
+							</div>
+							
+							
+							</div>
+					   </div>
+					 </div>
+				  </div>
+			</div>
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
+</div>

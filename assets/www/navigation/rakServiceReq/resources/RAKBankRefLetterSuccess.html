@@ -1,0 +1,107 @@
+<div class="finacle-container"
+	ng-init="rakServiceReq.rakBankRefLetter.initRAKOprAcctBalConfReqSucess(successResponse.responsesList)">
+	<div class="account-page">
+		<div class="col-sm-11">
+
+			<div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakServiceReq.rakBankRefLetter.successMessage}}</span>
+				</div>
+			</div>
+		<div class="main-form-heading-ServiceReq">
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.BANKREFLETTER}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP3}}{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>
+				      </h2>
+		 </div>
+
+
+			<div class="bg-color rak-cont-padding rak-scroll-success">
+				<div class="row">
+
+
+							<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.BAL_CONF_DATE}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.common.initDate}}</span>
+						</p>
+						 <p class="rak-sum-txt" ng-show="rakServiceReq.rakBankRefLetter.applicantName">
+									<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.APPLICANTNAME}}</span> <span
+										class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.applicantName}}</span>
+								</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.FORACC}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.selectedForAccountNo}}
+							</span>
+						</p>
+
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.LANG}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.selectedLang =='E' ? appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.ENGLISH : appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.ARABIC }}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.ADDRESSEDTO}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.addressdTo}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.ADDRESS}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.address}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.DEBTACCT}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.selectedAccountNumber}}
+							</span>
+						</p>
+
+
+                       <p class="rak-sum-txt" ng-show='rakServiceReq.rakBankRefLetter.reqdDetailsDesc'>
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.REQDETAILS}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.reqdDetailsDesc}}
+							</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.DISPATCHMODE}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.selectedDelMode}}</span>
+						</p>
+
+						<p class="rak-sum-txt"
+							ng-show="rakServiceReq.rakBankRefLetter.selectedDelMode=='{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.COLLECTBRANCH}}'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_SR_COMMON.EMIRATE}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.emiSelDesc}}</span>
+						</p>
+						<p class="rak-sum-txt"
+							ng-show="rakServiceReq.rakBankRefLetter.selectedDelMode=='{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.COLLECTBRANCH}}'">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.BRANCHNAME}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.selectedBranchDesc}}</span>
+						</p>
+
+					<!-- 	<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKOPRACCTBALCONF.CONTACTMOBNO}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.RAKOprAcctBalConfReq.mobileNoString}}</span>
+						</p>
+ -->
+						<p class="rak-sum-txt"
+							ng-hide="rakServiceReq.rakBankRefLetter.notes==''">
+							<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKBANKREFLETTER.NOTES}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakBankRefLetter.notes}}</span>
+						</p>
+
+
+					<div class="label-wrap">
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small"
+							ng-click='rakServiceReq.rakBankRefLetter.resetBankRefLetterData();setEvent("onRAKOprAcctBalConfReqOkClick");'>
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OK}}</button>
+					</div>
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

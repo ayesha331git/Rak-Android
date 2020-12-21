@@ -1,0 +1,74 @@
+<div id="CDLAPFirstBackButton" class="app app-arrow2 title-right-dash"
+	ng-click="services.changeDCLimitModel.isBack3=true;setEvent('onPrevServiceClick')">
+</div>
+<div class="finacle-container"
+	ng-init="services.initChangeDCLimitConfirm(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-12">
+
+			<div class="dashboard-pad">
+				<div class=" dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12">
+						<div class="item-title text-uppercase ">{{appLiterals.APP.MOVE_MONEY.BILLPAY_AUTH_PAGE.TEXT_CONFIRM}}
+							And
+							{{appLiterals.APP.MOVE_MONEY.BILLPAY_AUTH_PAGE.TEXT_AUTHENTICATE}}</div>
+					</div>
+					<form
+						ng-submit="services.changeDCLimitModel.unFormatNumbers();corpInit.corpModel.getSelectedRoleDetailsAsString();setEvent('onDCSuccessClick')">
+						<div class="col-sm-12">
+							<div class="account-detail-dash margin-zero">
+								<strong class="trans-no" id="CDCLAPACCOUNTNOLabel">{{appLiterals.APP.SERVICES.APP_NEW_DC_AUTH.TXT_ACC_NO}}
+								</strong> <span class="dash-ac-id" id="CDCLAPACCOUNTNOValue">{{services.changeDCLimitModel.confirmResponse.accountNickname}}-{{services.changeDCLimitModel.confirmResponse.accountNumber}}</span>
+							</div>
+
+							<div class="account-detail-dash margin-zero">
+								<strong class="trans-no" id="CDCLAPDEBITCARDNOLabel">{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD_AUTH.TXT_DEBIT_CARD_NO}}
+								</strong> <span class="dash-ac-id" id="CDCLAPDEBITCARDNOValue">{{services.changeDCLimitModel.confirmResponse.debitCardNumber}}</span>
+							</div>
+
+
+							<div class="account-detail-dash margin-zero">
+								<strong class="trans-no" id="CDCLAPNameLabel">{{appLiterals.APP.COMMON.TEXT.NAME}}
+								</strong> <span class="dash-ac-id" id="CDCLAPNameValue">{{services.changeDCLimitModel.confirmResponse.nameOnCard}}</span>
+							</div>
+
+							<div class="account-detail-dash margin-zero">
+								<strong class="trans-no" id="CDCLAPStatusLabel">{{appLiterals.APP.COMMON.TEXT.STATUS}}
+								</strong> <span class="dash-ac-id" id="CDCLAPStatusValue">{{services.changeDCLimitModel.confirmResponse.status}}</span>
+							</div>
+
+							<div
+								ng-repeat="card in services.changeDCLimitModel.confirmResponse.debitCardNewLimitsList"
+								class="account-detail-dash margin-zero"
+								ng-init="NewLimit=parseMoney(card.newLimit,card.newLimitCurrency)">
+								<strong class="trans-no" id="CDCLAPChannelModeLabel{{$index}}">{{card.mode}}
+								</strong>
+								<fin-balance amount="{{NewLimit}}" amount-class="amt-rs"
+									currency-class="amt-rs display-inline-block" />
+
+							</div>
+
+							<div
+								ng-init="corpInit.corpModel.processCorpInit(successResponse.responsesList);">
+								<approval-input></approval-input>
+							</div>
+						</div>
+						<fin-Stepauth></fin-Stepauth>
+
+
+						<md-button type="submit"
+							ng-if='services.changeDCLimitModel.isOnline == true'
+							class=" md-raised btn--primary-btn" id="CDLAPOnlineSubmitClick">{{appLiterals.APP.COMMON.BUTTON.SUBMIT}}</md-button>
+
+						<md-button type="submit"
+							ng-if='services.changeDCLimitModel.isOnline == false'
+							class="md-raised btn--primary-btn" id="CDLAPOfflineSubmitClick">{{appLiterals.APP.SERVICES.ACT_DEBIT_CARD_AUTH.BTN_SUBMIT_TO_RM}}</md-button>
+
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+</div>

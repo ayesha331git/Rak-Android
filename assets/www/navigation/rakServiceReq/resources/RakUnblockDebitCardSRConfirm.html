@@ -1,0 +1,118 @@
+
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+	<div class="finacle-container"
+		ng-init="rakServiceReq.rakUnblockDebitCardBlockConfirm(successResponse.responsesList);">
+		<div class="account-page">
+			<div class="col-sm-11">
+			
+				<div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAKTEMPDEBBLOCK.UNBLOCK}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>                
+                              </h2>              
+                        </div>
+
+
+			<div class="form-block">
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="row">
+					<div class="col-sm-1"></div>
+
+				<div class="rakDupliSRChkMsgImg" ng-show='rakServiceReq.common.message'>
+					<span class='rakAlertForDupStmt'></span> <span class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+				</div>
+				
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKTEMPDEBBLOCK.CARDNO}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakUnblockDebitCardBlock.cardList[rakServiceReq.rakUnblockDebitCardBlock.selectedCard].debitcardNumber}}</span>
+					</p>
+
+				<!-- 	<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKTEMPDEBBLOCK.EXPDATE}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakUnblockDebitCardBlock.confirmExpDate}}</span>
+					</p> -->
+
+					<p class="rak-sum-txt">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKTEMPDEBBLOCK.REASON}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakUnblockDebitCardBlock.confirmedReason}}</span>
+					</p>
+
+					<p class="rak-sum-txt"
+						ng-show="rakServiceReq.rakUnblockDebitCardBlock.reason=='Others'">
+						<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAKTEMPDEBBLOCK.OTHERS}}
+							</span> <span class="rak-sum-label black">{{rakServiceReq.rakUnblockDebitCardBlock.other}}</span>
+					</p>
+
+
+					<div class="label-wrap"
+						ng-show="rakServiceReq.rakUnblockDebitCardBlock.authStatus">
+
+						<fin-input type="password_text"
+							model="rakServiceReq.rakUnblockDebitCardBlock.txnPwd"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+							model="rakServiceReq.rakUnblockDebitCardBlock.txnPwd"
+							ng-show="rakServiceReq.rakUnblockDebitCardBlock.authMode==txnpwdString">
+						</fin-input>
+						
+
+					<div ng-show="rakServiceReq.rakUnblockDebitCardBlock.authMode==otpString">
+									<div
+										ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+										<fin-input type="password_num" model="rakServiceReq.rakUnblockDebitCardBlock.txnPwd"
+											display-row="full" placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}"
+											validation-flag='pageErrorArr["rakServiceReq.rakUnblockDebitCardBlock.txnPwd"]'></fin-input>
+									</div>
+								
+								
+									<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0'
+										ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+								
+										<fin-input type="dropdown" option-array="toModeArray"
+											model="rakHome.otpModel.otpModeSelected" display-row="full"
+											placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+										<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+								
+									</div>
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+										ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> {{appLiterals.APP.RAK_COMMON.RESEND_OTP}}</button>
+								
+								</div>
+
+					</div>
+
+
+
+					<div class="label-wrap">
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small btn--back"
+							ng-click="setEvent('onRAKUnBlockDebitConfirmBackClick');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+						<button type="button"
+							class="btn--special-btn btn-middle rak-button-small"
+							ng-click="setEvent('onRAKUnBlockDebitSubmitClick');">
+							{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}</button>
+					</div>
+					<div class="col-sm-1"></div>
+					
+					<div class="disclaimer">
+                         <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                         <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                         </div>
+
+                         <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                         <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSERREQ_CONF"></div>
+                         </div>
+                 </div>
+					
+				</div>
+			</div>
+			</div>
+
+				</div>
+		</div>
+	</div>
+	</div>
+	</div>

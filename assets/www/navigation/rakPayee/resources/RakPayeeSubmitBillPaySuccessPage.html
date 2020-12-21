@@ -1,0 +1,96 @@
+<div class="finacle-container" ng-init="rakPayee.payBill.initSuccessPage(successResponse.responsesList)">
+	<div class="account-page">
+     <div class="col-sm-11">
+	 <div class="app-title-wrapper">
+
+		
+		<div class="rak-scroll">
+
+
+
+    <div class="summary-ServiceReq">
+				<div class="iconDiv">
+					<span class="infoIcon"></span><span class="success">{{rakPayee.payBill.successMessage}}</span>
+				</div>
+			</div>
+		<div class="main-form-heading">
+             <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_COMMON.SUBMIT_TRAN}}
+				      </h2>
+       	</div>
+
+
+	 <div class="bg-color rak-cont-padding" >
+
+	    <div class="row" >
+	      <div class="">
+	      
+	      		<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.REFID}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payBill.refId}}</span>
+				</p>
+	      
+	      		<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.PAY_TO}}</span>
+					<span class="rak-sum-label black">{{rakPayee.schedule.selectedTxn.toAccount}} - {{rakPayee.payBill.conCode.split("|")[0]}}</span>
+				</p>
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.CONSUMERNO}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payBill.consumercodeValue}}</span>
+					</p>
+
+									
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.FROM}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payBill.accountNumber}}</span>
+				</p>		
+
+				
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.AMOUNT}}</span>
+					<span class="rak-sum-label black">AED {{rakPayee.schedule.selectedTxn.txnAmount}}</span>
+				</p>
+
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.WHEN}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payBill.displayDate}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-if="rakPayee.schedule.selectedTxn.txnFrequency!='O'">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.FREQTYPE}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.FREQ_REC}}</span>
+				</p>
+				<p class="rak-sum-txt" ng-if="rakPayee.schedule.selectedTxn.txnFrequency!='O'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_AUTHPAGE.TXT_FRQ}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payBill.recFreq}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-if="rakPayee.schedule.selectedTxn.txnFrequency=='O'">
+					<span class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.FREQTYPE}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.PAYEE.PAY_BILL.ONCE}}</span>
+				</p>
+
+				<p class="rak-sum-txt" ng-show="rakPayee.schedule.selectedTxn.txnFrequency!='O' && rakPayee.schedule.selectedTxn.txnFrequency!='undefined'">
+					<span  class="rak-sum-label">{{appLiterals.APP.PAYEE.PAY_BILL.NOOFTRANSFERS}}</span>
+					<span class="rak-sum-label black">{{rakPayee.payBill.noOfTransfer}}</span>
+				</p>
+				
+			 <p class="rak-sum-txt"  ng-show="successResponse.responsesList[0].nextApprover">
+                                <span class="rak-sum-label">{{appLiterals.APP.RAKCOMMONLITERALS.NEXT_APPROVER}}</span>
+                                <span class="rak-sum-label black">{{successResponse.responsesList[0].nextApprover}}</span>
+                </p>
+				
+<div class="label-wrap">
+ <button type="button" ng-if="rakPendingApproval.pendingApprovalTab=='PIA'"
+                class="btn--special-btn btn-middle rak-button-right"
+                ng-click='rakPendingApproval.setInitialFromToDate();rakPendingApproval.setFromToDate();rakPendingApproval.pendingApprovalTab="PIA";rakPendingApproval.fromLandingPage=true;rakPendingApproval.fromLandingPage=true;rakPendingApproval.fromCountPage();rakPendingApproval.setInitialData();rakPendingApproval.backClickFlag="N";setGlobalEvent("onPendingIncompleteTxnsClick");'>
+                {{appLiterals.APP.RAKPENDINGAPPROVAL.BUTTON.BK_TO_LIST}}</button>
+</div>
+	<div class="col-sm-10"> </div>
+	</div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

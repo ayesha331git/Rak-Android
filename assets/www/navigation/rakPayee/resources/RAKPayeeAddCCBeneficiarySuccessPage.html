@@ -1,0 +1,198 @@
+<div class="finacle-container" ng-init="rakPayee.processPayeeSuccessResponse(successResponse.responsesList);">
+      <div class="account-page">   
+     <div class="col-sm-11">
+        <div class="app-title-wrapper" > 
+                <ng-include  src="'./navigation/rakPayee/resources/RakPayCardsTabPage.html'"> </ng-include>	
+                
+           <div class="rak-scroll">   
+      <!-- CHANGES DONE FOR SUCESS PAGE START -->       
+       <!--  <div class="main-form-heading" ng-hide="rakPayee.isEditBeneficiaryMode||rakPayee.isDeleteBeneficiaryMode">
+                    	<h2 class="success">{{appLiterals.APP.RAK_PAYEE.SUCCESSFUL.ADD_SUCC}}<span>{{rakPayee.beneficiarySuccessDetails.addBeneficiaryResponse}}</span></h2>
+        </div>
+        <div class="main-form-heading" ng-show="rakPayee.isEditBeneficiaryMode">
+                    	<h2 class="success">{{appLiterals.APP.RAK_PAYEE.SUCCESSFUL.EDIT_SUCC}}<span>{{rakPayee.beneficiarySuccessDetails.editBeneficiaryResponse}}</span></h2>
+        </div>
+         <div class="main-form-heading" ng-show="rakPayee.isDeleteBeneficiaryMode">
+                    	<h2 class="success">{{appLiterals.APP.RAK_PAYEE.SUCCESSFUL.DELETE_SUCC}}<span>{{rakPayee.beneficiarySuccessDetails.deleteBeneficiaryResponse}}</span></h2>
+        </div> -->
+        
+        	<div class="summary-ServiceReq">
+				<div class="iconDiv" ng-hide="rakPayee.isEditBeneficiaryMode||rakPayee.isDeleteBeneficiaryMode">
+					<span class="infoIcon"></span><span class="success">{{rakPayee.beneficiarySuccessDetails.addBeneficiaryResponse}}</span>
+				</div>
+				
+				<div class="iconDiv" ng-show="rakPayee.isEditBeneficiaryMode">
+					<span class="infoIcon"></span><span class="success">{{rakPayee.beneficiarySuccessDetails.editBeneficiaryResponse}}</span>
+				</div>
+				
+				<div class="iconDiv" ng-show="rakPayee.isDeleteBeneficiaryMode">
+					<span class="infoIcon"></span><span class="success">{{rakPayee.beneficiarySuccessDetails.deleteBeneficiaryResponse}}</span>
+				</div>
+			</div>
+			
+			<!-- Added for Cooling Period CR Start -->
+	        <div class="summary-ServiceReq" ng-repeat="tempCoolingPeriod in rakPayee.prpmCoolingPeriod">
+				<div class="iconDivBenf" ng-show="rakPayee.selectedPayeeType==tempCoolingPeriod && rakPayee.isEligibleCoolingPeriodSmeSegment=='Y' && rakPayee.payeeModel.rAKConfirm!=rakPayee.constants.CONFIRMLATER && rakPayee.payeeModel.confirmEvent!='CL'">
+					<span class="infoIconBenf"></span><span class="success">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_COOLING_PERIOD_MSG}}{{rakPayee.prpmCoolingPeriodAmount}}</span>
+				</div>
+			</div>
+			<!-- Added for Cooling Period CR End -->
+			
+		<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader" ng-hide="rakPayee.isDeleteBeneficiaryMode"> {{rakPayee.isEditBeneficiaryMode ? appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_CARD_MODIFY: rakPayee.selectedPayeeType == rakPayee.payeeTypes.PREPAIDCARD ? appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_CARDBENF_PREPAID : appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_CARDBENF}}				   		     
+				      <span>{{rakPayee.isEditBeneficiaryMode? appLiterals.APP.RAKCOMMONLITERALS.STEP3 : rakPayee.isDeleteBeneficiaryMode? appLiterals.APP.RAKCOMMONLITERALS.STEP3 : appLiterals.APP.RAKCOMMONLITERALS.STEP4}} {{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}}</span>	
+				      </h2>	
+				      
+				      <h2 ng-show="rakPayee.isDeleteBeneficiaryMode">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_CARD_DELETE}}<span>{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.STEP3}} :{{appLiterals.APP.RAKCOMMONLITERALS.SUMMARY}} </span> </h2>	       
+		 </div>
+              
+      	<!-- CHANGES DONE FOR SUCESS PAGE END -->  	
+      				    
+		  <div class="bg-color rak-cont-padding rakScrollDiv rak-cont-paddingvh">
+			<div class="" >						  
+			  <div class="">			  			  	
+				
+			  <p class="rak-sum-txt" ng-hide="rakPayee.selectedPayeeType == rakPayee.payeeTypes.PREPAIDCARD||rakPayee.bankbnftype==rakPayee.payeeTypes.PREPAIDCARD ">
+			    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NAME}}&nbsp;</span>
+				<span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.payeeModel.editBnfFlag==true,'black':rakPayee.payeeModel.editBnfFlag==false}">{{rakPayee.payeeModel.name}}</span>
+			  </p>
+
+			<p class="rak-sum-txt" >
+			    <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NICKNAME}}&nbsp;</span>
+			    <span ng-show="rakPayee.payeeModel.editBnfFlag" class="rak-sum-label black rakeditText">{{rakPayee.payeeModel.nickName}}</span>
+				<span ng-hide="rakPayee.payeeModel.editBnfFlag" class="rak-sum-label black">{{rakPayee.payeeModel.nickName}}</span>
+			</p>			
+			
+		<div ng-if=rakPayee.payeeModel.editBnfFlag>
+	<p class="rak-sum-txt" ng-hide="rakPayee.selectedPayeeType == rakPayee.payeeTypes.PREPAIDCARD||rakPayee.bankbnftype==rakPayee.payeeTypes.PREPAIDCARD" >
+			   <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.CREDT_CARD}}</span>
+			   <!-- <span class="rak-sum-label black">{{rakPayee.payeeModel.creditCardNumber}}</span> -->
+			    <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.payeeModel.editBnfFlag==true,'black':rakPayee.payeeModel.editBnfFlag==false}">{{rakPayee.payeeModel.creditCardNumber}}</span>
+			</p>
+			
+				<p class="rak-sum-txt" ng-show="rakPayee.selectedPayeeType == rakPayee.payeeTypes.PREPAIDCARD||rakPayee.bankbnftype==rakPayee.payeeTypes.PREPAIDCARD">
+			   <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.PRE_PAID_CARD}}</span>
+			   <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.payeeModel.editBnfFlag==true,'black':rakPayee.payeeModel.editBnfFlag==false}">{{rakPayee.payeeModel.creditCardNumber}}</span>
+			 </p>
+</div>
+	
+<div ng-if="rakPayee.payeeModel.editBnfFlag==false">
+<!-- CHANGES DONE AS FIX OF PROUAT-3539  START-->
+			<p class="rak-sum-txt" ng-hide="rakPayee.selectedPayeeType == rakPayee.payeeTypes.PREPAIDCARD||rakPayee.bankbnftype==rakPayee.payeeTypes.PREPAIDCARD">
+			   <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.CREDT_CARD}}</span>
+			   <!-- <span class="rak-sum-label black">{{rakPayee.payeeModel.creditCardNumber}}</span> -->
+			    <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.payeeModel.editBnfFlag==true,'black':rakPayee.payeeModel.editBnfFlag==false}">{{rakPayee.payeeModel.creditCardNumberDisplay}}</span>
+			</p>
+			<!-- CHANGES DONE AS FIX OF PROUAT-3539 END-->
+			
+			<!--  CHANGES LABEL NAME FOR PREPAID CARD COMIS AS CREDIT CARD PREV FIX FOR PROUAT-327 START -->
+			<p class="rak-sum-txt" ng-show="rakPayee.selectedPayeeType == rakPayee.payeeTypes.PREPAIDCARD||rakPayee.bankbnftype==rakPayee.payeeTypes.PREPAIDCARD"> 
+			   <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.PRE_PAID_CARD}}</span>
+			   <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.payeeModel.editBnfFlag==true,'black':rakPayee.payeeModel.editBnfFlag==false}">{{rakPayee.payeeModel.creditCardNumber}}</span>
+			 </p>
+			<!--  CHANGES LABEL NAME FOR PREPAID CARD COMIS AS CREDIT CARD PREV FIX FOR PROUAT-327 END-->
+</div>
+			 					
+             <!-- InsideUAE -->
+             <div ng-show="rakPayee.selectedPayeeType == rakPayee.payeeTypes.WITHINUAECCARD||rakPayee.bankbnftype==rakPayee.payeeTypes.WITHINUAECCARD">
+             <p class="rak-sum-txt">
+		       <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BANK_NAME}}&nbsp;</span>
+		       <span class="rak-sum-label black" ng-show="rakPayee.isEditBeneficiaryMode||rakPayee.isDeleteBeneficiaryMode">{{rakPayee.payeeModel.selectedBank}}</span>
+		       <span class="rak-sum-label black" ng-hide="rakPayee.isEditBeneficiaryMode||rakPayee.isDeleteBeneficiaryMode">{{rakPayee.payeeModel.selectedBankDisplayName}}</span>
+		     </p>
+		     
+		     <p class="rak-sum-txt" ng-show="rakPayee.payeeModel.accountNumber"> 
+			     <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.IBAN}}&nbsp;</span>
+			     <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.payeeModel.editBnfFlag==true,'black':rakPayee.payeeModel.editBnfFlag==false}">{{rakPayee.payeeModel.ibanDisplay}}</span>
+			</p>
+			</div>
+			<!-- InsideUAE -->
+		    <!-- OusideUAE -->
+		         <div ng-show="rakPayee.selectedPayeeType == rakPayee.payeeTypes.OUTSIDEUAECCARD||rakPayee.bankbnftype==rakPayee.payeeTypes.OUTSIDEUAECCARD">
+		         <p class="rak-sum-txt">
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_COUNTRY}}&nbsp;</span>
+		              <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.payeeModel.editBnfFlag==true,'black':rakPayee.payeeModel.editBnfFlag==false}" ng-show="rakPayee.isEditBeneficiaryMode||rakPayee.isDeleteBeneficiaryMode">{{rakPayee.payeeModel.rakBnfCountry}}</span>
+		              <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.payeeModel.editBnfFlag==true,'black':rakPayee.payeeModel.editBnfFlag==false}" ng-hide="rakPayee.isEditBeneficiaryMode||rakPayee.isDeleteBeneficiaryMode">{{rakPayee.payeeModel.rakBnfCountryDisplayName}}</span>
+		         </p>
+		         
+		<!--          <p class="rak-sum-txt" ng-hide="rakPayee.payeeModel.rakBnfCountry==rakPayee.constants.INDIA||rakPayee.payeeModel.rakBnfCountry==rakPayee.constants.IN">
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BANK_NAME}}&nbsp;</span>
+		              <span class="rak-sum-label black">{{rakPayee.payeeModel.selectedBank}}</span>
+		         </p>
+		          -->
+		         
+		             
+		         <p class="rak-sum-txt">
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BANK_NAME}}&nbsp;</span>
+		              <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.payeeModel.editBnfFlag==true,'black':rakPayee.payeeModel.editBnfFlag==false}">{{rakPayee.payeeModel.selectedBank}}</span>
+		         </p>
+		         
+		         
+		        <p class="rak-sum-txt">
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BANK_BRANCH}}&nbsp;</span>
+		              <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.payeeModel.editBnfFlag==true,'black':rakPayee.payeeModel.editBnfFlag==false}">{{rakPayee.payeeModel.bankBranch}}</span>
+		         </p> 
+		         
+		        <!--   <p class="rak-sum-txt" ng-hide="rakPayee.payeeModel.rakBnfCountry==rakPayee.constants.INDIA||rakPayee.payeeModel.rakBnfCountry==rakPayee.constants.IN">
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BANK_CITY}}&nbsp;</span>
+		              <span class="rak-sum-label black">{{rakPayee.payeeModel.bankCity}}</span>
+		         </p>
+		          -->
+		           <p class="rak-sum-txt">
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.BANK_CITY}}&nbsp;</span>
+		              <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.payeeModel.editBnfFlag==true,'black':rakPayee.payeeModel.editBnfFlag==false}">{{rakPayee.payeeModel.bankCity}}</span>
+		         </p>
+		         
+		         
+		          <p class="rak-sum-txt" ng-show="dashboard.userType=='1' && (rakPayee.payeeModel.rakBnfCountry==rakPayee.constants.INDIA||rakPayee.payeeModel.rakBnfCountry==rakPayee.constants.IN || rakPayee.payeeModel.beneficiaryBankCode==rakPayee.constants.IN)">
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_ROUTNUM}}&nbsp;</span>
+		              <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.payeeModel.editBnfFlag==true,'black':rakPayee.payeeModel.editBnfFlag==false}">{{rakPayee.payeeModel.selectedRoutingNumber}}</span>
+		         </p>
+		         
+		       
+		            <p class="rak-sum-txt" ng-show='!(rakPayee.isEditBeneficiaryMode||rakPayee.isDeleteBeneficiaryMode) &&  rakPayee.payeeModel.swiftDisplay'>
+				      <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_SWIFTCODE}}</span>
+				      <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.payeeModel.editBnfFlag==true,'black':rakPayee.payeeModel.editBnfFlag==false}">{{rakPayee.payeeModel.swiftDisplay}}</span>
+				     </p>
+		          
+		            <p class="rak-sum-txt" ng-show='(rakPayee.isEditBeneficiaryMode||rakPayee.isDeleteBeneficiaryMode) && rakPayee.payeeModel.swiftCode'>
+				      <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_SWIFTCODE}}</span>
+				      <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.payeeModel.editBnfFlag==true,'black':rakPayee.payeeModel.editBnfFlag==false}">{{rakPayee.payeeModel.swiftCode}}</span>
+				     </p>
+				 			
+				  
+				  <p class="rak-sum-txt" ng-show='rakPayee.payeeModel.rakInterMedBank'>
+				      <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_INTMEDBANK}}&nbsp;</span>
+				      <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.payeeModel.editBnfFlag==true,'black':rakPayee.payeeModel.editBnfFlag==false}">{{rakPayee.payeeModel.rakInterMedBank}}</span></p>
+				      
+					    <p class="rak-sum-txt" ng-show='rakPayee.payeeModel.rakBnkCode'>
+		              <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_SWIFT_BANKCODE}}&nbsp;</span>
+		              <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.payeeModel.editBnfFlag==true,'black':rakPayee.payeeModel.editBnfFlag==false}">{{rakPayee.payeeModel.rakBnkCode}}</span>
+		          </p>	
+		          
+				        <p class="rak-sum-txt" ng-show='rakPayee.payeeModel.rakBnfResidentCountryDisplayName'>
+				      <span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_RESIDENT_COUNTRY}}</span>
+				      <span class="rak-sum-label " ng-class="{'blackRegular':rakPayee.payeeModel.editBnfFlag==true,'black':rakPayee.payeeModel.editBnfFlag==false}">{{rakPayee.payeeModel.rakBnfResidentCountryDisplayName}}</span>
+				     </p> 
+				  
+				  </div>				  
+		  	
+		    <!-- OutsideUAE -->
+                      
+
+    <div class="label-wrap"> 
+     <button type="button"   ng-if="!(rakPayee.isEditBeneficiaryMode||rakPayee.isDeleteBeneficiaryMode)"class="btn--special-btn btn-middle rak-button-full rak-back rak-btn-large-text" ng-click="rakPayCards.common.fromAuthPage=false;rakPayee.payeeModel.editBnfFlag=false;rakPayee.payeeModel.resetPayeeModel();rakPayee.selectedPayeeType='';setEvent('onPayCardsSuccessClick')"> {{appLiterals.APP.RAK_PAYEE.SUCCESSFUL.ADDNEWCARD}}</button>  
+      	  
+	  <button type="button"  ng-if="rakPayee.isEditBeneficiaryMode||rakPayee.isDeleteBeneficiaryMode" class="btn--special-btn btn-middle rak-button-full rak-back rak-btn-large-text" ng-click="rakPayCards.common.fromAuthPage=false;rakPayee.bankbnftype='';rakPayee.payeeModel.editBnfFlag=false;rakPayee.isUserNavigatingBack=false;setGlobalEvent('onPayCardsClick')"> {{appLiterals.APP.RAK_PAYEE.SUCCESSFUL.DONE}}</button>
+     </div>
+<div class="col-sm-10"> </div> 
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+ </div>
+        

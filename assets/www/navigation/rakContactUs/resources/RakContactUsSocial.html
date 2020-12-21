@@ -1,0 +1,122 @@
+ <div class="rak-back-header" ng-show='isUserLoggedIn'>
+					<i class="rak-back-img" ng-click="setGlobalEvent('onDashboardClick');"></i>
+		</div>
+
+<div class="nano menu-scroll">
+	<div class="nano-content">
+<div class="finacle-container"
+	ng-init="rakContactUs.initContactUs(successResponse.responsesList);">
+	<div class="account-page">
+	<div class="col-sm-11">
+	<div class="app-title-wrapper">
+	<div class="form-block">
+
+      <!--  <div class="money-block">
+          <ul>
+            <li class="active" ng-click="setEvent('onRakSendMoneyTabClick')">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_SENDMONEY}}</li>
+            <li  ng-click="setEvent('onRakBenfTabClick')">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_BENEFICIARY}}</li>
+            <li ng-click="setEvent('onRakHistoryTabClick')">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFERS_PAYNOW_PAGE.TXT_HISTORY}}</li>
+          </ul>
+        </div> -->
+
+
+  <!--      <ng-include  src="'./navigation/rakContactUs/resources/RakContactUsTabPage.html'"> </ng-include> -->
+
+      <div class="money-block">
+         <ul>
+            <li  ng-click="setEvent('onpreLoginCallUS');"  ng-hide='isUserLoggedIn'>
+            {{appLiterals.APP.RAK_CONTACTUS.CALLUS}}</li>
+            
+              <li  ng-click="setEvent('onRakContactUsClick');"  ng-show='isUserLoggedIn'>
+            {{appLiterals.APP.RAK_CONTACTUS.CALLUS}}</li>
+           <li ng-if="rakContactUs.contact.isPremium=='Y'" ng-click="setEvent('onRakRmTabClick');" ng-show='isUserLoggedIn'>
+            {{appLiterals.APP.RAK_CONTACTUS.RM_BUDDY}}</li>
+             <li ng-click="setEvent('onWriteUsClick');" ng-hide='isUserLoggedIn'>
+            {{appLiterals.APP.RAK_CONTACTUS.WRITE}}</li>
+            <li class="active">
+          {{appLiterals.APP.RAK_CONTACTUS.SOC_LINK}}</li>
+          </ul>
+ </div>
+      
+<!-- 	  <div class="bg-color rak-cont-padding rak-scroll">	  
+     <div>
+		<a  ng-href="https://www.facebook.com/rakbank" onclick="window.open(this.href, '_blank'); return false;"><img   class="rakSocialImage1"></a>
+		<a ng-href="https://twitter.com/RAKBANKlive"  onclick="window.open(this.href, '_blank'); return false;"><img class="rakSocialImage2"></a>
+			
+	</div>
+	
+	   <div  class="rakSocialDiv">
+	<a ng-href="https://instagram.com/rakbank/"  onclick="window.open(this.href, '_blank'); return false;"><img   class="rakSocialImage1"></a>
+	<a ng-href="https://www.pinterest.com/rakbank/"  onclick="window.open(this.href, '_blank'); return false;"><img  class="rakSocialImage2"></a>
+		
+				</div>
+			
+		 <div   class="rakSocialDiv">
+	<a ng-href="https://www.linkedin.com/company/rakbank"  onclick="window.open(this.href, '_blank'); return false;" ><img   class="rakSocialImage1"></a>
+		<a ng-href="https://www.youtube.com/RAKBANKlive"  onclick="window.open(this.href, '_blank'); return false;"><img  class="rakSocialImage2"></a>
+			
+			</div>
+			
+					 <div class="rakSocialDiv">
+		<a class="rakSocialMedImg1" ng-href="https://plus.google.com/+RAKBANKlive/"  onclick="window.open(this.href, '_blank'); return false;"><img class="rakSocialImage1"></a>
+		<a ng-href="https://foursquare.com/user/778458 "  onclick="window.open(this.href, '_blank'); return false;"><img    class="rakSocialImage2"></a>
+		
+				</div> 
+				
+				</div> -->
+		<div class="bg-color rak-cont-padding rak-scroll">	  
+	     <div class="rakRowTop">
+	     <div class="rak40Right">
+			<a  ng-href="https://www.facebook.com/rakbank" onclick="window.open(this.href, '_new','location=no,hardwareback=no'); return false;" class="spirt-icon fbIco"></a>
+		</div>
+		 <div class="rak40Right">
+			<a ng-href="https://twitter.com/RAKBANKlive"  onclick="window.open(this.href, '_new','location=no,hardwareback=no'); return false;" class="spirt-icon twiIco"></a>
+		</div>
+		</div>
+		
+			<div class="rakRowTop">
+			 <div class="rak40Right">
+			<a ng-href="https://www.linkedin.com/company/rakbank"  onclick="window.open(this.href, '_new','location=no,hardwareback=no'); return false;" class="spirt-icon linkedInIco"></a>
+			</div>
+		 <div class="rak40Right">
+			<a ng-href="https://www.youtube.com/RAKBANKlive"  onclick="window.open(this.href, '_new','location=no,hardwareback=no'); return false;" class="spirt-icon youTubeIco"></a>
+			</div>
+			</div>
+			<div class="rakRowTop">	
+			<div class="rak40Right">					
+			<a ng-href="https://plus.google.com/+RAKBANKlive/"  onclick="window.open(this.href, '_new','location=no,hardwareback=no'); return false;" class="spirt-icon gPlusIco"></a>
+			</div>
+			
+			 <div class="rak40Right">			
+			<a ng-href="https://instagram.com/rakbank/"  onclick="window.open(this.href, '_new','location=no,hardwareback=no'); return false;" class="spirt-icon instagrmIco"></a>
+			</div>
+	<!-- 	 <div class="rak40Right">
+			<a ng-href="https://foursquare.com/user/778458 "  onclick="window.open(this.href, '_blank'); return false;" class="spirt-icon fourSqrIco"></a>
+			
+			</div>  -->
+					
+		</div>
+		<!-- 
+		<div class="rakRowTop">		
+		
+		 	<div class="rak40Right">&nbsp;
+			<a ng-href="https://www.pinterest.com/rakbank/"  onclick="window.open(this.href, '_blank'); return false;" class="">Pinterest</a>
+			</div>
+			 <div class="rak40Right">			
+			<a ng-href="https://instagram.com/rakbank/"  onclick="window.open(this.href, '_blank'); return false;" class="spirt-icon instagrmIco"></a>
+			</div>
+		</div> -->
+		
+							
+							
+								
+				</div>
+				</div>
+		 </div>
+          <div class="col-sm-1"> </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>

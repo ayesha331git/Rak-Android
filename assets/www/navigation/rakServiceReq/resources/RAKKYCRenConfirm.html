@@ -1,0 +1,99 @@
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onRakKYCRenConfirmBackClick');"></i>
+	</div>
+<div class="finacle-container ng-scope"
+	ng-init="rakServiceReq.RakKYCRenModel.txnPwd = '';rakServiceReq.confirmRakKYCRen(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+			<!-- 	<div class="app-title-wrapper"> -->
+
+			<div class="main-form-heading">
+				<h2>
+					{{appLiterals.APP.RAK_COMMON.SUMMARY_HEADER}}<span>{{appLiterals.APP.RAK_COMMON.SUMMARY_REVIEW}}</span>
+				</h2>
+			</div>
+			<!-- </div> -->
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="">
+					<div class="">
+					     <div class="rakDupliSRChkMsgImg" ng-show='rakServiceReq.common.message'>
+							<span class='rakAlertForDupStmt'></span> <span class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+			             </div>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.KYC_REN.KYC_REN_TOT_MONTHLY_CR_CASH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakKYCRenModel.totMonthlyCrCash}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.KYC_REN.KYC_REN_TOT_MONTHLY_CR_NONCASH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakKYCRenModel.totMonthlyCrNonCash}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.KYC_REN.KYC_REN_TOT_MONTHLY_CR_CASH_NONCASH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakKYCRenModel.totMonthlyCr}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.KYC_REN.KYC_REN_MAX_AMT_EXPECTED_CASH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakKYCRenModel.maxAmtExpctdCash}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.KYC_REN.KYC_REN_MAX_AMT_EXPECTED_NONCASH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakKYCRenModel.maxAmtExpctdNonCash}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.KYC_REN.KYC_REN_PER_TMC_CASH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakKYCRenModel.percentageTMCCash}}</span>
+						</p>
+
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.KYC_REN.KYC_REN_PER_TMC_NONCASH}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakKYCRenModel.percentageTMCNonCash}}</span>
+						</p>
+
+					<div class="label-wrap"
+						ng-show='rakServiceReq.RakKYCRenModel.authStatus'>
+
+						<fin-input type="password_text"
+							model="rakServiceReq.RakKYCRenModel.txnPwd"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+							validation-flag='pageErrorArr["rakServiceReq.RakKYCRenModel.txnPwd"]'
+							ng-show="rakServiceReq.RakKYCRenModel.authMode==txnpwdString">
+						</fin-input>
+						<!-- RAK SUDIPTO CHANGES FOR RESEND OTP START -->
+						<div ng-show="rakServiceReq.RakKYCRenModel.authMode==otpString">
+						<div class="rakwidth65">
+						<fin-input type="password_num" model="rakServiceReq.RakKYCRenModel.txnPwd"
+						display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+						validation-flag='pageErrorArr["rakServiceReq.RakKYCRenModel.txnPwd"]'>
+						</fin-input>
+						</div>
+						<button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> Resend OTP </button>
+						</div>
+						<!-- RAK SUDIPTO CHANGES FOR RESEND OTP END -->
+					</div>
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back"
+								ng-click="rakServiceReq.RakKYCRenModel.totMonthlyCr='';setEvent('onRakKYCRenConfirmBackClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="setEvent('onRakKYCRenConfirmFinalSubmitClick');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}
+							</button>
+
+						</div>
+						<div class="col-sm-1"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

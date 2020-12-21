@@ -1,0 +1,104 @@
+
+<div class="rak-back-header">
+			<i class="rak-back-img" ng-click="rakSendMoney.common.fromAuthPage=true;setEvent('onBackClick')"></i>
+		</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+<div class="finacle-container" ng-init="rakSendMoney.common.fromAuthPage=false;rakSendMoney.txnHistory.initAuthPage(successResponse.responsesList)">
+ 	
+  <div class="account-page">
+    <div class="col-sm-11">
+     <div class="app-title-wrapper">
+		  					<ng-include
+								src="'./navigation/rakSendMoney/resources/RakSendMoneyTabPage.html'">
+							</ng-include>
+
+
+							<div class="tab-links">
+								<ul>																		
+									<li class="active"><span class="active">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_HISTORY}}</span></li>
+									<li ng-click="rakSendMoney.clearTab();rakSendMoney.common.clearSearchData();rakSendMoney.schedule.clearScheduleTransferData();rakSendMoney.history=true;rakSendMoney.txnHistory.setFutureDate();setGlobalEvent('onRakHistoryTabClick')"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_SCHEDULE}}</span></li>
+									<li ng-hide="rakHome.userTypeIDValue=='CORPORATE'" ng-click="rakSendMoney.mobileCashHistory.clearSearchHistory();rakSendMoney.mobileCashHistory.setInitialDate();setGlobalEvent('onRakSendMoneyMobileCashHistoryTabClick');"><span>{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.VIEW_MOBILECASH_HISTORY}}</span></li>
+								</ul>
+							</div>  
+		  
+		  <div class="rak-scroll">
+ 	 <div class="main-form-heading-ServiceReq">
+                      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_PAYEE.HISTORY.PAYMENT_STATUS}}</h2>
+            </div>
+								
+			<div class="bg-color rak-cont-padding">      
+		 
+			<div class="row" >
+			  <div class="">
+			  
+			  <p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.REFID}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.selectedCompltTxn.txnReferenceId}}</span>
+				</p>
+			
+				<p class="rak-sum-txt"  ng-show="rakSendMoney.txnHistory.selectedCompltTxn.hostRefNo">
+					<span class="rak-sum-label">{{appLiterals.APP.RAKSEND_MONEY.RAKTRANSFER_VIEWSCHEDULE.BANKTRANSACTIONID}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.selectedCompltTxn.hostRefNo}}</span>
+				</p>
+				
+					
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FROM}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.initorID}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.TOACC}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.selectedCompltTxn.toAccount}}</span>
+				</p>
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.RAK_INITIATE.RAK_BNF_NAME}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.bnfName}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.DATE}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.txnDate}}</span>
+				</p>
+					<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.REQ_DATE}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.refDate}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.AMOUNT}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.debitAmount}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakSendMoney.txnHistory.selectedCompltTxn.freqType=='O'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FREQ}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAK_PAYEE.HISTORY.ONCE}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" ng-show="rakSendMoney.txnHistory.selectedCompltTxn.freqType!='O'">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.FREQ}}</span>
+					<span class="rak-sum-label black">{{appLiterals.APP.RAK_PAYEE.HISTORY.REC}}</span>
+				</p>
+						
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.STATUS}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.statusFromHost}}</span>
+				</p>	
+					<p class="rak-sum-txt"    ng-show="rakSendMoney.txnHistory.failReason">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_PAYEE.HISTORY.REASON_FAILURE}}</span>
+					<span class="rak-sum-label black">{{rakSendMoney.txnHistory.failReason}}</span>
+				</p>
+				
+			</div>
+		  </div>
+		  </div>
+				
+      </div>
+    </div>
+  </div>
+		  </div>
+		</div>
+	</div>
+<div class="scroll-space"></div>
+		</div>

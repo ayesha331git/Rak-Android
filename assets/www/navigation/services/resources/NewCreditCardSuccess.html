@@ -1,0 +1,57 @@
+<div class="finacle-container"
+	ng-init="services.newCreditCardModel.resetNewCreditCardModel();services.newCreditCardSuccess(successResponse.responsesList);">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+			<div class="dashboard-pad full-height">
+				<div class="dashboard-item-body full-height">
+					<fin-success
+						success-banner="{{appLiterals.APP.COMMON.MSG.SUCCESS}}"
+						success-message="{{services.newCreditCardModel.responseText}}"
+						cross-click="setEvent('onCancelClick')">
+					</fin-success>
+
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="HEADER">
+							{{appLiterals.APP.SERVICES.NEWCRED_CRDSUCC.HEADER}}
+							{{appLiterals.APP.SERVICES.NEWCRED_CRDSUCC.TXT_FR}} </span> <span
+							class="sucs-right-color" id="amountName">
+							{{services.newCreditCardModel.name}} </span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtDOB">
+							{{appLiterals.APP.SERVICES.NEWCRED_CRDSUCC.DOB}} </span> <span
+							class="sucs-right-color" id="DOB"> <fin-Date
+								date-value='{{services.newCreditCardModel.dateOfBirth}}'></fin-Date>
+						</span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="txtINCOME">
+							{{appLiterals.APP.SERVICES.NEWCRED_CRDSUCC.INCOME}} </span> <span
+							class="sucs-right-color" id="selectedIncome">
+							{{appLiterals.APP.SERVICES.BRKFXD_DEPAUTH.INR}}
+							{{services.newCreditCardModel.selectedIncome}} </span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="occupation">
+							{{appLiterals.APP.SERVICES.NEWCRED_CRDSUCC.OCCUP}} </span> <span
+							class="sucs-right-color" id="selectedOccupation">
+							{{services.newCreditCardModel.selectedOccupation}} </span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="CRDTYPE">
+							{{appLiterals.APP.SERVICES.NEWCRED_CRDSUCC.CRDTYPE}} </span> <span
+							class="sucs-right-color" id="selectedCardType">
+							{{services.newCreditCardModel.selectedCardType}}</span>
+					</div>
+					<div class="sucs-left-txt">
+						<span class="sucs-left-color" id="ADDRE">
+							{{appLiterals.APP.SERVICES.NEWCRED_CRDSUCC.ADDRE}} </span> <span
+							class="sucs-right-color" id="detailedAddress">
+							{{services.newCreditCardModel.name}}<br>{{services.newCreditCardModel.detailedAddress}}
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

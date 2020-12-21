@@ -1,0 +1,243 @@
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="rakServiceReq.resetRAKInvRedeemGoldInitDetails();setEvent('onRAKInvRedeemGoldBackClick');"></i>
+	</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+
+		<div class="finacle-container"
+			ng-init="rakServiceReq.fetchRAKInvRedeemGoldAcctData(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="">
+						<div class="">
+						
+						
+				<div class="main-form-heading-ServiceReq"> 
+				      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.INV_REEDMGOLD}}
+				      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP1}}{{appLiterals.APP.RAKCOMMONLITERALS.ENTER_DETAILS}}</span>		     
+				      </h2>		       
+		 		</div>
+							<div class="bg-color rak-cont-padding rak-scroll">
+								<div class="">
+								
+									
+										<p class="rak-parent-txt-top" ng-show="rakServiceReq.RAKInvRedeemGoldAcctModel.selectedGoldAcct">
+                                    <!--<span class="rak-sum-label-SR rak35">{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_SELECT_GOLD_ACCOUNTS}}</span>-->
+                                    <span class="rak-sum-labe-SR black rakLineH">{{rakServiceReq.RAKInvRedeemGoldAcctModel.selectedGoldAcct}}</span>
+                                        </p>
+										
+
+<!-- Sindhu -->
+                  
+                  <div
+                   ng-init='cardArr = createDropDownOptionArray(rakServiceReq.RAKInvRedeemGoldAcctArrays.emirateList, ["codeDesc"], "codeIndex");'></div>
+                         <fin-input type="dropdown"                                                                                                                               
+                                    model="rakServiceReq.RAKInvRedeemGoldAcctModel.emirateSeletected"
+                                    display-row="full"
+                                    placeholder="{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_SELECT_EMIRATES}}"
+                                    on-change="rakServiceReq.getEmiratesBranch();"      
+                                    validation-flag='pageErrorArr["rakServiceReq.RAKInvRedeemGoldAcctModel.emirateSeletected"]'
+                                    option-array="cardArr"> </fin-input>
+                                                                                                                                                                               
+                  <div class="fin-input-container" 
+                       ng-show="rakServiceReq.RAKInvRedeemGoldAcctModel.isEmiSelected">
+                 <div ng-class="{'left-line': !pageErrorArr['rakServiceReq.RAKInvRedeemGoldAcctModel.selectedBranchId'], 'left-line-error':pageErrorArr['rakServiceReq.RAKInvRedeemGoldAcctModel.selectedBranchId']}" class="left-line">
+                 </div>
+                 <div class="input-body">
+                 <div class="input-body2 input-body2-dropdown">
+                                <select dropdownpicker title="{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_SELECT_BRANCH}}" class="fin-input fin-select" ng-model="rakServiceReq.RAKInvRedeemGoldAcctModel.selectedBranchId" ng-style="{{rakServiceReq.RAKInvRedeemGoldAcctModel.selectedBranchId}} == '' ? {'font-size': '14px'} : {'color': 'initial'}"  >
+                                                    <option  class="place-holder-select" value="" ng-selected="{{rakServiceReq.RAKInvRedeemGoldAcctModel.selectedBranchId== null ||
+                                                    rakServiceReq.RAKInvRedeemGoldAcctModel.selectedBranchId== ''}}" ng-show="{{rakServiceReq.RAKInvRedeemGoldAcctModel.selectedBranchId== null ||
+                                                    rakServiceReq.RAKInvRedeemGoldAcctModel.selectedBranchId== ''}}">{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_SELECT_BRANCH}}</option>
+                                                                <option ng-repeat="option in rakServiceReq.RAKInvRedeemGoldAcctArrays.emiCategorizedBranchList" ng-selected="{{option.branchIndex==rakServiceReq.RAKInvRedeemGoldAcctModel.selectedBranchId}}" value="{{option.branchIndex}}" >{{option.branchCode}}</option>
+                                </select>
+                </div>
+                <div ng-class="{'bottom-line': !pageErrorArr['rakServiceReq.RAKInvRedeemGoldAcctModel.selectedBranchId'], 'bottom-line-error':pageErrorArr['rakServiceReq.RAKInvRedeemGoldAcctModel.selectedBranchId']}" class="bottom-line">
+        </div>
+        <div ng-hide='pageErrorArr["rakServiceReq.RAKInvRedeemGoldAcctModel.selectedBranchId"]==null' class="rakErrorMsg"> {{pageErrorArr['rakServiceReq.RAKInvRedeemGoldAcctModel.selectedBranchId']}}</div>
+                
+                </div>   
+</div>
+
+
+				<div class="rak100 rakRelative rakWidth100" >	
+				                  
+						<div class="rak100">		
+																			
+										<div  class="raknew47"
+										ng-init='invGoldUnitArr = createDropDownOptionArray(rakServiceReq.RAKInvRedeemGoldAcctArrays.invGoldUnitList, ["gramNumber"], "gramValue");'>
+										<fin-input type="dropdown" model="rakServiceReq.RAKInvRedeemGoldAcctModel.selectedGoldUnit1" display-row="full" placeholder="{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_SELECT_WEIGHT}}" 
+										validation-flag='pageErrorArr["rakServiceReq.RAKInvRedeemGoldAcctModel.selectedGoldUnit1"]' on-change="rakServiceReq.RAKInvRedeemGoldAcctModel.getKeyUp();" option-array="invGoldUnitArr"></fin-input>
+										</div>
+										
+										<div class="center widthX">X</div>
+										
+										<div class="raknew47">
+											<fin-input type="number_card" model="rakServiceReq.RAKInvRedeemGoldAcctModel.quantity1"
+												display-row="full" ng-maxlength="9" on-change="rakServiceReq.RAKInvRedeemGoldAcctModel.getKeyUp();"
+												placeholder="{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_QTY}}"
+												validation-flag='pageErrorArr["rakServiceReq.RAKInvRedeemGoldAcctModel.quantity1"]' max-length="9">
+											</fin-input>
+										</div>
+										
+										<span class="hyperLinkBlue rakFloatRight" ng-if="!rakServiceReq.RAKInvRedeemGoldAcctModel.add1" ng-click="rakServiceReq.RAKInvRedeemGoldAcctModel.add1=true">Add More</span>
+										
+										<div class="rakClearBothImp txtItalic">
+										<span>{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_QTY_EG}}</span>
+										<span ng-click="rakServiceReq.fetchDisclaimer('InvestmentCharges.html');" class="hyperLinkBlue">{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_CHARGES}}</span>
+										</div>
+                       </div>
+                       
+                       <div class="rak100" ng-if="rakServiceReq.RAKInvRedeemGoldAcctModel.add1">
+										
+										<div class="raknew47"
+										ng-init='invGoldUnitArr = createDropDownOptionArray(rakServiceReq.RAKInvRedeemGoldAcctArrays.invGoldUnitList, ["gramNumber"], "gramValue");'>
+										<fin-input type="dropdown" model="rakServiceReq.RAKInvRedeemGoldAcctModel.selectedGoldUnit2" display-row="full" placeholder="{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_SELECT_WEIGHT}}" 
+										validation-flag='pageErrorArr["rakServiceReq.RAKInvRedeemGoldAcctModel.selectedGoldUnit2"]' on-change="rakServiceReq.RAKInvRedeemGoldAcctModel.getKeyUp();" option-array="invGoldUnitArr"></fin-input>
+										</div>
+										
+										<div class="center widthX">X</div>
+										
+										<div class="raknew47">
+											<fin-input type="number_card" model="rakServiceReq.RAKInvRedeemGoldAcctModel.quantity2"
+												display-row="full" ng-maxlength="9" on-change="rakServiceReq.RAKInvRedeemGoldAcctModel.getKeyUp();"
+												placeholder="{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_QTY}}"
+												validation-flag='pageErrorArr["rakServiceReq.RAKInvRedeemGoldAcctModel.quantity2"]' max-length="9">
+											</fin-input>
+										</div>
+										
+										<span class="hyperLinkBlue rakFloatRight"  ng-if="!rakServiceReq.RAKInvRedeemGoldAcctModel.add2" ng-click="rakServiceReq.RAKInvRedeemGoldAcctModel.add2=true">Add More</span>
+                       </div>
+                       
+                       
+                       <div class="rak100" ng-if="rakServiceReq.RAKInvRedeemGoldAcctModel.add2">
+										
+										<div class="raknew47" 
+										ng-init='invGoldUnitArr = createDropDownOptionArray(rakServiceReq.RAKInvRedeemGoldAcctArrays.invGoldUnitList, ["gramNumber"], "gramValue");'>
+										<fin-input type="dropdown" model="rakServiceReq.RAKInvRedeemGoldAcctModel.selectedGoldUnit3" display-row="full" placeholder="{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_SELECT_WEIGHT}}" 
+										validation-flag='pageErrorArr["rakServiceReq.RAKInvRedeemGoldAcctModel.selectedGoldUnit3"]' on-change="rakServiceReq.RAKInvRedeemGoldAcctModel.getKeyUp();" option-array="invGoldUnitArr"></fin-input>
+										</div>
+										
+										<div class="center widthX">X</div>
+										
+										<div class="raknew47">
+											<fin-input type="number_card" model="rakServiceReq.RAKInvRedeemGoldAcctModel.quantity3"
+												display-row="full" ng-maxlength="9" on-change="rakServiceReq.RAKInvRedeemGoldAcctModel.getKeyUp();"
+												placeholder="{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_QTY}}"
+												validation-flag='pageErrorArr["rakServiceReq.RAKInvRedeemGoldAcctModel.quantity3"]' max-length="9">
+											</fin-input>
+										</div>
+										
+										<span class="hyperLinkBlue rakFloatRight" ng-if="!rakServiceReq.RAKInvRedeemGoldAcctModel.add3" ng-click="rakServiceReq.RAKInvRedeemGoldAcctModel.add3=true">Add More</span>
+                       </div>
+                       
+                       <div class="rak100" ng-if="rakServiceReq.RAKInvRedeemGoldAcctModel.add3">
+										
+										<div  class="raknew47"
+										ng-init='invGoldUnitArr = createDropDownOptionArray(rakServiceReq.RAKInvRedeemGoldAcctArrays.invGoldUnitList, ["gramNumber"], "gramValue");'>
+										<fin-input type="dropdown" model="rakServiceReq.RAKInvRedeemGoldAcctModel.selectedGoldUnit4" display-row="full" placeholder="{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_SELECT_WEIGHT}}" 
+										validation-flag='pageErrorArr["rakServiceReq.RAKInvRedeemGoldAcctModel.selectedGoldUnit4"]' on-change="rakServiceReq.RAKInvRedeemGoldAcctModel.getKeyUp();" option-array="invGoldUnitArr"></fin-input>
+										</div>
+										<div class="center widthX">X</div>
+										
+										<div class="raknew47">
+											<fin-input type="number_card" model="rakServiceReq.RAKInvRedeemGoldAcctModel.quantity4"
+												display-row="full" ng-maxlength="9" on-change="rakServiceReq.RAKInvRedeemGoldAcctModel.getKeyUp();"
+												placeholder="{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_QTY}}"
+												validation-flag='pageErrorArr["rakServiceReq.RAKInvRedeemGoldAcctModel.quantity4"]' max-length="9">
+											</fin-input>
+										</div>
+										
+										<span class="hyperLinkBlue rakFloatRight" ng-if="!rakServiceReq.RAKInvRedeemGoldAcctModel.add4" ng-click="rakServiceReq.RAKInvRedeemGoldAcctModel.add4=true">Add More</span>
+                       </div>
+                       
+                       <div class="rak100" ng-if="rakServiceReq.RAKInvRedeemGoldAcctModel.add4">
+										
+										<div  class="raknew47"
+										ng-init='invGoldUnitArr = createDropDownOptionArray(rakServiceReq.RAKInvRedeemGoldAcctArrays.invGoldUnitList, ["gramNumber"], "gramValue");'>
+										<fin-input type="dropdown" model="rakServiceReq.RAKInvRedeemGoldAcctModel.selectedGoldUnit5" display-row="full" placeholder="{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_SELECT_WEIGHT}}" 
+										validation-flag='pageErrorArr["rakServiceReq.RAKInvRedeemGoldAcctModel.selectedGoldUnit5"]' on-change="rakServiceReq.RAKInvRedeemGoldAcctModel.getKeyUp();" option-array="invGoldUnitArr"></fin-input>
+										</div>
+										<div class="center widthX">X</div>
+										
+										<div class="raknew47">
+											<fin-input type="number_card" model="rakServiceReq.RAKInvRedeemGoldAcctModel.quantity5"
+												display-row="full" ng-maxlength="9" on-change="rakServiceReq.RAKInvRedeemGoldAcctModel.getKeyUp();"
+												placeholder="{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_QTY}}"
+												validation-flag='pageErrorArr["rakServiceReq.RAKInvRedeemGoldAcctModel.quantity5"]' max-length="9">
+											</fin-input>
+										</div>
+										
+										<span class="hyperLinkBlue rakFloatRight" ng-if="!rakServiceReq.RAKInvRedeemGoldAcctModel.add5" ng-click="rakServiceReq.RAKInvRedeemGoldAcctModel.add5=true">Add More</span>
+                       </div>
+                       
+                       <div class="rak100" ng-if="rakServiceReq.RAKInvRedeemGoldAcctModel.add5">
+										
+										<div  class="raknew47"
+										ng-init='invGoldUnitArr = createDropDownOptionArray(rakServiceReq.RAKInvRedeemGoldAcctArrays.invGoldUnitList, ["gramNumber"], "gramValue");'>
+										<fin-input type="dropdown" model="rakServiceReq.RAKInvRedeemGoldAcctModel.selectedGoldUnit6" display-row="full" placeholder="{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_SELECT_WEIGHT}}" 
+										validation-flag='pageErrorArr["rakServiceReq.RAKInvRedeemGoldAcctModel.selectedGoldUnit6"]' on-change="rakServiceReq.RAKInvRedeemGoldAcctModel.getKeyUp();" option-array="invGoldUnitArr"></fin-input>
+										</div>
+										<div class="center widthX">X</div>
+										
+										<div class="raknew47">
+											<fin-input type="number_card" model="rakServiceReq.RAKInvRedeemGoldAcctModel.quantity6"
+												display-row="full" ng-maxlength="9" on-change="rakServiceReq.RAKInvRedeemGoldAcctModel.getKeyUp();"
+												placeholder="{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_QTY}}"
+												validation-flag='pageErrorArr["rakServiceReq.RAKInvRedeemGoldAcctModel.quantity6"]' max-length="9">
+											</fin-input>
+										</div>
+										
+										
+                       </div>
+			</div>					
+					
+							<p class="rak-parent-txt-top rakPadding10" ng-if="rakServiceReq.RAKInvRedeemGoldAcctModel.redemptionAmount">
+									<span class="rak-sum-label-SR rak35">{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_RED_AMOUNT}}</span>
+                                    <span class="rak-sum-labe-SR black rakLineH" ng-if="rakServiceReq.RAKInvRedeemGoldAcctModel.redemptionAmount>1">{{rakServiceReq.RAKInvRedeemGoldAcctModel.redemptionAmount}} {{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_GRAMS}}</span>
+                                    <span class="rak-sum-labe-SR black rakLineH" ng-if="rakServiceReq.RAKInvRedeemGoldAcctModel.redemptionAmount==1">{{rakServiceReq.RAKInvRedeemGoldAcctModel.redemptionAmount}} {{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_GRAM}}</span>
+                              </p>				
+									
+									<div
+										ng-init='invChargeAcctArr = createDropDownOptionArray(rakServiceReq.RAKInvRedeemGoldAcctArrays.invChargeAcctList, ["acctTypeDesc"," ","accountId"], "accountIndex");'></div>
+									<fin-input type="dropdown"
+										model="rakServiceReq.RAKInvRedeemGoldAcctModel.selectedChargeAcct"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_SELECT_CHARGE_ACCOUNTS}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKInvRedeemGoldAcctModel.selectedChargeAcct"]'
+										option-array="invChargeAcctArr"> </fin-input>
+
+									<fin-input type="text"
+										model="rakServiceReq.RAKInvRedeemGoldAcctModel.remarks"
+										display-row="full" placeholder="{{appLiterals.APP.RAKINVESTMENTSR.REDEEMGOLD_REMARKS}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKInvRedeemGoldAcctModel.remarks"]'></fin-input>
+
+									<div class="label-wrap">
+										<button type="button"
+											class="btn--special-btn btn-middle rak-button-right"
+											ng-click="setEvent('onRAKInvRedeemGoldConfirmClick');">
+											{{appLiterals.APP.RAKCOMMONLITERALS.TXT_CONTINUE}}</button>
+									</div>
+									<div class="col-sm-1"></div>
+									
+							<div class="disclaimer" ng-init='rakDisclaimerFlag=false;' >
+								<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+									<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+								</div>
+						
+								
+								<div class="disclaimer3" ng-if="rakDisclaimerFlag">
+									<span ng-click="rakServiceReq.fetchDisclaimer('BranchLocationGoldAccount.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKREDEEMGOLD_INITPAGE"></span>
+									<span ng-click="rakServiceReq.fetchDisclaimer('InvestmentCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKREDEEMGOLD_INITCONT"></span>					
+								</div>
+								
+								
+							</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

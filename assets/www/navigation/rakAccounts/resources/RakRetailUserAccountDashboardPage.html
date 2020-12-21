@@ -1,0 +1,1282 @@
+<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setGlobalEvent('onDashboardClick');"></i>
+	</div>
+<div class="nano">
+	<div class="account-page">
+		<div class="finacle-container"
+		      ng-init='rakCreditCard.viewFlag1=false;rakCreditCard.viewFlag2=false;
+		        myProfile.rememberUserID.rememberUserIDChk==true? jsonStore.addDoc(fields.finacleUserCorporateId):jsonStore.removeDoc(fields.finacleUserCorporateId);
+		        oppAccountIndex = 0;
+		        loanAccountIndex = 0;
+		        depositAccountIndex = 0;
+		        fields.selectAcccountMax = 0;
+		        rakAccounts.RAKAccountsModel.clearTxnList="Y";
+		        fields.tempResponse=successResponse.responsesList;
+		        successResponse.invocationResult=successResponse.hasOwnProperty("responsesList")?successResponse.responsesList[0]:successResponse.invocationResult;
+		        fields.customerInfo = successResponse.invocationResult;
+		        rakCreditCard.getList(successResponse.invocationResult);
+		        rakAccounts.getInvList(fields.tempResponse)' >
+		        
+		        <!-- dashboard.setCustomerName(successResponse.invocationResult.customerName,successResponse.invocationResult.userType); -->
+
+
+		<div class="nano dash-tiles rak-dash">
+		<div class="rakNicknameScroll dashScrollFixn">
+		
+			  <div class="dashboard-body" ng-show="fields.mainAccountType == 'OPR' && fields.accountType=='CAA'">
+
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+			<!-- 	<div class="dashboard-item-title" ng-show="fields.mainAccountType == 'OPR' ">
+					  <div class="rak-item-title"> 
+					  <i class="spirt-icon account-icon"></i>
+					  {{appLiterals.APP.RAK_DASHBOARD.ACCOUNTS}}
+					   </div>
+					  <div class="rak-swipe-msg">{{appLiterals.APP.RAK_DASHBOARD.SWIPE_MSG}}</div>
+					</div> -->
+
+		        <div class="touch-press dashboard-item-body" class="touch-press" ng-show="fields.mainAccountType == 'OPR'"
+		         ng-init="fields.hasIslamicAndConv= rakAccounts.setIslamicflagDisplay(successResponse.invocationResult,'tradeFinAccountsList');
+		        rakAccounts.RAKAccountsModel.isIslamicPresent=fields.hasIslamicAndConv.isIslamic;
+		        rakAccounts.RAKAccountsModel.isConventionalPresent=fields.hasIslamicAndConv.isConventional">
+						<!-- {{rakAccounts.RAKAccountsModel.isIslamicPresent}} {{rakAccounts.RAKAccountsModel.isConventionalPresent}} -->
+						
+				<!-- 	<div class="dashboard-item-body" ng-show="{{rakAccounts.RAKAccountsModel.isConventionalPresent}}">
+					<div class="rak-item-title"> 
+					  {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.CONVENTIONAL_ACCOUNTS}}
+					</div>
+					</div> -->
+					
+						<div class="dashboard-item-title" ng-show="{{rakAccounts.RAKAccountsModel.isConventionalPresent}}">
+					  <div class="rak-item-title"> 
+					  <i class="spirt-icon account-icon"></i>
+					  {{appLiterals.APP.RAK_DASHBOARD.TRADEFIN}}
+					   </div>
+					  <div class="rak-swipe-msg">{{appLiterals.APP.RAK_DASHBOARD.SWIPE_MSG}}</div>
+					</div>
+					
+					
+					
+						
+		          <div class="swiper-container rak-leftborder" dir="rtl" ng-repeat='tfAccountVO in successResponse.invocationResult.tradeFinAccountsList | filter:{isIslamicAcct:"!Y"}'>
+		          <!-- This will display Convetional -->
+		          	<!-- <div class="swiper-wrapper" ng-hide= "tfAccountVO.isIslamicAcct=='Y'"> -->
+		          	<div class="swiper-wrapper">
+								<div class="swiper-slide balance-table"  ng-click='fields.selectedOprAccount = tfAccountVO;
+								fields.selectedAccount = tfAccountVO;
+								fields.accountAmountLabel = "Available Balance";
+								fields.accountBlockTitle = "OPERATIVE";
+								fields.accountDetailSource = "DASHBOARD";
+								dashboard.mmid.accountIndex=tfAccountVO.accountIndex.toString();
+								fields.browseAccountIndexInt = tfAccountVO.accountIndex;
+								rakAccounts.RAKAccountsModel.selectedAccount= tfAccountVO.accountIndex;
+								fields.dashboardResponseList = successResponse.invocationResult.tradeFinAccountsList;
+								setEvent("onTradeAccountListClick");'>
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"><a class="balance-link"
+															data-tab="record-1"></a></td>
+												<td><span>{{tfAccountVO.balance}}</span> <i>*{{appLiterals.APP.RAK_DASHBOARD.TOTAL_OUTSTANDING}}</i></td>
+												<td><strong>{{tfAccountVO.subAccountTypeDesc}}</strong> <i>{{tfAccountVO.accountId}}</i></td>
+															
+											</tr>
+										 </tbody>
+									</table>
+
+				
+									
+
+								</div>
+									<div class="swiper-slide rak-swipe-background" >
+									<div class="rak-swipe-background1 border-left-white rakWidth100Percent" ng-click="rakServiceReq.rakServicesModel.expandFlag = 'OprFlag';
+          							setEvent('onAccountServiceNavigation');"><img src="images/ac_service.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.ACC_SERVICES}}</p></div>
+          							
+									<!-- <div  class="rak-swipe-background1"
+									ng-click = "rakAccounts.accType = 'TRADE';
+									rakAccounts.selectedIndex=tfAccountVO.accountIndex;
+									rakAccounts.RAKAccountsModel.subAccountType=tfAccountVO.accountType;
+									rakAccounts.swiperFunctionAccList();"><img class="rak-img-size" src="images/ac_info.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.ACC_INFO}}</p></div> -->
+								</div>
+							</div>
+		          </div>
+				  <!--   <div class="dashboard-item-body" ng-show="{{rakAccounts.RAKAccountsModel.isIslamicPresent}}">
+					<div class="rak-item-title"> 
+					  {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.ISLAMIC_ACCOUNTS}}
+					</div>
+					</div> -->
+						<div class="dashboard-item-title" ng-show="{{rakAccounts.RAKAccountsModel.isIslamicPresent}}">
+					  <div class="rak-item-title"> 
+					  <i class="spirt-icon account-icon"></i>
+					  {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.ISLAMIC_ACCOUNTS}}
+					   </div>
+					  <div class="rak-swipe-msg">{{appLiterals.APP.RAK_DASHBOARD.SWIPE_MSG}}</div>
+					</div>
+					
+					
+					
+					
+		          <div class="swiper-container rak-leftborder" dir="rtl" ng-repeat='tfAccountVO in successResponse.invocationResult.tradeFinAccountsList | filter:{isIslamicAcct:"Y"}'>
+							
+							<div class="swiper-wrapper">
+								<div class="swiper-slide balance-table"  ng-click='fields.selectedOprAccount = tfAccountVO;
+								fields.selectedAccount = tfAccountVO;
+								fields.accountAmountLabel = "Available Balance";
+								fields.accountBlockTitle = "OPERATIVE";
+								fields.accountDetailSource = "DASHBOARD";
+								dashboard.mmid.accountIndex=tfAccountVO.accountIndex.toString();
+								fields.browseAccountIndexInt = tfAccountVO.accountIndex;
+								rakAccounts.RAKAccountsModel.selectedAccount= tfAccountVO.accountIndex;
+								fields.dashboardResponseList = successResponse.invocationResult.tradeFinAccountsList;
+								setEvent("onTradeAccountListClick");'>
+								
+						
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"><a class="balance-link"
+															data-tab="record-1"></a></td>
+												<td><span>{{tfAccountVO.balance}}</span> <i>*{{appLiterals.APP.RAK_DASHBOARD.TOTAL_OUTSTANDING}}</i></td>
+												<td><strong>{{tfAccountVO.subAccountTypeDesc}}</strong> <i>{{tfAccountVO.accountId}}</i></td>
+															
+											</tr>
+										 </tbody>
+									</table>
+
+						
+									
+
+								</div>
+										<div class="swiper-slide rak-swipe-background" >
+									<div class="rak-swipe-background1 border-left-white" ng-click="rakServiceReq.rakServicesModel.expandFlag = 'OprFlag';
+          							setEvent('onAccountServiceNavigation');"><img class="rak-img-size" src="images/ac_service.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.ACC_SERVICES}}</p></div>
+          							
+									<div  class="rak-swipe-background1"
+									ng-click = "rakAccounts.accType = tfAccountVO.mainAccountType;
+									rakAccounts.selectedIndex=tfAccountVO.accountIndex;
+									rakAccounts.RAKAccountsModel.subAccountType=tfAccountVO.accountType;
+									rakAccounts.swiperFunctionAccList();"><img class="rak-img-size" src="images/ac_info.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.ACC_INFO}}</p></div>
+								</div>
+							</div>
+					</div>
+
+					<!-- Rak Show this when Accounts are blank -->
+				<div class="touch-press dashboard-item-body" class="touch-press" ng-show="successResponse.invocationResult.tradeFinAccountsList.length == 0" ng-init='wcmclienthandlers.wcmOpr(successResponse.invocationResult);'>
+
+					<div class="dashboard-item-title">
+					  <div class="rak-item-title"> 
+					  <i class="spirt-icon account-icon"></i>
+					  {{appLiterals.APP.RAK_DASHBOARD.ACCOUNTS}}
+					   </div>
+					</div>
+
+		          <div class="swiper-container" dir="rtl"  ng-click="
+          							rakServiceReq.RakDiscApply.resetRakDiscApplyData();
+          							rakServiceReq.rakServicesModel.expandFlag = 'OprFlag';
+		          rakServiceReq.RakDiscApply.isFirstTimeFlag=true;
+          		  setGlobalEvent('onDiscAndapplyLinkClicked');">
+							<div class="noSwiper">
+								<!-- <div id="WCMGETTEXTOPR" class="bg-color wcmContentDisplay"/></div> -->	
+								<div class="bg-color wcmContentDisplay"><p>{{rakHome.OPR_MSG}}{{appLiterals.APP.RAK_DASHBOARD.CLICK_TEXT}}</p></div>
+
+							</div>
+					</div>
+					</div>
+					<!-- Rak Show this when Accounts are blank -->
+
+		        </div>
+
+		      </div>
+		      <div class="disclaimer-bottom">
+                                                                <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                                                <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                                                </div>
+                                
+                                                                <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                                                                <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.OVERVIEW_MAIN_PAGE"></div>
+                                                                </div>
+                                  </div>
+		    </div>
+		  </div>
+		
+		  <div class="dashboard-body" ng-show="fields.mainAccountType == 'OPR' && fields.accountType!='CAA'">
+
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+			<!-- 	<div class="dashboard-item-title" ng-show="fields.mainAccountType == 'OPR' ">
+					  <div class="rak-item-title"> 
+					  <i class="spirt-icon account-icon"></i>
+					  {{appLiterals.APP.RAK_DASHBOARD.ACCOUNTS}}
+					   </div>
+					  <div class="rak-swipe-msg">{{appLiterals.APP.RAK_DASHBOARD.SWIPE_MSG}}</div>
+					</div> -->
+
+		        <div class="touch-press dashboard-item-body" class="touch-press" ng-show="fields.mainAccountType == 'OPR'"
+		         ng-init="fields.hasIslamicAndConv= rakAccounts.setIslamicflagDisplay(successResponse.invocationResult,'operativeAccountsList');
+		        rakAccounts.RAKAccountsModel.isIslamicPresent=fields.hasIslamicAndConv.isIslamic;
+		        rakAccounts.RAKAccountsModel.isConventionalPresent=fields.hasIslamicAndConv.isConventional">
+						<!-- {{rakAccounts.RAKAccountsModel.isIslamicPresent}} {{rakAccounts.RAKAccountsModel.isConventionalPresent}} -->
+						
+				<!-- 	<div class="dashboard-item-body" ng-show="{{rakAccounts.RAKAccountsModel.isConventionalPresent}}">
+					<div class="rak-item-title"> 
+					  {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.CONVENTIONAL_ACCOUNTS}}
+					</div>
+					</div> -->
+					
+						<div class="dashboard-item-title" ng-show="{{rakAccounts.RAKAccountsModel.isConventionalPresent}}">
+					  <div class="rak-item-title"> 
+					  <i class="spirt-icon account-icon"></i>
+					  {{appLiterals.APP.RAK_DASHBOARD.ACCOUNTS}}
+					   </div>
+					  <div class="rak-swipe-msg">{{appLiterals.APP.RAK_DASHBOARD.SWIPE_MSG}}</div>
+					</div>
+					
+					
+					
+						
+		          <div class="swiper-container rak-leftborder" dir="rtl" ng-repeat='accountVO in successResponse.invocationResult.operativeAccountsList | filter:{isIslamicAcct:"!Y"}'>
+		          <!-- This will display Convetional -->
+		          	<!-- <div class="swiper-wrapper" ng-hide= "accountVO.isIslamicAcct=='Y'"> -->
+		          	<div class="swiper-wrapper">
+								<div class="swiper-slide balance-table"  ng-click='fields.selectedOprAccount = accountVO;
+								fields.selectedAccount = accountVO;
+								fields.accountAmountLabel = "Available Balance";
+								fields.accountBlockTitle = "OPERATIVE";
+								fields.accountDetailSource = "DASHBOARD";
+								dashboard.mmid.accountIndex=accountVO.accountIndex.toString();
+								fields.browseAccountIndexInt = accountVO.accountIndex;
+								rakAccounts.RAKAccountsModel.selectedAccount= accountVO.accountIndex;
+								fields.dashboardResponseList = successResponse.invocationResult.operativeAccountsList;
+								setEvent("onOprAccountListClick");'>
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"><a class="balance-link"
+															data-tab="record-1"></a></td>
+												<td><span>{{accountVO.balance}}</span> <i>*{{appLiterals.APP.RAK_DASHBOARD.AVAILABLE_BALANCE}}</i></td>
+												<td><strong>{{accountVO.subAccountTypeDesc}}</strong> <i>{{accountVO.accountId}}</i></td>
+															
+											</tr>
+										 </tbody>
+									</table>
+
+				
+									
+
+								</div>
+									<div class="swiper-slide rak-swipe-background" >
+									<div class="rak-swipe-background1 border-left-white" ng-click="rakServiceReq.rakServicesModel.expandFlag = 'OprFlag';
+          							setEvent('onAccountServiceNavigation');"><img src="images/ac_service.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.ACC_SERVICES}}</p></div>
+          							
+									<div  class="rak-swipe-background1"
+									ng-click = "rakAccounts.accType = accountVO.mainAccountType;
+									rakAccounts.selectedIndex=accountVO.accountIndex;
+									rakAccounts.RAKAccountsModel.subAccountType=accountVO.accountType;
+									rakAccounts.swiperFunctionAccList();"><img class="rak-img-size" src="images/ac_info.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.ACC_INFO}}</p></div>
+								</div>
+							</div>
+		          </div>
+				  <!--   <div class="dashboard-item-body" ng-show="{{rakAccounts.RAKAccountsModel.isIslamicPresent}}">
+					<div class="rak-item-title"> 
+					  {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.ISLAMIC_ACCOUNTS}}
+					</div>
+					</div> -->
+						<div class="dashboard-item-title" ng-show="{{rakAccounts.RAKAccountsModel.isIslamicPresent}}">
+					  <div class="rak-item-title"> 
+					  <i class="spirt-icon account-icon"></i>
+					  {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.ISLAMIC_ACCOUNTS}}
+					   </div>
+					  <div class="rak-swipe-msg">{{appLiterals.APP.RAK_DASHBOARD.SWIPE_MSG}}</div>
+					</div>
+					
+					
+					
+					
+		          <div class="swiper-container rak-leftborder" dir="rtl" ng-repeat='accountVO in successResponse.invocationResult.operativeAccountsList | filter:{isIslamicAcct:"Y"}'>
+							
+							<div class="swiper-wrapper">
+								<div class="swiper-slide balance-table"  ng-click='fields.selectedOprAccount = accountVO;
+								fields.selectedAccount = accountVO;
+								fields.accountAmountLabel = "Available Balance";
+								fields.accountBlockTitle = "OPERATIVE";
+								fields.accountDetailSource = "DASHBOARD";
+								dashboard.mmid.accountIndex=accountVO.accountIndex.toString();
+								fields.browseAccountIndexInt = accountVO.accountIndex;
+								rakAccounts.RAKAccountsModel.selectedAccount= accountVO.accountIndex;
+								fields.dashboardResponseList = successResponse.invocationResult.operativeAccountsList;
+								setEvent("onOprAccountListClick");'>
+								
+						
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"><a class="balance-link"
+															data-tab="record-1"></a></td>
+												<td><span>{{accountVO.balance}}</span> <i>*{{appLiterals.APP.RAK_DASHBOARD.AVAILABLE_BALANCE}}</i></td>
+												<td><strong>{{accountVO.subAccountTypeDesc}}</strong> <i>{{accountVO.accountId}}</i></td>
+															
+											</tr>
+										 </tbody>
+									</table>
+
+						
+									
+
+								</div>
+										<div class="swiper-slide rak-swipe-background" >
+									<div class="rak-swipe-background1 border-left-white" ng-click="rakServiceReq.rakServicesModel.expandFlag = 'OprFlag';
+          							setEvent('onAccountServiceNavigation');"><img class="rak-img-size" src="images/ac_service.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.ACC_SERVICES}}</p></div>
+          							
+									<div  class="rak-swipe-background1"
+									ng-click = "rakAccounts.accType = accountVO.mainAccountType;
+									rakAccounts.selectedIndex=accountVO.accountIndex;
+									rakAccounts.RAKAccountsModel.subAccountType=accountVO.accountType;
+									rakAccounts.swiperFunctionAccList();"><img class="rak-img-size" src="images/ac_info.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.ACC_INFO}}</p></div>
+								</div>
+							</div>
+					</div>
+
+					<!-- Rak Show this when Accounts are blank -->
+				<div class="touch-press dashboard-item-body" class="touch-press" ng-show="successResponse.invocationResult.operativeAccountsList.length == 0" ng-init='wcmclienthandlers.wcmOpr(successResponse.invocationResult);'>
+
+					<div class="dashboard-item-title">
+					  <div class="rak-item-title"> 
+					  <i class="spirt-icon account-icon"></i>
+					  {{appLiterals.APP.RAK_DASHBOARD.ACCOUNTS}}
+					   </div>
+					</div>
+
+		          <div class="swiper-container" dir="rtl"  ng-click="
+          							rakServiceReq.RakDiscApply.resetRakDiscApplyData();
+          							rakServiceReq.rakServicesModel.expandFlag = 'OprFlag';
+		          rakServiceReq.RakDiscApply.isFirstTimeFlag=true;
+          		  setGlobalEvent('onDiscAndapplyLinkClicked');">
+							<div class="noSwiper">
+								<!-- <div id="WCMGETTEXTOPR" class="bg-color wcmContentDisplay"/></div> -->	
+								<div class="bg-color wcmContentDisplay"><p>{{rakHome.OPR_MSG}}{{appLiterals.APP.RAK_DASHBOARD.CLICK_TEXT}}</p></div>
+
+							</div>
+					</div>
+					</div>
+					<!-- Rak Show this when Accounts are blank -->
+
+		        </div>
+
+		      </div>
+		      <div class="disclaimer-bottom">
+                                                                <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                                                <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                                                </div>
+                                
+                                                                <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                                                                <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.OVERVIEW_MAIN_PAGE"></div>
+                                                                </div>
+                                  </div>
+		    </div>
+		  </div>
+
+		  <div class="dashboard-body dashboard-pad" ng-show="fields.mainAccountType == 'CCD'">
+		  
+		  <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+		   
+				<div class="dashboard-item-body" ng-show="rakAccounts.setIslamicflagDisplay(successResponse.invocationResult,'ccList').isConventional">
+					 <div class="dashboard-item-title">
+		          <div class="rak-item-title"><i class="spirt-icon credit-icon"> </i> {{appLiterals.APP.RAK_DASHBOARD.CARDS}} </div>
+		        </div>
+					</div>
+		        <div class="dashboard-item-body touch-press" ng-show="rakAccounts.setIslamicflagDisplay(rakCreditCard,'primaryCard').isConventional">
+
+					<div  dir="rtl" ng-repeat="ccListVO in rakCreditCard.primaryCard | filter : {isIslamicAcct:'!Y'}" ng-class="ccListVO.isCIFlink == 'Y'?'swiper-container':'swiper-container rak-leftborder'">
+					
+							<!-- <div class="swiper-wrapper"> -->
+							<div ng-class="ccListVO.isCIFlink == 'Y'?'noSwiper':'swiper-wrapper'">
+							<div ng-init="custEvent = ccListVO.isCIFlink=='Y'?'onSuppCCViewClick':'onCCViewClick'" 
+							class="swiper-slide balance-table"  
+							ng-click='fields.selectedOprAccount = ccListVO;
+								fields.browseAccountIndexInt=ccListVO.index.toString();
+								rakAccounts.RAKAccountsModel.selectedAccount=ccListVO.index;
+								fields.dashboardResponseList = rakCreditCard.primaryCard;
+								setEvent(custEvent);'>
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"><a class="balance-link"
+															data-tab="record-1"></a></td>
+												<td ng-if="ccListVO.isCIFlink !='Y'">
+												<span ng-if="ccListVO.balance.indexOf('0.00') > -1">{{ccListVO.balance}}</span>
+												<span ng-hide="ccListVO.balance.indexOf('0.00') > -1">{{(ccListVO.balance).indexOf("-") > -1 ? (ccListVO.balance).replace("-","") : ccListVO.balance +" CR" }}</span>
+												<i>{{appLiterals.APP.RAK_DASHBOARD.CURRENT_BALANCE}}</i></td>
+												
+												<td ng-if="ccListVO.isCIFlink == 'Y'">
+												<span>{{appLiterals.APP.RAK_DASHBOARD.NA}}</span>
+												<i>*{{appLiterals.APP.RAK_DASHBOARD.CURRENT_BALANCE}}</i>
+												</td>
+												
+												
+												<td><strong>{{ccListVO.subAccountTypeDesc}}</strong> <i>{{ccListVO.creditCardNo}}</i></td>
+															
+											</tr>
+										 </tbody>
+									</table>
+
+						
+
+								</div>
+									<div ng-if="ccListVO.isCIFlink !='Y'" class="swiper-slide rak-swipe-background" >
+									<!-- <div class="rak-swipe-background1 border-left-white"><p>Manage Debit Card</p></div> -->
+									<div class="rak-swipe-background1 border-left-white" ng-click="rakServiceReq.rakServicesModel.expandFlag = 'CreFlag';
+          							setEvent('onAccountServiceNavigation');"><img class="rak-img-size" src="images/card_service.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.CARD_SERVICES}}</p></div>
+									<div class="rak-swipe-background1"
+									ng-click = "rakAccounts.accType = 'CCD';rakAccounts.selectedIndex=ccListVO.index;rakAccounts.RAKAccountsModel.subAccountType='CCD';
+									fields.selectedOprAccount = ccListVO;
+									fields.browseAccountIndexInt=ccListVO.index.toString();
+									rakAccounts.RAKAccountsModel.selectedAccount=ccListVO.index;
+									fields.dashboardResponseList = rakCreditCard.primaryCard;
+									rakAccounts.swiperFunctionAccList();"><img class="rak-img-size" src="images/card_info.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.CARD_INFO}}</p></div>
+								</div>
+							</div>
+					</div>
+		        </div>
+
+		      </div>
+		    </div>
+		   <div ng-show="rakCreditCard.suppCard.length > 0 && rakCreditCard.suppCard[0].isIslamicAcct==''" >
+		  	<span class="rakSupplCardIco"  ng-class="{'rakSupplCardIcoExpnd':rakCreditCard.viewFlag1}" ng-click="rakCreditCard.viewFlag1=!rakCreditCard.viewFlag1" >{{appLiterals.APP.RAK_DASHBOARD.VIEWCARDS}}</span>
+		  </div>
+		   
+		  <div class="dashboard-body dashboard-pad" ng-show="rakCreditCard.viewFlag1 && rakCreditCard.suppCard.length > 0 ">
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+		 <!--    <div class="dashboard-item-title">
+		          <div class="rak-item-title"></i>{{appLiterals.APP.RAK_DASHBOARD.SCARDS}} </div>
+		        </div> -->
+		            <div class="dashboard-item-title">
+		          <div class="rak-item-title"><i class="spirt-icon credit-icon"> </i> {{appLiterals.APP.RAK_DASHBOARD.SCARDS}} </div>
+		        </div>
+
+		        <div class="dashboard-item-body touch-press" ng-hide="rakCreditCard.suppCard.length == 0">
+
+					<div class="swiper-container" dir="rtl" ng-repeat="ccListVO in rakCreditCard.suppCard | filter : {isIslamicAcct:'!Y'}">
+					
+							<div class="noSwiper">
+							<div class="swiper-slide balance-table"  ng-click='
+								fields.selectedOprAccount = ccListVO;
+								fields.browseAccountIndexInt=ccListVO.index.toString();
+								rakAccounts.RAKAccountsModel.selectedAccount=ccListVO.index.toString();
+								fields.dashboardResponseList = rakCreditCard.suppCard;
+								setEvent("onSuppCCViewClick");'>
+								
+									
+									
+										<!-- 	Vishal : Start  -->
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"><a class="balance-link"
+															data-tab="record-1"></a></td>
+												<td>
+												<!-- <span ng-if="ccListVO.balance.indexOf('0.00') > -1">{{ccListVO.balance}}</span>
+												<span ng-hide="ccListVO.balance.indexOf('0.00') > -1">{{(ccListVO.balance).indexOf("-") > -1 ? (ccListVO.balance).replace("-","") : ccListVO.balance +" CR" }}</span> -->
+												<span>{{appLiterals.APP.RAK_DASHBOARD.NA}}</span>
+												<i>*{{appLiterals.APP.RAK_DASHBOARD.CURRENT_BALANCE}}</i></td>
+												<td><strong>{{ccListVO.subAccountTypeDesc}}</strong> <i>{{ccListVO.creditCardNo}}</i></td>
+															
+											</tr>
+										 </tbody>
+									</table>
+
+							
+
+								</div>
+					</div>
+		        </div>
+
+
+		      </div>
+		    </div>
+		    </div>
+		    
+		    </div>
+		    
+		    
+		    <!-- Islamic Credit Card Accounts -->
+		    
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+				<!--  <div class="dashboard-item-body" >
+					<div class="rak-item-title"> 
+					<i class="spirt-icon credit-icon"></i>
+					  {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.CC_ISLAMIC_ACCOUNTS}}
+					</div>
+					
+					</div> -->
+		        <div class="dashboard-item-body touch-press" ng-show="rakAccounts.setIslamicflagDisplay(rakCreditCard,'primaryCard').isIslamic">
+		        
+		           <div class="dashboard-item-title">
+		          <div class="rak-item-title"><i class="spirt-icon credit-icon"> </i> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.CC_ISLAMIC_ACCOUNTS}}</div>
+		        </div>
+					
+					<div dir="rtl" ng-repeat="ccListVO in rakCreditCard.primaryCard | filter : {isIslamicAcct:'Y'}" ng-class="ccListVO.isCIFlink == 'Y'?'swiper-container':'swiper-container rak-leftborder'">
+					
+							<!-- <div class="swiper-wrapper"> -->
+							<div ng-class="ccListVO.isCIFlink == 'Y'?'noSwiper':'swiper-wrapper'">
+							<div ng-init="custEvent = ccListVO.isCIFlink=='Y'?'onSuppCCViewClick':'onCCViewClick'" 
+								class="swiper-slide balance-table"  
+								ng-click='fields.selectedOprAccount = ccListVO;
+								fields.browseAccountIndexInt=ccListVO.index.toString();
+								rakAccounts.RAKAccountsModel.selectedAccount=ccListVO.index;
+								fields.dashboardResponseList = rakCreditCard.primaryCard;
+								setEvent(custEvent);'>
+								
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"><a class="balance-link"
+															data-tab="record-1"></a></td>
+															
+												<td ng-if="ccListVO.isCIFlink !='Y'">
+												<span ng-if="ccListVO.balance.indexOf('0.00') > -1">{{ccListVO.balance}}</span>
+												<span ng-hide="ccListVO.balance.indexOf('0.00') > -1">{{(ccListVO.balance).indexOf("-") > -1 ? (ccListVO.balance).replace("-","") : ccListVO.balance +" CR" }}</span>
+											
+												<i>{{appLiterals.APP.RAK_DASHBOARD.CURRENT_BALANCE}}</i></td> 
+		
+												<td ng-if="ccListVO.isCIFlink == 'Y'">
+												<span>{{appLiterals.APP.RAK_DASHBOARD.NA}}</span>
+												<i>*{{appLiterals.APP.RAK_DASHBOARD.CURRENT_BALANCE}}</i>
+												</td>
+												
+												<td><strong>{{ccListVO.subAccountTypeDesc}}</strong> <i>{{ccListVO.creditCardNo}}</i></td>
+															
+											</tr>
+										 </tbody>
+									</table>
+
+					
+
+								</div>
+					
+								<div ng-if="ccListVO.isCIFlink !='Y'" class="swiper-slide rak-swipe-background" >
+									<!-- <div class="rak-swipe-background1 border-left-white"><p>Manage Debit Card</p></div> -->
+									<div class="rak-swipe-background1 border-left-white" ng-click="rakServiceReq.rakServicesModel.expandFlag = 'CreFlag';
+          							setEvent('onAccountServiceNavigation');"><img class="rak-img-size" src="images/card_service.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.CARD_SERVICES}}</p></div>
+									<div class="rak-swipe-background1"
+									ng-click = "rakAccounts.accType = 'CCD';rakAccounts.selectedIndex=ccListVO.index;rakAccounts.RAKAccountsModel.subAccountType='CCD';
+									fields.selectedOprAccount = ccListVO;
+									fields.browseAccountIndexInt=ccListVO.index.toString();
+									rakAccounts.RAKAccountsModel.selectedAccount=ccListVO.index;
+									fields.dashboardResponseList = rakCreditCard.primaryCard;
+									rakAccounts.swiperFunctionAccList();"><img class="rak-img-size" src="images/card_info.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.CARD_INFO}}</p></div>
+								</div>
+								
+								
+							</div>
+					</div>
+		        </div>
+
+
+
+		<!-- 
+				<div class="touch-press dashboard-item-body" class="touch-press" ng-hide="rakAccounts.setIslamicflagDisplay(rakCreditCard,'primaryCard').isIslamic" ng-init='wcmclienthandlers.wcmConCcPrimary();'>
+
+		          <div class="swiper-container rak-leftborder" dir="rtl">
+							<div class="swiper-wrapper">
+									<div id="WCMGETTEXTPCC" class="bg-color wcmContentDisplay">
+									</div>
+
+							</div>
+					</div>
+					</div> -->
+					
+				
+		      </div>
+		    </div>
+		   <div ng-show="rakAccounts.setIslamicflagDisplay(rakCreditCard,'suppCard').isIslamic" >
+		  	<span class="rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakCreditCard.viewFlag2}" ng-click="rakCreditCard.viewFlag2=!rakCreditCard.viewFlag2" >{{appLiterals.APP.RAK_DASHBOARD.VIEWCARDS}}</span>
+		  </div>
+		   
+		  <div class="dashboard-body dashboard-pad" ng-show="rakCreditCard.viewFlag2 && rakAccounts.setIslamicflagDisplay(rakCreditCard,'suppCard').isIslamic">
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+		    <div class="dashboard-item-title">
+		    
+		          <div class="rak-item-title">{{appLiterals.APP.RAK_DASHBOARD.SCARDS}} </div>
+		        </div>
+
+		        <div class="dashboard-item-body touch-press" ng-hide="rakCreditCard.suppCard.length == 0 || !rakAccounts.setIslamicflagDisplay(rakCreditCard,'suppCard').isIslamic">
+
+					<div class="swiper-container" dir="rtl" ng-repeat="ccListVO in rakCreditCard.suppCard | filter : {isIslamicAcct:'Y'}">
+					
+							<div class="noSwiper">
+							<div class="swiper-slide balance-table"  ng-click='
+								fields.selectedOprAccount = ccListVO;
+								fields.browseAccountIndexInt=ccListVO.index.toString();
+								rakAccounts.RAKAccountsModel.selectedAccount=ccListVO.index.toString();
+								fields.dashboardResponseList = rakCreditCard.suppCard;
+								setEvent("onSuppCCViewClick");'>
+								
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"><a class="balance-link"
+															data-tab="record-1"></a></td>
+												<td>
+												
+												<span>{{appLiterals.APP.RAK_DASHBOARD.NA}}</span>
+												<!-- <span ng-if="ccListVO.balance.indexOf('0.00') > -1">{{ccListVO.balance}}</span>
+												<span ng-hide="ccListVO.balance.indexOf('0.00') > -1">{{(ccListVO.balance).indexOf("-") > -1 ? (ccListVO.balance).replace("-","") : ccListVO.balance +" CR" }}</span>
+												 -->
+												 <i>{{appLiterals.APP.RAK_DASHBOARD.CURRENT_BALANCE}}</i></td>
+												<td><strong>{{ccListVO.subAccountTypeDesc}}</strong> <i>{{ccListVO.creditCardNo}}</i></td>
+															
+											</tr>
+										 </tbody>
+									</table>
+
+							
+
+								</div>
+					</div>
+		        </div>
+
+
+		      </div>
+		    </div>  
+		    </div>
+		    
+		    </div>
+		    
+		    <div class="touch-press dashboard-item-body col-sm-11" class="touch-press " ng-hide ="rakCreditCard.creditAcCount >0" ng-init='wcmclienthandlers.wcmConCcPrimary();'>
+				 <div class="dashboard-item-title" ng-hide ="rakCreditCard.creditAcCount >0">
+		          <div class="rak-item-title"><i class="spirt-icon credit-icon"> </i> {{appLiterals.APP.RAK_DASHBOARD.CARDS}} </div>
+		        </div>
+		          <div class="swiper-container" dir="rtl"
+		            ng-click="rakServiceReq.RakDiscApply.resetRakDiscApplyData();
+          					  rakServiceReq.rakServicesModel.expandFlag = 'CreFlag';
+		          rakServiceReq.RakDiscApply.isFirstTimeFlag=true;
+          		  setGlobalEvent('onDiscAndapplyLinkClicked');">
+							<div class="noSwiper">
+									<!-- <div id="WCMGETTEXTPCC" class="bg-color wcmContentDisplay"> -->
+									<div class="bg-color wcmContentDisplay">	<p>{{rakHome.CCD_MSG}}{{appLiterals.APP.RAK_DASHBOARD.CLICK_TEXT}}</p></div>
+									</div>
+
+							</div>
+					</div>
+					</div>
+		    
+		  
+		   <!--  </div> -->
+
+
+		  <div class="dashboard-body dashboard-pad" ng-show="fields.mainAccountType == 'DEP' ">
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+		        <!-- <div class="dashboard-item-title">
+		          <div class="rak-item-title"> <i class="spirt-icon deposits-icon"> </i>
+		          {{appLiterals.APP.RAK_DASHBOARD.DEPOSITS}} </div>
+		        </div> -->
+
+		        <div class="dashboard-item-body touch-press" ng-show="fields.mainAccountType == 'DEP' "
+		        ng-init="fields.hasIslamicAndConv= rakAccounts.setIslamicflagDisplay(successResponse.invocationResult,'depositAccountsList');
+		        rakAccounts.RAKAccountsModel.isIslamicPresent=fields.hasIslamicAndConv.isIslamic;
+		        rakAccounts.RAKAccountsModel.isConventionalPresent=fields.hasIslamicAndConv.isConventional">
+		        
+		        	<!-- <div class="dashboard-item-body" ng-show="{{rakAccounts.RAKAccountsModel.isConventionalPresent}}">
+					<div class="rak-item-title"> 
+					  {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.CONVENTIONAL_ACCOUNTS}}
+					</div>
+					</div> -->
+					
+					<div class="dashboard-item-title" ng-show="{{rakAccounts.RAKAccountsModel.isConventionalPresent}}">
+					  <div class="rak-item-title"> 
+					  <i class="spirt-icon deposits-icon"></i>
+					  {{appLiterals.APP.RAK_DASHBOARD.DEPOSITS}}
+					   </div>
+					  <div class="rak-swipe-msg">{{appLiterals.APP.RAK_DASHBOARD.SWIPE_MSG}}</div>
+					</div>
+					
+					
+
+				  <div class="swiper-container rak-leftborder" dir="rtl" ng-repeat="depAccountVO in successResponse.invocationResult.depositAccountsList">
+							<div class="swiper-wrapper" ng-hide= "depAccountVO.isIslamicAcct=='Y'">
+								<div class="swiper-slide balance-table" ng-click='fields.selectedDepositAccount = depAccountVO;
+								 fields.selectedAccount = depAccountVO;
+								  fields.accountAmountLabel = "Ledger Amount";
+								  fields.accountBlockTitle = "DEPOSIT";
+								   fields.accountDetailSource = "DASHBOARD";
+								   fields.browseAccountIndexInt = depAccountVO.accountIndex;
+								   rakAccounts.RAKAccountsModel.selectedAccount=depAccountVO.accountIndex;
+								    fields.dashboardResponseList = successResponse.invocationResult.depositAccountsList;
+									 setEvent("onDepositAccountListClick");' >
+						
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"><a class="balance-link"
+															data-tab="record-1"></a></td>
+												<td><span>{{depAccountVO.balance}}</span> <i>{{appLiterals.APP.RAK_DASHBOARD.DEPOSIT_AMOUNT}}</i></td>
+												<td><strong>{{depAccountVO.subAccountTypeDesc}}</strong> <i>{{depAccountVO.accountId}}</i></td>
+															
+											</tr>
+										 </tbody>
+									</table>
+
+							<!-- 	Vishal :ENd -->
+
+								</div>
+									<div class="swiper-slide rak-swipe-background" >
+									<div class="rak-swipe-background1 border-left-white" ng-click="rakServiceReq.rakServicesModel.expandFlag = 'DepFlag';
+          							setEvent('onAccountServiceNavigation');"><img class="rak-img-size" src="images/deposit_service.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.DEPOSIT_SERVICES}}</p></div>
+									<div class="rak-swipe-background1"
+									ng-click = "rakAccounts.accType = depAccountVO.mainAccountType;rakAccounts.selectedIndex=depAccountVO.accountIndex;rakAccounts.RAKAccountsModel.subAccountType=depAccountVO.accountType;
+									rakAccounts.swiperFunctionAccList();"><img class="rak-img-size" src="images/deposit_info.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.DEPOSIT_INFO}}</p></div>
+								</div>
+							</div>
+					</div>
+					
+				<!-- 	  <div class="dashboard-item-body" ng-show="{{rakAccounts.RAKAccountsModel.isIslamicPresent}}">
+					<div class="rak-item-title"> 
+					  {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.ISLAMIC_ACCOUNTS}}
+					</div>
+					</div> -->
+					
+					<div class="dashboard-item-title" ng-show="{{rakAccounts.RAKAccountsModel.isIslamicPresent}}">
+					  <div class="rak-item-title"> 
+					  <i class="spirt-icon deposits-icon"></i>
+					   {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.ISLAMIC_DEPOSITS}}
+					   </div>
+					  <div class="rak-swipe-msg">{{appLiterals.APP.RAK_DASHBOARD.SWIPE_MSG}}</div>
+					</div>
+					
+						  <div class="swiper-container rak-leftborder" dir="rtl" ng-repeat="depAccountVO in successResponse.invocationResult.depositAccountsList">
+							<div class="swiper-wrapper" ng-show= "depAccountVO.isIslamicAcct=='Y'">
+								<div class="swiper-slide balance-table" ng-click='fields.selectedDepositAccount = depAccountVO;
+								 fields.selectedAccount = depAccountVO;
+								  fields.accountAmountLabel = "Ledger Amount";
+								  fields.accountBlockTitle = "DEPOSIT";
+								   fields.accountDetailSource = "DASHBOARD";
+								   fields.browseAccountIndexInt = depAccountVO.accountIndex;
+								   rakAccounts.RAKAccountsModel.selectedAccount=depAccountVO.accountIndex;
+								    fields.dashboardResponseList = successResponse.invocationResult.depositAccountsList;
+									 setEvent("onDepositAccountListClick");' >
+									
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"><a class="balance-link"
+															data-tab="record-1"></a></td>
+												<td><span>{{depAccountVO.balance}}</span> <i>{{appLiterals.APP.RAK_DASHBOARD.DEPOSIT_AMOUNT}}</i></td>
+												<td><strong>{{depAccountVO.subAccountTypeDesc}}</strong> <i>{{depAccountVO.accountId}}</i></td>
+															
+											</tr>
+										 </tbody>
+									</table>
+
+							<!-- 	Vishal :ENd -->
+									
+
+								</div>
+									<div class="swiper-slide rak-swipe-background" >
+									<div class="rak-swipe-background1 border-left-white" ng-click="rakServiceReq.rakServicesModel.expandFlag = 'DepFlag';
+          							setEvent('onAccountServiceNavigation');"><img class="rak-img-size" src="images/deposit_service.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.DEPOSIT_SERVICES}}</p></div>
+									<div class="rak-swipe-background1"
+									ng-click = "rakAccounts.accType = depAccountVO.mainAccountType;rakAccounts.selectedIndex=depAccountVO.accountIndex;rakAccounts.RAKAccountsModel.subAccountType=depAccountVO.accountType;
+									rakAccounts.swiperFunctionAccList();"><img class="rak-img-size" src="images/deposit_info.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.DEPOSIT_INFO}}</p></div>
+								</div>
+							</div>
+					</div>
+		        </div>
+
+				<!-- Rak Show this when Accounts are blank -->
+				<div class="touch-press dashboard-item-body" class="touch-press" ng-if="successResponse.invocationResult.depositAccountsList.length == 0"  ng-init='wcmclienthandlers.wcmDep(successResponse.invocationResult);'>
+
+					<div class="dashboard-item-title">
+					  <div class="rak-item-title"> 
+					  <i class="spirt-icon deposits-icon"></i>
+					  {{appLiterals.APP.RAK_DASHBOARD.DEPOSITS}}
+					   </div>
+					</div>
+					
+		          <div class="swiper-container" dir="rtl" ng-click="
+		          rakServiceReq.RakDiscApply.resetRakDiscApplyData();
+		          rakServiceReq.RakDiscApply.isFirstTimeFlag=true;
+		          rakServiceReq.rakServicesModel.expandFlag = 'DepFlag';
+          		  setGlobalEvent('onDiscAndapplyLinkClicked');">
+							<div class="noSwiper">
+
+												<!-- <div id="WCMGETTEXTDEP" class="bg-color wcmContentDisplay"></div> -->
+												<div class="bg-color wcmContentDisplay"><p>{{rakHome.DEP_MSG}}{{appLiterals.APP.RAK_DASHBOARD.CLICK_TEXT}}</p></div> 
+							</div>
+					</div>
+				</div>
+					<!-- Rak Show this when Accounts are blank -->
+
+
+
+		      </div>
+		    </div>
+		  </div>
+		  <div class="dashboard-body dashboard-pad" ng-show="fields.mainAccountType == 'LON'">
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+		      <!--   <div class="dashboard-item-title">
+		          <div class="rak-item-title"> <i class="spirt-icon loan-finance-icon"></i> {{appLiterals.APP.RAK_DASHBOARD.LOANS}} </div>
+		        </div> -->
+
+		        <div class="dashboard-item-body touch-press" ng-show="fields.mainAccountType == 'LON' "  
+		        ng-init="fields.hasIslamicAndConv= rakAccounts.setIslamicflagDisplay(successResponse.invocationResult,'loanAccountsList');
+		        rakAccounts.RAKAccountsModel.isIslamicPresent=fields.hasIslamicAndConv.isIslamic;
+		        rakAccounts.RAKAccountsModel.isConventionalPresent=fields.hasIslamicAndConv.isConventional">
+						
+						
+			<!-- 		<div class="dashboard-item-body" ng-show="{{rakAccounts.RAKAccountsModel.isConventionalPresent}}">
+					<div class="rak-item-title"> 
+					  {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.CONVENTIONAL_ACCOUNTS}}
+					</div>
+					</div> -->
+					
+					<div class="dashboard-item-title" ng-show="{{rakAccounts.RAKAccountsModel.isConventionalPresent}}">
+					  <div class="rak-item-title"> 
+					  <i class="spirt-icon loan-finance-icon"></i>
+					  {{rakHome.chkUserType=='2'?appLiterals.APP.RAK_DASHBOARD.LOANS:appLiterals.APP.RAK_DASHBOARD.LOANS_NEW}}
+					  
+					   </div>
+					  <div class="rak-swipe-msg">{{appLiterals.APP.RAK_DASHBOARD.SWIPE_MSG}}</div>
+					</div>
+					
+					
+					
+				  <div class="swiper-container rak-leftborder" dir="rtl" ng-repeat="lnAccountVO in successResponse.invocationResult.loanAccountsList">
+							<div class="swiper-wrapper" ng-hide= "lnAccountVO.isIslamicAcct=='Y'">
+							
+								<div class="swiper-slide balance-table" ng-click='fields.selectedLoanAccount = lnAccountVO; 
+								fields.selectedAccount = lnAccountVO;
+								 fields.accountAmountLabel = "Current Outstanding";
+								  fields.accountBlockTitle = "LOANS";
+								  fields.accountDetailSource = "DASHBOARD";
+								  fields.browseAccountIndexInt = lnAccountVO.accountIndex;
+								  rakAccounts.RAKAccountsModel.selectedAccount=lnAccountVO.accountIndex;
+								  fields.dashboardResponseList = successResponse.invocationResult.loanAccountsList;
+								  setEvent("onLoanAccountListClick");'>
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"><a class="balance-link"
+															data-tab="record-1"></a></td>
+												<td><span>{{lnAccountVO.balance}}</span> <i>{{appLiterals.APP.RAK_DASHBOARD.TOTAL_OUTSTANDING}}</i></td>
+												<td><strong>{{lnAccountVO.subAccountTypeDesc}}</strong> <i>{{lnAccountVO.accountId}}</i></td>
+															
+											</tr>
+										 </tbody>
+									</table>
+
+						
+									
+
+								</div>
+								<div class="swiper-slide rak-swipe-background" >
+									<div class="rak-swipe-background1 border-left-white" ng-click="rakServiceReq.rakServicesModel.expandFlag = 'LonFlag';
+          							setEvent('onAccountServiceNavigation');"><img class="rak-img-size" src="images/loan_service.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.LOAN_SERVICES}}</p></div>
+									<div class="rak-swipe-background1"
+									ng-click = "rakAccounts.accType = lnAccountVO.mainAccountType;rakAccounts.selectedIndex=lnAccountVO.accountIndex;rakAccounts.RAKAccountsModel.subAccountType=lnAccountVO.accountType;
+									rakAccounts.swiperFunctionAccList();"><img class="rak-img-size" src="images/loan_info.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.LOAN_INFO}}</p></div>
+								</div>
+							</div>
+							
+					</div>
+					
+					<div class="dashboard-item-title" ng-show="{{rakAccounts.RAKAccountsModel.isIslamicPresent}}">
+					  <div class="rak-item-title"> 
+					  <i class="spirt-icon loan-finance-icon"></i>
+					   {{appLiterals.APP.RAK_DASHBOARD.ISLAMIC_LOANS}}
+					   </div>
+					  <div class="rak-swipe-msg">{{appLiterals.APP.RAK_DASHBOARD.SWIPE_MSG}}</div>
+					</div>
+					
+					
+					
+					  <div class="swiper-container rak-leftborder" dir="rtl" ng-repeat="lnAccountVO in successResponse.invocationResult.loanAccountsList">
+							<div class="swiper-wrapper" ng-show= "lnAccountVO.isIslamicAcct=='Y'">
+								<div class="swiper-slide balance-table" ng-click='fields.selectedLoanAccount = lnAccountVO; 
+								fields.selectedAccount = lnAccountVO;
+								 fields.accountAmountLabel = "Current Outstanding";
+								  fields.accountBlockTitle = "LOANS";
+								  fields.accountDetailSource = "DASHBOARD";
+								  fields.browseAccountIndexInt = lnAccountVO.accountIndex;
+								  rakAccounts.RAKAccountsModel.selectedAccount=lnAccountVO.accountIndex;
+								  fields.dashboardResponseList = successResponse.invocationResult.loanAccountsList;
+								  setEvent("onLoanAccountListClick");'>
+									
+							
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"><a class="balance-link"
+															data-tab="record-1"></a></td>
+												<td><span>{{lnAccountVO.balance}}</span> <i>{{appLiterals.APP.RAK_DASHBOARD.TOTAL_OUTSTANDING}}</i></td>
+												<td><strong>{{lnAccountVO.subAccountTypeDesc}}</strong> <i>{{lnAccountVO.accountId}}</i></td>
+															
+											</tr>
+										 </tbody>
+									</table>
+
+							<!-- 	Vishal :ENd -->
+
+								</div>
+								<div class="swiper-slide rak-swipe-background" >
+									<div class="rak-swipe-background1 border-left-white" ng-click="rakServiceReq.rakServicesModel.expandFlag = 'LonFlag';
+          							setEvent('onAccountServiceNavigation');"><img class="rak-img-size" src="images/loan_service.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.LOAN_SERVICES}}</p></div>
+									<div class="rak-swipe-background1"
+									ng-click = "rakAccounts.accType = lnAccountVO.mainAccountType;rakAccounts.selectedIndex=lnAccountVO.accountIndex;rakAccounts.RAKAccountsModel.subAccountType=lnAccountVO.accountType;
+									rakAccounts.swiperFunctionAccList();"><img class="rak-img-size" src="images/loan_info.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.FIN_INFO}}</p></div>
+								</div>
+							</div>
+							
+					</div>
+		        </div>
+
+
+
+
+		        	<!-- Rak Show this when Accounts are blank -->
+				<div class="touch-press dashboard-item-body" class="touch-press" 
+				ng-show="successResponse.invocationResult.loanAccountsList.length == 0" ng-init='wcmclienthandlers.wcmLon(successResponse.invocationResult);'>
+
+				<div class="dashboard-item-title">
+					  <div class="rak-item-title"> 
+					  <i class="spirt-icon loan-finance-icon"></i>
+					   {{rakHome.chkUserType=="2" ? appLiterals.APP.RAKBURGER.MYPRODUCTS_LON : appLiterals.APP.RAK_DASHBOARD.LOANS_NEW}}
+					   </div>
+					</div>
+
+		          <div class="swiper-container" dir="rtl" ng-click="
+		               rakServiceReq.RakDiscApply.resetRakDiscApplyData();
+		               rakServiceReq.rakServicesModel.expandFlag = 'LonFlag';
+		          rakServiceReq.RakDiscApply.isFirstTimeFlag=true;
+          		  setGlobalEvent('onDiscAndapplyLinkClicked');">
+							<div class="noSwiper">
+								<div class="bg-color wcmContentDisplay"><p>{{rakHome.LON_MSG}}{{appLiterals.APP.RAK_DASHBOARD.CLICK_TEXT}}</p></div>
+
+							</div>
+					</div>
+					</div>
+					<!-- Rak Show this when Accounts are blank -->
+
+
+		      </div>
+		    </div>
+		  </div>
+
+
+		   <div class="dashboard-body dashboard-pad" ng-show="fields.mainAccountType == 'INV'">
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+		    <div class="dashboard-item-title">
+		          <div class="rak-item-title">
+		            <i class="spirt-icon investment1-icon"></i>
+		    
+		          {{appLiterals.APP.RAK_DASHBOARD.INVESTMENTS}} </div>
+		          	  <div class="rak-swipe-msg" ng-if="successResponse.invocationResult.invAccountsList.length != 0">{{appLiterals.APP.RAK_DASHBOARD.SWIPE_MSG}}</div>
+		        </div> 
+
+		        <div class="dashboard-item-body touch-press" ng-show="fields.mainAccountType == 'INV'"  
+		       				 ng-init="fields.hasIslamicAndConv= rakAccounts.setIslamicflagDisplay(successResponse.invocationResult,'invAccountsList');
+		        			rakAccounts.RAKAccountsModel.isIslamicPresent=fields.hasIslamicAndConv.isIslamic;
+		       				rakAccounts.RAKAccountsModel.isConventionalPresent=fields.hasIslamicAndConv.isConventional">
+						
+					<!-- <div class="dashboard-item-body" ng-show="{{rakAccounts.RAKAccountsModel.isConventionalPresent}}">
+					<div class="rak-item-title"> 
+					  {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.CONVENTIONAL_ACCOUNTS}}
+					</div>
+					</div> -->
+
+					<!-- <div class="swiper-container rak-leftborder" dir="rtl" ng-repeat="invAccntVO in successResponse.invocationResult.invAccountsList"> -->
+					 <div class="" dir="rtl" ng-repeat="invAccntVO in successResponse.invocationResult.invAccountsList"> 
+						<!-- 	<div class="swiper-wrapper" ng-hide= "lnAccountVO.isIslamicAcct=='Y'"> -->
+							<div class="" ng-hide= "lnAccountVO.isIslamicAcct=='Y'">
+								<div class="swiper-slide balance-table" ng-click='
+								fields.selectedInvAccount = invAccntVO;
+								fields.browseAccountIndexInt=invAccntVO.accountIndex.toString();
+								rakAccounts.RAKAccountsModel.selectedAccount=invAccntVO.accountIndex;
+								fields.dashboardResponseList = successResponse.invocationResult.invAccountsList;
+								setEvent("onInvAccountListClick");'>
+						
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"><a class="balance-link"
+															data-tab="record-1"></a></td>
+												<td><span>{{invAccntVO.relationshipValue}}</span> <i>{{appLiterals.APP.RAK_DASHBOARD.RELATIONSHIP_VALUE}}</i></td>
+												<td><strong>{{appLiterals.APP.RAK_DASHBOARD.RAKINVEST}}</strong> <i>{{invAccntVO.accountId}}</i></td>
+															
+											</tr>
+										 </tbody>
+									</table>
+
+				
+									
+
+								</div>
+							<!-- 	<div class="swiper-slide rak-swipe-background" >
+									<div class="rak-swipe-background1 border-left-white" ng-click="rakServiceReq.rakServicesModel.expandFlag = 'InvFlag';
+          							setEvent('onAccountServiceNavigation');"><img class="rak-img-size" src="images/invest_service.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.INVEST_SERVICES}}</p></div>
+									<div class="rak-swipe-background1"
+									ng-click = "rakAccounts.accType = invAccntVO.mainAccountType;rakAccounts.selectedIndex=invAccntVO.accountIndex;rakAccounts.RAKAccountsModel.subAccountType=invAccntVO.accountType;
+									rakAccounts.swiperFunctionAccList();"><img class="rak-img-size" src="images/invest_info.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.INVEST_INFO}}</p></div>
+								</div> -->
+							</div>
+					</div>
+					
+					 <div class="dashboard-item-body" ng-show="{{rakAccounts.RAKAccountsModel.isIslamicPresent}}">
+							<div class="rak-item-title"> 
+					 			 {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.ISLAMIC_ACCOUNTS}}
+							</div>
+					</div>
+					
+						<div class="" dir="rtl" ng-repeat="invAccntVO in successResponse.invocationResult.invAccountsList">
+							<div class="" ng-show= "invAccntVO.isIslamicAcct=='Y'">
+								<div class="swiper-slide balance-table" ng-click='
+								fields.selectedInvAccount = invAccntVO;
+								fields.browseAccountIndexInt=invAccntVO.accountIndex.toString();
+								rakAccounts.RAKAccountsModel.selectedAccount=invAccntVO.accountIndex;
+								fields.dashboardResponseList = successResponse.invocationResult.invAccountsList;
+								setEvent("onInvAccountListClick");'>
+
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"><a class="balance-link"
+															data-tab="record-1"></a></td>
+												<td><span>{{invAccntVO.balance}}</span> <i>{{appLiterals.APP.RAK_DASHBOARD.RELATIONSHIP_VALUE}}</i></td>
+												<!-- <td><strong>{{invAccntVO.subAccountTypeDesc}}</strong> <i>{{invAccntVO.accountId}}</i></td> -->
+												 <td><strong>{{appLiterals.APP.RAK_DASHBOARD.RAKINVEST}}</strong> <i>{{invAccntVO.accountId}}</i></td>
+															
+											</tr>
+										 </tbody>
+									</table>
+
+						
+
+								</div>
+							<!-- 	<div class="swiper-slide rak-swipe-background" >
+									<div class="rak-swipe-background1 border-left-white" ng-click="rakServiceReq.rakServicesModel.expandFlag = 'InvFlag';
+          							setEvent('onAccountServiceNavigation');"><img class="rak-img-size" src="images/invest_service.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.INVEST_SERVICES}}</p></div>
+									<div class="rak-swipe-background1"
+									ng-click = "rakAccounts.accType = invAccntVO.mainAccountType;rakAccounts.selectedIndex=invAccntVO.accountIndex;rakAccounts.RAKAccountsModel.subAccountType=invAccntVO.accountType;
+									rakAccounts.swiperFunctionAccList();"><img class="rak-img-size" src="images/invest_info.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.INVEST_INFO}}</p></div>
+								</div> -->
+							</div>
+					</div>
+					
+		        </div>
+
+
+
+		    		  	<!-- Rak Show this when Accounts are blank -->
+				<div class="touch-press dashboard-item-body" class="touch-press" ng-show="successResponse.invocationResult.invAccountsList.length== 0" ng-init='wcmclienthandlers.wcmInv(successResponse.invocationResult);'>
+
+		          <div class="swiper-container" dir="rtl">
+							<div class="noSwiper">
+								<!-- 	<div id="WCMGETTEXTINV" class="bg-color wcmContentDisplay"> -->
+								<div class="bg-color wcmContentDisplay"><p>{{rakHome.INV_MSG}}</p></div>
+									</div>
+
+							</div>
+					</div>
+					</div>
+					<!-- Rak Show this when Accounts are blank -->
+					
+					
+
+
+
+
+		      </div>
+		    </div>
+		
+			
+	
+				    <div class="dashboard-body dashboard-pad" ng-show="fields.mainAccountType == 'INV'">
+		    <div class="col-sm-11">
+
+		      <div class="dashboard-item-body">
+		    <!-- <div class="dashboard-item-title">
+		          <div class="rak-item-title"><i class="spirt-icon gold-icon"></i> {{appLiterals.APP.RAK_DASHBOARD.GOLD_ACCOUNTS}} </div>
+		        </div> -->
+
+		        <div class="dashboard-item-body touch-press" ng-show="fields.mainAccountType == 'INV'"
+		         ng-init="fields.hasIslamicAndConv= rakAccounts.setIslamicflagDisplay(rakAccounts.goldAccountsList,'goldAccountsList');
+		        rakAccounts.RAKAccountsModel.isIslamicPresent=fields.hasIslamicAndConv.isIslamic;
+		        rakAccounts.RAKAccountsModel.isConventionalPresent=fields.hasIslamicAndConv.isConventional">
+		        	<!-- <div class="dashboard-item-body" ng-show="{{rakAccounts.RAKAccountsModel.isConventionalPresent}}">
+					<div class="rak-item-title"> 
+					  {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.CONVENTIONAL_ACCOUNTS}}
+					</div>
+					</div> -->
+					
+							
+					<div class="dashboard-item-title" ng-show="{{(rakAccounts.goldAccountsList.length) > 0}}">
+					   <div class="rak-item-title"><i class="spirt-icon gold-icon"></i> {{appLiterals.APP.RAK_DASHBOARD.GOLD_ACCOUNTS}} </div>
+					  <div class="rak-swipe-msg">{{appLiterals.APP.RAK_DASHBOARD.SWIPE_MSG}}</div>
+					</div>
+					
+
+					<div class="swiper-container rak-leftborder" dir="rtl" ng-repeat="goldAccntVO in rakAccounts.goldAccountsList">
+							<div class="swiper-wrapper" ng-hide= "goldAccntVO.isIslamicAcct=='Y'">
+								<div class="swiper-slide balance-table"  ng-click='
+								fields.selectedOprAccount = goldAccntVO;
+								fields.browseAccountIndexInt=goldAccntVO.accountIndex.toString();
+								rakAccounts.RAKAccountsModel.selectedAccount=goldAccntVO.accountIndex;
+								fields.dashboardResponseList = rakAccounts.goldAccountsList;
+								setEvent("onGldAccountListClick");'>
+					
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"><a class="balance-link"
+															data-tab="record-1"></a></td>
+												<td><span class="goldbalanceDirection">{{goldAccntVO.balance}}</span> <i>{{appLiterals.APP.RAK_DASHBOARD.GOLD_WEIGHT}}</i></td>
+												<td><!-- <strong>{{goldAccntVO.accountType}}</strong> -->
+												<strong>{{appLiterals.APP.RAK_DASHBOARD.RAKGLD}}</strong>
+												 <i>{{goldAccntVO.accountId}}</i></td>
+															
+											</tr>
+										 </tbody>
+									</table>
+
+							<!-- 	Vishal :ENd -->
+
+								</div>
+									<div class="swiper-slide rak-swipe-background" >
+									<div class="rak-swipe-background1 border-left-white" ng-click="rakServiceReq.rakServicesModel.expandFlag = 'InvFlag';
+          							setEvent('onAccountServiceNavigation');"><img class="rak-img-size" src="images/GoldServices.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.GOLDACC_SERVICES}}</p></div>
+									<div class="rak-swipe-background1"
+									ng-click = "rakAccounts.accType = goldAccntVO.mainAccountType;rakAccounts.selectedIndex=goldAccntVO.accountIndex;rakAccounts.RAKAccountsModel.subAccountType=goldAccntVO.accountType;
+									rakAccounts.swiperFunctionAccList();"><img class="rak-img-size" src="images/GoldInfo.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.GOLDACC_INFO}}</p></div>
+								</div>
+							</div>
+					</div>
+							  <div class="dashboard-item-body" ng-show="{{rakAccounts.RAKAccountsModel.isIslamicPresent}}">
+								<div class="rak-item-title">
+								<i class="spirt-icon gold-icon"></i>
+								  {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.ISLAMIC_ACCOUNTS}}
+								</div>
+								</div>
+					
+						<div class="swiper-container rak-leftborder" dir="rtl" ng-repeat="goldAccntVO in rakAccounts.goldAccountsList">
+							<div class="swiper-wrapper" ng-show= "goldAccntVO.isIslamicAcct=='Y'">
+								<div class="swiper-slide balance-table"  ng-click='
+								fields.selectedOprAccount = goldAccntVO;
+								fields.browseAccountIndexInt=goldAccntVO.accountIndex.toString();
+								rakAccounts.RAKAccountsModel.selectedAccount=goldAccntVO.accountIndex;
+								fields.dashboardResponseList = rakAccounts.goldAccountsList;
+								setEvent("onGldAccountListClick");'>
+											
+								<table class="balance-table">
+										<tbody>
+											<tr>
+												<td class="last-td"><a class="balance-link"
+															data-tab="record-1"></a></td>
+												<td><span class="goldbalanceDirection">{{goldAccntVO.balance}}</span> <i>{{appLiterals.APP.RAK_DASHBOARD.GOLD_WEIGHT}}</i></td>
+												<td><!-- <strong>{{goldAccntVO.accountType}}</strong> --> 
+												<strong>{{appLiterals.APP.RAK_DASHBOARD.RAKGLD}}</strong>
+												<i>{{goldAccntVO.accountId}}</i></td>
+															
+											</tr>
+										 </tbody>
+									</table>
+
+							<!-- 	Vishal :ENd -->
+
+								</div>
+									<div class="swiper-slide rak-swipe-background" >
+									<div class="rak-swipe-background1 border-left-white" ng-click="rakServiceReq.rakServicesModel.expandFlag = 'InvFlag';
+          							setEvent('onAccountServiceNavigation');"><img class="rak-img-size" src="images/GoldServices.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.GOLDACC_SERVICES}}</p></div>
+									<div class="rak-swipe-background1"
+									ng-click = "rakAccounts.accType = goldAccntVO.mainAccountType;rakAccounts.selectedIndex=goldAccntVO.accountIndex;rakAccounts.RAKAccountsModel.subAccountType=goldAccntVO.accountType;
+									rakAccounts.swiperFunctionAccList();"><img class="rak-img-size" src="images/GoldInfo.png" alt=""><p>{{appLiterals.APP.RAK_DASHBOARD.GOLDACC_INFO}}</p></div>
+								</div>
+							</div>
+					</div>
+		        </div>
+
+		        		  	<!-- Rak Show this when Accounts are blank -->
+				<div class="touch-press dashboard-item-body" class="touch-press" ng-if="rakAccounts.goldAccountsList.length== 0" ng-init='wcmclienthandlers.wcmConGld();'>
+
+					<div class="dashboard-item-title">
+					   <div class="rak-item-title"><i class="spirt-icon gold-icon"></i> {{appLiterals.APP.RAK_DASHBOARD.GOLD_ACCOUNTS}} </div>
+					 <!--  <div class="rak-swipe-msg">{{appLiterals.APP.RAK_DASHBOARD.SWIPE_MSG}}</div> -->
+					</div>
+
+
+
+
+
+		      <!--    <div class="swiper-container rak-leftborder" dir="rtl" ng-click="
+          							rakServiceReq.RakDiscApply.resetRakDiscApplyData();
+          							rakServiceReq.rakServicesModel.expandFlag = 'OTHFlag';
+		          rakServiceReq.RakDiscApply.isFirstTimeFlag=true;
+          		  setGlobalEvent('onDiscAndapplyLinkClicked');">
+							<div class="swiper-wrapper"> -->
+							
+<div class="" dir="rtl" ng-click="rakServiceReq.RakDiscApply.fromDashboard=true;rakServiceReq.RakDiscApply.resetAccountServices();
+          							
+		          					rakServiceReq.RakDiscApply.isFirstTimeFlag=true;
+          		 					setGlobalEvent('onDiscApplySubMenuFromOverviewClicked');">
+          					
+							<div class="noSwiper">
+								<!-- 	<div id="WCMGETTEXTGLD" class="bg-color wcmContentDisplay"> -->
+											<div class="bg-color wcmContentDisplay rakWidth100Percent">	
+											<span class="rakFloatLeft">{{appLiterals.APP.RAK_DASHBOARD.CLICK_TEXT_GOLD1}}</span>
+											<span class="rakFloatLeft rakRedFont">{{rakPayCards.buyRate}}</span>
+											<span>{{appLiterals.APP.RAK_DASHBOARD.CLICK_TEXT_GOLD2}}</span></div>
+									</div>
+
+							</div>
+					  </div>
+					</div>
+					<!-- Rak Show this when Accounts are blank -->
+
+		      </div>
+		    </div>
+		  </div>
+
+
+		  <div class="scroll-space"></div>
+
+		<div class="fin-txt"></div>
+		<div class="fin-txt"></div>
+
+		  </div>
+		</div>
+
+		    </div>
+
+	</div>
+</div>
+ <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container');
+    </script>

@@ -1,0 +1,213 @@
+<div class="app app-arrow2 title-right-dash" id="backArrow"
+	ng-click="setEvent('onCancelClick')"></div>
+<div class="finacle-container"
+	ng-init="services.initFixedDepositAccount(successResponse.responsesList);services.openNewFDAccount.setCurrency();formatAmountCrn('services.fDAccountModel.depositAmount','services.fDAccountModel.currency')">
+	<div class="account-page">
+		<div class="col-sm-12">
+
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+						<div class="item-title text-uppercase" id="OpenFdAccHead">
+							{{appLiterals.APP.SERVICES.ON_FDACC.HEADER}}</div>
+					</div>
+					<form
+						ng-submit="corpInit.corpModel.resetCorpInitDetails();services.openNewFDAccount.unFormatNumbers();services.onFixedAccountContinueClick();setEvent('onConfirmClick');">
+
+						<div class="avail-bal-wrap" class="clear-all">
+							<fin-input type="money"
+								model="services.fDAccountModel.depositAmount" display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.ON_FDACC.PH_ONDEP_ACC}}"
+								min="0"
+								validation-flag='pageErrorArr["services.fDAccountModel.depositAmount"]'
+								related-field="services.fDAccountModel.currency"></fin-input>
+						</div>
+
+						<div class="avail-bal-wrap col-sm-12">
+							<fin-input type="number" model="services.fDAccountModel.fDmonth"
+								display-row="half1"
+								validation-flag='pageErrorArr["services.fDAccountModel.fDmonth"]'
+								max-length="2" max="99"
+								placeholder="{{appLiterals.APP.SERVICES.ON_FDACC.PH_MNTH}}"></fin-input>
+						
+							<fin-input type="number" model="services.fDAccountModel.fDDate"
+								display-row="half2"
+								validation-flag='pageErrorArr["services.fDAccountModel.fDDate"]'
+								max-length="2" max="30"
+								placeholder="{{appLiterals.APP.SERVICES.ON_FDACC.PH_DAYS}}"></fin-input>
+						</div>
+
+						<div class="avail-bal-wrap"
+							ng-init='debitAccountNumberArr = createDropDownOptionArray(services.openNewFDAccount.accountList, ["accountId"], "accountNumber");availBal=parseMoney((services.openNewFDAccount.accountList|filter:{accountNumber:services.fDAccountModel.selectedAccountNumber})[0].accountBalance)'>
+
+							<!-- <p class="col-sm-12 des-title" id="OpenFdIntRate">
+								{{appLiterals.APP.SERVICES.COMMON.VIEW_INTEREST_RATE}}</p> -->
+							<fin-input type="dropdown"
+								model="services.fDAccountModel.selectedAccountNumber"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.ON_FDACC.PH_DEBACC}}"
+								validation-flag='pageErrorArr["services.fDAccountModel.selectedAccountNumber"]'
+								option-array="debitAccountNumberArr"
+								on-change="services.openNewFDAccount.setCurrency();availBal=parseMoney((services.openNewFDAccount.accountList|filter:{'accountNumber':services.fDAccountModel.selectedAccountNumber})[0].accountBalance)"
+								onchange="angular.element(this).scope().formatAmountCrn('services.fDAccountModel.depositAmount','services.fDAccountModel.currency')"></fin-input>
+							<p class="balance-available" id="OpenFdAccBalHead" ng-if="services.fDAccountModel.selectedAccountNumber.length!=0">
+								{{appLiterals.APP.SERVICES.ON_FDACC.TXT_AVAILBAL}}<!-- <span
+									class="rs-color" id="OpenFdAccBalVal">
+									{{availBal.curr}}{{availBal.rs}}{{availBal.seperator}}{{availBal.ps}} </span> -->
+									<fin-balance amount="{{services.openNewFDAccount.setCurrency();parseMoney((services.openNewFDAccount.accountList|filter:{'accountNumber':services.fDAccountModel.selectedAccountNumber})[0].accountBalance)}}"
+									amount-class="rs-color" currency-class="rs-color" />
+							</p>
+						</div>
+
+
+
+						<div class="avail-bal-wrap">
+							<fin-input type="date"
+								model="services.fDAccountModel.fDCalendarDate"
+								on-change='services.fixedAccountDateChange();'
+								display-row="full"
+								validation-flag='pageErrorArr["services.fDAccountModel.fDCalendarDate"]'
+								placeholder="{{appLiterals.APP.SERVICES.ON_FDACC.PH_DTE}}"></fin-input>
+						</div>
+
+						<div class="avail-bal-wrap">
+							<fin-input type="text"
+								model="services.fDAccountModel.identificationPin"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.ON_FDACC.PH_IDEN}}"
+								min="0"
+								validation-flag='pageErrorArr["services.fDAccountModel.identificationPin"]'></fin-input>
+						</div>
+
+
+
+						<div class="avail-bal-wrap"
+							ng-init='branchArr = createDropDownOptionArray(services.openNewFDAccount.branchList, ["branchName"], "index");'>
+							<fin-input type="dropdown"
+								model="services.fDAccountModel.selectedBranch"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.ON_FDACC.PH_BRNCH}}"
+								validation-flag='pageErrorArr["services.fDAccountModel.selectedBranch"]'
+								option-array="branchArr"> </fin-input>
+						</div>
+
+						<div class="trans-detail col-sm-12">
+							<div class="trans-dash-left">
+								<div id="status" class="trans-no">{{appLiterals.APP.SERVICES.ON_FDACC.TX_OPER}}</div>
+							</div>
+							<div class="trans-dash-right">
+								<md-switch id="switchToggle"
+									class="margin-top-zero margin-bottom-zero md-default-theme" ng-false-value="'No'" ng-true-value="'Yes'" ng-model="services.fDAccountModel.isTaxOperative"
+									ng-change="services.toggleClick();">
+								<div ng-transclude class="md-label">
+									<!--  <span id="statusOn" ng-if="myProfile.manageAlert.alertStatus == 'Subscribed'"
+												class="toggle_txt">
+												{{appLiterals.APP.MYPROFILE.DND_SETTINGS.DND_ON}}</span>
+										<span id="statusOff" ng-if="myProfile.manageAlert.alertStatus == 'Unsubscribed'"
+												class="toggle_txt">
+												{{appLiterals.APP.MYPROFILE.DND_SETTINGS.DND_OFF}}</span>-->
+								</div>
+								</md-switch>
+							</div>
+						</div>
+
+						<div class="avail-bal-wrap"
+							ng-init='maturityArr = createDropDownOptionArray(services.openNewFDAccount.maturityOptionList, ["type"], "value");'>
+							<p class="col-sm-12 des-title" id="OpenFdPRINC_MAT">{{appLiterals.APP.SERVICES.ON_FDACC.PRINC_MAT}}</p>
+							<fin-input type="dropdown"
+								on-change='services.onChangePrincipleMaturit();'
+								model="services.fDAccountModel.selectedMaturity"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.ON_FDACC.PH_MATINSTR}}"
+								validation-flag='pageErrorArr["services.fDAccountModel.selectedMaturity"]'
+								option-array="maturityArr"></fin-input>
+						</div>
+
+						<div class="avail-bal-wrap"
+							ng-show="services.fDAccountModel.selectedMaturity == 'Redeem'">
+							<div
+								ng-init='maturityTransferTypeArr = createDropDownOptionArray(services.openNewFDAccount.transferTypeList, ["type"], "value");'>
+								<fin-input type="dropdown"
+									on-change='services.onChangePrincipleMaturitType();'
+									model="services.fDAccountModel.selectedMaturityTransferType"
+									display-row="full"
+									placeholder="{{appLiterals.APP.SERVICES.ON_FDACC.PH_TRANSPROCTO}}"
+									validation-flag='pageErrorArr["services.fDAccountModel.selectedMaturityTransferType"]'
+									option-array="maturityTransferTypeArr"></fin-input>
+							</div>
+							<div
+								ng-init='accountArr = createDropDownOptionAccountArray(services.openNewFDAccount.accountList, ["accountNumber", " - ","accountId"], "index");'>
+								<fin-input type="dropdown"
+									ng-show="services.fDAccountModel.selectedMaturityTransferType == 'MyAcc'"
+									model="services.fDAccountModel.selectedOperativeAccountMaturity"
+									display-row="full"
+									placeholder="{{appLiterals.APP.SERVICES.ON_FDACC.PH_SELACC}}"
+									validation-flag='pageErrorArr["services.fDAccountModel.selectedOperativeAccountMaturity"]'
+									option-array="accountArr"></fin-input>
+							</div>
+						</div>
+
+						<div class="avail-bal-wrap"
+							ng-init='interestOptionListArr = createDropDownOptionArray(services.openNewFDAccount.interestOptionList,["type"], "value");'>
+							<p class="col-sm-12 des-title" id="OpenFdTXT_INTINS">{{appLiterals.APP.SERVICES.ON_FDACC.TXT_INTINS}}</p>
+							<fin-input type="dropdown"
+								on-change="services.onChangeInterestInstructions();"
+								model="services.fDAccountModel.selectedInterestOption"
+								display-row="full"
+								placeholder="{{appLiterals.APP.SERVICES.ON_FDACC.PH_INSTR}}"
+								validation-flag='pageErrorArr["services.fDAccountModel.selectedInterestOption"]'
+								option-array="interestOptionListArr"></fin-input>
+						</div>
+
+						<div class="avail-bal-wrap"
+							ng-show="services.fDAccountModel.selectedInterestOption == 'RedInt'  || services.fDAccountModel.selectedInterestOption == 'RenInt'">
+							<div
+								ng-show="services.fDAccountModel.selectedInterestOption == 'RenInt'"
+								ng-init='interestRenewalOptionsArr = createDropDownOptionArray(services.openNewFDAccount.interestRenewalOptionsList,["desc"], "code");'>
+								<fin-input type="dropdown"
+									model="services.fDAccountModel.selectedInterestTransferRenewalFrequencyType"
+									display-row="full"
+									placeholder="{{appLiterals.APP.SERVICES.ON_FDACC.PH_FREQ}}"
+									validation-flag='pageErrorArr["services.fDAccountModel.selectedInterestTransferRenewalFrequencyType"]'
+									option-array="interestRenewalOptionsArr"></fin-input>
+							</div>
+							<div
+								ng-show="services.fDAccountModel.selectedInterestOption == 'RedInt'"
+								ng-init='RedeemOptionsArr = createDropDownOptionArray(services.openNewFDAccount.interestRedeemOptionsList,["desc"], "code");'>
+								<fin-input type="dropdown"
+									model="services.fDAccountModel.selectedInterestTransferRedeemFrequencyType"
+									display-row="full"
+									placeholder="{{appLiterals.APP.SERVICES.ON_FDACC.PH_FREQ}}"
+									validation-flag='pageErrorArr["services.fDAccountModel.selectedInterestTransferRedeemFrequencyType"]'
+									option-array="RedeemOptionsArr"></fin-input>
+
+								<fin-input type="dropdown"
+									on-change="services.onChangeInterestInstructionsTransferType();"
+									model="services.fDAccountModel.selectedInterestTransferType"
+									display-row="full"
+									placeholder="{{appLiterals.APP.SERVICES.ON_FDACC.PH_TRANSPROCTO}}"
+									validation-flag='pageErrorArr["services.fDAccountModel.selectedInterestTransferType"]'
+									option-array="maturityTransferTypeArr"></fin-input>
+								<fin-input type="dropdown"
+									ng-show="services.fDAccountModel.selectedInterestTransferType == 'MyAcc'"
+									model="services.fDAccountModel.selectedInterestInstructionAccount"
+									display-row="full"
+									placeholder="{{appLiterals.APP.SERVICES.ON_FDACC.PH_SELACC}}"
+									validation-flag='pageErrorArr["services.fDAccountModel.selectedInterestInstructionAccount"]'
+									option-array="accountArr"></fin-input>
+							</div>
+
+						</div>
+
+						<md-button id="OpenFdSubmit" type="submit"
+							class="md-raised btn--primary-btn">
+						{{appLiterals.APP.SERVICES.ON_FDACC.BTN_CONT}}</md-button>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

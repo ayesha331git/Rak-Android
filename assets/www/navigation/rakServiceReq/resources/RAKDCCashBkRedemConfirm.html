@@ -1,0 +1,118 @@
+<div class="finacle-container ng-scope"
+	ng-init="rakServiceReq.RakDCCashBkRedemModel.txnPwd = '';rakServiceReq.confirmRakDCCashBkRedem(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+			
+						<div class="main-form-heading-ServiceReq"> 
+                              <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DC_CASH_BACK_REDEM}}
+                              <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>                
+                              </h2>              
+                        </div>
+			<!-- </div> -->
+
+			<div class="bg-color rak-cont-padding rak-scroll">
+				<div class="">
+					<div class="">
+						<div class="rakDupliSRChkMsgImg" ng-show='rakServiceReq.common.message'>
+      						<span class='rakAlertForDupStmt'></span> <span class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+						</div>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKDCCASHBKREDEM.DCB_CARD_NO}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakDCCashBkRedemModel.DebitCardList[rakServiceReq.RakDCCashBkRedemModel.selectedDebitCard].debitcardNumber}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKDCCASHBKREDEM.DCB_CASH_BACK_AVL}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakDCCashBkRedemModel.cashBackAvailableAmt}}</span>
+						</p>
+						<p class="rak-sum-txt">
+							<span class="rak-sum-label">{{appLiterals.APP.RAKDCCASHBKREDEM.DCB_REDEEM_AMT}}</span>
+							<span class="rak-sum-label black">{{rakServiceReq.RakDCCashBkRedemModel.redeemAmtDisplay}}</span>
+						</p>
+
+					<div class="label-wrap"
+						ng-show='rakServiceReq.RakDCCashBkRedemModel.authStatus'>
+
+						<fin-input type="password_text"
+							model="rakServiceReq.RakDCCashBkRedemModel.txnPwd"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+							validation-flag='pageErrorArr["rakServiceReq.RakDCCashBkRedemModel.txnPwd"]'
+							ng-show="rakServiceReq.RakDCCashBkRedemModel.authMode==txnpwdString">
+						</fin-input>
+						<!-- <fin-input type="password_num"
+							model="rakServiceReq.RakDCCashBkRedemModel.txnPwd"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP"
+							validation-flag='pageErrorArr["rakServiceReq.RakDCCashBkRedemModel.txnPwd"]'
+							ng-show="rakServiceReq.RakDCCashBkRedemModel.authMode==otpString">
+						</fin-input> -->
+<div
+								ng-show="rakServiceReq.RakDCCashBkRedemModel.authMode==otpString">
+								<div
+									ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+									<fin-input type="password_num"
+										model="rakServiceReq.RakDCCashBkRedemModel.txnPwd"
+										display-row="full"
+										placeholder="{{appLiterals.APP.RAK_PAYEE.CONFIRMATION.BTN_TXT_OTP}}"
+										validation-flag='pageErrorArr["rakServiceReq.RakDCCashBkRedemModel.txnPwd"]'></fin-input>
+								</div>
+
+
+								<div class="rakwidth28 rakModeDropdown"
+									ng-show='rakHome.otpModel.otpModesList.length>0'
+									ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+
+									<fin-input type="dropdown" option-array="toModeArray"
+										model="rakHome.otpModel.otpModeSelected" display-row="full"
+										placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+									<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+
+								</div>
+								<button type="button"
+									class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+									ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');">
+									{{appLiterals.APP.RAK_COMMON.RESEND_OTP}}</button>
+
+							</div>
+<!--  CHANGES FOR RESEND OTP START -->
+<!--<div ng-show="rakServiceReq.RakDCCashBkRedemModel.authMode==otpString">
+<div class="rakwidth65">
+<fin-input type="password_num" model="rakServiceReq.RakDCCashBkRedemModel.txnPwd"
+display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+validation-flag='pageErrorArr["rakServiceReq.RakDCCashBkRedemModel.txnPwd"]'>
+</fin-input>
+</div>
+ <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton" ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');"> Resend OTP </button>
+</div>-->
+<!--  CHANGES FOR RESEND OTP END -->
+					</div>
+
+						<div class="label-wrap">
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small btn--back"
+								ng-click="setEvent('onRAKDCCashBkRedemConfirmBackClick');">
+								{{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}}</button>
+							<button type="button"
+								class="btn--special-btn btn-middle rak-button-small"
+								ng-click="setEvent('onRAKDCCashBkRedemSubmitToHOSTClick');">{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}}
+							</button>
+
+						</div>
+						<div class="col-sm-1"></div>
+						
+					<div class="disclaimer">
+                         <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                         <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                         </div>
+
+                         <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                         <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSERREQ_CONF"></div>
+                         </div>
+                 	</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

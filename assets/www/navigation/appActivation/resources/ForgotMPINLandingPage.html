@@ -1,0 +1,59 @@
+<div class="finacle-container"
+	ng-init="resetPageError();setSingleStepRealmAuthFailure();">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height-98">
+			<div class="app-title-wrapper"></div>
+			<div class="dashboard-item-body padding-zero full-height">
+				<div class="dashboard-item-title col-sm-12">
+					<div class="item-title text-uppercase" id="troubleLoggingLandingPage">{{appLiterals.APP.DASHBOARD.FORGOT_MPIN.HEADER}}</div>
+				</div>
+				<div class="col-sm-12">
+					<div id="forgotMpinLink"
+						ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'MPIN'"
+						class="landingpage-list2"
+						ng-click="appActivation.isForgotMPINClick=true;setEvent('onForgotMPINClick')">
+						<div class="pull-left profile-txt font-type1" id="forgotMpinText">{{appLiterals.APP.DASHBOARD.FORGOT_MPIN.FORGOT_MPIN}}</div>
+					</div>
+					
+
+					<!-- <div class="service-hr"
+						ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'PWD'"></div> -->
+
+					<div id="forgotLoginPasswordLink" class="landingpage-list2"
+						ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'PWD'"
+						ng-click="myProfile.password.changeLoginPassword=true;myProfile.password.changeTransactionPassword=false;myProfile.loginPwdChk = 'LginPwd';myProfile.txnPwdChk = '';myProfile.password.passwordMessageString='Login Password Changed Successfully!';fields.finacleUserCorporateId = '';fields.finacleUserPassword ='';myProfile.resetPwdFields();resetPageError();setGlobalEvent('onForgotPasswordClick')">
+						<div class="pull-left profile-txt font-type1" id="forgotLoginPasswordText">{{appLiterals.APP.DASHBOARD.FORGOT_MPIN.FORGOT_LOGIN_PWD}}</div>
+					</div>
+					
+					 <!-- <div
+						ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'MPIN'"
+						class="service-hr"></div> -->
+						
+						<div class="service-hr"></div>
+
+					<div id="forgotTransactionPasswordLink" class="landingpage-list2"
+						ng-click="myProfile.password.changeLoginPassword=false;myProfile.password.changeTransactionPassword=true;myProfile.loginPwdChk = '';myProfile.txnPwdChk = 'TxnPwdChk';myProfile.password.passwordMessageString='Transaction Password Changed Successfully!';fields.finacleUserCorporateId = '';fields.finacleUserPassword ='';myProfile.resetPwdFields();resetPageError();setGlobalEvent('onForgotPasswordClick')">
+						<div class="pull-left profile-txt font-type1" id="forgotTransactionPasswordText">{{appLiterals.APP.DASHBOARD.FORGOT_MPIN.FORGOT_TXN_PWD}}</div>
+					</div>
+
+
+					<div class="service-hr"
+						ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'PWD'"></div>
+
+					<div id="forgotLoginAndTransactionPasswordLink"
+						class="landingpage-list2"
+						ng-if="appVersionDetails.appConfigParams[1].BUILDTYPE == 'PWD'"
+						ng-click="myProfile.password.changeLoginPassword=true;myProfile.password.changeTransactionPassword=true;myProfile.loginPwdChk='LginPwd';myProfile.txnPwdChk='TxnPwdChk';myProfile.password.passwordMessageString='Login and Transaction Password Changed Successfully!';setGlobalEvent('onForgotPasswordClick');">
+						<div class="pull-left profile-txt font-type1" id="forgotLoginAndTransactionPasswordTxt">{{appLiterals.APP.DASHBOARD.FORGOT_MPIN.FORGOT_LOGIN_TXN_PWD}}</div>
+					</div>
+
+					<div class="service-hr"></div>
+					<div id="forgotUserIdLink" class="landingpage-list2"
+						ng-click="fields.finacleUserCorporateId = '';fields.finacleUserPassword ='';myProfile.forgotUserID.clearForgotUserIDDetails();resetPageError();setGlobalEvent('onForgotUserIDClick');">
+						<div class="pull-left profile-txt font-type1" id="forgotUserIdTxt">{{appLiterals.APP.DASHBOARD.FORGOT_MPIN.FORGOT_UID}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

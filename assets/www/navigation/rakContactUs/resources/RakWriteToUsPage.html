@@ -1,0 +1,109 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container"
+			ng-init="resetPageError();setSingleStepRealmAuthFailure();rakContactUs.subjectList(successResponse.responsesList);
+					
+					rakContactUs.clear();
+					rakContactUs.popUp(successResponse.responsesList);">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+						<div class="form-block rakTouchIdScroll">
+						
+							<!-- <div class="money-block">
+								<ul>
+									<li class="active">
+										{{appLiterals.APP.RAK_CONTACTUS.WRITE_TO}}</li>
+								</ul>
+							</div> -->
+							
+							<div class="money-block">              
+							         <ul>
+							            <li ng-click="setEvent('onpreLoginCallUS');">
+							            {{appLiterals.APP.RAK_CONTACTUS.CALLUS}}</li>
+							         	<li ng-click="setEvent('onRakRmTabClick');" ng-show='isUserLoggedIn'>
+							            {{appLiterals.APP.RAK_CONTACTUS.RM_BUDDY}}</li> 
+							             <li  class="active" ng-hide='isUserLoggedIn'>
+							            {{appLiterals.APP.RAK_CONTACTUS.WRITE}}</li>
+							          <!--   <li ng-click="setEvent('onRakSocialTabClick');">
+							          {{appLiterals.APP.RAK_CONTACTUS.SOC_LINK}}</li> -->
+							          </ul>
+							 </div>
+
+							<div class="">
+
+								
+								<div class="rakRowMail">
+									<div ng-init='toSubArr = createDropDownOptionArray(rakContactUs.contact.subject,["subject"], "subject");'></div>
+									<fin-input type="dropdown"
+										model="rakContactUs.contact.selectedSubject"
+										placeholder="{{appLiterals.APP.RAK_CONTACTUS.SUBJECT}}"
+										display-row="full" option-array="toSubArr"> </fin-input>
+								</div>
+								<div class="rakWSMboxTxtArea">
+									<textarea class="text_area" input-restricted-special-character
+										placeholder="{{appLiterals.APP.RAK_CONTACTUS.ENTER_MAIL_CONTENT}}"
+										ng-model='rakContactUs.contact.wsMailContent'
+										ng-required="true" ng-style='(pageErrorArr["rakContactUs.contact.wsMailContent"] == null) ? {"border-bottom": "solid 0.1em #dbe3e7"} : {"border-bottom": "solid 0.1em red"}'
+										validation-flag='pageErrorArr["rakContactUs.contact.wsMailContent"]'>
+									</textarea>
+									<div ng-class="{&quot;bottom-line&quot;: !pageErrorArr[&quot;rakContactUs.contact.wsMailContent&quot;], &quot;bottom-line-error&quot;:pageErrorArr[&quot;rakContactUs.contact.wsMailContent&quot;]}" class="bottom-line-error"></div>
+				<div ng-hide="pageErrorArr[&quot;rakContactUs.contact.wsMailContent&quot;]==null" class="rakErrorMsg"> {{appLiterals.APP.RAKERRORMSG.VALIDATORTYPEMSG.required}} </div>
+								</div>
+								<div style="font-size: 10px;">
+									<fin-input type="mail_Id" model="rakContactUs.contact.wsFromMailID"
+										placeholder="{{appLiterals.APP.RAK_CONTACTUS.ENTER_MAILID}}"
+										validation-flag='pageErrorArr["rakContactUs.contact.wsFromMailID"]' />
+								</div>
+								<div>
+									<fin-input type="date"
+										model="rakContactUs.contact.wsCallBackDate"
+										placeholder="{{appLiterals.APP.RAK_CONTACTUS.CALLBACK_DATE}}"
+										display-row="full" 
+										validation-flag='pageErrorArr["rakContactUs.contact.wsCallBackDate"]'> 
+									</fin-input>
+								</div>
+								<div>
+									<fin-input type="time_number_colon"
+										model="rakContactUs.contact.wsPreferredTime"
+										display-row="full" required='true'
+										placeholder="{{appLiterals.APP.RAK_CONTACTUS.TIME}}" 
+										validation-flag='pageErrorArr["rakContactUs.contact.wsPreferredTime"]'>
+									</fin-input>
+								</div>
+							</div>
+
+							<div class="label-wrap">
+								<button type="button" class="btn--special-btnWrite btn-middle rak-button-right" ng-click="setEvent('onWriteUsSubmit')">
+									{{appLiterals.APP.RAK_CONTACTUS.SUBMIT}}</button>
+							</div>
+							
+					<!-- 	<div ng-show="rakContactUs.contact.popUpFlag" class="rakOverlay">
+							<div  class="ng-binding rakFullRmrksDisply">
+								<h2 class="success"><i></i>{{rakContactUs.contact.mailStatus}}</h2>
+							</div>
+							<button  class="rakFullRmrksBtn" ng-click='rakContactUs.contact.popUpFlag = false;setEvent("navigateHomeClick")'>
+						  {{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.OK}}</button>
+					</div> -->
+					
+					<div class="ng-hide" ng-if='rakContactUs.contact.popUpFlag'
+						ng-init="showAlert(rakContactUs.contact.mailStatus); rakContactUs.contact.popUpFlag = false;setEvent('navigateHomeClick');">
+					</div>
+							
+							
+							<!--     <span ng-show="rakAccounts.RAKAccountsModel.displayFullRemarks[$index]==true" class="rakOverlay">
+						<span  class="ng-binding rakFullRmrksDisply">
+							<span class="rakFullRmrksTxt">{{transaction.transactionRemarks}} </span>
+						  <button  class="rakFullRmrksBtn" ng-click='rakAccounts.transactionRemarks($index)'>
+						  {{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.OK}}</button>
+						 </span>
+					</span> -->
+
+						</div>
+						<div class="col-sm-1"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

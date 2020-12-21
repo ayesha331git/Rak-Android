@@ -1,0 +1,93 @@
+<div ng-init='rakHome.AuthPageData.initConfirmationPageData(successResponse.responsesList)'>
+		
+		<div class="label-wrap" ng-show='rakHome.AuthPageData.authStatus'>
+		<div ng-show='rakHome.AuthPageData.isFirstAuthMode'>
+		
+			<fin-input type="password_text"
+				model="rakHome.AuthPageData.firstAuthModeValue" display-row="full"
+				placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+				validation-flag='pageErrorArr["rakHome.AuthPageData.firstAuthModeValue"]'
+				ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.TransactionPassword">
+			</fin-input>
+
+		<fin-input type="password_num" model="rakHome.AuthPageData.firstAuthModeValue"
+			display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_HARDTOKEN}}"
+			validation-flag='pageErrorArr["rakHome.AuthPageData.firstAuthModeValue"]'
+			ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.HardToken">
+			 </fin-input>
+			<span  class="forgotRAKTokenPIN" ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.HardToken && rakHome.userTypeIDValue=='CORPORATE'" ng-click="rakServiceReq.fetchDisclaimer('ForgotRAKTokenPINCorporate.html');">{{appLiterals.APP.RAK_2FA_MESSAGES.CLICK_HERE}}</span> 
+			
+			<fin-input type="password_num"
+				model="rakHome.AuthPageData.firstAuthModeValue" display-row="full"
+				placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_SOFTTOKEN}}"
+				validation-flag='pageErrorArr["rakHome.AuthPageData.firstAuthModeValue"]'
+				max-length="{{rak2FARegister.constants.PINLENGTH}}"
+				ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.SoftToken">
+			</fin-input>
+			<span  class="forgotRAKTokenPIN" ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.SoftToken && rakHome.userTypeIDValue!='CORPORATE'" ng-click="rakServiceReq.fetchDisclaimer('ForgotRAKTokenPIN.html');">{{appLiterals.APP.RAKCOMMONLITERALS.TOKEN_FORGOT_PIN}}</span> 
+			<span  class="forgotRAKTokenPIN" ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.SoftToken && rakHome.userTypeIDValue=='CORPORATE'" ng-click="rakServiceReq.fetchDisclaimer('ForgotRAKTokenPINCorporate.html');">{{appLiterals.APP.RAKCOMMONLITERALS.TOKEN_FORGOT_PIN}}</span> 
+			
+
+			
+			<fin-input type="password_num"
+				model="rakHome.AuthPageData.firstAuthModeValue" display-row="full"
+				placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OFFLINEOTP}}"
+				validation-flag='pageErrorArr["rakHome.AuthPageData.firstAuthModeValue"]'
+				max-length="16"
+				ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.OfflineOtp">
+			</fin-input>
+			<span  class="forgotRAKTokenPIN" ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.OfflineOtp && rakHome.userTypeIDValue!='CORPORATE'" ng-click="rakServiceReq.fetchDisclaimer('TwoFactorAuthenticationFAQ.html');">{{appLiterals.APP.RAKCOMMONLITERALS.TOKEN_DEADLOCK}}</span> 
+			<span  class="forgotRAKTokenPIN" ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.OfflineOtp && rakHome.userTypeIDValue=='CORPORATE'" ng-click="rakServiceReq.fetchDisclaimer('ForgotRAKTokenPINCorporate.html');">{{appLiterals.APP.RAKCOMMONLITERALS.TOKEN_DEADLOCK}}</span> 
+		
+			<div ng-show="rakHome.AuthPageData.authType==rakHome.AuthPageData.OTP">
+				<div
+					ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+					<fin-input type="password_num"
+						model="rakHome.AuthPageData.firstAuthModeValue" display-row="full"
+						placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+						validation-flag='pageErrorArr["rakHome.AuthPageData.firstAuthModeValue"]'>
+					</fin-input>
+				</div>
+
+				<div class="rakwidth28 rakModeDropdown"
+					ng-show='rakHome.otpModel.otpModesList.length>0'
+					ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+
+					<fin-input type="dropdown" option-array="toModeArray"
+						model="rakHome.otpModel.otpModeSelected" display-row="full"
+						placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+					<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+				</div>
+
+				<button type="button"
+					class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+					ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');">{{appLiterals.APP.RAK_COMMON.RESEND_OTP}}
+				</button>
+			</div>
+		</div>
+
+		<div ng-show='rakHome.AuthPageData.isSecAuthMode'>
+			<fin-input type="password_text"
+				model="rakHome.AuthPageData.secAuthModeValue" display-row="full"
+				placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+				validation-flag='pageErrorArr["rakHome.AuthPageData.secAuthModeValue"]'
+				ng-show="rakHome.AuthPageData.secAuthType==rakHome.AuthPageData.TransactionPassword">
+			</fin-input>
+
+			<div ng-show="rakHome.AuthPageData.secAuthType==rakHome.AuthPageData.OTP">
+				<div class="rakwidth65">
+					<fin-input type="password_num"
+						model="rakHome.AuthPageData.secAuthModeValue" display-row="full"
+						placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP}}"
+						validation-flag='pageErrorArr["rakHome.AuthPageData.secAuthModeValue"]'>
+					</fin-input>
+				</div>
+				<button type="button"
+					class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+					ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');">{{appLiterals.APP.RAK_COMMON.RESEND_OTP}}
+				</button>
+			</div>
+		</div>
+	</div>
+
+</div>

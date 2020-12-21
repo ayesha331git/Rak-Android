@@ -1,0 +1,15 @@
+<div class="finacle-container" ng-init="myProfile.initUpdateIdSuccesspage(successResponse.responsesList);">
+	<div class="account-page full-height">
+		<div class="col-sm-12 full-height">
+
+			<div class="dashboard-pad full-height">
+				<div class="dashboard-item-body full-height">
+					<fin-success
+						success-banner="{{appLiterals.APP.MYPROFILE.UPDATEUSERID.SUCCESS}}"
+						success-message="{{myProfile.updateIdModel.responseText}}"
+						cross-click="setEvent('onCancelClick')"> </fin-success>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

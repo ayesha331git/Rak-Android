@@ -1,0 +1,429 @@
+<div class="finacle-container"
+	ng-init='
+        dashboard.currSuccessResponse = ( 
+          fields.accountDetailSource == "DASHBOARD" || fields.accountDetailSource == "ACC_ITEM" ? successResponse : dashboard.currSuccessResponse
+        );
+        fields.trxSearchFlag = (
+          fields.accountDetailSource == "DASHBOARD" || fields.accountDetailSource == "ACC_ITEM" ? false : fields.trxSearchFlag        
+        );
+        fields.trxSeachResult = fields.accountDetailSource == "ACC_SEARCH_CLICK" ? successResponse.responsesList[0].transactionList : fields.trxSeachResult;        
+        fields.currAccountDetails = fields.dashboardResponseList[fields.browseAccountIndexInt];
+      	fields.acccountEventName = (
+          fields.currAccountDetails.mainAccountType == "OPR" ? "onOprAccountDetailsClick" : 
+          (fields.currAccountDetails.mainAccountType == "DEP" ? "onDepositAccountDetailsClick" : "onLoanAccountDetailsClick")
+        );
+    
+        successResponse.invocationResult=successResponse.hasOwnProperty("responsesList")?successResponse.responsesList:successResponse.invocationResult.response.responsesList;
+        rakAccounts.accountList(successResponse.invocationResult);
+        rakAccounts.initPage(successResponse.responsesList,rakAccounts.RAKAccountsModel.accountType);'>
+        
+        <!-- 
+          dashboard.initRetailAccountsPage(cm.viewCheque.model.fromDashboard); cm.viewCheque.model.fromDashboard=false;
+        dashboard.mmid.initRetailUserAccountsPage(successResponse.responsesList[1]);
+         rakAccounts.RAKAccountsModel.selectedAccount= (
+        rakAccounts.RAKAccountsModel.selectedAccountTemp == "DASHBOARD" || rakAccounts.RAKAccountsModel.selectedAccountTemp == "" ? fields.browseAccountIndexInt : rakAccounts.RAKAccountsModel.selectedAccount        
+        ); -->
+        
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="rakAccounts.backNavigation();"></i>
+	</div>
+	
+	<div class="account-page">
+		<div class="col-sm-11">
+			<div class="bg-color rak-cont-padding">
+				<div class="row">
+			
+
+					<div class="rakwidth75"
+						ng-init='creditAccountArrayList=createDropDownOptionArray((rakAccounts.RAKAccountsModel.creditAccounts | filter:{isCIFlink:"!Y",isPrimary:"Y"}), ["subAccountTypeDesc", "-", "creditCardNo","-","currency"],"index");'>
+						<fin-input type="dropdown" option-array="creditAccountArrayList"
+							model="rakAccounts.RAKAccountsModel.selectedAccount"
+							select-req="false"
+							display-row="full"
+							placeholder="{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.SELECT_CC}}"
+							on-change='setEvent(rakAccounts.getEvent(rakAccounts.RAKAccountsModel.accountType,rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType))'>
+						</fin-input>
+					</div>
+
+					<div class="app  rakapp-ellipses-icon"
+						ng-click="rakAccounts.handlePullDown($event);">
+						<span class="app-ellipses rakCustellipses"></span>
+						<ul class="rakPullDownMenu">
+
+							<li><a href=""
+								ng-click='fields.txnType="Outstanding";fields.unsettledTxn="Y";
+							fields.applyFilter="unSetteled";
+							fields.txnSrcFromDate_day="";
+						    fields.txnSrcFromDate_month= "";
+							fields.txnSrcFromDate_year="";
+							fields.txnSrcToDate_day="";
+							fields.txnSrcToDate_month= " ";
+							fields.txnSrcToDate_year= " ";
+							fields.monthSelected="";
+							fields.yearSelected="";
+							setEvent("unSetteledTxn");'>
+									{{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.UNSETTLED_TXN}}</a></li>
+							<li><a href=""
+							ng-click='fields.txnType="All";
+							fields.unsettledTxn="N";
+							fields.applyFilter="lastStatment";
+							fields.txnSrcFromDate_day="";
+						    fields.txnSrcFromDate_month= "";
+							fields.txnSrcFromDate_year="";
+							fields.txnSrcToDate_day="";
+							fields.txnSrcToDate_month= "";
+							fields.txnSrcToDate_year= ""; 
+							fields.dispalyPastStatement=true;
+							fields.selectedMonth="";
+							fields.selectedYear="";
+							setGlobalEvent("lastStatement");'>{{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.LAST_STATEMENT}}</a></li>
+									
+									
+									
+							<li><a href=""
+								ng-click='fields.txnType="All";
+								fields.unsettledTxn="Y";
+							fields.applyFilter="pastStatement";
+							fields.txnSrcFromDate_day="";
+						    fields.txnSrcFromDate_month= "";
+							fields.txnSrcFromDate_year="";
+							fields.txnSrcToDate_day="";
+							fields.txnSrcToDate_month= "";
+							fields.txnSrcToDate_year= ""; 
+							fields.dispalyPastStatement=true;
+							fields.selectedMonth="";
+							fields.selectedYear="";
+							setEvent("pastStatementSearch");'>{{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.PAST_STATEMENT}}</a></li>
+						</ul>
+					</div>
+
+				<!-- 	<div class="rakAccounts-nickName">
+						<span class="amount-curr">
+							{{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountNickName}}</span>
+						<div class="trans-date">
+							{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.CC_NICK_NAME}}</div>
+					</div>
+					<span class="rakEditImg" ng-click="setEvent('onChangeNameClick')"></span>
+					<span class="rakEditImg" ng-click="rakMyProfile.updateNickName.navigationType='RetailCCUserAccounts';rakAccounts.RAKAccountsModel.clearTxnList='N';
+					rakMyProfile.updateNickname.clearNicknameDetails();
+					setEvent('onChangeNameClick')"></span> -->
+					
+		<div class="rakAccounts-nickName rakStmtDetWidth75">
+		<span class="amount-curr raktable100"> 
+		<span class="rakDisplayCell">
+		{{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountNickName}}
+		</span>
+		<span class="rakWidthTable30 rakEditImg" ng-if="rakHome.nicknameEnable==true" ng-click="rakMyProfile.updateNickName.navigationType='RetailUserAccounts';
+	        rakAccounts.RAKAccountsModel.clearTxnList='N';
+		rakMyProfile.updateNickname.clearNicknameDetails();setEvent('onChangeNameClick')"></span>
+		</span>
+		<div class="trans-date channel-select"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.CC_NICK_NAME}}</div>
+		</div>
+
+					<div class="balance-detail">
+						<div class="rakamount">
+						<!-- 	<span class="amount-ps">
+								{{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance}}</span> -->
+								
+								
+								<!-- <span ng-if="ccListVO.balance.indexOf('0.00') > -1">{{ccListVO.balance}}</span>
+								<span ng-hide="ccListVO.balance.indexOf('0.00') > -1">{{(ccListVO.balance).indexOf("-") > -1 ? (ccListVO.balance).replace("-","") : ccListVO.balance +" CR" }}</span>
+									 -->			
+								
+								<span ng-if="rakAccounts.RAKAccountsModel.currentBalance.indexOf('0.00') > -1" class="amount-ps">
+					  			{{rakAccounts.RAKAccountsModel.currentBalance}}
+					  			</span>
+								
+								<span ng-hide="rakAccounts.RAKAccountsModel.currentBalance.indexOf('0.00') > -1" class="amount-ps">
+					  			{{rakAccounts.RAKAccountsModel.currentBalance.indexOf("-") > -1 ? rakAccounts.RAKAccountsModel.currentBalance.replace("-","") : rakAccounts.RAKAccountsModel.currentBalance +" CR"}}
+					  			</span>
+             
+						
+						</div>
+
+						<p class="balance-available-dash rak-display-caption">
+							{{appLiterals.APP.RAK_DASHBOARD.CURRENT_BALANCE}}
+						</p>
+
+					</div>
+					
+					<div class="balance-detail">
+						<div class="rakamount">
+						<!-- <span class="amount-ps">
+						{{(rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).indexOf("-") > -1 ? (rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).replace("-","") : rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance+" CR"}}
+						</span>
+						 -->
+						
+						<span ng-if="(rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).indexOf('0.00') > -1" class="amount-ps">
+					  			{{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance}}
+					  	</span>
+								
+						<span ng-hide="(rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).indexOf('0.00') > -1" class="amount-ps">
+					  			{{(rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).indexOf("-") > -1 ? (rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).replace("-","") : rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance+" CR"}}
+					  	</span>
+						
+						<!-- <span class="amount-ps">
+								{{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance}}</span>
+						-->
+						
+						</div>
+
+						<p class="balance-available-dash rak-display-caption">
+							{{appLiterals.APP.RAK_DASHBOARD.STATEMENT_BALANCE}}
+						</p>
+
+					</div>
+					
+					
+					
+					<div class="money-block">
+						<ul>
+							<li class="active rakWidthMoneyBlock" >
+								{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.TEXT_TRANSACTIONS}}</li>
+							<li class="rakWidthMoneyBlock"
+								ng-click='fields.subAccountType=rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType;
+           						setEvent("onCreditCardDetailsClick");'>
+								{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.CCD_DETAILS_TEXT}}</li>
+							<li class="rakWidthMoneyBlock"
+								ng-click='fields.subAccountType=rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType;
+								fields.dispalyPastStatement= false;
+            				setEvent("onCCTransactionSearchClick");'>
+								{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.TEXT_FILTER}}</li>
+						</ul>
+					</div>
+
+					<!-- <div class="app-future-results"></div> -->
+					<!-- <div class="nano scroll-height rakscroll-height"> -->
+					<div class="trans-detail rakGreyRow rakMinHeight30px"
+								ng-show="rakAccounts.RAKAccountsModel.operativeTransactions == null || rakAccounts.RAKAccountsModel.operativeTransactions.length == 0 
+								 && (rakAccounts.RAKAccountsModel.secondaryCCTransactions == null || rakAccounts.RAKAccountsModel.secondaryCCTransactions.length == 0 )">
+								{{appLiterals.APP.DASHBOARD.ACCOUNTS_PAGE.NO_TRANSACTIONS_MSG}}
+							</div>
+							
+							
+							<div ng-if="rakAccounts.RAKAccountsModel.operativeTransactions.length > 0 || rakAccounts.RAKAccountsModel.secondaryCCTransactions.length > 0 " class="balance-columns-header-row">
+								  <div class="balance-heade-col rak30">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.DATE}}</div>
+								  <div class="balance-heade-col rak30">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.DESC}}</div>
+								  <div class="balance-heade-col rak30 raktextRightAlign">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.TXN_AMT}}</div>
+								  <div class="active rak10"> &nbsp;</div>
+									
+							</div>
+							
+						<!-- 	<div class="rakTxnSearch" ng-init='rakPayee.payCard.scheduleList.length == 0 ? rakTxnSearch=true : rakTxnSearch=false;'>
+								<div class="rakTxnSearch1 rakTxnSearchIcon" ng-class="{'rakTxnSearchIconExpnd':rakTxnSearch}"
+									ng-click="rakTxnSearch=!rakTxnSearch">
+									<h3 class="rakTxnSearch2">{{appLiterals.APP.RAK_COMMON.SEARCH}}</h3>
+								</div>
+								<div class="rakTxnSearch3" ng-if="rakTxnSearch"> -->
+							
+							
+							
+			<div class="nano rakHalfScrollDivAccTran rak-cont-padding">
+					<div class="" ng-show="rakAccounts.RAKAccountsModel.operativeTransactions.length > 0" ng-init="rakAccounts.initCCPrimaryTransactionRecords(500);
+					rakAccounts.RAKAccountsModel.operativeTransactions.length > 0? txnDisplayFlag=true : txnDisplayFlag=false;">	
+					
+					
+							
+							<div class= "rakTxnSearch rakTxnSearch1 rakTxnSearchIcon" ng-class="{'rakTxnSearchIconExpnd':txnDisplayFlag}"  ng-click="txnDisplayFlag=!txnDisplayFlag;txnSupDisplayFlag= true;">
+						<!-- 	<ul>
+								<li class="active redBackground">
+								{{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.PRIMARY_TXN}}
+						  		 </li>
+							</ul> -->
+							<h3 class="rakTxnSearch2">{{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.PRIMARY_TXN}}</h3>
+							</div>
+					
+						
+		
+					<div ng-if="txnDisplayFlag">
+							<div ng-class="{'swiper-container rak-leftborder':transaction.transactionAmtType == '55'}" 
+							class="trans-detail rakGreyRow rakMinHeight30px padding-zero rak-noBottomBorder" dir="rtl" 
+							 ng-click="rakAccounts.RAKAccountsModel.operativeTransactions[rakAccounts.RAKAccountsModeloperativeTransactions.indx].fullRmrks=!rakAccounts.RAKAccountsModel.operativeTransactions[rakAccounts.RAKAccountsModel.operativeTransactions.indx].fullRmrks;
+				rakAccounts.RAKAccountsModel.operativeTransactions.indx==$index?rakAccounts.RAKAccountsModel.operativeTransactions.indx='':rakAccounts.RAKAccountsModel.operativeTransactions.indx=$index;
+				rakAccounts.RAKAccountsModel.operativeTransactions[$index].fullRmrks = !rakAccounts.RAKAccountsModel.operativeTransactions[$index].fullRmrks">
+								
+								<div  ng-class="{'swiper-wrapper':transaction.transactionAmtType == '55'}"
+								class="rakGreyRow"
+								 ng-init="rakAccounts.RAKAccountsModel.operativeTransactions[$index].fullRmrks=false;"
+								ng-repeat="transaction in rakAccounts.RAKAccountsModel.operativeTransactions"
+								ng-click="rakAccounts.initCCPrimaryTransactionRecords($index);">
+								
+								<div  ng-class="{'swiper-slide':transaction.transactionAmtType == '55'}">                  				
+                    				<div class="trans-date rakPeopleNameRow1 rak25 rakTopPadding8em">
+                   					<span>{{transaction.transactionDate}}</span> 
+                    				</div>
+							                 					 
+                 					     <div class="trans-dash-right rakPeopleNameRow1 rak33 center rakPaddingPoint8em">
+      									<span ng-show="rakAccounts.RAKAccountsModel.operativeTransactions[$index].fullRmrks== false" 
+      									class="rakEllipsisTxnList" dir="ltr">
+                      					{{transaction.transactionRemarks.length == 0 ? " " : (transaction.transactionRemarks)}}</span>
+	                    				</div>
+
+								
+								<div class="trans-dash-left rakPeopleNameRow1 rak33 pull-left rakPaddingPoint5em">
+
+									<div class="rakTextRight">
+										<div class="trans-no rakFont1em">
+											<div class="rakGreen"
+											   ng-show='transaction.transactionAmtType == "04"'>
+												{{transaction.billingAmt}}</div>
+											<div class="rakRed"
+											    ng-show='transaction.transactionAmtType == "05"'>
+												{{transaction.billingAmt}}</div>
+										</div>
+									</div>
+									
+									 <span class=" rakTextRight rakitem-arrow-right rakFontPoint8em"
+										ng-show='transaction.transactionAmtType == "04"'>
+										{{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.CREDIT}}</span> 
+										<span class=" rakTextRight rakitem-arrow-right rakFontPoint8em"
+										ng-show='transaction.transactionAmtType == "05"'> {{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.DEBIT}}</span>
+								</div>
+								
+								<div class="trans-date rakPeopleNameRow1 rak9 center rakPaddingPoint8emAndZero">
+							<img alt="" class="image_2x margin_top2px" ng-show="rakAccounts.RAKAccountsModel.operativeTransactions[$index].fullRmrks==false" src="./images/more-dots@2x.png"
+							ng-click="rakAccounts.checkDiv('dot');rakAccounts.RAKAccountsModel.operativeTransactions[$index].fullRmrks=true;">
+						
+							<img alt=""  class="image_2x margin_rightTopNegative" ng-hide="rakAccounts.RAKAccountsModel.operativeTransactions[$index].fullRmrks==false" 
+							ng-click="rakAccounts.RAKAccountsModel.operativeTransactions[$index].fullRmrks=false;rakAccounts.checkDiv('cross');" 
+							src="./images/close@2x.png">
+							</div>
+								<div class="trans-date rakPeopleNameRow1 rak100 rakPadding05 rakFont1em rakmarginleft" ng-hide="rakAccounts.RAKAccountsModel.operativeTransactions[$index].fullRmrks==false">
+												{{transaction.transactionRemarks.length == 0 ? " " : (transaction.transactionRemarks)}}<div class="rakFontPoint8em">
+								</div></div>
+								
+								
+								
+								</div>
+								
+									<!--  CHNAGES FOR SWIPE START -->
+								<div class="swiper-slide rak-swipe-background balance-table" ng-show='transaction.transactionAmtType == "55"'>
+									 <div class="rak-swipe-background1 rakHeight2em rakWidth100Percent" ng-click="rakServiceReq.CCConvertionEmi.resetCCConvertionEmi();rakPayee.payCard.selectedCompltTxn=transaction;rakPayee.payCard.secTxnFlag='primary';setGlobalEvent('onConversionOfEMIClicked');"><p class="rakCnvrtToEMI">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CONVERT_EMI}}</p></div> 
+								</div> 
+								<!--  CHNAGES FOR SWIPE END -->
+								</div>
+								
+							</div>
+							</div>
+			
+			
+		                      
+						
+						</div>
+						<!-- Started For Secondary Transaction  -->
+						
+						<div class="">
+							<!-- <div class="nano-content"> -->
+							<div  ng-show="rakAccounts.RAKAccountsModel.secondaryCCTransactions.length > 0" ng-init="rakAccounts.initCCSecondaryTransactionRecords(2000);
+							rakAccounts.RAKAccountsModel.secondaryCCTransactions.length > 0 ?  txnSupDisplayFlag=true : txnSupDisplayFlag=false;
+							rakAccounts.RAKAccountsModel.operativeTransactions.length < 0 ?  txnSupDisplayFlag=false : txnSupDisplayFlag=true; ">
+				
+							
+							<div class= "rakTxnSearch rakTxnSearch1 rakTxnSearchIcon" ng-class="{'rakTxnSearchIconExpnd':!txnSupDisplayFlag}" ng-click="txnSupDisplayFlag=!txnSupDisplayFlag;txnDisplayFlag=false;">
+								<h3 class="rakTxnSearch2">{{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.SECONDARY_TXN}}</h3>
+							</div>
+							
+							
+						<!-- 	<div class="money-block" ng-click="txnSupDisplayFlag=!txnSupDisplayFlag;txnDisplayFlag=false;">
+							<ul>
+								<li class="active redBackground">
+								{{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.SECONDARY_TXN}}
+						  		 </li>
+							</ul>
+							</div> -->
+							
+							
+							  <!--    <div ng-if="!txnSupDisplayFlag" class="balance-columns-header-row">
+								  <div class="balance-heade-col rak30">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.DATE}}</div>
+								  <div class="balance-heade-col rak30">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.DESC}}</div>
+								  <div class="balance-heade-col rak30 raktextRightAlign">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.TXN_AMT}}</div>
+								  <div class="active rak10 "> &nbsp;</div>	
+								</div> -->
+							
+							
+							<div ng-if="!txnSupDisplayFlag" ng-class="{'swiper-container rak-leftborder':secTransaction.transactionAmtType == '55'}"
+							 class="trans-detail rakGreyRow rakMinHeight30px padding-zero rak-noBottomBorder" dir="rtl" 
+								ng-hide="rakAccounts.RAKAccountsModel.secondaryCCTransactions.length == 0"
+								ng-click="rakAccounts.RAKAccountsModel.secondaryCCTransactions[rakAccounts.secondaryCCTransactions.indx].fullRmrks=!rakAccounts.RAKAccountsModel.secondaryCCTransactions[rakAccounts.RAKAccountsModel.secondaryCCTransactions.indx].fullRmrks;
+				rakAccounts.RAKAccountsModel.secondaryCCTransactions.indx==$index?rakAccounts.RAKAccountsModel.secondaryCCTransactions.indx='':rakAccounts.RAKAccountsModel.secondaryCCTransactions.indx=$index;
+				rakAccounts.RAKAccountsModel.secondaryCCTransactions[$index].fullRmrks = !rakAccounts.RAKAccountsModel.secondaryCCTransactions[$index].fullRmrks">
+								
+								
+								
+								<div  ng-class="{'swiper-wrapper':secTransaction.transactionAmtType == '55'}"
+									ng-init="rakAccounts.RAKAccountsModel.secondaryCCTransactions[$index].fullRmrks=false;"
+									class="rakGreyRow"
+									ng-repeat="secTransaction in rakAccounts.RAKAccountsModel.secondaryCCTransactions"
+									ng-click="rakAccounts.initCCSecondaryTransactionRecords($index);">
+									
+								<div  ng-class="{'swiper-slide':secTransaction.transactionAmtType == '55'}">
+
+                    				<div class="trans-date rakPeopleNameRow1 rak25 rakTopPadding8em">
+                   					<span>{{secTransaction.transactionDate}}</span> 
+                    				</div>
+                 					 
+                 					    <div class="trans-dash-right rakPeopleNameRow1 rak33 center rakPaddingPoint8em">
+      									<span ng-show="rakAccounts.RAKAccountsModel.secondaryCCTransactions[$index].fullRmrks== false" 
+      									class="rakEllipsisTxnList " dir="ltr">
+                      					{{secTransaction.transactionRemarks.length == 0 ? " " : (secTransaction.transactionRemarks)}}</span>
+	                    				</div>
+
+									<div class="trans-dash-left rakPeopleNameRow1 rak33 pull-left rakPaddingPoint5em">
+
+									<div class="rakTextRight">
+										<div class="trans-no rakFont1em">
+											<div class="rakGreen"
+											   ng-show='secTransaction.transactionAmtType == "04"'>
+												{{secTransaction.billingAmt}}</div>
+											<div class="rakRed"
+											    ng-show='secTransaction.transactionAmtType == "05"'>
+												{{secTransaction.billingAmt}}</div>
+										</div>
+									</div>
+						
+									
+									 <span class=" rakTextRight rakitem-arrow-right rakFontPoint8em"
+										ng-show='secTransaction.transactionAmtType == "04"'>
+										{{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.CREDIT}}</span> 
+										<span class=" rakTextRight rakitem-arrow-right rakFontPoint8em"
+										ng-show='secTransaction.transactionAmtType == "05"'> {{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.DEBIT}}</span>
+								</div>
+								
+							<div class="trans-date rakPeopleNameRow1 rak9 center rakPaddingPoint8emAndZero">
+							<img alt="" class="image_2x margin_top2px" ng-show="rakAccounts.RAKAccountsModel.secondaryCCTransactions[$index].fullRmrks==false" src="./images/more-dots@2x.png"
+							ng-click="rakAccounts.checkDiv('dot');rakAccounts.RAKAccountsModel.secondaryCCTransactions[$index].fullRmrks=true;">
+						
+							<img alt=""  class="image_2x margin_rightTopNegative" ng-hide="rakAccounts.RAKAccountsModel.secondaryCCTransactions[$index].fullRmrks==false" 
+							ng-click="rakAccounts.RAKAccountsModel.secondaryCCTransactions[$index].fullRmrks=false;rakAccounts.checkDiv('cross');" 
+							src="./images/close@2x.png">
+							</div>
+								<div class="trans-date rakPeopleNameRow1 rak100 rakPadding05 rakFont1em rakmarginleft" ng-hide="rakAccounts.RAKAccountsModel.secondaryCCTransactions[$index].fullRmrks==false">
+												{{secTransaction.transactionRemarks.length == 0 ? " " : (secTransaction.transactionRemarks)}}<div class="rakFontPoint8em">
+								</div></div>
+								
+									</div>
+								
+									<!--  CHNAGES FOR SWIPE START -->
+								<div class="swiper-slide rak-swipe-background balance-table" ng-show='secTransaction.transactionAmtType == "55"'>
+									<!-- <div class="rak-swipe-background1 border-left-white"><img src="images/debit-card.png" alt=""><p>{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CONVERT_EMI}}</p></div> -->
+									 <div class="rak-swipe-background1 rakHeight2em rakWidth100Percent" ng-click="rakServiceReq.CCConvertionEmi.resetCCConvertionEmi();rakPayee.payCard.selectedCompltTxn=secTransaction;rakPayee.payCard.secTxnFlag='secondary';setGlobalEvent('onConversionOfEMIClicked');"><p class="rakCnvrtToEMI">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.CONVERT_EMI}}</p></div> 
+								</div> 
+								<!--  CHNAGES FOR SWIPE END -->
+								</div>
+							</div>
+							</div>
+							</div>
+						</div>
+
+
+					</div>
+
+					<div class="col-sm-1"></div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+

@@ -1,0 +1,1145 @@
+<div class="finacle-container">
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="rakAccounts.backNavigation();"></i>
+	</div>
+<div class="finacle-container"
+ng-init='
+	successResponse.invocationResult=successResponse.hasOwnProperty("responsesList")?successResponse.responsesList:successResponse.invocationResult.response.responsesList;
+	rakAccounts.initPage(successResponse.responsesList,rakAccounts.RAKAccountsModel.accountType);
+	rakAccounts.accountListSwiper(successResponse.invocationResult);'>
+    <div class="account-page">
+    <div class="col-sm-11">
+       <div class="bg-color rak-cont-padding">
+         <div class="row" >
+
+             	 	<div class="rakwidth75" ng-show="rakAccounts.RAKAccountsModel.accountType == 'OPR' && rakAccounts.RAKAccountsModel.subType=='OPR'"
+						ng-init='operativeAccountArrayList=createDropDownOptionArray(rakAccounts.RAKAccountsModel.operativeAccounts, ["subAccountTypeDesc", "-", "accountId","-","currency"],"accountIndex");
+						fields.subAccountType=rakAccounts.RAKAccountsModel.operativeAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType'>
+						<fin-input type="dropdown" option-array="operativeAccountArrayList"
+							model="rakAccounts.RAKAccountsModel.selectedAccount" display-row="full"
+							validation-flag='pageErrorArr["rakAccounts.RAKAccountsModel.selectedAccount"]'
+							select-req="false"
+							placeholder="{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.SELECT_ACCOUNT}}"
+							on-change='setEvent(rakAccounts.getEvent(rakAccounts.RAKAccountsModel.accountType,rakAccounts.RAKAccountsModel.operativeAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType))'>
+						</fin-input>
+						</div>
+						
+							<div class="rakwidth75" ng-show="rakAccounts.RAKAccountsModel.accountType == 'OPR' && rakAccounts.RAKAccountsModel.subType=='CAA'"
+						ng-init='tradeFinAcount=createDropDownOptionArray(rakAccounts.RAKAccountsModel.tradeFinanceAccounts, ["subAccountTypeDesc", "-", "accountId","-","currency"],"accountIndex");
+						fields.subAccountType=rakAccounts.RAKAccountsModel.tradeFinanceAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType'>
+						<fin-input type="dropdown" option-array="tradeFinAcount"
+							model="rakAccounts.RAKAccountsModel.selectedAccount" display-row="full"
+							validation-flag='pageErrorArr["rakAccounts.RAKAccountsModel.selectedAccount"]'
+							select-req="false"
+							placeholder="{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.SELECT_ACCOUNT}}"
+							on-change='setEvent(rakAccounts.getEvent(rakAccounts.RAKAccountsModel.accountType,rakAccounts.RAKAccountsModel.tradeFinanceAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType))'>
+						</fin-input>
+						</div>
+
+
+					<div class="rakWidth100Percent" ng-show="rakAccounts.RAKAccountsModel.accountType == 'DEP' "
+						ng-init='depositAccountArrayList=createDropDownOptionArray(rakAccounts.RAKAccountsModel.depositAccounts, ["subAccountTypeDesc", "-", "accountId","-","currency"],"accountIndex");
+						fields.subAccountType=rakAccounts.RAKAccountsModel.depositAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType'>
+						<fin-input type="dropdown" option-array="depositAccountArrayList"
+							model="rakAccounts.RAKAccountsModel.selectedAccount" display-row="full"
+							validation-flag='pageErrorArr["rakAccounts.RAKAccountsModel.selectedAccount"]'
+							select-req="false"
+							placeholder="{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.SELECT_ACCOUNT}}"
+							on-change='setEvent(rakAccounts.getEvent(rakAccounts.RAKAccountsModel.accountType,rakAccounts.RAKAccountsModel.operativeAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType))'>
+						</fin-input>
+						</div>
+
+						<div class="rakwidth75" ng-show="rakAccounts.RAKAccountsModel.accountType == 'GLD' "
+						ng-init='goldAccountArrayList=createDropDownOptionArray(rakAccounts.RAKAccountsModel.goldAccounts, ["subAccountTypeDesc", "-", "accountId","-","currency"],"accountIndex");
+						fields.subAccountType=rakAccounts.RAKAccountsModel.goldAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType'>
+						<fin-input type="dropdown" option-array="goldAccountArrayList"
+							model="rakAccounts.RAKAccountsModel.selectedAccount" display-row="full"
+							validation-flag='pageErrorArr["rakAccounts.RAKAccountsModel.selectedAccount"]'
+							select-req="false"
+							placeholder="{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.SELECT_ACCOUNT}}"
+							on-change='setEvent(rakAccounts.getEvent(rakAccounts.RAKAccountsModel.accountType,rakAccounts.RAKAccountsModel.operativeAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType))'>
+						</fin-input>
+						</div>
+
+						<div class="rakwidth75" ng-show="rakAccounts.RAKAccountsModel.accountType == 'CCD' "
+						ng-init='creditAccountArrayList=createDropDownOptionArray((rakAccounts.RAKAccountsModel.creditAccounts | filter:{isPrimary:"Y",isCIFlink:"!Y"}), ["subAccountTypeDesc", "-", "creditCardNo","-","currency"],"index")'>
+						<fin-input type="dropdown" option-array="creditAccountArrayList"
+							model="rakAccounts.RAKAccountsModel.selectedAccount" display-row="full"
+							select-req="false"
+							placeholder="{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.SELECT_CC}}"
+							 on-change='setEvent(rakAccounts.getEvent(rakAccounts.RAKAccountsModel.accountType,rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType))'>
+
+						</fin-input>
+						</div>
+
+
+				<div class="rakwidth75"  ng-show="rakAccounts.RAKAccountsModel.accountType == 'LON' "
+				ng-init='loanAccountArrayList=createDropDownOptionArray(rakAccounts.RAKAccountsModel.loanAccounts, ["subAccountTypeDesc", "-", "accountId","-","currency"],"accountIndex");
+				fields.browseAccountIndex=rakAccounts.RAKAccountsModel.selectedAccount;
+				fields.subAccountType=rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType'>
+				<fin-input type="dropdown" option-array="loanAccountArrayList"
+				model="rakAccounts.RAKAccountsModel.selectedAccount" display-row="full"
+				select-req="false"
+				placeholder="{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.SELECT_ACCOUNT}}"
+				on-change='setEvent(rakAccounts.getEvent(fields.currAccountDetails.mainAccountType,rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType))'>
+				</fin-input>
+				</div>
+
+
+
+           <!--  added -->
+
+				<!-- 	<div ng-show="rakAccounts.RAKAccountsModel.accountType == 'OPR' ">
+						<div class="app  rakapp-ellipses-icon"
+							ng-click="rakAccounts.handlePullDown($event);">
+							<span class="app-ellipses "></span>
+							<ul class="rakPullDownMenu">
+								<li><a href="" ng-click="setEvent('onChequeLodgedDetail')">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.VIEW_LODGED_DETAILS}}</a></li>
+							</ul>
+						</div>
+					</div> -->
+					<div ng-show="rakAccounts.RAKAccountsModel.accountType == 'LON' ">
+					<div ng-hide="rakAccounts.RAKAccountsModel.assetType == 'PERSONAL' ">
+						<div class="app  rakapp-ellipses-icon"
+							ng-click="rakAccounts.handlePullDown($event);">
+							<span class="app-ellipses rakCustellipses "></span>
+							<ul class="rakPullDownMenu">
+								<li><a href="" ng-click='
+								rakAccounts.RAKAccountsModel.loanAssetDisplay=true;
+								setEvent("onLoanAssetDetail")'>
+								{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.VIEW_ASSET_DETAILS}}</a></li>
+							</ul>
+						</div>
+						</div>
+					</div>
+
+
+
+
+					<div ng-show="rakAccounts.RAKAccountsModel.accountType == 'CCD' ">
+ 					<div class="app  rakapp-ellipses-icon"
+						ng-click="rakAccounts.handlePullDown($event);">
+						<span class="app-ellipses rakCustellipses "></span>
+						<ul class="rakPullDownMenu">
+
+							<li><a href="" ng-click='fields.txnType="Outstanding";fields.unsettledTxn="Y";
+							fields.applyFilter="unSetteled";
+							fields.txnSrcFromDate_day="";
+						    fields.txnSrcFromDate_month= "";
+							fields.txnSrcFromDate_year="";
+							fields.txnSrcToDate_day="";
+							fields.txnSrcToDate_month= " ";
+							fields.txnSrcToDate_year= " ";
+							fields.monthSelected="";
+							fields.yearSelected="";
+							setEvent("unSetteledTxn");'>
+							{{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.UNSETTLED_TXN}}</a></li>
+							
+							<li><a href=""
+							ng-click='fields.txnType="All";
+							fields.unsettledTxn="N";
+							fields.applyFilter="lastStatment";
+							fields.txnSrcFromDate_day="";
+						    fields.txnSrcFromDate_month= "";
+							fields.txnSrcFromDate_year="";
+							fields.txnSrcToDate_day="";
+							fields.txnSrcToDate_month= "";
+							fields.txnSrcToDate_year= ""; 
+							fields.dispalyPastStatement=true;
+							fields.selectedMonth="";
+							fields.selectedYear="";
+							setGlobalEvent("lastStatement");'>{{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.LAST_STATEMENT}}</a></li>
+							
+							
+							
+							<li><a href="" ng-click='fields.txnType="Outstanding";fields.unsettledTxn="Y";
+							fields.applyFilter="";
+							fields.txnSrcFromDate_day="";
+						    fields.txnSrcFromDate_month= "";
+							fields.txnSrcFromDate_year="";
+							fields.txnSrcToDate_day="";
+							fields.txnSrcToDate_month= "";
+							fields.txnSrcToDate_year= "";
+							fields.dispalyPastStatement=true;
+							fields.selectedMonth="";
+							fields.selectedYear="";
+							setEvent("pastStatementSearch");'>{{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.PAST_STATEMENT}}</a></li>
+						</ul>
+		</div>
+		</div>
+		
+		<div ng-show="rakAccounts.RAKAccountsModel.accountType == 'GLD' ">
+				<div class="app  rakapp-ellipses-icon"
+						ng-click="rakAccounts.handlePullDown($event);">
+						<span class="app-ellipses rakCustellipses "></span>
+						<ul class="rakPullDownMenu">
+
+							<li><a href="" ng-click="rakPayCards.rakInvGold.txnType=rakPayCards.BuySellGoldTypeConstant.BUY;
+							rakPayCards.rakInvGold.Buy=true;rakPayCards.rakInvGold.selectedGoldAccount='0';
+							setEvent('onBuyGoldClick');">
+							{{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.BUY}}</a></li>
+							<li><a href="" ng-click='rakPayCards.rakInvGold.txnType=rakPayCards.BuySellGoldTypeConstant.SELL;
+							rakPayCards.rakInvGold.Sell=true;
+							setEvent("onSellGoldClick");'>{{appLiterals.APP.RAK_ACCOUNTS.RAK_CC_ACCOUNTS_TXN_SEARCH.SELL}}</a></li>
+						</ul>
+		</div>
+		
+		</div>
+
+    
+
+
+
+
+		<div ng-show="rakAccounts.RAKAccountsModel.accountType == 'OPR' && rakAccounts.RAKAccountsModel.subType=='OPR'">
+		
+			<div class="rakAccounts-nickName rakStmtDetWidth75">
+		<span class="amount-curr raktable100"> 
+		<span class="rakDisplayCell">
+		{{rakAccounts.RAKAccountsModel.operativeAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountNickName}}
+		</span>
+		<span class="rakWidthTable30 rakEditImg" ng-if="rakHome.nicknameEnable==true" ng-click="rakMyProfile.updateNickName.navigationType='RetailUserAccounts';
+	        rakAccounts.RAKAccountsModel.clearTxnList='N';
+		rakMyProfile.updateNickname.clearNicknameDetails();setEvent('onChangeNameClick')"></span>
+		</span>
+		<div class="trans-date channel-select"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.NICK_NAME}}</div>
+		</div>
+
+           <div  class="balance-detail" >
+              <div class="rakamount">
+               <span class="amount-ps rakFontAcc"> {{rakAccounts.RAKAccountsModel.operativeAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance}} </span>
+             </div>
+              <p class="balance-available-dash rak-display-caption"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_AVAILABLE_BAL}}  </p>
+
+            </div>
+            
+           <div  ng-if="rakAccounts.RAKAccountsModel.operativeAccounts[rakAccounts.RAKAccountsModel.selectedAccount].productCatDesc == 'Home in One'" 
+               class="balance-detail" >
+              <div class="rakamount"> 
+                  <span class="amount-ps rakFontAcc">
+                  {{rakAccounts.RAKAccountsModel.loanLimit == "" ? "" : rakAccounts.RAKAccountsModel.loanLimit}}
+                  </span>
+                  </div>
+         
+              <p class="balance-available-dash rak-display-caption"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.OVERDRAFT_LIMIT}} </p> 
+               
+            </div>  
+            </div>
+            
+            <div ng-show="rakAccounts.RAKAccountsModel.accountType == 'OPR' && rakAccounts.RAKAccountsModel.subType=='CAA'">
+		
+			<div class="rakAccounts-nickName rakStmtDetWidth75">
+		<span class="amount-curr raktable100"> 
+		<span class="rakDisplayCell">
+		{{rakAccounts.RAKAccountsModel.tradeFinanceAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountNickName}}
+		</span>
+		<span class="rakWidthTable30 rakEditImg" ng-if="rakHome.nicknameEnable==true" ng-click="rakMyProfile.updateNickName.navigationType='RetailUserAccounts';
+	        rakAccounts.RAKAccountsModel.clearTxnList='N';
+		rakMyProfile.updateNickname.clearNicknameDetails();setEvent('onChangeNameClick')"></span>
+		</span>
+		<div class="trans-date channel-select"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.NICK_NAME}}</div>
+		</div>
+
+           <div  class="balance-detail" >
+              <div class="rakamount">
+               <span class="amount-ps rakFontAcc"> {{rakAccounts.RAKAccountsModel.tradeFinanceAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance}} </span>
+             </div>
+              <p class="balance-available-dash rak-display-caption"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_AVAILABLE_BAL}}  </p>
+
+            </div>
+            
+           <div  ng-if="rakAccounts.RAKAccountsModel.tradeFinanceAccounts[rakAccounts.RAKAccountsModel.selectedAccount].productCatDesc == 'Home in One'" 
+               class="balance-detail" >
+              <div class="rakamount"> 
+                  <span class="amount-ps rakFontAcc">
+                  {{rakAccounts.RAKAccountsModel.loanLimit == "" ? "" : rakAccounts.RAKAccountsModel.loanLimit}}
+                  </span>
+                  </div>
+         
+              <p class="balance-available-dash rak-display-caption"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.OVERDRAFT_LIMIT}} </p> 
+               
+            </div>  
+            </div>
+
+         <div ng-show="rakAccounts.RAKAccountsModel.accountType == 'DEP' ">
+
+			<div class="rakAccounts-nickName rakStmtDetWidth75">
+		<span class="amount-curr raktable100"> 
+		<span class="rakDisplayCell">
+		{{rakAccounts.RAKAccountsModel.depositAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountNickName}}
+		</span>
+		<span class="rakWidthTable30 rakEditImg" ng-if="rakHome.nicknameEnable==true" ng-click="rakMyProfile.updateNickName.navigationType='RetailUserAccounts';
+	        rakAccounts.RAKAccountsModel.clearTxnList='N';
+		rakMyProfile.updateNickname.clearNicknameDetails();setEvent('onChangeNameClick')"></span>
+		</span>
+		<div class="trans-date channel-select"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.DEP_NICK_NAME}}</div>
+		</div>
+
+           <div  class="balance-detail" >
+              <div class="rakamount">
+               <span class="amount-ps rakFontAcc"> {{rakAccounts.RAKAccountsModel.depositAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance}} </span>
+             </div>
+
+              <p class="balance-available-dash rak-display-caption"> {{appLiterals.APP.RAK_DASHBOARD.DEPOSIT_AMOUNT}}  </p>
+
+            </div>
+
+            </div>
+
+            	<div ng-show="rakAccounts.RAKAccountsModel.accountType == 'GLD' ">
+	
+			
+		<div class="rakAccounts-nickName rakStmtDetWidth75">
+		<span class="amount-curr raktable100"> 
+		<span class="rakDisplayCell">
+		{{rakAccounts.RAKAccountsModel.goldAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountNickName}}
+		</span>
+		<span class="rakWidthTable30 rakEditImg" ng-if="rakHome.nicknameEnable==true" ng-click="rakMyProfile.updateNickName.navigationType='RetailUserAccounts';
+	        rakAccounts.RAKAccountsModel.clearTxnList='N';
+		rakMyProfile.updateNickname.clearNicknameDetails();setEvent('onChangeNameClick')"></span>
+		</span>
+		<div class="trans-date channel-select"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.NICK_NAME}}</div>
+		</div>
+			
+           <div  class="balance-detail" >
+              <div class="rakamount">
+               <span class="amount-ps rakFontAcc"> {{rakAccounts.RAKAccountsModel.goldAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance}} </span>
+             </div>
+			<p class="balance-available-dash rak-display-caption"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_GOLD_WEIGHT}}  </p>
+           
+
+            </div>
+
+            </div>
+
+
+            	<div ng-show="rakAccounts.RAKAccountsModel.accountType == 'LON' ">
+	
+		<div class="rakAccounts-nickName rakStmtDetWidth75">
+		<span class="amount-curr raktable100"> 
+		<span class="rakDisplayCell">
+		{{rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountNickName}}
+		</span>
+		<span class="rakWidthTable30 rakEditImg" ng-if="rakHome.nicknameEnable==true" ng-click="rakMyProfile.updateNickName.navigationType='RetailUserAccounts';
+	        rakAccounts.RAKAccountsModel.clearTxnList='N';
+		rakMyProfile.updateNickname.clearNicknameDetails();setEvent('onChangeNameClick')"></span>
+		</span>
+		<div class="trans-date channel-select"> {{rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].isIslamicAcct == "Y"? appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.ISL_LON_NICKNAME:appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.LON_NICKNAME}}</div>
+		</div>
+           <div  class="balance-detail" >
+              <div class="rakamount">
+                <span class="amount-ps rakFontAcc"> {{rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance}}</span>
+             </div>
+
+              <p class="balance-available-dash rak-display-caption">  {{rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].isIslamicAcct == "Y"? appLiterals.APP.RAK_DASHBOARD.FIN_OUT:appLiterals.APP.RAK_DASHBOARD.LOAN_OUT}}  </p>
+
+            </div>
+
+            </div>
+
+
+                	<div ng-show="rakAccounts.RAKAccountsModel.accountType == 'CCD' ">
+
+		<div class="rakAccounts-nickName rakStmtDetWidth75">
+		<span class="amount-curr raktable100"> 
+		<span class="rakDisplayCell">
+		{{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountNickName}}
+		</span>
+		<span class="rakWidthTable30 rakEditImg" ng-if="rakHome.nicknameEnable==true" ng-click="rakMyProfile.updateNickName.navigationType='RetailUserAccounts';
+	        rakAccounts.RAKAccountsModel.clearTxnList='N';
+		rakMyProfile.updateNickname.clearNicknameDetails();setEvent('onChangeNameClick')"></span>
+		</span>
+		<div class="trans-date channel-select"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.CC_NICK_NAME}}</div>
+		</div>
+
+           <div  class="balance-detail" >
+              <div class="rakamount">
+              
+           <!--  <span class="amount-ps rakFontAcc">
+            {{(rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance).indexOf("-") > -1 ? (rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance).replace("-","") : rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance+" CR"}}
+            </span> -->
+            
+            <span ng-if="rakAccounts.RAKAccountsModel.currentBalance.indexOf('0.00') > -1" class="amount-ps rakFontAcc">
+					  {{rakAccounts.RAKAccountsModel.currentBalance}}
+			</span>
+								
+			<span ng-hide="rakAccounts.RAKAccountsModel.currentBalance.indexOf('0.00') > -1" class="amount-ps rakFontAcc">
+					  {{rakAccounts.RAKAccountsModel.currentBalance.indexOf("-") > -1 ? rakAccounts.RAKAccountsModel.currentBalance.replace("-","") : rakAccounts.RAKAccountsModel.currentBalance+" CR"}}
+			</span>
+            
+            
+              <!--  <span class="amount-ps rakFontAcc"> {{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].balance}} </span> -->
+             </div>
+
+              <p class="balance-available-dash rak-display-caption"> {{appLiterals.APP.RAK_DASHBOARD.CURRENT_BALANCE}} </p>
+
+            </div>
+            
+            	<div class="balance-detail">
+						<div class="rakamount">
+						
+						<!-- <span class="amount-ps">
+						{{(rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).indexOf("-") > -1 ? (rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).replace("-","") : rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance+" CR"}}
+						</span> -->
+						
+						<span ng-if="(rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).indexOf('0.00') > -1" class="amount-ps">
+					  			{{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance}}
+					  	</span>
+								
+						<span ng-hide="(rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).indexOf('0.00') > -1" class="amount-ps">
+					  			{{(rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).indexOf("-") > -1 ? (rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance).replace("-","") : rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance+" CR"}}
+					  	</span>
+						
+						
+            
+							<!-- <span class="amount-ps">
+								{{rakAccounts.RAKAccountsModel.creditAccounts[rakAccounts.RAKAccountsModel.selectedAccount].statementBalance}}</span> -->
+						
+						</div>
+
+						<p class="balance-available-dash rak-display-caption">
+							{{appLiterals.APP.RAK_DASHBOARD.STATEMENT_BALANCE}}
+						</p>
+
+					</div>
+
+            </div>
+
+  <div ng-hide=" rakAccounts.RAKAccountsModel.accountType == 'CCD'">
+     <div class="money-block">
+         <ul>
+              <li class="rakWidthMoneyBlock" ng-if="rakAccounts.RAKAccountsModel.accountType == 'OPR' && rakAccounts.RAKAccountsModel.subType=='OPR'"
+             ng-click='fields.subAccountType=rakAccounts.RAKAccountsModel.operativeAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType;
+            setEvent("onOprAccountListClick");'>
+            {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.TEXT_TRANSACTIONS}}
+            </li>
+         
+             <li class="rakWidthMoneyBlock" ng-if="rakAccounts.RAKAccountsModel.accountType == 'OPR' && rakAccounts.RAKAccountsModel.subType=='CAA'"
+             ng-click='fields.subAccountType=rakAccounts.RAKAccountsModel.operativeAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType;
+            setEvent("onTradeAccountListClick");'>
+            {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.TEXT_TRANSACTIONS}}
+            </li>
+             <li class="rakWidthMoneyBlock" ng-if="rakAccounts.RAKAccountsModel.accountType == 'DEP'"
+           ng-click='fields.subAccountType=rakAccounts.RAKAccountsModel.depositAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType;
+            setEvent("onDepositAccountListClick");'>
+            {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.TEXT_TRANSACTIONS}}
+            </li>
+            <li class="rakWidthMoneyBlock" ng-if="rakAccounts.RAKAccountsModel.accountType == 'GLD'"
+             ng-click='fields.subAccountType=rakAccounts.RAKAccountsModel.goldAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType;
+            setEvent("onGoldAccountListClick");'>
+            {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.TEXT_TRANSACTIONS}}
+            </li>
+            <li class="rakWidthMoneyBlock" ng-if="rakAccounts.RAKAccountsModel.accountType == 'LON'" 
+             ng-click='fields.subAccountType=rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].accountType;
+            setEvent("onLoanAccountListClick");'>
+            {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.TEXT_TRANSACTIONS}}
+            </li>
+            <li  ng-if="rakAccounts.RAKAccountsModel.accountType == 'OPR'" class="active rakWidthMoneyBlock">
+            {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.OPR_DETAILS_TEXT}}</li>
+            <li ng-if="rakAccounts.RAKAccountsModel.accountType == 'DEP'" class="active rakWidthMoneyBlock">
+            {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.DEP_DETAILS_TEXT}}</li>
+            <li ng-if="rakAccounts.RAKAccountsModel.accountType == 'LON' && rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].isIslamicAcct=='Y'" class="active rakWidthMoneyBlock">
+            {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.FIN_DETAILS_TEXT}}</li>
+            <li ng-if="rakAccounts.RAKAccountsModel.accountType == 'LON' && rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].isIslamicAcct!='Y'" class="active rakWidthMoneyBlock">
+            {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.LON_DETAILS_TEXT}}</li>
+            <li ng-if="rakAccounts.RAKAccountsModel.accountType == 'GLD'" class="active rakWidthMoneyBlock">
+            {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.GLD_DETAILS_TEXT}}</li>
+            <li class="rakWidthMoneyBlock" ng-click="setEvent('onTransactionSearchClick');">
+           {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.TEXT_FILTER}}</li>
+          </ul>
+	 </div>
+	 </div>
+	 
+	 
+	    <div ng-show=" rakAccounts.RAKAccountsModel.accountType == 'CCD'">                     
+     <div class="rakWidth100Percent">              
+         <div class="rakWidth100Percent moneyListUL">
+            <div class="rak33 moneyList" ng-click='fields.accountDetailSource = "ACC_OTHER_PAGE";fields.trxSearchFlag = false;setEvent("onCCViewClick")' >
+            {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.TEXT_TRANSACTIONS}}</div>
+            <div class="active moneyList rak33">
+            {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.CCD_DETAILS_TEXT}}</div>
+             <div ng-click='fields.dispalyPastStatement= false;
+            setEvent("onCCTransactionSearchClick");' class="moneyList rak33">
+           {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_PAGE.TEXT_FILTER}}</div>
+          </div>
+	 </div>
+	 </div>
+	 
+					<div class="rakcustomer-wrapper rakHalfScrollDiv mCustomScrollbar"> 
+					<div class="rakDetailFrame" ng-if='rakAccounts.RAKAccountsModel.accountType == "OPR"'> 
+					<div class="detail-pad" >
+					
+						<div class="rakAccounts-details rakBreakWord rakWidth100">
+						<div class="">
+								<span class="raktransno"> {{rakAccounts.RAKAccountsModel.iban}}</span>
+								<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_TEXT_IBAN}}</div>
+						</div>
+						</div>
+						
+						<div>
+						</div>
+
+						<div class="rakAccounts-details">
+							 <span class="raktransno">{{rakAccounts.RAKAccountsModel.unclearFunds}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_UNCLEAR_BALANCE}}</div>
+						</div>
+						
+						<div class="rakAccounts-details">
+							<span class="raktransno"> {{rakAccounts.RAKAccountsModel.currency}}</span>
+							<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_TEXT_CURRENCY}}</div>
+						</div>
+				
+						<div class="rakAccounts-details">
+							 <span class="raktransno">{{(rakAccounts.RAKAccountsModel.overDraftLimit)}}</span>
+						     <div class="trans-date" ng-if='rakAccounts.RAKAccountsModel.operativeAccounts[rakAccounts.RAKAccountsModel.selectedAccount].productCatDesc != "Home in One"'>{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_OVERDRAFT_LIMIT}}</div>
+							 <div class="trans-date" ng-if='rakAccounts.RAKAccountsModel.operativeAccounts[rakAccounts.RAKAccountsModel.selectedAccount].productCatDesc == "Home in One"'>{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_LIMIT}}</div>
+						</div>
+						
+						<div class="rakAccounts-details">
+							 <span class="raktransno">{{rakAccounts.RAKAccountsModel.amountOnHold}}</span>
+							<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_AMT_HOLD}}</div>
+						</div>
+						
+						<div class="rakAccounts-details">
+							  <span class="raktransno">{{rakAccounts.RAKAccountsModel.currentBal}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CURRENT_BAL}}</div>
+						</div>
+						
+						<div class="rakAccounts-details">
+							 <span class="raktransno">{{rakAccounts.RAKAccountsModel.legderBal}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_LEDGER_BAL}}</div>
+						</div>
+												
+						<div class="rakAccounts-details">
+							 <span class="raktransno">{{rakAccounts.RAKAccountsModel.netAvailBal}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_NET_AVAILABLE_BAL}}</div>
+						</div>
+						
+						<div class="rakAccounts-details">
+							<span class="raktransno"> {{rakAccounts.RAKAccountsModel.branch}}</span>
+							<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_BRANCH}}</div>
+						</div>
+						
+							<div ng-if='rakAccounts.RAKAccountsModel.operativeAccounts[rakAccounts.RAKAccountsModel.selectedAccount].productCatDesc == "Home in One"'
+							  class="rakAccounts-details">
+							 <span class="raktransno">
+							 {{rakAccounts.RAKAccountsModel.odExpiryDate}}*
+							</span>
+						     <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_EXPIRY_DATE}}</div>
+						</div>
+					
+							<!-- Prasen End -->
+						
+					</div>
+					
+					 <div ng-if='rakAccounts.RAKAccountsModel.operativeAccounts[rakAccounts.RAKAccountsModel.selectedAccount].productCatDesc == "Home in One"'
+							  class="disclaimer">
+                               <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                               <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                               </div>
+                              <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                              <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.DETAILS_OPR"></div>
+                              </div>
+                    </div>
+					<div class="fin-txt"></div>
+				</div> 
+					<!-- data end -->
+					
+					<!-- data begin -->
+					 <div class="rakDetailFrame" ng-if='rakAccounts.RAKAccountsModel.accountType == "DEP"'> 
+					<div class="detail-pad">
+					
+							<div class="rakAccounts-details">
+								<span class="raktransno">
+									{{rakAccounts.RAKAccountsModel.interestRate == "" ? "0.0": rakAccounts.RAKAccountsModel.interestRate}}%
+								</span>
+								<div class="trans-date">
+								{{rakAccounts.RAKAccountsModel.depositAccounts[rakAccounts.RAKAccountsModel.selectedAccount].isIslamicAcct == "Y" ? appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.ISLAMIC_TEXT_INTEREST_RATE : appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_INTEREST_RATE}}
+							</div>
+							</div>
+							
+							<div class="rakAccounts-details">
+									<span class="raktransno">
+																			
+										{{rakAccounts.RAKAccountsModel.periodMonths == "" ? " ": rakAccounts.RAKAccountsModel.periodMonths}} Months And
+										{{rakAccounts.RAKAccountsModel.periodDays == "" ? " ": rakAccounts.RAKAccountsModel.periodDays}} Days
+										
+									</span>
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_DEPOSIT_PERIOD}}
+								</div>
+							</div>
+							
+							<div class="rakAccounts-details">
+									<span class="raktransno">
+										{{rakAccounts.RAKAccountsModel.depStartDate == "" ? " ": rakAccounts.RAKAccountsModel.depStartDate}}
+									</span>
+								<div class="trans-date">
+								{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_DEP_START_DATE}}
+								</div>
+							</div>
+
+							<div class="rakAccounts-details">
+									<span class="raktransno">
+										{{rakAccounts.RAKAccountsModel.maturityDate == "" ? " ": rakAccounts.RAKAccountsModel.maturityDate}}
+									</span>
+								<div class="trans-date">
+								{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_DEP_MATURITY_DATE}}
+								</div>
+							</div>
+							
+								<div class="rakAccounts-details">
+					 		<span class="raktransno"> {{rakAccounts.RAKAccountsModel.maturityAmount == "" ? " ": rakAccounts.RAKAccountsModel.maturityAmount}} </span>
+							<!-- <span class="raktransno"> {{rakAccounts.RAKAccountsModel.rollOverAmt == "" ? " ": rakAccounts.RAKAccountsModel.rollOverAmt}} </span> -->
+							<div class="trans-date">
+							{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.ROLLOVER_DEP_AMOUNT}}
+							</div>
+							</div>
+							
+							<div class="rakAccounts-details">
+							<span class="raktransno">
+							{{rakAccounts.RAKAccountsModel.revBalance == "" ? " ": rakAccounts.RAKAccountsModel.revBalance}}
+							</span>
+							<div class="trans-date">
+							{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_REV_AMOUNT}}
+							</div>
+							</div>
+							
+							<div class="rakAccounts-details">
+							<div>
+							<span class="raktransno">
+							{{rakAccounts.RAKAccountsModel.debAccNo == "" ? " ": rakAccounts.RAKAccountsModel.debAccNo}}
+							</span>
+							</div>
+							<div class="trans-date">
+							{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_DEB_ACCOUNT_NO}}
+							</div>
+							</div>
+							
+							<div class="rakAccounts-details">
+							<div>
+							<span class="raktransno">
+							{{rakAccounts.RAKAccountsModel.jointName1 == "" ? " ": rakAccounts.RAKAccountsModel.jointName1 }} {{rakAccounts.RAKAccountsModel.jointName2 == "" ? " ": rakAccounts.RAKAccountsModel.jointName2}} 
+							{{rakAccounts.RAKAccountsModel.jointName3 == "" ? " ": rakAccounts.RAKAccountsModel.jointName3 }}
+							</span>
+							</div>
+							<div class="trans-date">
+							{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_JOINT_ACC_NAME}}
+							</div>
+							</div>
+							
+							<div class="rakAccounts-details">
+							<span class="raktransno">
+							{{rakAccounts.RAKAccountsModel.branch}}
+							</span>		
+							<div class="trans-date">
+							{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_DEP_BRANCH}}
+							</div>
+							</div>
+							
+							<div class="rakAccounts-details">
+							<span class="raktransno"> {{rakAccounts.RAKAccountsModel.maturityAmount == "" ? " ": rakAccounts.RAKAccountsModel.maturityAmount}} </span>
+							<!-- <span class="raktransno"> {{rakAccounts.RAKAccountsModel.rollOverAmt == "" ? " ": rakAccounts.RAKAccountsModel.rollOverAmt}} </span> -->
+							<div class="trans-date">
+							<!-- {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_MATURITY_AMOUNT}} -->
+							{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_MATURITY_INSTRUCTION}}
+							</div>
+							</div>
+							
+
+								
+							
+							
+						</div>
+						
+					
+					</div>
+					
+					<!-- data end -->
+					
+					<!-- data begin -->
+					 <div class="rakDetailFrame" ng-if='rakAccounts.RAKAccountsModel.accountType == "LON"'>
+					<div class="detail-pad" >	
+					
+					<div ng-show='rakAccounts.RAKAccountsModel.loanAssetDisplay'>
+					
+					<div class="detail-pad" ng-show='rakAccounts.RAKAccountsModel.assetType == "AUTO"' >
+					
+							<div class="rakAccounts-details">
+							<span class="raktransno"> {{rakAccounts.RAKAccountsModel.agreementNumber}} </span>
+							<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_AGGREMENT_NO}}</div>	
+							</div>
+					
+							<div class="rakAccounts-details">						
+								<span class="raktransno"> {{rakAccounts.RAKAccountsModel.disbursedAmt}} </span>
+								<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_DISBURSED_AMT}}</div>
+							</div>
+							<div class="rakAccounts-details">
+								<span class="raktransno"> {{rakAccounts.RAKAccountsModel.outstandingLoan}} </span>
+								<div class="trans-date">
+								{{rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].isIslamicAcct == "Y"? appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.FIN_OUT:appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.LON_OUT}}
+								</div>
+							</div>
+
+					 	<div class="rakAccounts-details">
+									<span class="raktransno">  {{rakAccounts.RAKAccountsModel.assetDesc}} </span>
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_ASSET_DESC}}
+								</div>
+						</div>
+						
+						<div class="rakAccounts-details">
+									<span class="raktransno">  {{rakAccounts.RAKAccountsModel.manufacture}} </span>
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_MANUFACTURER}}
+								</div>
+						</div>
+						
+						<div class="rakAccounts-details">
+									<span class="raktransno">  {{rakAccounts.RAKAccountsModel.regNo}} </span>
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_REG_NO}}
+								</div>
+						</div>
+					
+						<div class="rakAccounts-details">
+									<span class="raktransno">  {{rakAccounts.RAKAccountsModel.regEmiNumber}} </span>
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_REG_EMI_NO}}
+								</div>
+						</div>
+						
+							<div class="rakAccounts-details">
+									<span class="raktransno">  {{rakAccounts.RAKAccountsModel.dealer}} </span>
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_DEALER}}
+								</div>
+						</div>
+						
+						
+						
+						
+					</div>
+					
+					<div class="detail-pad" ng-show='rakAccounts.RAKAccountsModel.assetType == "HOME"' >
+					
+					
+							<div class="rakAccounts-details">
+							<span class="raktransno"> {{rakAccounts.RAKAccountsModel.agreementNumber}} </span>
+							<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_AGGREMENT_NO}}</div>	
+							</div>
+					
+
+							<div class="rakAccounts-details">						
+								<span class="raktransno"> {{rakAccounts.RAKAccountsModel.disbursedAmt}} </span>
+								<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_DISBURSED_AMT}}</div>
+							</div>
+							<div class="rakAccounts-details">
+								<span class="raktransno"> {{rakAccounts.RAKAccountsModel.outstandingLoan}} </span>
+								<div class="trans-date">
+								{{rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].isIslamicAcct == "Y"? appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.FIN_OUT:appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.LON_OUT}}
+								</div>
+							</div>
+
+
+					 	<div class="rakAccounts-details">
+									<span class="raktransno">  {{rakAccounts.RAKAccountsModel.propertyLoc}} </span>
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_PROPERTY_LOC}}
+								</div>
+							</div>
+							<div class="rakAccounts-details">
+									<span class="raktransno">  {{rakAccounts.RAKAccountsModel.houseNum}} </span>
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_PROPERTY_HOUSE_NO}}
+								</div>
+							</div>
+							<div class="rakAccounts-details">
+									<span class="raktransno">  {{rakAccounts.RAKAccountsModel.streetName}} </span>
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_STREET_NAME}}
+								</div>
+							</div>
+							<div class="rakAccounts-details">
+									<span class="raktransno">  {{rakAccounts.RAKAccountsModel.developerName}} </span>
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_DEV_NAME}}
+								</div>
+							</div>
+							<div class="rakAccounts-details">
+									<span class="raktransno">  {{rakAccounts.RAKAccountsModel.constructionStatus}} </span>
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CONST_STATUS}}
+								</div>
+							</div>
+							<div class="rakAccounts-details">
+									<span class="raktransno">  {{rakAccounts.RAKAccountsModel.projectName}} </span>
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_PROJECT_NAME}}
+								</div>
+							</div>
+						
+					
+					</div>
+					</div>
+						
+					<div ng-hide='rakAccounts.RAKAccountsModel.loanAssetDisplay'>
+							<div class="rakAccounts-details">
+							<span class="raktransno"> {{rakAccounts.RAKAccountsModel.agreementNumber}} </span>
+							<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_AGGREMENT_NO}}</div>	
+							</div>
+							
+							<div class="rakAccounts-details">
+									<span class="raktransno">
+										{{rakAccounts.RAKAccountsModel.loanPeriodMonths}} months,
+										{{rakAccounts.RAKAccountsModel.loanPeriodDays}} days
+									</span>
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_LOAN_TENOR}}
+								</div>
+							</div>
+							
+							<div class="rakAccounts-details">
+									<span class="raktransno"> {{rakAccounts.RAKAccountsModel.productType}} </span>
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_PRODUCT}}
+								</div>
+							</div>
+							
+							
+								
+							<div class="rakAccounts-details">
+									<span class="raktransno"> {{rakAccounts.RAKAccountsModel.frequency}} </span>
+								<div class="trans-date">
+									{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_FREQUENCY}}
+								</div>
+							</div>
+												
+							
+							<div class="rakAccounts-details">
+							
+								<span class="raktransno"> {{rakAccounts.RAKAccountsModel.outstandingLoan}} </span>
+								<div class="trans-date">
+								{{rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].isIslamicAcct == "Y"? appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.FIN_OUT:appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.LON_OUT}}
+								</div>
+							</div>
+							
+							
+							<div class="rakAccounts-details">
+									<span class="raktransno">
+										{{rakAccounts.RAKAccountsModel.interestRate == "" ? " ": rakAccounts.RAKAccountsModel.interestRate}} {{rakAccounts.RAKAccountsModel.interestRate == "" ?" ":"%"}}
+									</span>
+								<div class="trans-date">
+								
+								<!-- 	{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_INTEREST_RATE}} -->
+								
+								{{rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].isIslamicAcct == "Y"? appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.ISLAMIC_TEXT_INTEREST_RATE:appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_INTEREST_RATE}}
+								<!-- {{rakAccounts.RAKAccountsModel.Literals_LonInterest}} -->
+								</div>
+							</div>
+							
+							
+							<div class="rakAccounts-details">						
+						
+								<span class="raktransno"> {{rakAccounts.RAKAccountsModel.disbursedAmt}} </span>
+								<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_DISBURSED_AMT}}</div>
+							</div>
+							
+						
+						
+						<div class="rakAccounts-details">
+							<span class="raktransno">
+								{{(rakAccounts.RAKAccountsModel.sanctionDate == null || rakAccounts.RAKAccountsModel.sanctionDate == "")? " ": rakAccounts.RAKAccountsModel.sanctionDate}}
+							</span>								
+							<div class="trans-date">
+								 {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_SANCTIONED_DATE}}
+							</div>
+							</div>
+				
+							<div class="rakAccounts-details">
+							<span class="raktransno">
+								{{rakAccounts.RAKAccountsModel.nextInstallmentDate}}
+							</span>
+							<div class="trans-date">
+								 {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_NEXT_EMI_DATE}}
+							</div>
+							</div>
+							<div class="rakAccounts-details">
+								<span class="raktransno">
+								{{rakAccounts.RAKAccountsModel.maturityDate}}
+								
+								</span>
+									<div class="trans-date">	
+								{{rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].isIslamicAcct == "Y"? appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.FINANCE_MATURITY_DATE:appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.LOAN_MATURITY_DATE}}
+								</div>
+								</div>
+							
+							<div class="rakAccounts-details">	
+							
+								<span class="raktransno">
+									{{rakAccounts.RAKAccountsModel.rakbankaccount == null || rakAccounts.RAKAccountsModel.rakbankaccount == "" ? " " : rakAccounts.RAKAccountsModel.rakbankaccount}}
+								</span>
+								<div class="trans-date">
+								 {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_BANK_ACCOUNTID}}
+							</div>
+							</div>
+				
+							<div class="rakAccounts-details">
+							
+								<span class="raktransno"> {{(rakAccounts.RAKAccountsModel.overDueAmount)}}</span>
+								<div class="trans-date">
+								{{rakAccounts.RAKAccountsModel.loanAccounts[rakAccounts.RAKAccountsModel.selectedAccount].isIslamicAcct == "Y"? appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_ISLAMIC_OVERDUE_AMOUNT:appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_OVERDUE_AMOUNT}}
+								</div>
+							</div>
+							
+								<div class="rakAccounts-details">
+					
+								<span class="raktransno"> {{rakAccounts.RAKAccountsModel.installmentAmount}} </span>
+								<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_INST_AMOUNT}}</div>
+							</div>
+
+								
+							<div class="rakAccounts-details">
+								
+								<span class="raktransno"> {{rakAccounts.RAKAccountsModel.totalAmtPaid}} </span> 
+								<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_TOTAL_AMOUNT_PAID}}</div>	
+							</div>
+						<div class="rakAccounts-details">	
+						
+							<span class="raktransno">
+									{{rakAccounts.RAKAccountsModel.fundingAccNumber}}
+							</span>
+								<div class="trans-date">
+								{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_FUNDING_ACCOUNT_NUMBER}}
+							</div>
+						</div>	
+						</div>
+					</div>
+					</div>
+					<!-- data end -->
+					<!-- RAk Prasenjeet Added -->
+					 <div class="rakDetailFrame"  ng-if='rakAccounts.RAKAccountsModel.accountType == "GLD"'>
+					 <div class="detail-pad">
+				
+						
+
+							<div class="rakAccounts-details">
+							<span class="raktransno"> {{rakAccounts.RAKAccountsModel.branch}}</span>
+							<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.TEXT_BRANCH}}</div>
+						</div>
+						
+						
+					<!-- 	<div class="rakAccounts-details">
+						
+							 <span class="raktransno">{{rakAccounts.RAKAccountsModel.currentBal}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CURRENT_BAL}}</div>
+						</div>	 -->				
+												
+						<div class="rakAccounts-details">
+						
+							 <span class="raktransno">{{rakAccounts.RAKAccountsModel.goldSellRate}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_GOLD_SELL_RATE}}</div>
+						</div>
+						<div class="rakAccounts-details">
+						
+							  <span class="raktransno">{{rakAccounts.RAKAccountsModel.goldBuyRate}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_GOLD_BUY_RATE}}</div>
+						</div>
+					<!-- 	<div class="rakAccounts-details">
+						
+							  <span class="raktransno">{{rakAccounts.RAKAccountsModel.goldCostPrice}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_GOLD_PRICE}}</div>
+						</div> -->
+						<div class="rakAccounts-details">
+				
+							 <span class="raktransno">{{rakAccounts.RAKAccountsModel.goldInAed}}</span> 
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_GOLD_IN_AED}}</div>
+						</div>
+						<div class="rakAccounts-details">
+						
+							 <span class="raktransno">{{rakAccounts.RAKAccountsModel.netAvailBal}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_ACCOUNT_BAL}}</div>
+						</div>
+						
+						<div class="rakAccounts-details">
+						
+							 <span class="raktransno">{{rakAccounts.RAKAccountsModel.goldAmtInXAU}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.XAUEQT}}</div>
+						</div>
+						
+						
+						<div class="rakAccounts-details rak55">
+								<span class="raktransno"> {{rakAccounts.RAKAccountsModel.iban}}</span>
+								<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_TEXT_IBAN}}</div>
+						</div>
+							<!-- Prasen End -->
+					
+					</div> 
+					
+					<!-- </div> -->
+				</div>	
+				 <div class="rakDetailFrame" ng-if='rakAccounts.RAKAccountsModel.accountType == "CCD"'>
+					 <div class="detail-pad" >
+					 
+					 <div class="rakAccounts-details">
+								<span class="raktransno"> {{rakAccounts.RAKAccountsModel.creditCardNo}}</span>
+								<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_NUMBER}}</div>
+					</div>
+ 				 	<div class="rakAccounts-details">
+								<span class="raktransno"> {{rakAccounts.RAKAccountsModel.nameOnCard}}</span>
+								<div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_ISSUER}}</div>
+					</div>
+					
+						<div class="rakAccounts-details">
+					 		 <span class="raktransno" ng-if="rakAccounts.RAKAccountsModel.currentBalance =='AED 0.00'">{{(rakAccounts.RAKAccountsModel.currentBalance)}}</span>
+					 		 <span class="raktransno" ng-if="rakAccounts.RAKAccountsModel.currentBalance !='AED 0.00'">{{(rakAccounts.RAKAccountsModel.currentBalance).indexOf("-") > -1 ? (rakAccounts.RAKAccountsModel.currentBalance).replace("-","") : rakAccounts.RAKAccountsModel.currentBalance+" CR"}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_CURRENT_BALANCE}}**</div>
+						</div>
+						
+						<div class="rakAccounts-details" ng-if="rakAccounts.RAKAccountsModel.ccCombinedLimitFlag">
+							  <span class="raktransno">{{rakAccounts.RAKAccountsModel.totalcreditlimit}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_COMMON.RAK_COMBINED_LIMIT}}</div>
+						</div>
+						<div class="rakAccounts-details" ng-if="!rakAccounts.RAKAccountsModel.ccCombinedLimitFlag">
+							  <span class="raktransno">{{rakAccounts.RAKAccountsModel.totalcreditlimit}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_TOTAL_CREDIT_LIMIT}}</div>
+						</div>
+						
+						<div class="rakAccounts-details">
+						<span class="raktransno" ng-if="rakAccounts.RAKAccountsModel.totalAmountDue =='AED 0.00'">{{(rakAccounts.RAKAccountsModel.totalAmountDue)}}</span>
+							 <span class="raktransno" ng-if="rakAccounts.RAKAccountsModel.totalAmountDue !='AED 0.00'">{{(rakAccounts.RAKAccountsModel.totalAmountDue).indexOf("-") > -1 ? (rakAccounts.RAKAccountsModel.totalAmountDue).replace("-","") : "AED 0.00"}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_TOTAL_AMT_DUE}}</div>
+						</div>
+					
+					 	<div class="rakAccounts-details" ng-if="rakAccounts.RAKAccountsModel.ccCombinedLimitFlag">
+							  <span class="raktransno">{{rakAccounts.RAKAccountsModel.availableCreditLimit}}</span>
+							 <div class="trans-date rak-color">{{appLiterals.APP.RAK_COMMON.RAK_COMBINED_AVL_LIMIT}}</div>
+						</div>
+						<div class="rakAccounts-details" ng-if="!rakAccounts.RAKAccountsModel.ccCombinedLimitFlag">
+							  <span class="raktransno">{{rakAccounts.RAKAccountsModel.availableCreditLimit}}</span>
+							 <div class="trans-date rak-color">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_AVAILABLE_CREDIT_LIMIT}}</div>
+						</div>
+						
+						<div class="rakAccounts-details">
+							<span class="raktransno" ng-if="rakAccounts.RAKAccountsModel.minAmtDue =='AED 0.00'">{{(rakAccounts.RAKAccountsModel.minAmtDue)}}</span>
+							<span class="raktransno" ng-if="rakAccounts.RAKAccountsModel.minAmtDue !='AED 0.00'">{{(rakAccounts.RAKAccountsModel.minAmtDue).indexOf("-") > -1 ? (rakAccounts.RAKAccountsModel.minAmtDue).replace("-","") : rakAccounts.RAKAccountsModel.minAmtDue+" CR"}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_MIN_AMT_DUE}}***</div>
+						</div>
+						
+						<div class="rakAccounts-details" ng-if="rakAccounts.RAKAccountsModel.ccCombinedLimitFlag">
+							 <span class="raktransno">{{rakAccounts.RAKAccountsModel.totalCashLimit}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_COMMON.RAK_COMBINED_CASH_LIMIT}}</div>
+						</div>
+						<div class="rakAccounts-details" ng-if="!rakAccounts.RAKAccountsModel.ccCombinedLimitFlag">
+							 <span class="raktransno">{{rakAccounts.RAKAccountsModel.totalCashLimit}}</span>
+							 <div class="trans-date">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_TOTAL_CASH_LIMIT}}</div>
+						</div>
+						
+						<div class="rakAccounts-details">
+							<span class="raktransno">{{rakAccounts.RAKAccountsModel.dueDate}}</span>
+							<div class="trans-date"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_DUE_DATE}}</div>
+						</div>
+						
+						<div class="rakAccounts-details">
+							<span class="raktransno">{{rakAccounts.RAKAccountsModel.lastPaymentDate}}</span>
+							<div class="trans-date"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_LAST_PAYMENT_DATE}}</div>
+						</div>
+						
+						
+						
+					<!-- 	<div class="rakAccounts-details" ng-if="rakAccounts.RAKAccountsModel.ccCombinedLimitFlag">
+							 <span class="raktransno">{{rakAccounts.RAKAccountsModel.availableCashLimit}}*</span>
+							 <div class="trans-date rak-color">{{appLiterals.APP.RAK_COMMON.RAK_COMBINED_AVAILABLE_CASH_LIMIT}}</div>
+						</div>
+						<div class="rakAccounts-details" ng-if="!rakAccounts.RAKAccountsModel.ccCombinedLimitFlag">
+							 <span class="raktransno">{{rakAccounts.RAKAccountsModel.availableCashLimit}}*</span>
+							 <div class="trans-date rak-color">{{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_AVAILABLE_CASH_LIMIT}}</div>
+						</div> -->
+					 
+						<div class="rakAccounts-details">
+							<span class="raktransno">{{rakAccounts.RAKAccountsModel.statementDate}}</span>
+							<div class="trans-date"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_STATEMENT_DATE}}</div>
+						</div>
+						
+						<div class="rakAccounts-details">
+							<span class="raktransno">{{rakAccounts.RAKAccountsModel.amountPaid}}</span>
+							<div class="trans-date"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_AMT_PAID}}</div>
+						</div>
+						
+						<div class="rakAccounts-details">
+							<span class="raktransno">{{rakAccounts.RAKAccountsModel.expDate}}</span>
+							<div class="trans-date"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_EXPIRY_DATE}}</div>
+						</div>
+						
+						
+						<!--<div class="rakAccounts-details">
+							<span class="raktransno">{{rakAccounts.RAKAccountsModel.nextPaymentDate}}</span>
+							<div class="trans-date"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_NEXT_PAYMENT_DATE}}</div>
+						</div>-->
+						
+						
+						
+						
+
+						<!-- <div class="rakAccounts-details">
+							<span class="raktransno">{{rakAccounts.RAKAccountsModel.cardBin}}</span>
+							<div class="trans-date"> {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.RAK_CCD_CARD_NAME}}</div>
+						</div> -->
+
+						<div ng-hide='rakAccounts.RAKAccountsModel.cardBin=="Kalyan Titanium" || rakAccounts.RAKAccountsModel.cardBin=="Geant LA Carte" '>
+						<div class="rakAccounts-details">
+						
+							<span class="raktransno">{{rakAccounts.RAKAccountsModel.rewardOpeningBalance == null || rakAccounts.RAKAccountsModel.rewardOpeningBalance == "" ? "0" : rakAccounts.RAKAccountsModel.rewardOpeningBalance}}</span>
+							<div class="trans-date"> {{rakAccounts.RAKAccountsModel.Literals_openingBal}}</div>
+						</div>
+
+						<div class="rakAccounts-details">
+							<span class="raktransno">{{rakAccounts.RAKAccountsModel.rewardEarnedPoints == null || rakAccounts.RAKAccountsModel.rewardEarnedPoints == "" ? "0" : rakAccounts.RAKAccountsModel.rewardEarnedPoints}}</span>
+							<div class="trans-date"> {{rakAccounts.RAKAccountsModel.Literals_earnedPoints}}</div>
+						</div>
+						<div class="rakAccounts-details">
+					
+							
+							<span class="raktransno">{{rakAccounts.RAKAccountsModel.rewardRedeemedPoints == null || rakAccounts.RAKAccountsModel.rewardRedeemedPoints == "" ? "0" : rakAccounts.RAKAccountsModel.rewardRedeemedPoints}}</span>
+							<div class="trans-date"> {{rakAccounts.RAKAccountsModel.Literals_redeemedPoints}}</div>
+						</div>
+
+						<div class="rakAccounts-details">
+						
+						
+							<span class="raktransno">{{rakAccounts.RAKAccountsModel.rewardClosingBalance == null || rakAccounts.RAKAccountsModel.rewardClosingBalance == "" ? "0" : rakAccounts.RAKAccountsModel.rewardClosingBalance}}</span>
+							<div class="trans-date"> {{rakAccounts.RAKAccountsModel.Literals_closingBal}}</div>
+						</div>
+						</div>
+						
+						 <div class="disclaimer">
+                                                                <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                                                                <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                                                                </div>
+                                
+                                                                <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                                                                <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.DETAILS_CC"></div>
+                                                                </div>
+                             </div>
+						
+						
+					 </div>
+					 </div>
+				</div>
+				<!-- </div> -->
+
+           <!-- add it here  -->
+     <!--       <div class="rakFixed">
+           <button class="btn--special-btn" ng-click="setEvent('onAccountDetailsMore');">
+
+           {{appLiterals.APP.RAK_ACCOUNTS.ACCOUNTS_DETAILS_PAGE.MORE_BUTTON}}
+
+           </button>
+        </div> -->
+               </div>
+
+            </div>
+           </div>
+        </div>
+
+ </div>

@@ -1,0 +1,83 @@
+
+<div class="container-fluid padding-auto"
+	ng-init="resetSessionID();rakTouchIdActivation.touchIdReg.initLoginFlag();rakHome.retaileventClicked='N';rakHome.CorpeventClicked='N';reinitialiseViewModel();resetPageError();">
+
+
+<div class="container-fluid padding-zero">
+
+  <div class="row">
+
+<div class="loginFirstDiv"
+										ng-init='toBenTypeArray=createDropDownOptionArray(rakHome.typeOfCustomerArr , ["valueDesc"],"valueCode")'>
+										<fin-input type="dropdown" option-array="toBenTypeArray"
+											model="rakHome.typeOfCustomer"
+											display-row="full" on-change="rakHome.onCustomerTypeChange()"
+											placeholder="I am a"
+											
+											validation-flag='pageErrorArr["rakHome.typeOfCustomer"]'>
+										</fin-input>
+									</div>
+ <div class="fin-txt"> </div>
+ 
+ 
+ 	<div class="check-boxsLeft ">
+				                    <input id="checkbox"  class="checkbox-custom-new"  type="checkbox"  ng-checked="{{myProfile.rememberUserID.rememberUserIDChkStatus}}" ng-model='myProfile.rememberUserID.rememberUserIDChk' ><!-- ng-checked="rakPayee.payBill.checkBoxStatus" -->
+				                  <label for="checkbox" class="checkbox-custom-label rakpayeechBox">Remember Choice </label>
+				                </div>
+									
+ <!--  <div class="">
+			<input type="checkbox" id="checkbox" class="unchecked" ng-checked="{{myProfile.rememberUserID.rememberUserIDChkStatus}}"   ng-model='myProfile.rememberUserID.rememberUserIDChk' /><label for="checkbox"></label><label class="rem-txt" for="checkbox"></label>
+			
+		  </div> -->
+		   <div class="fin-txt"> </div>
+							
+										
+
+   <!--  <button type="button" class="login-btn rakLoginBtn-middle" ng-click="resetPageError();rakHome.CorpeventClicked='Y';setEvent('onRetailClick')">Corp</button> -->
+
+
+
+     <!--  <button type="button" class="login-btn rakLoginBtn-middle"  ng-click="resetPageError();rakHome.retaileventClicked='Y';setEvent('onRetailClick')">Retail </button> -->
+
+
+
+<button type="button" class="raktouchIdOverviewButtonEnable registerButton" ng-click="resetPageError();myProfile.rememberUserID.initLoginPage();rakEDirham.setEDirhamFlag('false');rakEDirham.setEdirhamMenuFlag('false');setEvent('onRetailClick')">Proceed to Login </button>
+<!-- <span  class="switchProfileLink eDirham-link" ng-click="rakEDirham.getEdirhamDetailsEvent();">{{appLiterals.APP.EDIRHAM.EDIRHAM_TXT}}</span> -->
+<!--  <span ng-show="rakHome.typeOfCustomer" class="eDirham-menu-icon"><span  class="switchProfileLink edirham-link" ng-click="resetPageError();myProfile.rememberUserID.initLoginPage();rakEDirham.eDirhamDetails.fromWelcomePage=false;rakEDirham.getEdirhamDetailsEvent();">{{appLiterals.APP.RAKBURGER.EDIRHAM}}</span></span> -->
+
+<button ng-show="rakHome.typeOfCustomer" type="button" class="btn--special-btn btn-middle rak-button-full-grey"
+									ng-click="resetPageError();myProfile.rememberUserID.initLoginPage();rakEDirham.eDirhamDetails.fromWelcomePage=false;rakEDirham.getEdirhamDetailsEvent();">{{appLiterals.APP.EDIRHAM.EDIRHAM_INSTANT_BTN}}
+									</button>
+                </div>
+        </div>
+      
+    </div>
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		  <div >
+
+
+		  </div>
+
+		
+    <div class="col-sm-1"> </div>
+ 
+
+

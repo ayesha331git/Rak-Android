@@ -1,0 +1,48 @@
+<div id="myActivitiesSearchPagePrev" class="app app-arrow2 title-right"
+	ng-click="setEvent('onPrevServiceClick')"></div>
+<div class="finacle-container"
+	ng-init="myProfile.activityModel.responseInit(successResponse.responsesList[0]);">
+	<div class="account-page">
+		<div class="col-sm-12">
+			<div class="dashboard-pad">
+				<div class="dashboard-item-body">
+					<form id="myActivitiesSearchPage"
+						ng-submit="myProfile.activityModel.isDays='N';myProfile.activityModel.isSearch=true;setEvent('onServiceSearchClick')">
+						<div class="dashboard-item-title col-sm-12 margin-bottom-20">
+							<div id="myActivitiesSearchPageSEARCH_ACT" class="item-title text-uppercase">{{appLiterals.APP.MYPROFILE.MY_ACTIVITIES.SEARCH_ACT}}</div>
+
+						</div>
+						<div class="two-input-wrapper">
+							<fin-input type="date" model="myProfile.activityModel.fromDate"
+								display-row="half1"
+								validation-flag='pageErrorArr["myProfile.activityModel.fromDate"]'
+								placeholder="{{appLiterals.APP.MYPROFILE.MY_ACTIVITIES_SEARCH.PH_FROM_DATE}}"
+								on-change="myProfile.activityModel.parseFromDate();"></fin-input>
+							<fin-input type="date" model="myProfile.activityModel.toDate"
+								display-row="half2"
+								validation-flag='pageErrorArr["myProfile.activityModel.toDate"]'
+								placeholder="{{appLiterals.APP.MYPROFILE.MY_ACTIVITIES_SEARCH.PH_TO_DATE}}"
+								on-change="myProfile.activityModel.parseToDate();"></fin-input>
+						</div>
+						<div
+							ng-init='channelArr = createDropDownOptionArray(myProfile.activityModel.channels, ["channelIdDescription"], "channelIdCode")'>
+							<fin-input type="dropdown"
+								model="myProfile.activityModel.channel" display-row="full"
+								placeholder="{{appLiterals.APP.MYPROFILE.MY_ACTIVITIES_SEARCH.PH_CHANNEL}}"
+								validation-flag='pageErrorArr["myProfile.activityModel.channel"]'
+								option-array="channelArr"></fin-input>
+						</div>
+						<md-button id="myActivitiesSearchPageSearch" type="submit"
+							class=" md-raised btn--primary-btn">
+						{{appLiterals.APP.COMMON.BUTTON.SEARCH}}</md-button>
+
+
+					</form>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+<!-- overlay for transaction details -->

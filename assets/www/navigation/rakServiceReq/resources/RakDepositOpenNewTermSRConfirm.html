@@ -1,0 +1,154 @@
+<div class="nano menu-scroll">
+	<div class="nano-content">
+<div class="finacle-container"
+	ng-init="rakServiceReq.RakDepositOpenNewTermReq.txnPwd='';rakServiceReq.rakDepositOpenNewTermConfirm(successResponse.responsesList);">
+	<div class="account-page">
+		<div class="col-sm-11">
+		
+			<div class="main-form-heading-ServiceReq"> 
+                      <h2 class="rakBenfHeader">{{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.DEP_OPEN}}
+                      <span>{{appLiterals.APP.RAKCOMMONLITERALS.STEP2}}{{appLiterals.APP.RAKCOMMONLITERALS.REVIEW_CONFIRM}} </span>                
+                      </h2>              
+			</div>
+		
+		<div class="bg-color rak-cont-padding rak-scroll">
+			<div class="row">
+				
+				
+				<div class="rakDupliSRChkMsgImg" ng-show='rakServiceReq.common.message'>
+							<span class='rakAlertForDupStmt'></span> <span class="rakDupliSRChkMsg-block">{{rakServiceReq.common.message}}</span>
+						</div>    
+       		
+       		<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.AC_NO}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakDepositOpenNewTermReq.fromAccountId}}</span>
+			</p>
+			
+			<p class="rak-sum-txt" ng-show="rakServiceReq.RakDepositOpenNewTermReq.depPeriodSelection=='DPV'">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.PERIOD}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakDepositOpenNewTermReq.periodDesc}}</span>
+			</p>
+			<div ng-show="rakServiceReq.RakDepositOpenNewTermReq.depPeriodSelection=='DPD'">
+			<p class="rak-sum-txt">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.FROM_DATE}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakDepositOpenNewTermReq.confirmFromDate}}</span>
+			</p> 
+       		
+       		<p class="rak-sum-txt" >
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.TO_DATE}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakDepositOpenNewTermReq.confirmToDate}}</span>
+			</p>
+			</div>
+			
+			<p class="rak-sum-txt" >
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.CURRENCY}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakDepositOpenNewTermReq.currency}}</span>
+			</p>
+			
+			<p class="rak-sum-txt" >
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.DEP_AMT}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakDepositOpenNewTermReq.confirmAmt}}</span>
+			</p>
+			
+			<p class="rak-sum-txt"  ng-show="rakServiceReq.RakDepositOpenNewTermReq.maturity=='OMA'">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.MATURITY}}</span>
+				<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.RADIO1}} - {{rakServiceReq.RakDepositOpenNewTermReq.matAccount}}</span>
+			</p>
+			
+			<!-- <p class="rak-sum-txt" ng-show="rakServiceReq.RakDepositOpenNewTermReq.maturity=='OMA'">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.RADIO1}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakDepositOpenNewTermReq.matAccount}}</span>
+			</p> -->
+			
+			<p class="rak-sum-txt" ng-show="rakServiceReq.RakDepositOpenNewTermReq.maturity=='OMR'">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.MATURITY}}</span>
+				<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.RADIO2}}</span>
+			</p>
+			
+			<p class="rak-sum-txt"  ng-show="rakServiceReq.RakDepositOpenNewTermReq.maturity=='OMR' && rakServiceReq.RakDepositOpenNewTermReq.interestHandling=='IHA'">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.INT_HANDLING}}</span>
+				<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.RADIO3}} - {{rakServiceReq.RakDepositOpenNewTermReq.intHandlingAccount}}</span>
+			</p>
+			
+			<p class="rak-sum-txt"  ng-show="rakServiceReq.RakDepositOpenNewTermReq.maturity=='OMR' && rakServiceReq.RakDepositOpenNewTermReq.interestHandling=='IHR'">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.INT_HANDLING}}</span>
+				<span class="rak-sum-label black">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.RADIO4}}</span>
+			</p>
+			
+			<!-- <p class="rak-sum-txt"  ng-show="rakServiceReq.RakDepositOpenNewTermReq.maturity=='OMR' && rakServiceReq.RakDepositOpenNewTermReq.interestHandling=='IHA'">
+				<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.RADIO3}}</span>
+				<span class="rak-sum-label black">{{rakServiceReq.RakDepositOpenNewTermReq.intHandlingAccount}}</span>
+			</p> -->
+			<div ng-if="rakServiceReq.RakDepositOpenNewTermReq.depPeriodSelection=='DPV'">					
+				<p class="rak-sum-txt">
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.RATE}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RakDepositOpenNewTermReq.interestRate}}</span>
+				</p>
+				
+				<p class="rak-sum-txt" >
+					<span class="rak-sum-label">{{appLiterals.APP.RAK_SERVICES.RAK_DEP_OPEN_NEW.MAT_AMT}}</span>
+					<span class="rak-sum-label black">{{rakServiceReq.RakDepositOpenNewTermReq.matAmt}}</span>
+				</p>
+			</div>	
+			
+			<div class="label-wrap" ng-show='rakServiceReq.RakDepositOpenNewTermReq.authStatus'>					
+				
+				<fin-input type="password_text" model="rakServiceReq.RakDepositOpenNewTermReq.txnPwd"
+					display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_TXNPWD}}"
+					model="rakServiceReq.RakDepositOpenNewTermReq.txnPwd" 
+				ng-show="rakServiceReq.RakDepositOpenNewTermReq.authMode==txnpwdString">
+				</fin-input>
+			<!-- 	<fin-input type="password_num" model="rakServiceReq.RakDepositOpenNewTermReq.txnPwd"
+					display-row="full" placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.OTP"
+					model="rakServiceReq.RakDepositOpenNewTermReq.txnPwd" 
+					ng-show="rakServiceReq.RakDepositOpenNewTermReq.authMode==otpString">
+				</fin-input> -->
+
+								<div
+									ng-show="rakServiceReq.RakDepositOpenNewTermReq.authMode==otpString">
+									<div ng-class="{'rakwidth38':rakHome.otpModel.otpModesList.length >0 ,'rakwidth65':rakHome.otpModel.otpModesList.length===0}">
+										<fin-input type="password_num"
+											model="rakServiceReq.RakDepositOpenNewTermReq.txnPwd"
+											display-row="full"
+											placeholder="{{appLiterals.APP.RAKCOMMONLITERALS.TXT_OTP}}"
+											validation-flag='pageErrorArr["rakServiceReq.RakDepositOpenNewTermReq.txnPwd"]'>
+										</fin-input>
+									</div>
+									<div class="rakwidth28 rakModeDropdown" ng-show='rakHome.otpModel.otpModesList.length>0' ng-init="rakHome.otpModel.otpModeSelected=rakHome.otpModel.MODESCONSTANT.SMS;toModeArray=createDropDownOptionArray(rakHome.otpModel.otpModesList, ['ModeDesc'],'ModeValue')">
+			
+				<fin-input type="dropdown" option-array="toModeArray" model="rakHome.otpModel.otpModeSelected" display-row="full" placeholder="{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}"></fin-input>
+				<p class="balance-available2">{{appLiterals.APP.RAK_COMMON.OTPSENDVIA}}</p>
+			
+			</div>
+									<button type="button"
+										class="btn--special-btn btn-middle rak-button-small btn--back rakotpbutton"
+										ng-click="rakSendMoney.regenerateOtp('onGenerateOtp');">
+										{{appLiterals.APP.RAK_COMMON.RESEND_OTP}} </button>
+								</div>
+
+							</div>
+			
+			
+						
+			<div class="label-wrap">
+				 <button type="button" class="btn--special-btn btn-middle rak-button-small btn--back" ng-click="rakServiceReq.common.fromAuthPage=true;setEvent('onRAKOpenDepositNewTermConfirmBackClick');">  {{appLiterals.APP.RAKCOMMONLITERALS.TXT_BACK}} </button>
+				 <button type="button"  class="btn--special-btn btn-middle rak-button-small" ng-click="setEvent('onRAKOpenDepositNewTermSubmitClick');">  {{appLiterals.APP.RAKCOMMONLITERALS.TXT_SUBMIT}} </button>
+			</div>
+			<div class="col-sm-1"></div>
+				</div>
+				
+				<div class="disclaimer">
+                         <div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+                                         <h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+                         </div>
+
+                         <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                         <div class="disclaimer3"  ng-bind-html="appLiterals.APP.DISCLAIMER.RAKSERREQ_CONF"></div>
+                         </div>
+                 </div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>

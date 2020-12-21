@@ -1,0 +1,121 @@
+	<div class="rak-back-header" >
+		<i class="rak-back-img" ng-click="setEvent('onRAKConnectAddNewAlertBackClick');"></i>
+	</div>
+<div class="nano menu-scroll">
+	<div class="nano-content">
+		<div class="finacle-container"
+			ng-init="rakServiceReq.fetchDaysOfWeek();">
+			<div class="account-page">
+				<div class="col-sm-11">
+					<div class="app-title-wrapper">
+					<!-- Heading fix-start -->
+                   <div class="dashboard-item-title">
+					  <div class="rak-item-title"> 
+					   {{appLiterals.APP.RAK_SERVICES.RAK_SERV_LANDPG.RAKCONNECT}}</div>
+					  
+					</div>
+					<!-- Heading fix-end -->
+						<div class="form-block">
+						 <div class="money-block">
+					          <ul>
+					            <li ng-class="{'active':rakServiceReq.RAKConnectModel.rakConnSetupNewAlert,'':!rakServiceReq.RAKConnectModel.rakConnSetupNewAlert}" ng-click="">{{appLiterals.APP.RAKCONNECT.SETUP_NEW_ALERT}}</li>
+					            <li ng-class="{'active':rakServiceReq.RAKConnectModel.rakConnManageExisting,'':!rakServiceReq.RAKConnectModel.rakConnManageExisting}" ng-click="rakServiceReq.activateManageExistingTab();setEvent('onRAKConnectManageExistingClick');">{{appLiterals.APP.RAKCONNECT.MANAGE_EXISTING}}</li>
+					          </ul>
+				         </div>
+								<div class="bg-color rak-cont-padding rak-scroll">
+									<div class="col-sm-1"></div>
+									<div
+										ng-init='AlertTypeArr = createDropDownOptionArray(rakServiceReq.RAKConnectModel.alertTypeList, ["alertTypeDesc"], "alertTypeIndex");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RAKConnectModel.selectedAlertType"
+										display-row="full"
+										on-change="rakServiceReq.RAKConnectModel.selectedAccNum='';rakServiceReq.RAKConnectModel.selectedCCNum='';rakServiceReq.detectIfAlertAccOrCcPresent();"
+										placeholder="{{appLiterals.APP.RAKCONNECT.SELECT_ALERT_TYPE}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKConnectModel.selectedAlertType"]'
+										option-array="AlertTypeArr"> </fin-input>
+									<div
+										ng-init='AccNumArr = createDropDownOptionArray(rakServiceReq.RAKConnectModel.OprAccList, ["accountNumber"], "accountIndex");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RAKConnectModel.selectedAccNum"
+										display-row="full"
+										ng-if="rakServiceReq.RAKConnectModel.alertTypeList[rakServiceReq.RAKConnectModel.selectedAlertType].alertTypeCode=='FNCA'"
+										placeholder="{{appLiterals.APP.RAKCONNECT.FOR_ACC}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKConnectModel.selectedAccNum"]'
+										option-array="AccNumArr"> </fin-input>
+									<div
+										ng-init='CCNumArr = createDropDownOptionArray(rakServiceReq.RAKConnectModel.CreditCardList, ["creditcardNumber"], "creditcardIndex");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RAKConnectModel.selectedCCNum"
+										display-row="full"
+										ng-if="rakServiceReq.RAKConnectModel.alertTypeList[rakServiceReq.RAKConnectModel.selectedAlertType].alertTypeCode=='CRCA'"
+										placeholder="{{appLiterals.APP.RAKCONNECT.FOR_CC}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKConnectModel.selectedCCNum"]'
+										option-array="CCNumArr"> </fin-input>
+									<div
+										ng-init='FreqArr = createDropDownOptionArray(rakServiceReq.RAKConnectModel.freqList, ["freqDesc"], "freqDesc");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RAKConnectModel.selectedFreq"
+										display-row="full"
+										ng-if="rakServiceReq.RAKConnectModel.alertTypeList[rakServiceReq.RAKConnectModel.selectedAlertType].alertTypeFreq!='R' && rakServiceReq.RAKConnectModel.selectedAlertType!=''"
+										on-change="rakServiceReq.detectFreqCodeSelected();"
+										placeholder="{{appLiterals.APP.RAKCONNECT.FREQUENCY}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKConnectModel.selectedFreq"]'
+										option-array="FreqArr"> </fin-input>
+									<div
+										ng-init='DomArr = createDropDownOptionArray(rakServiceReq.RAKConnectModel.dateOfMnthList, ["dateOfMnthDesc"], "dateOfMnthCode");'></div>
+										<fin-input type="dropdown"
+										model="rakServiceReq.RAKConnectModel.selectedDom"
+										display-row="full"
+										ng-if="rakServiceReq.RAKConnectModel.selectedFreqCode=='M' && rakServiceReq.RAKConnectModel.alertTypeList[rakServiceReq.RAKConnectModel.selectedAlertType].alertTypeFreq!='R'"
+										placeholder="{{appLiterals.APP.RAKCONNECT.SELECT_DOM}}"
+										validation-flag='pageErrorArr["rakServiceReq.RAKConnectModel.selectedDom"]'
+										option-array="DomArr"> </fin-input>
+
+									<div class="subs-tab-links remit-rakColumnDiv" ng-if="rakServiceReq.RAKConnectModel.selectedFreqCode=='W' && rakServiceReq.RAKConnectModel.alertTypeList[rakServiceReq.RAKConnectModel.selectedAlertType].alertTypeFreq!='R'">
+										<ul ng-repeat="x in rakServiceReq.RAKConnectModel.dowArray">
+											<li><span class="pullLeft"> <input type="checkbox" ng-model="x.flag"></span></li>
+											<li><span>&nbsp;&nbsp;{{x.dayOfWeekDesc}}</span></li>
+										</ul>
+									</div>
+									<div class="bg-color rak-cont-padding" ng-if="rakServiceReq.RAKConnectModel.selectedAlertType!=''">
+									<div class="label-wrap">
+										<button type="button" class="btn--special-btn btn-middle btn--special-btn2"
+										display-row="full"
+										ng-click="rakServiceReq.whetherAccOrCCValidatnRqd();
+										rakServiceReq.whetherFreqDomDowValidatnRqd();																				
+										rakServiceReq.detectWhetherAlertsAlreadyPresentOrNew();">{{appLiterals.APP.RAKCONNECT.ADD}}</button>
+									</div>
+									</div>
+									<div class="col-sm-1"></div>
+									 <div class="disclaimer"  ng-init='rakDisclaimerFlag=false;' ng-if="rakHome.userTypeIDValue=='CORPORATE'">
+											<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+												<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+											</div>
+							
+										 <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                                  <span ng-click="rakServiceReq.fetchDisclaimer('AcntAndDebitCardSrvcRqstsCutoffTime_CORP.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                                                  <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCONNECTREGISTERCUTOFFTIMES"></span>
+                                                  <span ng-click="rakServiceReq.fetchDisclaimer('AccountServiceRequestsCharges_CORP.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCONNECTREGISTERCHARGES"></span>  
+                                         </div>
+							
+										</div>
+										
+										 <div class="disclaimer"  ng-init='rakDisclaimerFlag=false;' ng-if="rakHome.userTypeIDValue!='CORPORATE'">
+											<div class="disclaimer1 rakSupplCardIco" ng-class="{'rakSupplCardIcoExpnd':rakDisclaimerFlag}"  ng-click="rakDisclaimerFlag=!rakDisclaimerFlag">
+												<h3 class="disclaimer2">{{appLiterals.APP.DISCLAIMER.HEADER}}</h3>
+											</div>
+							
+										 <div class="disclaimer3" ng-show="rakDisclaimerFlag">
+                                                  <span ng-click="rakServiceReq.fetchDisclaimer('AcntAndDebitCardSrvcRqstsCutoffTime.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span>
+                                                  <span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCONNECTREGISTERCUTOFFTIMES"></span>
+                                                  <span ng-click="rakServiceReq.fetchDisclaimer('AccountServiceRequestsCharges.html');" class="hyperLinkRed">{{appLiterals.APP.DISCLAIMER.CLICK}}</span><span ng-bind-html="appLiterals.APP.DISCLAIMER.RAKCONNECTREGISTERCHARGES"></span>  
+                                         </div>
+							
+										</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
