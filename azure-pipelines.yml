@@ -24,6 +24,5 @@ steps:
 - task: Gradle@2
   displayName: 'Build Release APK'
   inputs:
-    gradleWrapperFile: packages/mobile/android/gradlew
-    workingDirectory: packages/mobile/android
+    gradleWrapperFile: gradlew
     tasks: assembleRelease
