@@ -19,6 +19,7 @@ steps:
 - bash: |
     Hours=`date '+%H'`
     echo $Hours
+    echo date
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
